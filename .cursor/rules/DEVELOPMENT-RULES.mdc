@@ -1,0 +1,415 @@
+---
+alwaysApply: true
+---
+
+# Flowxtra Frontend - Development Rules
+
+## 🚨 CRITICAL RULES - READ BEFORE ANY DEVELOPMENT
+
+### ❌ Rule #1: NO README/Documentation Files Without Explicit Permission
+**NEVER create or modify documentation files unless the user specifically asks for it!**
+
+**Prohibited Actions:**
+- ❌ Creating README.md files
+- ❌ Creating CONTRIBUTING.md files
+- ❌ Creating CHANGELOG.md files
+- ❌ Creating any .md documentation files
+- ❌ Modifying existing documentation without request
+
+**Only Allowed When:**
+- ✅ User explicitly says: "create a README"
+- ✅ User explicitly says: "generate documentation"
+- ✅ User explicitly requests documentation updates
+
+### ✅ Rule #2: English Only for All Code
+**ALL code, comments, variables, functions, and technical documentation MUST be in English.**
+
+**This is MANDATORY and NON-NEGOTIABLE.**
+
+---
+
+## 🧩 Technology Stack
+
+### Core Technologies
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript (strict mode)
+- **Styling**: TailwindCSS
+- **UI Components**: shadcn/ui
+- **Animations**: Framer Motion
+- **API Client**: Axios / native fetch
+
+### Required Packages
+```json
+{
+  "next": "^15.0.0",
+  "react": "^19.0.0",
+  "typescript": "^5.0.0",
+  "tailwindcss": "^3.4.0",
+  "framer-motion": "^11.0.0"
+}
+```
+
+---
+
+## 📁 Project Structure
+
+```
+flowxtra-frontend/
+├── app/
+│   ├── (routes)/              # All page routes
+│   │   ├── page.tsx          # Homepage
+│   │   ├── features/         # Features page
+│   │   ├── pricing/          # Pricing page
+│   │   └── contact-us/       # Contact page
+│   ├── layout.tsx            # Root layout
+│   └── globals.css           # Global styles
+├── components/
+│   ├── Header.tsx            # Navigation header with Dark Mode & Language switcher
+│   ├── Footer.tsx            # Site footer
+│   └── ui/                   # shadcn/ui components
+├── lib/
+│   ├── utils.ts              # Utility functions
+│   └── api.ts                # API client
+├── public/
+│   ├── Main-flowxtra-Logo.png
+│   ├── flowxtra-logo-white.png
+│   └── favicon.png
+└── package.json
+```
+
+---
+
+## 🎨 Design Standards
+
+### TailwindCSS Usage
+- Use utility classes for all styling
+- Follow consistent spacing system (4px base: p-4, m-4, gap-4)
+- Use custom color palette defined in `tailwind.config.ts`
+
+### 🔤 Typography
+- **Font Family**: Roboto (loaded locally from `/public/fonts/`)
+- Font weights: 400 (Regular), 500 (Medium), 700 (Bold)
+- Minimum font size: 16px for body text
+- Use responsive typography with Tailwind utilities
+
+### Color Palette (MANDATORY - MUST USE THESE COLORS)
+
+**🎨 Official Flowxtra Brand Colors:**
+
+```typescript
+colors: {
+  primary: {
+    DEFAULT: '#003f4d',  // Main primary color
+    500: '#003f4d',      // Primary buttons
+    600: '#003240',
+    700: '#002630',
+  },
+  secondary: {
+    DEFAULT: '#006980',  // Secondary elements
+    light: '#00A8CD',    // Light secondary/accent
+    hover: '#00A8CD',    // Hover state
+  },
+  footer: {
+    bg: '#f4f6f8',       // Footer background
+  },
+  button: {
+    primary: '#003f4d',  // Primary button
+    hover: '#00A8CD',    // Button hover
+  }
+}
+```
+
+**Button Styles (MANDATORY):**
+
+There are TWO main button styles that MUST be used consistently:
+
+1. **Primary Button (Filled)**
+```tsx
+<button className="bg-button-primary border-2 border-button-primary text-white px-6 py-2 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium">
+  Signup / Get Started
+</button>
+```
+
+2. **Secondary Button (Outline)**
+```tsx
+<button className="border-2 border-primary text-primary px-6 py-2 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium">
+  Login / View Pricing
+</button>
+```
+
+**Usage Guidelines:**
+- Primary actions (Signup, Get Started) → Use **Filled Button**
+- Secondary actions (Login, Learn More) → Use **Outline Button**
+- Always use rounded corners (`rounded-lg`)
+- Always include hover effects
+- Always include `transition` for smooth animations
+
+**Other Usage Examples:**
+```tsx
+// Header/Navigation
+<header className="bg-white dark:bg-gray-900">
+  <Link className="text-primary hover:text-secondary">
+    Features
+  </Link>
+</header>
+
+// Footer
+<footer className="bg-footer-bg dark:bg-gray-900">
+  {/* Footer content */}
+</footer>
+```
+
+### 🌓 Dark Mode Support (MANDATORY)
+
+**You MUST support both Light and Dark modes:**
+
+- **Light Mode**: 
+  - Background: `#ffffff`
+  - Text: `#171717`
+  - Cards/Sections: `#f9fafb` / `#f3f4f6`
+
+- **Dark Mode**:
+  - Background: `#0a0a0a`
+  - Text: `#ededed`
+  - Cards/Sections: `#1f2937` / `#111827`
+
+**Implementation:**
+```tsx
+// TailwindCSS dark mode classes
+<div className="bg-white dark:bg-gray-900">
+  <h1 className="text-gray-900 dark:text-white">
+    Title
+  </h1>
+  <p className="text-gray-600 dark:text-gray-300">
+    Description
+  </p>
+</div>
+
+// Buttons work in both modes automatically
+<button className="bg-button-primary text-white hover:bg-button-hover">
+  Button
+</button>
+```
+
+**Configuration:**
+- Dark mode is enabled in `tailwind.config.ts` with `darkMode: "class"`
+- Toggle dark mode by adding/removing `dark` class to `<html>` element
+- CSS variables in `globals.css` support both modes
+
+### Accessibility
+- Use semantic HTML elements (`<header>`, `<nav>`, `<main>`, `<footer>`)
+- Add ARIA labels for screen readers
+- Ensure keyboard navigation works properly
+- Maintain proper heading hierarchy (h1 > h2 > h3)
+
+---
+
+## ✅ Code Quality (CRITICAL)
+
+### ENGLISH ONLY Rule 🌍
+**ALL code, comments, variable names, function names, and documentation MUST be in English**
+
+#### ✅ Correct Examples:
+```typescript
+// Get user information from API
+const userName = "John";
+const userEmail = "john@example.com";
+
+// Calculate total price
+function calculateTotal(price: number, quantity: number): number {
+  return price * quantity;
+}
+
+// Fetch user data
+async function fetchUserData(userId: string) {
+  // API call logic here
+  const response = await fetch(`/api/users/${userId}`);
+  return response.json();
+}
+```
+
+#### ❌ Wrong Examples:
+```typescript
+// ❌ DON'T DO THIS - Arabic variable names
+const اسم_المستخدم = "John";
+const البريد_الإلكتروني = "john@example.com";
+
+// ❌ DON'T DO THIS - Arabic function names
+function احسب_المجموع(السعر: number, الكمية: number) {
+  return السعر * الكمية;
+}
+
+// ❌ DON'T DO THIS - Arabic comments
+async function fetchUserData(userId: string) {
+  // استدعاء API للحصول على بيانات المستخدم
+  const response = await fetch(`/api/users/${userId}`);
+  return response.json();
+}
+```
+
+### Best Practices
+- Write clean, readable TypeScript code
+- Use meaningful and descriptive names
+- Add comments for complex logic ONLY (in English)
+- Follow Next.js best practices and conventions
+- Use ESLint and fix ALL warnings before commit
+- **NO** `console.log()` in production code
+- Use proper TypeScript types (avoid `any`)
+
+---
+
+## 🔗 API Integration
+
+### Configuration
+```typescript
+// .env.local
+NEXT_PUBLIC_API_URL=https://api.flowxtra.com
+```
+
+### API Client Example
+```typescript
+// lib/api.ts
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+export async function getBlogPosts() {
+  const response = await fetch(`${API_URL}/api/blog`);
+  if (!response.ok) {
+    throw new Error('Failed to fetch blog posts');
+  }
+  return response.json();
+}
+```
+
+### Error Handling
+- Handle loading states properly
+- Show user-friendly error messages
+- Log errors for debugging (development only)
+- Use TypeScript interfaces for API responses
+
+---
+
+## 🌍 SEO Requirements
+
+### Meta Tags (Required for ALL Pages)
+```typescript
+export const metadata: Metadata = {
+  title: "Page Title - Flowxtra",
+  description: "Page description for SEO",
+  keywords: ["recruitment", "ATS", "AI"],
+  openGraph: {
+    title: "Page Title",
+    description: "Description",
+    images: ["/og-image.jpg"],
+  },
+};
+```
+
+### SEO Checklist
+- ✅ Proper meta tags on all pages
+- ✅ JSON-LD structured data
+- ✅ Preserve all WordPress SEO URLs
+- ✅ Semantic HTML structure
+- ✅ Proper heading hierarchy (h1 > h2 > h3)
+- ✅ Image alt attributes
+- ✅ Sitemap.xml generation
+- ✅ Robots.txt configuration
+
+---
+
+## 🚀 Deployment
+
+### Pre-Deployment Checklist
+```bash
+# 1. Run build and check for errors
+npm run build
+
+# 2. Run linting
+npm run lint
+
+# 3. Test in production mode locally
+npm start
+```
+
+### Verification Steps
+- ✅ No build errors or warnings
+- ✅ All images are optimized
+- ✅ All links work correctly
+- ✅ Test on multiple devices (Mobile, Tablet, Desktop)
+- ✅ Test on multiple browsers (Chrome, Firefox, Safari, Edge)
+- ✅ Check PageSpeed Insights score (must be 90+)
+- ✅ Verify SEO meta tags
+- ✅ Test navigation and forms
+
+---
+
+## 📝 Important Project Notes
+
+### Homepage Routes
+- `/` is the **main homepage**
+- **Important**: In the Header navigation, it's labeled as "Features" but links to `/` to keep the URL as `flowxtra.com`
+
+### Header Navigation
+```
+Logo: /public/Main-flowxtra-Logo.png
+
+Menu Items:
+├── Features (Link to "/" - This is the Homepage)
+├── Services (Dropdown)
+│   ├── Social Media Management
+│   └── ATS Recruiting Software
+├── Pricing (Link)
+└── Contact Us (Link)
+
+Action Buttons:
+├── Login
+└── Get Started
+```
+
+### Current Development Status
+- All initial pages show "Hello World"
+- Content will be added later
+- Header and navigation are complete
+- Footer needs to be created
+
+---
+
+## 🔄 Git Workflow
+
+### Commit Message Format
+```
+feat: Add new feature
+fix: Fix bug in component
+style: Update styling
+docs: Update documentation
+refactor: Refactor code
+perf: Improve performance
+test: Add tests
+```
+
+### Before Commit
+```bash
+# Check for linting errors
+npm run lint
+
+# Fix auto-fixable issues
+npm run lint -- --fix
+
+# Build to ensure no errors
+npm run build
+```
+
+---
+
+## 📚 Additional Resources
+
+- [Next.js 15 Documentation](https://nextjs.org/docs)
+- [TailwindCSS Documentation](https://tailwindcss.com/docs)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
+- [shadcn/ui Components](https://ui.shadcn.com)
+- [Framer Motion](https://www.framer.com/motion/)
+
+---
+
+**Last Updated**: October 29, 2025
+**Version**: 1.0.0
+

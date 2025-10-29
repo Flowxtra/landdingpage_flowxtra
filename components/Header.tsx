@@ -1,0 +1,514 @@
+"use client";
+
+import { useState, memo, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+
+function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [language, setLanguage] = useState("EN");
+  const [isLangOpen, setIsLangOpen] = useState(false);
+
+  // Initialize dark mode and language from localStorage or browser preferences
+  useEffect(() => {
+    // Dark mode initialization
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    
+    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+      setIsDarkMode(true);
+      document.documentElement.classList.add("dark");
+    }
+
+    // Language initialization - Auto-detect browser language
+    const savedLanguage = localStorage.getItem("language");
+    if (savedLanguage) {
+      setLanguage(savedLanguage);
+    } else {
+      // Detect browser language
+      const browserLang = navigator.language || (navigator as any).userLanguage;
+      // Check if German
+      if (browserLang.startsWith('de')) {
+        setLanguage("DE");
+        localStorage.setItem("language", "DE");
+      } else {
+        // Default to English
+        setLanguage("EN");
+        localStorage.setItem("language", "EN");
+      }
+    }
+  }, []);
+
+  // Toggle dark mode
+  const toggleDarkMode = () => {
+    if (isDarkMode) {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+      setIsDarkMode(false);
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+      setIsDarkMode(true);
+    }
+  };
+
+  // Change language
+  const changeLanguage = (lang: string) => {
+    setLanguage(lang);
+    setIsLangOpen(false);
+    localStorage.setItem("language", lang);
+    // TODO: Implement actual language change logic with i18n
+  };
+
+  return (
+    <header className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 transition-colors">
+      <nav className="container mx-auto px-4 md:px-8 lg:px-12">
+        <div className="flex items-center justify-between h-16 md:h-18">
+          {/* Logo */}
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/Main-flowxtra-Logo.png"
+              alt="Flowxtra Logo"
+              width={150}
+              height={50}
+              className="h-8 md:h-10 w-auto"
+              priority
+            />
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-1">
+            <Link
+              href="/"
+              className={cn(
+                "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors",
+                "hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary dark:hover:text-secondary-light",
+                "h-10 px-4 py-2",
+                "text-gray-700 dark:text-gray-300"
+              )}
+            >
+              Features
+            </Link>
+
+            {/* Services Dropdown */}
+            <div 
+              className="relative group"
+              onMouseEnter={() => setIsServicesOpen(true)}
+              onMouseLeave={() => setIsServicesOpen(false)}
+            >
+              <button
+                className={cn(
+                  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors",
+                  "hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary dark:hover:text-secondary-light",
+                  "h-10 px-4 py-2",
+                  "text-gray-700 dark:text-gray-300"
+                )}
+              >
+                Services
+                <svg
+                  className="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              {/* Dropdown Menu */}
+              {isServicesOpen && (
+                <div className="absolute top-full left-0 pt-2 w-64">
+                  <div className="rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-lg">
+                    <div className="p-2">
+                      <Link
+                        href="/social-media-management"
+                        className={cn(
+                          "block px-3 py-2 text-sm rounded-sm",
+                          "text-gray-700 dark:text-gray-300",
+                          "hover:bg-gray-100 dark:hover:bg-gray-700",
+                          "hover:text-primary dark:hover:text-secondary-light",
+                          "transition-colors"
+                        )}
+                      >
+                        Social Media Management
+                      </Link>
+                      <Link
+                        href="/ats-recruiting-software"
+                        className={cn(
+                          "block px-3 py-2 text-sm rounded-sm",
+                          "text-gray-700 dark:text-gray-300",
+                          "hover:bg-gray-100 dark:hover:bg-gray-700",
+                          "hover:text-primary dark:hover:text-secondary-light",
+                          "transition-colors"
+                        )}
+                      >
+                        ATS Recruiting Software
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <Link
+              href="/pricing"
+              className={cn(
+                "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors",
+                "hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary dark:hover:text-secondary-light",
+                "h-10 px-4 py-2",
+                "text-gray-700 dark:text-gray-300"
+              )}
+            >
+              Pricing
+            </Link>
+
+            <Link
+              href="/contact-us"
+              className={cn(
+                "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors",
+                "hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary dark:hover:text-secondary-light",
+                "h-10 px-4 py-2",
+                "text-gray-700 dark:text-gray-300"
+              )}
+            >
+              Contact Us
+            </Link>
+          </div>
+
+          {/* Action Buttons & Controls - Desktop */}
+          <div className="hidden lg:flex items-center space-x-3">
+            {/* Dark Mode Toggle */}
+            <button
+              onClick={toggleDarkMode}
+              className="p-2.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              aria-label="Toggle dark mode"
+            >
+              {isDarkMode ? (
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                  />
+                </svg>
+              )}
+            </button>
+
+            {/* Language Selector */}
+            <div className="relative">
+              <button
+                onClick={() => setIsLangOpen(!isLangOpen)}
+                className="flex items-center space-x-2 px-3 py-2.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                aria-label="Change language"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="12" cy="12" r="10" strokeWidth="2"/>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"
+                  />
+                </svg>
+                <span className="text-sm font-medium">{language}</span>
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              {isLangOpen && (
+                <div className="absolute right-0 mt-2 w-40 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-lg">
+                  <div className="p-2">
+                    <button
+                      onClick={() => changeLanguage("EN")}
+                      className={cn(
+                        "block w-full text-left px-3 py-2 text-sm rounded-md transition-colors",
+                        language === "EN" 
+                          ? "bg-primary text-white" 
+                          : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      )}
+                    >
+                      English
+                    </button>
+                    <button
+                      onClick={() => changeLanguage("DE")}
+                      className={cn(
+                        "block w-full text-left px-3 py-2 text-sm rounded-md transition-colors",
+                        language === "DE" 
+                          ? "bg-primary text-white" 
+                          : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      )}
+                    >
+                      Deutsch
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Login & Signup Buttons */}
+            <Link
+              href="https://my.flowxtra.com/login"
+              className="border-2 border-primary text-primary px-6 py-2 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
+            >
+              Login
+            </Link>
+            <Link
+              href="https://my.flowxtra.com/registration"
+              className="bg-button-primary border-2 border-button-primary text-white px-6 py-2 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium"
+            >
+              Signup
+            </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="lg:hidden text-gray-700 dark:text-gray-300 focus:outline-none"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? (
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="lg:hidden py-4 border-t dark:border-gray-700">
+            <div className="flex flex-col space-y-4">
+              <Link
+                href="/"
+                className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-secondary-light font-medium transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Features
+              </Link>
+
+              {/* Services - Mobile */}
+              <div>
+                <button
+                  className="w-full text-left text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-secondary-light font-medium transition-colors flex items-center justify-between"
+                  onClick={() => setIsServicesOpen(!isServicesOpen)}
+                >
+                  Services
+                  <svg
+                    className={`w-4 h-4 transition-transform ${
+                      isServicesOpen ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+                {isServicesOpen && (
+                  <div className="ml-4 mt-2 space-y-2">
+                    <Link
+                      href="/social-media-management"
+                      className="block text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-secondary-light transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Social Media Management
+                    </Link>
+                    <Link
+                      href="/ats-recruiting-software"
+                      className="block text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-secondary-light transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      ATS Recruiting Software
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              <Link
+                href="/pricing"
+                className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-secondary-light font-medium transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Pricing
+              </Link>
+
+              <Link
+                href="/contact-us"
+                className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-secondary-light font-medium transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact Us
+              </Link>
+
+              {/* Dark Mode & Language - Mobile */}
+              <div className="pt-4 border-t dark:border-gray-700 space-y-3">
+                {/* Dark Mode Toggle */}
+                <button
+                  onClick={toggleDarkMode}
+                  className="w-full flex items-center justify-between p-3 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                  aria-label="Toggle dark mode"
+                >
+                  <span className="font-medium">Dark Mode</span>
+                  {isDarkMode ? (
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                      />
+                    </svg>
+                  )}
+                </button>
+
+                {/* Language Selector */}
+                <div className="w-full p-3 rounded-lg bg-gray-100 dark:bg-gray-800">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <svg
+                        className="w-5 h-5 text-gray-700 dark:text-gray-300"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle cx="12" cy="12" r="10" strokeWidth="2"/>
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"
+                        />
+                      </svg>
+                      <span className="text-gray-700 dark:text-gray-300 font-medium">Language</span>
+                    </div>
+                    <select
+                      value={language}
+                      onChange={(e) => changeLanguage(e.target.value)}
+                      className="bg-gray-200 dark:bg-gray-700 border-0 text-gray-700 dark:text-gray-300 px-3 py-1.5 rounded-md focus:outline-none focus:ring-2 focus:ring-primary font-medium"
+                    >
+                      <option value="EN">EN</option>
+                      <option value="DE">DE</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Buttons - Mobile */}
+              <div className="pt-4 border-t space-y-3">
+                <Link
+                  href="https://my.flowxtra.com/login"
+                  className="block text-center border-2 border-primary text-primary px-6 py-2 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Login
+                </Link>
+                <Link
+                  href="https://my.flowxtra.com/registration"
+                  className="block text-center bg-button-primary border-2 border-button-primary text-white px-6 py-2 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Signup
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
+      </nav>
+    </header>
+  );
+}
+
+export default memo(Header);
+

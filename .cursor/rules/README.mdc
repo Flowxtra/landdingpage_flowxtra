@@ -1,0 +1,157 @@
+---
+alwaysApply: true
+---
+
+# Flowxtra Frontend Development Rules
+
+## 🚨 CRITICAL RULES - READ FIRST
+
+### ❌ NO README/Documentation Files Without Permission
+**You MUST NOT create or modify README files, documentation files, or any .md files unless the user EXPLICITLY asks you to do so.**
+
+This rule applies to:
+- README.md
+- CONTRIBUTING.md
+- CHANGELOG.md
+- Any documentation files
+- Any .md files
+
+**Exception**: Only create these files when the user specifically requests: "create a README" or "generate documentation"
+
+---
+
+## 🎯 Performance Requirements (CRITICAL)
+- **ALL pages MUST achieve 90+ performance scores** on PageSpeed Insights
+- Target PageSpeed: 95-100
+- TTFB (Time to First Byte): <100ms
+- Mobile performance is TOP PRIORITY
+- Optimize images using Next.js Image component (WebP/AVIF)
+- Implement code splitting and lazy loading
+- Minimize JavaScript bundle size
+- Use Static Site Generation (SSG) whenever possible
+
+## 📱 Responsive Design Requirements (CRITICAL)
+- **Mobile-First Approach**: Start design from mobile (320px) and scale up
+- Design MUST work perfectly on:
+  - 📱 **Mobile**: 320px - 767px
+  - 📲 **Tablet/iPad**: 768px - 1023px
+  - 💻 **Desktop/Laptop**: 1024px+
+- Touch-friendly buttons: minimum 44x44px
+- Readable text without zooming: minimum 16px font-size
+- Test on all device sizes before deployment
+
+## 🧩 Technology Stack
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript (strict mode)
+- **Styling**: TailwindCSS
+- **UI Components**: shadcn/ui
+- **Animations**: Framer Motion
+- **API Client**: Axios / native fetch
+
+## 📁 Project Structure
+```
+/app
+├── (routes)/          # All page routes
+├── components/        # Reusable components
+├── lib/              # Utilities and helpers
+└── globals.css       # Global styles
+
+/components
+├── Header.tsx        # Navigation header
+├── Footer.tsx        # Site footer
+└── ui/              # UI components (shadcn/ui)
+
+/public              # Static assets (images, logos)
+```
+
+## 🎨 Design Standards
+- Use TailwindCSS utility classes
+- Follow consistent spacing (4px base: p-4, m-4, gap-4)
+- Maintain consistent color palette (primary, secondary, accent)
+- Use semantic HTML elements
+- Ensure accessibility (ARIA labels, keyboard navigation)
+
+### 🔤 Typography
+- **Font Family**: Roboto (loaded locally from `/public/fonts/`)
+- Font weights: 400 (Regular), 500 (Medium), 700 (Bold)
+- Minimum font size: 16px for body text
+- Use responsive typography with Tailwind utilities
+
+### 🎨 Color Palette (MANDATORY)
+**Primary Colors:**
+- Primary: `#003f4d` - Main brand color
+- Primary Buttons: `#003f4d` - All primary action buttons
+
+**Secondary Colors:**
+- Secondary: `#006980` - Secondary elements
+- Light Secondary: `#00A8CD` - Button hover state & Accent highlights
+
+**Background Colors:**
+- Footer Background: `#f4f6f8` - Footer section background
+
+**Button Styles (MANDATORY):**
+```tsx
+// Primary Button (Filled)
+<button className="bg-button-primary border-2 border-button-primary text-white px-6 py-2 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium">
+  Signup
+</button>
+
+// Secondary Button (Outline)
+<button className="border-2 border-primary text-primary px-6 py-2 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium">
+  Login
+</button>
+
+// Footer
+<footer className="bg-footer-bg">
+  {/* Footer content */}
+</footer>
+```
+
+### 🌓 Dark Mode Support (MANDATORY)
+- **Light Mode**: White background (#ffffff)
+- **Dark Mode**: Dark background (#0a0a0a)
+- Use TailwindCSS `dark:` prefix for dark mode styles
+- Dark mode is enabled via `class` strategy in tailwind.config.ts
+
+## 🔗 API Integration
+- API Base URL: `https://api.flowxtra.com`
+- Store API URL in environment variables
+- Handle loading and error states
+- Implement proper error messages
+- Use TypeScript interfaces for API responses
+
+## ✅ Code Quality
+- Write clean, readable TypeScript code
+- Use meaningful variable and function names
+- Add comments for complex logic
+- Follow Next.js best practices
+- Use ESLint and fix all warnings
+- No console.log in production code
+- **ENGLISH ONLY**: All code, comments, variable names, function names, and documentation MUST be in English
+  - ✅ Good: `const userName = "John"; // Get user name`
+  - ❌ Bad: `const اسم_المستخدم = "John"; // احصل على اسم المستخدم`
+  - ✅ Good: `function calculateTotal() { // Calculate order total }`
+  - ❌ Bad: `function احسب_المجموع() { // احسب مجموع الطلب }`
+
+## 🌍 SEO Requirements
+- All pages must have proper meta tags
+- Use next-seo for SEO metadata
+- Implement JSON-LD structured data
+- Preserve all WordPress SEO URLs
+- Semantic HTML structure
+- Proper heading hierarchy (h1 > h2 > h3)
+
+## 🚀 Deployment
+- Test locally before deployment: `npm run build`
+- Ensure no build errors or warnings
+- Verify all images are optimized
+- Check all links work correctly
+- Test on multiple devices and browsers
+
+## 📝 Important Notes
+- `/` is the main homepage
+- **Important**: Header shows "Features" but it links to `/` to keep URL as flowxtra.com
+- Header must include logo from `/public/Main-flowxtra-Logo.png`
+- Navigation: Features (links to /), Services (dropdown), Pricing, Contact Us
+- Action buttons: Login, Get Started
+- All initial pages show "Hello World" - content comes later
