@@ -5,6 +5,134 @@
 import Image from "next/image";
 import { useState } from "react";
 
+// Features Sticky Sections Component
+function FeaturesSlider() {
+  const slides = [
+    {
+      badge: "Real Recruiting Results",
+      title: "Smarter Candidate Filtering & Visualization",
+      description: "Flowxtra's AI-powered ATS streamlines recruitment. Filter and visualize candidates with list, card or drag-and-drop board views, then move top talent through every stage with ease.",
+      buttonText: "Register For Free",
+      buttonLink: "https://my.flowxtra.com/registration",
+      image: "/img/multi-job-post.gif",
+      imageAlt: "Smarter Candidate Filtering",
+      imageOnRight: true,
+    },
+    {
+      badge: "Candidate Board Flow",
+      title: "Visual Talent Intelligence",
+      description: "Compare, filter, and map candidates with Flowxtra's dynamic hiring board. Track applications, gain insights, and make smarter hiring decisions — all from one powerful, interactive view.",
+      buttonText: "Register For Free",
+      buttonLink: "https://my.flowxtra.com/registration",
+      image: "/img/job-platform-dashbourd.webp",
+      imageAlt: "Visual Talent Intelligence",
+      imageOnRight: false,
+    },
+    {
+      badge: "Real Recruiting Results",
+      title: "Smarter Candidate Filtering & Visualization",
+      description: "Flowxtra's AI-powered ATS streamlines recruitment. Filter and visualize candidates with list, card or drag-and-drop board views, then move top talent through every stage with ease.",
+      buttonText: "Register For Free",
+      buttonLink: "https://my.flowxtra.com/registration",
+      image: "/img/multi-job-post.gif",
+      imageAlt: "Smarter Candidate Filtering",
+      imageOnRight: true,
+    },
+    {
+      badge: "Candidate Board Flow",
+      title: "Visual Talent Intelligence",
+      description: "Compare, filter, and map candidates with Flowxtra's dynamic hiring board. Track applications, gain insights, and make smarter hiring decisions — all from one powerful, interactive view.",
+      buttonText: "Register For Free",
+      buttonLink: "https://my.flowxtra.com/registration",
+      image: "/img/job-platform-dashbourd.webp",
+      imageAlt: "Visual Talent Intelligence",
+      imageOnRight: false,
+    },
+    {
+      badge: "Real Recruiting Results",
+      title: "Smarter Candidate Filtering & Visualization",
+      description: "Flowxtra's AI-powered ATS streamlines recruitment. Filter and visualize candidates with list, card or drag-and-drop board views, then move top talent through every stage with ease.",
+      buttonText: "Register For Free",
+      buttonLink: "https://my.flowxtra.com/registration",
+      image: "/img/multi-job-post.gif",
+      imageAlt: "Smarter Candidate Filtering",
+      imageOnRight: true,
+    },
+    {
+      badge: "Candidate Board Flow",
+      title: "Visual Talent Intelligence",
+      description: "Compare, filter, and map candidates with Flowxtra's dynamic hiring board. Track applications, gain insights, and make smarter hiring decisions — all from one powerful, interactive view.",
+      buttonText: "Register For Free",
+      buttonLink: "https://my.flowxtra.com/registration",
+      image: "/img/job-platform-dashbourd.webp",
+      imageAlt: "Visual Talent Intelligence",
+      imageOnRight: false,
+    },
+  ];
+
+  return (
+    <div className="relative bg-white dark:bg-gray-900">
+      {slides.map((slide, index) => (
+        <div 
+          key={index} 
+          className="relative"
+          style={{ 
+            height: index === slides.length - 1 ? '100vh' : '200vh',
+            marginBottom: index === slides.length - 1 ? '0' : '-100vh'
+          }}
+        >
+          <div 
+            className="sticky top-0 h-screen w-full flex items-center justify-center bg-white dark:bg-gray-900"
+            style={{ 
+              zIndex: index + 1,
+            }}
+          >
+            <div className="container mx-auto px-4 md:px-8 lg:px-12">
+              <div className="grid lg:grid-cols-[45%_55%] gap-8 lg:gap-12 items-center max-w-7xl mx-auto">
+                {/* Content */}
+                <div className={`space-y-5 bg-gray-50 dark:bg-gray-800 p-8 md:p-10 rounded-3xl ${slide.imageOnRight ? 'order-1' : 'order-1 lg:order-2'}`}>
+                  <span className="inline-block px-3 py-1.5 bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md text-sm font-normal">
+                    {slide.badge}
+                  </span>
+                  
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#006980] dark:text-[#00A8CD] leading-tight">
+                    {slide.title}
+                  </h2>
+                  
+                  <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {slide.description}
+                  </p>
+                  
+                  <div className="pt-2">
+                    <a
+                      href={slide.buttonLink}
+                      className="inline-block bg-[#003f4d] text-white px-8 py-3 rounded-lg hover:bg-[#00A8CD] transition-colors font-medium text-base"
+                    >
+                      {slide.buttonText}
+                    </a>
+                  </div>
+                </div>
+
+                {/* Image */}
+                <div className={`${slide.imageOnRight ? 'order-2' : 'order-2 lg:order-1'}`}>
+                  <Image
+                    src={slide.image}
+                    alt={slide.imageAlt}
+                    width={600}
+                    height={450}
+                    className="w-full h-auto"
+                    unoptimized={slide.image.endsWith('.gif')}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function Homepage() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   return (
@@ -583,6 +711,32 @@ Hiring Faster Growth              </h2>
         </div>
         </div>
       </section>
+
+      {/* Free Job Posting Section */}
+      <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
+          <div className="max-w-4xl mx-auto text-center space-y-6 mb-16">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+              Free Job Posting for Smart Hiring
+            </h1>
+            
+            <div className="space-y-4">
+              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                Post up to 10 job ads for free every month — no hidden fees, no credit card required.
+              </p>
+              
+              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                Flowxtra helps you publish jobs across LinkedIn, Google Jobs & more — all from one powerful dashboard.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sticky Slider Section */}
+      <div className="w-full">
+        <FeaturesSlider />
+      </div>
 
       {/* Pricing Section */}
       <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
