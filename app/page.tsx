@@ -95,11 +95,11 @@ function FeaturesSlider() {
                     {slide.badge}
                   </span>
                   
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#006980] dark:text-[#00A8CD] leading-tight mb-6">
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#006980] dark:text-[#00A8CD] leading-tight mb-16">
                     {slide.title}
                   </h2>
                   
-                  <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                  <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-3.5">
                     {slide.description}
                   </p>
                   
