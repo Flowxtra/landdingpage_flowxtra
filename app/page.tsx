@@ -408,6 +408,413 @@ Hiring Faster Growth              </h2>
           </div>
         </div>
       </section>
+
+      {/* Pricing Section */}
+      <section className="w-full py-16 md:py-24 bg-gray-50 dark:bg-gray-950 transition-colors">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
+          {/* Section Header */}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+              Plans and Pricing
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
+              Receive unlimited credits when you pay yearly, and save on your plan.
+            </p>
+            
+            {/* Features */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-6">
+              <div className="flex items-center gap-2">
+                <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                </svg>
+                <span className="text-base font-semibold text-gray-900 dark:text-white">
+                  No credit card required
+                </span>
+              </div>
+              
+              <div className="flex items-center gap-2">
+                <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span className="text-base font-semibold text-gray-900 dark:text-white">
+                  Cancel anytime
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Pricing Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16 max-w-7xl mx-auto">
+            {/* Free Plan */}
+            <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Free</h3>
+              
+              <div className="mb-6">
+                <div className="flex items-baseline mb-1">
+                  <span className="text-4xl font-bold text-gray-900 dark:text-white">€0</span>
+                </div>
+                <p className="text-xs text-gray-500 dark:text-gray-400">Per user/month, billed annually</p>
+              </div>
+
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">For your hobby projects</p>
+              
+              <ul className="space-y-3 mb-8 flex-grow">
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">2 job postings per month</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">2 e-Sign documents</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">15 Social Media Posts</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Meeting Management</span>
+                </li>
+              </ul>
+
+              <a
+                href="https://my.flowxtra.com/registration"
+                className="block text-center border-2 border-primary text-primary px-6 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
+              >
+                Get started for free
+              </a>
+            </div>
+
+            {/* Starter Plan */}
+            <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Starter</h3>
+              
+              <div className="mb-6">
+                <div className="flex items-baseline mb-1">
+                  <span className="text-4xl font-bold text-gray-900 dark:text-white">€30</span>
+                </div>
+                <p className="text-xs text-gray-500 dark:text-gray-400">Per user/month, billed annually</p>
+              </div>
+
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">For your hobby projects</p>
+              
+              <ul className="space-y-3 mb-8 flex-grow">
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">5 job postings per month</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">5 e-Sign documents</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">25 Social Media Post</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Meeting Management</span>
+                </li>
+              </ul>
+
+              <a
+                href="https://my.flowxtra.com/registration"
+                className="block text-center border-2 border-primary text-primary px-6 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
+              >
+                Get started for Starter
+              </a>
+            </div>
+
+            {/* Basic Plan */}
+            <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Basic</h3>
+              
+              <div className="mb-6">
+                <div className="flex items-baseline mb-1">
+                  <span className="text-4xl font-bold text-gray-900 dark:text-white">€99</span>
+                </div>
+                <p className="text-xs text-gray-500 dark:text-gray-400">Per user/month, billed annually</p>
+              </div>
+
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">Great for small businesses</p>
+              
+              <ul className="space-y-3 mb-8 flex-grow">
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">10 job postings per month</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">10 e-Sign documents</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Social Media Management</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Meeting Management</span>
+                </li>
+              </ul>
+
+              <a
+                href="https://my.flowxtra.com/registration"
+                className="block text-center border-2 border-primary text-primary px-6 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
+              >
+                Get started with Basic
+              </a>
+            </div>
+
+            {/* Professional Plan - Featured */}
+            <div className="bg-gradient-to-br from-primary to-secondary border-2 border-primary rounded-2xl p-6 flex flex-col relative overflow-hidden lg:scale-105 shadow-2xl">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-secondary-light/20 rounded-full -mr-16 -mt-16"></div>
+              
+              <h3 className="text-xl font-bold text-white mb-6 relative z-10">Professional</h3>
+              
+              <div className="mb-6 relative z-10">
+                <div className="flex items-baseline mb-1">
+                  <span className="text-4xl font-bold text-white">€387</span>
+                </div>
+                <p className="text-xs text-white/80">Per user/month, billed annually</p>
+              </div>
+
+              <p className="text-sm text-white/90 mb-4 relative z-10">For multiple teams</p>
+              
+              <ul className="space-y-3 mb-8 flex-grow relative z-10">
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-white/90">20 job postings per month</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-white/90">20 e-Sign documents</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-white/90">Social Media Management</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-white/90">Meeting Management</span>
+                </li>
+              </ul>
+
+              <a
+                href="https://my.flowxtra.com/registration"
+                className="block text-center bg-white text-primary px-6 py-3 rounded-lg hover:bg-gray-100 transition-all font-medium relative z-10"
+              >
+                Get started with Pro
+              </a>
+            </div>
+
+            {/* Advanced Plan */}
+            <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Advanced</h3>
+              
+              <div className="mb-6">
+                <div className="flex items-baseline mb-1">
+                  <span className="text-4xl font-bold text-gray-900 dark:text-white">€581</span>
+                </div>
+                <p className="text-xs text-gray-500 dark:text-gray-400">Per user/month, billed annually</p>
+              </div>
+
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">Great for small businesses</p>
+              
+              <ul className="space-y-3 mb-8 flex-grow">
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">30 job postings per month</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">30 e-Sign documents</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Social Media Management</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Meeting Management</span>
+                </li>
+              </ul>
+
+              <a
+                href="https://my.flowxtra.com/registration"
+                className="block text-center border-2 border-primary text-primary px-6 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
+              >
+                Get started with Advanced
+              </a>
+            </div>
+          </div>
+
+          {/* Enterprise Plans */}
+          <div className="space-y-8">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white text-center">
+              Enterprise Plans
+            </h2>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              {/* Premium Plan */}
+              <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-8">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Premium</h3>
+                
+                <div className="mb-6">
+                  <div className="flex items-baseline mb-1">
+                    <span className="text-5xl font-bold text-gray-900 dark:text-white">€999</span>
+                  </div>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Per user/month, billed annually</p>
+                </div>
+
+                <p className="text-base text-gray-600 dark:text-gray-300 mb-6">For your hobby projects</p>
+                
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-base text-gray-600 dark:text-gray-400">45 job postings per month</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-base text-gray-600 dark:text-gray-400">45 e-Sign documents</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-secondary-light flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-base text-gray-600 dark:text-gray-400">Unlimited Social Media Posts</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-secondary-light flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-base text-gray-600 dark:text-gray-400">Meeting Management</span>
+                  </li>
+                </ul>
+
+                <a
+                  href="https://my.flowxtra.com/registration"
+                  className="block text-center border-2 border-primary text-primary px-8 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium text-lg"
+                >
+                  Get started with Premium
+                </a>
+              </div>
+
+              {/* Enterprise Plan - Featured */}
+              <div className="bg-gradient-to-br from-gray-900 to-gray-800 dark:from-gray-900 dark:to-black border-2 border-secondary-light rounded-2xl p-8 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-secondary-light/20 rounded-full -mr-20 -mt-20"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/20 rounded-full -ml-16 -mb-16"></div>
+                
+                <div className="relative z-10">
+                  <h3 className="text-2xl font-bold text-white mb-6">Enterprise</h3>
+                  
+                  <div className="mb-6">
+                    <div className="text-5xl font-bold text-white mb-1">Contact us</div>
+                    <p className="text-sm text-white/70">Per user/month, billed annually</p>
+                  </div>
+
+                  <p className="text-base text-white/90 mb-6">For multiple teams</p>
+                  
+                  <ul className="space-y-4 mb-8">
+                    <li className="flex items-start gap-3">
+                      <svg className="w-6 h-6 text-secondary-light flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-base text-white/90">Unlimited ATS Recruitment</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-6 h-6 text-secondary-light flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-base text-white/90">Unlimited Job postings</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-6 h-6 text-secondary-light flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-base text-white/90">Unlimited e-Sign Documents</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-6 h-6 text-secondary-light flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-base text-white/90">Unlimited Social Media Posts</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-base text-white/90">Database migration</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-base text-white/90">24/7 customer support</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-base text-white/90">Integration with your CRM systems</span>
+                    </li>
+                  </ul>
+
+                  <a
+                    href="/contact-us"
+                    className="block text-center bg-white text-primary px-8 py-3 rounded-lg hover:bg-gray-100 transition-all font-medium text-lg"
+                  >
+                    Contact us
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
