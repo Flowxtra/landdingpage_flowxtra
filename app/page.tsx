@@ -88,14 +88,14 @@ function FeaturesSlider() {
             }}
           >
             <div className="container mx-auto px-4 md:px-8 lg:px-12">
-              <div className="grid lg:grid-cols-[45%_55%] gap-8 lg:gap-12 items-center max-w-7xl mx-auto">
+              <div className={`grid gap-8 lg:gap-12 items-center max-w-7xl mx-auto ${slide.imageOnRight ? 'lg:grid-cols-[40%_60%]' : 'lg:grid-cols-[60%_40%]'}`}>
                 {/* Content */}
                 <div className={`space-y-5 bg-gray-50 dark:bg-gray-800 p-8 md:p-10 rounded-3xl ${slide.imageOnRight ? 'order-1' : 'order-1 lg:order-2'}`}>
                   <span className="inline-block px-3 py-1.5 bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md text-sm font-normal">
                     {slide.badge}
                   </span>
                   
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#006980] dark:text-[#00A8CD] leading-tight">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#006980] dark:text-[#00A8CD] leading-tight mb-6">
                     {slide.title}
                   </h2>
                   
