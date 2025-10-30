@@ -144,44 +144,44 @@ Hiring Faster Growth              </h2>
                   <Image
                     src="/img/icon/Frame-2095584493.png"
                     alt="Review us on Trustpilot"
-                    width={100}
-                    height={50}
-                    className="flex-shrink-0 h-14 w-auto inline-block"
+                    width={120}
+                    height={60}
+                    className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
                     src="/img/icon/Frame-1984078831-1.png"
                     alt="Made in Austria"
-                    width={100}
-                    height={50}
-                    className="flex-shrink-0 h-14 w-auto inline-block"
+                    width={120}
+                    height={60}
+                    className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
-                    src="/img/icon/Frame-2095584455.png"
-                    alt="AI Act Compliant"
-                    width={100}
-                    height={50}
-                    className="flex-shrink-0 h-14 w-auto inline-block"
+                    src="/img/icon/dsvgo-icon.svg"
+                    alt="DSGVO Compliant"
+                    width={120}
+                    height={60}
+                    className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
                     src="/img/icon/Frame-2095584493.png"
                     alt="Review us on Trustpilot"
-                    width={100}
-                    height={50}
-                    className="flex-shrink-0 h-14 w-auto inline-block"
+                    width={120}
+                    height={60}
+                    className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
                     src="/img/icon/Frame-1984078831-1.png"
                     alt="Made in Austria"
-                    width={100}
-                    height={50}
-                    className="flex-shrink-0 h-14 w-auto inline-block"
+                    width={120}
+                    height={60}
+                    className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
-                    src="/img/icon/Frame-2095584455.png"
-                    alt="AI Act Compliant"
-                    width={100}
-                    height={50}
-                    className="flex-shrink-0 h-14 w-auto inline-block"
+                    src="/img/icon/dsvgo-icon.svg"
+                    alt="DSGVO Compliant"
+                    width={120}
+                    height={60}
+                    className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                 </div>
               </div>
@@ -190,46 +190,46 @@ Hiring Faster Growth              </h2>
               <div className="overflow-hidden flex">
                 <div className="flex gap-3 animate-scroll-left whitespace-nowrap">
                   <Image
-                    src="/img/icon/Frame-1984078825.png"
-                    alt="DSGVO & GDPR Compliant"
-                    width={100}
-                    height={50}
-                    className="flex-shrink-0 h-14 w-auto inline-block"
+                    src="/img/icon/trust.svg"
+                    alt="Trustpilot Reviews"
+                    width={120}
+                    height={60}
+                    className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
-                    src="/img/icon/Frame-1984078827.png"
-                    alt="Customization"
-                    width={100}
-                    height={50}
-                    className="flex-shrink-0 h-14 w-auto inline-block"
+                    src="/img/icon/at.svg"
+                    alt="Made in Austria"
+                    width={120}
+                    height={60}
+                    className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
-                    src="/img/icon/Frame-1984078829.png"
-                    alt="User-Friendly"
-                    width={100}
-                    height={50}
-                    className="flex-shrink-0 h-14 w-auto inline-block"
+                    src="/img/icon/de.svg"
+                    alt="Made in Germany"
+                    width={120}
+                    height={60}
+                    className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
-                    src="/img/icon/Frame-1984078825.png"
-                    alt="DSGVO & GDPR Compliant"
-                    width={100}
-                    height={50}
-                    className="flex-shrink-0 h-14 w-auto inline-block"
+                    src="/img/icon/trust.svg"
+                    alt="Trustpilot Reviews"
+                    width={120}
+                    height={60}
+                    className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
-                    src="/img/icon/Frame-1984078827.png"
-                    alt="Customization"
-                    width={100}
-                    height={50}
-                    className="flex-shrink-0 h-14 w-auto inline-block"
+                    src="/img/icon/at.svg"
+                    alt="Made in Austria"
+                    width={120}
+                    height={60}
+                    className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
-                    src="/img/icon/Frame-1984078829.png"
-                    alt="User-Friendly"
-                    width={100}
-                    height={50}
-                    className="flex-shrink-0 h-14 w-auto inline-block"
+                    src="/img/icon/de.svg"
+                    alt="Made in Germany"
+                    width={120}
+                    height={60}
+                    className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                 </div>
               </div>
@@ -240,44 +240,44 @@ Hiring Faster Growth              </h2>
                   <Image
                     src="/img/icon/Frame-2095584494.png"
                     alt="eIDAS"
-                    width={100}
-                    height={50}
-                    className="flex-shrink-0 h-14 w-auto inline-block"
+                    width={120}
+                    height={60}
+                    className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
                     src="/img/icon/Frame-2095584495.png"
                     alt="Time Saving Features"
-                    width={100}
-                    height={50}
-                    className="flex-shrink-0 h-14 w-auto inline-block"
+                    width={120}
+                    height={60}
+                    className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
                     src="/img/icon/Frame-2095584496.png"
                     alt="AI-Powered"
-                    width={100}
-                    height={50}
-                    className="flex-shrink-0 h-14 w-auto inline-block"
+                    width={120}
+                    height={60}
+                    className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
                     src="/img/icon/Frame-2095584494.png"
                     alt="eIDAS"
-                    width={100}
-                    height={50}
-                    className="flex-shrink-0 h-14 w-auto inline-block"
+                    width={120}
+                    height={60}
+                    className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
                     src="/img/icon/Frame-2095584495.png"
                     alt="Time Saving Features"
-                    width={100}
-                    height={50}
-                    className="flex-shrink-0 h-14 w-auto inline-block"
+                    width={120}
+                    height={60}
+                    className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
                     src="/img/icon/Frame-2095584496.png"
                     alt="AI-Powered"
-                    width={100}
-                    height={50}
-                    className="flex-shrink-0 h-14 w-auto inline-block"
+                    width={120}
+                    height={60}
+                    className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                 </div>
               </div>
@@ -409,8 +409,183 @@ Hiring Faster Growth              </h2>
         </div>
       </section>
 
+      {/* Why Use Flowxtra Section */}
+      <section className="w-full py-16 md:py-24 px-[10px] bg-white dark:bg-gray-900 transition-colors">
+        <div className="w-full rounded-[10px] px-[10px] py-16 md:py-20" style={{ backgroundColor: '#f4f6f8' }}>
+          <div className="container mx-auto px-4 md:px-8 lg:px-12">
+            <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+            {/* Left Side - Image */}
+            <div className="order-2 lg:order-1">
+              <Image
+                src="/img/multi-job-post.gif"
+                alt="Flowxtra Multi Job Post"
+                width={600}
+                height={450}
+                className="w-full h-auto"
+                unoptimized
+              />
+            </div>
+
+            {/* Right Side - Content */}
+            <div className="order-1 lg:order-2 space-y-8">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+                Why Use Flowxtra?
+              </h2>
+
+              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                At Flowxtra, we'll help you manage your entire business, from creating job applications, managing your social media accounts, and signing your contracts online.
+              </p>
+
+              {/* Features List */}
+              <ul className="space-y-2">
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">User-friendly interface.</span>
+                </li>
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">High security.</span>
+                </li>
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">Integration between applications.</span>
+                </li>
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">Continuous support service.</span>
+                </li>
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">Scalable for all business sizes — from startups to enterprises</span>
+                </li>
+              </ul>
+
+              {/* CTA Button */}
+              <div className="pt-4">
+                <a
+                  href="https://my.flowxtra.com/registration"
+                  className="inline-block bg-button-primary border-2 border-button-primary text-white px-6 py-2.5 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-base shadow-lg"
+                >
+                  Discover Flowxtra
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      {/* Why Use Flowxtra Section 2 - White Background */}
+      <section className="w-full py-16 md:py-24 px-[10px] bg-white dark:bg-gray-900 transition-colors">
+        <div className="w-full rounded-[10px] px-[10px] py-16 md:py-20 bg-white dark:bg-gray-800">
+          <div className="container mx-auto px-4 md:px-8 lg:px-12">
+            <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+            {/* Left Side - Content */}
+            <div className="order-1 lg:order-1 space-y-8">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+                Recruitment
+              </h2>
+
+              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                The Recruitment App helps companies and HR teams streamline the hiring process—from posting job ads to hiring the right talent.
+              </p>
+
+              {/* Features List */}
+              <ul className="space-y-2">
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">Free Job Posting With Flowxtra</span>
+                </li>
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">Post and manage job openings easily</span>
+                </li>
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">Centralized applicant tracking with smart filters</span>
+                </li>
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">Integrated online interviews</span>
+                </li>
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">Team collaboration for candidate evaluation</span>
+                </li>
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">Reports & analytics to optimize hiring</span>
+                </li>
+              </ul>
+
+              {/* Who Is It For */}
+              <div className="space-y-3">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
+                  Who Is It For?
+                </h3>
+                <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                  Startups, enterprises, and recruitment agencies that want to hire faster, smarter, and more efficiently.
+                </p>
+              </div>
+
+              {/* CTA Button */}
+              <div className="pt-4">
+                <a
+                  href="https://my.flowxtra.com/registration"
+                  className="inline-block bg-button-primary border-2 border-button-primary text-white px-6 py-2.5 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-base shadow-lg"
+                >
+                  Start Now
+                </a>
+              </div>
+            </div>
+
+            {/* Right Side - Image */}
+            <div className="order-2 lg:order-2">
+              <figure>
+                <Image
+                  src="/img/job-platform-dashbourd.webp"
+                  alt="Flowxtra Free job posting dashboard"
+                  title="Free Job Posting Dashboard"
+                  width={600}
+                  height={450}
+                  quality={100}
+                  unoptimized
+                  className="w-full h-auto"
+                />
+                <figcaption className="sr-only">
+                  Control everything from one smart dashboard. Full view of Flowxtra's dashboard to manage and publish free job posts.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+
       {/* Pricing Section */}
-      <section className="w-full py-16 md:py-24 bg-gray-50 dark:bg-gray-950 transition-colors">
+      <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
           {/* Section Header */}
           <div className="text-center mb-12">
