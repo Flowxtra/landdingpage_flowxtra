@@ -138,62 +138,64 @@ export default function Homepage() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
       {/* Hero Section - Full Width */}
-      <section className="w-full py-12 md:py-20">
-        <div className="flex flex-col items-center space-y-12">
-          {/* Top Content */}
-          <div className="w-full px-4 md:px-8 text-center space-y-6">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight mx-auto max-w-5xl px-2">
-              ATS Software for Recruitment & Hiring
-            </h1>
-            
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-primary dark:text-secondary-light max-w-4xl mx-auto px-2">
-              All-in-One Platform to Streamline Your Hiring Process
-            </h2>
-            
-            <p className="text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-4xl mx-auto px-4">
-              Complete ATS software to streamline hiring and manage your team. Start with 10 free job postings per month
-            </p>
-            
-            <div className="pt-4">
-              <a
-                href="https://my.flowxtra.com/registration"
-                className="inline-block bg-button-primary border-2 border-button-primary text-white px-8 py-4 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-lg shadow-lg"
-              >
-                Start Your Free Plan
-              </a>
+      <section className="w-full pt-2.5 pb-16 md:pb-24 px-[10px] bg-white dark:bg-gray-900 transition-colors">
+        <div className="w-full rounded-[10px] px-[10px] py-16 md:py-20" style={{ backgroundColor: '#f4f6f8' }}>
+          <div className="flex flex-col items-center space-y-12">
+            {/* Top Content */}
+            <div className="w-full px-4 md:px-8 text-center space-y-6">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight mx-auto max-w-5xl px-2">
+                ATS Software for Recruitment & Hiring
+              </h1>
+              
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-primary dark:text-secondary-light max-w-4xl mx-auto px-2">
+                All-in-One Platform to Streamline Your Hiring Process
+              </h2>
+              
+              <p className="text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-4xl mx-auto px-4">
+                Complete ATS software to streamline hiring and manage your team. Start with 10 free job postings per month
+              </p>
+              
+              <div className="pt-4">
+                <a
+                  href="https://my.flowxtra.com/registration"
+                  className="inline-block bg-button-primary border-2 border-button-primary text-white px-8 py-4 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-lg shadow-lg"
+                >
+                  Start Your Free Plan
+                </a>
+              </div>
             </div>
-          </div>
 
-          {/* Bottom Image - Full Width */}
-          <div className="w-full bg-white dark:bg-gray-900">
-            <div className="overflow-hidden">
-              <figure>
-                {/* Mobile Image */}
-                <Image
-                  src="/img/ATS-Software-for-Recruitment2.webp"
-                  alt="Why Flowxtra Is the Best Free Job Posting Platform"
-                  title="Free Job Posting"
-                  width={800}
-                  height={600}
-                  quality={100}
-                  priority
-                  className="w-full h-auto block md:hidden"
-                />
-                {/* Desktop Image */}
-                <Image
-                  src="/img/ATS-Software-for-Recruitment.webp"
-                  alt="Why Flowxtra Is the Best Free Job Posting Platform"
-                  title="Free Job Posting"
-                  width={1920}
-                  height={1080}
-                  quality={100}
-                  priority
-                  className="w-full h-auto hidden md:block"
-                />
-                <figcaption className="sr-only">
-                  Control everything from one smart dashboard. Full view of Flowxtra's dashboard to manage and publish free job posts.
-                </figcaption>
-              </figure>
+            {/* Bottom Image - Full Width */}
+            <div className="w-full">
+              <div className="overflow-hidden">
+                <figure>
+                  {/* Mobile Image */}
+                  <Image
+                    src="/img/ATS-Software-for-Recruitment2.webp"
+                    alt="Why Flowxtra Is the Best Free Job Posting Platform"
+                    title="Free Job Posting"
+                    width={800}
+                    height={600}
+                    quality={100}
+                    priority
+                    className="w-full h-auto block md:hidden"
+                  />
+                  {/* Desktop Image */}
+                  <Image
+                    src="/img/ATS-Software-for-Recruitment.webp"
+                    alt="Why Flowxtra Is the Best Free Job Posting Platform"
+                    title="Free Job Posting"
+                    width={1920}
+                    height={1080}
+                    quality={100}
+                    priority
+                    className="w-full h-auto hidden md:block"
+                  />
+                  <figcaption className="sr-only">
+                    Control everything from one smart dashboard. Full view of Flowxtra's dashboard to manage and publish free job posts.
+                  </figcaption>
+                </figure>
+              </div>
             </div>
           </div>
         </div>
@@ -415,7 +417,7 @@ Hiring Faster Growth              </h2>
       </section>
 
       {/* Video Section */}
-      <section className="w-full py-16 md:py-24 bg-gray-50 dark:bg-gray-950 transition-colors">
+      <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
           <div className="max-w-5xl mx-auto">
             {/* Text Content */}
@@ -715,12 +717,12 @@ Hiring Faster Growth              </h2>
       {/* Free Job Posting Section */}
       <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
-          <div className="max-w-4xl mx-auto text-center space-y-6 mb-16">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-6">
               Free Job Posting for Smart Hiring
             </h1>
             
-            <div className="space-y-4">
+            <div className="space-y-3">
               <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 Post up to 10 job ads for free every month — no hidden fees, no credit card required.
               </p>
