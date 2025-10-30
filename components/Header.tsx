@@ -70,7 +70,7 @@ function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/Main-flowxtra-Logo.png"
+              src={isDarkMode ? "/flowxtra-logo-white.png" : "/Main-flowxtra-Logo.png"}
               alt="Flowxtra Logo"
               width={150}
               height={50}
