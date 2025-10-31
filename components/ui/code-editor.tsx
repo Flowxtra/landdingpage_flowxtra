@@ -515,16 +515,12 @@ function CodeEditor({
         ) : activeTab === 'preview' ? (
           <div 
             className={cn(
-              'w-full overflow-auto',
-              'bg-gradient-to-br from-white to-gray-50 dark:from-[#0d1117] dark:to-[#161b22]',
-              isFullscreen ? 'h-[calc(100vh-3.5rem)] mt-14 p-12' : 'min-h-[400px] max-h-[600px] p-8'
+              'w-full overflow-auto bg-white dark:bg-[#0d1117]',
+              isFullscreen ? 'h-[calc(100vh-3.5rem)] mt-14' : 'min-h-[400px] max-h-[600px]'
             )}
           >
             <div 
-              className={cn(
-                "w-full h-full flex items-center justify-center bg-white dark:bg-[#0d1117] rounded-lg shadow-lg border border-gray-200 dark:border-[#30363d]",
-                isFullscreen ? "p-8" : "p-4"
-              )}
+              className="w-full h-full"
               dangerouslySetInnerHTML={{ __html: code }}
             />
           </div>
