@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { CodeEditor } from "@/components/ui/code-editor";
 import { Code } from "lucide-react";
 import PricingSection from "@/components/PricingSection";
+import { AnimatedBeamMultipleOutputs } from "@/components/AnimatedBeamMultipleOutputs";
 
 // Features Sticky Sections Component
 function FeaturesSlider() {
@@ -505,6 +506,37 @@ Hiring Faster Growth              </h2>
                   />
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Integration Section - Reversed Layout */}
+      <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
+          <div className="flex flex-col gap-12">
+            {/* Top Content */}
+            <div className="space-y-6 text-center max-w-4xl mx-auto">
+              {/* Badge */}
+              <div className="inline-block">
+              </div>
+
+              {/* Title */}
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+                Fast Integration
+              </h2>
+
+              {/* Description */}
+              <div className="space-y-4 text-gray-600 dark:text-gray-300">
+                <p className="text-base md:text-lg leading-relaxed">
+                  Connect Flowxtra to your existing tools and platforms seamlessly. Our platform integrates with everything you need.
+                </p>
+              </div>
+            </div>
+
+            {/* Bottom - Animated Beam Diagram - Full Width */}
+            <div className="flex items-center justify-center w-full bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl overflow-hidden min-h-[500px]">
+              <AnimatedBeamMultipleOutputs />
             </div>
           </div>
         </div>

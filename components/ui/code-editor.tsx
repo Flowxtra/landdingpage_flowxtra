@@ -87,7 +87,7 @@ function CodeEditor({
   const [visibleCode, setVisibleCode] = React.useState(writing ? '' : code);
   const [isDone, setIsDone] = React.useState(!writing);
   const [isFullscreen, setIsFullscreen] = React.useState(false);
-  const [activeTab, setActiveTab] = React.useState<'code' | 'preview' | 'customization'>('code');
+  const [activeTab, setActiveTab] = React.useState<'code' | 'integration' | 'preview' | 'customization'>('code');
   const [customizationTab, setCustomizationTab] = React.useState<'settings' | 'design' | 'included-jobs'>('settings');
   const [isCopied, setIsCopied] = React.useState(false);
   const [previewDevice, setPreviewDevice] = React.useState<'mobile' | 'tablet' | 'desktop'>('desktop');
@@ -289,6 +289,21 @@ function CodeEditor({
                   Code
                 </button>
                 <button
+                  onClick={() => setActiveTab('integration')}
+                  className={cn(
+                    'inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-colors',
+                    activeTab === 'integration'
+                      ? 'bg-[#238636] text-white hover:bg-[#2ea043]'
+                      : 'text-[#8b949e] hover:text-[#c9d1d9] hover:bg-[#30363d]'
+                  )}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                  </svg>
+                  Integration
+                </button>
+                <button
                   onClick={() => setActiveTab('preview')}
                   className={cn(
                     'inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-colors',
@@ -441,6 +456,21 @@ function CodeEditor({
                 Code
               </button>
               <button
+                onClick={() => setActiveTab('integration')}
+                className={cn(
+                  'inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-colors',
+                  activeTab === 'integration'
+                    ? 'bg-[#238636] text-white hover:bg-[#2ea043]'
+                    : 'text-[#8b949e] hover:text-[#c9d1d9] hover:bg-[#30363d]'
+                )}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                </svg>
+                Integration
+              </button>
+              <button
                 onClick={() => setActiveTab('preview')}
                 className={cn(
                   'inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-colors',
@@ -519,6 +549,22 @@ function CodeEditor({
                 dangerouslySetInnerHTML={{ __html: highlightedCode }}
               />
             )}
+          </div>
+        ) : activeTab === 'integration' ? (
+          <div 
+            className={cn(
+              'w-full bg-white dark:bg-[#0d1117] flex items-center justify-center',
+              isFullscreen ? 'h-[calc(100vh-3.5rem)] mt-14' : 'min-h-[200px] max-h-96'
+            )}
+          >
+            <div className="text-center p-8">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto mb-4 text-gray-400">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+              </svg>
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">Integration Options</h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400">Coming Soon</p>
+            </div>
           </div>
         ) : activeTab === 'preview' ? (
           <div 
