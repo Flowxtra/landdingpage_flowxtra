@@ -1,9 +1,9 @@
+import PricingSection from "@/components/PricingSection";
+
 export default function Pricing() {
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <h1 className="text-4xl md:text-6xl font-bold text-center">
-        Hello World
-      </h1>
+    <div className="min-h-screen bg-white dark:bg-gray-900">
+      <PricingSection defaultCompareOpen={true} />
     </div>
   );
 }

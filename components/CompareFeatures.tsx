@@ -26,8 +26,12 @@ interface Plan {
   color: string;
 }
 
-export default function CompareFeatures() {
-  const [isOpen, setIsOpen] = useState(false);
+interface CompareFeaturesProps {
+  defaultOpen?: boolean;
+}
+
+export default function CompareFeatures({ defaultOpen = false }: CompareFeaturesProps) {
+  const [isOpen, setIsOpen] = useState(defaultOpen);
   const [expandedRow, setExpandedRow] = useState<string | null>(null);
   const [selectedPlan, setSelectedPlan] = useState<PlanKey>('professional'); // Default to Professional
   const touchStartX = useRef<number>(0);
@@ -882,7 +886,7 @@ export default function CompareFeatures() {
             .fx-table {
               width: 100% !important;
               border-collapse: collapse !important;
-              border: 1px solid #c6cdd3 !important;
+              border: none !important;
               border-left: none !important;
               border-right: none !important;
               background: #ffffff !important;
@@ -890,13 +894,13 @@ export default function CompareFeatures() {
 
             .dark .fx-table {
               background: #111827 !important;
-              border-color: #374151 !important;
+              border: none !important;
             }
 
             .fx-table th,
             .fx-table td {
               padding: 14px !important;
-              border-bottom: 1px solid #c6cdd3 !important;
+              border-bottom: none !important;
               border-left: none !important;
               border-right: none !important;
               text-align: center !important;
@@ -910,7 +914,7 @@ export default function CompareFeatures() {
             .dark .fx-table th,
             .dark .fx-table td {
               color: #f3f4f6 !important;
-              border-bottom-color: #374151 !important;
+              border-bottom: none !important;
             }
 
             .fx-table th.fx-feature,
