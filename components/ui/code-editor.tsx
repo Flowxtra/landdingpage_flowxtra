@@ -39,6 +39,7 @@ function CopyButton({
         'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors',
         'h-8 w-8 p-0',
         'bg-transparent hover:bg-white/20',
+        copied ? 'text-green-500' : '',
         className
       )}
       aria-label={copied ? 'Copied' : 'Copy code'}
@@ -88,6 +89,7 @@ function CodeEditor({
   const [isFullscreen, setIsFullscreen] = React.useState(false);
   const [activeTab, setActiveTab] = React.useState<'code' | 'preview' | 'customization'>('code');
   const [customizationTab, setCustomizationTab] = React.useState<'settings' | 'design' | 'included-jobs'>('settings');
+  const [isCopied, setIsCopied] = React.useState(false);
   const editorRef = React.useRef<HTMLDivElement>(null);
   const containerRef = React.useRef<HTMLDivElement>(null);
 
@@ -215,6 +217,15 @@ function CodeEditor({
     }
   }, [code, lang]);
 
+  // Handle copy with visual feedback
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(code);
+    setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 2000);
+  };
+
   return (
     <>
       {/* Backdrop for fullscreen mode */}
@@ -316,14 +327,19 @@ function CodeEditor({
               {/* Copy (second) */}
               {copyButton && activeTab === 'code' && (
                 <button
-                  onClick={async () => {
-                    await navigator.clipboard.writeText(code);
-                  }}
-                  className="inline-flex items-center justify-center rounded-md h-8 w-8 p-0 bg-transparent hover:bg-white/10 text-[#c9d1d9] hover:text-white transition-colors"
+                  onClick={handleCopy}
+                  className={cn(
+                    "inline-flex items-center justify-center rounded-md h-8 w-8 p-0 bg-transparent hover:bg-white/10 transition-colors",
+                    isCopied ? "text-green-500" : "text-[#c9d1d9] hover:text-white"
+                  )}
                   aria-label="Copy code"
                   title="Copy code"
                 >
-                  <Copy className="h-4 w-4" />
+                  {isCopied ? (
+                    <Check className="h-4 w-4" />
+                  ) : (
+                    <Copy className="h-4 w-4" />
+                  )}
                 </button>
               )}
 
