@@ -3,7 +3,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CodeEditor } from "@/components/ui/code-editor";
 import { Code } from "lucide-react";
 import CompareFeatures from "@/components/CompareFeatures";
@@ -1196,7 +1196,167 @@ Hiring Faster Growth              </h2>
           </div>
         </div>
       </section>
+
+      {/* Reviews Section */}
+      <ReviewsSection />
     </div>
+  );
+}
+
+// Reviews Section Component
+function ReviewsSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [cardsPerView, setCardsPerView] = useState(3);
+
+  const reviews = [
+    {
+      name: "Sarah Mitchell",
+      title: "HR Manager",
+      rating: 5,
+      text: "Flowxtra transformed our hiring process! The free 10 job postings monthly are perfect for our startup, and the AI-powered candidate filtering saves us hours every week.",
+      date: "July 12, 2025"
+    },
+    {
+      name: "Klaus Müller",
+      title: "Recruitment Director",
+      rating: 5,
+      text: "Best recruitment software we've ever used. The multiposting feature and social media manager integration are real game changers. Highly recommended!",
+      date: "August 5, 2025"
+    },
+    {
+      name: "Sophie Laurent",
+      title: "HR Manager",
+      rating: 5,
+      text: "As an HR manager, Flowxtra meets all my needs: ATS and social media management in one platform. GDPR compliance gives us complete peace of mind.",
+      date: "August 28, 2025"
+    },
+    {
+      name: "Petra Schneider",
+      title: "Talent Acquisition Specialist",
+      rating: 4,
+      text: "Great software with excellent features. The free plan is generous and the user interface is intuitive. Customer support could be faster, but overall very satisfied.",
+      date: "September 18, 2025"
+    },
+    {
+      name: "Michael Thompson",
+      title: "CEO & Founder",
+      rating: 5,
+      text: "Finally, an all-in-one solution that actually works! Flowxtra combines recruitment and social media management seamlessly. The 10 free job posts are a lifesaver for our team.",
+      date: "October 22, 2025"
+    }
+  ];
+
+  // Update cards per view based on screen size
+  useEffect(() => {
+    const updateCardsPerView = () => {
+      if (window.innerWidth <= 768) {
+        setCardsPerView(1);
+      } else if (window.innerWidth <= 1024) {
+        setCardsPerView(2);
+      } else {
+        setCardsPerView(3);
+      }
+    };
+
+    updateCardsPerView();
+    window.addEventListener('resize', updateCardsPerView);
+    return () => window.removeEventListener('resize', updateCardsPerView);
+  }, []);
+
+  // Auto slide
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => {
+        const maxIndex = reviews.length - cardsPerView;
+        return prev >= maxIndex ? 0 : prev + 1;
+      });
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [cardsPerView, reviews.length]);
+
+  const renderStars = (rating: number) => {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      if (i <= rating) {
+        stars.push(<i key={i} className="fas fa-star"></i>);
+      } else {
+        stars.push(<i key={i} className="far fa-star"></i>);
+      }
+    }
+    return stars;
+  };
+
+  return (
+    <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+      
+      <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            The #1 choice for modern recruiters
+          </h2>
+          <div className="flex items-center justify-center gap-3 mt-6">
+            <div className="text-yellow-400 text-2xl flex gap-1">
+              <i className="fas fa-star"></i>
+              <i className="fas fa-star"></i>
+              <i className="fas fa-star"></i>
+              <i className="fas fa-star"></i>
+              <i className="fas fa-star-half-alt"></i>
+            </div>
+            <span className="text-base md:text-lg text-gray-600 dark:text-gray-300 font-semibold">4.8 out of 5</span>
+          </div>
+        </div>
+
+        {/* Slider */}
+        <div className="relative overflow-hidden">
+          <div 
+            className="flex gap-6 transition-transform duration-700 ease-in-out"
+            style={{
+              transform: `translateX(-${currentIndex * (100 / cardsPerView + 2)}%)`
+            }}
+            onMouseEnter={() => setCurrentIndex(currentIndex)}
+          >
+            {reviews.map((review, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-8 shadow-md hover:shadow-xl hover:-translate-y-2 hover:border-button-hover dark:hover:border-button-hover transition-all duration-300 relative"
+              >
+                {/* Quote Icon */}
+                <i className="fas fa-quote-right absolute top-5 right-5 text-4xl text-primary/10 dark:text-secondary/10"></i>
+
+                {/* Reviewer Info */}
+                <div className="mb-4">
+                  <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
+                    {review.name}
+                  </h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    {review.title}
+                  </p>
+                </div>
+
+                {/* Stars */}
+                <div className="text-yellow-400 text-base flex gap-1 mb-4">
+                  {renderStars(review.rating)}
+                </div>
+
+                {/* Review Text */}
+                <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4 relative z-10">
+                  {review.text}
+                </p>
+
+                {/* Date */}
+                <div className="flex items-center gap-2 text-xs md:text-sm text-gray-500 dark:text-gray-400 mt-4">
+                  <i className="far fa-calendar"></i>
+                  <span>{review.date}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
