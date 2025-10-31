@@ -11,11 +11,11 @@ function FeaturesSlider() {
     {
       badge: "Real Recruiting Results",
       title: "Smarter Candidate Filtering & Visualization",
-      description: "Flowxtra's AI-powered ATS streamlines recruitment. Filter and visualize candidates with list, card or drag-and-drop board views, then move top talent through every stage with ease.",
+      description: "Flowxtra's AI‑powered ATS streamlines recruitment. Filter and visualize candidates with list, card or drag‑and‑drop board views, then move top talent through every stage with ease.",
       buttonText: "Register For Free",
       buttonLink: "https://my.flowxtra.com/registration",
-      image: "/img/multi-job-post.gif",
-      imageAlt: "Smarter Candidate Filtering",
+      image: "/img/Smarter-Candidate-Filtering.png",
+      imageAlt: "Visual candidate board – part of free AI recruiting tool",
       imageOnRight: true,
     },
     {
@@ -24,48 +24,48 @@ function FeaturesSlider() {
       description: "Compare, filter, and map candidates with Flowxtra's dynamic hiring board. Track applications, gain insights, and make smarter hiring decisions — all from one powerful, interactive view.",
       buttonText: "Register For Free",
       buttonLink: "https://my.flowxtra.com/registration",
-      image: "/img/job-platform-dashbourd.webp",
-      imageAlt: "Visual Talent Intelligence",
+      image: "/img/candidate-fiter.png",
+      imageAlt: "View candidate CVs inside free AI recruiting system",
       imageOnRight: false,
     },
     {
-      badge: "Real Recruiting Results",
-      title: "Smarter Candidate Filtering & Visualization",
-      description: "Flowxtra's AI-powered ATS streamlines recruitment. Filter and visualize candidates with list, card or drag-and-drop board views, then move top talent through every stage with ease.",
+      badge: "Centralized Applicant Intelligence",
+      title: "Candidate Profile View",
+      description: "Access resumes, cover letters, LinkedIn profiles, and screening answers in one clean interface. Add notes, assign interviews, send assessments, and rate candidates — all from a unified profile view.",
       buttonText: "Register For Free",
       buttonLink: "https://my.flowxtra.com/registration",
-      image: "/img/multi-job-post.gif",
-      imageAlt: "Smarter Candidate Filtering",
+      image: "/img/Candidate-Profile.webp",
+      imageAlt: "View candidate CVs inside free AI recruiting system",
       imageOnRight: true,
     },
     {
-      badge: "Candidate Board Flow",
-      title: "Visual Talent Intelligence",
-      description: "Compare, filter, and map candidates with Flowxtra's dynamic hiring board. Track applications, gain insights, and make smarter hiring decisions — all from one powerful, interactive view.",
+      badge: "One Job Ad. Multiple Platforms.",
+      title: "Multiposting Made Simple",
+      description: "Post once and publish across top job boards — LinkedIn, Google Jobs, Stepstone & more. Track clicks, views, and applications from everywhere — your website, external platforms, and beyond — all in one smart dashboard.",
       buttonText: "Register For Free",
       buttonLink: "https://my.flowxtra.com/registration",
-      image: "/img/job-platform-dashbourd.webp",
-      imageAlt: "Visual Talent Intelligence",
+      image: "/img/Multiposting-job.webp",
+      imageAlt: "Multiposting Made Simple",
       imageOnRight: false,
     },
     {
-      badge: "Real Recruiting Results",
-      title: "Smarter Candidate Filtering & Visualization",
-      description: "Flowxtra's AI-powered ATS streamlines recruitment. Filter and visualize candidates with list, card or drag-and-drop board views, then move top talent through every stage with ease.",
+      badge: "Automated & Personalized Communication",
+      title: "Hiring Email Template",
+      description: "Save time with smart email templates tailored to every hiring stage. Send rejections, interview invites, or updates — faster, consistent, and always professional.",
       buttonText: "Register For Free",
       buttonLink: "https://my.flowxtra.com/registration",
-      image: "/img/multi-job-post.gif",
-      imageAlt: "Smarter Candidate Filtering",
+      image: "/img/hiring-email-template.webp",
+      imageAlt: "Hiring Email Template",
       imageOnRight: true,
     },
     {
-      badge: "Candidate Board Flow",
-      title: "Visual Talent Intelligence",
-      description: "Compare, filter, and map candidates with Flowxtra's dynamic hiring board. Track applications, gain insights, and make smarter hiring decisions — all from one powerful, interactive view.",
+      badge: "Visualize Your Entire Recruitment Process at a Glance",
+      title: "Smart Hiring Diagram Board",
+      description: "Flowxtra's advanced diagram board lets you map candidate relationships, hiring stages, and team feedback in real time. Drag and drop candidates, assign tasks, and collaborate with your team — all in one visual dashboard.",
       buttonText: "Register For Free",
       buttonLink: "https://my.flowxtra.com/registration",
-      image: "/img/job-platform-dashbourd.webp",
-      imageAlt: "Visual Talent Intelligence",
+      image: "/img/Job-board-workflow.gif",
+      imageAlt: "Visual candidate board – part of free AI recruiting tool",
       imageOnRight: false,
     },
   ];
@@ -118,10 +118,11 @@ function FeaturesSlider() {
                   <Image
                     src={slide.image}
                     alt={slide.imageAlt}
-                    width={600}
-                    height={450}
+                    width={1200}
+                    height={900}
+                    quality={100}
                     className="w-full h-auto"
-                    unoptimized={slide.image.endsWith('.gif')}
+                    unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.png')}
                   />
                 </div>
               </div>
@@ -276,6 +277,7 @@ Hiring Faster Growth              </h2>
                     alt="Review us on Trustpilot"
                     width={120}
                     height={60}
+                    quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
@@ -283,6 +285,7 @@ Hiring Faster Growth              </h2>
                     alt="Made in Austria"
                     width={120}
                     height={60}
+                    quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
@@ -290,6 +293,7 @@ Hiring Faster Growth              </h2>
                     alt="DSGVO Compliant"
                     width={120}
                     height={60}
+                    quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
@@ -297,6 +301,7 @@ Hiring Faster Growth              </h2>
                     alt="Review us on Trustpilot"
                     width={120}
                     height={60}
+                    quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
@@ -304,6 +309,7 @@ Hiring Faster Growth              </h2>
                     alt="Made in Austria"
                     width={120}
                     height={60}
+                    quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
@@ -311,6 +317,7 @@ Hiring Faster Growth              </h2>
                     alt="DSGVO Compliant"
                     width={120}
                     height={60}
+                    quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                 </div>
@@ -324,6 +331,7 @@ Hiring Faster Growth              </h2>
                     alt="Trustpilot Reviews"
                     width={120}
                     height={60}
+                    quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
@@ -331,6 +339,7 @@ Hiring Faster Growth              </h2>
                     alt="Made in Austria"
                     width={120}
                     height={60}
+                    quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
@@ -338,6 +347,7 @@ Hiring Faster Growth              </h2>
                     alt="Made in Germany"
                     width={120}
                     height={60}
+                    quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
@@ -345,6 +355,7 @@ Hiring Faster Growth              </h2>
                     alt="Trustpilot Reviews"
                     width={120}
                     height={60}
+                    quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
@@ -352,6 +363,7 @@ Hiring Faster Growth              </h2>
                     alt="Made in Austria"
                     width={120}
                     height={60}
+                    quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
@@ -359,6 +371,7 @@ Hiring Faster Growth              </h2>
                     alt="Made in Germany"
                     width={120}
                     height={60}
+                    quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                 </div>
@@ -372,6 +385,7 @@ Hiring Faster Growth              </h2>
                     alt="eIDAS"
                     width={120}
                     height={60}
+                    quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
@@ -379,6 +393,7 @@ Hiring Faster Growth              </h2>
                     alt="Time Saving Features"
                     width={120}
                     height={60}
+                    quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
@@ -386,6 +401,7 @@ Hiring Faster Growth              </h2>
                     alt="AI-Powered"
                     width={120}
                     height={60}
+                    quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
@@ -393,6 +409,7 @@ Hiring Faster Growth              </h2>
                     alt="eIDAS"
                     width={120}
                     height={60}
+                    quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
@@ -400,6 +417,7 @@ Hiring Faster Growth              </h2>
                     alt="Time Saving Features"
                     width={120}
                     height={60}
+                    quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                   <Image
@@ -407,6 +425,7 @@ Hiring Faster Growth              </h2>
                     alt="AI-Powered"
                     width={120}
                     height={60}
+                    quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
                   />
                 </div>
@@ -441,6 +460,7 @@ Hiring Faster Growth              </h2>
                     src="/img/overlay-flowxtra.png"
                     alt="Play Video"
                     fill
+                    quality={100}
                     className="object-cover"
                     priority
                   />
@@ -489,8 +509,9 @@ Hiring Faster Growth              </h2>
               <Image
                 src="/img/multi-job-post.gif"
                 alt="Flowxtra Multi Job Post"
-                width={600}
-                height={450}
+                width={1200}
+                height={900}
+                quality={100}
                 className="w-full h-auto"
                 unoptimized
               />
@@ -655,9 +676,9 @@ Hiring Faster Growth              </h2>
       </section>
 
       {/* Free Job Posting Section */}
-      <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
+      <section className="w-full pt-12 md:pt-16 pb-3 md:pb-4 bg-white dark:bg-gray-900 transition-colors">
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
-          <div className="max-w-4xl mx-auto text-center mb-16">
+          <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-6">
               Free Job Posting for Smart Hiring
             </h1>

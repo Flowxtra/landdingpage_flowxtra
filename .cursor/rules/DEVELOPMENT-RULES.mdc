@@ -26,6 +26,46 @@ alwaysApply: true
 
 **This is MANDATORY and NON-NEGOTIABLE.**
 
+### 🖼️ Rule #3: Full Image Resolution (CRITICAL)
+**ALL images MUST be displayed at FULL resolution without compression.**
+
+**Image Quality Requirements (MANDATORY):**
+- ✅ Always use `quality={100}` for all Next.js Image components
+- ✅ Use `unoptimized={true}` for PNG, GIF, and high-quality images
+- ✅ Use high-resolution dimensions (e.g., 1200x900 minimum for main images)
+- ✅ Never compress or reduce image quality
+- ✅ Preserve original image clarity and sharpness
+
+**Example:**
+```tsx
+// ✅ CORRECT - Full resolution with quality={100}
+<Image
+  src="/img/example.png"
+  alt="Description"
+  width={1200}
+  height={900}
+  quality={100}
+  unoptimized={true}
+  className="w-full h-auto"
+/>
+
+// ❌ WRONG - No quality specified
+<Image
+  src="/img/example.png"
+  alt="Description"
+  width={600}
+  height={450}
+  className="w-full h-auto"
+/>
+```
+
+**This rule applies to:**
+- All hero images
+- All feature images
+- All slider/carousel images
+- All icons and logos
+- ALL images across the entire website
+
 ---
 
 ## 🧩 Technology Stack
