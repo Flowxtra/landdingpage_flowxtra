@@ -888,7 +888,7 @@ export default function CompareFeatures() {
               background: #ffffff !important;
             }
 
-            :global(.dark) .fx-table {
+            .dark .fx-table {
               background: #111827 !important;
               border-color: #374151 !important;
             }
@@ -907,8 +907,8 @@ export default function CompareFeatures() {
               vertical-align: middle !important;
             }
 
-            :global(.dark) .fx-table th,
-            :global(.dark) .fx-table td {
+            .dark .fx-table th,
+            .dark .fx-table td {
               color: #f3f4f6 !important;
               border-bottom-color: #374151 !important;
             }
@@ -927,7 +927,7 @@ export default function CompareFeatures() {
               color: #212b36 !important;
             }
 
-            :global(.dark) .fx-table thead th {
+            .dark .fx-table thead th {
               background: #1f2937 !important;
               color: #f3f4f6 !important;
             }
@@ -937,8 +937,8 @@ export default function CompareFeatures() {
               background-color: #f3f4f6 !important;
             }
 
-            :global(.dark) .fx-table th:nth-child(5),
-            :global(.dark) .fx-table td:nth-child(5) {
+            .dark .fx-table th:nth-child(5),
+            .dark .fx-table td:nth-child(5) {
               background-color: #1f2937 !important;
             }
 
@@ -962,7 +962,7 @@ export default function CompareFeatures() {
               color: #111827 !important;
             }
 
-            :global(.dark) .fx-hoverable:hover td.fx-feature {
+            .dark .fx-hoverable:hover td.fx-feature {
               color: #f3f4f6 !important;
             }
 
@@ -975,7 +975,7 @@ export default function CompareFeatures() {
               background: #f9fafb !important;
             }
 
-            :global(.dark) .fx-explain {
+            .dark .fx-explain {
               background: #1f2937 !important;
             }
 
@@ -985,7 +985,7 @@ export default function CompareFeatures() {
               color: #374151 !important;
             }
 
-            :global(.dark) .fx-explain td {
+            .dark .fx-explain td {
               color: #d1d5db !important;
             }
 
