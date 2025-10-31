@@ -96,8 +96,8 @@ export default function CompareFeatures() {
       basic: '25',
       professional: '35',
       advanced: '45',
-      premium: '65',
-      enterprise: <Unlimited />,
+      premium: 'Unlimited',
+      enterprise: 'Unlimited',
       description: 'Number of active job slots you can publish simultaneously per month.',
     },
     {
@@ -109,8 +109,8 @@ export default function CompareFeatures() {
       basic: '10',
       professional: '15',
       advanced: '20',
-      premium: <Unlimited />,
-      enterprise: <Unlimited />,
+      premium: 'Unlimited',
+      enterprise: 'Unlimited',
       description: 'Total team members who can collaborate inside your account.',
     },
     {

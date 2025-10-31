@@ -184,7 +184,7 @@ export default function Homepage() {
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
       {/* Hero Section - Full Width */}
       <section className="w-full pt-2.5 pb-16 md:pb-24 px-[10px] bg-white dark:bg-gray-900 transition-colors">
-        <div className="w-full rounded-[10px] px-[10px] py-16 md:py-20" style={{ backgroundColor: '#f4f6f8' }}>
+        <div className="w-full rounded-[10px] px-[10px] py-16 md:py-20 bg-[#f4f6f8] dark:bg-gray-800">
           <div className="flex flex-col items-center space-y-12">
             {/* Top Content */}
             <div className="w-full px-4 md:px-8 text-center space-y-6">
@@ -196,7 +196,7 @@ export default function Homepage() {
                 All-in-One Platform to Streamline Your Hiring Process
               </h2>
               
-              <p className="text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-4xl mx-auto px-4">
+              <p className="text-base md:text-lg lg:text-xl text-gray-600 dark:text-white leading-relaxed max-w-4xl mx-auto px-4">
                 Complete ATS software to streamline hiring and manage your team. Start with 10 free job postings per month
               </p>
               
@@ -545,7 +545,7 @@ Hiring Faster Growth              </h2>
 
       {/* Why Use Flowxtra Section */}
       <section className="w-full py-16 md:py-24 px-[10px] bg-white dark:bg-gray-900 transition-colors">
-        <div className="w-full rounded-[10px] px-[10px] py-16 md:py-20" style={{ backgroundColor: '#f4f6f8' }}>
+        <div className="w-full rounded-[10px] px-[10px] py-16 md:py-20 bg-[#f4f6f8] dark:bg-gray-800">
           <div className="container mx-auto px-4 md:px-8 lg:px-12">
             <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
             {/* Left Side - Image */}
@@ -567,7 +567,7 @@ Hiring Faster Growth              </h2>
                 Why Use Flowxtra?
               </h2>
 
-              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p className="text-base md:text-lg text-gray-600 dark:text-white leading-relaxed">
                 At Flowxtra, we'll help you manage your entire business, from creating job applications, managing your social media accounts, and signing your contracts online.
               </p>
 
@@ -577,31 +577,31 @@ Hiring Faster Growth              </h2>
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">User-friendly interface.</span>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">User-friendly interface.</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">High security.</span>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">High security.</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">Integration between applications.</span>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">Integration between applications.</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">Continuous support service.</span>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">Continuous support service.</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">Scalable for all business sizes — from startups to enterprises</span>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">Scalable for all business sizes — from startups to enterprises</span>
                 </li>
               </ul>
 
@@ -919,7 +919,7 @@ Hiring Faster Growth              </h2>
 
               <a
                 href="https://my.flowxtra.com/registration"
-                className="block text-center bg-white text-primary px-6 py-3 rounded-lg hover:bg-button-hover hover:text-white transition-all font-medium relative z-10"
+                className="block text-center bg-white text-primary border-2 border-white px-6 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium relative z-10"
               >
                 Get started
               </a>
@@ -1051,7 +1051,7 @@ Hiring Faster Growth              </h2>
 
                 <a
                   href="/contact-us"
-                  className="block text-center bg-white text-primary px-8 py-3 rounded-lg hover:bg-button-hover hover:text-white transition-all font-medium text-lg relative z-10"
+                  className="block text-center bg-white text-primary border-2 border-white px-8 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium text-lg relative z-10"
                 >
                   Contact us
                 </a>
@@ -1061,6 +1061,139 @@ Hiring Faster Growth              </h2>
 
           {/* Compare Features Accordion */}
           <CompareFeatures />
+        </div>
+      </section>
+
+      {/* Social Media Manager Section - White Background */}
+      <section className="w-full py-16 md:py-24 px-[10px] bg-white dark:bg-gray-900 transition-colors">
+        <div className="w-full rounded-[10px] px-[10px] py-16 md:py-20 bg-white dark:bg-gray-900">
+          <div className="container mx-auto px-4 md:px-8 lg:px-12">
+            <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+            {/* Left Side - Image */}
+            <div className="order-2 lg:order-1">
+              <Image
+                src="/img/social-media-management.webp"
+                alt="Post Jobs to Social Media for Free – Flowxtra Scheduler"
+                title="Free social media job posting and scheduling with Flowxtra"
+                width={1200}
+                height={900}
+                quality={100}
+                className="w-full h-auto"
+                unoptimized
+              />
+          
+            </div>
+
+            {/* Right Side - Content */}
+            <div className="order-1 lg:order-2 space-y-8">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+                Social Media Manager
+              </h2>
+
+              <p className="text-base md:text-lg text-gray-600 dark:text-white leading-relaxed">
+                The Social Media Manager App helps businesses and creators manage, schedule, and analyze content across multiple platforms in one place.
+              </p>
+
+              {/* Features List */}
+              <ul className="space-y-2">
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">Connect and manage multiple accounts</span>
+                </li>
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">Schedule posts in advance with ease</span>
+                </li>
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">Team collaboration and approval workflows</span>
+                </li>
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">Analytics & reports to track performance and engagement</span>
+                </li>
+              </ul>
+
+              {/* Who Is It For Section */}
+              <div className="pt-4">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                  Who Is It For?
+                </h3>
+                <p className="text-base md:text-lg text-gray-600 dark:text-white leading-relaxed">
+                  Agencies, small businesses, and freelancers who want to save time, stay organized, and grow their online presence.
+                </p>
+              </div>
+
+              {/* CTA Button */}
+              <div className="pt-4">
+                <a
+                  href="https://my.flowxtra.com/registration"
+                  className="inline-block bg-button-primary border-2 border-button-primary text-white px-8 py-4 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-lg shadow-lg"
+                >
+                  Free forever
+                </a>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Multiple Job Posting Section - White Background */}
+      <section className="w-full py-16 md:py-24 px-[10px] bg-white dark:bg-gray-900 transition-colors">
+        <div className="w-full rounded-[10px] px-[10px] py-16 md:py-20 bg-white dark:bg-gray-900">
+          <div className="container mx-auto px-4 md:px-8 lg:px-12">
+            <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+            {/* Left Side - Content */}
+            <div className="order-1 lg:order-1 space-y-8">
+              <div className="inline-block bg-[#e6f4f7] dark:bg-gray-800 px-4 py-2 rounded-lg">
+                <span className="text-sm md:text-base font-semibold text-primary dark:text-secondary-light">
+                  Multiple Job Posting
+                </span>
+              </div>
+
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+                Post Jobs Across Platforms Instantly
+              </h2>
+
+              <p className="text-base md:text-lg text-gray-600 dark:text-white leading-relaxed">
+                Flowxtra's free recruiting software lets you post and schedule job ads across social media platforms like LinkedIn, Facebook, and Instagram. Automate outreach, save time, and hire smarter — all for free.
+              </p>
+
+              {/* CTA Button */}
+              <div className="pt-4">
+                <a
+                  href="https://my.flowxtra.com/registration"
+                  className="inline-block bg-button-primary border-2 border-button-primary text-white px-8 py-4 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-lg shadow-lg"
+                >
+                  Start Posting for Free
+                </a>
+              </div>
+            </div>
+
+            {/* Right Side - Image */}
+            <div className="order-2 lg:order-2">
+              <Image
+                src="/img/multiple-job-posting.gif"
+                alt="Free social media job posting and scheduling with Flowxtra"
+                title="Post Jobs to Social Media for Free – Flowxtra Scheduler"
+                width={1200}
+                height={900}
+                quality={100}
+                className="w-full h-auto"
+                unoptimized
+              />
+            </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
