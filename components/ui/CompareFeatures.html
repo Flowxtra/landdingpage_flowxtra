@@ -1,0 +1,592 @@
+<!-- ===== Flowxtra: Plans & Features – October 2025 (English, with ! info toggles) ===== -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  :root {
+    --fx-text:#111827; --fx-muted:#6b7280;
+    --fx-border:#C6CDD3; --fx-brand:#006980;
+    --fx-head:#212B36; --fx-row:#fafbfc;
+  }
+
+  .fx-wrap {
+    width:100% !important; margin:0 !important; padding:32px 16px !important;
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif !important;
+    color:var(--fx-text) !important;
+    background: transparent !important;
+  }
+
+  .fx-title {
+    text-align:center; font-weight:800; font-size:32px;
+    line-height:1.2; color:var(--fx-head); margin-bottom:8px;
+  }
+  .fx-sub {
+    text-align:center; color:var(--fx-muted);
+    font-size:15px; max-width:880px; margin:0 auto 28px;
+  }
+
+  .fx-table {
+    width:100% !important; border-collapse:collapse !important; border:1px solid var(--fx-border) !important;
+    border-left:none !important; border-right:none !important;
+    background: #ffffff !important;
+  }
+  .fx-table th, .fx-table td {
+    padding:14px !important;
+    border-bottom:1px solid var(--fx-border) !important;
+    border-left:none !important;
+    border-right:none !important;
+    text-align:center !important;
+    background: transparent !important;
+    color: var(--fx-text) !important;
+}
+
+/* make the first column left-aligned */
+.fx-table th.fx-feature,
+.fx-table td.fx-feature {
+    text-align:left !important;
+    padding-left:16px !important;
+    background: transparent !important;
+    color: var(--fx-text) !important;
+}
+
+/* Mobile fix: keep left on small screens */
+@media (max-width:780px){
+  .fx-table th.fx-feature,
+  .fx-table td.fx-feature {
+      text-align:left !important;
+  }
+}
+
+  .fx-table thead th {
+    background:#f8fafc !important; font-weight:800 !important;
+    color: var(--fx-head) !important;
+  }
+  .fx-feature { width:30% !important; text-align:left !important; font-weight:600 !important; padding-left:16px !important; }
+  /* .{ background:var(--fx-row); } */
+
+  /* Professional column highlight */
+  .fx-table th:nth-child(5),
+  .fx-table td:nth-child(5) {
+    background-color: #f3f4f6 !important;
+  }
+
+  /* Infinity marker */
+  .oi { color:var(--fx-brand); font-size:15px; vertical-align:middle; }
+
+/* Clickable row with help cursor */
+.fx-hoverable.clickable {
+  cursor: help;
+}
+.fx-hoverable.clickable:hover td {
+  background-color: rgba(0,105,128,.08) !important;
+  transition: background-color .2s ease !important;
+}
+
+  /* Explanation row */
+  .fx-explain { display:none; background:#f9fafb; }
+  .fx-explain td { padding:12px 16px!important; text-align:left!important; color:#374151; padding-left:16px!important; }
+  .fx-explain .fx-explain-inner { border-left:3px solid var(--fx-brand); padding-left:12px; }
+  tr[aria-expanded="true"] + .fx-explain { display:table-row; }
+
+  /* Hover highlight */
+  .fx-hoverable:hover td {
+    background:rgba(0,105,128,.07) !important;
+    transition:background .18s ease !important;
+  }
+
+  /* Hover effect for text and checkmarks */
+  .fx-hoverable:hover td {
+    color: #00A8CD !important;
+    transition: color .2s ease !important;
+  }
+
+  /* Removed bold effects - keeping only color change */
+
+  /* Keep feature column text color normal on hover */
+  .fx-hoverable:hover td.fx-feature {
+    color: var(--fx-text) !important;
+  }
+
+  /* Special hover effect for infinity symbols and special text */
+  .fx-hoverable:hover .oi {
+    transform: scale(1.1) !important;
+    transition: transform .2s ease !important;
+  }
+
+  /* Force override Elementor styles */
+  .fx-table * {
+    box-sizing: border-box !important;
+  }
+  
+  .fx-table th,
+  .fx-table td {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    vertical-align: middle !important;
+  }
+
+  /* Override any inherited background colors */
+  .fx-table tbody tr {
+    background: #ffffff !important;
+  }
+
+  /* Ensure text colors are not overridden */
+  .fx-table tbody td {
+    color: #111827 !important;
+  }
+
+  /* Ensure checkmarks and symbols maintain proper color */
+  .fx-table .oi {
+    color: var(--fx-brand) !important;
+  }
+
+  /* Force Coming Soon header to left align */
+  .fx-table th[colspan="8"] {
+    text-align: left !important;
+    padding-left: 16px !important;
+  }
+
+  /* Buttons */
+  .fx-btn {
+    display:inline-block; padding:10px 22px; border:1px solid var(--fx-border);
+    background:#fff; color:#000; font-size:14px; font-weight:600;
+    border-radius:6px; text-decoration:none; transition:all .25s;
+  }
+  .fx-btn:hover { background:var(--fx-brand); color:#fff; border-color:var(--fx-brand); }
+
+  @media(max-width:780px){
+    .fx-table thead{display:none}
+    .fx-table,.fx-table tbody,.fx-table tr,.fx-table td{display:block;width:100%}
+    .fx-table tr{padding:6px 0}
+    .fx-table td{border:0;border-bottom:1px solid var(--fx-border);padding:10px 16px}
+    .fx-feature{font-weight:700;padding-left:16px}
+    .fx-col::before{content:attr(data-plan) " — ";font-weight:700}
+  }
+</style>
+  <table class="fx-table" id="fx-plans-table">
+    <thead>
+      <tr>
+        <th class="fx-feature">Feature / Usage</th>
+        <th>Free</th>
+        <th>Starter</th>
+        <th>Basic</th>
+        <th>Professional</th>
+        <th>Advanced</th>
+        <th>Premium</th>
+        <th>Enterprise</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- Job Postings - ALWAYS FIRST -->
+      <tr class="fx-hoverable clickable" data-desc="desc-jobs">
+        <td class="fx-feature"><i class="fas fa-briefcase" style="color:#006980;margin-right:8px;"></i>Job postings / month</td>
+        <td>10</td><td>15</td><td>25</td><td>35</td><td>45</td><td>65</td><td><span class="oi">Unlimited</span></td>
+      </tr>
+      <tr class="fx-explain" id="desc-jobs"><td colspan="8"><div class="fx-explain-inner">Number of active job slots you can publish simultaneously per month.</div></td></tr>
+
+      <!-- User Seats -->
+      <tr class="fx-hoverable clickable" data-desc="desc-seats">
+        <td class="fx-feature"><i class="fas fa-users" style="color:#006980;margin-right:8px;"></i>User seats</td>
+        <td>1</td><td>5</td><td>10</td><td>15</td><td>20</td><td><span class="oi">Unlimited</span></td><td><span class="oi">Unlimited</span></td>
+      </tr>
+      <tr class="fx-explain" id="desc-seats"><td colspan="8"><div class="fx-explain-inner">Total team members who can collaborate inside your account.</div></td></tr>
+
+      <!-- ===== Available for All Plans (7/7) ===== -->
+
+      <!-- Support -->
+      <tr class="fx-hoverable clickable" data-desc="desc-support">
+        <td class="fx-feature"><i class="fas fa-headset" style="color:#006980;margin-right:8px;"></i>Support 24/7</td>
+        <td>Tickets</td><td>Chat</td><td>Chat</td><td>Chat</td><td>Chat</td><td>Chat ,<br> Online Meetings</td><td>Chat ,<br> Online Meetings</td>
+      </tr>
+      <tr class="fx-explain" id="desc-support"><td colspan="8"><div class="fx-explain-inner">Round-the-clock priority support through Chat and Online Meetings with our senior support engineers.</div></td></tr>
+
+      <!-- GDPR & CCPA Compliance -->
+      <tr class="fx-hoverable clickable" data-desc="desc-gdpr-ccpa">
+        <td class="fx-feature"><i class="fas fa-shield-alt" style="color:#006980;margin-right:8px;"></i>GDPR & CCPA compliance</td>
+        <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-gdpr-ccpa"><td colspan="8"><div class="fx-explain-inner">Full compliance with GDPR (European Union) and CCPA (California) data protection regulations. Includes data subject rights management, consent tracking, data portability, right to erasure, privacy controls, and automated compliance reports. Protect candidate privacy and meet international legal requirements.</div></td></tr>
+
+      <!-- Google Job Listing -->
+      <tr class="fx-hoverable clickable" data-desc="desc-google-jobs">
+        <td class="fx-feature"><i class="fab fa-google" style="color:#006980;margin-right:8px;"></i>Google job listing</td>
+        <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-google-jobs"><td colspan="8"><div class="fx-explain-inner">Automatically list your jobs on Google for Jobs for free. Increase visibility and reach more candidates through Google Search without additional costs.</div></td></tr>
+
+      <!-- Online Meeting Tool -->
+      <tr class="fx-hoverable clickable" data-desc="desc-meet">
+        <td class="fx-feature"><i class="fas fa-video" style="color:#006980;margin-right:8px;"></i>Online meeting tool</td>
+        <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-meet"><td colspan="8"><div class="fx-explain-inner">Schedule and host interviews with candidates directly from Flowxtra.</div></td></tr>
+
+
+      <!-- CV Parsing -->
+      <tr class="fx-hoverable clickable" data-desc="desc-cv-parsing">
+        <td class="fx-feature"><i class="fas fa-file-circle-check" style="color:#006980;margin-right:8px;"></i>CV parsing</td>
+        <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-cv-parsing"><td colspan="8"><div class="fx-explain-inner">Automatically extract and structure candidate information from CVs and resumes. Supports multiple file formats including PDF, Word, and text files. Intelligently parses contact details, work experience, education, skills, and qualifications to populate candidate profiles instantly.</div></td></tr>
+
+
+      <!-- Kanban Board -->
+      <tr class="fx-hoverable clickable" data-desc="desc-kanban">
+        <td class="fx-feature"><i class="fas fa-columns" style="color:#006980;margin-right:8px;"></i>Kanban board</td>
+        <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-kanban"><td colspan="8"><div class="fx-explain-inner">Kanban-style board to visualize and move candidates through hiring stages. Simple column view for quick candidate management.</div></td></tr>
+
+      <!-- Diagram Board -->
+      <tr class="fx-hoverable clickable" data-desc="desc-diagram">
+        <td class="fx-feature"><i class="fas fa-diagram-project" style="color:#006980;margin-right:8px;"></i>Diagram board</td>
+        <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-diagram"><td colspan="8"><div class="fx-explain-inner">Advanced diagram board with drag-and-drop functionality, detailed activity history, and comprehensive candidate tracking. Enhanced visualization with filters and analytics.</div></td></tr>
+
+      <!-- Multiposting -->
+      <tr class="fx-hoverable clickable" data-desc="desc-multipost">
+        <td class="fx-feature"><i class="fas fa-bullhorn" style="color:#006980;margin-right:8px;"></i>Multiposting</td>
+        <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-multipost"><td colspan="8"><div class="fx-explain-inner">Distribute job ads to multiple channels simultaneously for maximum exposure. Includes Google Jobs, LinkedIn, and other platforms.</div></td></tr>
+
+      <!-- Career Page -->
+      <tr class="fx-hoverable clickable" data-desc="desc-career">
+        <td class="fx-feature"><i class="fas fa-building" style="color:#006980;margin-right:8px;"></i>Career page</td>
+        <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-career"><td colspan="8"><div class="fx-explain-inner">Your branded public careers page listing all open roles.</div></td></tr>
+
+      <!-- Job Widget -->
+      <tr class="fx-hoverable clickable" data-desc="desc-widget">
+        <td class="fx-feature"><i class="fas fa-code" style="color:#006980;margin-right:8px;"></i>Job widget</td>
+        <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-widget"><td colspan="8"><div class="fx-explain-inner">Embed your job list on any website with a copy-paste snippet.</div></td></tr>
+
+      <!-- API & ATS Integrations -->
+      <tr class="fx-hoverable clickable" data-desc="desc-api">
+        <td class="fx-feature"><i class="fas fa-plug" style="color:#006980;margin-right:8px;"></i>ATS integrations</td>
+        <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-api"><td colspan="8"><div class="fx-explain-inner">Connect Flowxtra with your HR stack, websites, and internal tools.</div></td></tr>
+
+      <!-- Two-factor authentication -->
+      <tr class="fx-hoverable clickable" data-desc="desc-2fa">
+        <td class="fx-feature"><i class="fas fa-shield-halved" style="color:#006980;margin-right:8px;"></i>Two-factor authentication</td>
+        <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-2fa"><td colspan="8"><div class="fx-explain-inner">Protect accounts with an extra verification step at login. Also known as 2FA.</div></td></tr>
+
+      <!-- CRM Integration -->
+      <tr class="fx-hoverable clickable" data-desc="desc-crm">
+        <td class="fx-feature"><i class="fas fa-diagram-project" style="color:#006980;margin-right:8px;"></i>Integration with CRM systems</td>
+        <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-crm"><td colspan="8"><div class="fx-explain-inner">Sync candidate and client data with your CRM for seamless workflows.</div></td></tr>
+
+      <!-- API/MCP Documentation -->
+      <tr class="fx-hoverable clickable" data-desc="desc-api-mcp">
+        <td class="fx-feature"><i class="fas fa-book-open" style="color:#006980;margin-right:8px;"></i>API/MCP</td>
+        <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-api-mcp"><td colspan="8"><div class="fx-explain-inner">Complete documentation for integrating Flowxtra with your custom systems and LLMs. Includes detailed API references, MCP protocol guides, code examples, and integration tutorials.</div></td></tr>
+
+      <!-- Company Page -->
+      <tr class="fx-hoverable clickable" data-desc="desc-subdomain">
+        <td class="fx-feature"><i class="fas fa-globe" style="color:#006980;margin-right:8px;"></i>Company page</td>
+        <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-subdomain"><td colspan="8"><div class="fx-explain-inner">Get a branded subdomain with your company profile and jobs.</div></td></tr>
+
+      <!-- Custom LLMs Integration -->
+      <tr class="fx-hoverable clickable" data-desc="desc-custom-llms">
+        <td class="fx-feature"><i class="fas fa-brain" style="color:#006980;margin-right:8px;"></i>Custom LLMs Integration</td>
+        <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-custom-llms"><td colspan="8"><div class="fx-explain-inner">Integrate your own LLMs that are hosted on your infrastructure. We provide the integration tools (API & MCP) so your AI models can work seamlessly within Flowxtra while staying in your environment.</div></td></tr>
+
+      <!-- ===== Available from Starter and Above (6/7) ===== -->
+
+      <!-- Privacy Policy Generator -->
+      <tr class="fx-hoverable clickable" data-desc="desc-privacy-generator">
+        <td class="fx-feature"><i class="fas fa-file-contract" style="color:#006980;margin-right:8px;"></i>Privacy policy generator</td>
+        <td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-privacy-generator"><td colspan="8"><div class="fx-explain-inner">Create customized privacy policies tailored to your needs. Choose from pre-built templates for different privacy regulations (GDPR, CCPA, etc.) and customize the text to match your company requirements. Generate professional, legally-compliant privacy policies without legal expertise.</div></td></tr>
+
+      <!-- Smart Candidate Filtering -->
+      <tr class="fx-hoverable clickable" data-desc="desc-filtering">
+        <td class="fx-feature"><i class="fas fa-filter" style="color:#006980;margin-right:8px;"></i>Smart candidate filtering</td>
+        <td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-filtering"><td colspan="8"><div class="fx-explain-inner">Auto-prioritizes applicants based on role requirements and custom criteria.</div></td></tr>
+
+      <!-- Custom Fields on Jobs -->
+      <tr class="fx-hoverable clickable" data-desc="desc-custom-fields">
+        <td class="fx-feature"><i class="fas fa-list-check" style="color:#006980;margin-right:8px;"></i>Custom fields on jobs</td>
+        <td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-custom-fields"><td colspan="8"><div class="fx-explain-inner">Add any fields you need to structure job data and forms.</div></td></tr>
+
+      <!-- Roles & Permissions -->
+      <tr class="fx-hoverable clickable" data-desc="desc-roles">
+        <td class="fx-feature"><i class="fas fa-user-shield" style="color:#006980;margin-right:8px;"></i>Roles & permissions</td>
+        <td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-roles"><td colspan="8"><div class="fx-explain-inner">Granular access control for recruiters, hiring managers, and admins.</div></td></tr>
+
+      <!-- Hiring stages -->
+      <tr class="fx-hoverable clickable" data-desc="desc-hiring-stages">
+        <td class="fx-feature"><i class="fas fa-chart-line" style="color:#006980;margin-right:8px;"></i>Hiring stages</td>
+        <td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-hiring-stages"><td colspan="8"><div class="fx-explain-inner">Customizable hiring stages. Define and manage recruitment phases like application review, interviews, assessments, and final decisions. Fully customizable to match your unique hiring workflow.</div></td></tr>
+
+      <!-- App Store Integrations -->
+      <tr class="fx-hoverable clickable" data-desc="desc-appstore">
+        <td class="fx-feature"><i class="fas fa-puzzle-piece" style="color:#006980;margin-right:8px;"></i>App store integrations</td>
+        <td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-appstore"><td colspan="8"><div class="fx-explain-inner">Plug-and-play integrations with popular HR, comms, and analytics tools.</div></td></tr>
+
+      <!-- Rating Sheets -->
+      <tr class="fx-hoverable clickable" data-desc="desc-ratings">
+        <td class="fx-feature"><i class="fas fa-star" style="color:#006980;margin-right:8px;"></i>Rating sheets</td>
+        <td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-ratings"><td colspan="8"><div class="fx-explain-inner">Structured scorecards to evaluate candidates consistently.</div></td></tr>
+
+      <!-- Custom Social Sharing -->
+      <tr class="fx-hoverable clickable" data-desc="desc-sharing">
+        <td class="fx-feature"><i class="fas fa-share-alt" style="color:#006980;margin-right:8px;"></i>Custom social sharing</td>
+        <td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-sharing"><td colspan="8"><div class="fx-explain-inner">Customize OG tags, banners, and captions for job links.</div></td></tr>
+
+      <!-- Brand Kit -->
+      <tr class="fx-hoverable clickable" data-desc="desc-brandkit">
+        <td class="fx-feature"><i class="fas fa-palette" style="color:#006980;margin-right:8px;"></i>Brand Kit</td>
+        <td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-brandkit"><td colspan="8"><div class="fx-explain-inner">Customize your entire system with your brand colors, fonts, and logo. Your career pages, emails, and all candidate-facing content will reflect your brand identity consistently.</div></td></tr>
+
+      <!-- Email Template Builder -->
+      <tr class="fx-hoverable clickable" data-desc="desc-email-templates">
+        <td class="fx-feature"><i class="fas fa-envelope" style="color:#006980;margin-right:8px;"></i>Email template builder</td>
+        <td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-email-templates"><td colspan="8"><div class="fx-explain-inner">Design and customize email templates for all candidate communications. Create branded, professional emails with your own design, layout, and messaging.</div></td></tr>
+     <!-- Automated Messages -->
+     <tr class="fx-hoverable clickable" data-desc="desc-auto-msg">
+      <td class="fx-feature"><i class="fas fa-envelope-open-text" style="color:#006980;margin-right:8px;"></i>Automated messages</td>
+      <td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+    </tr>
+    <tr class="fx-explain" id="desc-auto-msg"><td colspan="8"><div class="fx-explain-inner">Send automatic confirmations, rejections, and reminders to candidates.</div></td></tr>
+
+
+      <!-- Custom Career Page -->
+      <tr class="fx-hoverable clickable" data-desc="desc-custom-career">
+        <td class="fx-feature"><i class="fas fa-file-lines" style="color:#006980;margin-right:8px;"></i>Custom career page</td>
+        <td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-custom-career"><td colspan="8"><div class="fx-explain-inner">Build rich careers pages with sections for culture, benefits, and teams. Supports multi-section layouts.</div></td></tr>
+
+      <!-- Custom Domain -->
+      <tr class="fx-hoverable clickable" data-desc="desc-domain">
+        <td class="fx-feature"><i class="fas fa-link" style="color:#006980;margin-right:8px;"></i>Custom domain</td>
+        <td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-domain"><td colspan="8"><div class="fx-explain-inner">Use your own domain for careers pages and application forms.</div></td></tr>
+
+      <!-- Skills Reservoir -->
+      <tr class="fx-hoverable clickable" data-desc="desc-skills-reservoir">
+        <td class="fx-feature"><i class="fas fa-database" style="color:#006980;margin-right:8px;"></i>Skills reservoir</td>
+        <td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-skills-reservoir"><td colspan="8"><div class="fx-explain-inner">Store and organize top candidates who didn't get hired for future opportunities. Build a database of qualified talent ready for upcoming positions that match their skills.</div></td></tr>
+
+      <!-- ===== Available from Basic and Above (5/7) ===== -->
+
+      <!-- Unlimited data storage -->
+      <tr class="fx-hoverable clickable" data-desc="desc-storage">
+        <td class="fx-feature"><i class="fas fa-cloud" style="color:#006980;margin-right:8px;"></i>Unlimited data storage</td>
+        <td>—</td><td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-storage"><td colspan="8"><div class="fx-explain-inner">Store files, resumes, and activity logs without hard caps.</div></td></tr>
+
+      <!-- Journey Flow -->
+      <tr class="fx-hoverable clickable" data-desc="desc-journey-flow">
+        <td class="fx-feature"><i class="fas fa-route" style="color:#006980;margin-right:8px;"></i>Journey flow</td>
+        <td>—</td><td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-journey-flow"><td colspan="8"><div class="fx-explain-inner">Advanced workflow automation builder (like n8n). Create custom recruitment processes with conditional paths based on candidate responses. Auto-send welcome emails, request additional info, send contracts, training courses, and create dynamic workflows with triggers, wait times, conditions, and multiple branches. Build personalized candidate journeys for each job with smart segmentation based on location, answers, or any custom criteria.</div></td></tr>
+
+      <!-- AI Job Ad Builder -->
+      <tr class="fx-hoverable clickable" data-desc="desc-ai-ad">
+        <td class="fx-feature"><i class="fas fa-wand-magic-sparkles" style="color:#006980;margin-right:8px;"></i>AI job ad builder</td>
+        <td>—</td><td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-ai-ad"><td colspan="8"><div class="fx-explain-inner">Generate optimized job descriptions aligned to role requirements.</div></td></tr>
+
+      <!-- Client Profiles -->
+      <tr class="fx-hoverable clickable" data-desc="desc-clients">
+        <td class="fx-feature"><i class="fas fa-handshake" style="color:#006980;margin-right:8px;"></i>Client profiles</td>
+        <td>—</td><td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-clients"><td colspan="8"><div class="fx-explain-inner">Manage multiple client companies with separate jobs and teams. Perfect for agencies.</div></td></tr>
+
+      <!-- Offices -->
+      <tr class="fx-hoverable clickable" data-desc="desc-offices">
+        <td class="fx-feature"><i class="fas fa-location-dot" style="color:#006980;margin-right:8px;"></i>Multi office location</td>
+        <td>—</td><td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-offices"><td colspan="8"><div class="fx-explain-inner">Organize jobs, users, and reports by location. Support for multi-location companies.</div></td></tr>
+
+      <!-- ===== Available from Professional and Above (4/7) ===== -->
+
+      <!-- Newsletter -->
+      <tr class="fx-hoverable clickable" data-desc="desc-newsletter">
+        <td class="fx-feature"><i class="fas fa-newspaper" style="color:#006980;margin-right:8px;"></i>Newsletter</td>
+        <td>—</td><td>—</td><td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-newsletter"><td colspan="8"><div class="fx-explain-inner">Send automated job alerts to candidates who opted-in during application. Notify them about new opportunities via email, SMS, WhatsApp, or Telegram. Includes Mailchimp integration for advanced campaigns and automatic job vacancy notifications.</div></td></tr>
+
+      <!-- Talent Pool -->
+      <tr class="fx-hoverable clickable" data-desc="desc-talent">
+        <td class="fx-feature"><i class="fas fa-user-group" style="color:#006980;margin-right:8px;"></i>Talent pool</td>
+        <td>—</td><td>—</td><td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-talent"><td colspan="8"><div class="fx-explain-inner">Maintain a database of silver-medalist and future-fit candidates.</div></td></tr>
+
+      <!-- Reports & Analytics -->
+      <tr class="fx-hoverable clickable" data-desc="desc-reports">
+        <td class="fx-feature"><i class="fas fa-chart-bar" style="color:#006980;margin-right:8px;"></i>Reports & analytics</td>
+        <td>—</td><td>—</td><td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-reports"><td colspan="8"><div class="fx-explain-inner">Insights on sources, pipeline speed, drop-off, and team productivity. Includes detailed applicant reports.</div></td></tr>
+
+      <!-- Database Migration -->
+      <tr class="fx-hoverable clickable" data-desc="desc-migration">
+        <td class="fx-feature"><i class="fas fa-arrow-right-arrow-left" style="color:#006980;margin-right:8px;"></i>Database migration</td>
+        <td>—</td><td>—</td><td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-migration"><td colspan="8"><div class="fx-explain-inner">We help import candidates, jobs, and notes from other systems.</div></td></tr>
+
+      <!-- Candidate Export -->
+      <tr class="fx-hoverable clickable" data-desc="desc-export">
+        <td class="fx-feature"><i class="fas fa-file-export" style="color:#006980;margin-right:8px;"></i>Candidate export</td>
+        <td>—</td><td>—</td><td>—</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+      </tr>
+      <tr class="fx-explain" id="desc-export"><td colspan="8"><div class="fx-explain-inner">Export lists and reports for external analysis and backups. Supports CSV and Excel formats.</div></td></tr>
+
+      <!-- ===== Available from Advanced and Above (3/7) ===== -->
+      <!-- ===== Coming Soon Features ===== -->
+        <tr><th colspan="8" style="text-align:left !important;background:#f8fafc !important;font-weight:800 !important;padding-left:16px !important;">Coming Soon</th></tr>
+
+      <!-- e-Sign -->
+      <tr class="fx-hoverable clickable" data-desc="desc-esign">
+        <td class="fx-feature"><i class="fas fa-file-signature" style="color:#006980;margin-right:8px;"></i>eSignature</td>
+        <td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td>
+      </tr>
+      <tr class="fx-explain" id="desc-esign"><td colspan="8"><div class="fx-explain-inner">Send, sign, and track legally binding digital contracts with audit trails and timestamps.</div></td></tr>
+
+      <!-- E-Learning -->
+      <tr class="fx-hoverable clickable" data-desc="desc-elearn">
+        <td class="fx-feature"><i class="fas fa-graduation-cap" style="color:#006980;margin-right:8px;"></i>E-learning</td>
+        <td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td>
+      </tr>
+      <tr class="fx-explain" id="desc-elearn"><td colspan="8"><div class="fx-explain-inner">Train hiring teams with built-in courses and certifications. Includes company-specific course creation.</div></td></tr>
+
+      <!-- Assessments -->
+      <tr class="fx-hoverable clickable" data-desc="desc-assess">
+        <td class="fx-feature"><i class="fas fa-clipboard-check" style="color:#006980;margin-right:8px;"></i>Assessments</td>
+        <td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td>
+      </tr>
+      <tr class="fx-explain" id="desc-assess"><td colspan="8"><div class="fx-explain-inner">Skills and personality tests with structured, comparable results.</div></td></tr>
+
+      <!-- Social Ads Manager -->
+      <tr class="fx-hoverable clickable" data-desc="desc-social-ads">
+        <td class="fx-feature"><i class="fas fa-rectangle-ad" style="color:#006980;margin-right:8px;"></i>Social Ads Manager</td>
+        <td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td>
+      </tr>
+      <tr class="fx-explain" id="desc-social-ads"><td colspan="8"><div class="fx-explain-inner">Create and manage job advertisements across major platforms including Facebook, Instagram, SnapChat, Google, YouTube, TikTok, and LinkedIn. Save on additional fees by managing all your social media advertising directly within Flowxtra.</div></td></tr>
+
+      <!-- ID Verification -->
+      <tr class="fx-hoverable clickable" data-desc="desc-id-verification">
+        <td class="fx-feature"><i class="fas fa-id-card" style="color:#006980;margin-right:8px;"></i>ID Verification</td>
+        <td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td>
+      </tr>
+      <tr class="fx-explain" id="desc-id-verification"><td colspan="8"><div class="fx-explain-inner">Verify candidate identity documents including passports, national IDs, and other official identification documents for enhanced security and compliance.</div></td></tr>
+
+      <!-- Apply via Chatbot -->
+      <tr class="fx-hoverable clickable" data-desc="desc-apply-chatbot">
+        <td class="fx-feature"><i class="fas fa-comment-dots" style="color:#006980;margin-right:8px;"></i>Apply via social  Chatbot</td>
+        <td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td>
+      </tr>
+      <tr class="fx-explain" id="desc-apply-chatbot"><td colspan="8"><div class="fx-explain-inner">Connect your company's own WhatsApp Business, Telegram, Facebook Messenger, Discord, or WeChat accounts. Candidates apply directly through your business chat, reducing costs while maintaining direct communication with applicants.</div></td></tr>
+
+      <!-- Candidate Presentation -->
+      <tr class="fx-hoverable clickable" data-desc="desc-candidate-presentation">
+        <td class="fx-feature"><i class="fas fa-share-from-square" style="color:#006980;margin-right:8px;"></i>Candidate presentation</td>
+        <td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td>
+      </tr>
+      <tr class="fx-explain" id="desc-candidate-presentation"><td colspan="8"><div class="fx-explain-inner">Generate secure shareable links to present candidate profiles with your notes and comments to clients, managers, or external partners. Share specific candidate information without granting full system access. Candidates consent to information sharing in advance. Perfect for recruitment agencies presenting profiles to clients or internal stakeholders reviewing candidates.</div></td></tr>
+
+      <!-- Social Media Posts -->
+      <tr class="fx-hoverable clickable" data-desc="desc-social">
+        <td class="fx-feature"><i class="fas fa-share-nodes" style="color:#006980;margin-right:8px;"></i>Social media posts</td>
+        <td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td>
+      </tr>
+      <tr class="fx-explain" id="desc-social"><td colspan="8"><div class="fx-explain-inner">Schedule and publish unlimited posts, stories, videos, and any content across all social media platforms. Full content scheduling and management system.</div></td></tr>
+
+      <!-- AI Chatbot -->
+      <tr class="fx-hoverable clickable" data-desc="desc-Chatbot">
+        <td class="fx-feature"><i class="fas fa-robot" style="color:#006980;margin-right:8px;"></i>AI Chatbot</td>
+        <td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td>
+      </tr>
+      <tr class="fx-explain" id="desc-Chatbot"><td colspan="8"><div class="fx-explain-inner">Answer candidate FAQs and pre-screen directly on your careers pages.</div></td></tr>
+
+      <!-- One-Way Video Interviews -->
+      <tr class="fx-hoverable clickable" data-desc="desc-one-way-video">
+        <td class="fx-feature"><i class="fas fa-video-camera" style="color:#006980;margin-right:8px;"></i>One-way video interviews</td>
+        <td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td>
+      </tr>
+      <tr class="fx-explain" id="desc-one-way-video"><td colspan="8"><div class="fx-explain-inner">Candidates can record and upload video responses during the application process. Screen candidates asynchronously by reviewing pre-recorded video answers to your custom questions. Save time by watching responses on your schedule without coordinating live interview times.</div></td></tr>
+
+      <!-- Employee Onboarding -->
+      <tr class="fx-hoverable clickable" data-desc="desc-onboarding">
+        <td class="fx-feature"><i class="fas fa-user-plus" style="color:#006980;margin-right:8px;"></i>Employee onboarding</td>
+        <td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td><td>soon</td>
+      </tr>
+      <tr class="fx-explain" id="desc-onboarding"><td colspan="8"><div class="fx-explain-inner">Streamline new hire integration with automated onboarding workflows. Send employment documents, contracts, and training materials. Create customizable checklists for new employees, schedule their first days, introduce them to the team, and track their progress. Complete onboarding journey from offer acceptance to full productivity.</div></td></tr>
+    </tbody>
+  </table>
+</section>
+
+  <script>
+  (function(){
+    const table = document.getElementById('fx-plans-table');
+    
+    // Removed symbol-cell logic since bold effects are cancelled
+    
+    table.addEventListener('click', (e)=>{
+      const row = e.target.closest('tr.fx-hoverable.clickable');
+      if(!row) return;
+        const isOpen = row.getAttribute('aria-expanded') === 'true';
+    
+        // Close any open rows
+        table.querySelectorAll('tr[aria-expanded="true"]').forEach(r=>r.setAttribute('aria-expanded','false'));
+    
+        // Toggle current
+        row.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+    
+        // Scroll the explanation into view if opening
+        if(!isOpen){
+          const id = row.getAttribute('data-desc');
+          const exp = id && document.getElementById(id);
+          if(exp){ exp.scrollIntoView({ block:'nearest', behavior:'smooth' }); }
+        }
+      });
+  })();
+  </script>

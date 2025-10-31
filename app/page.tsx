@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { CodeEditor } from "@/components/ui/code-editor";
 import { Code } from "lucide-react";
+import CompareFeatures from "@/components/CompareFeatures";
 
 // Features Sticky Sections Component
 function FeaturesSlider() {
@@ -752,9 +753,8 @@ Hiring Faster Growth              </h2>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               Plans and Pricing
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
-              Receive unlimited credits when you pay yearly, and save on your plan.
-            </p>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mx-auto mb-6 whitespace-nowrap">
+            What you see is exactly what you pay: one simple subscription, no additional charges.</p>
             
             {/* Features */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-6">
@@ -768,8 +768,8 @@ Hiring Faster Growth              </h2>
               </div>
               
               <div className="flex items-center gap-2">
-                <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg className="w-6 h-6 text-primary" viewBox="0 -960 960 960" fill="currentColor">
+                  <path d="m376-320 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm0-80h640v-480H160v480Zm0 0v-480 480Z"/>
                 </svg>
                 <span className="text-base font-semibold text-gray-900 dark:text-white">
                   Cancel anytime
@@ -785,13 +785,13 @@ Hiring Faster Growth              </h2>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Free</h3>
               
               <div className="mb-6">
-                <div className="flex items-baseline mb-1">
+                <div className="flex items-baseline gap-2">
                   <span className="text-4xl font-bold text-gray-900 dark:text-white">€0</span>
+                  <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">/ monthly</span>
                 </div>
-                <p className="text-xs text-gray-500 dark:text-gray-400">Per user/month, billed annually</p>
               </div>
 
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">For your hobby projects</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">For growing businesses</p>
               
               <ul className="space-y-3 mb-8 flex-grow">
                 <li className="flex items-start gap-2">
@@ -824,7 +824,7 @@ Hiring Faster Growth              </h2>
                 href="https://my.flowxtra.com/registration"
                 className="block text-center border-2 border-primary text-primary px-6 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
               >
-                Get started for free
+                Get started
               </a>
             </div>
 
@@ -833,13 +833,13 @@ Hiring Faster Growth              </h2>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Starter</h3>
               
               <div className="mb-6">
-                <div className="flex items-baseline mb-1">
+                <div className="flex items-baseline gap-2">
                   <span className="text-4xl font-bold text-gray-900 dark:text-white">€30</span>
+                  <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">/ monthly</span>
                 </div>
-                <p className="text-xs text-gray-500 dark:text-gray-400">Per user/month, billed annually</p>
               </div>
 
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">For your hobby projects</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">For growing businesses</p>
               
               <ul className="space-y-3 mb-8 flex-grow">
                 <li className="flex items-start gap-2">
@@ -872,7 +872,7 @@ Hiring Faster Growth              </h2>
                 href="https://my.flowxtra.com/registration"
                 className="block text-center border-2 border-primary text-primary px-6 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
               >
-                Get started for Starter
+                Get started
               </a>
             </div>
 
@@ -881,13 +881,13 @@ Hiring Faster Growth              </h2>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Basic</h3>
               
               <div className="mb-6">
-                <div className="flex items-baseline mb-1">
+                <div className="flex items-baseline gap-2">
                   <span className="text-4xl font-bold text-gray-900 dark:text-white">€99</span>
+                  <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">/ monthly</span>
                 </div>
-                <p className="text-xs text-gray-500 dark:text-gray-400">Per user/month, billed annually</p>
               </div>
 
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">Great for small businesses</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">For growing businesses</p>
               
               <ul className="space-y-3 mb-8 flex-grow">
                 <li className="flex items-start gap-2">
@@ -920,24 +920,23 @@ Hiring Faster Growth              </h2>
                 href="https://my.flowxtra.com/registration"
                 className="block text-center border-2 border-primary text-primary px-6 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
               >
-                Get started with Basic
+                Get started
               </a>
             </div>
 
-            {/* Professional Plan - Featured */}
-            <div className="bg-gradient-to-br from-primary to-secondary border-2 border-primary rounded-2xl p-6 flex flex-col relative overflow-hidden lg:scale-105 shadow-2xl">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-secondary-light/20 rounded-full -mr-16 -mt-16"></div>
+            {/* Professional Plan */}
+            <div className="border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col relative overflow-hidden bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/img/overlay_border_shadow.webp')" }}>
               
               <h3 className="text-xl font-bold text-white mb-6 relative z-10">Professional</h3>
               
               <div className="mb-6 relative z-10">
-                <div className="flex items-baseline mb-1">
+                <div className="flex items-baseline gap-2">
                   <span className="text-4xl font-bold text-white">€387</span>
+                  <span className="text-sm text-white/80 font-medium">/ monthly</span>
                 </div>
-                <p className="text-xs text-white/80">Per user/month, billed annually</p>
               </div>
 
-              <p className="text-sm text-white/90 mb-4 relative z-10">For multiple teams</p>
+              <p className="text-sm text-white/90 mb-4 relative z-10">For custom needs</p>
               
               <ul className="space-y-3 mb-8 flex-grow relative z-10">
                 <li className="flex items-start gap-2">
@@ -968,9 +967,9 @@ Hiring Faster Growth              </h2>
 
               <a
                 href="https://my.flowxtra.com/registration"
-                className="block text-center bg-white text-primary px-6 py-3 rounded-lg hover:bg-gray-100 transition-all font-medium relative z-10"
+                className="block text-center bg-white text-primary px-6 py-3 rounded-lg hover:bg-button-hover hover:text-white transition-all font-medium relative z-10"
               >
-                Get started with Pro
+                Get started
               </a>
             </div>
 
@@ -979,13 +978,13 @@ Hiring Faster Growth              </h2>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Advanced</h3>
               
               <div className="mb-6">
-                <div className="flex items-baseline mb-1">
+                <div className="flex items-baseline gap-2">
                   <span className="text-4xl font-bold text-gray-900 dark:text-white">€581</span>
+                  <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">/ monthly</span>
                 </div>
-                <p className="text-xs text-gray-500 dark:text-gray-400">Per user/month, billed annually</p>
               </div>
 
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">Great for small businesses</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">For growing businesses</p>
               
               <ul className="space-y-3 mb-8 flex-grow">
                 <li className="flex items-start gap-2">
@@ -1018,7 +1017,7 @@ Hiring Faster Growth              </h2>
                 href="https://my.flowxtra.com/registration"
                 className="block text-center border-2 border-primary text-primary px-6 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
               >
-                Get started with Advanced
+                Get started
               </a>
             </div>
           </div>
@@ -1035,13 +1034,13 @@ Hiring Faster Growth              </h2>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Premium</h3>
                 
                 <div className="mb-6">
-                  <div className="flex items-baseline mb-1">
+                  <div className="flex items-baseline gap-2">
                     <span className="text-5xl font-bold text-gray-900 dark:text-white">€999</span>
+                    <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">/ monthly</span>
                   </div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Per user/month, billed annually</p>
                 </div>
 
-                <p className="text-base text-gray-600 dark:text-gray-300 mb-6">For your hobby projects</p>
+                <p className="text-base text-gray-600 dark:text-gray-300 mb-6">For growing businesses</p>
                 
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-start gap-3">
@@ -1074,80 +1073,78 @@ Hiring Faster Growth              </h2>
                   href="https://my.flowxtra.com/registration"
                   className="block text-center border-2 border-primary text-primary px-8 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium text-lg"
                 >
-                  Get started with Premium
+                  Get started
                 </a>
               </div>
 
-              {/* Enterprise Plan - Featured */}
-              <div className="bg-gradient-to-br from-gray-900 to-gray-800 dark:from-gray-900 dark:to-black border-2 border-secondary-light rounded-2xl p-8 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-40 h-40 bg-secondary-light/20 rounded-full -mr-20 -mt-20"></div>
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/20 rounded-full -ml-16 -mb-16"></div>
+              {/* Enterprise Plan */}
+              <div className="border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-8 relative overflow-hidden bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/img/overlay_border_shadow2.webp')" }}>
                 
-                <div className="relative z-10">
-                  <h3 className="text-2xl font-bold text-white mb-6">Enterprise</h3>
-                  
-                  <div className="mb-6">
-                    <div className="text-5xl font-bold text-white mb-1">Contact us</div>
-                    <p className="text-sm text-white/70">Per user/month, billed annually</p>
-                  </div>
-
-                  <p className="text-base text-white/90 mb-6">For multiple teams</p>
-                  
-                  <ul className="space-y-4 mb-8">
-                    <li className="flex items-start gap-3">
-                      <svg className="w-6 h-6 text-secondary-light flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-base text-white/90">Unlimited ATS Recruitment</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg className="w-6 h-6 text-secondary-light flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-base text-white/90">Unlimited Job postings</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg className="w-6 h-6 text-secondary-light flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-base text-white/90">Unlimited e-Sign Documents</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg className="w-6 h-6 text-secondary-light flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-base text-white/90">Unlimited Social Media Posts</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      <span className="text-base text-white/90">Database migration</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      <span className="text-base text-white/90">24/7 customer support</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      <span className="text-base text-white/90">Integration with your CRM systems</span>
-                    </li>
-                  </ul>
-
-                  <a
-                    href="/contact-us"
-                    className="block text-center bg-white text-primary px-8 py-3 rounded-lg hover:bg-gray-100 transition-all font-medium text-lg"
-                  >
-                    Contact us
-                  </a>
+                <h3 className="text-2xl font-bold text-white mb-6 relative z-10">Enterprise</h3>
+                
+                <div className="mb-6 relative z-10">
+                  <div className="text-5xl font-bold text-white">Contact us</div>
                 </div>
+
+                <p className="text-base text-white/90 mb-6 relative z-10">For custom needs</p>
+                
+                <ul className="space-y-4 mb-8 relative z-10">
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-base text-white/90">Unlimited ATS Recruitment</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-base text-white/90">Unlimited Job postings</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-base text-white/90">Unlimited e-Sign Documents</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-base text-white/90">Unlimited Social Media Posts</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-base text-white/90">Database migration</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-base text-white/90">24/7 customer support</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-base text-white/90">Integration with your CRM systems</span>
+                  </li>
+                </ul>
+
+                <a
+                  href="/contact-us"
+                  className="block text-center bg-white text-primary px-8 py-3 rounded-lg hover:bg-button-hover hover:text-white transition-all font-medium text-lg relative z-10"
+                >
+                  Contact us
+                </a>
               </div>
             </div>
           </div>
+
+          {/* Compare Features Accordion */}
+          <CompareFeatures />
         </div>
       </section>
     </div>
