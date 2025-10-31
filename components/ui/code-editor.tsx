@@ -91,6 +91,15 @@ function CodeEditor({
   const editorRef = React.useRef<HTMLDivElement>(null);
   const containerRef = React.useRef<HTMLDivElement>(null);
 
+  // Auto-enable fullscreen when switching to Preview or Customization tab
+  React.useEffect(() => {
+    if (activeTab === 'preview' || activeTab === 'customization') {
+      setIsFullscreen(true);
+    }
+    // Don't auto-disable fullscreen when switching to Code tab
+    // User must manually click minimize button to exit fullscreen
+  }, [activeTab]);
+
   React.useEffect(() => {
     if (!writing || !code.length) {
       setVisibleCode(code);
@@ -293,16 +302,15 @@ function CodeEditor({
               </div>
             </div>
             
-            {/* Right Side: Minimize -> Copy -> Exit */}
+            {/* Right Side: Exit -> Copy -> Toggle Fullscreen */}
             <div className="flex items-center gap-2">
-              {/* Minimize (first) */}
+              {/* Exit (first) */}
               <button
                 onClick={() => setIsFullscreen(false)}
-                className="inline-flex items-center justify-center rounded-md h-8 w-8 p-0 bg-transparent hover:bg-white/10 text-[#c9d1d9] hover:text-white transition-colors"
-                aria-label="Exit fullscreen"
-                title="Exit fullscreen"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-transparent hover:bg-white/10 text-[#c9d1d9] hover:text-white text-sm font-medium transition-colors"
               >
-                <Minimize2 className="h-4 w-4" />
+                <span className="px-1.5 py-0.5 bg-white/20 rounded text-xs">Esc</span>
+                <span>Exit</span>
               </button>
 
               {/* Copy (second) */}
@@ -319,13 +327,18 @@ function CodeEditor({
                 </button>
               )}
 
-              {/* Exit (third) */}
+              {/* Toggle Fullscreen: Maximize/Minimize (third) */}
               <button
-                onClick={() => setIsFullscreen(false)}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-transparent hover:bg-white/10 text-[#c9d1d9] hover:text-white text-sm font-medium transition-colors"
+                onClick={toggleFullscreen}
+                className="inline-flex items-center justify-center rounded-md h-8 w-8 p-0 bg-transparent hover:bg-white/10 text-[#c9d1d9] hover:text-white transition-colors"
+                aria-label={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
+                title={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
               >
-                <span className="px-1.5 py-0.5 bg-white/20 rounded text-xs">Esc</span>
-                <span>Exit</span>
+                {isFullscreen ? (
+                  <Minimize2 className="h-4 w-4" />
+                ) : (
+                  <Maximize2 className="h-4 w-4" />
+                )}
               </button>
             </div>
           </div>
@@ -880,11 +893,14 @@ function CodeEditor({
                       Background
                     </label>
                     <div className="flex items-center gap-3">
-                      <input 
-                        type="color" 
-                        defaultValue="#FFFFFF" 
-                        className="w-10 h-10 rounded-full border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
-                      />
+                      <div className="relative">
+                        <input 
+                          type="color" 
+                          defaultValue="#FFFFFF" 
+                          className="w-12 h-12 rounded-lg border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
+                          style={{ padding: '2px' }}
+                        />
+                      </div>
                       <input 
                         type="text" 
                         defaultValue="#FFFFFF" 
@@ -899,11 +915,14 @@ function CodeEditor({
                       Filter Borders
                     </label>
                     <div className="flex items-center gap-3">
-                      <input 
-                        type="color" 
-                        defaultValue="#D4D4D8" 
-                        className="w-10 h-10 rounded-full border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
-                      />
+                      <div className="relative">
+                        <input 
+                          type="color" 
+                          defaultValue="#D4D4D8" 
+                          className="w-12 h-12 rounded-lg border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
+                          style={{ padding: '2px' }}
+                        />
+                      </div>
                       <input 
                         type="text" 
                         defaultValue="#D4D4D8" 
@@ -918,11 +937,14 @@ function CodeEditor({
                       Pagination
                     </label>
                     <div className="flex items-center gap-3">
-                      <input 
-                        type="color" 
-                        defaultValue="#2563EB" 
-                        className="w-10 h-10 rounded-full border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
-                      />
+                      <div className="relative">
+                        <input 
+                          type="color" 
+                          defaultValue="#2563EB" 
+                          className="w-12 h-12 rounded-lg border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
+                          style={{ padding: '2px' }}
+                        />
+                      </div>
                       <input 
                         type="text" 
                         defaultValue="#2563EB" 
@@ -943,11 +965,14 @@ function CodeEditor({
                         Background
                       </label>
                       <div className="flex items-center gap-3">
-                        <input 
-                          type="color" 
-                          defaultValue="#F8F8F8" 
-                          className="w-10 h-10 rounded-full border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
-                        />
+                        <div className="relative">
+                          <input 
+                            type="color" 
+                            defaultValue="#F8F8F8" 
+                            className="w-12 h-12 rounded-lg border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
+                            style={{ padding: '2px' }}
+                          />
+                        </div>
                         <input 
                           type="text" 
                           defaultValue="#F8F8F8" 
@@ -968,11 +993,14 @@ function CodeEditor({
                         </label>
                       </div>
                       <div className="flex items-center justify-end gap-3">
-                        <input 
-                          type="color" 
-                          defaultValue="#AAAAAA" 
-                          className="w-10 h-10 rounded-full border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
-                        />
+                        <div className="relative">
+                          <input 
+                            type="color" 
+                            defaultValue="#AAAAAA" 
+                            className="w-12 h-12 rounded-lg border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
+                            style={{ padding: '2px' }}
+                          />
+                        </div>
                         <input 
                           type="text" 
                           defaultValue="#AAAAAA" 
@@ -993,11 +1021,14 @@ function CodeEditor({
                         </label>
                       </div>
                       <div className="flex items-center justify-end gap-3">
-                        <input 
-                          type="color" 
-                          defaultValue="#0000004D" 
-                          className="w-10 h-10 rounded-full border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
-                        />
+                        <div className="relative">
+                          <input 
+                            type="color" 
+                            defaultValue="#0000004D" 
+                            className="w-12 h-12 rounded-lg border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
+                            style={{ padding: '2px' }}
+                          />
+                        </div>
                         <input 
                           type="text" 
                           defaultValue="#0000004D" 
@@ -1012,11 +1043,14 @@ function CodeEditor({
                         Primary Text
                       </label>
                       <div className="flex items-center gap-3">
-                        <input 
-                          type="color" 
-                          defaultValue="#FFFFFF" 
-                          className="w-10 h-10 rounded-full border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
-                        />
+                        <div className="relative">
+                          <input 
+                            type="color" 
+                            defaultValue="#FFFFFF" 
+                            className="w-12 h-12 rounded-lg border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
+                            style={{ padding: '2px' }}
+                          />
+                        </div>
                         <input 
                           type="text" 
                           defaultValue="#FFFFFF" 
@@ -1031,11 +1065,14 @@ function CodeEditor({
                         Secondary Text
                       </label>
                       <div className="flex items-center gap-3">
-                        <input 
-                          type="color" 
-                          defaultValue="#007E9A" 
-                          className="w-10 h-10 rounded-full border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
-                        />
+                        <div className="relative">
+                          <input 
+                            type="color" 
+                            defaultValue="#007E9A" 
+                            className="w-12 h-12 rounded-lg border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
+                            style={{ padding: '2px' }}
+                          />
+                        </div>
                         <input 
                           type="text" 
                           defaultValue="#007E9A" 
