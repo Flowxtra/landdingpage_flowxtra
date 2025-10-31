@@ -83,8 +83,8 @@ function FeaturesSlider() {
       showCodeBlock: true,
       // Job widget embed code - displays company jobs on external websites
       codeBlock: `
-<!-- Start of Flowxtra Job Widget -->
-<!-- Copy and paste this code into your website -->
+<!-- Start of Flowxtra.com Job Widget -->
+<!--Paste this code into your website -->
 
 <iframe
 src="https://dpro.flowxtra.com" 
@@ -94,7 +94,7 @@ frameborder="0"
 allowfullscreen>
 </iframe>
 
-<!-- End of Flowxtra Job Widget -->`,
+<!-- End of Flowxtra.com Job Widget -->`,
     },
   ];
 
@@ -118,30 +118,32 @@ allowfullscreen>
             <div className="container mx-auto px-4 md:px-8 lg:px-12">
               <div className={`grid gap-8 lg:gap-12 items-center max-w-7xl mx-auto ${slide.imageOnRight ? 'lg:grid-cols-[33%_67%]' : 'lg:grid-cols-[67%_33%]'}`}>
                 {/* Content */}
-                <div className={`bg-gray-50 dark:bg-gray-800 p-8 md:p-10 rounded-3xl ${slide.imageOnRight ? 'order-1' : 'order-1 lg:order-2'}`}>
-                  <span className="inline-block px-3 py-1.5 bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md text-sm font-normal mb-4">
+                <div className={`bg-gray-50 dark:bg-gray-800 p-5 md:p-8 lg:p-10 rounded-3xl ${slide.imageOnRight ? 'order-1' : 'order-1 lg:order-2'}`}>
+                  <span className="inline-block px-3 py-1.5 bg-[#e6f4f7] dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md text-sm font-normal mb-3">
                     {slide.badge}
                   </span>
                   
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#006980] dark:text-[#00A8CD] leading-tight mb-6 lg:mb-[150px]">
+                  <h2 className="text-base md:text-xl lg:text-3xl font-bold text-[#006980] dark:text-[#00A8CD] leading-tight mb-4 lg:mb-[150px]">
                     {slide.title}
                   </h2>
                   
                   {/* Image or Code Block inside content on mobile/tablet only */}
-                  <div className="lg:hidden mb-6 flex justify-center px-4">
+                  <div className="lg:hidden mb-4 w-full flex items-center justify-center">
                     {slide.showCodeBlock ? (
-                      <CodeEditor
-                        title="Embed Code"
-                        icon={<Code />}
-                        lang="html"
-                        copyButton
-                        header
-                        dots
-                        writing={false}
-                        className="w-full max-w-[340px] mx-auto h-auto"
-                      >
-                        {slide.codeBlock}
-                      </CodeEditor>
+                      <div className="w-full max-w-[310px] flex justify-center">
+                        <CodeEditor
+                          title="Embed Code"
+                          icon={<Code />}
+                          lang="html"
+                          copyButton
+                          header
+                          dots
+                          writing={false}
+                          className="w-full h-auto"
+                        >
+                          {slide.codeBlock}
+                        </CodeEditor>
+                      </div>
                     ) : (
                       <Image
                         src={slide.image}
@@ -155,14 +157,14 @@ allowfullscreen>
                     )}
                   </div>
                   
-                  <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-3.5">
+                  <p className="text-xs md:text-base lg:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-2.5">
                     {slide.description}
                   </p>
                   
-                  <div className="pt-2">
+                  <div className="pt-1">
                     <a
                       href={slide.buttonLink}
-                      className="inline-block bg-[#003f4d] text-white px-8 py-3 rounded-lg hover:bg-[#00A8CD] transition-colors font-medium text-base"
+                      className="inline-block bg-[#003f4d] text-white px-5 py-2 md:px-8 md:py-3 rounded-lg hover:bg-[#00A8CD] transition-colors font-medium text-xs md:text-base"
                     >
                       {slide.buttonText}
                     </a>
