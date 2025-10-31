@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { cn } from '@/lib/utils';
-import { Copy, Check, Maximize2, Minimize2 } from 'lucide-react';
+import { Copy, Check, Maximize2, Minimize2, Monitor, Tablet, Smartphone } from 'lucide-react';
 
 type CopyButtonProps = {
   content: string;
@@ -90,8 +90,16 @@ function CodeEditor({
   const [activeTab, setActiveTab] = React.useState<'code' | 'preview' | 'customization'>('code');
   const [customizationTab, setCustomizationTab] = React.useState<'settings' | 'design' | 'included-jobs'>('settings');
   const [isCopied, setIsCopied] = React.useState(false);
+  const [previewDevice, setPreviewDevice] = React.useState<'mobile' | 'tablet' | 'desktop'>('desktop');
   const editorRef = React.useRef<HTMLDivElement>(null);
   const containerRef = React.useRef<HTMLDivElement>(null);
+
+  // Device dimensions for preview
+  const deviceDimensions = {
+    mobile: { width: '375px', height: '667px', label: 'Mobile (375x667)' },
+    tablet: { width: '768px', height: '1024px', label: 'Tablet (768x1024)' },
+    desktop: { width: '100%', height: '100%', label: 'Desktop (Full Width)' },
+  };
 
   // Auto-enable fullscreen when switching to Preview or Customization tab
   React.useEffect(() => {
@@ -515,14 +523,74 @@ function CodeEditor({
         ) : activeTab === 'preview' ? (
           <div 
             className={cn(
-              'w-full overflow-auto bg-white dark:bg-[#0d1117]',
+              'w-full bg-gray-100 dark:bg-[#0d1117]',
               isFullscreen ? 'h-[calc(100vh-3.5rem)] mt-14' : 'min-h-[400px] max-h-[600px]'
             )}
           >
-            <div 
-              className="w-full h-full"
-              dangerouslySetInnerHTML={{ __html: code }}
-            />
+            {/* Device selector buttons */}
+            <div className="flex items-center justify-center gap-2 bg-white dark:bg-[#161b22] border-b border-gray-200 dark:border-[#30363d] px-4 py-3">
+              <button
+                onClick={() => setPreviewDevice('mobile')}
+                className={cn(
+                  'flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all',
+                  previewDevice === 'mobile'
+                    ? 'bg-primary text-white shadow-sm'
+                    : 'bg-gray-100 dark:bg-[#0d1117] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800'
+                )}
+              >
+                <Smartphone className="h-4 w-4" />
+                <span>Mobile</span>
+                <span className="text-xs opacity-75">(375px)</span>
+              </button>
+              
+              <button
+                onClick={() => setPreviewDevice('tablet')}
+                className={cn(
+                  'flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all',
+                  previewDevice === 'tablet'
+                    ? 'bg-primary text-white shadow-sm'
+                    : 'bg-gray-100 dark:bg-[#0d1117] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800'
+                )}
+              >
+                <Tablet className="h-4 w-4" />
+                <span>Tablet</span>
+                <span className="text-xs opacity-75">(768px)</span>
+              </button>
+              
+              <button
+                onClick={() => setPreviewDevice('desktop')}
+                className={cn(
+                  'flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all',
+                  previewDevice === 'desktop'
+                    ? 'bg-primary text-white shadow-sm'
+                    : 'bg-gray-100 dark:bg-[#0d1117] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800'
+                )}
+              >
+                <Monitor className="h-4 w-4" />
+                <span>Desktop</span>
+                <span className="text-xs opacity-75">(Full)</span>
+              </button>
+            </div>
+
+            {/* Preview container */}
+            <div className="w-full h-[calc(100%-3.5rem)] overflow-auto flex items-center justify-center p-6">
+              <div 
+                className={cn(
+                  'bg-white dark:bg-[#0d1117] shadow-2xl transition-all duration-300',
+                  previewDevice !== 'desktop' && 'border border-gray-300 dark:border-[#30363d] rounded-lg overflow-hidden'
+                )}
+                style={{
+                  width: deviceDimensions[previewDevice].width,
+                  height: deviceDimensions[previewDevice].height,
+                  maxHeight: previewDevice === 'desktop' ? '100%' : '90%',
+                }}
+              >
+                <div 
+                  className="w-full h-full [&_iframe]:w-full [&_iframe]:h-full [&_iframe]:border-0"
+                  dangerouslySetInnerHTML={{ __html: code }}
+                />
+              </div>
+            </div>
           </div>
         ) : (
           <div 
