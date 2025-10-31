@@ -13,8 +13,9 @@ export default function PricingSection({ defaultCompareOpen = false }: PricingSe
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Plans and Pricing
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mx-auto mb-6 whitespace-nowrap">
-          What you see is exactly what you pay: one simple subscription, no additional charges.</p>
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 mx-auto mb-6 max-w-4xl px-4">
+            What you see is exactly what you pay: one simple subscription, no additional charges.
+          </p>
           
           {/* Features */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-6">

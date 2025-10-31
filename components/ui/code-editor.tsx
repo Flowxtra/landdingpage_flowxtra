@@ -247,10 +247,10 @@ function CodeEditor({
       <div
         ref={containerRef}
         className={cn(
-          'relative w-full border overflow-hidden flex flex-col shadow-2xl transition-all',
+          'relative w-full border overflow-hidden flex flex-col transition-all',
           isFullscreen 
-            ? 'fixed inset-0 z-[99999] rounded-none bg-[#0d1117] border-none max-w-none' 
-            : 'bg-[#0d1117] border-[#30363d] rounded-xl',
+            ? 'fixed inset-0 z-[99999] rounded-none bg-[#0d1117] border-none max-w-none shadow-2xl' 
+            : 'bg-[#0d1117] border-[#30363d] rounded-lg md:rounded-xl shadow-md md:shadow-2xl',
           !isFullscreen && className
         )}
       >
@@ -370,47 +370,47 @@ function CodeEditor({
         
         {header && !isFullscreen && (
           <div className="bg-[#161b22] border-b border-[#30363d]">
-            <div className="relative flex flex-row items-center justify-between gap-x-2 h-12 px-4">
+            <div className="relative flex flex-row items-center justify-between gap-x-1.5 md:gap-x-2 h-10 md:h-12 px-3 md:px-4">
           {dots && (
-                <div className="flex flex-row gap-x-2 flex-shrink-0">
-                  <div className="size-3 rounded-full bg-[#ff5f56]"></div>
-                  <div className="size-3 rounded-full bg-[#ffbd2e]"></div>
-                  <div className="size-3 rounded-full bg-[#27c93f]"></div>
+                <div className="flex flex-row gap-x-1.5 md:gap-x-2 flex-shrink-0">
+                  <div className="size-2.5 md:size-3 rounded-full bg-[#ff5f56]"></div>
+                  <div className="size-2.5 md:size-3 rounded-full bg-[#ffbd2e]"></div>
+                  <div className="size-2.5 md:size-3 rounded-full bg-[#27c93f]"></div>
             </div>
           )}
           
           {title && (
             <div
               className={cn(
-                    'flex flex-row items-center gap-2 overflow-hidden',
+                    'flex flex-row items-center gap-1.5 md:gap-2 overflow-hidden',
                 dots && 'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'
               )}
             >
               {icon && (
-                    <div className="text-[#8b949e] [&_svg]:size-4 flex-shrink-0">
+                    <div className="text-[#8b949e] [&_svg]:size-3.5 md:[&_svg]:size-4 flex-shrink-0">
                   {icon}
                 </div>
               )}
-                  <span className="text-[#c9d1d9] text-sm font-medium truncate">
+                  <span className="text-[#c9d1d9] text-xs md:text-sm font-medium truncate">
                 {title}
               </span>
             </div>
           )}
           
-              <div className="flex items-center gap-2 flex-shrink-0 ml-auto">
+              <div className="flex items-center gap-1.5 md:gap-2 flex-shrink-0 ml-auto">
                 {copyButton && activeTab === 'code' && (
             <CopyButton
               content={code}
               size="sm"
               variant="ghost"
-                    className="text-[#c9d1d9] hover:text-white flex-shrink-0"
+                    className="text-[#c9d1d9] hover:text-white flex-shrink-0 h-7 w-7 md:h-8 md:w-8"
               onCopy={onCopy}
             />
           )}
                 
                 <button
                   onClick={toggleFullscreen}
-                  className="inline-flex items-center justify-center rounded-md h-8 w-8 p-0 bg-transparent hover:bg-white/20 text-[#c9d1d9] hover:text-white transition-colors flex-shrink-0"
+                  className="hidden md:inline-flex items-center justify-center rounded-md h-8 w-8 p-0 bg-transparent hover:bg-white/20 text-[#c9d1d9] hover:text-white transition-colors flex-shrink-0"
                   aria-label={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
                   title={isFullscreen ? 'Exit fullscreen (ESC)' : 'Enter fullscreen'}
                 >
@@ -423,8 +423,8 @@ function CodeEditor({
               </div>
             </div>
             
-            {/* Tabs - shadcn.io style */}
-            <div className="flex items-center gap-1 border-t border-[#30363d] px-3 py-1.5">
+            {/* Tabs - shadcn.io style - Hidden on mobile, show Code only */}
+            <div className="hidden md:flex items-center gap-1 border-t border-[#30363d] px-3 py-1.5">
               <button
                 onClick={() => setActiveTab('code')}
                 className={cn(
@@ -479,8 +479,8 @@ function CodeEditor({
       <div 
         ref={editorRef}
             className={cn(
-              'w-full font-mono text-sm overflow-auto',
-              isFullscreen ? 'h-[calc(100vh-3.5rem)] mt-14 p-8' : 'min-h-[200px] max-h-96 p-6'
+              'w-full font-mono overflow-auto',
+              isFullscreen ? 'h-[calc(100vh-3.5rem)] mt-14 p-8 text-sm' : 'min-h-[180px] max-h-[300px] md:max-h-96 p-3 md:p-6 text-[11px] md:text-sm'
             )}
         dir="ltr"
       >
@@ -491,7 +491,7 @@ function CodeEditor({
               )} dir="ltr">
                 <code dir="ltr" className={cn(
                   "block w-full",
-                  isFullscreen ? "text-base" : "text-sm"
+                  isFullscreen ? "text-base" : "text-[11px] md:text-sm"
                 )}>
                   {visibleCode || (writing ? '' : code)}
                 </code>
@@ -502,7 +502,7 @@ function CodeEditor({
                   "whitespace-pre-wrap break-words relative w-full",
                   // Remove default Shiki styles
                   "[&_pre]:!bg-transparent [&_pre]:!p-0 [&_pre]:!m-0 [&_pre]:!overflow-visible",
-                  "[&_code]:!bg-transparent [&_code]:!p-0 [&_code]:!font-mono [&_code]:!text-sm [&_code]:!leading-relaxed",
+                  "[&_code]:!bg-transparent [&_code]:!p-0 [&_code]:!font-mono [&_code]:!text-[11px] md:[&_code]:!text-sm [&_code]:!leading-relaxed",
                   "[&_.shiki]:!bg-transparent [&_.shiki]:!font-mono",
                   // Dark mode support (like shadcn.io)
                   "dark:[&_.shiki]:!text-[var(--shiki-dark)]",
@@ -511,7 +511,7 @@ function CodeEditor({
                   "dark:[&_.shiki_span]:![font-style:var(--shiki-dark-font-style)]",
                   "dark:[&_.shiki_span]:![font-weight:var(--shiki-dark-font-weight)]",
                   // Better text rendering
-                  "[&_code]:!text-[14px]",
+                  "[&_code]:!text-[11px] md:[&_code]:!text-[14px]",
                   "[&_code]:!leading-[1.8]",
                   isFullscreen && "[&_code]:!text-[15px]"
                 )}

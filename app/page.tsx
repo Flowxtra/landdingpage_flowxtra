@@ -83,7 +83,8 @@ function FeaturesSlider() {
       showCodeBlock: true,
       // Job widget embed code - displays company jobs on external websites
       codeBlock: `
-<!-- Flowxtra Job Widget - Copy and paste this code into your website -->
+<!-- Start of Flowxtra Job Widget -->
+<!-- Copy and paste this code into your website -->
 
 <iframe
 src="https://dpro.flowxtra.com" 
@@ -143,7 +144,7 @@ allowfullscreen>
                 {/* Image or Code Block */}
                 <div className={`${slide.imageOnRight ? 'order-2' : 'order-2 lg:order-1'}`}>
                   {slide.showCodeBlock ? (
-                    <div className="flex items-center justify-center w-full">
+                    <div className="flex items-center justify-center w-full px-2 md:px-0">
                       <CodeEditor
                         title="Embed Code"
                         icon={<Code />}
@@ -152,7 +153,7 @@ allowfullscreen>
                         header
                         dots
                         writing={false}
-                        className="w-full max-w-2xl h-auto"
+                        className="w-full max-w-[360px] md:max-w-lg lg:max-w-2xl h-auto"
                       >
                         {slide.codeBlock}
                       </CodeEditor>
@@ -741,7 +742,7 @@ Hiring Faster Growth              </h2>
       </section>
 
       {/* Sticky Slider Section */}
-      <div className="w-full">
+      <div className="w-full pb-32 md:pb-48">
         <FeaturesSlider />
       </div>
 
