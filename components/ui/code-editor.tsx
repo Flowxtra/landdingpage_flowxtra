@@ -86,7 +86,8 @@ function CodeEditor({
   const [visibleCode, setVisibleCode] = React.useState(writing ? '' : code);
   const [isDone, setIsDone] = React.useState(!writing);
   const [isFullscreen, setIsFullscreen] = React.useState(false);
-  const [activeTab, setActiveTab] = React.useState<'code' | 'preview'>('code');
+  const [activeTab, setActiveTab] = React.useState<'code' | 'preview' | 'customization'>('code');
+  const [customizationTab, setCustomizationTab] = React.useState<'settings' | 'design' | 'included-jobs'>('settings');
   const editorRef = React.useRef<HTMLDivElement>(null);
   const containerRef = React.useRef<HTMLDivElement>(null);
 
@@ -274,6 +275,21 @@ function CodeEditor({
                   </svg>
                   Preview
                 </button>
+                <button
+                  onClick={() => setActiveTab('customization')}
+                  className={cn(
+                    'inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-colors',
+                    activeTab === 'customization'
+                      ? 'bg-[#238636] text-white hover:bg-[#2ea043]'
+                      : 'text-[#8b949e] hover:text-[#c9d1d9] hover:bg-[#30363d]'
+                  )}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                  Customization
+                </button>
               </div>
             </div>
             
@@ -318,42 +334,42 @@ function CodeEditor({
         {header && !isFullscreen && (
           <div className="bg-[#161b22] border-b border-[#30363d]">
             <div className="relative flex flex-row items-center justify-between gap-x-2 h-12 px-4">
-              {dots && (
+          {dots && (
                 <div className="flex flex-row gap-x-2 flex-shrink-0">
                   <div className="size-3 rounded-full bg-[#ff5f56]"></div>
                   <div className="size-3 rounded-full bg-[#ffbd2e]"></div>
                   <div className="size-3 rounded-full bg-[#27c93f]"></div>
-                </div>
-              )}
-              
-              {title && (
-                <div
-                  className={cn(
+            </div>
+          )}
+          
+          {title && (
+            <div
+              className={cn(
                     'flex flex-row items-center gap-2 overflow-hidden',
-                    dots && 'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'
-                  )}
-                >
-                  {icon && (
+                dots && 'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'
+              )}
+            >
+              {icon && (
                     <div className="text-[#8b949e] [&_svg]:size-4 flex-shrink-0">
-                      {icon}
-                    </div>
-                  )}
-                  <span className="text-[#c9d1d9] text-sm font-medium truncate">
-                    {title}
-                  </span>
+                  {icon}
                 </div>
               )}
-              
+                  <span className="text-[#c9d1d9] text-sm font-medium truncate">
+                {title}
+              </span>
+            </div>
+          )}
+          
               <div className="flex items-center gap-2 flex-shrink-0 ml-auto">
                 {copyButton && activeTab === 'code' && (
-                  <CopyButton
-                    content={code}
-                    size="sm"
-                    variant="ghost"
+            <CopyButton
+              content={code}
+              size="sm"
+              variant="ghost"
                     className="text-[#c9d1d9] hover:text-white flex-shrink-0"
-                    onCopy={onCopy}
-                  />
-                )}
+              onCopy={onCopy}
+            />
+          )}
                 
                 <button
                   onClick={toggleFullscreen}
@@ -402,20 +418,35 @@ function CodeEditor({
                 </svg>
                 Preview
               </button>
+              <button
+                onClick={() => setActiveTab('customization')}
+                className={cn(
+                  'inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-colors',
+                  activeTab === 'customization'
+                    ? 'bg-[#238636] text-white hover:bg-[#2ea043]'
+                    : 'text-[#8b949e] hover:text-[#c9d1d9] hover:bg-[#30363d]'
+                )}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                Customization
+              </button>
             </div>
-          </div>
-        )}
-        
+        </div>
+      )}
+      
         {/* Content Area */}
         {activeTab === 'code' ? (
-          <div 
-            ref={editorRef}
+      <div 
+        ref={editorRef}
             className={cn(
               'w-full font-mono text-sm overflow-auto',
               isFullscreen ? 'h-[calc(100vh-3.5rem)] mt-14 p-8' : 'min-h-[200px] max-h-96 p-6'
             )}
-            dir="ltr"
-          >
+        dir="ltr"
+      >
             {isLoadingHighlight ? (
               <pre className={cn(
                 "text-[#7ee787] whitespace-pre-wrap break-words relative leading-relaxed w-full",
@@ -452,7 +483,7 @@ function CodeEditor({
               />
             )}
           </div>
-        ) : (
+        ) : activeTab === 'preview' ? (
           <div 
             className={cn(
               'w-full overflow-auto',
@@ -467,6 +498,656 @@ function CodeEditor({
               )}
               dangerouslySetInnerHTML={{ __html: code }}
             />
+          </div>
+        ) : (
+          <div 
+            className={cn(
+              'w-full overflow-auto',
+              isFullscreen ? 'h-[calc(100vh-3.5rem)] mt-14' : 'min-h-[400px] max-h-[600px]'
+            )}
+          >
+            {/* Sub-tabs for Customization */}
+            <div className="bg-white dark:bg-[#0d1117] border-b border-gray-200 dark:border-[#30363d] px-6 py-3">
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setCustomizationTab('settings')}
+                  className={cn(
+                    'px-4 py-2 text-sm font-medium rounded-lg transition-colors',
+                    customizationTab === 'settings'
+                      ? 'bg-primary text-white'
+                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800'
+                  )}
+                >
+                  Settings
+                </button>
+                <button
+                  onClick={() => setCustomizationTab('design')}
+                  className={cn(
+                    'px-4 py-2 text-sm font-medium rounded-lg transition-colors',
+                    customizationTab === 'design'
+                      ? 'bg-primary text-white'
+                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800'
+                  )}
+                >
+                  Design
+                </button>
+                <button
+                  onClick={() => setCustomizationTab('included-jobs')}
+                  className={cn(
+                    'px-4 py-2 text-sm font-medium rounded-lg transition-colors',
+                    customizationTab === 'included-jobs'
+                      ? 'bg-primary text-white'
+                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800'
+                  )}
+                >
+                  Included Jobs
+                </button>
+              </div>
+            </div>
+
+            {/* Content for sub-tabs */}
+            <div className="p-6 bg-gradient-to-br from-white to-gray-50 dark:from-[#0d1117] dark:to-[#161b22]">
+              {customizationTab === 'settings' && (
+                <div className="space-y-6 max-w-2xl">
+                  {/* Language */}
+                  <div>
+                    <label className="block text-sm font-medium text-primary dark:text-primary mb-2">
+                      Language
+                    </label>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                      Choose the language of the widget interface elements.
+                    </p>
+                    <select className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary">
+                      <option>English</option>
+                      <option>Arabic</option>
+                      <option>French</option>
+                      <option>Spanish</option>
+                    </select>
+                  </div>
+
+                  {/* Jobs per page */}
+                  <div>
+                    <label className="block text-sm font-medium text-primary dark:text-primary mb-2">
+                      Jobs per page
+                    </label>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                      Define the number of jobs to be listed per page.
+                    </p>
+                    <select className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary">
+                      <option>5</option>
+                      <option>10</option>
+                      <option>15</option>
+                      <option>20</option>
+                      <option>25</option>
+                    </select>
+                  </div>
+
+                  {/* Category filter */}
+                  <div className="flex items-start justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                    <div className="flex-1">
+                      <h4 className="text-sm font-medium text-primary dark:text-primary mb-1">
+                        Category filter
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Users can narrow the jobs listed down to a specific category.
+                      </p>
+                    </div>
+                    <label className="relative inline-flex items-center cursor-pointer ml-4">
+                      <input type="checkbox" defaultChecked className="sr-only peer" />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/50 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+
+                  {/* Department filter */}
+                  <div className="flex items-start justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                    <div className="flex-1">
+                      <h4 className="text-sm font-medium text-primary dark:text-primary mb-1">
+                        Department filter
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Users can narrow the jobs listed down to a specific department.
+                      </p>
+                    </div>
+                    <label className="relative inline-flex items-center cursor-pointer ml-4">
+                      <input type="checkbox" defaultChecked className="sr-only peer" />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/50 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+
+                  {/* Location filter */}
+                  <div className="flex items-start justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                    <div className="flex-1">
+                      <h4 className="text-sm font-medium text-primary dark:text-primary mb-1">
+                        Location filter
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Users can narrow the jobs listed down to a specific location.
+                      </p>
+                    </div>
+                    <label className="relative inline-flex items-center cursor-pointer ml-4">
+                      <input type="checkbox" defaultChecked className="sr-only peer" />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/50 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+
+                  {/* Employment type filter */}
+                  <div className="flex items-start justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                    <div className="flex-1">
+                      <h4 className="text-sm font-medium text-primary dark:text-primary mb-1">
+                        Employment type filter
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Users can narrow the jobs listed down to a specific employment type.
+                      </p>
+                    </div>
+                    <label className="relative inline-flex items-center cursor-pointer ml-4">
+                      <input type="checkbox" defaultChecked className="sr-only peer" />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/50 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+
+                  {/* Logo */}
+                  <div className="flex items-start justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                    <div className="flex-1">
+                      <h4 className="text-sm font-medium text-primary dark:text-primary mb-1">
+                        Logo
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Your company logo is displayed next to each job (on desktop only).
+                      </p>
+                    </div>
+                    <label className="relative inline-flex items-center cursor-pointer ml-4">
+                      <input type="checkbox" defaultChecked className="sr-only peer" />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/50 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+
+                  {/* Location */}
+                  <div className="flex items-start justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                    <div className="flex-1">
+                      <h4 className="text-sm font-medium text-primary dark:text-primary mb-1">
+                        Location
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Location is displayed for each job.
+                      </p>
+                    </div>
+                    <label className="relative inline-flex items-center cursor-pointer ml-4">
+                      <input type="checkbox" defaultChecked className="sr-only peer" />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/50 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+
+                  {/* Salary */}
+                  <div className="flex items-start justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                    <div className="flex-1">
+                      <h4 className="text-sm font-medium text-primary dark:text-primary mb-1">
+                        Salary
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Salary is displayed.
+                      </p>
+                    </div>
+                    <label className="relative inline-flex items-center cursor-pointer ml-4">
+                      <input type="checkbox" defaultChecked className="sr-only peer" />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/50 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+
+                  {/* Employment type */}
+                  <div className="flex items-start justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                    <div className="flex-1">
+                      <h4 className="text-sm font-medium text-primary dark:text-primary mb-1">
+                        Employment type
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Employment type is displayed for each job.
+                      </p>
+                    </div>
+                    <label className="relative inline-flex items-center cursor-pointer ml-4">
+                      <input type="checkbox" defaultChecked className="sr-only peer" />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/50 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+
+                  {/* Category */}
+                  <div className="flex items-start justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                    <div className="flex-1">
+                      <h4 className="text-sm font-medium text-primary dark:text-primary mb-1">
+                        Category
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Category is displayed for each job.
+                      </p>
+                    </div>
+                    <label className="relative inline-flex items-center cursor-pointer ml-4">
+                      <input type="checkbox" defaultChecked className="sr-only peer" />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/50 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+
+                  {/* Job Workplace */}
+                  <div className="flex items-start justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                    <div className="flex-1">
+                      <h4 className="text-sm font-medium text-primary dark:text-primary mb-1">
+                        Job Workplace
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Display the job workplace type (Remote, On-site, Hybrid).
+                      </p>
+                    </div>
+                    <label className="relative inline-flex items-center cursor-pointer ml-4">
+                      <input type="checkbox" defaultChecked className="sr-only peer" />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/50 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+
+                  {/* Show Job Date */}
+                  <div className="flex items-start justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                    <div className="flex-1">
+                      <h4 className="text-sm font-medium text-primary dark:text-primary mb-1">
+                        Show Job Date
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Display the date when the job was posted.
+                      </p>
+                    </div>
+                    <label className="relative inline-flex items-center cursor-pointer ml-4">
+                      <input type="checkbox" defaultChecked className="sr-only peer" />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/50 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+
+                  {/* Number of Employees */}
+                  <div className="flex items-start justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                    <div className="flex-1">
+                      <h4 className="text-sm font-medium text-primary dark:text-primary mb-1">
+                        Number of Employees
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Display the number of employees at the company.
+                      </p>
+                    </div>
+                    <label className="relative inline-flex items-center cursor-pointer ml-4">
+                      <input type="checkbox" defaultChecked className="sr-only peer" />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/50 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+
+                  {/* Company Category */}
+                  <div className="flex items-start justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                    <div className="flex-1">
+                      <h4 className="text-sm font-medium text-primary dark:text-primary mb-1">
+                        Company Category
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Display the company's industry category.
+                      </p>
+                    </div>
+                    <label className="relative inline-flex items-center cursor-pointer ml-4">
+                      <input type="checkbox" defaultChecked className="sr-only peer" />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/50 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+
+                  {/* Company Name */}
+                  <div className="flex items-start justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                    <div className="flex-1">
+                      <h4 className="text-sm font-medium text-primary dark:text-primary mb-1">
+                        Company Name
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Display the company name in job listings.
+                      </p>
+                    </div>
+                    <label className="relative inline-flex items-center cursor-pointer ml-4">
+                      <input type="checkbox" defaultChecked className="sr-only peer" />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/50 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+
+                  {/* About Company */}
+                  <div className="flex items-start justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                    <div className="flex-1">
+                      <h4 className="text-sm font-medium text-primary dark:text-primary mb-1">
+                        About Company
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Display company description and information.
+                      </p>
+                    </div>
+                    <label className="relative inline-flex items-center cursor-pointer ml-4">
+                      <input type="checkbox" defaultChecked className="sr-only peer" />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/50 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+
+                  {/* Benefits */}
+                  <div className="flex items-start justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                    <div className="flex-1">
+                      <h4 className="text-sm font-medium text-primary dark:text-primary mb-1">
+                        Benefits
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Display company benefits and perks.
+                      </p>
+                    </div>
+                    <label className="relative inline-flex items-center cursor-pointer ml-4">
+                      <input type="checkbox" defaultChecked className="sr-only peer" />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/50 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+
+                  {/* Company Values */}
+                  <div className="flex items-start justify-between py-3 border-b border-gray-200 dark:border-gray-700">
+                    <div className="flex-1">
+                      <h4 className="text-sm font-medium text-primary dark:text-primary mb-1">
+                        Company Values
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Display company values and culture.
+                      </p>
+                    </div>
+                    <label className="relative inline-flex items-center cursor-pointer ml-4">
+                      <input type="checkbox" defaultChecked className="sr-only peer" />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/50 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+
+                  {/* Company Media */}
+                  <div className="flex items-start justify-between py-3">
+                    <div className="flex-1">
+                      <h4 className="text-sm font-medium text-primary dark:text-primary mb-1">
+                        Company Media
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Display company photos and media content.
+                      </p>
+                    </div>
+                    <label className="relative inline-flex items-center cursor-pointer ml-4">
+                      <input type="checkbox" defaultChecked className="sr-only peer" />
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/50 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                    </label>
+                  </div>
+                </div>
+              )}
+
+              {customizationTab === 'design' && (
+                <div className="space-y-6 max-w-2xl">
+                  {/* Background */}
+                  <div className="flex items-center justify-between">
+                    <label className="text-sm font-medium text-primary dark:text-primary">
+                      Background
+                    </label>
+                    <div className="flex items-center gap-3">
+                      <input 
+                        type="color" 
+                        defaultValue="#FFFFFF" 
+                        className="w-10 h-10 rounded-full border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
+                      />
+                      <input 
+                        type="text" 
+                        defaultValue="#FFFFFF" 
+                        className="w-32 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-primary"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Filter Borders */}
+                  <div className="flex items-center justify-between">
+                    <label className="text-sm font-medium text-primary dark:text-primary">
+                      Filter Borders
+                    </label>
+                    <div className="flex items-center gap-3">
+                      <input 
+                        type="color" 
+                        defaultValue="#D4D4D8" 
+                        className="w-10 h-10 rounded-full border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
+                      />
+                      <input 
+                        type="text" 
+                        defaultValue="#D4D4D8" 
+                        className="w-32 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-primary"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Pagination */}
+                  <div className="flex items-center justify-between">
+                    <label className="text-sm font-medium text-primary dark:text-primary">
+                      Pagination
+                    </label>
+                    <div className="flex items-center gap-3">
+                      <input 
+                        type="color" 
+                        defaultValue="#2563EB" 
+                        className="w-10 h-10 rounded-full border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
+                      />
+                      <input 
+                        type="text" 
+                        defaultValue="#2563EB" 
+                        className="w-32 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-primary"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Divider */}
+                  <div className="py-4 border-t border-gray-200 dark:border-gray-700">
+                    <h4 className="text-base font-semibold text-gray-900 dark:text-white mb-6">
+                      Job Card Styles
+                    </h4>
+
+                    {/* Job Card Background */}
+                    <div className="flex items-center justify-between mb-6">
+                      <label className="text-sm font-medium text-primary dark:text-primary">
+                        Background
+                      </label>
+                      <div className="flex items-center gap-3">
+                        <input 
+                          type="color" 
+                          defaultValue="#F8F8F8" 
+                          className="w-10 h-10 rounded-full border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
+                        />
+                        <input 
+                          type="text" 
+                          defaultValue="#F8F8F8" 
+                          className="w-32 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-primary"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Job Card Border */}
+                    <div className="mb-6">
+                      <div className="flex items-center justify-between mb-3">
+                        <label className="text-sm font-medium text-primary dark:text-primary">
+                          Border
+                        </label>
+                        <label className="relative inline-flex items-center cursor-pointer">
+                          <input type="checkbox" defaultChecked className="sr-only peer" />
+                          <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/50 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                        </label>
+                      </div>
+                      <div className="flex items-center justify-end gap-3">
+                        <input 
+                          type="color" 
+                          defaultValue="#AAAAAA" 
+                          className="w-10 h-10 rounded-full border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
+                        />
+                        <input 
+                          type="text" 
+                          defaultValue="#AAAAAA" 
+                          className="w-32 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-primary"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Job Card Shadow */}
+                    <div className="mb-6">
+                      <div className="flex items-center justify-between mb-3">
+                        <label className="text-sm font-medium text-primary dark:text-primary">
+                          Shadow
+                        </label>
+                        <label className="relative inline-flex items-center cursor-pointer">
+                          <input type="checkbox" defaultChecked className="sr-only peer" />
+                          <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/50 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                        </label>
+                      </div>
+                      <div className="flex items-center justify-end gap-3">
+                        <input 
+                          type="color" 
+                          defaultValue="#0000004D" 
+                          className="w-10 h-10 rounded-full border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
+                        />
+                        <input 
+                          type="text" 
+                          defaultValue="#0000004D" 
+                          className="w-32 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-primary"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Primary Text */}
+                    <div className="flex items-center justify-between mb-6">
+                      <label className="text-sm font-medium text-primary dark:text-primary">
+                        Primary Text
+                      </label>
+                      <div className="flex items-center gap-3">
+                        <input 
+                          type="color" 
+                          defaultValue="#FFFFFF" 
+                          className="w-10 h-10 rounded-full border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
+                        />
+                        <input 
+                          type="text" 
+                          defaultValue="#FFFFFF" 
+                          className="w-32 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-primary"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Secondary Text */}
+                    <div className="flex items-center justify-between">
+                      <label className="text-sm font-medium text-primary dark:text-primary">
+                        Secondary Text
+                      </label>
+                      <div className="flex items-center gap-3">
+                        <input 
+                          type="color" 
+                          defaultValue="#007E9A" 
+                          className="w-10 h-10 rounded-full border-2 border-gray-300 dark:border-gray-600 cursor-pointer"
+                        />
+                        <input 
+                          type="text" 
+                          defaultValue="#007E9A" 
+                          className="w-32 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-primary"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {customizationTab === 'included-jobs' && (
+                <div className="space-y-6 max-w-2xl">
+                  {/* Departments */}
+                  <div>
+                    <label className="block text-sm font-medium text-primary dark:text-primary mb-2">
+                      Departments
+                    </label>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                      Limit the jobs displayed in this widget to one or more departments.
+                    </p>
+                    <select className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary">
+                      <option>All Categories</option>
+                      <option>Engineering</option>
+                      <option>Marketing</option>
+                      <option>Sales</option>
+                      <option>Human Resources</option>
+                      <option>Finance</option>
+                      <option>Customer Support</option>
+                      <option>Design</option>
+                      <option>Operations</option>
+                    </select>
+                  </div>
+
+                  {/* Location Country */}
+                  <div>
+                    <label className="block text-sm font-medium text-primary dark:text-primary mb-2">
+                      Location Country
+                    </label>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                      Limit the jobs displayed in this widget to one country.
+                    </p>
+                    <select className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary">
+                      <option>Austria</option>
+                      <option>United States</option>
+                      <option>United Kingdom</option>
+                      <option>Germany</option>
+                      <option>France</option>
+                      <option>Spain</option>
+                      <option>Italy</option>
+                      <option>Canada</option>
+                      <option>Australia</option>
+                      <option>Netherlands</option>
+                      <option>Switzerland</option>
+                      <option>Sweden</option>
+                      <option>Norway</option>
+                      <option>Denmark</option>
+                      <option>Belgium</option>
+                      <option>United Arab Emirates</option>
+                      <option>Saudi Arabia</option>
+                    </select>
+                  </div>
+
+                  {/* Location States */}
+                  <div>
+                    <label className="block text-sm font-medium text-primary dark:text-primary mb-2">
+                      Location States
+                    </label>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                      Limit the jobs displayed in this widget to one or more locations.
+                    </p>
+                    <select className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary">
+                      <option>All Locations States</option>
+                      <option>California</option>
+                      <option>New York</option>
+                      <option>Texas</option>
+                      <option>Florida</option>
+                      <option>Illinois</option>
+                      <option>Pennsylvania</option>
+                      <option>Ohio</option>
+                      <option>Georgia</option>
+                      <option>North Carolina</option>
+                      <option>Michigan</option>
+                      <option>Vienna</option>
+                      <option>Salzburg</option>
+                      <option>Graz</option>
+                      <option>Linz</option>
+                    </select>
+                  </div>
+
+                  {/* Employment Type */}
+                  <div>
+                    <label className="block text-sm font-medium text-primary dark:text-primary mb-2">
+                      Employment Type
+                    </label>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                      Limit the jobs displayed in this widget to one or more employment types.
+                    </p>
+                    <select className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary">
+                      <option>All Types</option>
+                      <option>Full-time</option>
+                      <option>Part-time</option>
+                      <option>Contract</option>
+                      <option>Temporary</option>
+                      <option>Internship</option>
+                      <option>Freelance</option>
+                      <option>Remote</option>
+                    </select>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         )}
       </div>
