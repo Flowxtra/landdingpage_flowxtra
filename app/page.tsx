@@ -479,66 +479,6 @@ Hiring Faster Growth              </h2>
         </div>
       </section>
 
-      {/* Features Cards Section */}
-      <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
-        <div className="container mx-auto px-4 md:px-8 lg:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-7xl mx-auto">
-            {/* Recruitment Card */}
-            <div className="group relative bg-gradient-to-br from-gray-800 to-gray-900 dark:from-gray-800 dark:to-gray-950 rounded-2xl p-8 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <div className="relative z-10">
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  Recruitment
-                </h3>
-                <p className="text-gray-300 text-base md:text-lg mb-6">
-                  Create job post opportunities.
-                </p>
-              </div>
-            </div>
-
-            {/* Social Media Manager Card */}
-            <div className="group relative bg-gradient-to-br from-secondary to-secondary-light dark:from-secondary dark:to-[#005770] rounded-2xl p-8 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <div className="relative z-10">
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  Social Media Manager
-                </h3>
-                <p className="text-white/90 text-base md:text-lg mb-6">
-                  Manage all your social media accounts comprehensively.
-                </p>
-              </div>
-            </div>
-
-            {/* E-Signature Card */}
-            <div className="group relative bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <div className="relative z-10">
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                  E-Signature
-                </h3>
-                <p className="text-gray-700 dark:text-gray-300 text-base md:text-lg mb-6">
-                  Online contract signing system.
-                </p>
-              </div>
-            </div>
-
-            {/* Employee Onboarding Card - Coming Soon */}
-            <div className="group relative bg-gradient-to-br from-gray-800 to-gray-900 dark:from-gray-800 dark:to-gray-950 rounded-2xl p-8 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <div className="relative z-10">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white">
-                    Employee Onboarding
-                  </h3>
-                  <span className="px-4 py-1.5 bg-red-500 text-white text-sm font-bold rounded-full">
-                    Soon
-                  </span>
-                </div>
-                <p className="text-gray-300 text-base md:text-lg">
-                  Streamline your employee onboarding process.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Why Use Flowxtra Section */}
       <section className="w-full py-16 md:py-24 px-[10px] bg-white dark:bg-gray-900 transition-colors">
         <div className="w-full rounded-[10px] px-[10px] py-16 md:py-20" style={{ backgroundColor: '#f4f6f8' }}>
