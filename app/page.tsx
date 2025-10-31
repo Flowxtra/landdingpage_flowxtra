@@ -80,12 +80,19 @@ function FeaturesSlider() {
       imageAlt: "Add Job Listings to Any Website",
       imageOnRight: true,
       showCodeBlock: true,
-      codeBlock: `<iframe
-src="https://dpro.flowxtra.com"
-width="600" 
-height="400"
-frameborder="0" allowfullscreen>
-</iframe>`,
+      // Job widget embed code - displays company jobs on external websites
+      codeBlock: `
+<!-- Flowxtra Job Widget - Copy and paste this code into your website -->
+
+<iframe
+src="https://dpro.flowxtra.com" 
+width="2000"
+height="2000"
+frameborder="0" 
+allowfullscreen>
+</iframe>
+
+<!-- End of Flowxtra Job Widget -->`,
     },
   ];
 
@@ -139,6 +146,7 @@ frameborder="0" allowfullscreen>
                       <CodeEditor
                         title="Embed Code"
                         icon={<Code />}
+                        lang="html"
                         copyButton
                         header
                         dots

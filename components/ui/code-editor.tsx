@@ -172,6 +172,39 @@ function CodeEditor({
     setIsFullscreen(!isFullscreen);
   };
 
+  // State for Shiki syntax highlighting
+  const [highlightedCode, setHighlightedCode] = React.useState<string>('');
+  const [isLoadingHighlight, setIsLoadingHighlight] = React.useState(true);
+
+  // Highlight code using Shiki with vibrant colors
+  React.useEffect(() => {
+    const loadHighlightedCode = async () => {
+      try {
+        const { codeToHtml } = await import('shiki');
+        
+        const html = await codeToHtml(code, {
+          lang: lang,
+          themes: {
+            light: 'min-light',
+            dark: 'one-dark-pro',
+          },
+        });
+        
+        setHighlightedCode(html);
+        setIsLoadingHighlight(false);
+      } catch (error) {
+        console.error(`Failed to highlight code for language "${lang}":`, error);
+        // Fallback to plain code
+        setHighlightedCode(`<pre><code>${code.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code></pre>`);
+        setIsLoadingHighlight(false);
+      }
+    };
+    
+    if (code) {
+      loadHighlightedCode();
+    }
+  }, [code, lang]);
+
   return (
     <>
       {/* Backdrop for fullscreen mode */}
@@ -244,8 +277,19 @@ function CodeEditor({
               </div>
             </div>
             
-            {/* Right Side: Copy + Minimize + Exit Buttons */}
+            {/* Right Side: Minimize -> Copy -> Exit */}
             <div className="flex items-center gap-2">
+              {/* Minimize (first) */}
+              <button
+                onClick={() => setIsFullscreen(false)}
+                className="inline-flex items-center justify-center rounded-md h-8 w-8 p-0 bg-transparent hover:bg-white/10 text-[#c9d1d9] hover:text-white transition-colors"
+                aria-label="Exit fullscreen"
+                title="Exit fullscreen"
+              >
+                <Minimize2 className="h-4 w-4" />
+              </button>
+
+              {/* Copy (second) */}
               {copyButton && activeTab === 'code' && (
                 <button
                   onClick={async () => {
@@ -258,16 +302,8 @@ function CodeEditor({
                   <Copy className="h-4 w-4" />
                 </button>
               )}
-              
-              <button
-                onClick={() => setIsFullscreen(false)}
-                className="inline-flex items-center justify-center rounded-md h-8 w-8 p-0 bg-transparent hover:bg-white/10 text-[#c9d1d9] hover:text-white transition-colors"
-                aria-label="Exit fullscreen"
-                title="Exit fullscreen"
-              >
-                <Minimize2 className="h-4 w-4" />
-              </button>
-              
+
+              {/* Exit (third) */}
               <button
                 onClick={() => setIsFullscreen(false)}
                 className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-transparent hover:bg-white/10 text-[#c9d1d9] hover:text-white text-sm font-medium transition-colors"
@@ -380,20 +416,41 @@ function CodeEditor({
             )}
             dir="ltr"
           >
-            <pre className={cn(
-              "text-[#7ee787] whitespace-pre-wrap break-words relative leading-relaxed w-full",
-              isFullscreen && "text-base"
-            )} dir="ltr">
-              <code dir="ltr" className={cn(
-                "block w-full",
-                isFullscreen ? "text-base" : "text-sm"
-              )}>
-                {visibleCode || (writing ? '' : code)}
-                {cursor && !isDone && (
-                  <span className="inline-block w-[2px] h-4 bg-[#7ee787] animate-pulse ml-0.5 align-middle"></span>
+            {isLoadingHighlight ? (
+              <pre className={cn(
+                "text-[#7ee787] whitespace-pre-wrap break-words relative leading-relaxed w-full",
+                isFullscreen && "text-base"
+              )} dir="ltr">
+                <code dir="ltr" className={cn(
+                  "block w-full",
+                  isFullscreen ? "text-base" : "text-sm"
+                )}>
+                  {visibleCode || (writing ? '' : code)}
+                </code>
+              </pre>
+            ) : (
+              <div
+                className={cn(
+                  "whitespace-pre-wrap break-words relative w-full",
+                  // Remove default Shiki styles
+                  "[&_pre]:!bg-transparent [&_pre]:!p-0 [&_pre]:!m-0 [&_pre]:!overflow-visible",
+                  "[&_code]:!bg-transparent [&_code]:!p-0 [&_code]:!font-mono [&_code]:!text-sm [&_code]:!leading-relaxed",
+                  "[&_.shiki]:!bg-transparent [&_.shiki]:!font-mono",
+                  // Dark mode support (like shadcn.io)
+                  "dark:[&_.shiki]:!text-[var(--shiki-dark)]",
+                  "dark:[&_.shiki]:!bg-transparent",
+                  "dark:[&_.shiki_span]:!text-[var(--shiki-dark)]",
+                  "dark:[&_.shiki_span]:![font-style:var(--shiki-dark-font-style)]",
+                  "dark:[&_.shiki_span]:![font-weight:var(--shiki-dark-font-weight)]",
+                  // Better text rendering
+                  "[&_code]:!text-[14px]",
+                  "[&_code]:!leading-[1.8]",
+                  isFullscreen && "[&_code]:!text-[15px]"
                 )}
-              </code>
-            </pre>
+                dir="ltr"
+                dangerouslySetInnerHTML={{ __html: highlightedCode }}
+              />
+            )}
           </div>
         ) : (
           <div 
