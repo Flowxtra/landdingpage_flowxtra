@@ -123,9 +123,37 @@ allowfullscreen>
                     {slide.badge}
                   </span>
                   
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#006980] dark:text-[#00A8CD] leading-tight mb-[150px]">
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#006980] dark:text-[#00A8CD] leading-tight mb-6 lg:mb-[150px]">
                     {slide.title}
                   </h2>
+                  
+                  {/* Image or Code Block inside content on mobile/tablet only */}
+                  <div className="lg:hidden mb-6 flex justify-center px-4">
+                    {slide.showCodeBlock ? (
+                      <CodeEditor
+                        title="Embed Code"
+                        icon={<Code />}
+                        lang="html"
+                        copyButton
+                        header
+                        dots
+                        writing={false}
+                        className="w-full max-w-[340px] mx-auto h-auto"
+                      >
+                        {slide.codeBlock}
+                      </CodeEditor>
+                    ) : (
+                      <Image
+                        src={slide.image}
+                        alt={slide.imageAlt}
+                        width={1200}
+                        height={900}
+                        quality={100}
+                        className="w-full h-auto rounded-xl"
+                        unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.png')}
+                      />
+                    )}
+                  </div>
                   
                   <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-3.5">
                     {slide.description}
@@ -141,8 +169,8 @@ allowfullscreen>
                   </div>
                 </div>
 
-                {/* Image or Code Block */}
-                <div className={`${slide.imageOnRight ? 'order-2' : 'order-2 lg:order-1'}`}>
+                {/* Image or Code Block - Hidden on mobile/tablet, shown on desktop */}
+                <div className={`hidden lg:block ${slide.imageOnRight ? 'order-2' : 'order-2 lg:order-1'}`}>
                   {slide.showCodeBlock ? (
                     <div className="flex items-center justify-center w-full px-2 md:px-0">
                       <CodeEditor
