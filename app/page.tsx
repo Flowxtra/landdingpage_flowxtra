@@ -4,6 +4,8 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { CodeEditor } from "@/components/ui/code-editor";
+import { Code } from "lucide-react";
 
 // Features Sticky Sections Component
 function FeaturesSlider() {
@@ -68,6 +70,23 @@ function FeaturesSlider() {
       imageAlt: "Visual candidate board – part of free AI recruiting tool",
       imageOnRight: false,
     },
+    {
+      badge: "JOB WIDGET",
+      title: "Add Job Listings to Any Website",
+      description: "With Flowxtra's Job Widget, you can instantly display your company's open positions on your website — without any technical setup or API integration. Whether you're using WordPress, Wix, Shopify, or any other platform, simply copy the embed code and your job board goes live automatically.",
+      buttonText: "Register For Free",
+      buttonLink: "https://my.flowxtra.com/registration",
+      image: "/img/multi-job-post.gif",
+      imageAlt: "Add Job Listings to Any Website",
+      imageOnRight: true,
+      showCodeBlock: true,
+      codeBlock: `<iframe
+src="https://dpro.flowxtra.com"
+width="600" 
+height="400"
+frameborder="0" allowfullscreen>
+</iframe>`,
+    },
   ];
 
   return (
@@ -82,13 +101,13 @@ function FeaturesSlider() {
           }}
         >
           <div 
-            className="sticky top-0 h-screen w-full flex items-center justify-center bg-white dark:bg-gray-900"
+            className="sticky top-0 min-h-screen w-full flex items-start justify-center bg-white dark:bg-gray-900 py-20 md:py-24"
             style={{ 
               zIndex: index + 1,
             }}
           >
             <div className="container mx-auto px-4 md:px-8 lg:px-12">
-              <div className={`grid gap-8 lg:gap-12 items-center max-w-7xl mx-auto ${slide.imageOnRight ? 'lg:grid-cols-[40%_60%]' : 'lg:grid-cols-[60%_40%]'}`}>
+              <div className={`grid gap-8 lg:gap-12 items-center max-w-7xl mx-auto ${slide.imageOnRight ? 'lg:grid-cols-[33%_67%]' : 'lg:grid-cols-[67%_33%]'}`}>
                 {/* Content */}
                 <div className={`bg-gray-50 dark:bg-gray-800 p-8 md:p-10 rounded-3xl ${slide.imageOnRight ? 'order-1' : 'order-1 lg:order-2'}`}>
                   <span className="inline-block px-3 py-1.5 bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md text-sm font-normal mb-4">
@@ -113,17 +132,33 @@ function FeaturesSlider() {
                   </div>
                 </div>
 
-                {/* Image */}
+                {/* Image or Code Block */}
                 <div className={`${slide.imageOnRight ? 'order-2' : 'order-2 lg:order-1'}`}>
-                  <Image
-                    src={slide.image}
-                    alt={slide.imageAlt}
-                    width={1200}
-                    height={900}
-                    quality={100}
-                    className="w-full h-auto"
-                    unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.png')}
-                  />
+                  {slide.showCodeBlock ? (
+                    <div className="flex items-center justify-center w-full">
+                      <CodeEditor
+                        title="Embed Code"
+                        icon={<Code />}
+                        copyButton
+                        header
+                        dots
+                        writing={false}
+                        className="w-full max-w-2xl h-auto"
+                      >
+                        {slide.codeBlock}
+                      </CodeEditor>
+                    </div>
+                  ) : (
+                    <Image
+                      src={slide.image}
+                      alt={slide.imageAlt}
+                      width={1200}
+                      height={900}
+                      quality={100}
+                      className={slide.image.includes('hiring-email-template') ? "w-1/2 h-auto mx-auto" : "w-full h-auto"}
+                      unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.png')}
+                    />
+                  )}
                 </div>
               </div>
             </div>
