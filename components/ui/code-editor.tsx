@@ -192,71 +192,91 @@ function CodeEditor({
           !isFullscreen && className
         )}
       >
-        {/* Fullscreen Control Bar */}
+        {/* Fullscreen Header Bar */}
         {isFullscreen && (
-          <>
-            <div className="absolute top-0 left-0 right-0 h-14 bg-black/90 backdrop-blur-sm flex items-center justify-between px-4 z-[100000]">
-              <div className="flex items-center gap-3">
+          <div className="absolute top-0 left-0 right-0 h-14 bg-[#161b22] border-b border-[#30363d] flex items-center justify-between px-4 z-[100000]">
+            {/* Left Side: Title + Tabs */}
+            <div className="flex items-center gap-4">
+              {/* Title */}
+              <div className="flex items-center gap-2">
+                {icon && (
+                  <div className="text-[#8b949e] [&_svg]:size-4">
+                    {icon}
+                  </div>
+                )}
+                <span className="text-[#c9d1d9] text-sm font-medium">
+                  {title || "Embed Code"}
+                </span>
+              </div>
+              
+              {/* Tabs */}
+              <div className="flex items-center gap-1">
                 <button
-                  onClick={() => window.location.reload()}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/10 hover:bg-white/20 text-white text-sm font-medium transition-colors"
+                  onClick={() => setActiveTab('code')}
+                  className={cn(
+                    'inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-colors',
+                    activeTab === 'code'
+                      ? 'bg-[#238636] text-white hover:bg-[#2ea043]'
+                      : 'text-[#8b949e] hover:text-[#c9d1d9] hover:bg-[#30363d]'
+                  )}
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="16 18 22 12 16 6"/>
+                    <polyline points="8 6 2 12 8 18"/>
                   </svg>
-                  <span>Refresh</span>
+                  Code
                 </button>
                 <button
-                  onClick={() => setIsFullscreen(false)}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/10 hover:bg-white/20 text-white text-sm font-medium transition-colors"
+                  onClick={() => setActiveTab('preview')}
+                  className={cn(
+                    'inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-colors',
+                    activeTab === 'preview'
+                      ? 'bg-[#238636] text-white hover:bg-[#2ea043]'
+                      : 'text-[#8b949e] hover:text-[#c9d1d9] hover:bg-[#30363d]'
+                  )}
                 >
-                  <span className="px-1.5 py-0.5 bg-white/20 rounded text-xs">Esc</span>
-                  <span>Exit</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                  Preview
                 </button>
               </div>
+            </div>
+            
+            {/* Right Side: Copy + Minimize + Exit Buttons */}
+            <div className="flex items-center gap-2">
+              {copyButton && activeTab === 'code' && (
+                <button
+                  onClick={async () => {
+                    await navigator.clipboard.writeText(code);
+                  }}
+                  className="inline-flex items-center justify-center rounded-md h-8 w-8 p-0 bg-transparent hover:bg-white/10 text-[#c9d1d9] hover:text-white transition-colors"
+                  aria-label="Copy code"
+                  title="Copy code"
+                >
+                  <Copy className="h-4 w-4" />
+                </button>
+              )}
               
               <button
                 onClick={() => setIsFullscreen(false)}
-                className="flex items-center gap-2 px-4 py-1.5 rounded-md bg-red-600 hover:bg-red-700 text-white text-sm font-medium transition-colors"
+                className="inline-flex items-center justify-center rounded-md h-8 w-8 p-0 bg-transparent hover:bg-white/10 text-[#c9d1d9] hover:text-white transition-colors"
+                aria-label="Exit fullscreen"
+                title="Exit fullscreen"
               >
-                Exit
+                <Minimize2 className="h-4 w-4" />
+              </button>
+              
+              <button
+                onClick={() => setIsFullscreen(false)}
+                className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-transparent hover:bg-white/10 text-[#c9d1d9] hover:text-white text-sm font-medium transition-colors"
+              >
+                <span className="px-1.5 py-0.5 bg-white/20 rounded text-xs">Esc</span>
+                <span>Exit</span>
               </button>
             </div>
-            
-            {/* Tabs in fullscreen */}
-            <div className="absolute top-14 left-0 right-0 flex items-center gap-1 bg-[#161b22] border-b border-[#30363d] px-3 py-1.5 z-[100000]">
-              <button
-                onClick={() => setActiveTab('code')}
-                className={cn(
-                  'inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-colors',
-                  activeTab === 'code'
-                    ? 'bg-[#238636] text-white hover:bg-[#2ea043]'
-                    : 'text-[#8b949e] hover:text-[#c9d1d9] hover:bg-[#30363d]'
-                )}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="16 18 22 12 16 6"/>
-                  <polyline points="8 6 2 12 8 18"/>
-                </svg>
-                Code
-              </button>
-              <button
-                onClick={() => setActiveTab('preview')}
-                className={cn(
-                  'inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-colors',
-                  activeTab === 'preview'
-                    ? 'bg-[#238636] text-white hover:bg-[#2ea043]'
-                    : 'text-[#8b949e] hover:text-[#c9d1d9] hover:bg-[#30363d]'
-                )}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
-                  <circle cx="12" cy="12" r="3"/>
-                </svg>
-                Preview
-              </button>
-            </div>
-          </>
+          </div>
         )}
         
         {header && !isFullscreen && (
@@ -356,7 +376,7 @@ function CodeEditor({
             ref={editorRef}
             className={cn(
               'w-full font-mono text-sm overflow-auto',
-              isFullscreen ? 'h-[calc(100vh-7.5rem)] p-8 mt-[6.5rem]' : 'min-h-[200px] max-h-96 p-6'
+              isFullscreen ? 'h-[calc(100vh-3.5rem)] mt-14 p-8' : 'min-h-[200px] max-h-96 p-6'
             )}
             dir="ltr"
           >
@@ -380,7 +400,7 @@ function CodeEditor({
             className={cn(
               'w-full overflow-auto',
               'bg-gradient-to-br from-white to-gray-50 dark:from-[#0d1117] dark:to-[#161b22]',
-              isFullscreen ? 'h-[calc(100vh-7.5rem)] p-12 mt-[6.5rem]' : 'min-h-[400px] max-h-[600px] p-8'
+              isFullscreen ? 'h-[calc(100vh-3.5rem)] mt-14 p-12' : 'min-h-[400px] max-h-[600px] p-8'
             )}
           >
             <div 
