@@ -1199,6 +1199,9 @@ Hiring Faster Growth              </h2>
 
       {/* Reviews Section */}
       <ReviewsSection />
+
+      {/* FAQ Section */}
+      <FAQSection />
     </div>
   );
 }
@@ -1354,6 +1357,174 @@ function ReviewsSection() {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// FAQ Section Component
+function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  interface FAQLink {
+    text: string;
+    url: string;
+  }
+
+  interface FAQ {
+    question: string;
+    answer: string;
+    links?: FAQLink[];
+  }
+
+  const faqs: FAQ[] = [
+    {
+      question: "Is Flowxtra free to use for posting job?",
+      answer: "Yes — Flowxtra offers a completely free plan that includes up to 10 free job postings per month. You can publish your job ads across top platforms like LinkedIn, Google Jobs, and Stepstone without paying a cent. It's the perfect solution for startups, small businesses, and growing teams looking to post jobs online for free and attract top talent effortlessly."
+    },
+    {
+      question: "Can I upgrade my Flowxtra plan later if needed?",
+      answer: "Yes, you can upgrade to a higher plan at any time to access more features and higher limits."
+    },
+    {
+      question: "What features are included in each plan?",
+      answer: "Plans offer various features such as increased job posting limits, team collaboration tools, hiring pipelines, email templates, AI chatbot integration, and custom domain support."
+    },
+    {
+      question: "Does every plan include AI chatbot support?",
+      answer: "Yes, soon every plan will include an AI chatbot. Flowxtra does not perform AI scoring or matching. Our AI chatbot simply helps recruiters filter applicants faster — for example, by asking \"Who knows JavaScript or PHP?\" the system quickly searches through CVs and displays matching names. When you click on a name, the applicant's full CV details appear."
+    },
+    {
+      question: "What is the Custom Domain feature?",
+      answer: "The Custom Domain feature allows you to use your own domain name for your company page."
+    },
+    {
+      question: "Can I integrate Flowxtra with other applications?",
+      answer: "Yes, all plans include an API token for third-party app integration and automation."
+    },
+    {
+      question: "Is Flowxtra a job platform or a recruitment system?",
+      answer: "Flowxtra is more than just an ATS — it's a flexible AI-powered recruitment platform. Companies can use Flowxtra in two ways:\n\n• As a public job platform: Publish jobs for free across Flowxtra and partner networks like Google Jobs, LinkedIn, and more.\n\n• As a private hiring system: Set up your own branded ATS where only your team manages candidate data, interviews, and hiring — fully secure and self-hosted.\n\nWe specialize in building custom recruitment software tailored to your business needs, whether you're a startup or a large enterprise."
+    },
+    {
+      question: "Is Flowxtra suitable for small, medium, and large companies?",
+      answer: "Yes, absolutely. Flowxtra is built to adapt to every business size — whether you're a startup, a growing company, or a large enterprise. The platform scales automatically to match your hiring volume, team structure, and workflow needs. It's perfect for small teams that need a simple and efficient way to manage job posts, as well as for global corporations that handle thousands of candidates daily — all with the same reliability, speed, and security."
+    },
+    {
+      question: "Can Flowxtra handle thousands of job applications?",
+      answer: "Yes, it can. Flowxtra's modern cloud-based architecture is designed for performance and scalability. It can easily process and organize thousands of job applications without slowing down, ensuring that HR teams of any size can work efficiently, even during high recruitment periods."
+    },
+    {
+      question: "Flowxtra complies with the European AI Act for recruitment systems?",
+      answer: "Yes, Flowxtra is fully compliant with the EU AI Act (Regulation 2024/1689) and GDPR.\n\nWhat does that mean?\n\nFlowxtra is not an automated decision-making tool. It does not use artificial intelligence to:\n• Score, rank, or filter applicants\n• Select or recommend \"the best candidate\"\n• Perform automated profiling or matching\n\nInstead, Flowxtra is a human-first Applicant Tracking System (ATS). Our AI is used only to:\n• Help companies write job ads faster\n• Assist in communication with applicants\n• Automate job posting to platforms like LinkedIn and Google Jobs\n\nYou stay fully in control of all hiring decisions. Flowxtra never replaces human judgment."
+    },
+    {
+      question: "Flowxtra is fully compliant with the EU AI Act?",
+      answer: "No, based on the current legal interpretation by Austria's regulatory body RTR (KI-Servicestelle), Flowxtra is not classified as a high-risk AI system — as long as:\n\n• No automated decision-making or filtering is used\n• The AI is only used to assist, not to decide\n• Interactions with AI (e.g., chatbots) are clearly disclosed\n• Flowxtra does not process sensitive personal data like gender, origin, or religion\n\nAll AI use is transparent, explainable, and compliant with Article 50 of the EU AI Act.",
+      links: [
+        { text: "EU AI Act – EUR-Lex (Regulation 2024/1689)", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32024R1689" },
+        { text: "Transparency Requirements (RTR Austria)", url: "https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Transparenzpflichten.de.html" },
+        { text: "General AI Act Guidelines (RTR Austria)", url: "https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/AI_Act.de.html" }
+      ]
+    },
+    {
+      question: "Flowxtra is fully compliant with the GDPR and DSGVO?",
+      answer: "Yes, Flowxtra is fully compliant with the General Data Protection Regulation (GDPR) and the Datenschutz-Grundverordnung (DSGVO).\n\nWe do not process sensitive personal data such as gender, ethnicity, religion, or political beliefs. Candidate data is stored securely and managed exclusively by the company using the platform.\n\nFlowxtra does not make automated decisions about candidates. Employers retain full control over all applicant data and hiring decisions.\n\nOur systems include transparent consent management, data access controls, and a clear procedure for candidates to request data deletion or submit complaints, in line with Articles 12–23 of the GDPR.\n\nAll data is hosted in the European Union, and our infrastructure follows industry best practices for security and data protection."
+    }
+  ];
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
+      <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-6xl">
+        {/* Header */}
+        <div className="mb-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            Frequently Asked Questions
+          </h2>
+          <div className="flex items-center gap-2 text-base md:text-lg text-gray-600 dark:text-gray-400">
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
+            </svg>
+            <span>Still need help? <a href="/contact-us" className="text-primary dark:text-secondary hover:underline font-semibold">Chat with us</a></span>
+          </div>
+        </div>
+
+        {/* FAQ Accordion - No Borders */}
+        <div className="space-y-0">
+          {faqs.map((faq, index) => (
+            <div key={index}>
+              <button
+                onClick={() => toggleFAQ(index)}
+                className="w-full flex items-center gap-4 py-6 text-left transition-colors hover:text-primary dark:hover:text-secondary group"
+              >
+                <svg
+                  className={`w-5 h-5 text-primary dark:text-secondary flex-shrink-0 transition-transform duration-300 ${
+                    openIndex === index ? 'rotate-90' : ''
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+                <span className="text-base md:text-lg font-semibold text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-secondary transition-colors">
+                  {faq.question}
+                </span>
+              </button>
+              
+              <div
+                className={`transition-all duration-300 ease-in-out ${
+                  openIndex === index ? 'max-h-[2000px] opacity-100 pb-6' : 'max-h-0 opacity-0'
+                } overflow-hidden`}
+              >
+                <div className="pl-9">
+                  <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+                    {faq.answer}
+                  </p>
+                  {faq.links && faq.links.length > 0 && (
+                    <div className="mt-4">
+                      <p className="text-sm font-semibold text-gray-900 dark:text-white mb-2">Official Sources:</p>
+                      <ul className="space-y-2">
+                        {faq.links.map((link, linkIndex) => (
+                          <li key={linkIndex}>
+                            <a
+                              href={link.url}
+                              target="_blank"
+                              rel="nofollow noopener"
+                              className="text-sm text-primary dark:text-secondary hover:underline flex items-center gap-2"
+                            >
+                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                              </svg>
+                              {link.text}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Button */}
+        <div className="text-center mt-12">
+          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-6">
+            Still have questions? We're here to help!
+          </p>
+          <a
+            href="/contact-us"
+            className="inline-block bg-button-primary border-2 border-button-primary text-white px-8 py-4 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-lg shadow-lg"
+          >
+            Contact Us
+          </a>
         </div>
       </div>
     </section>
