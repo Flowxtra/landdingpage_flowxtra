@@ -34,13 +34,13 @@ export default function CompareFeatures() {
   const touchEndX = useRef<number>(0);
 
   const plans: Plan[] = [
-    { key: 'free', name: 'Free', color: '#6b7280' },
-    { key: 'starter', name: 'Starter', color: '#3b82f6' },
-    { key: 'basic', name: 'Basic', color: '#10b981' },
+    { key: 'free', name: 'Free', color: '#006980' },
+    { key: 'starter', name: 'Starter', color: '#006980' },
+    { key: 'basic', name: 'Basic', color: '#006980' },
     { key: 'professional', name: 'Professional', color: '#006980' },
-    { key: 'advanced', name: 'Advanced', color: '#8b5cf6' },
-    { key: 'premium', name: 'Premium', color: '#f59e0b' },
-    { key: 'enterprise', name: 'Enterprise', color: '#ef4444' },
+    { key: 'advanced', name: 'Advanced', color: '#006980' },
+    { key: 'premium', name: 'Premium', color: '#006980' },
+    { key: 'enterprise', name: 'Enterprise', color: '#006980' },
   ];
 
   const toggleRow = (descId: string) => {
