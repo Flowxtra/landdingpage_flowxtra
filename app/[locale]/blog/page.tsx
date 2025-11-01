@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState, useMemo, Suspense, useRef } from 'react';
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
+import { generateBlogListingSchema } from '@/lib/seo';
+import JsonLd from '@/components/JsonLd';
 
 function BlogContent() {
   const t = useTranslations('blog');
@@ -399,8 +401,16 @@ function BlogContent() {
     });
   };
 
+  // Generate JSON-LD schema for blog listing page
+  const blogListingSchema = generateBlogListingSchema({
+    posts: filteredPosts,
+    locale: currentLocale,
+  });
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
+      {/* JSON-LD Schema for SEO */}
+      <JsonLd data={blogListingSchema} />
       {/* Search Modal */}
       {showSearchModal && (
         <div 

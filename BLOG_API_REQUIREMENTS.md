@@ -478,6 +478,116 @@ Before deployment, test:
 
 ---
 
+## 💾 Database Schema
+
+### Blog Posts Table
+
+```sql
+CREATE TABLE blog_posts (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    slug VARCHAR(255) UNIQUE NOT NULL,
+    title_en VARCHAR(500) NOT NULL,
+    title_de VARCHAR(500),
+    excerpt_en TEXT,
+    excerpt_de TEXT,
+    content_en LONGTEXT,
+    content_de LONGTEXT,
+    category_id INT NOT NULL,
+    featured_image VARCHAR(500),
+    author_name VARCHAR(255),
+    author_image VARCHAR(500),
+    published_date DATE NOT NULL,
+    reading_time VARCHAR(50) DEFAULT '5 min read',
+    status ENUM('draft', 'published', 'archived') DEFAULT 'published',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_category (category_id),
+    INDEX idx_slug (slug),
+    INDEX idx_published_date (published_date),
+    INDEX idx_status (status),
+    FOREIGN KEY (category_id) REFERENCES blog_categories(id)
+);
+```
+
+### Blog Categories Table
+
+```sql
+CREATE TABLE blog_categories (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    slug VARCHAR(255) UNIQUE NOT NULL,
+    name_en VARCHAR(255) NOT NULL,
+    name_de VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_slug (slug)
+);
+```
+
+### Schema Fields Description
+
+#### blog_posts Table
+
+| Field | Type | Required | Description | Example |
+|-------|------|----------|-------------|---------|
+| `id` | INT | ✅ Yes | Primary key, auto-increment | `1` |
+| `slug` | VARCHAR(255) | ✅ Yes | URL-friendly identifier (unique) | `"how-ai-is-transforming-frontend-development"` |
+| `title_en` | VARCHAR(500) | ✅ Yes | Post title in English | `"How AI is Transforming Frontend Development"` |
+| `title_de` | VARCHAR(500) | ❌ No | Post title in German | `"Wie KI die Frontend-Entwicklung transformiert"` |
+| `excerpt_en` | TEXT | ✅ Yes | Post excerpt in English | `"Explore how tools like GitHub Copilot..."` |
+| `excerpt_de` | TEXT | ❌ No | Post excerpt in German | `"Erkunden Sie, wie Tools wie GitHub Copilot..."` |
+| `content_en` | LONGTEXT | ✅ Yes | Full post content in English (HTML) | `"<p>Artificial Intelligence...</p>"` |
+| `content_de` | LONGTEXT | ❌ No | Full post content in German (HTML) | `"<p>Künstliche Intelligenz...</p>"` |
+| `category_id` | INT | ✅ Yes | Foreign key to blog_categories | `1` |
+| `featured_image` | VARCHAR(500) | ✅ Yes | Featured image URL/path | `"/img/blog/post-1.jpg"` |
+| `author_name` | VARCHAR(255) | ❌ No | Author name | `"John Doe"` |
+| `author_image` | VARCHAR(500) | ❌ No | Author image URL/path | `"/img/blog/author.jpg"` |
+| `published_date` | DATE | ✅ Yes | Publication date (ISO format) | `"2024-01-15"` |
+| `reading_time` | VARCHAR(50) | ✅ Yes | Estimated reading time | `"5 min read"` |
+| `status` | ENUM | ✅ Yes | Post status | `"published"`, `"draft"`, `"archived"` |
+| `created_at` | TIMESTAMP | ✅ Yes | Record creation timestamp | Auto-generated |
+| `updated_at` | TIMESTAMP | ✅ Yes | Record update timestamp | Auto-generated |
+
+#### blog_categories Table
+
+| Field | Type | Required | Description | Example |
+|-------|------|----------|-------------|---------|
+| `id` | INT | ✅ Yes | Primary key, auto-increment | `1` |
+| `slug` | VARCHAR(255) | ✅ Yes | URL-friendly identifier (unique) | `"productivity"` |
+| `name_en` | VARCHAR(255) | ✅ Yes | Category name in English | `"Productivity"` |
+| `name_de` | VARCHAR(255) | ❌ No | Category name in German | `"Produktivität"` |
+| `created_at` | TIMESTAMP | ✅ Yes | Record creation timestamp | Auto-generated |
+| `updated_at` | TIMESTAMP | ✅ Yes | Record update timestamp | Auto-generated |
+
+### Important Notes
+
+1. **Slug Format**: Should be URL-friendly (lowercase, hyphens instead of spaces)
+   - Example: `"how-ai-is-transforming-frontend-development"`
+   - Must be unique
+
+2. **Multilingual Content**: 
+   - Store separate fields for English (`_en`) and German (`_de`)
+   - If German content is not available, API should return English content
+
+3. **Content Format**:
+   - Store HTML content as-is in `content_en` and `content_de`
+   - Frontend will render using `dangerouslySetInnerHTML`
+
+4. **Image Paths**:
+   - Store relative paths starting with `/` or full URLs
+   - Example: `"/img/blog/post-1.jpg"` or `"https://cdn.flowxtra.com/blog/post-1.jpg"`
+
+5. **Status Field**:
+   - Only return posts with `status = 'published'`
+   - Draft and archived posts should not appear in public API
+
+6. **Indexing**:
+   - Index on `category_id` for filtering
+   - Index on `slug` for single post lookup
+   - Index on `published_date` for sorting
+   - Index on `status` for filtering
+
+---
+
 ## 📞 Integration Example
 
 ### Frontend Implementation

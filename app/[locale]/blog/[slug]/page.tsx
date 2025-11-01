@@ -4,6 +4,9 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams, usePathname } from 'next/navigation';
+import { useEffect } from 'react';
+import { generateBlogPostSchema } from '@/lib/seo';
+import JsonLd from '@/components/JsonLd';
 
 function BlogPostContent() {
   const t = useTranslations('blog');
@@ -292,8 +295,17 @@ function BlogPostContent() {
     );
   }
 
+  // Generate JSON-LD schema for SEO
+  const blogPostSchema = generateBlogPostSchema({
+    post,
+    locale: currentLocale,
+  });
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
+      {/* JSON-LD Schema for SEO */}
+      <JsonLd data={blogPostSchema} />
+      
       {/* First Section - Same background as blog page */}
       <section className="w-full pt-2.5 pb-16 md:pb-24 px-[10px] bg-white dark:bg-gray-900 transition-colors">
         <div className="w-full rounded-[10px] px-[10px] py-16 md:py-20 bg-[#f4f6f8] dark:bg-gray-800">
