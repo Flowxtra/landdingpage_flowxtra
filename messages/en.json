@@ -725,5 +725,53 @@
             "aiAct": "AI Act Compliant"
         },
         "logoAlt": "Flowxtra"
+    },
+    "cookieConsent": {
+        "title": "Cookie Preferences",
+        "description": "Manage your cookie preferences. You can enable or disable different types of cookies below.",
+        "strictlyNecessary": {
+            "title": "Strictly Necessary Cookies",
+            "description": "These cookies are necessary for the website to function properly. They cannot be disabled."
+        },
+        "functionality": {
+            "title": "Functionality Cookies",
+            "description": "These cookies enable enhanced functionality and personalization (language, theme, preferences)."
+        },
+        "performance": {
+            "title": "Performance Cookies",
+            "description": "These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously."
+        },
+        "targeting": {
+            "title": "Targeting Cookies",
+            "description": "These cookies are used to deliver personalized advertisements and track advertising campaign performance."
+        },
+        "table": {
+            "name": "Name",
+            "provider": "Provider",
+            "storage": "Data Storage",
+            "retention": "Retention",
+            "privacyPolicy": "Privacy Policy",
+            "view": "View"
+        },
+        "doNotSell": {
+            "title": "Do Not Sell My Personal Information",
+            "description": "Under CCPA, you have the right to opt-out of the sale of your personal information."
+        },
+        "buttons": {
+            "cancel": "Cancel",
+            "save": "Save Preferences",
+            "acceptAll": "Accept All",
+            "rejectAll": "Reject All",
+            "preferences": "Preferences",
+            "acceptNecessary": "Accept Necessary Only"
+        },
+        "banner": {
+            "titleEU": "We use cookies",
+            "titleUS": "Cookie Notice",
+            "descriptionEU": "We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking \"Accept All\", you consent to our use of cookies.",
+            "descriptionCA": "We collect and may sell your personal information. You have the right to opt-out. Click \"Do Not Sell\" to exercise your rights under CCPA.",
+            "descriptionUS": "We use cookies to improve your experience. You can manage your preferences at any time.",
+            "learnMore": "Learn more"
+        }
     }
 }

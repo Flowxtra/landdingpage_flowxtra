@@ -166,7 +166,7 @@ Based on `app/layout.tsx`, the following tracking scripts are currently implemen
 <p>Your data is stored on our primary application servers located in 🇩🇪 Germany (European Union)</p>
 
 // ✅ SAFE - Generic with future plans
-<p>We may expand to servers in 🇺🇸 United States. EU transfers protected by SCCs.</p>
+<p>We may expand to servers in United States. EU transfers protected by SCCs.</p>
 ```
 
 **Privacy Policy (Full Disclosure):**

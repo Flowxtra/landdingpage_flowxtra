@@ -4,10 +4,12 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import ConsentPreferencesPanel from "@/components/CookieConsent/ConsentPreferences";
 
 export default function Footer() {
   const t = useTranslations("footer");
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [showConsentPreferences, setShowConsentPreferences] = useState(false);
 
   // Initialize dark mode from localStorage or browser preferences
   useEffect(() => {
@@ -403,7 +405,10 @@ export default function Footer() {
 
             {/* Consent Preferences, Dark Mode & Accessibility */}
             <div className="flex flex-wrap items-center justify-center md:justify-end gap-2 md:gap-4 w-full md:w-auto">
-              <button className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-primary dark:text-white hover:text-secondary dark:hover:text-gray-300 transition-colors whitespace-nowrap">
+              <button 
+                onClick={() => setShowConsentPreferences(true)}
+                className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-primary dark:text-white hover:text-secondary dark:hover:text-gray-300 transition-colors whitespace-nowrap"
+              >
                 <svg 
                   className="w-4 h-4 md:w-5 md:h-5 text-primary dark:text-white flex-shrink-0" 
                   viewBox="0 0 24 24" 
@@ -415,6 +420,12 @@ export default function Footer() {
                 <span className="hidden sm:inline">{t("consent.preferences")}</span>
                 <span className="sm:hidden">{t("consent.short")}</span>
               </button>
+              
+              {showConsentPreferences && (
+                <ConsentPreferencesPanel
+                  onClose={() => setShowConsentPreferences(false)}
+                />
+              )}
 
               {/* Dark Mode Toggle */}
               <button
