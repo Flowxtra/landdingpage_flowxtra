@@ -288,6 +288,8 @@ function CodeEditor({
                   </svg>
                   Code
                 </button>
+{/* Integration tab - Currently Hidden */}
+{false && (
                 <button
                   onClick={() => setActiveTab('integration')}
                   className={cn(
@@ -303,6 +305,7 @@ function CodeEditor({
                   </svg>
                   Integration
                 </button>
+                )}
                 <button
                   onClick={() => setActiveTab('preview')}
                   className={cn(
@@ -455,6 +458,8 @@ function CodeEditor({
                 </svg>
                 Code
               </button>
+{/* Integration tab - Currently Hidden */}
+{false && (
               <button
                 onClick={() => setActiveTab('integration')}
                 className={cn(
@@ -470,6 +475,7 @@ function CodeEditor({
                 </svg>
                 Integration
               </button>
+              )}
               <button
                 onClick={() => setActiveTab('preview')}
                 className={cn(

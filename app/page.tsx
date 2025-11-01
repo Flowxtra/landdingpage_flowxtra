@@ -511,7 +511,8 @@ Hiring Faster Growth              </h2>
         </div>
       </section>
 
-      {/* Integration Section - Reversed Layout */}
+      {/* Integration Section - Reversed Layout - Currently Hidden */}
+      {false && (
       <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
           <div className="flex flex-col gap-12">
@@ -541,6 +542,7 @@ Hiring Faster Growth              </h2>
           </div>
         </div>
       </section>
+      )}
 
       {/* Video Section */}
       <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
@@ -1058,7 +1060,7 @@ function ReviewsSection() {
               <i className="fas fa-star"></i>
               <i className="fas fa-star-half-alt"></i>
             </div>
-            <span className="text-base md:text-lg text-gray-600 dark:text-gray-300 font-semibold">4.8 out of 5</span>
+            <span className="text-base md:text-lg text-gray-600 dark:text-gray-300 font-semibold">4.8</span>
           </div>
         </div>
 
