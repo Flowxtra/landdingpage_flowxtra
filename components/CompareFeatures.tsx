@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { ChevronDown, ChevronUp, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 // Feature data structure
 interface Feature {
@@ -31,6 +32,8 @@ interface CompareFeaturesProps {
 }
 
 export default function CompareFeatures({ defaultOpen = false }: CompareFeaturesProps) {
+  const t = useTranslations("pricing");
+  const tCompare = useTranslations("compareFeatures");
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const [expandedRow, setExpandedRow] = useState<string | null>(null);
   const [selectedPlan, setSelectedPlan] = useState<PlanKey>('professional'); // Default to Professional
@@ -38,13 +41,13 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
   const touchEndX = useRef<number>(0);
 
   const plans: Plan[] = [
-    { key: 'free', name: 'Free', color: '#006980' },
-    { key: 'starter', name: 'Starter', color: '#006980' },
-    { key: 'basic', name: 'Basic', color: '#006980' },
-    { key: 'professional', name: 'Professional', color: '#006980' },
-    { key: 'advanced', name: 'Advanced', color: '#006980' },
-    { key: 'premium', name: 'Premium', color: '#006980' },
-    { key: 'enterprise', name: 'Enterprise', color: '#006980' },
+    { key: 'free', name: t("plans.free"), color: '#006980' },
+    { key: 'starter', name: t("plans.starter"), color: '#006980' },
+    { key: 'basic', name: t("plans.basic"), color: '#006980' },
+    { key: 'professional', name: t("plans.professional"), color: '#006980' },
+    { key: 'advanced', name: t("plans.advanced"), color: '#006980' },
+    { key: 'premium', name: t("plans.premium"), color: '#006980' },
+    { key: 'enterprise', name: t("plans.enterprise"), color: '#006980' },
   ];
 
   const toggleRow = (descId: string) => {
@@ -86,7 +89,7 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
     }
   };
 
-  const Unlimited = () => <span className="oi">Unlimited</span>;
+  const Unlimited = () => <span className="oi">{tCompare("unlimited")}</span>;
 
   // All features data
   const features: Feature[] = [
@@ -94,46 +97,46 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
     {
       id: 'desc-jobs',
       icon: 'fas fa-briefcase',
-      name: 'Job postings / month',
+      name: tCompare('features.jobPostings.name'),
       free: '10',
       starter: '15',
       basic: '25',
       professional: '35',
-      advanced: '45',
-      premium: 'Unlimited',
-      enterprise: 'Unlimited',
-      description: 'Number of active job slots you can publish simultaneously per month.',
+      advanced: tCompare("unlimited"),
+      premium: tCompare("unlimited"),
+      enterprise: tCompare("unlimited"),
+      description: tCompare('features.jobPostings.description'),
     },
     {
       id: 'desc-seats',
       icon: 'fas fa-users',
-      name: 'User seats',
+      name: tCompare('features.userSeats.name'),
       free: '1',
       starter: '5',
       basic: '10',
       professional: '15',
       advanced: '20',
-      premium: 'Unlimited',
-      enterprise: 'Unlimited',
-      description: 'Total team members who can collaborate inside your account.',
+      premium: tCompare("unlimited"),
+      enterprise: tCompare("unlimited"),
+      description: tCompare('features.userSeats.description'),
     },
     {
       id: 'desc-support',
       icon: 'fas fa-headset',
-      name: 'Support 24/7',
-      free: 'Tickets',
-      starter: 'Chat',
-      basic: 'Chat',
-      professional: 'Chat',
-      advanced: 'Chat',
-      premium: 'Chat, Online Meetings',
-      enterprise: 'Chat, Online Meetings',
-      description: 'Round-the-clock priority support through Chat and Online Meetings with our senior support engineers.',
+      name: tCompare('features.support247.name'),
+      free: tCompare('values.tickets'),
+      starter: tCompare('values.chat'),
+      basic: tCompare('values.chat'),
+      professional: tCompare('values.chat'),
+      advanced: tCompare('values.chat'),
+      premium: tCompare('values.chatOnlineMeetings'),
+      enterprise: tCompare('values.chatOnlineMeetings'),
+      description: tCompare('features.support247.description'),
     },
     {
       id: 'desc-gdpr-ccpa',
       icon: 'fas fa-shield-alt',
-      name: 'GDPR & CCPA compliance',
+      name: tCompare('features.gdprCcpa.name'),
       free: '✓',
       starter: '✓',
       basic: '✓',
@@ -141,12 +144,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Full compliance with GDPR (European Union) and CCPA (California) data protection regulations. Includes data subject rights management, consent tracking, data portability, right to erasure, privacy controls, and automated compliance reports. Protect candidate privacy and meet international legal requirements.',
+      description: tCompare('features.gdprCcpa.description'),
     },
     {
       id: 'desc-google-jobs',
       icon: 'fab fa-google',
-      name: 'Google job listing',
+      name: tCompare('features.googleJobs.name'),
       free: '✓',
       starter: '✓',
       basic: '✓',
@@ -154,12 +157,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Automatically list your jobs on Google for Jobs for free. Increase visibility and reach more candidates through Google Search without additional costs.',
+      description: tCompare('features.googleJobs.description'),
     },
     {
       id: 'desc-meet',
       icon: 'fas fa-video',
-      name: 'Online meeting tool',
+      name: tCompare('features.onlineMeeting.name'),
       free: '✓',
       starter: '✓',
       basic: '✓',
@@ -167,12 +170,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Schedule and host interviews with candidates directly from Flowxtra.',
+      description: tCompare('features.onlineMeeting.description'),
     },
     {
       id: 'desc-cv-parsing',
       icon: 'fas fa-file-circle-check',
-      name: 'CV parsing',
+      name: tCompare('features.cvParsing.name'),
       free: '✓',
       starter: '✓',
       basic: '✓',
@@ -180,12 +183,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Automatically extract and structure candidate information from CVs and resumes. Supports multiple file formats including PDF, Word, and text files. Intelligently parses contact details, work experience, education, skills, and qualifications to populate candidate profiles instantly.',
+      description: tCompare('features.cvParsing.description'),
     },
     {
       id: 'desc-kanban',
       icon: 'fas fa-columns',
-      name: 'Kanban board',
+      name: tCompare('features.kanbanBoard.name'),
       free: '✓',
       starter: '✓',
       basic: '✓',
@@ -193,12 +196,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Kanban-style board to visualize and move candidates through hiring stages. Simple column view for quick candidate management.',
+      description: tCompare('features.kanbanBoard.description'),
     },
     {
       id: 'desc-diagram',
       icon: 'fas fa-diagram-project',
-      name: 'Diagram board',
+      name: tCompare('features.diagramBoard.name'),
       free: '✓',
       starter: '✓',
       basic: '✓',
@@ -206,12 +209,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Advanced diagram board with drag-and-drop functionality, detailed activity history, and comprehensive candidate tracking. Enhanced visualization with filters and analytics.',
+      description: tCompare('features.diagramBoard.description'),
     },
     {
       id: 'desc-multipost',
       icon: 'fas fa-bullhorn',
-      name: 'Multiposting',
+      name: tCompare('features.multiposting.name'),
       free: '✓',
       starter: '✓',
       basic: '✓',
@@ -219,12 +222,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Distribute job ads to multiple channels simultaneously for maximum exposure. Includes Google Jobs, LinkedIn, and other platforms.',
+      description: tCompare('features.multiposting.description'),
     },
     {
       id: 'desc-career',
       icon: 'fas fa-building',
-      name: 'Career page',
+      name: tCompare('features.careerPage.name'),
       free: '✓',
       starter: '✓',
       basic: '✓',
@@ -232,12 +235,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Your branded public careers page listing all open roles.',
+      description: tCompare('features.careerPage.description'),
     },
     {
       id: 'desc-widget',
       icon: 'fas fa-code',
-      name: 'Job widget',
+      name: tCompare('features.jobWidget.name'),
       free: '✓',
       starter: '✓',
       basic: '✓',
@@ -245,12 +248,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Embed your job list on any website with a copy-paste snippet.',
+      description: tCompare('features.jobWidget.description'),
     },
     {
       id: 'desc-api',
       icon: 'fas fa-plug',
-      name: 'ATS integrations',
+      name: tCompare('features.atsIntegrations.name'),
       free: '✓',
       starter: '✓',
       basic: '✓',
@@ -258,12 +261,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Connect Flowxtra with your HR stack, websites, and internal tools.',
+      description: tCompare('features.atsIntegrations.description'),
     },
     {
       id: 'desc-2fa',
       icon: 'fas fa-shield-halved',
-      name: 'Two-factor authentication',
+      name: tCompare('features.twoFactorAuth.name'),
       free: '✓',
       starter: '✓',
       basic: '✓',
@@ -271,12 +274,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Protect accounts with an extra verification step at login. Also known as 2FA.',
+      description: tCompare('features.twoFactorAuth.description'),
     },
     {
       id: 'desc-crm',
       icon: 'fas fa-diagram-project',
-      name: 'Integration with CRM systems',
+      name: tCompare('features.crmIntegration.name'),
       free: '✓',
       starter: '✓',
       basic: '✓',
@@ -284,12 +287,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Sync candidate and client data with your CRM for seamless workflows.',
+      description: tCompare('features.crmIntegration.description'),
     },
     {
       id: 'desc-api-mcp',
       icon: 'fas fa-book-open',
-      name: 'API/MCP',
+      name: tCompare('features.apiMcp.name'),
       free: '✓',
       starter: '✓',
       basic: '✓',
@@ -297,12 +300,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Complete documentation for integrating Flowxtra with your custom systems and LLMs. Includes detailed API references, MCP protocol guides, code examples, and integration tutorials.',
+      description: tCompare('features.apiMcp.description'),
     },
     {
       id: 'desc-subdomain',
       icon: 'fas fa-globe',
-      name: 'Company page',
+      name: tCompare('features.companyPage.name'),
       free: '✓',
       starter: '✓',
       basic: '✓',
@@ -310,12 +313,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Get a branded subdomain with your company profile and jobs.',
+      description: tCompare('features.companyPage.description'),
     },
     {
       id: 'desc-custom-llms',
       icon: 'fas fa-brain',
-      name: 'Custom LLMs Integration',
+      name: tCompare('features.customLlms.name'),
       free: '✓',
       starter: '✓',
       basic: '✓',
@@ -323,13 +326,13 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Integrate your own LLMs that are hosted on your infrastructure. We provide the integration tools (API & MCP) so your AI models can work seamlessly within Flowxtra while staying in your environment.',
+      description: tCompare('features.customLlms.description'),
     },
     // Available from Starter and Above
     {
       id: 'desc-privacy-generator',
       icon: 'fas fa-file-contract',
-      name: 'Privacy policy generator',
+      name: tCompare('features.privacyGenerator.name'),
       free: '—',
       starter: '✓',
       basic: '✓',
@@ -337,12 +340,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Create customized privacy policies tailored to your needs. Choose from pre-built templates for different privacy regulations (GDPR, CCPA, etc.) and customize the text to match your company requirements. Generate professional, legally-compliant privacy policies without legal expertise.',
+      description: tCompare('features.privacyGenerator.description'),
     },
     {
       id: 'desc-filtering',
       icon: 'fas fa-filter',
-      name: 'Smart candidate filtering',
+      name: tCompare('features.smartFiltering.name'),
       free: '—',
       starter: '✓',
       basic: '✓',
@@ -350,12 +353,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Auto-prioritizes applicants based on role requirements and custom criteria.',
+      description: tCompare('features.smartFiltering.description'),
     },
     {
       id: 'desc-custom-fields',
       icon: 'fas fa-list-check',
-      name: 'Custom fields on jobs',
+      name: tCompare('features.customFields.name'),
       free: '—',
       starter: '✓',
       basic: '✓',
@@ -363,12 +366,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Add any fields you need to structure job data and forms.',
+      description: tCompare('features.customFields.description'),
     },
     {
       id: 'desc-roles',
       icon: 'fas fa-user-shield',
-      name: 'Roles & permissions',
+      name: tCompare('features.rolesPermissions.name'),
       free: '—',
       starter: '✓',
       basic: '✓',
@@ -376,12 +379,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Granular access control for recruiters, hiring managers, and admins.',
+      description: tCompare('features.rolesPermissions.description'),
     },
     {
       id: 'desc-hiring-stages',
       icon: 'fas fa-chart-line',
-      name: 'Hiring stages',
+      name: tCompare('features.hiringStages.name'),
       free: '—',
       starter: '✓',
       basic: '✓',
@@ -389,12 +392,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Customizable hiring stages. Define and manage recruitment phases like application review, interviews, assessments, and final decisions. Fully customizable to match your unique hiring workflow.',
+      description: tCompare('features.hiringStages.description'),
     },
     {
       id: 'desc-appstore',
       icon: 'fas fa-puzzle-piece',
-      name: 'App store integrations',
+      name: tCompare('features.appStoreIntegrations.name'),
       free: '—',
       starter: '✓',
       basic: '✓',
@@ -402,12 +405,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Plug-and-play integrations with popular HR, comms, and analytics tools.',
+      description: tCompare('features.appStoreIntegrations.description'),
     },
     {
       id: 'desc-ratings',
       icon: 'fas fa-star',
-      name: 'Rating sheets',
+      name: tCompare('features.ratingSheets.name'),
       free: '—',
       starter: '✓',
       basic: '✓',
@@ -415,12 +418,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Structured scorecards to evaluate candidates consistently.',
+      description: tCompare('features.ratingSheets.description'),
     },
     {
       id: 'desc-sharing',
       icon: 'fas fa-share-alt',
-      name: 'Custom social sharing',
+      name: tCompare('features.customSocialSharing.name'),
       free: '—',
       starter: '✓',
       basic: '✓',
@@ -428,12 +431,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Customize OG tags, banners, and captions for job links.',
+      description: tCompare('features.customSocialSharing.description'),
     },
     {
       id: 'desc-brandkit',
       icon: 'fas fa-palette',
-      name: 'Brand Kit',
+      name: tCompare('features.brandKit.name'),
       free: '—',
       starter: '✓',
       basic: '✓',
@@ -441,12 +444,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Customize your entire system with your brand colors, fonts, and logo. Your career pages, emails, and all candidate-facing content will reflect your brand identity consistently.',
+      description: tCompare('features.brandKit.description'),
     },
     {
       id: 'desc-email-templates',
       icon: 'fas fa-envelope',
-      name: 'Email template builder',
+      name: tCompare('features.emailTemplates.name'),
       free: '—',
       starter: '✓',
       basic: '✓',
@@ -454,12 +457,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Design and customize email templates for all candidate communications. Create branded, professional emails with your own design, layout, and messaging.',
+      description: tCompare('features.emailTemplates.description'),
     },
     {
       id: 'desc-auto-msg',
       icon: 'fas fa-envelope-open-text',
-      name: 'Automated messages',
+      name: tCompare('features.automatedMessages.name'),
       free: '—',
       starter: '✓',
       basic: '✓',
@@ -467,12 +470,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Send automatic confirmations, rejections, and reminders to candidates.',
+      description: tCompare('features.automatedMessages.description'),
     },
     {
       id: 'desc-custom-career',
       icon: 'fas fa-file-lines',
-      name: 'Custom career page',
+      name: tCompare('features.customCareerPage.name'),
       free: '—',
       starter: '✓',
       basic: '✓',
@@ -480,12 +483,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Build rich careers pages with sections for culture, benefits, and teams. Supports multi-section layouts.',
+      description: tCompare('features.customCareerPage.description'),
     },
     {
       id: 'desc-domain',
       icon: 'fas fa-link',
-      name: 'Custom domain',
+      name: tCompare('features.customDomain.name'),
       free: '—',
       starter: '✓',
       basic: '✓',
@@ -493,12 +496,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Use your own domain for careers pages and application forms.',
+      description: tCompare('features.customDomain.description'),
     },
     {
       id: 'desc-skills-reservoir',
       icon: 'fas fa-database',
-      name: 'Skills reservoir',
+      name: tCompare('features.skillsReservoir.name'),
       free: '—',
       starter: '✓',
       basic: '✓',
@@ -506,13 +509,13 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Store and organize top candidates who didn\'t get hired for future opportunities. Build a database of qualified talent ready for upcoming positions that match their skills.',
+      description: tCompare('features.skillsReservoir.description'),
     },
     // Available from Basic and Above
     {
       id: 'desc-storage',
       icon: 'fas fa-cloud',
-      name: 'Unlimited data storage',
+      name: tCompare('features.unlimitedStorage.name'),
       free: '—',
       starter: '—',
       basic: '✓',
@@ -520,12 +523,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Store files, resumes, and activity logs without hard caps.',
+      description: tCompare('features.unlimitedStorage.description'),
     },
     {
       id: 'desc-journey-flow',
       icon: 'fas fa-route',
-      name: 'Journey flow',
+      name: tCompare('features.journeyFlow.name'),
       free: '—',
       starter: '—',
       basic: '✓',
@@ -533,12 +536,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Advanced workflow automation builder (like n8n). Create custom recruitment processes with conditional paths based on candidate responses. Auto-send welcome emails, request additional info, send contracts, training courses, and create dynamic workflows with triggers, wait times, conditions, and multiple branches. Build personalized candidate journeys for each job with smart segmentation based on location, answers, or any custom criteria.',
+      description: tCompare('features.journeyFlow.description'),
     },
     {
       id: 'desc-ai-ad',
       icon: 'fas fa-wand-magic-sparkles',
-      name: 'AI job ad builder',
+      name: tCompare('features.aiJobAdBuilder.name'),
       free: '—',
       starter: '—',
       basic: '✓',
@@ -546,12 +549,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Generate optimized job descriptions aligned to role requirements.',
+      description: tCompare('features.aiJobAdBuilder.description'),
     },
     {
       id: 'desc-clients',
       icon: 'fas fa-handshake',
-      name: 'Client profiles',
+      name: tCompare('features.clientProfiles.name'),
       free: '—',
       starter: '—',
       basic: '✓',
@@ -559,12 +562,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Manage multiple client companies with separate jobs and teams. Perfect for agencies.',
+      description: tCompare('features.clientProfiles.description'),
     },
     {
       id: 'desc-offices',
       icon: 'fas fa-location-dot',
-      name: 'Multi office location',
+      name: tCompare('features.multiOfficeLocation.name'),
       free: '—',
       starter: '—',
       basic: '✓',
@@ -572,13 +575,13 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Organize jobs, users, and reports by location. Support for multi-location companies.',
+      description: tCompare('features.multiOfficeLocation.description'),
     },
     // Available from Professional and Above
     {
       id: 'desc-newsletter',
       icon: 'fas fa-newspaper',
-      name: 'Newsletter',
+      name: tCompare('features.newsletter.name'),
       free: '—',
       starter: '—',
       basic: '—',
@@ -586,12 +589,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Send automated job alerts to candidates who opted-in during application. Notify them about new opportunities via email, SMS, WhatsApp, or Telegram. Includes Mailchimp integration for advanced campaigns and automatic job vacancy notifications.',
+      description: tCompare('features.newsletter.description'),
     },
     {
       id: 'desc-talent',
       icon: 'fas fa-user-group',
-      name: 'Talent pool',
+      name: tCompare('features.talentPool.name'),
       free: '—',
       starter: '—',
       basic: '—',
@@ -599,12 +602,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Maintain a database of silver-medalist and future-fit candidates.',
+      description: tCompare('features.talentPool.description'),
     },
     {
       id: 'desc-reports',
       icon: 'fas fa-chart-bar',
-      name: 'Reports & analytics',
+      name: tCompare('features.reportsAnalytics.name'),
       free: '—',
       starter: '—',
       basic: '—',
@@ -612,12 +615,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Insights on sources, pipeline speed, drop-off, and team productivity. Includes detailed applicant reports.',
+      description: tCompare('features.reportsAnalytics.description'),
     },
     {
       id: 'desc-migration',
       icon: 'fas fa-arrow-right-arrow-left',
-      name: 'Database migration',
+      name: tCompare('features.databaseMigration.name'),
       free: '—',
       starter: '—',
       basic: '—',
@@ -625,12 +628,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'We help import candidates, jobs, and notes from other systems.',
+      description: tCompare('features.databaseMigration.description'),
     },
     {
       id: 'desc-export',
       icon: 'fas fa-file-export',
-      name: 'Candidate export',
+      name: tCompare('features.candidateExport.name'),
       free: '—',
       starter: '—',
       basic: '—',
@@ -638,7 +641,7 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: 'Export lists and reports for external analysis and backups. Supports CSV and Excel formats.',
+      description: tCompare('features.candidateExport.description'),
     },
   ];
 
@@ -647,7 +650,7 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
     {
       id: 'desc-esign',
       icon: 'fas fa-file-signature',
-      name: 'eSignature',
+      name: tCompare('features.esignature.name'),
       free: 'soon',
       starter: 'soon',
       basic: 'soon',
@@ -655,12 +658,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: 'soon',
       premium: 'soon',
       enterprise: 'soon',
-      description: 'Send, sign, and track legally binding digital contracts with audit trails and timestamps.',
+      description: tCompare('features.esignature.description'),
     },
     {
       id: 'desc-elearn',
       icon: 'fas fa-graduation-cap',
-      name: 'E-learning',
+      name: tCompare('features.elearning.name'),
       free: 'soon',
       starter: 'soon',
       basic: 'soon',
@@ -668,12 +671,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: 'soon',
       premium: 'soon',
       enterprise: 'soon',
-      description: 'Train hiring teams with built-in courses and certifications. Includes company-specific course creation.',
+      description: tCompare('features.elearning.description'),
     },
     {
       id: 'desc-assess',
       icon: 'fas fa-clipboard-check',
-      name: 'Assessments',
+      name: tCompare('features.assessments.name'),
       free: 'soon',
       starter: 'soon',
       basic: 'soon',
@@ -681,12 +684,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: 'soon',
       premium: 'soon',
       enterprise: 'soon',
-      description: 'Skills and personality tests with structured, comparable results.',
+      description: tCompare('features.assessments.description'),
     },
     {
       id: 'desc-social-ads',
       icon: 'fas fa-rectangle-ad',
-      name: 'Social Ads Manager',
+      name: tCompare('features.socialAdsManager.name'),
       free: 'soon',
       starter: 'soon',
       basic: 'soon',
@@ -694,12 +697,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: 'soon',
       premium: 'soon',
       enterprise: 'soon',
-      description: 'Create and manage job advertisements across major platforms including Facebook, Instagram, SnapChat, Google, YouTube, TikTok, and LinkedIn. Save on additional fees by managing all your social media advertising directly within Flowxtra.',
+      description: tCompare('features.socialAdsManager.description'),
     },
     {
       id: 'desc-id-verification',
       icon: 'fas fa-id-card',
-      name: 'ID Verification',
+      name: tCompare('features.idVerification.name'),
       free: 'soon',
       starter: 'soon',
       basic: 'soon',
@@ -707,12 +710,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: 'soon',
       premium: 'soon',
       enterprise: 'soon',
-      description: 'Verify candidate identity documents including passports, national IDs, and other official identification documents for enhanced security and compliance.',
+      description: tCompare('features.idVerification.description'),
     },
     {
       id: 'desc-apply-chatbot',
       icon: 'fas fa-comment-dots',
-      name: 'Apply via social Chatbot',
+      name: tCompare('features.applyViaSocialChatbot.name'),
       free: 'soon',
       starter: 'soon',
       basic: 'soon',
@@ -720,12 +723,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: 'soon',
       premium: 'soon',
       enterprise: 'soon',
-      description: 'Connect your company\'s own WhatsApp Business, Telegram, Facebook Messenger, Discord, or WeChat accounts. Candidates apply directly through your business chat, reducing costs while maintaining direct communication with applicants.',
+      description: tCompare('features.applyViaSocialChatbot.description'),
     },
     {
       id: 'desc-candidate-presentation',
       icon: 'fas fa-share-from-square',
-      name: 'Candidate presentation',
+      name: tCompare('features.candidatePresentation.name'),
       free: 'soon',
       starter: 'soon',
       basic: 'soon',
@@ -733,12 +736,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: 'soon',
       premium: 'soon',
       enterprise: 'soon',
-      description: 'Generate secure shareable links to present candidate profiles with your notes and comments to clients, managers, or external partners. Share specific candidate information without granting full system access. Candidates consent to information sharing in advance. Perfect for recruitment agencies presenting profiles to clients or internal stakeholders reviewing candidates.',
+      description: tCompare('features.candidatePresentation.description'),
     },
     {
       id: 'desc-social',
       icon: 'fas fa-share-nodes',
-      name: 'Social media posts',
+      name: tCompare('features.socialMediaPosts.name'),
       free: 'soon',
       starter: 'soon',
       basic: 'soon',
@@ -746,12 +749,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: 'soon',
       premium: 'soon',
       enterprise: 'soon',
-      description: 'Schedule and publish unlimited posts, stories, videos, and any content across all social media platforms. Full content scheduling and management system.',
+      description: tCompare('features.socialMediaPosts.description'),
     },
     {
       id: 'desc-chatbot',
       icon: 'fas fa-robot',
-      name: 'AI Chatbot',
+      name: tCompare('features.aiChatbot.name'),
       free: 'soon',
       starter: 'soon',
       basic: 'soon',
@@ -759,12 +762,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: 'soon',
       premium: 'soon',
       enterprise: 'soon',
-      description: 'Answer candidate FAQs and pre-screen directly on your careers pages.',
+      description: tCompare('features.aiChatbot.description'),
     },
     {
       id: 'desc-one-way-video',
       icon: 'fas fa-video-camera',
-      name: 'One-way video interviews',
+      name: tCompare('features.oneWayVideo.name'),
       free: 'soon',
       starter: 'soon',
       basic: 'soon',
@@ -772,12 +775,12 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: 'soon',
       premium: 'soon',
       enterprise: 'soon',
-      description: 'Candidates can record and upload video responses during the application process. Screen candidates asynchronously by reviewing pre-recorded video answers to your custom questions. Save time by watching responses on your schedule without coordinating live interview times.',
+      description: tCompare('features.oneWayVideo.description'),
     },
     {
       id: 'desc-onboarding',
       icon: 'fas fa-user-plus',
-      name: 'Employee onboarding',
+      name: tCompare('features.employeeOnboarding.name'),
       free: 'soon',
       starter: 'soon',
       basic: 'soon',
@@ -785,7 +788,7 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       advanced: 'soon',
       premium: 'soon',
       enterprise: 'soon',
-      description: 'Streamline new hire integration with automated onboarding workflows. Send employment documents, contracts, and training materials. Create customizable checklists for new employees, schedule their first days, introduce them to the team, and track their progress. Complete onboarding journey from offer acceptance to full productivity.',
+      description: tCompare('features.employeeOnboarding.description'),
     },
   ];
 
@@ -796,7 +799,7 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-center gap-3 bg-primary hover:bg-button-hover text-white py-4 px-6 rounded-lg transition-colors font-semibold text-lg shadow-md"
       >
-        <span>Compare features</span>
+        <span>{t("compareFeatures")}</span>
         {isOpen ? (
           <ChevronUp className="w-6 h-6" />
         ) : (
@@ -845,7 +848,7 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
                 }`}
               >
                 <ChevronLeft className="w-4 h-4" />
-                <span className="hidden sm:inline">Previous</span>
+                <span className="hidden sm:inline">{tCompare("previous")}</span>
               </button>
 
               <div className="flex items-center gap-2">
@@ -867,7 +870,7 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
                     : 'text-primary dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700'
                 }`}
               >
-                <span className="hidden sm:inline">Next</span>
+                <span className="hidden sm:inline">{tCompare("next")}</span>
                 <ChevronRight className="w-4 h-4" />
               </button>
             </div>
@@ -1008,14 +1011,14 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
             <table className="fx-table">
               <thead>
                 <tr>
-                  <th className="fx-feature">Feature / Usage</th>
-                  <th>Free</th>
-                  <th>Starter</th>
-                  <th>Basic</th>
-                  <th>Professional</th>
-                  <th>Advanced</th>
-                  <th>Premium</th>
-                  <th>Enterprise</th>
+                  <th className="fx-feature">{tCompare("featureUsage")}</th>
+                  <th>{t("plans.free")}</th>
+                  <th>{t("plans.starter")}</th>
+                  <th>{t("plans.basic")}</th>
+                  <th>{t("plans.professional")}</th>
+                  <th>{t("plans.advanced")}</th>
+                  <th>{t("plans.premium")}</th>
+                  <th>{t("plans.enterprise")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -1056,7 +1059,7 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
                 {/* Coming Soon Header */}
                 <tr>
                   <th colSpan={8} style={{ textAlign: 'left', paddingLeft: '16px', background: '#f8fafc', fontWeight: 800 }}>
-                    Coming Soon
+                    {tCompare("comingSoon")}
                   </th>
                 </tr>
 
@@ -1150,7 +1153,7 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
                             </div>
                           ) : (
                             <span className="text-gray-400 dark:text-gray-600 font-medium text-sm">
-                              Not available
+                              {tCompare("notAvailable")}
                             </span>
                           )}
                         </div>
@@ -1170,7 +1173,7 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
               {/* Coming Soon Header */}
               <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-3 mt-6">
                 <h3 className="font-bold text-gray-900 dark:text-white">
-                  Coming Soon
+                  {tCompare("comingSoon")}
                 </h3>
               </div>
 
@@ -1204,7 +1207,7 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
                               color: currentPlan.color,
                             }}
                           >
-                            Soon
+                            {tCompare("soon")}
                           </span>
                         </div>
                       </div>

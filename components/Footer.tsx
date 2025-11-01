@@ -3,8 +3,10 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("footer");
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   // Initialize dark mode from localStorage or browser preferences
@@ -58,55 +60,55 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8 mb-6">
             {/* Company & Software Column */}
             <div>
-              <h3 className="text-base font-bold text-gray-900 dark:text-white mb-3">Company</h3>
+              <h3 className="text-base font-bold text-gray-900 dark:text-white mb-3">{t("company.title")}</h3>
               <ul className="space-y-2 mb-4">
                 <li>
                   <Link href="/" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    Features
+                    {t("company.features")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/blog" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    Blog & News
+                    {t("company.blog")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/about" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    About us
+                    {t("company.about")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/contact-us" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    Contact us
+                    {t("company.contact")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/pricing" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    Pricing
+                    {t("company.pricing")}
                   </Link>
                 </li>
               </ul>
 
-              <h3 className="text-base font-bold text-gray-900 dark:text-white mb-3">Software</h3>
+              <h3 className="text-base font-bold text-gray-900 dark:text-white mb-3">{t("software.title")}</h3>
               <ul className="space-y-2">
                 <li>
                   <Link href="/ats-recruiting-software" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    ATS Recruiting Software
+                    {t("software.ats")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/social-media-manager" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    Social Media Manager
+                    {t("software.socialMedia")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/free-job-posting" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    Free Job Posting
+                    {t("software.freeJobPosting")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/e-signature" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    E-signature
+                    {t("software.esignature")}
                   </Link>
                 </li>
               </ul>
@@ -114,46 +116,46 @@ export default function Footer() {
 
             {/* ATS Column */}
             <div>
-              <h3 className="text-base font-bold text-gray-900 dark:text-white mb-3">ATS</h3>
+              <h3 className="text-base font-bold text-gray-900 dark:text-white mb-3">{t("ats.title")}</h3>
               <ul className="space-y-2">
                 <li>
                   <Link href="/ai-ats-software" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    AI ATS Software
+                    {t("ats.aiAts")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/candidate-filtering" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    Candidate Filtering
+                    {t("ats.candidateFiltering")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/interview-rating-sheets" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    Interview rating sheets
+                    {t("ats.interviewRating")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/interview-scoring-sheet" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    Interview Scoring Sheet
+                    {t("ats.interviewScoring")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/email-templates" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    Email Templates
+                    {t("ats.emailTemplates")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/multiposting-jobs" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    Multiposting Jobs
+                    {t("ats.multiposting")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/job-widget" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    Job Widget
+                    {t("ats.jobWidget")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/hiring-flow" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    Hiring Flow
+                    {t("ats.hiringFlow")}
                   </Link>
                 </li>
               </ul>
@@ -161,41 +163,41 @@ export default function Footer() {
 
             {/* Terms Column */}
             <div>
-              <h3 className="text-base font-bold text-gray-900 dark:text-white mb-3">Terms</h3>
+              <h3 className="text-base font-bold text-gray-900 dark:text-white mb-3">{t("terms.title")}</h3>
               <ul className="space-y-2">
                 <li>
                   <Link href="/dpa" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    DPA
+                    {t("terms.dpa")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/imprint" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    Imprint
+                    {t("terms.imprint")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/disclaimer" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    Disclaimer
+                    {t("terms.disclaimer")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/privacy-policy" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    Privacy policy
+                    {t("terms.privacy")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/cookie-policy" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    Cookie policy
+                    {t("terms.cookie")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/terms-of-use-companies" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    Terms of use Companies
+                    {t("terms.companies")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/terms-of-use-candidates" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary transition-colors">
-                    Terms of use Candidates
+                    {t("terms.candidates")}
                   </Link>
                 </li>
               </ul>
@@ -203,7 +205,7 @@ export default function Footer() {
 
             {/* Follow Us Column */}
             <div className="lg:col-span-1">
-              <h3 className="text-base font-bold text-gray-900 dark:text-white mb-3">Follow Us</h3>
+              <h3 className="text-base font-bold text-gray-900 dark:text-white mb-3">{t("followUs.title")}</h3>
               
               {/* Social Media Icons */}
               <div className="flex flex-wrap gap-3 mb-4">
@@ -245,14 +247,14 @@ export default function Footer() {
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5m-4 0h4" />
                   </svg>
-                  <span>Flowxtra GmbH</span>
+                  <span>{t("followUs.companyName")}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
-                  <span>Wipplingerstraße 20/18, 1010 Vienna</span>
+                  <span>{t("followUs.address")}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -266,25 +268,25 @@ export default function Footer() {
 
               {/* reCAPTCHA Disclaimer */}
               <p className="text-xs text-gray-500 dark:text-gray-400">
-                *This site is protected by reCAPTCHA. Google{" "}
+                {t("followUs.recaptcha.text")}{" "}
                 <a 
                   href="https://policies.google.com/privacy" 
                   target="_blank" 
                   rel="nofollow noopener"
                   className="underline hover:text-primary dark:hover:text-secondary"
                 >
-                  Privacy Policy
+                  {t("followUs.recaptcha.privacy")}
                 </a>
-                {" "}and{" "}
+                {" "}{t("followUs.recaptcha.and")}{" "}
                 <a 
                   href="https://policies.google.com/terms" 
                   target="_blank" 
                   rel="nofollow noopener"
                   className="underline hover:text-primary dark:hover:text-secondary"
                 >
-                  Terms of Service
+                  {t("followUs.recaptcha.terms")}
                 </a>
-                {" "}apply.
+                {" "}{t("followUs.recaptcha.apply")}
               </p>
             </div>
           </div>
@@ -296,7 +298,7 @@ export default function Footer() {
               <div className="flex items-center justify-center">
                 <Image
                   src="/img/icon/footer_icon/made_in_austria.svg"
-                  alt="Made in Austria"
+                  alt={t("badges.madeInAustria")}
                   width={100}
                   height={40}
                   quality={100}
@@ -309,7 +311,7 @@ export default function Footer() {
               <div className="flex items-center justify-center">
                 <Image
                   src="/img/icon/footer_icon/trust.svg"
-                  alt="Trustpilot"
+                  alt={t("badges.trustpilot")}
                   width={100}
                   height={40}
                   quality={100}
@@ -322,7 +324,7 @@ export default function Footer() {
               <div className="flex items-center justify-center">
                 <Image
                   src="/img/icon/footer_icon/server_location_germany.svg"
-                  alt="Server Locations Germany"
+                  alt={t("badges.serverLocation")}
                   width={130}
                   height={52}
                   quality={100}
@@ -335,7 +337,7 @@ export default function Footer() {
               <div className="flex items-center justify-center">
                 <Image
                   src="/img/icon/footer_icon/Dsgvo_gdpr_icon.svg"
-                  alt="DSGVO & GDPR Compliant"
+                  alt={t("badges.gdpr")}
                   width={130}
                   height={52}
                   quality={100}
@@ -348,7 +350,7 @@ export default function Footer() {
               <div className="flex items-center justify-center">
                 <Image
                   src="/img/icon/footer_icon/ai_act.svg"
-                  alt="AI Act Compliant"
+                  alt={t("badges.aiAct")}
                   width={130}
                   height={52}
                   quality={100}
@@ -368,7 +370,7 @@ export default function Footer() {
             <div className="flex items-center gap-2">
               <Image
                 src="/Main-flowxtra-Logo.png"
-                alt="Flowxtra"
+                alt={t("logoAlt")}
                 width={100}
                 height={30}
                 quality={100}
@@ -377,7 +379,7 @@ export default function Footer() {
               />
               <Image
                 src="/flowxtra-logo-white.png"
-                alt="Flowxtra"
+                alt={t("logoAlt")}
                 width={100}
                 height={30}
                 quality={100}
@@ -388,14 +390,14 @@ export default function Footer() {
 
             {/* Copyright */}
             <div className="text-xs text-gray-500 dark:text-gray-400 text-center">
-              Copyright © 2025 Flowxtra | Made by{" "}
+              {t("copyright.text")}{" "}
               <a 
                 href="https://dpro.at/" 
                 target="_blank" 
                 rel="noopener noreferrer nofollow"
                 className="text-primary dark:text-secondary-light hover:text-secondary dark:hover:text-secondary-light transition-colors"
               >
-                Dpro
+                {t("copyright.madeBy")}
               </a>
             </div>
 
@@ -410,8 +412,8 @@ export default function Footer() {
                 >
                   <path d="M12,2 C12.7139344,2 13.4186669,2.07493649 14.1058513,2.22228153 C14.6865234,2.34678839 14.8990219,3.06470877 14.4796691,3.48521478 C14.0147885,3.95137375 13.75,4.57867916 13.75,5.25 C13.75,6.42043414 14.5611837,7.42718287 15.6858365,7.68625206 C16.0559035,7.77149876 16.3038519,8.11989963 16.2631619,8.49747198 C16.2544079,8.57870262 16.25,8.66307444 16.25,8.75 C16.25,10.1307119 17.3692881,11.25 18.75,11.25 C19.4766017,11.25 20.151276,10.9392994 20.6235262,10.4053218 C21.0526462,9.92011177 21.8536336,10.1704416 21.9300905,10.8136579 C21.9765784,11.2047517 22,11.6008646 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,3.5 C7.30557963,3.5 3.5,7.30557963 3.5,12 C3.5,16.6944204 7.30557963,20.5 12,20.5 C16.4367197,20.5 20.0795061,17.1007677 20.4660785,12.7645841 L20.4850437,12.5084524 L20.492,12.351 L20.2985099,12.4390561 C19.9679152,12.5778546 19.6173377,12.672508 19.2549465,12.7182945 L18.9810657,12.743398 L18.75,12.75 C16.7439233,12.75 15.0827631,11.2732368 14.7943277,9.34751855 L14.7694285,9.14674696 L14.755,8.96 L14.6100904,8.89964226 C13.3259006,8.32272189 12.4198681,7.0959893 12.2714595,5.6656449 L12.2549278,5.44962193 L12.25,5.25 C12.25,4.80312661 12.3237894,4.36763736 12.4635899,3.95776709 L12.5553294,3.71503308 L12.64,3.525 L12.363736,3.50762946 L12,3.5 Z M15,16 C15.5522847,16 16,16.4477153 16,17 C16,17.5522847 15.5522847,18 15,18 C14.4477153,18 14,17.5522847 14,17 C14,16.4477153 14.4477153,16 15,16 Z M8,15 C8.55228475,15 9,15.4477153 9,16 C9,16.5522847 8.55228475,17 8,17 C7.44771525,17 7,16.5522847 7,16 C7,15.4477153 7.44771525,15 8,15 Z M12,11 C12.5522847,11 13,11.4477153 13,12 C13,12.5522847 12.5522847,13 12,13 C11.4477153,13 11,12.5522847 11,12 C11,11.4477153 11.4477153,11 12,11 Z M7,8 C7.55228475,8 8,8.44771525 8,9 C8,9.55228475 7.55228475,10 7,10 C6.44771525,10 6,9.55228475 6,9 C6,8.44771525 6.44771525,8 7,8 Z" fill="currentColor"/>
                 </svg>
-                <span className="hidden sm:inline">Consent Preferences</span>
-                <span className="sm:hidden">Consent</span>
+                <span className="hidden sm:inline">{t("consent.preferences")}</span>
+                <span className="sm:hidden">{t("consent.short")}</span>
               </button>
 
               {/* Dark Mode Toggle */}
@@ -449,7 +451,7 @@ export default function Footer() {
                     />
                   </svg>
                 )}
-                <span>{isDarkMode ? "Light Mode" : "Dark Mode"}</span>
+                <span>{isDarkMode ? t("darkMode.light") : t("darkMode.dark")}</span>
               </button>
               
               <Link 
@@ -466,7 +468,7 @@ export default function Footer() {
                   <path d="M6.05132 8.68402C5.87667 9.20796 6.15983 9.77428 6.68377 9.94893C6.85906 10.0071 7.03576 10.0613 7.21265 10.1143C7.5363 10.2114 7.98911 10.3408 8.50746 10.4704C9.08908 10.6158 9.78094 10.7687 10.4783 10.8727C10.4323 11.7654 10.3205 12.4059 10.2166 12.8309L8.10557 17.053C7.85858 17.547 8.05881 18.1477 8.55279 18.3947C9.04677 18.6417 9.64744 18.4414 9.89443 17.9475L12 13.7363L14.1056 17.9475C14.3526 18.4414 14.9532 18.6417 15.4472 18.3947C15.9412 18.1477 16.1414 17.547 15.8944 17.053L13.7834 12.8309C13.6795 12.4059 13.5677 11.7654 13.5217 10.8727C14.2191 10.7687 14.9109 10.6158 15.4925 10.4704C16.0109 10.3408 16.4637 10.2114 16.7873 10.1143C16.963 10.0616 17.1384 10.0077 17.3125 9.95015C17.8261 9.77972 18.1201 9.19822 17.9487 8.68402C17.7741 8.16012 17.2078 7.87697 16.6839 8.05151C16.5277 8.10318 16.3703 8.15138 16.2127 8.19867C15.9113 8.28907 15.4891 8.40969 15.0075 8.5301C14.0216 8.77657 12.8709 9.00024 12 9.00024C11.1291 9.00024 9.97843 8.77657 8.99254 8.5301C8.51089 8.40969 8.0887 8.28907 7.78735 8.19867C7.63167 8.15196 7.47632 8.10404 7.32186 8.05342C6.80235 7.88161 6.22544 8.16164 6.05132 8.68402Z" fill="currentColor"/>
                   <path fillRule="evenodd" clipRule="evenodd" d="M23 12.0002C23 18.0754 18.0751 23.0002 12 23.0002C5.92487 23.0002 1 18.0754 1 12.0002C1 5.92511 5.92487 1.00024 12 1.00024C18.0751 1.00024 23 5.92511 23 12.0002ZM3.00683 12.0002C3.00683 16.967 7.03321 20.9934 12 20.9934C16.9668 20.9934 20.9932 16.967 20.9932 12.0002C20.9932 7.03345 16.9668 3.00707 12 3.00707C7.03321 3.00707 3.00683 7.03345 3.00683 12.0002Z" fill="currentColor"/>
                 </svg>
-                <span>Accessibility</span>
+                <span>{t("accessibility")}</span>
               </Link>
             </div>
           </div>

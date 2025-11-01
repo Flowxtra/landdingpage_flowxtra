@@ -8,78 +8,80 @@ import { CodeEditor } from "@/components/ui/code-editor";
 import { Code } from "lucide-react";
 import PricingSection from "@/components/PricingSection";
 import { AnimatedBeamMultipleOutputs } from "@/components/AnimatedBeamMultipleOutputs";
+import { useTranslations } from "next-intl";
 
 // Features Sticky Sections Component
 function FeaturesSlider() {
+  const t = useTranslations("homepage.featuresSlider.slides");
   const slides = [
     {
-      badge: "Real Recruiting Results",
-      title: "Smarter Candidate Filtering & Visualization",
-      description: "Flowxtra's AIÔÇæpowered ATS streamlines recruitment. Filter and visualize candidates with list, card or dragÔÇæandÔÇædrop board views, then move top talent through every stage with ease.",
-      buttonText: "Register For Free",
+      badge: t("slide1.badge"),
+      title: t("slide1.title"),
+      description: t("slide1.description"),
+      buttonText: t("slide1.buttonText"),
       buttonLink: "https://my.flowxtra.com/registration",
       image: "/img/Smarter-Candidate-Filtering.png",
-      imageAlt: "Visual candidate board ÔÇô part of free AI recruiting tool",
+      imageAlt: t("slide1.imageAlt"),
       imageOnRight: true,
     },
     {
-      badge: "Candidate Board Flow",
-      title: "Visual Talent Intelligence",
-      description: "Compare, filter, and map candidates with Flowxtra's dynamic hiring board. Track applications, gain insights, and make smarter hiring decisions ÔÇö all from one powerful, interactive view.",
-      buttonText: "Register For Free",
+      badge: t("slide2.badge"),
+      title: t("slide2.title"),
+      description: t("slide2.description"),
+      buttonText: t("slide2.buttonText"),
       buttonLink: "https://my.flowxtra.com/registration",
       image: "/img/candidate-fiter.png",
-      imageAlt: "View candidate CVs inside free AI recruiting system",
+      imageAlt: t("slide2.imageAlt"),
       imageOnRight: false,
     },
     {
-      badge: "Centralized Applicant Intelligence",
-      title: "Candidate Profile View",
-      description: "Access resumes, cover letters, LinkedIn profiles, and screening answers in one clean interface. Add notes, assign interviews, send assessments, and rate candidates ÔÇö all from a unified profile view.",
-      buttonText: "Register For Free",
+      badge: t("slide3.badge"),
+      title: t("slide3.title"),
+      description: t("slide3.description"),
+      buttonText: t("slide3.buttonText"),
       buttonLink: "https://my.flowxtra.com/registration",
       image: "/img/Candidate-Profile.webp",
-      imageAlt: "View candidate CVs inside free AI recruiting system",
+      imageAlt: t("slide3.imageAlt"),
       imageOnRight: true,
     },
     {
-      badge: "One Job Ad. Multiple Platforms.",
-      title: "Multiposting Made Simple",
-      description: "Post once and publish across top job boards ÔÇö LinkedIn, Google Jobs, Stepstone & more. Track clicks, views, and applications from everywhere ÔÇö your website, external platforms, and beyond ÔÇö all in one smart dashboard.",
-      buttonText: "Register For Free",
+      badge: t("slide4.badge"),
+      title: t("slide4.title"),
+      description: t("slide4.description"),
+      buttonText: t("slide4.buttonText"),
       buttonLink: "https://my.flowxtra.com/registration",
       image: "/img/Multiposting-job.webp",
-      imageAlt: "Multiposting Made Simple",
+      imageAlt: t("slide4.imageAlt"),
       imageOnRight: false,
     },
     {
-      badge: "Automated & Personalized Communication",
-      title: "Hiring Email Template",
-      description: "Save time with smart email templates tailored to every hiring stage. Send rejections, interview invites, or updates ÔÇö faster, consistent, and always professional.",
-      buttonText: "Register For Free",
+      badge: t("slide5.badge"),
+      title: t("slide5.title"),
+      description: t("slide5.description"),
+      buttonText: t("slide5.buttonText"),
       buttonLink: "https://my.flowxtra.com/registration",
       image: "/img/hiring-email-template.webp",
-      imageAlt: "Hiring Email Template",
+      imageAlt: t("slide5.imageAlt"),
       imageOnRight: true,
     },
     {
-      badge: "Visualize Your Entire Recruitment Process at a Glance",
-      title: "Smart Hiring Diagram Board",
-      description: "Flowxtra's advanced diagram board lets you map candidate relationships, hiring stages, and team feedback in real time. Drag and drop candidates, assign tasks, and collaborate with your team ÔÇö all in one visual dashboard.",
-      buttonText: "Register For Free",
+      badge: t("slide6.badge"),
+      title: t("slide6.title"),
+      description: t("slide6.description"),
+      buttonText: t("slide6.buttonText"),
       buttonLink: "https://my.flowxtra.com/registration",
       image: "/img/Job-board-workflow.gif",
-      imageAlt: "Visual candidate board ÔÇô part of free AI recruiting tool",
+      imageAlt: t("slide6.imageAlt"),
       imageOnRight: false,
     },
     {
-      badge: "JOB WIDGET",
-      title: "Add Job Listings to Any Website",
-      description: "With Flowxtra's Job Widget, you can instantly display your company's open positions on your website ÔÇö without any technical setup or API integration. Whether you're using WordPress, Wix, Shopify, or any other platform, simply copy the embed code and your job board goes live automatically.",
-      buttonText: "Register For Free",
+      badge: t("slide7.badge"),
+      title: t("slide7.title"),
+      description: t("slide7.description"),
+      buttonText: t("slide7.buttonText"),
       buttonLink: "https://my.flowxtra.com/registration",
       image: "/img/multi-job-post.gif",
-      imageAlt: "Add Job Listings to Any Website",
+      imageAlt: t("slide7.imageAlt"),
       imageOnRight: true,
       showCodeBlock: true,
       // Job widget embed code - displays company jobs on external websites
@@ -133,7 +135,7 @@ allowfullscreen>
                     {slide.showCodeBlock ? (
                       <div className="w-full max-w-[310px] flex justify-center">
                         <CodeEditor
-                          title="Embed Code"
+                          title={t("slide7.embedCodeTitle")}
                           icon={<Code />}
                           lang="html"
                           copyButton
@@ -177,7 +179,7 @@ allowfullscreen>
                   {slide.showCodeBlock ? (
                     <div className="flex items-center justify-center w-full px-2 md:px-0">
                       <CodeEditor
-                        title="Embed Code"
+                        title={t("slide7.embedCodeTitle")}
                         icon={<Code />}
                         lang="html"
                         copyButton
@@ -211,6 +213,8 @@ allowfullscreen>
 }
 
 export default function Homepage() {
+  const t = useTranslations("homepage");
+  const tContact = useTranslations("contact");
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
@@ -221,15 +225,15 @@ export default function Homepage() {
             {/* Top Content */}
             <div className="w-full px-4 md:px-8 text-center space-y-6">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight mx-auto max-w-5xl px-2">
-                ATS Software for Recruitment & Hiring
+                {t("hero.title")}
               </h1>
               
               <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-primary dark:text-secondary-light max-w-4xl mx-auto px-2">
-                All-in-One Platform to Streamline Your Hiring Process
+                {t("hero.subtitle")}
               </h2>
               
               <p className="text-base md:text-lg lg:text-xl text-gray-600 dark:text-white leading-relaxed max-w-4xl mx-auto px-4">
-                Complete ATS software to streamline hiring and manage your team. Start with 10 free job postings per month
+                {t("hero.description")}
               </p>
               
               <div className="pt-4">
@@ -237,7 +241,7 @@ export default function Homepage() {
                   href="https://my.flowxtra.com/registration"
                   className="inline-block bg-button-primary border-2 border-button-primary text-white px-8 py-4 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-lg shadow-lg"
                 >
-                  Start Your Free Plan
+                  {t("hero.cta")}
                 </a>
               </div>
             </div>
@@ -249,8 +253,8 @@ export default function Homepage() {
                   {/* Mobile Image */}
                   <Image
                     src="/img/ATS-Software-for-Recruitment2.webp"
-                    alt="Why Flowxtra Is the Best Free Job Posting Platform"
-                    title="Free Job Posting"
+                    alt={t("hero.imageAlt")}
+                    title={t("hero.imageTitle")}
                     width={800}
                     height={600}
                     quality={100}
@@ -260,8 +264,8 @@ export default function Homepage() {
                   {/* Desktop Image */}
                   <Image
                     src="/img/ATS-Software-for-Recruitment.webp"
-                    alt="Why Flowxtra Is the Best Free Job Posting Platform"
-                    title="Free Job Posting"
+                    alt={t("hero.imageAlt")}
+                    title={t("hero.imageTitle")}
                     width={1920}
                     height={1080}
                     quality={100}
@@ -269,7 +273,7 @@ export default function Homepage() {
                     className="w-full h-auto hidden md:block"
                   />
                   <figcaption className="sr-only">
-                    Control everything from one smart dashboard. Full view of Flowxtra's dashboard to manage and publish free job posts.
+                    {t("hero.figcaption")}
                   </figcaption>
                 </figure>
               </div>
@@ -287,22 +291,22 @@ export default function Homepage() {
               {/* Badge */}
               <div className="inline-block">
                 <span className="px-4 py-2 text-primary dark:text-blue-400 rounded-full text-sm font-medium" style={{ backgroundColor: '#d9e9ec' }}>
-                  GDPR & DSGVO
+                  {t("gdpr.badge")}
                 </span>
               </div>
 
               {/* Title */}
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
-                Flowxtra Smarter
-Hiring Faster Growth              </h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight whitespace-pre-line">
+                {t("gdpr.title")}
+              </h2>
 
               {/* Description */}
               <div className="space-y-4 text-gray-600 dark:text-gray-300">
                 <p className="text-base md:text-lg leading-relaxed">
-                  Flowxtra streamlines hiring with AI! Create job ads, connect with candidates, and automate tasks like schedulingÔÇömaking recruitment faster and smarter.
+                  {t("gdpr.description1")}
                 </p>
                 <p className="text-base md:text-lg leading-relaxed">
-                  All data is securely stored in the EU. Transparency. Privacy. Compliance ÔÇö built in by design.
+                  {t("gdpr.description2")}
                 </p>
               </div>
 
@@ -325,7 +329,7 @@ Hiring Faster Growth              </h2>
                       d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
-                  Read our full FAQ
+                  {t("gdpr.faqLink")}
                   <svg
                     className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
                     fill="none"
@@ -551,10 +555,10 @@ Hiring Faster Growth              </h2>
             {/* Text Content */}
             <div className="text-center mb-12 space-y-4">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
-                ATS Recruitment Software in your hands
+                {t("video.title")}
               </h2>
               <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                Accelerate your talent acquisition process using our innovative AI recruitment solution.
+                {t("video.description")}
               </p>
             </div>
 
@@ -567,7 +571,7 @@ Hiring Faster Growth              </h2>
                 >
                   <Image
                     src="/img/overlay-flowxtra.png"
-                    alt="Play Video"
+                    alt={t("video.playButton")}
                     fill
                     quality={100}
                     className="object-cover"
@@ -596,7 +600,7 @@ Hiring Faster Growth              </h2>
                   width="100%"
                   height="100%"
                   src="https://www.youtube-nocookie.com/embed/CGa2grClFsw?autoplay=1"
-                  title="ATS Recruitment Software"
+                  title={t("video.iframeTitle")}
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
@@ -629,11 +633,11 @@ Hiring Faster Growth              </h2>
             {/* Right Side - Content */}
             <div className="order-1 lg:order-2 space-y-8">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
-                Why Use Flowxtra?
+                {t("whyUseFlowxtra.title")}
               </h2>
 
               <p className="text-base md:text-lg text-gray-600 dark:text-white leading-relaxed">
-                At Flowxtra, we'll help you manage your entire business, from creating job applications, managing your social media accounts, and signing your contracts online.
+                {t("whyUseFlowxtra.description")}
               </p>
 
               {/* Features List */}
@@ -642,31 +646,31 @@ Hiring Faster Growth              </h2>
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-base md:text-lg text-gray-700 dark:text-white">User-friendly interface.</span>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">{t("whyUseFlowxtra.features.userFriendly")}</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-base md:text-lg text-gray-700 dark:text-white">High security.</span>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">{t("whyUseFlowxtra.features.highSecurity")}</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-base md:text-lg text-gray-700 dark:text-white">Integration between applications.</span>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">{t("whyUseFlowxtra.features.integration")}</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-base md:text-lg text-gray-700 dark:text-white">Continuous support service.</span>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">{t("whyUseFlowxtra.features.support")}</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-base md:text-lg text-gray-700 dark:text-white">Scalable for all business sizes ÔÇö from startups to enterprises</span>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">{t("whyUseFlowxtra.features.scalable")}</span>
                 </li>
               </ul>
 
@@ -676,7 +680,7 @@ Hiring Faster Growth              </h2>
                   href="https://my.flowxtra.com/registration"
                   className="inline-block bg-button-primary border-2 border-button-primary text-white px-6 py-2.5 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-base shadow-lg"
                 >
-                  Discover Flowxtra
+                  {t("whyUseFlowxtra.cta")}
                 </a>
               </div>
             </div>
@@ -693,11 +697,11 @@ Hiring Faster Growth              </h2>
             {/* Left Side - Content */}
             <div className="order-1 lg:order-1 space-y-8">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
-                Recruitment
+                {t("recruitment.title")}
               </h2>
 
               <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                The Recruitment App helps companies and HR teams streamline the hiring processÔÇöfrom posting job ads to hiring the right talent.
+                {t("recruitment.description")}
               </p>
 
               {/* Features List */}
@@ -706,47 +710,47 @@ Hiring Faster Growth              </h2>
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">Free Job Posting With Flowxtra</span>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">{t("recruitment.features.freeJobPosting")}</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">Post and manage job openings easily</span>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">{t("recruitment.features.postManage")}</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">Centralized applicant tracking with smart filters</span>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">{t("recruitment.features.tracking")}</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">Integrated online interviews</span>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">{t("recruitment.features.interviews")}</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">Team collaboration for candidate evaluation</span>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">{t("recruitment.features.collaboration")}</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">Reports & analytics to optimize hiring</span>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">{t("recruitment.features.reports")}</span>
                 </li>
               </ul>
 
               {/* Who Is It For */}
               <div className="space-y-3">
                 <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
-                  Who Is It For?
+                  {t("recruitment.whoIsItFor.title")}
                 </h3>
                 <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                  Startups, enterprises, and recruitment agencies that want to hire faster, smarter, and more efficiently.
+                  {t("recruitment.whoIsItFor.description")}
                 </p>
               </div>
 
@@ -756,7 +760,7 @@ Hiring Faster Growth              </h2>
                   href="https://my.flowxtra.com/registration"
                   className="inline-block bg-button-primary border-2 border-button-primary text-white px-6 py-2.5 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-base shadow-lg"
                 >
-                  Start Now
+                  {t("recruitment.cta")}
                 </a>
               </div>
             </div>
@@ -766,8 +770,8 @@ Hiring Faster Growth              </h2>
               <figure>
                 <Image
                   src="/img/job-platform-dashbourd.webp"
-                  alt="Flowxtra Free job posting dashboard"
-                  title="Free Job Posting Dashboard"
+                  alt={t("recruitment.imageAlt")}
+                  title={t("recruitment.imageTitle")}
                   width={600}
                   height={450}
                   quality={100}
@@ -775,7 +779,7 @@ Hiring Faster Growth              </h2>
                   className="w-full h-auto"
                 />
                 <figcaption className="sr-only">
-                  Control everything from one smart dashboard. Full view of Flowxtra's dashboard to manage and publish free job posts.
+                  {t("recruitment.figcaption")}
                 </figcaption>
               </figure>
             </div>
@@ -789,16 +793,16 @@ Hiring Faster Growth              </h2>
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-6">
-              Free Job Posting for Smart Hiring
+              {t("freeJobPosting.title")}
             </h1>
             
             <div className="space-y-3">
               <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                Post up to 10 job ads for free every month ÔÇö no hidden fees, no credit card required.
+                {t("freeJobPosting.description1")}
               </p>
               
               <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                Flowxtra helps you publish jobs across LinkedIn, Google Jobs & more ÔÇö all from one powerful dashboard.
+                {t("freeJobPosting.description2")}
               </p>
             </div>
           </div>
@@ -822,8 +826,8 @@ Hiring Faster Growth              </h2>
             <div className="order-2 lg:order-1">
               <Image
                 src="/img/social-media-management.webp"
-                alt="Post Jobs to Social Media for Free ÔÇô Flowxtra Scheduler"
-                title="Free social media job posting and scheduling with Flowxtra"
+                alt={t("socialMediaManager.imageAlt")}
+                title={t("socialMediaManager.imageTitle")}
                 width={1200}
                 height={900}
                 quality={100}
@@ -836,11 +840,11 @@ Hiring Faster Growth              </h2>
             {/* Right Side - Content */}
             <div className="order-1 lg:order-2 space-y-8">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
-                Social Media Manager
+                {t("socialMediaManager.title")}
               </h2>
 
               <p className="text-base md:text-lg text-gray-600 dark:text-white leading-relaxed">
-                The Social Media Manager App helps businesses and creators manage, schedule, and analyze content across multiple platforms in one place.
+                {t("socialMediaManager.description")}
               </p>
 
               {/* Features List */}
@@ -849,35 +853,35 @@ Hiring Faster Growth              </h2>
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-base md:text-lg text-gray-700 dark:text-white">Connect and manage multiple accounts</span>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">{t("socialMediaManager.features.connectManage")}</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-base md:text-lg text-gray-700 dark:text-white">Schedule posts in advance with ease</span>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">{t("socialMediaManager.features.schedule")}</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-base md:text-lg text-gray-700 dark:text-white">Team collaboration and approval workflows</span>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">{t("socialMediaManager.features.collaboration")}</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-base md:text-lg text-gray-700 dark:text-white">Analytics & reports to track performance and engagement</span>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">{t("socialMediaManager.features.analytics")}</span>
                 </li>
               </ul>
 
               {/* Who Is It For Section */}
               <div className="pt-4">
                 <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                  Who Is It For?
+                  {t("socialMediaManager.whoIsItFor.title")}
                 </h3>
                 <p className="text-base md:text-lg text-gray-600 dark:text-white leading-relaxed">
-                  Agencies, small businesses, and freelancers who want to save time, stay organized, and grow their online presence.
+                  {t("socialMediaManager.whoIsItFor.description")}
                 </p>
               </div>
 
@@ -887,7 +891,7 @@ Hiring Faster Growth              </h2>
                   href="https://my.flowxtra.com/registration"
                   className="inline-block bg-button-primary border-2 border-button-primary text-white px-8 py-4 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-lg shadow-lg"
                 >
-                  Free forever
+                  {t("socialMediaManager.cta")}
                 </a>
               </div>
               </div>
@@ -905,16 +909,16 @@ Hiring Faster Growth              </h2>
             <div className="order-1 lg:order-1 space-y-8">
               <div className="inline-block bg-[#e6f4f7] dark:bg-gray-800 px-4 py-2 rounded-lg">
                 <span className="text-sm md:text-base font-semibold text-primary dark:text-secondary-light">
-                  Multiple Job Posting
+                  {t("multipleJobPosting.badge")}
                 </span>
               </div>
 
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
-                Post Jobs Across Platforms Instantly
+                {t("multipleJobPosting.title")}
               </h2>
 
               <p className="text-base md:text-lg text-gray-600 dark:text-white leading-relaxed">
-                Flowxtra's free recruiting software lets you post and schedule job ads across social media platforms like LinkedIn, Facebook, and Instagram. Automate outreach, save time, and hire smarter ÔÇö all for free.
+                {t("multipleJobPosting.description")}
               </p>
 
               {/* CTA Button */}
@@ -923,7 +927,7 @@ Hiring Faster Growth              </h2>
                   href="https://my.flowxtra.com/registration"
                   className="inline-block bg-button-primary border-2 border-button-primary text-white px-8 py-4 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-lg shadow-lg"
                 >
-                  Start Posting for Free
+                  {t("multipleJobPosting.cta")}
                 </a>
               </div>
             </div>
@@ -932,8 +936,8 @@ Hiring Faster Growth              </h2>
             <div className="order-2 lg:order-2">
               <Image
                 src="/img/multiple-job-posting.gif"
-                alt="Free social media job posting and scheduling with Flowxtra"
-                title="Post Jobs to Social Media for Free ÔÇô Flowxtra Scheduler"
+                alt={t("multipleJobPosting.imageAlt")}
+                title={t("multipleJobPosting.imageTitle")}
                 width={1200}
                 height={900}
                 quality={100}
@@ -960,44 +964,45 @@ Hiring Faster Growth              </h2>
 
 // Reviews Section Component
 function ReviewsSection() {
+  const t = useTranslations("homepage.reviews");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(3);
 
   const reviews = [
     {
-      name: "Sarah Mitchell",
-      title: "HR Manager",
+      name: t("reviews.review1.name"),
+      title: t("reviews.review1.title"),
       rating: 5,
-      text: "Flowxtra transformed our hiring process! The free 10 job postings monthly are perfect for our startup, and the AI-powered candidate filtering saves us hours every week.",
-      date: "July 12, 2025"
+      text: t("reviews.review1.text"),
+      date: t("reviews.review1.date")
     },
     {
-      name: "Klaus M├╝ller",
-      title: "Recruitment Director",
+      name: t("reviews.review2.name"),
+      title: t("reviews.review2.title"),
       rating: 5,
-      text: "Best recruitment software we've ever used. The multiposting feature and social media manager integration are real game changers. Highly recommended!",
-      date: "August 5, 2025"
+      text: t("reviews.review2.text"),
+      date: t("reviews.review2.date")
     },
     {
-      name: "Sophie Laurent",
-      title: "HR Manager",
+      name: t("reviews.review3.name"),
+      title: t("reviews.review3.title"),
       rating: 5,
-      text: "As an HR manager, Flowxtra meets all my needs: ATS and social media management in one platform. GDPR compliance gives us complete peace of mind.",
-      date: "August 28, 2025"
+      text: t("reviews.review3.text"),
+      date: t("reviews.review3.date")
     },
     {
-      name: "Petra Schneider",
-      title: "Talent Acquisition Specialist",
+      name: t("reviews.review4.name"),
+      title: t("reviews.review4.title"),
       rating: 4,
-      text: "Great software with excellent features. The free plan is generous and the user interface is intuitive. Customer support could be faster, but overall very satisfied.",
-      date: "September 18, 2025"
+      text: t("reviews.review4.text"),
+      date: t("reviews.review4.date")
     },
     {
-      name: "Michael Thompson",
-      title: "CEO & Founder",
+      name: t("reviews.review5.name"),
+      title: t("reviews.review5.title"),
       rating: 5,
-      text: "Finally, an all-in-one solution that actually works! Flowxtra combines recruitment and social media management seamlessly. The 10 free job posts are a lifesaver for our team.",
-      date: "October 22, 2025"
+      text: t("reviews.review5.text"),
+      date: t("reviews.review5.date")
     }
   ];
 
@@ -1050,7 +1055,7 @@ function ReviewsSection() {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            The #1 choice for modern recruiters
+            {t("title")}
           </h2>
           <div className="flex items-center justify-center gap-3 mt-6">
             <div className="text-yellow-400 text-2xl flex gap-1">
@@ -1060,7 +1065,7 @@ function ReviewsSection() {
               <i className="fas fa-star"></i>
               <i className="fas fa-star-half-alt"></i>
             </div>
-            <span className="text-base md:text-lg text-gray-600 dark:text-gray-300 font-semibold">4.8</span>
+            <span className="text-base md:text-lg text-gray-600 dark:text-gray-300 font-semibold">{t("rating")}</span>
           </div>
         </div>
 
@@ -1117,6 +1122,7 @@ function ReviewsSection() {
 
 // FAQ Section Component
 function FAQSection() {
+  const t = useTranslations("homepage.faq");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   interface FAQLink {
@@ -1132,57 +1138,53 @@ function FAQSection() {
 
   const faqs: FAQ[] = [
     {
-      question: "Is Flowxtra free to use for posting job?",
-      answer: "Yes ÔÇö Flowxtra offers a completely free plan that includes up to 10 free job postings per month. You can publish your job ads across top platforms like LinkedIn, Google Jobs, and Stepstone without paying a cent. It's the perfect solution for startups, small businesses, and growing teams looking to post jobs online for free and attract top talent effortlessly."
+      question: t("questions.q1.question"),
+      answer: t("questions.q1.answer")
     },
     {
-      question: "Can I upgrade my Flowxtra plan later if needed?",
-      answer: "Yes, you can upgrade to a higher plan at any time to access more features and higher limits."
+      question: t("questions.q2.question"),
+      answer: t("questions.q2.answer")
     },
     {
-      question: "What features are included in each plan?",
-      answer: "Plans offer various features such as increased job posting limits, team collaboration tools, hiring pipelines, email templates, AI chatbot integration, and custom domain support."
+      question: t("questions.q3.question"),
+      answer: t("questions.q3.answer")
     },
     {
-      question: "Does every plan include AI chatbot support?",
-      answer: "Yes, soon every plan will include an AI chatbot. Flowxtra does not perform AI scoring or matching. Our AI chatbot simply helps recruiters filter applicants faster ÔÇö for example, by asking \"Who knows JavaScript or PHP?\" the system quickly searches through CVs and displays matching names. When you click on a name, the applicant's full CV details appear."
+      question: t("questions.q4.question"),
+      answer: t("questions.q4.answer")
     },
     {
-      question: "What is the Custom Domain feature?",
-      answer: "The Custom Domain feature allows you to use your own domain name for your company page."
+      question: t("questions.q5.question"),
+      answer: t("questions.q5.answer")
     },
     {
-      question: "Can I integrate Flowxtra with other applications?",
-      answer: "Yes, all plans include an API token for third-party app integration and automation."
+      question: t("questions.q6.question"),
+      answer: t("questions.q6.answer")
     },
     {
-      question: "Is Flowxtra a job platform or a recruitment system?",
-      answer: "Flowxtra is more than just an ATS ÔÇö it's a flexible AI-powered recruitment platform. Companies can use Flowxtra in two ways:\n\nÔÇó As a public job platform: Publish jobs for free across Flowxtra and partner networks like Google Jobs, LinkedIn, and more.\n\nÔÇó As a private hiring system: Set up your own branded ATS where only your team manages candidate data, interviews, and hiring ÔÇö fully secure and self-hosted.\n\nWe specialize in building custom recruitment software tailored to your business needs, whether you're a startup or a large enterprise."
+      question: t("questions.q7.question"),
+      answer: t("questions.q7.answer")
     },
     {
-      question: "Is Flowxtra suitable for small, medium, and large companies?",
-      answer: "Yes, absolutely. Flowxtra is built to adapt to every business size ÔÇö whether you're a startup, a growing company, or a large enterprise. The platform scales automatically to match your hiring volume, team structure, and workflow needs. It's perfect for small teams that need a simple and efficient way to manage job posts, as well as for global corporations that handle thousands of candidates daily ÔÇö all with the same reliability, speed, and security."
+      question: t("questions.q8.question"),
+      answer: t("questions.q8.answer")
     },
     {
-      question: "Can Flowxtra handle thousands of job applications?",
-      answer: "Yes, it can. Flowxtra's modern cloud-based architecture is designed for performance and scalability. It can easily process and organize thousands of job applications without slowing down, ensuring that HR teams of any size can work efficiently, even during high recruitment periods."
+      question: t("questions.q9.question"),
+      answer: t("questions.q9.answer")
     },
     {
-      question: "Flowxtra complies with the European AI Act for recruitment systems?",
-      answer: "Yes, Flowxtra is fully compliant with the EU AI Act (Regulation 2024/1689) and GDPR.\n\nWhat does that mean?\n\nFlowxtra is not an automated decision-making tool. It does not use artificial intelligence to:\nÔÇó Score, rank, or filter applicants\nÔÇó Select or recommend \"the best candidate\"\nÔÇó Perform automated profiling or matching\n\nInstead, Flowxtra is a human-first Applicant Tracking System (ATS). Our AI is used only to:\nÔÇó Help companies write job ads faster\nÔÇó Assist in communication with applicants\nÔÇó Automate job posting to platforms like LinkedIn and Google Jobs\n\nYou stay fully in control of all hiring decisions. Flowxtra never replaces human judgment."
+      question: t("questions.q10.question"),
+      answer: t("questions.q10.answer")
     },
     {
-      question: "Flowxtra is fully compliant with the EU AI Act?",
-      answer: "No, based on the current legal interpretation by Austria's regulatory body RTR (KI-Servicestelle), Flowxtra is not classified as a high-risk AI system ÔÇö as long as:\n\nÔÇó No automated decision-making or filtering is used\nÔÇó The AI is only used to assist, not to decide\nÔÇó Interactions with AI (e.g., chatbots) are clearly disclosed\nÔÇó Flowxtra does not process sensitive personal data like gender, origin, or religion\n\nAll AI use is transparent, explainable, and compliant with Article 50 of the EU AI Act.",
-      links: [
-        { text: "EU AI Act ÔÇô EUR-Lex (Regulation 2024/1689)", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32024R1689" },
-        { text: "Transparency Requirements (RTR Austria)", url: "https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Transparenzpflichten.de.html" },
-        { text: "General AI Act Guidelines (RTR Austria)", url: "https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/AI_Act.de.html" }
-      ]
+      question: t("questions.q11.question"),
+      answer: t("questions.q11.answer"),
+      links: t.raw("questions.q11.links") as FAQLink[]
     },
     {
-      question: "Flowxtra is fully compliant with the GDPR and DSGVO?",
-      answer: "Yes, Flowxtra is fully compliant with the General Data Protection Regulation (GDPR) and the Datenschutz-Grundverordnung (DSGVO).\n\nWe do not process sensitive personal data such as gender, ethnicity, religion, or political beliefs. Candidate data is stored securely and managed exclusively by the company using the platform.\n\nFlowxtra does not make automated decisions about candidates. Employers retain full control over all applicant data and hiring decisions.\n\nOur systems include transparent consent management, data access controls, and a clear procedure for candidates to request data deletion or submit complaints, in line with Articles 12ÔÇô23 of the GDPR.\n\nAll data is hosted in the European Union, and our infrastructure follows industry best practices for security and data protection."
+      question: t("questions.q12.question"),
+      answer: t("questions.q12.answer")
     }
   ];
 
@@ -1196,13 +1198,13 @@ function FAQSection() {
         {/* Header */}
         <div className="mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Frequently Asked Questions
+            {t("title")}
           </h2>
           <div className="flex items-center gap-2 text-base md:text-lg text-gray-600 dark:text-gray-400">
             <svg className="w-5 h-5 text-primary dark:text-secondary" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
             </svg>
-            <span>Still need help? <a href="/contact-us" className="text-primary dark:text-secondary hover:underline font-semibold">Chat with us</a></span>
+            <span>{t("helpText")} <a href="/contact-us" className="text-primary dark:text-secondary hover:underline font-semibold">{t("chatLink")}</a></span>
           </div>
         </div>
 
@@ -1240,7 +1242,7 @@ function FAQSection() {
                   </p>
                   {faq.links && faq.links.length > 0 && (
                     <div className="mt-4">
-                      <p className="text-sm font-semibold text-gray-900 dark:text-white mb-2">Official Sources:</p>
+                      <p className="text-sm font-semibold text-gray-900 dark:text-white mb-2">{t("officialSources")}</p>
                       <ul className="space-y-2">
                         {faq.links.map((link, linkIndex) => (
                           <li key={linkIndex}>
@@ -1272,6 +1274,7 @@ function FAQSection() {
 
 // Contact Us Section Component
 function ContactUsSection() {
+  const t = useTranslations("contact");
   const [formData, setFormData] = useState({
     email: "",
     firstName: "",
@@ -1384,18 +1387,18 @@ function ContactUsSection() {
             {/* Badge */}
             <div className="inline-block bg-[#e6f4f7] dark:bg-gray-800 px-4 py-2 rounded-lg mb-6">
               <span className="text-sm md:text-base font-semibold text-primary dark:text-secondary-light">
-                Get In Touch
+                {t("badge")}
               </span>
             </div>
 
             {/* Title */}
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
-              Let's Chat, Reach Out To Us.
+              {t("title")}
             </h2>
 
             {/* Description */}
             <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8">
-              Have questions or feedback? We're here to help. Send us a message, and we'll respond within 24 hours
+              {t("description")}
             </p>
 
             {/* Contact Form */}
@@ -1405,7 +1408,7 @@ function ContactUsSection() {
                 {/* Email Address */}
                 <div className="relative">
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Email Address <span className="text-red-500">*</span>
+                    {t("form.email")} <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="email"
@@ -1415,14 +1418,14 @@ function ContactUsSection() {
                     value={formData.email}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:border-primary dark:focus:border-secondary focus:outline-none bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors"
-                    placeholder="your@email.com"
+                    placeholder={t("form.emailPlaceholder")}
                   />
                 </div>
 
                 {/* First Name */}
                 <div>
                   <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    First Name <span className="text-red-500">*</span>
+                    {t("form.firstName")} <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -1432,7 +1435,7 @@ function ContactUsSection() {
                     value={formData.firstName}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:border-primary dark:focus:border-secondary focus:outline-none bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors"
-                    placeholder="John"
+                    placeholder={t("form.firstNamePlaceholder")}
                   />
                 </div>
               </div>
@@ -1440,7 +1443,7 @@ function ContactUsSection() {
               {/* Your Message */}
               <div>
                 <label htmlFor="review" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Your Message <span className="text-red-500">*</span>
+                  {t("form.message")} <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   id="review"
@@ -1450,7 +1453,7 @@ function ContactUsSection() {
                   value={formData.review}
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:border-primary dark:focus:border-secondary focus:outline-none bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors resize-none"
-                  placeholder="Write your message here..."
+                  placeholder={t("form.messagePlaceholder")}
                 />
                 <div className="text-right text-sm text-gray-500 dark:text-gray-400 mt-1">
                   {charCount} / {maxChars}
@@ -1468,13 +1471,13 @@ function ContactUsSection() {
                   className="mt-1 w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary dark:focus:ring-secondary"
                 />
                 <label htmlFor="privacy" className="text-sm text-gray-600 dark:text-gray-300">
-                  Yes, I agree with the{" "}
+                  {t("form.agreeWith")}{" "}
                   <a href="/privacy-policy" className="text-primary dark:text-secondary hover:underline font-medium">
-                    privacy policy
+                    {t("form.privacyPolicy")}
                   </a>{" "}
-                  and{" "}
+                  {t("form.and")}{" "}
                   <a href="/terms-conditions" className="text-primary dark:text-secondary hover:underline font-medium">
-                    terms and conditions
+                    {t("form.termsConditions")}
                   </a>
                   {" "}<span className="text-red-500">*</span>
                 </label>
@@ -1495,7 +1498,7 @@ function ContactUsSection() {
                 disabled={isSubmitting}
                 className="inline-block bg-button-primary border-2 border-button-primary text-white px-8 py-2.5 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-base shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {isSubmitting ? t("form.sending") : t("form.sendButton")}
               </button>
 
               {/* Success Message */}
@@ -1505,8 +1508,8 @@ function ContactUsSection() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <div>
-                    <p className="font-semibold text-green-700 dark:text-green-400">Message sent successfully!</p>
-                    <p className="text-sm text-green-600 dark:text-green-300">We'll respond within 24 hours.</p>
+                  <p className="font-semibold text-green-700 dark:text-green-400">{t("form.successTitle")}</p>
+                  <p className="text-sm text-green-600 dark:text-green-300">{t("form.successMessage")}</p>
                   </div>
                 </div>
               )}
@@ -1518,8 +1521,8 @@ function ContactUsSection() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <div>
-                    <p className="font-semibold text-red-700 dark:text-red-400">Failed to send message</p>
-                    <p className="text-sm text-red-600 dark:text-red-300">Please try again later.</p>
+                  <p className="font-semibold text-red-700 dark:text-red-400">{t("form.errorTitle")}</p>
+                  <p className="text-sm text-red-600 dark:text-red-300">{t("form.errorMessage")}</p>
                   </div>
                 </div>
               )}
@@ -1533,8 +1536,8 @@ function ContactUsSection() {
               <figure>
                 <Image
                   src="/img/ai-powered-recruiting.webp"
-                  alt="AI-powered recruiting and HR platform for smarter hiring"
-                  title="Flowxtra ÔÇô All-in-One AI Recruiting & HR Platform"
+                  alt={t("imageAlt")}
+                  title={t("imageTitle")}
                   width={800}
                   height={600}
                   quality={100}
@@ -1542,7 +1545,7 @@ function ContactUsSection() {
                   className="w-full h-auto rounded-lg"
                 />
                 <figcaption className="sr-only">
-                  Manage job posts, candidates, and contracts with AI ÔÇö all in one place, 100% free.
+                  {t("figcaption")}
                 </figcaption>
               </figure>
             </div>
@@ -1557,7 +1560,7 @@ function ContactUsSection() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Email</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{t("info.email")}</p>
                   <a href="mailto:sales@flowxtra.com" className="text-lg font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-secondary transition-colors">
                     sales@flowxtra.com
                   </a>
@@ -1572,7 +1575,7 @@ function ContactUsSection() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Phone</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{t("info.phone")}</p>
                   <a href="tel:+436769054441" className="text-lg font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-secondary transition-colors">
                     +43 676 905 4441
                   </a>
@@ -1588,9 +1591,9 @@ function ContactUsSection() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Address</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{t("info.address")}</p>
                   <p className="text-lg font-medium text-gray-900 dark:text-white">
-                    Wipplingerstra├ƒe 20/18, 1010 Vienna
+                    {t("info.addressValue")}
                   </p>
                 </div>
               </div>
