@@ -1,43 +1,102 @@
+import {NextIntlClientProvider} from 'next-intl';
+import {getMessages} from 'next-intl/server';
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import "./globals.css";
+import "../globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-export const metadata: Metadata = {
-  title: {
-    default: "Flowxtra – Recruiting Software & Smart Hiring Tool | Free Job Posting",
-    template: "%s | Flowxtra",
-  },
-  description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform.",
-  keywords: ["recruitment", "recruiting software", "ATS", "AI-powered hiring", "smart hiring tool", "free job posting", "candidate management", "hiring platform"],
-  authors: [{ name: "Flowxtra" }],
-  openGraph: {
-    title: "Flowxtra – Recruiting Software & Smart Hiring Tool | Free Job Posting",
-    description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform.",
-    type: "website",
-    locale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Flowxtra – Recruiting Software & Smart Hiring Tool | Free Job Posting",
-    description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform.",
-  },
-};
-
+// Viewport configuration
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: "#003f4d",
 };
 
-export default function RootLayout({
+// SEO Metadata per locale
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Promise<{locale: string}> 
+}): Promise<Metadata> {
+  const {locale} = await params;
+  
+  const metadata = {
+    en: {
+      title: {
+        default: "Flowxtra – Recruiting Software & Smart Hiring Tool | Free Job Posting",
+        template: "%s | Flowxtra",
+      },
+      description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform.",
+      keywords: ["recruitment", "recruiting software", "ATS", "AI-powered hiring", "smart hiring tool", "free job posting", "candidate management", "hiring platform"],
+      openGraph: {
+        title: "Flowxtra – Recruiting Software & Smart Hiring Tool | Free Job Posting",
+        description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform.",
+        type: "website",
+        locale: "en_US",
+        url: "https://flowxtra.com/en",
+        siteName: "Flowxtra",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Flowxtra – Recruiting Software & Smart Hiring Tool | Free Job Posting",
+        description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform.",
+      },
+      alternates: {
+        canonical: "https://flowxtra.com/en",
+        languages: {
+          'en': 'https://flowxtra.com/en',
+          'de': 'https://flowxtra.com/de',
+        },
+      },
+    },
+    de: {
+      title: {
+        default: "Flowxtra – Recruiting-Software & Intelligentes Einstellungstool | Kostenlose Stellenanzeigen",
+        template: "%s | Flowxtra",
+      },
+      description: "Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform.",
+      keywords: ["Rekrutierung", "Recruiting-Software", "ATS", "KI-gestützte Einstellung", "intelligentes Einstellungstool", "kostenlose Stellenausschreibung", "Kandidatenverwaltung", "Einstellungsplattform"],
+      openGraph: {
+        title: "Flowxtra – Recruiting-Software & Intelligentes Einstellungstool | Kostenlose Stellenanzeigen",
+        description: "Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform.",
+        type: "website",
+        locale: "de_DE",
+        url: "https://flowxtra.com/de",
+        siteName: "Flowxtra",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Flowxtra – Recruiting-Software & Intelligentes Einstellungstool | Kostenlose Stellenanzeigen",
+        description: "Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform.",
+      },
+      alternates: {
+        canonical: "https://flowxtra.com/de",
+        languages: {
+          'en': 'https://flowxtra.com/en',
+          'de': 'https://flowxtra.com/de',
+        },
+      },
+    },
+  };
+
+  return metadata[locale as keyof typeof metadata] || metadata.en;
+}
+
+export default async function LocaleLayout({
   children,
-}: Readonly<{
+  params
+}: {
   children: React.ReactNode;
-}>) {
+  params: Promise<{locale: string}>;
+}) {
+  const {locale} = await params;
+  
+  // CRITICAL: Pass locale explicitly to getMessages
+  const messages = await getMessages({ locale });
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
         {/* Google Tag Manager */}
         <Script
@@ -171,11 +230,13 @@ export default function RootLayout({
           />
         </noscript>
 
-        <Header />
-        <main>
-          {children}
-        </main>
-        <Footer />
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <Header />
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

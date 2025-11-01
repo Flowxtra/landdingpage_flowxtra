@@ -1,9 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 export default function ContactUs() {
+  const t = useTranslations("contact");
+  
   const [formData, setFormData] = useState({
     email: "",
     firstName: "",
@@ -16,25 +19,6 @@ export default function ContactUs() {
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  // Load reCAPTCHA script - Temporarily Disabled
-  // useEffect(() => {
-  //   const script = document.createElement('script');
-  //   script.src = 'https://www.google.com/recaptcha/api.js';
-  //   script.async = true;
-  //   script.defer = true;
-  //   document.body.appendChild(script);
-
-  //   // Define callback function globally
-  //   (window as any).onRecaptchaSuccess = (token: string) => {
-  //     setRecaptchaToken(token);
-  //   };
-
-  //   return () => {
-  //     document.body.removeChild(script);
-  //     delete (window as any).onRecaptchaSuccess;
-  //   };
-  // }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -56,25 +40,16 @@ export default function ContactUs() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Temporarily disabled reCAPTCHA verification
-    // if (!recaptchaToken) {
-    //   alert("Please complete the reCAPTCHA verification");
-    //   return;
-    // }
-    
     setIsSubmitting(true);
     setSubmitStatus('idle');
     
     try {
-      // Simulate API call (replace with your actual API endpoint)
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       console.log("Form submitted:", formData, "reCAPTCHA Token:", recaptchaToken);
       
-      // Show success message
       setSubmitStatus('success');
       
-      // Reset form after successful submission
       setFormData({
         email: "",
         firstName: "",
@@ -84,12 +59,6 @@ export default function ContactUs() {
       setCharCount(0);
       setRecaptchaToken(null);
       
-      // Reset reCAPTCHA
-      if ((window as any).grecaptcha) {
-        (window as any).grecaptcha.reset();
-      }
-      
-      // Hide success message after 5 seconds
       setTimeout(() => {
         setSubmitStatus('idle');
       }, 5000);
@@ -98,7 +67,6 @@ export default function ContactUs() {
       console.error("Error submitting form:", error);
       setSubmitStatus('error');
       
-      // Hide error message after 5 seconds
       setTimeout(() => {
         setSubmitStatus('idle');
       }, 5000);
@@ -116,18 +84,18 @@ export default function ContactUs() {
             {/* Badge */}
             <div className="inline-block bg-[#e6f4f7] dark:bg-gray-800 px-4 py-2 rounded-lg mb-6">
               <span className="text-sm md:text-base font-semibold text-primary dark:text-secondary-light">
-                Get In Touch
+                {t("badge")}
               </span>
             </div>
 
             {/* Title */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
-              Let's Chat, Reach Out To Us.
+              {t("title")}
             </h1>
 
             {/* Description */}
             <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8">
-              Have questions or feedback? We're here to help. Send us a message, and we'll respond within 24 hours
+              {t("description")}
             </p>
 
             {/* Contact Form */}
@@ -137,7 +105,7 @@ export default function ContactUs() {
                 {/* Email Address */}
                 <div className="relative">
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Email Address <span className="text-red-500">*</span>
+                    {t("form.email")} <span className="text-red-500">{t("form.required")}</span>
                   </label>
                   <input
                     type="email"
@@ -147,14 +115,14 @@ export default function ContactUs() {
                     value={formData.email}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:border-primary dark:focus:border-secondary focus:outline-none bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors"
-                    placeholder="your@email.com"
+                    placeholder={t("form.emailPlaceholder")}
                   />
                 </div>
 
                 {/* First Name */}
                 <div>
                   <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    First Name <span className="text-red-500">*</span>
+                    {t("form.firstName")} <span className="text-red-500">{t("form.required")}</span>
                   </label>
                   <input
                     type="text"
@@ -164,7 +132,7 @@ export default function ContactUs() {
                     value={formData.firstName}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:border-primary dark:focus:border-secondary focus:outline-none bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors"
-                    placeholder="John"
+                    placeholder={t("form.firstNamePlaceholder")}
                   />
                 </div>
               </div>
@@ -172,7 +140,7 @@ export default function ContactUs() {
               {/* Your Message */}
               <div>
                 <label htmlFor="review" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Your Message <span className="text-red-500">*</span>
+                  {t("form.message")} <span className="text-red-500">{t("form.required")}</span>
                 </label>
                 <textarea
                   id="review"
@@ -182,7 +150,7 @@ export default function ContactUs() {
                   value={formData.review}
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:border-primary dark:focus:border-secondary focus:outline-none bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors resize-none"
-                  placeholder="Write your message here..."
+                  placeholder={t("form.messagePlaceholder")}
                 />
                 <div className="text-right text-sm text-gray-500 dark:text-gray-400 mt-1">
                   {charCount} / {maxChars}
@@ -200,26 +168,17 @@ export default function ContactUs() {
                   className="mt-1 w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary dark:focus:ring-secondary"
                 />
                 <label htmlFor="privacy" className="text-sm text-gray-600 dark:text-gray-300">
-                  Yes, I agree with the{" "}
+                  {t("form.agreeWith")}{" "}
                   <a href="/privacy-policy" className="text-primary dark:text-secondary hover:underline font-medium">
-                    privacy policy
+                    {t("form.privacyPolicy")}
                   </a>{" "}
-                  and{" "}
+                  {t("form.and")}{" "}
                   <a href="/terms-conditions" className="text-primary dark:text-secondary hover:underline font-medium">
-                    terms and conditions
+                    {t("form.termsConditions")}
                   </a>
-                  {" "}<span className="text-red-500">*</span>
+                  {" "}<span className="text-red-500">{t("form.required")}</span>
                 </label>
               </div>
-
-              {/* Google reCAPTCHA - Temporarily Hidden */}
-              {/* <div>
-                <div 
-                  className="g-recaptcha" 
-                  data-sitekey="6Le9JGEqAAAAAJiw2eq6wmIOxoytM-Gd_fk0xDFz"
-                  data-callback="onRecaptchaSuccess"
-                />
-              </div> */}
 
               {/* Submit Button */}
               <button
@@ -227,7 +186,7 @@ export default function ContactUs() {
                 disabled={isSubmitting}
                 className="inline-block bg-button-primary border-2 border-button-primary text-white px-8 py-2.5 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-base shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {isSubmitting ? t("form.sending") : t("form.sendButton")}
               </button>
 
               {/* Success Message */}
@@ -237,8 +196,8 @@ export default function ContactUs() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <div>
-                    <p className="font-semibold text-green-700 dark:text-green-400">Message sent successfully!</p>
-                    <p className="text-sm text-green-600 dark:text-green-300">We'll respond within 24 hours.</p>
+                    <p className="font-semibold text-green-700 dark:text-green-400">{t("form.successTitle")}</p>
+                    <p className="text-sm text-green-600 dark:text-green-300">{t("form.successMessage")}</p>
                   </div>
                 </div>
               )}
@@ -250,8 +209,8 @@ export default function ContactUs() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <div>
-                    <p className="font-semibold text-red-700 dark:text-red-400">Failed to send message</p>
-                    <p className="text-sm text-red-600 dark:text-red-300">Please try again later.</p>
+                    <p className="font-semibold text-red-700 dark:text-red-400">{t("form.errorTitle")}</p>
+                    <p className="text-sm text-red-600 dark:text-red-300">{t("form.errorMessage")}</p>
                   </div>
                 </div>
               )}
@@ -289,7 +248,7 @@ export default function ContactUs() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Email</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{t("info.email")}</p>
                   <a href="mailto:sales@flowxtra.com" className="text-lg font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-secondary transition-colors">
                     sales@flowxtra.com
                   </a>
@@ -304,7 +263,7 @@ export default function ContactUs() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Phone</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{t("info.phone")}</p>
                   <a href="tel:+436769054441" className="text-lg font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-secondary transition-colors">
                     +43 676 905 4441
                   </a>
@@ -320,9 +279,9 @@ export default function ContactUs() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Address</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{t("info.address")}</p>
                   <p className="text-lg font-medium text-gray-900 dark:text-white">
-                    Wipplingerstraße 20/18, 1010 Vienna
+                    {t("info.addressValue")}
                   </p>
                 </div>
               </div>
@@ -333,3 +292,4 @@ export default function ContactUs() {
     </div>
   );
 }
+

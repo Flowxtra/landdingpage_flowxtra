@@ -3,16 +3,22 @@
 import { useState, memo, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
 function Header() {
+  const pathname = usePathname();
+  const router = useRouter();
+  const t = useTranslations("common");
+  const tNav = useTranslations("navigation");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [language, setLanguage] = useState("EN");
   const [isLangOpen, setIsLangOpen] = useState(false);
 
-  // Initialize dark mode and language from localStorage or browser preferences
+  // Initialize dark mode from localStorage or browser preferences
   useEffect(() => {
     // Dark mode initialization
     const savedTheme = localStorage.getItem("theme");
@@ -22,25 +28,55 @@ function Header() {
       setIsDarkMode(true);
       document.documentElement.classList.add("dark");
     }
+  }, []);
 
-    // Language initialization - Auto-detect browser language
-    const savedLanguage = localStorage.getItem("language");
-    if (savedLanguage) {
-      setLanguage(savedLanguage);
+  // Update language state when pathname changes
+  useEffect(() => {
+    // Language initialization - Detect from URL path (source of truth)
+    if (pathname.startsWith('/de')) {
+      // German page - always set to German
+      setLanguage("DE");
+      localStorage.setItem("language", "DE");
+    } else if (pathname.startsWith('/en')) {
+      // English page - always set to English
+      setLanguage("EN");
+      localStorage.setItem("language", "EN");
     } else {
-      // Detect browser language
-      const browserLang = navigator.language || (navigator as any).userLanguage;
-      // Check if German
-      if (browserLang.startsWith('de')) {
-        setLanguage("DE");
-        localStorage.setItem("language", "DE");
+      // For root path or other paths, detect language preference
+      const savedLanguage = localStorage.getItem("language");
+      const hasVisitedBefore = localStorage.getItem("hasVisited");
+      
+      if (savedLanguage) {
+        // Use saved preference
+        setLanguage(savedLanguage);
+      } else if (!hasVisitedBefore) {
+        // First visit - Auto-detect browser language
+        const browserLang = navigator.language || (navigator as any).userLanguage;
+        
+        // Detect language and redirect
+        if (browserLang.startsWith('de')) {
+          setLanguage("DE");
+          localStorage.setItem("language", "DE");
+          localStorage.setItem("hasVisited", "true");
+          // Auto-redirect to German version on first visit
+          window.location.replace(`/de${pathname === '/' ? '' : pathname}`);
+        } else {
+          // Default to English (fallback)
+          setLanguage("EN");
+          localStorage.setItem("language", "EN");
+          localStorage.setItem("hasVisited", "true");
+          // Auto-redirect to English version on first visit
+          if (!pathname.startsWith('/en')) {
+            window.location.replace(`/en${pathname === '/' ? '' : pathname}`);
+          }
+        }
       } else {
-        // Default to English
+        // Default fallback to English
         setLanguage("EN");
         localStorage.setItem("language", "EN");
       }
     }
-  }, []);
+  }, [pathname]);
 
   // Toggle dark mode
   const toggleDarkMode = () => {
@@ -57,10 +93,69 @@ function Header() {
 
   // Change language
   const changeLanguage = (lang: string) => {
-    setLanguage(lang);
-    setIsLangOpen(false);
-    localStorage.setItem("language", lang);
-    // TODO: Implement actual language change logic with i18n
+    const newLocale = lang === "EN" ? "en" : "de";
+    
+    // Get current path without locale
+    let pathWithoutLocale = pathname;
+    if (pathname.startsWith('/en') || pathname.startsWith('/de')) {
+      pathWithoutLocale = pathname.substring(3) || '/';
+    }
+    
+    // Translate German URLs back to English URLs first
+    const germanToEnglish: { [key: string]: string } = {
+      '/kontakt': '/contact-us',
+      '/preise': '/pricing',
+      '/funktionen': '/features',
+      '/jetzt-starten': '/get-started',
+      '/anmelden': '/login',
+      '/barrierefreiheit': '/accessibility',
+    };
+    
+    // If current path is a German URL, convert it to English first
+    if (germanToEnglish[pathWithoutLocale]) {
+      pathWithoutLocale = germanToEnglish[pathWithoutLocale];
+    }
+    
+    // Now translate to target language if needed
+    if (newLocale === 'de') {
+      const englishToGerman: { [key: string]: string } = {
+        '/contact-us': '/kontakt',
+        '/pricing': '/preise',
+        '/features': '/funktionen',
+        '/get-started': '/jetzt-starten',
+        '/login': '/anmelden',
+        '/accessibility': '/barrierefreiheit',
+      };
+      pathWithoutLocale = englishToGerman[pathWithoutLocale] || pathWithoutLocale;
+    }
+    
+    // Build new path with new locale
+    const newPath = `/${newLocale}${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
+    
+    // Clear language from localStorage before reload
+    // This forces the page to read from URL pathname only
+    localStorage.removeItem("language");
+    
+    // Force full page reload to ensure translations update
+    window.location.replace(newPath);
+  };
+
+  // Get current locale from pathname
+  const currentLocale = pathname.startsWith('/de') ? 'de' : pathname.startsWith('/en') ? 'en' : 'en';
+
+  // Helper function to get translated route
+  const getLocalizedPath = (path: string) => {
+    if (currentLocale === 'de') {
+      const translations: { [key: string]: string } = {
+        '/contact-us': '/kontakt',
+        '/pricing': '/preise',
+        '/features': '/funktionen',
+        '/get-started': '/jetzt-starten',
+        '/login': '/anmelden',
+      };
+      return `/${currentLocale}${translations[path] || path}`;
+    }
+    return `/${currentLocale}${path}`;
   };
 
   return (
@@ -68,7 +163,7 @@ function Header() {
       <nav className="container mx-auto px-4 md:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16 md:h-18">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href={`/${currentLocale}`} className="flex items-center">
             <Image
               src={isDarkMode ? "/flowxtra-logo-white.png" : "/Main-flowxtra-Logo.png"}
               alt="Flowxtra Logo"
@@ -82,7 +177,7 @@ function Header() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
             <Link
-              href="/"
+              href={`/${currentLocale}`}
               className={cn(
                 "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors",
                 "hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary dark:hover:text-secondary-light",
@@ -90,7 +185,7 @@ function Header() {
                 "text-gray-700 dark:text-gray-300"
               )}
             >
-              Features
+              {t("features")}
             </Link>
 
             {/* Services Dropdown */}
@@ -107,7 +202,7 @@ function Header() {
                   "text-gray-700 dark:text-gray-300"
                 )}
               >
-                Services
+                {t("services")}
                 <svg
                   className="w-4 h-4 ml-1"
                   fill="none"
@@ -129,7 +224,7 @@ function Header() {
                   <div className="rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-lg">
                     <div className="p-2">
                       <Link
-                        href="/social-media-management"
+                        href={`/${currentLocale}/social-media-management`}
                         className={cn(
                           "block px-3 py-2 text-sm rounded-sm",
                           "text-gray-700 dark:text-gray-300",
@@ -138,10 +233,10 @@ function Header() {
                           "transition-colors"
                         )}
                       >
-                        Social Media Management
+                        {tNav("socialMediaManagement")}
                       </Link>
                       <Link
-                        href="/ats-recruiting-software"
+                        href={`/${currentLocale}/ats-recruiting-software`}
                         className={cn(
                           "block px-3 py-2 text-sm rounded-sm",
                           "text-gray-700 dark:text-gray-300",
@@ -150,7 +245,7 @@ function Header() {
                           "transition-colors"
                         )}
                       >
-                        ATS Recruiting Software
+                        {tNav("atsRecruitingSoftware")}
                       </Link>
                     </div>
                   </div>
@@ -159,7 +254,7 @@ function Header() {
             </div>
 
             <Link
-              href="/pricing"
+              href={getLocalizedPath('/pricing')}
               className={cn(
                 "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors",
                 "hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary dark:hover:text-secondary-light",
@@ -167,11 +262,11 @@ function Header() {
                 "text-gray-700 dark:text-gray-300"
               )}
             >
-              Pricing
+              {t("pricing")}
             </Link>
 
             <Link
-              href="/contact-us"
+              href={getLocalizedPath('/contact-us')}
               className={cn(
                 "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors",
                 "hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary dark:hover:text-secondary-light",
@@ -179,7 +274,7 @@ function Header() {
                 "text-gray-700 dark:text-gray-300"
               )}
             >
-              Contact Us
+              {t("contactUs")}
             </Link>
           </div>
 
@@ -294,13 +389,13 @@ function Header() {
               href="https://my.flowxtra.com/login"
               className="border-2 border-primary text-primary px-6 py-2 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
             >
-              Login
+              {t("login")}
             </Link>
             <Link
               href="https://my.flowxtra.com/registration"
               className="bg-button-primary border-2 border-button-primary text-white px-6 py-2 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium"
             >
-              Signup
+              {t("signup")}
             </Link>
           </div>
 
@@ -347,11 +442,11 @@ function Header() {
           <div className="lg:hidden py-4 border-t dark:border-gray-700">
             <div className="flex flex-col space-y-4">
               <Link
-                href="/"
+                href={`/${currentLocale}`}
                 className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-secondary-light font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Features
+                {t("features")}
               </Link>
 
               {/* Services - Mobile */}
@@ -360,7 +455,7 @@ function Header() {
                   className="w-full text-left text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-secondary-light font-medium transition-colors flex items-center justify-between"
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
                 >
-                  Services
+                  {t("services")}
                   <svg
                     className={`w-4 h-4 transition-transform ${
                       isServicesOpen ? "rotate-180" : ""
@@ -380,37 +475,37 @@ function Header() {
                 {isServicesOpen && (
                   <div className="ml-4 mt-2 space-y-2">
                     <Link
-                      href="/social-media-management"
+                      href={`/${currentLocale}/social-media-management`}
                       className="block text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-secondary-light transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      Social Media Management
+                      {tNav("socialMediaManagement")}
                     </Link>
                     <Link
-                      href="/ats-recruiting-software"
+                      href={`/${currentLocale}/ats-recruiting-software`}
                       className="block text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-secondary-light transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      ATS Recruiting Software
+                      {tNav("atsRecruitingSoftware")}
                     </Link>
                   </div>
                 )}
               </div>
 
               <Link
-                href="/pricing"
+                href={getLocalizedPath('/pricing')}
                 className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-secondary-light font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Pricing
+                {t("pricing")}
               </Link>
 
               <Link
-                href="/contact-us"
+                href={getLocalizedPath('/contact-us')}
                 className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-secondary-light font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Contact Us
+                {t("contactUs")}
               </Link>
 
               {/* Dark Mode & Language - Mobile */}
@@ -492,14 +587,14 @@ function Header() {
                   className="block text-center border-2 border-primary text-primary px-6 py-2 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Login
+                  {t("login")}
                 </Link>
                 <Link
                   href="https://my.flowxtra.com/registration"
                   className="block text-center bg-button-primary border-2 border-button-primary text-white px-6 py-2 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Signup
+                  {t("signup")}
                 </Link>
               </div>
             </div>

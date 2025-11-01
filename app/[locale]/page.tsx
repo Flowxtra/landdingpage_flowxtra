@@ -1,4 +1,4 @@
-// Main Homepage
+﻿// Main Homepage
 // The Header shows "Features" but it links here to keep the URL as flowxtra.com
 "use client";
 
@@ -15,17 +15,17 @@ function FeaturesSlider() {
     {
       badge: "Real Recruiting Results",
       title: "Smarter Candidate Filtering & Visualization",
-      description: "Flowxtra's AI‑powered ATS streamlines recruitment. Filter and visualize candidates with list, card or drag‑and‑drop board views, then move top talent through every stage with ease.",
+      description: "Flowxtra's AIÔÇæpowered ATS streamlines recruitment. Filter and visualize candidates with list, card or dragÔÇæandÔÇædrop board views, then move top talent through every stage with ease.",
       buttonText: "Register For Free",
       buttonLink: "https://my.flowxtra.com/registration",
       image: "/img/Smarter-Candidate-Filtering.png",
-      imageAlt: "Visual candidate board – part of free AI recruiting tool",
+      imageAlt: "Visual candidate board ÔÇô part of free AI recruiting tool",
       imageOnRight: true,
     },
     {
       badge: "Candidate Board Flow",
       title: "Visual Talent Intelligence",
-      description: "Compare, filter, and map candidates with Flowxtra's dynamic hiring board. Track applications, gain insights, and make smarter hiring decisions — all from one powerful, interactive view.",
+      description: "Compare, filter, and map candidates with Flowxtra's dynamic hiring board. Track applications, gain insights, and make smarter hiring decisions ÔÇö all from one powerful, interactive view.",
       buttonText: "Register For Free",
       buttonLink: "https://my.flowxtra.com/registration",
       image: "/img/candidate-fiter.png",
@@ -35,7 +35,7 @@ function FeaturesSlider() {
     {
       badge: "Centralized Applicant Intelligence",
       title: "Candidate Profile View",
-      description: "Access resumes, cover letters, LinkedIn profiles, and screening answers in one clean interface. Add notes, assign interviews, send assessments, and rate candidates — all from a unified profile view.",
+      description: "Access resumes, cover letters, LinkedIn profiles, and screening answers in one clean interface. Add notes, assign interviews, send assessments, and rate candidates ÔÇö all from a unified profile view.",
       buttonText: "Register For Free",
       buttonLink: "https://my.flowxtra.com/registration",
       image: "/img/Candidate-Profile.webp",
@@ -45,7 +45,7 @@ function FeaturesSlider() {
     {
       badge: "One Job Ad. Multiple Platforms.",
       title: "Multiposting Made Simple",
-      description: "Post once and publish across top job boards — LinkedIn, Google Jobs, Stepstone & more. Track clicks, views, and applications from everywhere — your website, external platforms, and beyond — all in one smart dashboard.",
+      description: "Post once and publish across top job boards ÔÇö LinkedIn, Google Jobs, Stepstone & more. Track clicks, views, and applications from everywhere ÔÇö your website, external platforms, and beyond ÔÇö all in one smart dashboard.",
       buttonText: "Register For Free",
       buttonLink: "https://my.flowxtra.com/registration",
       image: "/img/Multiposting-job.webp",
@@ -55,7 +55,7 @@ function FeaturesSlider() {
     {
       badge: "Automated & Personalized Communication",
       title: "Hiring Email Template",
-      description: "Save time with smart email templates tailored to every hiring stage. Send rejections, interview invites, or updates — faster, consistent, and always professional.",
+      description: "Save time with smart email templates tailored to every hiring stage. Send rejections, interview invites, or updates ÔÇö faster, consistent, and always professional.",
       buttonText: "Register For Free",
       buttonLink: "https://my.flowxtra.com/registration",
       image: "/img/hiring-email-template.webp",
@@ -65,17 +65,17 @@ function FeaturesSlider() {
     {
       badge: "Visualize Your Entire Recruitment Process at a Glance",
       title: "Smart Hiring Diagram Board",
-      description: "Flowxtra's advanced diagram board lets you map candidate relationships, hiring stages, and team feedback in real time. Drag and drop candidates, assign tasks, and collaborate with your team — all in one visual dashboard.",
+      description: "Flowxtra's advanced diagram board lets you map candidate relationships, hiring stages, and team feedback in real time. Drag and drop candidates, assign tasks, and collaborate with your team ÔÇö all in one visual dashboard.",
       buttonText: "Register For Free",
       buttonLink: "https://my.flowxtra.com/registration",
       image: "/img/Job-board-workflow.gif",
-      imageAlt: "Visual candidate board – part of free AI recruiting tool",
+      imageAlt: "Visual candidate board ÔÇô part of free AI recruiting tool",
       imageOnRight: false,
     },
     {
       badge: "JOB WIDGET",
       title: "Add Job Listings to Any Website",
-      description: "With Flowxtra's Job Widget, you can instantly display your company's open positions on your website — without any technical setup or API integration. Whether you're using WordPress, Wix, Shopify, or any other platform, simply copy the embed code and your job board goes live automatically.",
+      description: "With Flowxtra's Job Widget, you can instantly display your company's open positions on your website ÔÇö without any technical setup or API integration. Whether you're using WordPress, Wix, Shopify, or any other platform, simply copy the embed code and your job board goes live automatically.",
       buttonText: "Register For Free",
       buttonLink: "https://my.flowxtra.com/registration",
       image: "/img/multi-job-post.gif",
@@ -299,10 +299,10 @@ Hiring Faster Growth              </h2>
               {/* Description */}
               <div className="space-y-4 text-gray-600 dark:text-gray-300">
                 <p className="text-base md:text-lg leading-relaxed">
-                  Flowxtra streamlines hiring with AI! Create job ads, connect with candidates, and automate tasks like scheduling—making recruitment faster and smarter.
+                  Flowxtra streamlines hiring with AI! Create job ads, connect with candidates, and automate tasks like schedulingÔÇömaking recruitment faster and smarter.
                 </p>
                 <p className="text-base md:text-lg leading-relaxed">
-                  All data is securely stored in the EU. Transparency. Privacy. Compliance — built in by design.
+                  All data is securely stored in the EU. Transparency. Privacy. Compliance ÔÇö built in by design.
                 </p>
               </div>
 
@@ -666,7 +666,7 @@ Hiring Faster Growth              </h2>
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-base md:text-lg text-gray-700 dark:text-white">Scalable for all business sizes — from startups to enterprises</span>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">Scalable for all business sizes ÔÇö from startups to enterprises</span>
                 </li>
               </ul>
 
@@ -697,7 +697,7 @@ Hiring Faster Growth              </h2>
               </h2>
 
               <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                The Recruitment App helps companies and HR teams streamline the hiring process—from posting job ads to hiring the right talent.
+                The Recruitment App helps companies and HR teams streamline the hiring processÔÇöfrom posting job ads to hiring the right talent.
               </p>
 
               {/* Features List */}
@@ -794,11 +794,11 @@ Hiring Faster Growth              </h2>
             
             <div className="space-y-3">
               <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                Post up to 10 job ads for free every month — no hidden fees, no credit card required.
+                Post up to 10 job ads for free every month ÔÇö no hidden fees, no credit card required.
               </p>
               
               <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                Flowxtra helps you publish jobs across LinkedIn, Google Jobs & more — all from one powerful dashboard.
+                Flowxtra helps you publish jobs across LinkedIn, Google Jobs & more ÔÇö all from one powerful dashboard.
               </p>
             </div>
           </div>
@@ -822,7 +822,7 @@ Hiring Faster Growth              </h2>
             <div className="order-2 lg:order-1">
               <Image
                 src="/img/social-media-management.webp"
-                alt="Post Jobs to Social Media for Free – Flowxtra Scheduler"
+                alt="Post Jobs to Social Media for Free ÔÇô Flowxtra Scheduler"
                 title="Free social media job posting and scheduling with Flowxtra"
                 width={1200}
                 height={900}
@@ -914,7 +914,7 @@ Hiring Faster Growth              </h2>
               </h2>
 
               <p className="text-base md:text-lg text-gray-600 dark:text-white leading-relaxed">
-                Flowxtra's free recruiting software lets you post and schedule job ads across social media platforms like LinkedIn, Facebook, and Instagram. Automate outreach, save time, and hire smarter — all for free.
+                Flowxtra's free recruiting software lets you post and schedule job ads across social media platforms like LinkedIn, Facebook, and Instagram. Automate outreach, save time, and hire smarter ÔÇö all for free.
               </p>
 
               {/* CTA Button */}
@@ -933,7 +933,7 @@ Hiring Faster Growth              </h2>
               <Image
                 src="/img/multiple-job-posting.gif"
                 alt="Free social media job posting and scheduling with Flowxtra"
-                title="Post Jobs to Social Media for Free – Flowxtra Scheduler"
+                title="Post Jobs to Social Media for Free ÔÇô Flowxtra Scheduler"
                 width={1200}
                 height={900}
                 quality={100}
@@ -972,7 +972,7 @@ function ReviewsSection() {
       date: "July 12, 2025"
     },
     {
-      name: "Klaus Müller",
+      name: "Klaus M├╝ller",
       title: "Recruitment Director",
       rating: 5,
       text: "Best recruitment software we've ever used. The multiposting feature and social media manager integration are real game changers. Highly recommended!",
@@ -1133,7 +1133,7 @@ function FAQSection() {
   const faqs: FAQ[] = [
     {
       question: "Is Flowxtra free to use for posting job?",
-      answer: "Yes — Flowxtra offers a completely free plan that includes up to 10 free job postings per month. You can publish your job ads across top platforms like LinkedIn, Google Jobs, and Stepstone without paying a cent. It's the perfect solution for startups, small businesses, and growing teams looking to post jobs online for free and attract top talent effortlessly."
+      answer: "Yes ÔÇö Flowxtra offers a completely free plan that includes up to 10 free job postings per month. You can publish your job ads across top platforms like LinkedIn, Google Jobs, and Stepstone without paying a cent. It's the perfect solution for startups, small businesses, and growing teams looking to post jobs online for free and attract top talent effortlessly."
     },
     {
       question: "Can I upgrade my Flowxtra plan later if needed?",
@@ -1145,7 +1145,7 @@ function FAQSection() {
     },
     {
       question: "Does every plan include AI chatbot support?",
-      answer: "Yes, soon every plan will include an AI chatbot. Flowxtra does not perform AI scoring or matching. Our AI chatbot simply helps recruiters filter applicants faster — for example, by asking \"Who knows JavaScript or PHP?\" the system quickly searches through CVs and displays matching names. When you click on a name, the applicant's full CV details appear."
+      answer: "Yes, soon every plan will include an AI chatbot. Flowxtra does not perform AI scoring or matching. Our AI chatbot simply helps recruiters filter applicants faster ÔÇö for example, by asking \"Who knows JavaScript or PHP?\" the system quickly searches through CVs and displays matching names. When you click on a name, the applicant's full CV details appear."
     },
     {
       question: "What is the Custom Domain feature?",
@@ -1157,11 +1157,11 @@ function FAQSection() {
     },
     {
       question: "Is Flowxtra a job platform or a recruitment system?",
-      answer: "Flowxtra is more than just an ATS — it's a flexible AI-powered recruitment platform. Companies can use Flowxtra in two ways:\n\n• As a public job platform: Publish jobs for free across Flowxtra and partner networks like Google Jobs, LinkedIn, and more.\n\n• As a private hiring system: Set up your own branded ATS where only your team manages candidate data, interviews, and hiring — fully secure and self-hosted.\n\nWe specialize in building custom recruitment software tailored to your business needs, whether you're a startup or a large enterprise."
+      answer: "Flowxtra is more than just an ATS ÔÇö it's a flexible AI-powered recruitment platform. Companies can use Flowxtra in two ways:\n\nÔÇó As a public job platform: Publish jobs for free across Flowxtra and partner networks like Google Jobs, LinkedIn, and more.\n\nÔÇó As a private hiring system: Set up your own branded ATS where only your team manages candidate data, interviews, and hiring ÔÇö fully secure and self-hosted.\n\nWe specialize in building custom recruitment software tailored to your business needs, whether you're a startup or a large enterprise."
     },
     {
       question: "Is Flowxtra suitable for small, medium, and large companies?",
-      answer: "Yes, absolutely. Flowxtra is built to adapt to every business size — whether you're a startup, a growing company, or a large enterprise. The platform scales automatically to match your hiring volume, team structure, and workflow needs. It's perfect for small teams that need a simple and efficient way to manage job posts, as well as for global corporations that handle thousands of candidates daily — all with the same reliability, speed, and security."
+      answer: "Yes, absolutely. Flowxtra is built to adapt to every business size ÔÇö whether you're a startup, a growing company, or a large enterprise. The platform scales automatically to match your hiring volume, team structure, and workflow needs. It's perfect for small teams that need a simple and efficient way to manage job posts, as well as for global corporations that handle thousands of candidates daily ÔÇö all with the same reliability, speed, and security."
     },
     {
       question: "Can Flowxtra handle thousands of job applications?",
@@ -1169,20 +1169,20 @@ function FAQSection() {
     },
     {
       question: "Flowxtra complies with the European AI Act for recruitment systems?",
-      answer: "Yes, Flowxtra is fully compliant with the EU AI Act (Regulation 2024/1689) and GDPR.\n\nWhat does that mean?\n\nFlowxtra is not an automated decision-making tool. It does not use artificial intelligence to:\n• Score, rank, or filter applicants\n• Select or recommend \"the best candidate\"\n• Perform automated profiling or matching\n\nInstead, Flowxtra is a human-first Applicant Tracking System (ATS). Our AI is used only to:\n• Help companies write job ads faster\n• Assist in communication with applicants\n• Automate job posting to platforms like LinkedIn and Google Jobs\n\nYou stay fully in control of all hiring decisions. Flowxtra never replaces human judgment."
+      answer: "Yes, Flowxtra is fully compliant with the EU AI Act (Regulation 2024/1689) and GDPR.\n\nWhat does that mean?\n\nFlowxtra is not an automated decision-making tool. It does not use artificial intelligence to:\nÔÇó Score, rank, or filter applicants\nÔÇó Select or recommend \"the best candidate\"\nÔÇó Perform automated profiling or matching\n\nInstead, Flowxtra is a human-first Applicant Tracking System (ATS). Our AI is used only to:\nÔÇó Help companies write job ads faster\nÔÇó Assist in communication with applicants\nÔÇó Automate job posting to platforms like LinkedIn and Google Jobs\n\nYou stay fully in control of all hiring decisions. Flowxtra never replaces human judgment."
     },
     {
       question: "Flowxtra is fully compliant with the EU AI Act?",
-      answer: "No, based on the current legal interpretation by Austria's regulatory body RTR (KI-Servicestelle), Flowxtra is not classified as a high-risk AI system — as long as:\n\n• No automated decision-making or filtering is used\n• The AI is only used to assist, not to decide\n• Interactions with AI (e.g., chatbots) are clearly disclosed\n• Flowxtra does not process sensitive personal data like gender, origin, or religion\n\nAll AI use is transparent, explainable, and compliant with Article 50 of the EU AI Act.",
+      answer: "No, based on the current legal interpretation by Austria's regulatory body RTR (KI-Servicestelle), Flowxtra is not classified as a high-risk AI system ÔÇö as long as:\n\nÔÇó No automated decision-making or filtering is used\nÔÇó The AI is only used to assist, not to decide\nÔÇó Interactions with AI (e.g., chatbots) are clearly disclosed\nÔÇó Flowxtra does not process sensitive personal data like gender, origin, or religion\n\nAll AI use is transparent, explainable, and compliant with Article 50 of the EU AI Act.",
       links: [
-        { text: "EU AI Act – EUR-Lex (Regulation 2024/1689)", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32024R1689" },
+        { text: "EU AI Act ÔÇô EUR-Lex (Regulation 2024/1689)", url: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32024R1689" },
         { text: "Transparency Requirements (RTR Austria)", url: "https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Transparenzpflichten.de.html" },
         { text: "General AI Act Guidelines (RTR Austria)", url: "https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/AI_Act.de.html" }
       ]
     },
     {
       question: "Flowxtra is fully compliant with the GDPR and DSGVO?",
-      answer: "Yes, Flowxtra is fully compliant with the General Data Protection Regulation (GDPR) and the Datenschutz-Grundverordnung (DSGVO).\n\nWe do not process sensitive personal data such as gender, ethnicity, religion, or political beliefs. Candidate data is stored securely and managed exclusively by the company using the platform.\n\nFlowxtra does not make automated decisions about candidates. Employers retain full control over all applicant data and hiring decisions.\n\nOur systems include transparent consent management, data access controls, and a clear procedure for candidates to request data deletion or submit complaints, in line with Articles 12–23 of the GDPR.\n\nAll data is hosted in the European Union, and our infrastructure follows industry best practices for security and data protection."
+      answer: "Yes, Flowxtra is fully compliant with the General Data Protection Regulation (GDPR) and the Datenschutz-Grundverordnung (DSGVO).\n\nWe do not process sensitive personal data such as gender, ethnicity, religion, or political beliefs. Candidate data is stored securely and managed exclusively by the company using the platform.\n\nFlowxtra does not make automated decisions about candidates. Employers retain full control over all applicant data and hiring decisions.\n\nOur systems include transparent consent management, data access controls, and a clear procedure for candidates to request data deletion or submit complaints, in line with Articles 12ÔÇô23 of the GDPR.\n\nAll data is hosted in the European Union, and our infrastructure follows industry best practices for security and data protection."
     }
   ];
 
@@ -1534,7 +1534,7 @@ function ContactUsSection() {
                 <Image
                   src="/img/ai-powered-recruiting.webp"
                   alt="AI-powered recruiting and HR platform for smarter hiring"
-                  title="Flowxtra – All-in-One AI Recruiting & HR Platform"
+                  title="Flowxtra ÔÇô All-in-One AI Recruiting & HR Platform"
                   width={800}
                   height={600}
                   quality={100}
@@ -1542,7 +1542,7 @@ function ContactUsSection() {
                   className="w-full h-auto rounded-lg"
                 />
                 <figcaption className="sr-only">
-                  Manage job posts, candidates, and contracts with AI — all in one place, 100% free.
+                  Manage job posts, candidates, and contracts with AI ÔÇö all in one place, 100% free.
                 </figcaption>
               </figure>
             </div>
@@ -1590,7 +1590,7 @@ function ContactUsSection() {
                 <div>
                   <p className="text-sm text-gray-500 dark:text-gray-400">Address</p>
                   <p className="text-lg font-medium text-gray-900 dark:text-white">
-                    Wipplingerstraße 20/18, 1010 Vienna
+                    Wipplingerstra├ƒe 20/18, 1010 Vienna
                   </p>
                 </div>
               </div>

@@ -1,10 +1,3 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Accessibility Statement - Flowxtra",
-  description: "Our commitment to web accessibility and WCAG compliance. Learn how Flowxtra ensures an inclusive experience for all users.",
-};
-
 export default function AccessibilityPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">

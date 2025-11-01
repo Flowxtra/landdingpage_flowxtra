@@ -1,0 +1,79 @@
+{
+    "metadata": {
+        "home": {
+            "title": "Flowxtra – Recruiting-Software & Intelligentes Einstellungstool | Kostenlose Stellenanzeigen",
+            "description": "Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform."
+        },
+        "contact": {
+            "title": "Kontakt – Flowxtra Support | Hilfe bei Recruiting-Software",
+            "description": "Haben Sie Fragen zu Flowxtra? Kontaktieren Sie unser Support-Team für Hilfe mit Recruiting-Software, ATS-Funktionen und Einstellungslösungen. Wir antworten innerhalb von 24 Stunden."
+        },
+        "pricing": {
+            "title": "Preispläne – Flowxtra | Kostenlose ATS & Recruiting-Software",
+            "description": "Wählen Sie den perfekten Plan für Ihr Unternehmen. Beginnen Sie mit 10 kostenlosen Stellenanzeigen pro Monat. Transparente Preise, keine versteckten Gebühren."
+        },
+        "features": {
+            "title": "Funktionen – KI-gestützte Recruiting & ATS-Software | Flowxtra",
+            "description": "Entdecken Sie die leistungsstarken Funktionen von Flowxtra: kostenlose Stellenausschreibung, KI-Kandidatenfilterung, Multiposting, E-Mail-Vorlagen und mehr."
+        }
+    },
+    "common": {
+        "language": "Sprache",
+        "english": "Englisch",
+        "german": "Deutsch",
+        "registerForFree": "Kostenlos Registrieren",
+        "getStarted": "Jetzt Starten",
+        "login": "Anmelden",
+        "signup": "Registrieren",
+        "learnMore": "Mehr Erfahren",
+        "viewPricing": "Preise Ansehen",
+        "contactUs": "Kontakt",
+        "features": "Funktionen",
+        "pricing": "Preise",
+        "services": "Dienstleistungen"
+    },
+    "navigation": {
+        "socialMediaManagement": "Social Media Management",
+        "atsRecruitingSoftware": "ATS Recruiting-Software"
+    },
+    "homepage": {
+        "title": "Willkommen bei Flowxtra",
+        "subtitle": "Testen Sie mehrsprachige Unterstützung",
+        "hero": {
+            "title": "ATS-Software für Rekrutierung & Einstellung",
+            "subtitle": "All-in-One-Plattform zur Optimierung Ihres Einstellungsprozesses",
+            "description": "Komplette ATS-Software zur Optimierung der Einstellung und Verwaltung Ihres Teams. Beginnen Sie mit 10 kostenlosen Stellenanzeigen pro Monat",
+            "cta": "Starten Sie Ihren kostenlosen Plan"
+        }
+    },
+    "contact": {
+        "badge": "Kontaktieren Sie uns",
+        "title": "Lass uns chatten, Kontaktiere uns.",
+        "description": "Haben Sie Fragen oder Feedback? Wir sind hier um zu helfen. Senden Sie uns eine Nachricht und wir antworten innerhalb von 24 Stunden",
+        "form": {
+            "email": "E-Mail-Adresse",
+            "firstName": "Vorname",
+            "message": "Ihre Nachricht",
+            "emailPlaceholder": "ihre@email.com",
+            "firstNamePlaceholder": "Max",
+            "messagePlaceholder": "Schreiben Sie hier Ihre Nachricht...",
+            "required": "*",
+            "agreeWith": "Ja, ich stimme der",
+            "privacyPolicy": "Datenschutzrichtlinie",
+            "and": "und den",
+            "termsConditions": "Allgemeinen Geschäftsbedingungen",
+            "sendButton": "Nachricht senden",
+            "sending": "Wird gesendet...",
+            "successTitle": "Nachricht erfolgreich gesendet!",
+            "successMessage": "Wir antworten innerhalb von 24 Stunden.",
+            "errorTitle": "Fehler beim Senden der Nachricht",
+            "errorMessage": "Bitte versuchen Sie es später erneut."
+        },
+        "info": {
+            "email": "E-Mail",
+            "phone": "Telefon",
+            "address": "Adresse",
+            "addressValue": "Wipplingerstraße 20/18, 1010 Wien"
+        }
+    }
+}

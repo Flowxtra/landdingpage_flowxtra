@@ -1,0 +1,79 @@
+{
+    "metadata": {
+        "home": {
+            "title": "Flowxtra – Recruiting Software & Smart Hiring Tool | Free Job Posting",
+            "description": "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform."
+        },
+        "contact": {
+            "title": "Contact Us – Flowxtra Support | Get Help with Recruiting Software",
+            "description": "Have questions about Flowxtra? Contact our support team for help with recruiting software, ATS features, and hiring solutions. We respond within 24 hours."
+        },
+        "pricing": {
+            "title": "Pricing Plans – Flowxtra | Free ATS & Recruiting Software",
+            "description": "Choose the perfect plan for your business. Start with 10 free job postings per month. Transparent pricing, no hidden fees."
+        },
+        "features": {
+            "title": "Features – AI-Powered Recruiting & ATS Software | Flowxtra",
+            "description": "Discover Flowxtra's powerful features: free job posting, AI candidate filtering, multiposting, email templates, and more."
+        }
+    },
+    "common": {
+        "language": "Language",
+        "english": "English",
+        "german": "German",
+        "registerForFree": "Register For Free",
+        "getStarted": "Get Started",
+        "login": "Login",
+        "signup": "Signup",
+        "learnMore": "Learn More",
+        "viewPricing": "View Pricing",
+        "contactUs": "Contact Us",
+        "features": "Features",
+        "pricing": "Pricing",
+        "services": "Services"
+    },
+    "navigation": {
+        "socialMediaManagement": "Social Media Management",
+        "atsRecruitingSoftware": "ATS Recruiting Software"
+    },
+    "homepage": {
+        "title": "Welcome to Flowxtra",
+        "subtitle": "Test multilingual support",
+        "hero": {
+            "title": "ATS Software for Recruitment & Hiring",
+            "subtitle": "All-in-One Platform to Streamline Your Hiring Process",
+            "description": "Complete ATS software to streamline hiring and manage your team. Start with 10 free job postings per month",
+            "cta": "Start Your Free Plan"
+        }
+    },
+    "contact": {
+        "badge": "Get In Touch",
+        "title": "Let's Chat, Reach Out To Us.",
+        "description": "Have questions or feedback? We're here to help. Send us a message, and we'll respond within 24 hours",
+        "form": {
+            "email": "Email Address",
+            "firstName": "First Name",
+            "message": "Your Message",
+            "emailPlaceholder": "your@email.com",
+            "firstNamePlaceholder": "John",
+            "messagePlaceholder": "Write your message here...",
+            "required": "*",
+            "agreeWith": "Yes, I agree with the",
+            "privacyPolicy": "privacy policy",
+            "and": "and",
+            "termsConditions": "terms and conditions",
+            "sendButton": "Send Message",
+            "sending": "Sending...",
+            "successTitle": "Message sent successfully!",
+            "successMessage": "We'll respond within 24 hours.",
+            "errorTitle": "Failed to send message",
+            "errorMessage": "Please try again later."
+        },
+        "info": {
+            "email": "Email",
+            "phone": "Phone",
+            "address": "Address",
+            "addressValue": "Wipplingerstraße 20/18, 1010 Vienna"
+        }
+    }
+}
