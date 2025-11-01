@@ -9,7 +9,7 @@ export default function PricingPage() {
         {/* Page Header */}
       
         {/* Pricing Section Component */}
-        <PricingSection />
+        <PricingSection defaultCompareOpen={true} />
       </div>
     </div>
   );
