@@ -203,4 +203,10 @@ body {
   margin-bottom: 2px;
 }
 
+/* Hide footer on blog page */
+.blog-page-wrapper ~ footer,
+body:has(.blog-page-wrapper) footer {
+  display: none !important;
+}
+
 

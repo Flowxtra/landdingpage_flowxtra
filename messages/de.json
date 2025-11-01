@@ -836,5 +836,26 @@
             "seeCookiePolicy": "Siehe unsere",
             "cookiePolicy": "Cookie-Richtlinie"
         }
+    },
+    "blog": {
+        "title": "Artikel",
+        "description": "Willkommen im Flowxtra-Blog — Ihre Quelle für intelligente Einstellungserkenntnisse, HR-Innovationen und Rekrutierungstrends. Entdecken Sie praktische Strategien, Experten-Tipps und die neuesten Updates, die die Zukunft der Rekrutierung und Talentmanagement prägen.",
+        "discoverFuture": "Mehr lesen",
+        "allBlogs": "Alle Blogs",
+        "readMore": "Mehr lesen",
+        "categories": {
+            "all": "Alle",
+            "productivity": "Produktivität",
+            "accessibility": "Barrierefreiheit",
+            "performance": "Leistung"
+        },
+        "pagination": {
+            "previous": "Zurück",
+            "next": "Weiter",
+            "page": "Seite {page}"
+        },
+        "viewMode": "Ansichtsmodus",
+        "viewModeList": "Listenansicht",
+        "viewModeGrid": "Rasteransicht"
     }
 }

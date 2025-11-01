@@ -836,5 +836,26 @@
             "seeCookiePolicy": "See our",
             "cookiePolicy": "Cookie Policy"
         }
+    },
+    "blog": {
+        "title": "Articles",
+        "description": "Welcome to the Flowxtra Blog — your source for smart hiring insights, HR innovations, and recruiting trends. Discover practical strategies, expert tips, and the latest updates shaping the future of recruitment and talent management.",
+        "discoverFuture": "Read More",
+        "allBlogs": "All Blogs",
+        "readMore": "Read More",
+        "categories": {
+            "all": "All",
+            "productivity": "Productivity",
+            "accessibility": "Accessibility",
+            "performance": "Performance"
+        },
+        "pagination": {
+            "previous": "Previous",
+            "next": "Next",
+            "page": "Page {page}"
+        },
+        "viewMode": "View Mode",
+        "viewModeList": "List view",
+        "viewModeGrid": "Grid view"
     }
 }

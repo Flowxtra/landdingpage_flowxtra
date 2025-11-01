@@ -141,21 +141,6 @@ export default function AccessibilityPanel({ onClose }: AccessibilityPanelProps)
           </div>
           <div className="flex items-center gap-2">
             <button
-              onClick={() => {
-                const main = document.querySelector('main') || document.querySelector('#main-content');
-                if (main) {
-                  main.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  main.focus();
-                }
-              }}
-              className="p-2 hover:bg-white/20 rounded transition-colors"
-              aria-label={t('navigation.search')}
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </button>
-            <button
               onClick={resetSettings}
               className="p-2 hover:bg-white/20 rounded transition-colors"
               aria-label={t('reset')}
