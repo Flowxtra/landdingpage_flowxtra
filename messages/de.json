@@ -75,5 +75,76 @@
             "address": "Adresse",
             "addressValue": "Wipplingerstraße 20/18, 1010 Wien"
         }
+    },
+    "accessibility": {
+        "title": "Barrierefreiheitserklärung",
+        "subtitle": "Unser Engagement für Web-Barrierefreiheit und WCAG-Konformität",
+        "introduction": {
+            "title": "Einleitung",
+            "paragraph1": "Flowxtra setzt sich für die digitale Barrierefreiheit für Menschen mit Behinderungen ein. Wir verbessern kontinuierlich die Benutzererfahrung für alle und wenden relevante Barrierefreiheitsstandards an, um unser Ziel des gleichberechtigten Zugangs zu Informationen und Funktionen für alle Benutzer zu erreichen."
+        },
+        "wcagStandards": {
+            "title": "WCAG-Konformitätsstandards",
+            "paragraph1": "Unsere Website strebt die Einhaltung der Web Content Accessibility Guidelines (WCAG) 2.1 Level AA Standards an. Diese Richtlinien erklären, wie Webinhalte für Menschen mit Behinderungen zugänglicher und für alle benutzerfreundlicher gestaltet werden können.",
+            "principles": {
+                "title": "WCAG 2.1 Level AA Prinzipien:",
+                "perceivable": {
+                    "title": "Wahrnehmbar",
+                    "description": "Informationen und Benutzeroberflächenkomponenten müssen den Benutzern in einer Weise präsentiert werden, die sie wahrnehmen können."
+                },
+                "operable": {
+                    "title": "Bedienbar",
+                    "description": "Benutzeroberflächenkomponenten und Navigation müssen bedienbar sein."
+                },
+                "understandable": {
+                    "title": "Verständlich",
+                    "description": "Informationen und die Bedienung der Benutzeroberfläche müssen verständlich sein."
+                },
+                "robust": {
+                    "title": "Robust",
+                    "description": "Inhalte müssen robust genug sein, dass sie von einer Vielzahl von Benutzeragenten, einschließlich assistiver Technologien, interpretiert werden können."
+                }
+            }
+        },
+        "accessibilityFeatures": {
+            "title": "Barrierefreiheitsfunktionen",
+            "keyboardNavigation": {
+                "title": "Tastaturnavigation",
+                "description": "Alle interaktiven Elemente können über die Tastatur bedient werden. Verwenden Sie Tab, um vorwärts zu navigieren, Umschalt+Tab, um rückwärts zu navigieren, und Enter oder Leertaste, um Schaltflächen und Links zu aktivieren."
+            },
+            "screenReaderSupport": {
+                "title": "Bildschirmleser-Unterstützung",
+                "description": "Unsere Website enthält semantisches HTML, ARIA-Labels und Alt-Texte für Bilder, um die Kompatibilität mit Bildschirmlesern und anderen assistiven Technologien zu gewährleisten."
+            },
+            "colorContrast": {
+                "title": "Farbkontrast",
+                "description": "Text- und Hintergrundfarben erfüllen die WCAG AA Standards für Farbkontrastverhältnisse, um sicherzustellen, dass Inhalte für Benutzer mit Sehbehinderungen lesbar sind."
+            },
+            "responsiveDesign": {
+                "title": "Responsives Design",
+                "description": "Unsere Website ist vollständig responsiv und kann auf verschiedenen Geräten und Bildschirmgrößen aufgerufen werden, mit Unterstützung für Zoom bis zu 200%, ohne Funktionalität zu verlieren."
+            }
+        },
+        "knownIssues": {
+            "title": "Bekannte Probleme und Einschränkungen",
+            "paragraph1": "Trotz unserer Bemühungen, die Barrierefreiheit zu gewährleisten, kann es einige Einschränkungen geben. Wir arbeiten aktiv daran, diese Probleme zu beheben und die Barrierefreiheit unserer Website zu verbessern.",
+            "paragraph2": "Wenn Sie auf Barrierefreiheitsprobleme stoßen, kontaktieren Sie uns bitte über die unten angegebenen Informationen."
+        },
+        "feedback": {
+            "title": "Feedback und Kontakt",
+            "paragraph1": "Wir freuen uns über Ihr Feedback zur Barrierefreiheit von Flowxtra. Wenn Sie auf Barrierefreiheitsprobleme gestoßen sind oder Verbesserungsvorschläge haben, kontaktieren Sie uns bitte:",
+            "emailLabel": "E-Mail",
+            "addressLabel": "Adresse",
+            "addressValue": "Wipplingerstraße 20/18, 1010 Wien, Österreich"
+        },
+        "updates": {
+            "title": "Aktualisierungen dieser Erklärung",
+            "paragraph1": "Wir überprüfen und aktualisieren diese Barrierefreiheitserklärung regelmäßig, um unser fortlaufendes Engagement und unsere Fortschritte widerzuspiegeln. Diese Erklärung wurde zuletzt am {date} aktualisiert."
+        },
+        "conformance": {
+            "title": "Konformitätsstatus",
+            "paragraph1": "Die Web Content Accessibility Guidelines (WCAG) definieren Anforderungen für Designer und Entwickler, um die Zugänglichkeit für Menschen mit Behinderungen zu verbessern.",
+            "paragraph2": "Die Flowxtra-Website strebt die Einhaltung der WCAG 2.1 Level AA Standards an. Wir arbeiten kontinuierlich daran, die Barrierefreiheit unserer Website zu verbessern und freuen uns über Feedback von Benutzern."
+        }
     }
 }

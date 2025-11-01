@@ -1,4 +1,10 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+
 export default function AccessibilityPage() {
+  const t = useTranslations("accessibility");
+  
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
       <div className="container mx-auto px-4 md:px-8 lg:px-12 py-16 md:py-24">
@@ -18,10 +24,10 @@ export default function AccessibilityPage() {
               </svg>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Accessibility Statement
+              {t("title")}
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              Our Commitment to Web Accessibility and WCAG Compliance
+              {t("subtitle")}
             </p>
           </div>
 
@@ -30,31 +36,39 @@ export default function AccessibilityPage() {
             {/* Introduction */}
             <section>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                Introduction
+                {t("introduction.title")}
               </h2>
               <p className="leading-relaxed">
-                Flowxtra is committed to ensuring digital accessibility for people with disabilities. We continually improve the user experience for everyone and apply relevant accessibility standards to achieve our goals of equal access to information and functionality for all users.
+                {t("introduction.paragraph1")}
               </p>
             </section>
 
             {/* WCAG Standards */}
             <section>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                WCAG Compliance Standards
+                {t("wcagStandards.title")}
               </h2>
               <p className="leading-relaxed mb-4">
-                Our website aims to conform to the <strong>Web Content Accessibility Guidelines (WCAG) 2.1</strong> Level AA standards. These guidelines explain how to make web content more accessible for people with disabilities and user-friendly for everyone.
+                {t("wcagStandards.paragraph1")}
               </p>
               
               <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 mb-4">
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                  WCAG 2.1 Level AA Principles:
+                  {t("wcagStandards.principles.title")}
                 </h3>
                 <ul className="space-y-3 list-disc list-inside">
-                  <li><strong>Perceivable:</strong> Information and user interface components must be presentable to users in ways they can perceive.</li>
-                  <li><strong>Operable:</strong> User interface components and navigation must be operable.</li>
-                  <li><strong>Understandable:</strong> Information and the operation of user interface must be understandable.</li>
-                  <li><strong>Robust:</strong> Content must be robust enough that it can be interpreted by a wide variety of user agents, including assistive technologies.</li>
+                  <li>
+                    <strong>{t("wcagStandards.principles.perceivable.title")}:</strong> {t("wcagStandards.principles.perceivable.description")}
+                  </li>
+                  <li>
+                    <strong>{t("wcagStandards.principles.operable.title")}:</strong> {t("wcagStandards.principles.operable.description")}
+                  </li>
+                  <li>
+                    <strong>{t("wcagStandards.principles.understandable.title")}:</strong> {t("wcagStandards.principles.understandable.description")}
+                  </li>
+                  <li>
+                    <strong>{t("wcagStandards.principles.robust.title")}:</strong> {t("wcagStandards.principles.robust.description")}
+                  </li>
                 </ul>
               </div>
             </section>
@@ -62,42 +76,42 @@ export default function AccessibilityPage() {
             {/* Accessibility Features */}
             <section>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                Accessibility Features
+                {t("accessibilityFeatures.title")}
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                    Keyboard Navigation
+                    {t("accessibilityFeatures.keyboardNavigation.title")}
                   </h3>
                   <p className="text-sm leading-relaxed">
-                    All interactive elements can be accessed using keyboard-only navigation. Use Tab to move forward, Shift+Tab to move backward, and Enter or Space to activate buttons and links.
+                    {t("accessibilityFeatures.keyboardNavigation.description")}
                   </p>
                 </div>
                 
                 <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                    Screen Reader Support
+                    {t("accessibilityFeatures.screenReaderSupport.title")}
                   </h3>
                   <p className="text-sm leading-relaxed">
-                    Our website includes proper semantic HTML, ARIA labels, and alt text for images to ensure compatibility with screen readers and other assistive technologies.
+                    {t("accessibilityFeatures.screenReaderSupport.description")}
                   </p>
                 </div>
                 
                 <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                    Color Contrast
+                    {t("accessibilityFeatures.colorContrast.title")}
                   </h3>
                   <p className="text-sm leading-relaxed">
-                    Text and background colors meet WCAG AA standards for color contrast ratios, ensuring content is readable for users with visual impairments.
+                    {t("accessibilityFeatures.colorContrast.description")}
                   </p>
                 </div>
                 
                 <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                    Responsive Design
+                    {t("accessibilityFeatures.responsiveDesign.title")}
                   </h3>
                   <p className="text-sm leading-relaxed">
-                    Our website is fully responsive and can be accessed on various devices and screen sizes, with support for zoom up to 200% without losing functionality.
+                    {t("accessibilityFeatures.responsiveDesign.description")}
                   </p>
                 </div>
               </div>
@@ -106,23 +120,23 @@ export default function AccessibilityPage() {
             {/* Known Issues */}
             <section>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                Known Issues and Limitations
+                {t("knownIssues.title")}
               </h2>
               <p className="leading-relaxed mb-4">
-                Despite our efforts to ensure accessibility, there may be some limitations. We are actively working to address these issues and improve our website's accessibility.
+                {t("knownIssues.paragraph1")}
               </p>
               <p className="leading-relaxed">
-                If you encounter any accessibility barriers, please contact us using the information provided below.
+                {t("knownIssues.paragraph2")}
               </p>
             </section>
 
             {/* Feedback */}
             <section>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                Feedback and Contact
+                {t("feedback.title")}
               </h2>
               <p className="leading-relaxed mb-4">
-                We welcome your feedback on the accessibility of Flowxtra. If you have encountered any accessibility barriers, or if you have suggestions for improvement, please contact us:
+                {t("feedback.paragraph1")}
               </p>
               <div className="bg-primary/5 dark:bg-primary/10 rounded-lg p-6 border border-primary/20 dark:border-primary/30">
                 <ul className="space-y-3">
@@ -131,7 +145,7 @@ export default function AccessibilityPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                     <div>
-                      <strong className="text-gray-900 dark:text-white">Email:</strong>
+                      <strong className="text-gray-900 dark:text-white">{t("feedback.emailLabel")}:</strong>
                       <a href="mailto:Office@flowxtra.com" className="text-primary dark:text-secondary hover:underline ml-2">
                         Office@flowxtra.com
                       </a>
@@ -143,8 +157,8 @@ export default function AccessibilityPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                     <div>
-                      <strong className="text-gray-900 dark:text-white">Address:</strong>
-                      <span className="ml-2">Wipplingerstraße 20/18, 1010 Vienna, Austria</span>
+                      <strong className="text-gray-900 dark:text-white">{t("feedback.addressLabel")}:</strong>
+                      <span className="ml-2">{t("feedback.addressValue")}</span>
                     </div>
                   </li>
                 </ul>
@@ -154,25 +168,32 @@ export default function AccessibilityPage() {
             {/* Updates */}
             <section>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                Updates to This Statement
+                {t("updates.title")}
               </h2>
               <p className="leading-relaxed">
-                We regularly review and update this accessibility statement to reflect our ongoing commitment and progress. This statement was last updated on <strong>January 2025</strong>.
+                {t("updates.paragraph1", { date: "January 2025" })}
               </p>
             </section>
 
             {/* Conformance */}
             <section className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                Conformance Status
+                {t("conformance.title")}
               </h2>
               <p className="leading-relaxed mb-4">
-                The <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer" className="text-primary dark:text-secondary hover:underline">
+                The{' '}
+                <a 
+                  href="https://www.w3.org/WAI/WCAG21/quickref/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-primary dark:text-secondary hover:underline"
+                >
                   Web Content Accessibility Guidelines (WCAG)
-                </a> defines requirements for designers and developers to improve accessibility for people with disabilities.
+                </a>
+                {' '}defines requirements for designers and developers to improve accessibility for people with disabilities.
               </p>
               <p className="leading-relaxed">
-                Flowxtra website aims to conform to <strong>WCAG 2.1 Level AA</strong> standards. We are continuously working to improve our website's accessibility and welcome feedback from users.
+                Flowxtra website aims to conform to <strong>WCAG 2.1 Level AA</strong> standards. We are continuously working to improve our website&apos;s accessibility and welcome feedback from users.
               </p>
             </section>
           </div>

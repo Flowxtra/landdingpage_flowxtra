@@ -75,5 +75,76 @@
             "address": "Address",
             "addressValue": "Wipplingerstraße 20/18, 1010 Vienna"
         }
+    },
+    "accessibility": {
+        "title": "Accessibility Statement",
+        "subtitle": "Our Commitment to Web Accessibility and WCAG Compliance",
+        "introduction": {
+            "title": "Introduction",
+            "paragraph1": "Flowxtra is committed to ensuring digital accessibility for people with disabilities. We continually improve the user experience for everyone and apply relevant accessibility standards to achieve our goals of equal access to information and functionality for all users."
+        },
+        "wcagStandards": {
+            "title": "WCAG Compliance Standards",
+            "paragraph1": "Our website aims to conform to the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards. These guidelines explain how to make web content more accessible for people with disabilities and user-friendly for everyone.",
+            "principles": {
+                "title": "WCAG 2.1 Level AA Principles:",
+                "perceivable": {
+                    "title": "Perceivable",
+                    "description": "Information and user interface components must be presentable to users in ways they can perceive."
+                },
+                "operable": {
+                    "title": "Operable",
+                    "description": "User interface components and navigation must be operable."
+                },
+                "understandable": {
+                    "title": "Understandable",
+                    "description": "Information and the operation of user interface must be understandable."
+                },
+                "robust": {
+                    "title": "Robust",
+                    "description": "Content must be robust enough that it can be interpreted by a wide variety of user agents, including assistive technologies."
+                }
+            }
+        },
+        "accessibilityFeatures": {
+            "title": "Accessibility Features",
+            "keyboardNavigation": {
+                "title": "Keyboard Navigation",
+                "description": "All interactive elements can be accessed using keyboard-only navigation. Use Tab to move forward, Shift+Tab to move backward, and Enter or Space to activate buttons and links."
+            },
+            "screenReaderSupport": {
+                "title": "Screen Reader Support",
+                "description": "Our website includes proper semantic HTML, ARIA labels, and alt text for images to ensure compatibility with screen readers and other assistive technologies."
+            },
+            "colorContrast": {
+                "title": "Color Contrast",
+                "description": "Text and background colors meet WCAG AA standards for color contrast ratios, ensuring content is readable for users with visual impairments."
+            },
+            "responsiveDesign": {
+                "title": "Responsive Design",
+                "description": "Our website is fully responsive and can be accessed on various devices and screen sizes, with support for zoom up to 200% without losing functionality."
+            }
+        },
+        "knownIssues": {
+            "title": "Known Issues and Limitations",
+            "paragraph1": "Despite our efforts to ensure accessibility, there may be some limitations. We are actively working to address these issues and improve our website's accessibility.",
+            "paragraph2": "If you encounter any accessibility barriers, please contact us using the information provided below."
+        },
+        "feedback": {
+            "title": "Feedback and Contact",
+            "paragraph1": "We welcome your feedback on the accessibility of Flowxtra. If you have encountered any accessibility barriers, or if you have suggestions for improvement, please contact us:",
+            "emailLabel": "Email",
+            "addressLabel": "Address",
+            "addressValue": "Wipplingerstraße 20/18, 1010 Vienna, Austria"
+        },
+        "updates": {
+            "title": "Updates to This Statement",
+            "paragraph1": "We regularly review and update this accessibility statement to reflect our ongoing commitment and progress. This statement was last updated on {date}."
+        },
+        "conformance": {
+            "title": "Conformance Status",
+            "paragraph1": "The Web Content Accessibility Guidelines (WCAG) defines requirements for designers and developers to improve accessibility for people with disabilities.",
+            "paragraph2": "Flowxtra website aims to conform to WCAG 2.1 Level AA standards. We are continuously working to improve our website's accessibility and welcome feedback from users."
+        }
     }
 }
