@@ -56,9 +56,9 @@ export default function BlogLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="blog-page-wrapper">
+    <>
       {children}
-    </div>
+    </>
   );
 }
 

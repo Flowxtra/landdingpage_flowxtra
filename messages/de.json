@@ -856,6 +856,19 @@
         },
         "viewMode": "Ansichtsmodus",
         "viewModeList": "Listenansicht",
-        "viewModeGrid": "Rasteransicht"
+        "viewModeGrid": "Rasteransicht",
+        "search": {
+            "placeholder": "Artikel suchen...",
+            "startTyping": "Beginnen Sie mit der Eingabe, um nach Artikeln zu suchen...",
+            "noResults": "Keine Artikel gefunden, die zu \"{query}\" passen",
+            "noResultsInPage": "Keine Artikel gefunden, die zu Ihren Suchkriterien passen.",
+            "clearSearch": "Suche löschen"
+        },
+        "post": {
+            "previous": "Vorherige",
+            "next": "Nächste",
+            "relatedPosts": "Verwandte Artikel",
+            "writtenBy": "Geschrieben von {author}"
+        }
     }
 }

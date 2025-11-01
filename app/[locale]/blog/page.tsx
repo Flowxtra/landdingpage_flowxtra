@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState, useMemo, Suspense } from 'react';
+import { useEffect, useState, useMemo, Suspense, useRef } from 'react';
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 
 function BlogContent() {
@@ -13,6 +13,10 @@ function BlogContent() {
   const router = useRouter();
   const [selectedCategories, setSelectedCategories] = useState<string[]>(['all']);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [showSearchModal, setShowSearchModal] = useState<boolean>(false);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const searchModalInputRef = useRef<HTMLInputElement>(null);
   
   // Get page from URL params for SEO
   const currentPage = parseInt(searchParams.get('page') || '1', 10);
@@ -21,19 +25,36 @@ function BlogContent() {
   // Get current locale from pathname
   const currentLocale = pathname.startsWith('/de') ? 'de' : pathname.startsWith('/en') ? 'en' : 'en';
 
-  // Hide footer on blog page
+  // Handle Command/Ctrl+K keyboard shortcut for search modal
   useEffect(() => {
-    const footer = document.querySelector('footer');
-    if (footer) {
-      footer.style.display = 'none';
-    }
-    return () => {
-      // Show footer again when leaving blog page
-      if (footer) {
-        footer.style.display = '';
+    const handleKeyDown = (event: KeyboardEvent) => {
+      // Check if K is pressed with modifier keys (Cmd/Ctrl+K)
+      if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
+        event.preventDefault();
+        setShowSearchModal(true);
+      }
+      // Close modal on Escape
+      if (event.key === 'Escape' && showSearchModal) {
+        event.preventDefault();
+        setShowSearchModal(false);
       }
     };
-  }, []);
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [showSearchModal]);
+
+  // Focus search input when modal opens
+  useEffect(() => {
+    if (showSearchModal && searchModalInputRef.current) {
+      // Small delay to ensure modal is rendered
+      setTimeout(() => {
+        searchModalInputRef.current?.focus();
+      }, 100);
+    }
+  }, [showSearchModal]);
 
   // Mock data for latest post - Replace with API call later
   const latestPost = {
@@ -266,16 +287,43 @@ function BlogContent() {
   // Get categories list with "All" option
   const categories = ['all', ...categoriesFromAPI.map(cat => cat.slug)];
 
-  // Filter posts by selected categories
-  const filteredPosts = useMemo(() => {
-    if (selectedCategories.includes('all')) {
-      return allPosts;
+  // Filter posts by search query for modal (all posts)
+  const searchResults = useMemo(() => {
+    if (!searchQuery.trim()) {
+      return [];
     }
-    return allPosts.filter(post => {
-      const categorySlug = categoriesFromAPI.find(cat => cat.id === post.categoryId)?.slug;
-      return categorySlug && selectedCategories.includes(categorySlug);
-    });
-  }, [selectedCategories, allPosts]);
+    const query = searchQuery.toLowerCase().trim();
+    return allPosts.filter(post => 
+      post.title.toLowerCase().includes(query) ||
+      post.excerpt.toLowerCase().includes(query) ||
+      post.category.toLowerCase().includes(query)
+    ).slice(0, 6); // Limit to 6 results in modal
+  }, [searchQuery, allPosts]);
+
+  // Filter posts by selected categories and search query
+  const filteredPosts = useMemo(() => {
+    let posts = allPosts;
+    
+    // Filter by categories
+    if (!selectedCategories.includes('all')) {
+      posts = posts.filter(post => {
+        const categorySlug = categoriesFromAPI.find(cat => cat.id === post.categoryId)?.slug;
+        return categorySlug && selectedCategories.includes(categorySlug);
+      });
+    }
+    
+    // Filter by search query
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase().trim();
+      posts = posts.filter(post => 
+        post.title.toLowerCase().includes(query) ||
+        post.excerpt.toLowerCase().includes(query) ||
+        post.category.toLowerCase().includes(query)
+      );
+    }
+    
+    return posts;
+  }, [selectedCategories, searchQuery, allPosts]);
 
   // Calculate pagination
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
@@ -283,12 +331,19 @@ function BlogContent() {
   const endIndex = startIndex + postsPerPage;
   const currentPosts = filteredPosts.slice(startIndex, endIndex);
 
-  // Reset to page 1 when categories change
+  // Reset to page 1 when categories or search query change
   useEffect(() => {
     if (currentPage > totalPages && totalPages > 0) {
       router.replace(`${pathname}?page=1`);
     }
-  }, [selectedCategories, currentPage, totalPages, pathname, router]);
+  }, [selectedCategories, searchQuery, currentPage, totalPages, pathname, router]);
+
+  // Reset to page 1 when search query changes
+  useEffect(() => {
+    if (searchQuery && currentPage !== 1) {
+      router.replace(`${pathname}?page=1`);
+    }
+  }, [searchQuery, pathname, router, currentPage]);
 
   // Handle category toggle
   const handleCategoryToggle = (category: string) => {
@@ -346,6 +401,147 @@ function BlogContent() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
+      {/* Search Modal */}
+      {showSearchModal && (
+        <div 
+          className="fixed inset-0 z-50 flex items-start justify-center pt-32 px-4 bg-black/50 dark:bg-black/70 backdrop-blur-sm animate-in fade-in-0 duration-200"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setShowSearchModal(false);
+            }
+          }}
+        >
+          <div className="relative w-full max-w-2xl transform transition-all animate-in zoom-in-95 duration-200">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden max-h-[80vh] flex flex-col">
+              {/* Search Input */}
+              <div className="relative border-b border-gray-200 dark:border-gray-700">
+                <svg
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-gray-500 pointer-events-none"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+                <input
+                  ref={searchModalInputRef}
+                  type="text"
+                  placeholder={t('search.placeholder')}
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-12 pr-20 py-4 text-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none border-none"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Escape') {
+                      setShowSearchModal(false);
+                    }
+                  }}
+                  autoFocus
+                />
+                <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center gap-1 pointer-events-none">
+                  <kbd className="px-2 py-1 text-xs font-semibold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded">
+                    Esc
+                  </kbd>
+                </div>
+              </div>
+
+              {/* Search Results */}
+              <div className="overflow-y-auto flex-1 max-h-[60vh]">
+                {searchQuery.trim() ? (
+                  searchResults.length > 0 ? (
+                    <div className="p-2">
+                      {searchResults.map((post) => {
+                        const categoryName = categoriesFromAPI.find(cat => cat.id === post.categoryId)?.translations?.[currentLocale as 'en' | 'de'] || 
+                                            categoriesFromAPI.find(cat => cat.id === post.categoryId)?.name || 
+                                            post.category;
+                        return (
+                          <Link
+                            key={post.id}
+                            href={`/blog/${post.slug}`}
+                            onClick={() => setShowSearchModal(false)}
+                            className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group"
+                          >
+                            <div className="flex items-start gap-3">
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-center gap-2 mb-1">
+                                  <span className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+                                    {categoryName}
+                                  </span>
+                                  <span className="text-xs text-gray-400 dark:text-gray-500">•</span>
+                                  <span className="text-xs text-gray-400 dark:text-gray-500">
+                                    {formatDate(post.date)}
+                                  </span>
+                                </div>
+                                <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-primary dark:group-hover:text-secondary transition-colors line-clamp-1">
+                                  {post.title}
+                                </h3>
+                                <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-2">
+                                  {post.excerpt}
+                                </p>
+                              </div>
+                              <svg 
+                                className="w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0 mt-1 group-hover:text-primary dark:group-hover:text-secondary transition-colors" 
+                                fill="none" 
+                                stroke="currentColor" 
+                                viewBox="0 0 24 24"
+                              >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                              </svg>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    <div className="p-8 text-center">
+                      <svg
+                        className="mx-auto h-12 w-12 text-gray-400 dark:text-gray-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                        />
+                      </svg>
+                      <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
+                        {t('search.noResults', { query: searchQuery })}
+                      </p>
+                    </div>
+                  )
+                ) : (
+                  <div className="p-8 text-center">
+                    <svg
+                      className="mx-auto h-12 w-12 text-gray-400 dark:text-gray-500"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      />
+                    </svg>
+                    <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
+                      {t('search.startTyping')}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* First Section - Same background as homepage hero */}
       <section className="w-full pt-2.5 pb-16 md:pb-24 px-[10px] bg-white dark:bg-gray-900 transition-colors">
         <div className="w-full rounded-[10px] px-[10px] py-16 md:py-20 bg-[#f4f6f8] dark:bg-gray-800">
@@ -437,7 +633,7 @@ function BlogContent() {
             {t('allBlogs')}
           </h2>
 
-          {/* Category Filters and View Mode */}
+          {/* Category Filters, Search, and View Mode */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
             {/* Category Filters */}
             <div className="flex flex-wrap gap-3">
@@ -482,65 +678,108 @@ function BlogContent() {
             })}
             </div>
 
-            {/* View Mode Toggle */}
-            <div className="flex items-center gap-2">
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                {t('viewMode')}
-              </span>
-              <div className="inline-flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg p-1 gap-1">
-                {/* List View Button */}
-                <button
-                  onClick={() => setViewMode('list')}
-                  className={`
-                    p-2 rounded-md transition-colors
-                    ${viewMode === 'list'
-                      ? 'bg-white dark:bg-gray-700 shadow-sm'
-                      : 'hover:bg-gray-200 dark:hover:bg-gray-700'
-                    }
-                  `}
-                  aria-label={t('viewModeList')}
-                >
-                  <svg 
-                    className={`w-5 h-5 ${viewMode === 'list' ? 'text-primary dark:text-secondary' : 'text-gray-500 dark:text-gray-400'}`}
-                    fill="none" 
-                    stroke="currentColor" 
+            {/* Search and View Mode */}
+            <div className="flex flex-wrap items-center gap-4">
+              {/* Search Input */}
+              <div className="relative w-full sm:w-auto">
+                <div className="relative flex items-center">
+                  <svg
+                    className="absolute left-3 w-4 h-4 text-gray-400 dark:text-gray-500"
+                    fill="none"
+                    stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
                   </svg>
-                </button>
-                
-                {/* Grid View Button */}
-                <button
-                  onClick={() => setViewMode('grid')}
-                  className={`
-                    p-2 rounded-md transition-colors
-                    ${viewMode === 'grid'
-                      ? 'bg-white dark:bg-gray-700 shadow-sm'
-                      : 'hover:bg-gray-200 dark:hover:bg-gray-700'
-                    }
-                  `}
-                  aria-label={t('viewModeGrid')}
-                >
-                  <svg 
-                    className={`w-5 h-5 ${viewMode === 'grid' ? 'text-primary dark:text-secondary' : 'text-gray-500 dark:text-gray-400'}`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
+                  <input
+                    ref={searchInputRef}
+                    type="text"
+                    placeholder={t('search.placeholder')}
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-10 pr-20 py-2 w-full sm:w-64 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-secondary focus:border-transparent transition-colors"
+                  />
+                  <div 
+                    className="absolute right-2 flex items-center gap-1 cursor-pointer"
+                    onClick={() => setShowSearchModal(true)}
+                    title="Press ⌘K to search"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                  </svg>
-                </button>
+                    <kbd className="px-1.5 py-0.5 text-xs font-semibold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded">
+                      ⌘
+                    </kbd>
+                    <kbd className="px-1.5 py-0.5 text-xs font-semibold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded">
+                      K
+                    </kbd>
+                  </div>
+                </div>
+              </div>
+
+              {/* View Mode Toggle */}
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  {t('viewMode')}
+                </span>
+                <div className="inline-flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg p-1 gap-1">
+                  {/* List View Button */}
+                  <button
+                    onClick={() => setViewMode('list')}
+                    className={`
+                      p-2 rounded-md transition-colors
+                      ${viewMode === 'list'
+                        ? 'bg-white dark:bg-gray-700 shadow-sm'
+                        : 'hover:bg-gray-200 dark:hover:bg-gray-700'
+                      }
+                    `}
+                    aria-label={t('viewModeList')}
+                  >
+                    <svg 
+                      className={`w-5 h-5 ${viewMode === 'list' ? 'text-primary dark:text-secondary' : 'text-gray-500 dark:text-gray-400'}`}
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                  </button>
+                  
+                  {/* Grid View Button */}
+                  <button
+                    onClick={() => setViewMode('grid')}
+                    className={`
+                      p-2 rounded-md transition-colors
+                      ${viewMode === 'grid'
+                        ? 'bg-white dark:bg-gray-700 shadow-sm'
+                        : 'hover:bg-gray-200 dark:hover:bg-gray-700'
+                      }
+                    `}
+                    aria-label={t('viewModeGrid')}
+                  >
+                    <svg 
+                      className={`w-5 h-5 ${viewMode === 'grid' ? 'text-primary dark:text-secondary' : 'text-gray-500 dark:text-gray-400'}`}
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Blog Posts - Grid or List View */}
-          <div className={viewMode === 'grid' 
-            ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
-            : 'flex flex-col gap-6'
-          }>
-            {currentPosts.map((post) => (
+          {currentPosts.length > 0 ? (
+            <div className={viewMode === 'grid' 
+              ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
+              : 'flex flex-col gap-6'
+            }>
+              {currentPosts.map((post) => (
               <article
                 key={post.id}
                 className={`
@@ -608,8 +847,46 @@ function BlogContent() {
                   </Link>
                 </div>
               </article>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="py-16 text-center">
+              <svg
+                className="mx-auto h-16 w-16 text-gray-400 dark:text-gray-500 mb-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                {t('search.noResultsInPage')}
+              </h3>
+              {searchQuery && (
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                  {t('search.noResults', { query: searchQuery })}
+                </p>
+              )}
+              <button
+                onClick={() => {
+                  setSearchQuery('');
+                  setSelectedCategories(['all']);
+                  router.replace(pathname);
+                }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-primary dark:bg-secondary text-white hover:bg-secondary-light dark:hover:bg-secondary-hover"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                {t('search.clearSearch')}
+              </button>
+            </div>
+          )}
 
           {/* Pagination */}
           {totalPages > 1 && (
