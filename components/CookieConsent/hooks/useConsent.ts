@@ -42,7 +42,7 @@ export function useConsent() {
       doNotSell: location === "US-CA" ? false : undefined,
     };
 
-    ConsentManager.saveConsent(newPreferences, location);
+    ConsentManager.saveConsent(newPreferences, location, "banner");
     setPreferences(newPreferences);
     setHasConsent(true);
 
@@ -61,7 +61,7 @@ export function useConsent() {
       doNotSell: location === "US-CA" ? true : undefined,
     };
 
-    ConsentManager.saveConsent(newPreferences, location);
+    ConsentManager.saveConsent(newPreferences, location, "banner");
     setPreferences(newPreferences);
     setHasConsent(true);
 
@@ -72,7 +72,7 @@ export function useConsent() {
   };
 
   const savePreferences = (newPreferences: ConsentPreferences) => {
-    ConsentManager.saveConsent(newPreferences, location);
+    ConsentManager.saveConsent(newPreferences, location, "preferences");
     setPreferences(newPreferences);
     setHasConsent(true);
 

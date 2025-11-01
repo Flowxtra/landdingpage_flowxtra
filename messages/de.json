@@ -730,19 +730,19 @@
         "title": "Cookie-Einstellungen",
         "description": "Verwalten Sie Ihre Cookie-Einstellungen. Sie können verschiedene Cookie-Typen unten aktivieren oder deaktivieren.",
         "strictlyNecessary": {
-            "title": "Unbedingt erforderliche Cookies",
+            "title": "Unbedingt erforderlich",
             "description": "Diese Cookies sind notwendig, damit die Website ordnungsgemäß funktioniert. Sie können nicht deaktiviert werden."
         },
         "functionality": {
-            "title": "Funktionalitäts-Cookies",
+            "title": "Funktionalität",
             "description": "Diese Cookies ermöglichen erweiterte Funktionen und Personalisierung (Sprache, Design, Einstellungen)."
         },
         "performance": {
-            "title": "Leistungs-Cookies",
+            "title": "Leistung",
             "description": "Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren, indem sie Informationen anonym sammeln und melden."
         },
         "targeting": {
-            "title": "Targeting-Cookies",
+            "title": "Targeting",
             "description": "Diese Cookies werden verwendet, um personalisierte Werbung bereitzustellen und die Leistung von Werbekampagnen zu verfolgen."
         },
         "table": {
@@ -756,6 +756,11 @@
         "doNotSell": {
             "title": "Meine persönlichen Informationen nicht verkaufen",
             "description": "Unter CCPA haben Sie das Recht, dem Verkauf Ihrer persönlichen Daten zu widersprechen."
+        },
+        "consentId": {
+            "title": "Ihre Einwilligungs-ID",
+            "description": "Diese eindeutige ID beweist, dass Sie Ihre Einwilligung erteilt haben. Speichern Sie sie für Ihre Unterlagen oder zukünftige Referenz.",
+            "copy": "In Zwischenablage kopieren"
         },
         "buttons": {
             "cancel": "Abbrechen",
@@ -772,6 +777,23 @@
             "descriptionCA": "Wir sammeln und verkaufen möglicherweise Ihre persönlichen Daten. Sie haben das Recht, dies abzulehnen. Klicken Sie auf \"Nicht verkaufen\", um Ihre Rechte gemäß CCPA auszuüben.",
             "descriptionUS": "Wir verwenden Cookies, um Ihr Erlebnis zu verbessern. Sie können Ihre Einstellungen jederzeit verwalten.",
             "learnMore": "Mehr erfahren"
+        },
+        "tabs": {
+            "cookieDeclaration": "Cookie-Einstellungen",
+            "aboutCookies": "Über Cookies"
+        },
+        "aboutCookies": {
+            "intro": "Wir verwenden Cookies, um Ihr Erlebnis zu verbessern und den Website-Verkehr zu analysieren. Durch Klicken auf \"Alle akzeptieren\" stimmen Sie allen Cookies zu. Sie können Ihre Präferenzen in den Cookie-Einstellungen verwalten.",
+            "description": "Cookies sind kleine Textdateien, die von Websites, die Sie besuchen, auf Ihrem Computer platziert werden. Websites verwenden Cookies, um Benutzern zu helfen, effizient zu navigieren und bestimmte Funktionen auszuführen. Cookies, die für den ordnungsgemäßen Betrieb der Website erforderlich sind, dürfen ohne Ihre Erlaubnis gesetzt werden. Alle anderen Cookies müssen genehmigt werden, bevor sie im Browser gesetzt werden können.",
+            "changeConsent": "Sie können Ihre Einwilligung zur Cookie-Nutzung jederzeit auf unserer",
+            "privacyPolicy": "Datenschutzrichtlinie",
+            "page": "Seite ändern.",
+            "advertising": "Wir verwenden auch Cookies, um Daten zu sammeln, um die Personalisierung und Messung der Wirksamkeit unserer Werbung zu ermöglichen. Weitere Einzelheiten finden Sie in der",
+            "googlePrivacyPolicy": "Google-Datenschutzrichtlinie",
+            "consentIdLabel": "Cookie-Einwilligungs-ID:",
+            "seeCookiePolicy": "Siehe unsere",
+            "cookiePolicy": "Cookie-Richtlinie",
+            "readMore": "Mehr lesen"
         }
     }
 }

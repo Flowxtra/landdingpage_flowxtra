@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 import { useConsent } from './hooks/useConsent';
 import { ConsentPreferences as ConsentPrefsType } from '@/types/consent';
 import { ConsentManager } from '@/lib/consentManager';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import Link from 'next/link';
 
 interface ConsentPreferencesProps {
   onClose: () => void;
@@ -143,6 +144,13 @@ const functionalityServices: CookieService[] = [
     retention: '30 days',
     privacyPolicy: 'https://www.cloudflare.com/privacypolicy/',
   },
+  {
+    name: 'Font Awesome Icons (via Cloudflare CDN)',
+    provider: 'Fonticons Inc. / Cloudflare',
+    storage: 'Global',
+    retention: '30 days (CDN cache)',
+    privacyPolicy: 'https://fontawesome.com/privacy',
+  },
 ];
 
 // Performance Cookies (Analytics)
@@ -155,10 +163,24 @@ const performanceServices: CookieService[] = [
     privacyPolicy: 'https://policies.google.com/privacy',
   },
   {
-    name: 'Google Analytics',
+    name: 'Google Analytics (_ga, _gid, _gat)',
     provider: 'Google LLC',
     storage: 'United States / Europe',
-    retention: '14 months',
+    retention: '14 months to 2 years',
+    privacyPolicy: 'https://policies.google.com/privacy',
+  },
+  {
+    name: 'Google Analytics Campaign (_gac)',
+    provider: 'Google LLC',
+    storage: 'United States / Europe',
+    retention: '2 months 4 weeks',
+    privacyPolicy: 'https://policies.google.com/privacy',
+  },
+  {
+    name: 'Google Analytics Experiments (_gaexp)',
+    provider: 'Google LLC',
+    storage: 'United States',
+    retention: '2 months 2 weeks',
     privacyPolicy: 'https://policies.google.com/privacy',
   },
   {
@@ -173,35 +195,35 @@ const performanceServices: CookieService[] = [
 // Targeting Cookies (Marketing)
 const targetingServices: CookieService[] = [
   {
-    name: 'Meta Pixel (Facebook)',
+    name: 'Meta Pixel (Facebook) - _fbp, fr, _fbc',
     provider: 'Meta Platforms Ireland Limited',
     storage: 'United States',
     retention: 'Up to 2 years',
     privacyPolicy: 'https://www.facebook.com/privacy/policy/',
   },
   {
-    name: 'Google Ads',
+    name: 'Google Ads - gclid, _gcl_aw, _gcl_au, NID',
     provider: 'Google LLC',
     storage: 'United States / Europe',
     retention: '14-26 months',
     privacyPolicy: 'https://policies.google.com/privacy',
   },
   {
-    name: 'Google DoubleClick',
+    name: 'Google DoubleClick - IDE, RUL, test_cookie',
     provider: 'Google LLC',
     storage: 'United States',
     retention: '1 year 3 weeks',
     privacyPolicy: 'https://policies.google.com/privacy',
   },
   {
-    name: 'Microsoft Bing Ads',
+    name: 'Microsoft Bing Ads - _uetsid, _uetvid, MUID',
     provider: 'Microsoft Corporation',
     storage: 'United States',
     retention: '1 year',
     privacyPolicy: 'https://privacy.microsoft.com/privacystatement',
   },
   {
-    name: 'LinkedIn Insight Tag',
+    name: 'LinkedIn Insight Tag - li_fat_id',
     provider: 'LinkedIn Ireland Unlimited Company',
     storage: 'United States / Europe',
     retention: 'Up to 1 year',
@@ -210,7 +232,7 @@ const targetingServices: CookieService[] = [
   {
     name: 'TikTok Pixel',
     provider: 'TikTok Technology Limited',
-    storage: '🇸🇬 Singapore / United States',
+    storage: 'Singapore / United States',
     retention: 'Up to 3 years',
     privacyPolicy: 'https://www.tiktok.com/legal/privacy-policy',
   },
@@ -220,7 +242,14 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
   const { preferences: initialPrefs, location, savePreferences } = useConsent();
   const [preferences, setPreferences] = useState<ConsentPrefsType>(initialPrefs);
   const [openSection, setOpenSection] = useState<string | null>(null); // Track which section is open - closed by default
+  const [activeTab, setActiveTab] = useState<'declaration' | 'about'>('declaration'); // Track active tab
   const t = useTranslations('cookieConsent');
+  const tAbout = useTranslations('cookieConsent.aboutCookies');
+  const locale = useLocale();
+
+  // Get consent ID from localStorage
+  const consentData = ConsentManager.getConsent();
+  const consentId = consentData?.consentId || 'Not yet generated';
 
   const isEU = location === 'EU';
   const isCalifornia = location === 'US-CA';
@@ -285,12 +314,48 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
             </button>
           </div>
 
-          {/* Description */}
+          {/* Intro Text */}
           <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-6">
-            {t('description')}
+            {tAbout('intro')}{' '}
+            <Link href={`/${locale}/cookie-policy`} className="text-primary dark:text-secondary hover:underline">
+              {tAbout('seeCookiePolicy')} {tAbout('cookiePolicy')}
+            </Link>
+            {' '}
+            <Link href={`/${locale}/cookie-policy`} className="text-primary dark:text-secondary hover:underline">
+              {tAbout('readMore')}
+            </Link>
           </p>
 
-          {/* Strictly Necessary Cookies (Essential) */}
+          {/* Tabs */}
+          <div className="mb-6 border-b border-gray-200 dark:border-gray-700">
+            <div className="flex space-x-1">
+              <button
+                onClick={() => setActiveTab('declaration')}
+                className={`px-4 py-2 text-sm font-medium transition-colors ${
+                  activeTab === 'declaration'
+                    ? 'text-primary dark:text-secondary border-b-2 border-primary dark:border-secondary'
+                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+                }`}
+              >
+                {t('tabs.cookieDeclaration')}
+              </button>
+              <button
+                onClick={() => setActiveTab('about')}
+                className={`px-4 py-2 text-sm font-medium transition-colors ${
+                  activeTab === 'about'
+                    ? 'text-primary dark:text-secondary border-b-2 border-primary dark:border-secondary'
+                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+                }`}
+              >
+                {t('tabs.aboutCookies')}
+              </button>
+            </div>
+          </div>
+
+          {/* Tab Content: Cookie Declaration */}
+          {activeTab === 'declaration' && (
+            <div>
+              {/* Strictly Necessary Cookies (Essential) */}
           <div className="mb-6 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
             <div className="bg-gray-50 dark:bg-gray-800 p-4">
               <div className="flex items-start justify-between">
@@ -619,33 +684,93 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
             </div>
           </div>
 
-          {/* Do Not Sell - CCPA specific */}
-          {isCalifornia && (
-            <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
-              <div className="flex items-start justify-between">
-                <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
-                    {t('doNotSell.title')}
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    {t('doNotSell.description')}
-                  </p>
+              {/* Do Not Sell - CCPA specific */}
+              {isCalifornia && (
+                <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+                        {t('doNotSell.title')}
+                      </h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        {t('doNotSell.description')}
+                      </p>
+                    </div>
+                    <div className="ml-4">
+                      <label className="relative inline-flex items-center cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={preferences.doNotSell === true}
+                          onChange={() => setPreferences(prev => ({
+                            ...prev,
+                            doNotSell: !prev.doNotSell,
+                          }))}
+                          className="sr-only peer"
+                        />
+                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                      </label>
+                    </div>
+                  </div>
                 </div>
-                <div className="ml-4">
-                  <label className="relative inline-flex items-center cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={preferences.doNotSell === true}
-                      onChange={() => setPreferences(prev => ({
-                        ...prev,
-                        doNotSell: !prev.doNotSell,
-                      }))}
-                      className="sr-only peer"
-                    />
-                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
-                  </label>
-                </div>
+              )}
+            </div>
+          )}
+
+          {/* Tab Content: About Cookies */}
+          {activeTab === 'about' && (
+            <div>
+              {/* Description */}
+              <div className="mb-6">
+                <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-4">
+                  {tAbout('description')}
+                </p>
+                <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-4">
+                  {tAbout('changeConsent')}{' '}
+                  <Link href={`/${locale}/privacy-policy`} className="text-primary dark:text-secondary hover:underline">
+                    {tAbout('privacyPolicy')}
+                  </Link>
+                  {' '}{tAbout('page')}
+                </p>
+                <p className="text-sm md:text-base text-gray-600 dark:text-gray-300">
+                  {tAbout('advertising')}{' '}
+                  <a 
+                    href="https://business.safety.google/privacy/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-primary dark:text-secondary hover:underline"
+                  >
+                    {tAbout('googlePrivacyPolicy')}
+                  </a>
+                  .
+                </p>
               </div>
+
+              {/* Consent ID Display */}
+              {consentId !== 'Not yet generated' && (
+                <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1">
+                      <p className="text-sm font-medium text-gray-900 dark:text-white mb-2">
+                        {tAbout('consentIdLabel')}
+                      </p>
+                      <code className="block text-xs bg-white dark:bg-gray-800 px-3 py-2 rounded border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 font-mono break-all">
+                        {consentId}
+                      </code>
+                    </div>
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(consentId);
+                      }}
+                      className="flex-shrink-0 p-2 text-primary hover:text-secondary transition-colors"
+                      title={t('consentId.copy')}
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           )}
 
