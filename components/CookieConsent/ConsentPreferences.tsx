@@ -245,6 +245,7 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
   const [activeTab, setActiveTab] = useState<'declaration' | 'about'>('declaration'); // Track active tab
   const t = useTranslations('cookieConsent');
   const tAbout = useTranslations('cookieConsent.aboutCookies');
+  const tBanner = useTranslations('cookieConsent.banner');
   const locale = useLocale();
 
   // Get consent ID from localStorage
@@ -317,12 +318,9 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
           {/* Intro Text */}
           <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-6">
             {tAbout('intro')}{' '}
+            {tAbout('seeCookiePolicy')}{' '}
             <Link href={`/${locale}/cookie-policy`} className="text-primary dark:text-secondary hover:underline">
-              {tAbout('seeCookiePolicy')} {tAbout('cookiePolicy')}
-            </Link>
-            {' '}
-            <Link href={`/${locale}/cookie-policy`} className="text-primary dark:text-secondary hover:underline">
-              {tAbout('readMore')}
+              {tAbout('cookiePolicy')}
             </Link>
           </p>
 
@@ -794,6 +792,21 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
             >
               {t('buttons.save')}
             </button>
+          </div>
+
+          {/* Developer Credit */}
+          <div className="mt-3">
+            <p className="text-xs text-gray-500 dark:text-gray-400">
+              {tBanner('developedBy')}{' '}
+              <a 
+                href="https://dpro.at" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-primary dark:text-secondary hover:underline"
+              >
+                {tBanner('dproLink')}
+              </a>
+            </p>
           </div>
         </div>
       </div>

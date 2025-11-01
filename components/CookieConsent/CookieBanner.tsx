@@ -49,7 +49,7 @@ export default function CookieBanner() {
                   href="/cookie-policy" 
                   className="text-primary dark:text-secondary underline hover:no-underline"
                 >
-                  {t('learnMore')}
+                  {t('cookiePolicy')}
                 </a>
               </p>
             </div>

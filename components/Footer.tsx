@@ -5,11 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import ConsentPreferencesPanel from "@/components/CookieConsent/ConsentPreferences";
+import AccessibilityPanel from "@/components/Accessibility/AccessibilityPanel";
 
 export default function Footer() {
   const t = useTranslations("footer");
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [showConsentPreferences, setShowConsentPreferences] = useState(false);
+  const [showAccessibilityPanel, setShowAccessibilityPanel] = useState(false);
 
   // Initialize dark mode from localStorage or browser preferences
   useEffect(() => {
@@ -427,6 +429,12 @@ export default function Footer() {
                 />
               )}
 
+              {showAccessibilityPanel && (
+                <AccessibilityPanel
+                  onClose={() => setShowAccessibilityPanel(false)}
+                />
+              )}
+
               {/* Dark Mode Toggle */}
               <button
                 onClick={toggleDarkMode}
@@ -465,9 +473,10 @@ export default function Footer() {
                 <span>{isDarkMode ? t("darkMode.light") : t("darkMode.dark")}</span>
               </button>
               
-              <Link 
-                href="/accessibility"
+              <button
+                onClick={() => setShowAccessibilityPanel(true)}
                 className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-primary dark:text-white hover:text-secondary dark:hover:text-gray-300 transition-colors whitespace-nowrap"
+                aria-label={t("accessibility")}
               >
                 <svg 
                   className="w-4 h-4 md:w-5 md:h-5 text-primary dark:text-white flex-shrink-0" 
@@ -480,7 +489,7 @@ export default function Footer() {
                   <path fillRule="evenodd" clipRule="evenodd" d="M23 12.0002C23 18.0754 18.0751 23.0002 12 23.0002C5.92487 23.0002 1 18.0754 1 12.0002C1 5.92511 5.92487 1.00024 12 1.00024C18.0751 1.00024 23 5.92511 23 12.0002ZM3.00683 12.0002C3.00683 16.967 7.03321 20.9934 12 20.9934C16.9668 20.9934 20.9932 16.967 20.9932 12.0002C20.9932 7.03345 16.9668 3.00707 12 3.00707C7.03321 3.00707 3.00683 7.03345 3.00683 12.0002Z" fill="currentColor"/>
                 </svg>
                 <span>{t("accessibility")}</span>
-              </Link>
+              </button>
             </div>
           </div>
         </div>

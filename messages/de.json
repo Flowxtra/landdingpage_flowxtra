@@ -386,6 +386,46 @@
             "title": "Konformitätsstatus",
             "paragraph1": "Die Web Content Accessibility Guidelines (WCAG) definieren Anforderungen für Designer und Entwickler, um die Zugänglichkeit für Menschen mit Behinderungen zu verbessern.",
             "paragraph2": "Die Flowxtra-Website strebt die Einhaltung der WCAG 2.1 Level AA Standards an. Wir arbeiten kontinuierlich daran, die Barrierefreiheit unserer Website zu verbessern und freuen uns über Feedback von Benutzern."
+        },
+        "widget": {
+            "title": "Barrierefreiheit",
+            "close": "Schließen",
+            "reset": "Zurücksetzen",
+            "sections": {
+                "contentAdjustments": "Inhaltsanpassungen",
+                "orientationAdjustments": "Orientierungsanpassungen",
+                "colorAdjustments": "Farbanpassungen"
+            },
+            "content": {
+                "biggerText": "Größerer Text",
+                "biggerLineHeight": "Größerer Zeilenabstand",
+                "textAlign": "Textausrichtung",
+                "readableFont": "Lesbare Schriftart"
+            },
+            "orientation": {
+                "pageStructure": "Seitenstruktur",
+                "screenReader": "Bildschirmleser",
+                "readingMask": "Lesemaske",
+                "hideImages": "Bilder ausblenden",
+                "pauseAnimations": "Animationen pausieren",
+                "highlightLinks": "Links hervorheben",
+                "outlineFocus": "Fokus umranden"
+            },
+            "color": {
+                "darkMode": "Dunkler Modus",
+                "lightMode": "Heller Modus",
+                "greyscale": "Graustufen",
+                "contrast": "Kontrast"
+            },
+            "navigation": {
+                "search": "Suchen"
+            },
+            "footer": {
+                "poweredBy": "Barrierefreiheit von",
+                "dpro": "Dpro",
+                "statement": "Erklärung",
+                "sitemap": "Sitemap"
+            }
         }
     },
     "pricing": {
@@ -773,10 +813,12 @@
         "banner": {
             "titleEU": "Wir verwenden Cookies",
             "titleUS": "Cookie-Hinweis",
-            "descriptionEU": "Wir verwenden Cookies, um Ihr Surferlebnis zu verbessern, personalisierte Inhalte bereitzustellen und unseren Traffic zu analysieren. Durch Klicken auf \"Alle akzeptieren\" stimmen Sie der Verwendung von Cookies zu.",
-            "descriptionCA": "Wir sammeln und verkaufen möglicherweise Ihre persönlichen Daten. Sie haben das Recht, dies abzulehnen. Klicken Sie auf \"Nicht verkaufen\", um Ihre Rechte gemäß CCPA auszuüben.",
-            "descriptionUS": "Wir verwenden Cookies, um Ihr Erlebnis zu verbessern. Sie können Ihre Einstellungen jederzeit verwalten.",
-            "learnMore": "Mehr erfahren"
+            "descriptionEU": "Wir verwenden Cookies, um Ihr Surferlebnis zu verbessern, personalisierte Inhalte bereitzustellen und unseren Traffic zu analysieren. Durch Klicken auf \"Alle akzeptieren\" stimmen Sie der Verwendung von Cookies zu. Siehe unsere",
+            "descriptionCA": "Wir sammeln und verkaufen möglicherweise Ihre persönlichen Daten. Sie haben das Recht, dies abzulehnen. Klicken Sie auf \"Nicht verkaufen\", um Ihre Rechte gemäß CCPA auszuüben. Siehe unsere",
+            "descriptionUS": "Wir verwenden Cookies, um Ihr Erlebnis zu verbessern. Sie können Ihre Einstellungen jederzeit verwalten. Siehe unsere",
+            "cookiePolicy": "Cookie-Richtlinie",
+            "developedBy": "Erstellt von",
+            "dproLink": "Dpro"
         },
         "tabs": {
             "cookieDeclaration": "Cookie-Einstellungen",
@@ -792,8 +834,7 @@
             "googlePrivacyPolicy": "Google-Datenschutzrichtlinie",
             "consentIdLabel": "Cookie-Einwilligungs-ID:",
             "seeCookiePolicy": "Siehe unsere",
-            "cookiePolicy": "Cookie-Richtlinie",
-            "readMore": "Mehr lesen"
+            "cookiePolicy": "Cookie-Richtlinie"
         }
     }
 }

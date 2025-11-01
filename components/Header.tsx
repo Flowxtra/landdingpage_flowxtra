@@ -152,6 +152,7 @@ function Header() {
         '/features': '/funktionen',
         '/get-started': '/jetzt-starten',
         '/login': '/anmelden',
+        '/accessibility': '/barrierefreiheit',
       };
       return `/${currentLocale}${translations[path] || path}`;
     }
