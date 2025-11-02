@@ -50,38 +50,47 @@ const nextConfig: NextConfig = {
         // Better code splitting
         splitChunks: {
           chunks: "all",
-          maxInitialRequests: 20,
-          maxAsyncRequests: 30,
-          minSize: 20000,
-          maxSize: 200000, // Reduced from 244KB to 200KB for better splitting
+          maxInitialRequests: 25,
+          maxAsyncRequests: 40,
+          minSize: 15000, // Reduced to catch smaller unused code
+          maxSize: 180000, // Further reduced for better splitting and tree shaking
           cacheGroups: {
             default: false,
             vendors: false,
-            // Framework chunk - React, Next.js core (split React and Next.js separately)
+            // Framework chunk - Split React and React-DOM separately for better parsing
             react: {
               name: "react",
               chunks: "all",
-              test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
+              test: /[\\/]node_modules[\\/](react|scheduler)[\\/]/,
               priority: 50,
               enforce: true,
-              maxSize: 120000, // Reduced from 150KB to 120KB
+              maxSize: 80000, // Smaller chunk = faster parsing
             },
-            // Split Next.js into smaller chunks
+            // React DOM in separate chunk - often parsed but not executed immediately
+            reactDom: {
+              name: "react-dom",
+              chunks: "all",
+              test: /[\\/]node_modules[\\/]react-dom[\\/]/,
+              priority: 49,
+              enforce: true,
+              maxSize: 100000, // React DOM is larger, allow up to 100KB
+            },
+            // Split Next.js into smaller chunks - exclude devtools in production
             nextjsCore: {
               name: "nextjs-core",
               chunks: "all",
               test: /[\\/]node_modules[\\/]next[\\/]dist[\\/](client|shared-runtime|build)[\\/]/,
               priority: 48,
               enforce: true,
-              maxSize: 100000, // Smaller chunks for better caching
+              maxSize: 80000, // Smaller chunks = faster parsing/execution
             },
             nextjs: {
               name: "nextjs",
               chunks: "all",
-              test: /[\\/]node_modules[\\/]next[\\/](?!dist[\\/](client|shared-runtime|build)[\\/])/,
+              test: /[\\/]node_modules[\\/]next[\\/](?!dist[\\/](client|shared-runtime|build|compiled[\\/]next-devtools)[\\/])/,
               priority: 45,
               enforce: true,
-              maxSize: 150000, // Reduced from 200KB to 150KB
+              maxSize: 120000, // Reduced to 120KB for faster execution
             },
             // Large libraries in separate chunks for better caching
             shiki: {
@@ -114,7 +123,7 @@ const nextConfig: NextConfig = {
               enforce: true,
               chunks: "all",
             },
-            // Other node_modules libraries
+            // Other node_modules libraries - split smaller to reduce unused code
             lib: {
               test: /[\\/]node_modules[\\/]/,
               name(module: any) {
@@ -126,15 +135,16 @@ const nextConfig: NextConfig = {
               priority: 30,
               minChunks: 1,
               reuseExistingChunk: true,
-              minSize: 25000, // Reduced from 30KB
+              minSize: 15000, // Reduced to 15KB for better tree shaking
+              maxSize: 100000, // Limit individual library chunks
             },
-            // Common shared code
+            // Common shared code - only include if shared across multiple chunks
             commons: {
               name: "commons",
-              minChunks: 2,
+              minChunks: 3, // Increased from 2 to 3 - only truly shared code
               priority: 20,
               reuseExistingChunk: true,
-              minSize: 20000,
+              minSize: 15000, // Reduced to 15KB
             },
           },
         },

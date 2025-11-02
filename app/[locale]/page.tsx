@@ -3,11 +3,9 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
-import { Code } from "lucide-react";
 import { useTranslations } from "next-intl";
-
 // Dynamic imports for non-critical components to reduce initial bundle size
 // CodeEditor is heavy (includes Shiki syntax highlighter ~600ms), so load only when needed
 const CodeEditor = dynamic(() => import("@/components/ui/code-editor").then(mod => ({ default: mod.CodeEditor })), {
@@ -29,8 +27,10 @@ const AnimatedBeamMultipleOutputs = dynamic(() => import("@/components/AnimatedB
 });
 
 // Lazy-loaded CodeEditor - only loads when it comes into viewport
+// Also lazy loads Code icon to reduce initial bundle size
 function LazyCodeEditor({ children, ...props }: { children: string; [key: string]: any }) {
   const [isVisible, setIsVisible] = useState(false);
+  const [CodeIcon, setCodeIcon] = useState<React.ComponentType<any> | null>(null);
   const [ref, setRef] = useState<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -40,6 +40,10 @@ function LazyCodeEditor({ children, ...props }: { children: string; [key: string
       (entries) => {
         if (entries[0].isIntersecting) {
           setIsVisible(true);
+          // Lazy load Code icon only when component becomes visible
+          import("lucide-react").then(mod => {
+            setCodeIcon(() => mod.Code);
+          });
           observer.disconnect();
         }
       },
@@ -60,7 +64,10 @@ function LazyCodeEditor({ children, ...props }: { children: string; [key: string
     );
   }
 
-  return <CodeEditor {...props}>{children}</CodeEditor>;
+  // Update icon prop if CodeIcon is loaded and no icon provided
+  const propsWithIcon = CodeIcon && !props.icon ? { ...props, icon: <CodeIcon /> } : props;
+
+  return <CodeEditor {...propsWithIcon}>{children}</CodeEditor>;
 }
 
 // Generic Lazy Section Wrapper - loads component only when in viewport
@@ -265,7 +272,6 @@ allowfullscreen>
                       <div className="w-full max-w-[310px] flex justify-center">
                         <LazyCodeEditor
                           title={t("slide7.embedCodeTitle")}
-                          icon={<Code />}
                           lang="html"
                           copyButton
                           header
@@ -311,7 +317,6 @@ allowfullscreen>
                     <div className="flex items-center justify-center w-full px-2 md:px-0">
                       <LazyCodeEditor
                         title={t("slide7.embedCodeTitle")}
-                        icon={<Code />}
                         lang="html"
                         copyButton
                         header
@@ -349,6 +354,12 @@ export default function Homepage() {
   const t = useTranslations("homepage");
   const tContact = useTranslations("contact");
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  
+  // Memoize video play handler to prevent re-creating on every render
+  const handleVideoPlay = useCallback(() => {
+    setIsVideoPlaying(true);
+  }, []);
+  
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
       {/* Hero Section - Full Width */}
@@ -582,7 +593,7 @@ export default function Homepage() {
               {!isVideoPlaying ? (
                 <div
                   className="relative w-full h-full cursor-pointer group"
-                  onClick={() => setIsVideoPlaying(true)}
+                  onClick={handleVideoPlay}
                 >
                   <Image
                     src="/img/overlay-flowxtra.png"
