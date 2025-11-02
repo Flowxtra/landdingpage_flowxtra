@@ -35,7 +35,7 @@ export function useConsent() {
       marketing: true,
     };
 
-    ConsentManager.saveConsent(newPreferences, "OTHER", "banner");
+    ConsentManager.saveConsent(newPreferences, "banner");
     setPreferences(newPreferences);
     setHasConsent(true);
 
@@ -57,7 +57,7 @@ export function useConsent() {
       marketing: false,
     };
 
-    ConsentManager.saveConsent(newPreferences, "OTHER", "banner");
+    ConsentManager.saveConsent(newPreferences, "banner");
     setPreferences(newPreferences);
     setHasConsent(true);
 
@@ -72,7 +72,7 @@ export function useConsent() {
   };
 
   const savePreferences = (newPreferences: ConsentPreferences) => {
-    ConsentManager.saveConsent(newPreferences, "OTHER", "preferences");
+    ConsentManager.saveConsent(newPreferences, "preferences");
     setPreferences(newPreferences);
     setHasConsent(true);
 

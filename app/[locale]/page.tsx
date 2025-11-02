@@ -966,9 +966,9 @@ export default function Homepage() {
         </div>
       </section>
 
-      {/* Sticky Slider Section */}
+      {/* Sticky Slider Section - Lazy loaded when in viewport */}
       <div className="w-full pb-32 md:pb-48">
-        <FeaturesSlider />
+        <LazySection Component={FeaturesSlider} />
       </div>
 
       {/* Pricing Section */}
