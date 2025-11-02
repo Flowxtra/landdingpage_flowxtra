@@ -391,44 +391,45 @@ export default function Homepage() {
             </div>
           </div>
 
-          {/* Bottom Image - Natural Size - LCP Element - Starts from bottom directly - Full Width */}
-          <div className="w-full flex justify-center items-center mt-0 -mx-[10px] md:-mx-[10px]">
-            {/* Mobile Image - LCP Element - Only visible on mobile (< 768px) */}
-            <div className="w-full flex justify-center items-center md:hidden px-4">
-              <figure className="m-0 flex justify-center items-center">
-                <Image
-                  src="/img/ATS-Software-for-Recruitment2.svg"
-                  alt={t("hero.imageAlt")}
-                  title={t("hero.imageTitle")}
-                  width={750}
-                  height={512}
-                  quality={100}
-                  priority
-                  fetchPriority="high"
-                  unoptimized
-                  sizes="(max-width: 375px) 375px, (max-width: 640px) 640px, (max-width: 768px) 750px, 750px"
-                  className="h-auto max-w-full mx-auto"
-                  style={{ display: 'block' }}
-                  decoding="sync"
-                  loading="eager"
-                />
-                <figcaption className="sr-only">
-                  {t("hero.figcaption")}
-                </figcaption>
-              </figure>
-            </div>
-            {/* Desktop Image - LCP Element - Only visible on tablet/desktop (>= 768px) - Full Width */}
-            <figure className="m-0 hidden md:block w-full">
+          {/* Mobile Image - LCP Element - Only visible on mobile (< 768px) - Full Width - Natural Size */}
+          <div className="w-full mt-0 md:hidden">
+            <figure className="m-0 w-screen -mx-[10px]">
               <Image
-                src="/img/ATS-Software-for-Recruitment.svg"
+                src="/img/ATS-Software-for-Recruitment2.svg"
                 alt={t("hero.imageAlt")}
                 title={t("hero.imageTitle")}
+                width={750}
+                height={512}
                 quality={100}
                 priority
                 fetchPriority="high"
                 unoptimized
+                sizes="100vw"
                 className="w-full h-auto"
-                style={{ display: 'block' }}
+                decoding="sync"
+                loading="eager"
+              />
+              <figcaption className="sr-only">
+                {t("hero.figcaption")}
+              </figcaption>
+            </figure>
+          </div>
+
+          {/* Desktop Image - LCP Element - Only visible on tablet/desktop (>= 768px) - Full Width Inside Container - Natural Size */}
+          <div className="w-full mt-0 hidden md:block">
+            <figure className="m-0 w-screen -mx-[10px]">
+              <Image
+                src="/img/ATS-Software-for-Recruitment.svg"
+                alt={t("hero.imageAlt")}
+                title={t("hero.imageTitle")}
+                width={1920}
+                height={1080}
+                quality={100}
+                priority
+                fetchPriority="high"
+                unoptimized
+                sizes="100vw"
+                className="w-full h-auto"
                 decoding="sync"
                 loading="eager"
               />
