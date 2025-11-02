@@ -92,7 +92,7 @@ export function AnimatedBeamMultipleOutputs({
             <Icons.twitter />
           </Circle>
           <Circle ref={div5Ref} className="border-primary dark:border-secondary">
-            <Icons.jobBoard />
+            <Icons.tiktok />
           </Circle>
         </div>
       </div>
@@ -142,7 +142,7 @@ export function AnimatedBeamMultipleOutputs({
         gradientStartColor="#003f4d"
         gradientStopColor="#00A8CD"
       />
-      {/* Job Board - Always connected */}
+      {/* TikTok - Always connected */}
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div5Ref}
@@ -207,10 +207,9 @@ const Icons = {
       <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
     </svg>
   ),
-  jobBoard: () => (
-    <svg className="h-full w-full" viewBox="0 0 24 24" fill="none" stroke="#006980" strokeWidth="2">
-      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+  tiktok: () => (
+    <svg className="h-full w-full" viewBox="0 0 24 24" fill="#000000">
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
     </svg>
   ),
 };
