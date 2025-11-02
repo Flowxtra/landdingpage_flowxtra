@@ -43,22 +43,46 @@ const nextConfig: NextConfig = {
       config.optimization = {
         ...config.optimization,
         moduleIds: "deterministic",
+        // Tree shaking is already enabled by Next.js via SWC
+        // usedExports conflicts with cacheUnaffected (used by Next.js)
+        // Minimize bundle size in production (SWC minifier is used automatically in Next.js 15+)
+        // This ensures runtime.js and all other chunks are minified
+        minimize: !dev,
         // Better code splitting
         splitChunks: {
           chunks: "all",
-          maxInitialRequests: 25,
+          maxInitialRequests: 20,
+          maxAsyncRequests: 30,
           minSize: 20000,
+          maxSize: 200000, // Reduced from 244KB to 200KB for better splitting
           cacheGroups: {
             default: false,
             vendors: false,
-            // Framework chunk - React, Next.js core
-            framework: {
-              name: "framework",
+            // Framework chunk - React, Next.js core (split React and Next.js separately)
+            react: {
+              name: "react",
               chunks: "all",
-              test: /(?<!node_modules.*)[\\/]node_modules[\\/](react|react-dom|scheduler|next)[\\/]/,
-              priority: 40,
+              test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
+              priority: 50,
               enforce: true,
-              minChunks: 1,
+              maxSize: 120000, // Reduced from 150KB to 120KB
+            },
+            // Split Next.js into smaller chunks
+            nextjsCore: {
+              name: "nextjs-core",
+              chunks: "all",
+              test: /[\\/]node_modules[\\/]next[\\/]dist[\\/](client|shared-runtime|build)[\\/]/,
+              priority: 48,
+              enforce: true,
+              maxSize: 100000, // Smaller chunks for better caching
+            },
+            nextjs: {
+              name: "nextjs",
+              chunks: "all",
+              test: /[\\/]node_modules[\\/]next[\\/](?!dist[\\/](client|shared-runtime|build)[\\/])/,
+              priority: 45,
+              enforce: true,
+              maxSize: 150000, // Reduced from 200KB to 150KB
             },
             // Large libraries in separate chunks for better caching
             shiki: {
@@ -103,7 +127,7 @@ const nextConfig: NextConfig = {
               priority: 30,
               minChunks: 1,
               reuseExistingChunk: true,
-              minSize: 30000,
+              minSize: 25000, // Reduced from 30KB
             },
             // Common shared code
             commons: {
@@ -122,6 +146,9 @@ const nextConfig: NextConfig = {
           name: "runtime",
         },
       };
+
+      // Tree shaking is handled by package.json sideEffects field
+      // CSS files are marked as side effects to prevent removal
     }
     return config;
   },

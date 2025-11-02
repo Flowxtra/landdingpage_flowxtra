@@ -395,6 +395,8 @@ export default function Homepage() {
                     fetchPriority="high"
                     sizes="(max-width: 768px) 100vw, 750px"
                     className="w-full h-auto block md:hidden"
+                    decoding="sync"
+                    loading="eager"
                   />
                   {/* Desktop Image - LCP Element */}
                   <Image
@@ -408,6 +410,8 @@ export default function Homepage() {
                     fetchPriority="high"
                     sizes="(max-width: 1200px) 100vw, 1920px"
                     className="w-full h-auto hidden md:block"
+                    decoding="sync"
+                    loading="eager"
                   />
                   <figcaption className="sr-only">
                     {t("hero.figcaption")}

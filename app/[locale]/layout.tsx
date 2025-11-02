@@ -123,8 +123,35 @@ export default async function LocaleLayout({
           crossOrigin="anonymous"
         />
         
+        {/* Preload LCP image (mobile) - Critical for performance */}
+        <link
+          rel="preload"
+          href="/img/ATS-Software-for-Recruitment2.webp"
+          as="image"
+          type="image/webp"
+          media="(max-width: 768px)"
+          fetchPriority="high"
+        />
+        {/* Preload LCP image (desktop) - Critical for performance */}
+        <link
+          rel="preload"
+          href="/img/ATS-Software-for-Recruitment.webp"
+          as="image"
+          type="image/webp"
+          media="(min-width: 769px)"
+          fetchPriority="high"
+        />
+        
         {/* Preconnect only when Font Awesome will be loaded (after consent) - using dns-prefetch instead to avoid unused preconnect */}
         <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+        
+        {/* DNS prefetch for third-party scripts (only when consent given - lazy loaded) */}
+        {/* These are loaded only after user interaction or 5+ seconds delay, so prefetch is minimal */}
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.clarity.ms" />
+        <link rel="dns-prefetch" href="https://connect.facebook.net" />
+        <link rel="dns-prefetch" href="https://analytics.tiktok.com" />
+        <link rel="dns-prefetch" href="https://snap.licdn.com" />
         
         {/* Apply dark mode immediately before React loads to prevent flash */}
         <script
