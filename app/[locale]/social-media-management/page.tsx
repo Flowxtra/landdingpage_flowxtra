@@ -378,12 +378,6 @@ export default function SocialMediaManagement() {
               <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
                 {t("sections.section1.description")}
               </p>
-              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                {t("sections.section1.paragraph1")}
-              </p>
-              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                {t("sections.section1.paragraph2")}
-              </p>
               <div className="pt-4">
                 <a
                   href="https://my.flowxtra.com/registration"
@@ -647,12 +641,9 @@ export default function SocialMediaManagement() {
         <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white leading-tight">
                 {t("sections.section3.title")}
               </h2>
-              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                {t("sections.section3.description")}
-              </p>
               <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 {t("sections.section3.paragraph1")}
               </p>
@@ -676,9 +667,6 @@ export default function SocialMediaManagement() {
                   <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">{t("sections.section3.features.feature3")}</span>
                 </li>
               </ul>
-              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                {t("sections.section3.paragraph2")}
-              </p>
               <div className="pt-4">
                 <a
                   href="https://my.flowxtra.com/registration"
@@ -688,8 +676,17 @@ export default function SocialMediaManagement() {
                 </a>
               </div>
             </div>
-            <div className="rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-800 min-h-[400px] flex items-center justify-center">
-              <p className="text-gray-500 dark:text-gray-400">Image placeholder</p>
+            <div className="rounded-2xl overflow-hidden">
+              <Image
+                src="/img/social_media_calendar.svg"
+                alt="Plan and Control Every Post from One Visual Calendar"
+                width={800}
+                height={600}
+                quality={100}
+                className="w-full h-auto rounded-lg"
+                unoptimized
+                priority
+              />
             </div>
           </div>
         </div>
@@ -699,16 +696,22 @@ export default function SocialMediaManagement() {
       <section className="w-full py-16 md:py-24 bg-gray-50 dark:bg-gray-800 transition-colors">
         <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1 rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-700 min-h-[400px] flex items-center justify-center">
-              <p className="text-gray-500 dark:text-gray-400">Image placeholder</p>
+            <div className="order-2 lg:order-1 rounded-2xl overflow-hidden">
+              <Image
+                src="/img/ai_assistant_social_media.svg"
+                alt="Your AI Assistant for Effortless Content Creation"
+                width={800}
+                height={600}
+                quality={100}
+                className="w-full h-auto rounded-lg"
+                unoptimized
+                priority
+              />
             </div>
             <div className="order-1 lg:order-2 space-y-6">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
                 {t("sections.section4.title")}
               </h2>
-              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                {t("sections.section4.description")}
-              </p>
               <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 {t("sections.section4.paragraph1")}
               </p>
@@ -732,9 +735,6 @@ export default function SocialMediaManagement() {
                   <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">{t("sections.section4.features.feature3")}</span>
                 </li>
               </ul>
-              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                {t("sections.section4.paragraph2")}
-              </p>
               <div className="pt-4">
                 <a
                   href="https://my.flowxtra.com/registration"
@@ -756,9 +756,6 @@ export default function SocialMediaManagement() {
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
                 {t("sections.section5.title")}
               </h2>
-              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                {t("sections.section5.description")}
-              </p>
               <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 {t("sections.section5.paragraph1")}
               </p>
@@ -782,9 +779,6 @@ export default function SocialMediaManagement() {
                   <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">{t("sections.section5.features.feature3")}</span>
                 </li>
               </ul>
-              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                {t("sections.section5.paragraph2")}
-              </p>
               <div className="pt-4">
                 <a
                   href="https://my.flowxtra.com/registration"
@@ -794,8 +788,17 @@ export default function SocialMediaManagement() {
                 </a>
               </div>
             </div>
-            <div className="rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-800 min-h-[400px] flex items-center justify-center">
-              <p className="text-gray-500 dark:text-gray-400">Image placeholder</p>
+            <div className="rounded-2xl overflow-hidden">
+              <Image
+                src="/img/social_media_pipelines.svg"
+                alt="Create and Share Pipelines — Without Giving Full Access"
+                width={800}
+                height={600}
+                quality={100}
+                className="w-full h-auto rounded-lg"
+                unoptimized
+                priority
+              />
             </div>
           </div>
         </div>
