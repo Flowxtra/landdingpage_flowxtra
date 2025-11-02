@@ -4,11 +4,22 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { CodeEditor } from "@/components/ui/code-editor";
+import dynamic from "next/dynamic";
 import { Code } from "lucide-react";
-import PricingSection from "@/components/PricingSection";
-import { AnimatedBeamMultipleOutputs } from "@/components/AnimatedBeamMultipleOutputs";
 import { useTranslations } from "next-intl";
+
+// Dynamic imports for non-critical components to reduce initial bundle size
+const CodeEditor = dynamic(() => import("@/components/ui/code-editor").then(mod => ({ default: mod.CodeEditor })), {
+  ssr: false,
+});
+
+const PricingSection = dynamic(() => import("@/components/PricingSection"), {
+  loading: () => <div className="w-full h-64 bg-gray-100 dark:bg-gray-800 animate-pulse rounded-lg" />,
+});
+
+const AnimatedBeamMultipleOutputs = dynamic(() => import("@/components/AnimatedBeamMultipleOutputs").then(mod => ({ default: mod.AnimatedBeamMultipleOutputs })), {
+  ssr: false,
+});
 
 // Features Sticky Sections Component
 function FeaturesSlider() {
@@ -156,6 +167,7 @@ allowfullscreen>
                         quality={100}
                         className="w-full h-auto rounded-xl"
                         unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.png')}
+                        loading={index === 0 ? "eager" : "lazy"}
                       />
                     )}
                   </div>
@@ -200,6 +212,7 @@ allowfullscreen>
                       quality={100}
                       className={slide.image.includes('hiring-email-template') ? "w-1/2 h-auto mx-auto" : "w-full h-auto"}
                       unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.png')}
+                      loading={index === 0 ? "eager" : "lazy"}
                     />
                   )}
                 </div>
@@ -359,6 +372,7 @@ export default function Homepage() {
                     height={60}
                     quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
+                    loading="lazy"
                   />
                   <Image
                     src="/img/icon/Frame-1984078831-1.png"
@@ -367,6 +381,7 @@ export default function Homepage() {
                     height={60}
                     quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
+                    loading="lazy"
                   />
                   <Image
                     src="/img/icon/dsvgo-icon.svg"
@@ -375,6 +390,7 @@ export default function Homepage() {
                     height={60}
                     quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
+                    loading="lazy"
                   />
                   <Image
                     src="/img/icon/Frame-2095584493.png"
@@ -383,6 +399,7 @@ export default function Homepage() {
                     height={60}
                     quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
+                    loading="lazy"
                   />
                   <Image
                     src="/img/icon/Frame-1984078831-1.png"
@@ -391,6 +408,7 @@ export default function Homepage() {
                     height={60}
                     quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
+                    loading="lazy"
                   />
                   <Image
                     src="/img/icon/dsvgo-icon.svg"
@@ -399,6 +417,7 @@ export default function Homepage() {
                     height={60}
                     quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -413,6 +432,7 @@ export default function Homepage() {
                     height={60}
                     quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
+                    loading="lazy"
                   />
                   <Image
                     src="/img/icon/at.svg"
@@ -421,6 +441,7 @@ export default function Homepage() {
                     height={60}
                     quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
+                    loading="lazy"
                   />
                   <Image
                     src="/img/icon/de.svg"
@@ -429,6 +450,7 @@ export default function Homepage() {
                     height={60}
                     quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
+                    loading="lazy"
                   />
                   <Image
                     src="/img/icon/trust.svg"
@@ -437,6 +459,7 @@ export default function Homepage() {
                     height={60}
                     quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
+                    loading="lazy"
                   />
                   <Image
                     src="/img/icon/at.svg"
@@ -445,6 +468,7 @@ export default function Homepage() {
                     height={60}
                     quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
+                    loading="lazy"
                   />
                   <Image
                     src="/img/icon/de.svg"
@@ -453,6 +477,7 @@ export default function Homepage() {
                     height={60}
                     quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -467,6 +492,7 @@ export default function Homepage() {
                     height={60}
                     quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
+                    loading="lazy"
                   />
                   <Image
                     src="/img/icon/Frame-2095584495.png"
@@ -475,6 +501,7 @@ export default function Homepage() {
                     height={60}
                     quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
+                    loading="lazy"
                   />
                   <Image
                     src="/img/icon/Frame-2095584496.png"
@@ -483,6 +510,7 @@ export default function Homepage() {
                     height={60}
                     quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
+                    loading="lazy"
                   />
                   <Image
                     src="/img/icon/Frame-2095584494.png"
@@ -491,6 +519,7 @@ export default function Homepage() {
                     height={60}
                     quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
+                    loading="lazy"
                   />
                   <Image
                     src="/img/icon/Frame-2095584495.png"
@@ -499,6 +528,7 @@ export default function Homepage() {
                     height={60}
                     quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
+                    loading="lazy"
                   />
                   <Image
                     src="/img/icon/Frame-2095584496.png"
@@ -507,6 +537,7 @@ export default function Homepage() {
                     height={60}
                     quality={100}
                     className="flex-shrink-0 h-12 w-auto inline-block"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -575,7 +606,7 @@ export default function Homepage() {
                     fill
                     quality={100}
                     className="object-cover"
-                    priority
+                    loading="lazy"
                   />
                   {/* Play Button Overlay */}
                   <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all">
@@ -627,6 +658,7 @@ export default function Homepage() {
                 quality={100}
                 className="w-full h-auto"
                 unoptimized
+                loading="lazy"
               />
             </div>
 
@@ -777,6 +809,7 @@ export default function Homepage() {
                   quality={100}
                   unoptimized
                   className="w-full h-auto"
+                  loading="lazy"
                 />
                 <figcaption className="sr-only">
                   {t("recruitment.figcaption")}

@@ -1,14 +1,9 @@
 import { useState, useEffect } from "react";
-import {
-  ConsentPreferences,
-  UserLocation,
-  ConsentCategory,
-} from "@/types/consent";
+import { ConsentPreferences, ConsentCategory } from "@/types/consent";
 import { ConsentManager } from "@/lib/consentManager";
-import { useGeoLocation } from "./useGeoLocation";
 
 export function useConsent() {
-  const location = useGeoLocation();
+  // No longer need geo-location detection - all options shown to everyone
 
   // Check consent immediately on initialization (synchronously)
   const storedConsent =
@@ -21,7 +16,6 @@ export function useConsent() {
       functional: false,
       analytics: false,
       marketing: false,
-      doNotSell: location === "US-CA" ? false : undefined,
     }
   );
 
@@ -39,10 +33,9 @@ export function useConsent() {
       functional: true,
       analytics: true,
       marketing: true,
-      doNotSell: location === "US-CA" ? false : undefined,
     };
 
-    ConsentManager.saveConsent(newPreferences, location, "banner");
+    ConsentManager.saveConsent(newPreferences, "OTHER", "banner");
     setPreferences(newPreferences);
     setHasConsent(true);
 
@@ -62,10 +55,9 @@ export function useConsent() {
       functional: false,
       analytics: false,
       marketing: false,
-      doNotSell: location === "US-CA" ? true : undefined,
     };
 
-    ConsentManager.saveConsent(newPreferences, location, "banner");
+    ConsentManager.saveConsent(newPreferences, "OTHER", "banner");
     setPreferences(newPreferences);
     setHasConsent(true);
 
@@ -80,7 +72,7 @@ export function useConsent() {
   };
 
   const savePreferences = (newPreferences: ConsentPreferences) => {
-    ConsentManager.saveConsent(newPreferences, location, "preferences");
+    ConsentManager.saveConsent(newPreferences, "OTHER", "preferences");
     setPreferences(newPreferences);
     setHasConsent(true);
 
@@ -101,7 +93,6 @@ export function useConsent() {
   return {
     hasConsent,
     preferences,
-    location,
     acceptAll,
     rejectAll,
     savePreferences,

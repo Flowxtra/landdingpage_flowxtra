@@ -98,10 +98,9 @@ export default async function LocaleLayout({
   const messages = await getMessages({ locale });
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <head>
-        {/* Preconnect to external CDNs for faster loading - Only DNS lookup, no cookies */}
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
+        {/* Preconnect only when Font Awesome will be loaded (after consent) - using dns-prefetch instead to avoid unused preconnect */}
         <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
         
         {/* Apply dark mode immediately before React loads to prevent flash */}

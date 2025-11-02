@@ -59,9 +59,18 @@ export default function FontAwesomeLoader() {
         }
       };
       link.onerror = function() {
-        console.warn('Failed to load Font Awesome from CDN');
+        if (process.env.NODE_ENV === 'development') {
+          console.warn('Failed to load Font Awesome from CDN');
+        }
       };
       document.head.appendChild(link);
+      
+      // Preconnect to CDN after first load (for future requests)
+      const preconnect = document.createElement('link');
+      preconnect.rel = 'preconnect';
+      preconnect.href = 'https://cdnjs.cloudflare.com';
+      preconnect.crossOrigin = 'anonymous';
+      document.head.appendChild(preconnect);
     };
 
     // Initial check

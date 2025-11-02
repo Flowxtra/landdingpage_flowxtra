@@ -239,7 +239,7 @@ const targetingServices: CookieService[] = [
 ];
 
 export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesProps) {
-  const { preferences: initialPrefs, location, savePreferences } = useConsent();
+  const { preferences: initialPrefs, savePreferences } = useConsent();
   const [preferences, setPreferences] = useState<ConsentPrefsType>(initialPrefs);
   const [openSection, setOpenSection] = useState<string | null>(null); // Track which section is open - closed by default
   const [activeTab, setActiveTab] = useState<'declaration' | 'about'>('declaration'); // Track active tab
@@ -252,8 +252,7 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
   const consentData = ConsentManager.getConsent();
   const consentId = consentData?.consentId || 'Not yet generated';
 
-  const isEU = location === 'EU';
-  const isCalifornia = location === 'US-CA';
+  // Always show all options for all users (better compliance)
 
   // Load saved preferences from localStorage when modal opens
   useEffect(() => {
@@ -284,7 +283,6 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
       functional: false,
       analytics: false,
       marketing: false,
-      doNotSell: location === 'US-CA' ? true : undefined,
     };
     savePreferences(necessaryOnly);
     onClose();
@@ -681,36 +679,6 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
               </div>
             </div>
           </div>
-
-              {/* Do Not Sell - CCPA specific */}
-              {isCalifornia && (
-                <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
-                        {t('doNotSell.title')}
-                      </h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
-                        {t('doNotSell.description')}
-                      </p>
-                    </div>
-                    <div className="ml-4">
-                      <label className="relative inline-flex items-center cursor-pointer">
-                        <input
-                          type="checkbox"
-                          checked={preferences.doNotSell === true}
-                          onChange={() => setPreferences(prev => ({
-                            ...prev,
-                            doNotSell: !prev.doNotSell,
-                          }))}
-                          className="sr-only peer"
-                        />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              )}
             </div>
           )}
 
