@@ -66,6 +66,16 @@ export const staticRoutes: StaticRoute[] = [
     },
   },
   {
+    routeKey: "about",
+    priority: 0.8,
+    changeFrequency: "monthly",
+    includeInSitemap: true,
+    paths: {
+      en: "/about",
+      de: "/ueber-uns",
+    },
+  },
+  {
     routeKey: "socialMediaManagement",
     priority: 0.8,
     changeFrequency: "weekly",

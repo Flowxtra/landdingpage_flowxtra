@@ -1150,7 +1150,7 @@ function ReviewsSection() {
 // FAQ Section Component
 function FAQSection() {
   const t = useTranslations("homepage.faq");
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0); // First question open by default
 
   interface FAQLink {
     text: string;

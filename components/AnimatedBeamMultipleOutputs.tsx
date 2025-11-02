@@ -24,7 +24,15 @@ const Circle = forwardRef<
 
 Circle.displayName = "Circle";
 
-export function AnimatedBeamMultipleOutputs({ className }: { className?: string }) {
+export function AnimatedBeamMultipleOutputs({ 
+  className,
+  facebookConnected = false,
+  instagramConnected = false,
+}: { 
+  className?: string;
+  facebookConnected?: boolean;
+  instagramConnected?: boolean;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const div1Ref = useRef<HTMLDivElement>(null);
   const div2Ref = useRef<HTMLDivElement>(null);
@@ -45,7 +53,7 @@ export function AnimatedBeamMultipleOutputs({ className }: { className?: string 
       <div className="flex size-full max-w-lg flex-row items-stretch justify-between gap-10">
         <div className="flex flex-col justify-center">
           <Circle ref={div7Ref} className="border-primary dark:border-secondary">
-            <Icons.website />
+            <Icons.user />
           </Circle>
         </div>
         <div className="flex flex-col justify-center">
@@ -89,51 +97,68 @@ export function AnimatedBeamMultipleOutputs({ className }: { className?: string 
         </div>
       </div>
 
+      {/* Lines from Social Media to Flowxtra - All with unified timing and colors */}
+      {/* LinkedIn - Always connected */}
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div1Ref}
         toRef={div6Ref}
         duration={3}
+        delay={0}
         gradientStartColor="#003f4d"
         gradientStopColor="#00A8CD"
       />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div2Ref}
-        toRef={div6Ref}
-        duration={3}
-        gradientStartColor="#003f4d"
-        gradientStopColor="#00A8CD"
-      />
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div3Ref}
-        toRef={div6Ref}
-        duration={3}
-        gradientStartColor="#003f4d"
-        gradientStopColor="#00A8CD"
-      />
+      {/* Facebook - Only show when connected */}
+      {facebookConnected && (
+        <AnimatedBeam
+          containerRef={containerRef}
+          fromRef={div2Ref}
+          toRef={div6Ref}
+          duration={3}
+          delay={0}
+          gradientStartColor="#003f4d"
+          gradientStopColor="#00A8CD"
+        />
+      )}
+      {/* Instagram - Only show when connected */}
+      {instagramConnected && (
+        <AnimatedBeam
+          containerRef={containerRef}
+          fromRef={div3Ref}
+          toRef={div6Ref}
+          duration={3}
+          delay={0}
+          gradientStartColor="#003f4d"
+          gradientStopColor="#00A8CD"
+        />
+      )}
+      {/* Twitter - Always connected */}
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div4Ref}
         toRef={div6Ref}
         duration={3}
+        delay={0}
         gradientStartColor="#003f4d"
         gradientStopColor="#00A8CD"
       />
+      {/* Job Board - Always connected */}
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div5Ref}
         toRef={div6Ref}
         duration={3}
+        delay={0}
         gradientStartColor="#003f4d"
         gradientStopColor="#00A8CD"
       />
+      {/* Line from Flowxtra to User - Always connected */}
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={div6Ref}
         toRef={div7Ref}
         duration={3}
+        delay={0}
         gradientStartColor="#003f4d"
         gradientStopColor="#00A8CD"
       />
@@ -167,6 +192,12 @@ const Icons = {
   twitter: () => (
     <svg className="h-full w-full" viewBox="0 0 24 24" fill="#000000">
       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    </svg>
+  ),
+  user: () => (
+    <svg className="h-full w-full" viewBox="0 0 24 24" fill="none" stroke="#003f4d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+      <circle cx="12" cy="7" r="4"/>
     </svg>
   ),
   website: () => (

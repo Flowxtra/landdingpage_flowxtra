@@ -233,7 +233,7 @@ export default function ContactUs() {
                   className="w-full h-auto rounded-lg"
                 />
                 <figcaption className="sr-only">
-                  Manage job posts, candidates, and contracts with AI — all in one place, 100% free.
+                  Manage job posts, candidates, and contracts with AI — all in one place, Free.
                 </figcaption>
               </figure>
             </div>

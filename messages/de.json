@@ -317,6 +317,35 @@
         "imageTitle": "Flowxtra – All-in-One KI-Recruiting & HR-Plattform",
         "figcaption": "Verwalten Sie Stellenanzeigen, Kandidaten und Verträge mit KI — alles an einem Ort, 100% kostenlos."
     },
+    "about": {
+        "badge": "Über uns",
+        "title": "Die Zukunft der Rekrutierung gestalten",
+        "description": "Flowxtra hat es sich zur Aufgabe gemacht, die Art und Weise zu transformieren, wie Unternehmen Talente einstellen. Wir kombinieren modernste KI-Technologie mit intuitivem Design, um Rekrutierung schneller, intelligenter und für jeden zugänglicher zu machen.",
+        "mission": {
+            "title": "Unsere Mission",
+            "description": "Wir glauben, dass die Suche und Einstellung der richtigen Talente nicht kompliziert oder teuer sein sollte. Deshalb haben wir Flowxtra entwickelt—eine umfassende Plattform, die jeden Schritt des Rekrutierungsprozesses vereinfacht.",
+            "description2": "Von der Veröffentlichung von Stellenanzeigen auf mehreren Plattformen bis zur Verwaltung von Kandidaten mit KI-gestützter Filterung sind wir hier, um Unternehmen jeder Größe dabei zu helfen, stärkere Teams aufzubauen."
+        },
+        "values": {
+            "title": "Unsere Kernwerte",
+            "innovation": {
+                "title": "Innovation",
+                "description": "Wir erweitern ständig die Grenzen dessen, was in der Rekrutierungstechnologie möglich ist."
+            },
+            "transparency": {
+                "title": "Transparenz",
+                "description": "Wir glauben an ehrliche, klare Kommunikation und transparente Preise—keine versteckten Gebühren, niemals."
+            },
+            "security": {
+                "title": "Sicherheit & Datenschutz",
+                "description": "Ihre Daten sind sicher. Wir sind DSGVO-konform und speichern alle Daten auf EU-Servern mit den höchsten Sicherheitsstandards."
+            }
+        },
+        "team": {
+            "title": "Unser Team",
+            "description": "Mit Sitz in Wien, Österreich, sind wir ein engagiertes Team aus Entwicklern, Designern und HR-Fachkräften, die sich leidenschaftlich dafür einsetzen, Rekrutierung für jeden besser zu machen."
+        }
+    },
     "accessibility": {
         "title": "Barrierefreiheitserklärung",
         "subtitle": "Unser Engagement für Web-Barrierefreiheit und WCAG-Konformität",
@@ -869,6 +898,112 @@
             "next": "Nächste",
             "relatedPosts": "Verwandte Artikel",
             "writtenBy": "Geschrieben von {author}"
+        }
+    },
+    "socialMediaManagement": {
+        "title": "Social Media Management",
+        "description": "Verwalten und analysieren Sie Ihre Social-Media-Kanäle von einer Plattform aus. Unser Social Media Manager spart Zeit, hält Sie organisiert und hilft Ihnen, Ihre Online-Präsenz zu vergrößern.",
+        "cta": "Loslegen",
+        "features": {
+            "freeForever": "100% kostenlos für immer",
+            "noCreditCard": "Keine Kreditkarte erforderlich",
+            "cancelAnytime": "Jederzeit kündbar"
+        },
+        "imageAlt": "Social Media Management Plattform - Verwalten Sie alle Ihre Social-Media-Kanäle von einem Ort aus",
+        "imageTitle": "Flowxtra – Social Media Management Plattform",
+        "figcaption": "Verwalten und analysieren Sie Ihre Social-Media-Kanäle von einer Plattform aus",
+        "sections": {
+            "section1": {
+                "title": "Führen Sie Ihre Social-Media-Kanäle wie ein Unternehmen, keine Belastung",
+                "description": "Verbinden Sie alle Ihre Social-Media-Konten — Instagram, Facebook, LinkedIn, TikTok und X — und verwalten Sie sie über ein intelligentes Dashboard.",
+                "paragraph1": "Kein Wechseln mehr zwischen Tools oder Verschwendung von Stunden für sich wiederholende Aufgaben.",
+                "paragraph2": "Flowxtra hilft Ihnen, Ihre Social-Media-Aktivitäten an einem Ort zu planen, zu posten und zu analysieren — Ihre Marke bleibt konsistent, effizient und immer aktiv.",
+                "cta": "Kostenlos registrieren"
+            },
+            "section2": {
+                "title": "Ihre Daten bleiben Ihre",
+                "description": "Flowxtra gibt Ihnen die volle Kontrolle über Ihre Daten.",
+                "paragraph1": "Alle Ihre Dateien werden sicher in Ihrem eigenen verbundenen Speicher gespeichert — Google Drive, Dropbox oder AWS — nicht auf unseren Servern.",
+                "paragraph2": "Wir speichern nur die minimalen technischen Daten, die erforderlich sind, um Ihre Dienste nahtlos zu verbinden und zu synchronisieren.",
+                "paragraph3": "Ihre Privatsphäre, Ihre Kontrolle, Ihre Daten — immer geschützt.",
+                "cta": "Kostenlos registrieren"
+            },
+            "section3": {
+                "title": "Planen und steuern Sie jeden Beitrag aus einem visuellen Kalender",
+                "description": "Hören Sie auf, zwischen Plattformen zu wechseln oder zu raten, was als Nächstes gepostet werden soll.",
+                "paragraph1": "Flowxtras visueller Content-Kalender bringt alle Ihre geplanten Beiträge — von Instagram, Facebook, LinkedIn, TikTok und X — in eine klare, einheitliche Ansicht.",
+                "features": {
+                    "feature1": "Einmal planen, überall veröffentlichen.",
+                    "feature2": "Per Drag & Drop sofort anpassen.",
+                    "feature3": "Bleiben Sie konsistent und verpassen Sie nie einen Beitrag."
+                },
+                "paragraph2": "Planen Sie Kampagnen, verfolgen Sie die Leistung und halten Sie Ihre gesamte Social-Media-Strategie perfekt organisiert — alles aus einem intelligenten, visuellen Arbeitsbereich.",
+                "cta": "Kostenlos registrieren"
+            },
+            "section4": {
+                "title": "Ihr KI-Assistent für mühelose Content-Erstellung",
+                "description": "Hören Sie auf, Zeit mit leeren Bildschirmen zu verschwenden.",
+                "paragraph1": "Flowxtras integrierter KI-Assistent hilft Ihnen beim Erstellen ansprechender Beiträge, beim Generieren kreativer Beschriftungen und beim Anpassen Ihres Tons für jede Plattform — ob LinkedIn, Instagram, TikTok oder X.",
+                "features": {
+                    "feature1": "Ideen und Beschriftungen sofort generieren.",
+                    "feature2": "Ton und Sprache für jeden Kanal optimieren.",
+                    "feature3": "Zeit sparen und Ihre Marke konsistent halten."
+                },
+                "paragraph2": "Erstellen Sie in Sekunden hochwertige Inhalte und halten Sie Ihre Social-Media-Kanäle aktiv — ohne die Energie Ihres Teams zu verschwenden.",
+                "cta": "Kostenlos registrieren"
+            },
+            "section5": {
+                "title": "Pipelines erstellen und teilen — ohne vollständigen Zugriff zu gewähren",
+                "description": "Arbeiten Sie sicher mit Ihrem Team oder Partnern zusammen, indem Sie Flowxtra Pipelines verwenden.",
+                "paragraph1": "Weisen Sie bestimmte Social-Media-Konten zu, generieren Sie einen eindeutigen teilbaren Link und lassen Sie andere Beiträge erstellen oder veröffentlichen — alles ohne Zugriff auf Ihr Flowxtra-Dashboard oder Social-Media-Konten.",
+                "features": {
+                    "feature1": "Veröffentlichungszugriff über sichere Links teilen.",
+                    "feature2": "Erstellen Sie Pipelines für Teams, Kunden oder Abteilungen.",
+                    "feature3": "Kontrollieren Sie Berechtigungen und behalten Sie die volle Plattformsicherheit bei."
+                },
+                "paragraph2": "Perfekt für Marketingagenturen, große Teams und Unternehmen mit mehreren Abteilungen — fördert Zusammenarbeit ohne Kompromisse bei der Kontrolle.",
+                "cta": "Social Media Pipeline ausprobieren"
+            },
+            "ctaSection": {
+                "title": "Bereit, schlauer und schneller einzustellen?",
+                "description": "Verschwenden Sie keine Zeit mehr mit dem Wechseln zwischen Jobbörsen. Stellen Sie Jobs ein, verfolgen Sie Bewerber und stellen Sie Top-Talente ein — alles von einer intelligenten Recruiting-Plattform aus.",
+                "cta": "Starten Sie Ihren kostenlosen Plan"
+            },
+            "faq": {
+                "title": "Häufig gestellte Fragen",
+                "helpText": "Brauchen Sie noch Hilfe?",
+                "chatLink": "Chatten Sie mit uns",
+                "questions": {
+                    "q1": {
+                        "question": "Ist Flowxtra Social Media Management kostenlos?",
+                        "answer": "Ja — Flowxtra Social Media Management bietet einen kostenlosen Plan, der bis zu 5 Social-Media-Konten umfasst. Sie können Ihre Konten von Instagram, Facebook, LinkedIn, TikTok und X verbinden, sie über ein Dashboard verwalten, Beiträge planen und Ihre Aktivität kostenlos analysieren. Wenn Sie mehr als 5 Konten benötigen, können Sie auf einen kostenpflichtigen Plan upgraden. Die einzige kostenpflichtige Funktion ist Social Media Pipeline, mit der Sie mit Teams und Partnern zusammenarbeiten können, ohne vollen Zugriff auf Ihre Konten zu gewähren."
+                    },
+                    "q2": {
+                        "question": "Was ist Social Media Pipeline und warum brauche ich es?",
+                        "answer": "Social Media Pipeline ist eine kostenpflichtige Funktion, die sichere Zusammenarbeit ermöglicht. Mit einem Pipeline-Abonnement können Sie bis zu 2 Social-Media-Konten an Teammitglieder, Kunden oder Abteilungen zuweisen, eindeutige teilbare Links generieren und andere Beiträge erstellen oder veröffentlichen lassen—alles ohne Zugriff auf Ihr Flowxtra-Dashboard oder Social-Media-Konten. Es ist perfekt für Marketingagenturen, große Teams und Unternehmen mit mehreren Abteilungen, die Zusammenarbeit fördern möchten, ohne die Kontrolle zu verlieren."
+                    },
+                    "q3": {
+                        "question": "Wie viele Social-Media-Konten kann ich verbinden?",
+                        "answer": "Mit dem kostenlosen Plan können Sie bis zu 5 Social-Media-Konten von verschiedenen Plattformen (Instagram, Facebook, LinkedIn, TikTok, X) mit Ihrem Flowxtra-Dashboard verbinden. Alle Konten werden über eine einheitliche Benutzeroberfläche verwaltet, sodass es einfach ist, Ihre Social-Media-Aktivitäten auf allen Plattformen zu planen, zu planen und zu verfolgen. Wenn Sie mehr als 5 Konten benötigen, können Sie auf ein kostenpflichtiges Abonnement upgraden."
+                    },
+                    "q4": {
+                        "question": "Kann ich Beiträge für mehrere Plattformen gleichzeitig planen?",
+                        "answer": "Ja! Flowxtras visueller Content-Kalender ermöglicht es Ihnen, Beiträge für alle Ihre verbundenen Plattformen (Instagram, Facebook, LinkedIn, TikTok und X) von einem Ort aus zu planen. Planen Sie einmal und veröffentlichen Sie überall, oder passen Sie Beiträge für jede Plattform individuell an. Sie können auch per Drag & Drop Ihren Posting-Zeitplan sofort anpassen."
+                    },
+                    "q5": {
+                        "question": "Wo werden meine Daten gespeichert?",
+                        "answer": "Ihre Privatsphäre und Datensicherheit haben für uns oberste Priorität. Alle Ihre Dateien werden sicher in Ihrem eigenen verbundenen Speicher—Google Drive, Dropbox oder AWS—gespeichert, nicht auf unseren Servern. Flowxtra speichert nur die minimalen technischen Daten, die erforderlich sind, um Ihre Dienste nahtlos zu verbinden und zu synchronisieren. Ihre Daten bleiben Ihre, immer geschützt."
+                    },
+                    "q6": {
+                        "question": "Hat Flowxtra einen KI-Assistenten für die Content-Erstellung?",
+                        "answer": "Ja! Flowxtra enthält einen integrierten KI-Assistenten, der Ihnen hilft, ansprechende Beiträge zu erstellen, kreative Beschriftungen zu generieren und Ihren Ton für jede Plattform anzupassen. Egal, ob Sie Inhalte für LinkedIn, Instagram, TikTok oder X erstellen, der KI-Assistent kann Ideen und Beschriftungen sofort generieren, Ton und Sprache für jeden Kanal optimieren und Zeit sparen, während Ihre Marke konsistent bleibt."
+                    },
+                    "q7": {
+                        "question": "Kann ich jederzeit kündigen?",
+                        "answer": "Ja, absolut. Da die Kernfunktionen von Social Media Management kostenlos sind, können Sie sie unbegrenzt ohne Verpflichtung nutzen. Wenn Sie die kostenpflichtige Funktion Social Media Pipeline verwenden, können Sie jederzeit ohne Strafen oder langfristige Verträge kündigen."
+                    }
+                }
+            }
         }
     }
 }

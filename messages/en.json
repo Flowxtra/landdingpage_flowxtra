@@ -315,7 +315,36 @@
         },
         "imageAlt": "AI-powered recruiting and HR platform for smarter hiring",
         "imageTitle": "Flowxtra – All-in-One AI Recruiting & HR Platform",
-        "figcaption": "Manage job posts, candidates, and contracts with AI — all in one place, 100% free."
+        "figcaption": "Manage job posts, candidates, and contracts with AI — all in one place, Free."
+    },
+    "about": {
+        "badge": "About Us",
+        "title": "Building the Future of Recruitment",
+        "description": "Flowxtra is on a mission to transform how businesses hire talent. We combine cutting-edge AI technology with intuitive design to make recruitment faster, smarter, and more accessible for everyone.",
+        "mission": {
+            "title": "Our Mission",
+            "description": "We believe that finding and hiring the right talent shouldn't be complicated or expensive. That's why we've built Flowxtra—a comprehensive platform that simplifies every step of the recruitment process.",
+            "description2": "From posting jobs across multiple platforms to managing candidates with AI-powered filtering, we're here to help businesses of all sizes build stronger teams."
+        },
+        "values": {
+            "title": "Our Core Values",
+            "innovation": {
+                "title": "Innovation",
+                "description": "We constantly push the boundaries of what's possible in recruitment technology."
+            },
+            "transparency": {
+                "title": "Transparency",
+                "description": "We believe in honest, clear communication and transparent pricing—no hidden fees, ever."
+            },
+            "security": {
+                "title": "Security & Privacy",
+                "description": "Your data is secure. We're GDPR compliant and store all data in EU servers with the highest security standards."
+            }
+        },
+        "team": {
+            "title": "Our Team",
+            "description": "Based in Vienna, Austria, we're a dedicated team of developers, designers, and HR professionals passionate about making recruitment better for everyone."
+        }
     },
     "accessibility": {
         "title": "Accessibility Statement",
@@ -869,6 +898,112 @@
             "next": "Next",
             "relatedPosts": "Related Posts",
             "writtenBy": "Written by {author}"
+        }
+    },
+    "socialMediaManagement": {
+        "title": "Social Media Management",
+        "description": "Manage and analyze your social channels from one platform. Our Social Media Manager saves time, keeps you organized, and helps grow your online presence.",
+        "cta": "Get Started",
+        "features": {
+            "freeForever": "100% Free",
+            "noCreditCard": "No credit card required",
+            "cancelAnytime": "Cancel anytime"
+        },
+        "imageAlt": "Social Media Management Platform - Manage all your social channels from one place",
+        "imageTitle": "Flowxtra – Social Media Management Platform",
+        "figcaption": "Manage and analyze your social channels from one platform",
+        "sections": {
+            "section1": {
+                "title": "Run your social media like a business, not a burden",
+                "description": "Connect all your social media accounts — Instagram, Facebook, LinkedIn, TikTok, and X — and manage them from one smart dashboard.",
+                "paragraph1": "No more switching between tools or wasting hours on repetitive tasks.",
+                "paragraph2": "Flowxtra helps you plan, post, and analyze your social media activity in one place — keeping your brand consistent, efficient, and always active.",
+                "cta": "Register For Free"
+            },
+            "section2": {
+                "title": "Your Data Stays Yours",
+                "description": "Flowxtra gives you full control over your data.",
+                "paragraph1": "All your files are securely stored in your own connected storage — Google Drive, Dropbox, or AWS — not on our servers.",
+                "paragraph2": "We only keep the minimal technical data required to connect and synchronize your services seamlessly.",
+                "paragraph3": "Your privacy, your control, your data — always protected.",
+                "cta": "Register For Free"
+            },
+            "section3": {
+                "title": "Plan and Control Every Post from One Visual Calendar",
+                "description": "Stop switching between platforms or guessing what to post next.",
+                "paragraph1": "Flowxtra's Visual Content Calendar brings all your scheduled posts — across Instagram, Facebook, LinkedIn, TikTok, and X — into one clear, unified view.",
+                "features": {
+                    "feature1": "Schedule once, publish everywhere.",
+                    "feature2": "Drag and drop to adjust instantly.",
+                    "feature3": "Stay consistent and never miss a post."
+                },
+                "paragraph2": "Plan campaigns, track performance, and keep your entire social strategy perfectly organized — all from one smart, visual workspace.",
+                "cta": "Register For Free"
+            },
+            "section4": {
+                "title": "Your AI Assistant for Effortless Content Creation",
+                "description": "Stop wasting time on blank screens.",
+                "paragraph1": "Flowxtra's built-in AI Assistant helps you craft engaging posts, generate creative captions, and adapt your tone for every platform — whether it's LinkedIn, Instagram, TikTok, or X.",
+                "features": {
+                    "feature1": "Generate ideas and captions instantly.",
+                    "feature2": "Optimize tone and language for each channel.",
+                    "feature3": "Save time while keeping your brand consistent."
+                },
+                "paragraph2": "Create high-performing content in seconds and keep your social media active — without draining your team's energy.",
+                "cta": "Register For Free"
+            },
+            "section5": {
+                "title": "Create and Share Pipelines — Without Giving Full Access",
+                "description": "Collaborate securely with your team or partners using Flowxtra Pipelines.",
+                "paragraph1": "Assign specific social media accounts, generate a unique shareable link, and let others create or publish posts — all without accessing your Flowxtra dashboard or social accounts.",
+                "features": {
+                    "feature1": "Share publishing access via secure links.",
+                    "feature2": "Create pipelines for teams, clients, or departments.",
+                    "feature3": "Control permissions and keep full platform security."
+                },
+                "paragraph2": "Perfect for marketing agencies, large teams, and companies with multiple departments — empowering collaboration without compromising control.",
+                "cta": "Try Social Media Pipeline"
+            },
+            "ctaSection": {
+                "title": "Ready to Hire Smarter and Faster?",
+                "description": "Stop wasting time switching between job boards. Post jobs, track applicants, and hire top talent—all from one intelligent recruiting platform.",
+                "cta": "Start your free plan"
+            },
+            "faq": {
+                "title": "Frequently Asked Questions",
+                "helpText": "Still need help?",
+                "chatLink": "Chat with us",
+                "questions": {
+                    "q1": {
+                        "question": "Is Flowxtra Social Media Management free to use?",
+                        "answer": "Yes — Flowxtra Social Media Management offers a free plan that includes up to 5 social media accounts. You can connect your accounts from Instagram, Facebook, LinkedIn, TikTok, and X, manage them from one dashboard, schedule posts, and analyze your activity at no cost. If you need more than 5 accounts, you can upgrade to a paid plan. The only paid feature is the Social Media Pipeline, which allows you to collaborate with teams and partners without giving full access to your accounts."
+                    },
+                    "q2": {
+                        "question": "What is Social Media Pipeline and why do I need it?",
+                        "answer": "Social Media Pipeline is a paid feature that enables secure collaboration. With one Pipeline subscription, you can assign up to 2 social media accounts to team members, clients, or departments, generate unique shareable links, and let others create or publish posts—all without accessing your Flowxtra dashboard or social accounts. It's perfect for marketing agencies, large teams, and companies with multiple departments who need to empower collaboration without compromising control."
+                    },
+                    "q3": {
+                        "question": "How many social media accounts can I connect?",
+                        "answer": "With the free plan, you can connect up to 5 social media accounts from different platforms (Instagram, Facebook, LinkedIn, TikTok, X) to your Flowxtra dashboard. All accounts are managed from one unified interface, making it easy to plan, schedule, and track your social media activity across all platforms. If you need more than 5 accounts, you can upgrade to a paid subscription plan."
+                    },
+                    "q4": {
+                        "question": "Can I schedule posts for multiple platforms at once?",
+                        "answer": "Yes! Flowxtra's Visual Content Calendar allows you to schedule posts across all your connected platforms (Instagram, Facebook, LinkedIn, TikTok, and X) from one place. Schedule once and publish everywhere, or customize posts for each platform individually. You can also drag and drop to adjust your posting schedule instantly."
+                    },
+                    "q5": {
+                        "question": "Where is my data stored?",
+                        "answer": "Your privacy and data security are our top priorities. All your files are securely stored in your own connected storage—Google Drive, Dropbox, or AWS—not on our servers. Flowxtra only keeps the minimal technical data required to connect and synchronize your services seamlessly. Your data stays yours, always protected."
+                    },
+                    "q6": {
+                        "question": "Does Flowxtra have an AI assistant for content creation?",
+                        "answer": "Yes! Flowxtra includes a built-in AI Assistant that helps you craft engaging posts, generate creative captions, and adapt your tone for every platform. Whether you're creating content for LinkedIn, Instagram, TikTok, or X, the AI Assistant can generate ideas and captions instantly, optimize tone and language for each channel, and save time while keeping your brand consistent."
+                    },
+                    "q7": {
+                        "question": "Can I cancel anytime?",
+                        "answer": "Yes, absolutely. Since the core Social Media Management features are free, you can use them indefinitely without any commitment. If you're using the paid Social Media Pipeline feature, you can cancel anytime without any penalties or long-term contracts."
+                    }
+                }
+            }
         }
     }
 }
