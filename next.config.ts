@@ -29,6 +29,56 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   compress: true,
   poweredByHeader: false,
+  // Enable bfcache for better performance
+  async rewrites() {
+    return [
+      // Rewrite sitemap blog URLs to match desired format
+      // /sitemap-en-blog-0.xml -> /sitemap/en/blog/0
+      {
+        source: "/sitemap-:locale-blog-:index.xml",
+        destination: "/sitemap/:locale/blog/:index",
+      },
+      // Rewrite sitemap static URLs to match desired format
+      // /sitemap-static-en.xml -> /sitemap-static/en
+      {
+        source: "/sitemap-static-:locale.xml",
+        destination: "/sitemap-static/:locale",
+      },
+    ];
+  },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=0, must-revalidate",
+          },
+        ],
+      },
+      // Optimize CSS delivery - long cache for immutable CSS files
+      {
+        source: "/_next/static/css/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      // Optimize font delivery
+      {
+        source: "/fonts/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+    ];
+  },
   // swcMinify is enabled by default in Next.js 15+
   experimental: {
     // optimizeCss requires 'critters' package - commented out to avoid build errors

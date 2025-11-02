@@ -8,22 +8,25 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {locale} = await params;
   
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
+  
   const metadata = {
     en: {
       title: "Blog – Flowxtra | Smart Hiring Insights & Recruitment Trends",
       description: "Discover practical strategies, expert tips, and the latest updates shaping the future of recruitment and talent management.",
       keywords: ["recruitment blog", "hiring tips", "HR insights", "talent management", "recruiting trends", "ATS blog"],
+      metadataBase: new URL(baseUrl),
       openGraph: {
         title: "Blog – Flowxtra | Smart Hiring Insights & Recruitment Trends",
         description: "Discover practical strategies, expert tips, and the latest updates shaping the future of recruitment and talent management.",
-        url: "https://flowxtra.com/en/blog",
+        url: `${baseUrl}/en/blog`,
         type: "website",
       },
       alternates: {
-        canonical: "https://flowxtra.com/en/blog",
+        canonical: `${baseUrl}/en/blog`,
         languages: {
-          'en': 'https://flowxtra.com/en/blog',
-          'de': 'https://flowxtra.com/de/blog',
+          'en': `${baseUrl}/en/blog`,
+          'de': `${baseUrl}/de/blog`,
         },
       },
     },
@@ -31,17 +34,18 @@ export async function generateMetadata({
       title: "Blog – Flowxtra | Intelligente Einstellungserkenntnisse & Rekrutierungstrends",
       description: "Entdecken Sie praktische Strategien, Experten-Tipps und die neuesten Updates, die die Zukunft der Rekrutierung und Talentmanagement prägen.",
       keywords: ["rekrutierungsblog", "einstellungstipps", "hr-erkenntnisse", "talentmanagement", "rekrutierungstrends", "ats-blog"],
+      metadataBase: new URL(baseUrl),
       openGraph: {
         title: "Blog – Flowxtra | Intelligente Einstellungserkenntnisse & Rekrutierungstrends",
         description: "Entdecken Sie praktische Strategien, Experten-Tipps und die neuesten Updates, die die Zukunft der Rekrutierung und Talentmanagement prägen.",
-        url: "https://flowxtra.com/de/blog",
+        url: `${baseUrl}/de/blog`,
         type: "website",
       },
       alternates: {
-        canonical: "https://flowxtra.com/de/blog",
+        canonical: `${baseUrl}/de/blog`,
         languages: {
-          'en': 'https://flowxtra.com/en/blog',
-          'de': 'https://flowxtra.com/de/blog',
+          'en': `${baseUrl}/en/blog`,
+          'de': `${baseUrl}/de/blog`,
         },
       },
     },

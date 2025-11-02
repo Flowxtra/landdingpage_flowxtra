@@ -62,11 +62,19 @@ export async function POST(request: NextRequest) {
 
     console.log("✅ Consent logged:", consentLog);
 
-    return NextResponse.json({
-      success: true,
-      message: "Consent logged successfully",
-      consentId: body.consentId,
-    });
+    return NextResponse.json(
+      {
+        success: true,
+        message: "Consent logged successfully",
+        consentId: body.consentId,
+      },
+      {
+        headers: {
+          // Enable bfcache (back/forward cache) - allow caching
+          "Cache-Control": "public, max-age=31536000, immutable",
+        },
+      }
+    );
   } catch (error) {
     console.error("❌ Error logging consent:", error);
 
@@ -75,7 +83,13 @@ export async function POST(request: NextRequest) {
         success: false,
         message: "Failed to log consent",
       },
-      { status: 500 }
+      {
+        status: 500,
+        headers: {
+          // Enable bfcache even for errors (non-sensitive data)
+          "Cache-Control": "public, max-age=60",
+        },
+      }
     );
   }
 }

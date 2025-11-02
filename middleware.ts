@@ -1,5 +1,6 @@
 import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
+import { supportedLocales, defaultLocale } from "@/lib/locales";
 
 // Translated route mappings (German → English internal paths)
 const germanToEnglish: { [key: string]: string } = {
@@ -22,11 +23,11 @@ const englishToGerman: { [key: string]: string } = {
 };
 
 const intlMiddleware = createMiddleware({
-  // All supported locales
-  locales: ["en", "de"],
+  // All supported locales - dynamically loaded from lib/locales.ts
+  locales: supportedLocales,
 
-  // Default locale (fallback) - English
-  defaultLocale: "en",
+  // Default locale (fallback) - dynamically loaded from lib/locales.ts
+  defaultLocale: defaultLocale,
 
   // Enable automatic locale detection from browser
   localeDetection: true,
@@ -53,7 +54,15 @@ export default function middleware(request: NextRequest) {
   }
 
   // Run next-intl middleware
-  return intlMiddleware(request);
+  const response = intlMiddleware(request);
+
+  // Enable bfcache (back/forward cache) by not setting no-store
+  // Only set cache headers for pages, not for API routes or static files
+  if (response && !pathname.startsWith("/api") && !pathname.includes(".")) {
+    response.headers.set("Cache-Control", "public, max-age=0, must-revalidate");
+  }
+
+  return response;
 }
 
 export const config = {

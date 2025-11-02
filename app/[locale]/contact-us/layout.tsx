@@ -8,22 +8,25 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {locale} = await params;
   
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
+  
   const metadata = {
     en: {
       title: "Contact Us – Flowxtra Support | Get Help with Recruiting Software",
       description: "Have questions about Flowxtra? Contact our support team for help with recruiting software, ATS features, and hiring solutions. We respond within 24 hours.",
       keywords: ["contact flowxtra", "recruiting software support", "ATS help", "customer support", "hiring platform contact"],
+      metadataBase: new URL(baseUrl),
       openGraph: {
         title: "Contact Us – Flowxtra Support | Get Help with Recruiting Software",
         description: "Have questions about Flowxtra? Contact our support team for help with recruiting software, ATS features, and hiring solutions. We respond within 24 hours.",
-        url: "https://flowxtra.com/en/contact-us",
+        url: `${baseUrl}/en/contact-us`,
         type: "website",
       },
       alternates: {
-        canonical: "https://flowxtra.com/en/contact-us",
+        canonical: `${baseUrl}/en/contact-us`,
         languages: {
-          'en': 'https://flowxtra.com/en/contact-us',
-          'de': 'https://flowxtra.com/de/kontakt',
+          'en': `${baseUrl}/en/contact-us`,
+          'de': `${baseUrl}/de/kontakt`,
         },
       },
     },
@@ -31,17 +34,18 @@ export async function generateMetadata({
       title: "Kontakt – Flowxtra Support | Hilfe bei Recruiting-Software",
       description: "Haben Sie Fragen zu Flowxtra? Kontaktieren Sie unser Support-Team für Hilfe mit Recruiting-Software, ATS-Funktionen und Einstellungslösungen. Wir antworten innerhalb von 24 Stunden.",
       keywords: ["flowxtra kontakt", "recruiting-software support", "ATS hilfe", "kundensupport", "einstellungsplattform kontakt"],
+      metadataBase: new URL(baseUrl),
       openGraph: {
         title: "Kontakt – Flowxtra Support | Hilfe bei Recruiting-Software",
         description: "Haben Sie Fragen zu Flowxtra? Kontaktieren Sie unser Support-Team für Hilfe mit Recruiting-Software, ATS-Funktionen und Einstellungslösungen. Wir antworten innerhalb von 24 Stunden.",
-        url: "https://flowxtra.com/de/kontakt",
+        url: `${baseUrl}/de/kontakt`,
         type: "website",
       },
       alternates: {
-        canonical: "https://flowxtra.com/de/kontakt",
+        canonical: `${baseUrl}/de/kontakt`,
         languages: {
-          'en': 'https://flowxtra.com/en/contact-us',
-          'de': 'https://flowxtra.com/de/kontakt',
+          'en': `${baseUrl}/en/contact-us`,
+          'de': `${baseUrl}/de/kontakt`,
         },
       },
     },

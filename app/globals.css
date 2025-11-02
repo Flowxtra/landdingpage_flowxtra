@@ -102,7 +102,7 @@ body {
   animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Cookie Banner Slide Up Animation */
+/* Cookie Banner Slide Up Animation - Deferred loading with will-change */
 @keyframes slideUp {
   from {
     transform: translateY(100%);
@@ -116,6 +116,7 @@ body {
 
 .animate-slideUp {
   animation: slideUp 0.3s ease-out;
+  will-change: transform, opacity; /* Optimize animation performance */
 }
 
 @layer utilities {

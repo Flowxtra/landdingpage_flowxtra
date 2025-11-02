@@ -615,9 +615,113 @@ Development: http://localhost:8000 (or your dev server)
 
 ---
 
+## 🗺️ Sitemap Requirements
+
+### Overview
+
+The sitemap automatically includes all published blog posts for SEO. The frontend generates `sitemap.xml` dynamically by fetching all blog posts from the API.
+
+### API Requirements for Sitemap
+
+#### 1. Pagination Support
+
+The sitemap generator uses pagination to fetch all blog posts. The API **MUST** support:
+
+- **Pagination parameters**: `page` and `limit`
+- **Complete pagination metadata** in response
+- **Efficient page fetching** (recommended limit: 100 posts per page)
+
+#### 2. Required Response Format
+
+For sitemap generation, the API endpoint `/api/blog` must return:
+
+```json
+{
+  "success": true,
+  "data": {
+    "posts": [
+      {
+        "id": 1,
+        "slug": "how-ai-is-transforming-frontend-development",
+        "date": "2024-01-15",
+        "updatedAt": "2024-01-20"
+      }
+    ],
+    "pagination": {
+      "currentPage": 1,
+      "totalPages": 10,
+      "totalPosts": 987,
+      "hasNextPage": true,
+      "hasPreviousPage": false
+    }
+  }
+}
+```
+
+#### 3. Critical Fields for Sitemap
+
+Each post in the `posts` array **MUST** include:
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `id` | Number | ✅ Yes | Unique post identifier |
+| `slug` | String | ✅ Yes | URL-friendly identifier |
+| `date` | String (ISO 8601) | ✅ Yes | Publication date: `YYYY-MM-DD` |
+| `updatedAt` | String (ISO 8601) | ❌ No | Last update date: `YYYY-MM-DD` (falls back to `date` if not provided) |
+
+#### 4. Pagination Metadata Requirements
+
+The `pagination` object **MUST** include:
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `currentPage` | Number | ✅ Yes | Current page number (starts at 1) |
+| `totalPages` | Number | ✅ Yes | Total number of pages |
+| `totalPosts` | Number | ✅ Yes | Total number of published posts |
+| `hasNextPage` | Boolean | ✅ Yes | Whether there's a next page |
+| `hasPreviousPage` | Boolean | ✅ Yes | Whether there's a previous page |
+
+#### 5. Sitemap Generation Logic
+
+The frontend sitemap generator:
+
+1. **Fetches posts page by page** (starting from page 1)
+2. **Collects all posts** until `hasNextPage = false`
+3. **Creates sitemap entries** for each post in all locales (en, de)
+4. **URL format**: `https://flowxtra.com/{locale}/blog/{slug}`
+5. **Updates every hour** (revalidation: 3600 seconds)
+
+#### 6. Performance Considerations
+
+- **Limit per request**: API should support `limit=100` or higher for efficient pagination
+- **Timeout handling**: API should respond within 5 seconds per request
+- **Caching**: API responses are cached for 1 hour to reduce server load
+- **Error handling**: If API fails, sitemap still includes static pages
+
+#### 7. Example API Calls for Sitemap
+
+```bash
+# Page 1 (first 100 posts)
+GET /api/blog?page=1&limit=100
+
+# Page 2 (next 100 posts)
+GET /api/blog?page=2&limit=100
+
+# Continue until hasNextPage = false
+```
+
+#### 8. Important Notes
+
+- **Published posts only**: API should only return posts with `status = 'published'`
+- **All locales**: Each post appears in sitemap for both `en` and `de` locales
+- **Automatic updates**: Sitemap regenerates automatically when posts are added/updated
+- **No authentication required**: Sitemap endpoint is public
+
+---
+
 ## 📅 Priority
 
-**High Priority** - Required for blog functionality
+**High Priority** - Required for blog functionality and SEO
 
 ---
 

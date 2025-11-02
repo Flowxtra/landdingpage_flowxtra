@@ -12,6 +12,8 @@ export async function generateMetadata({
   // const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blog/${slug}`);
   // const post = await response.json();
   
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
+  
   // Mock data for metadata
   const postTitle = slug ? slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') : 'Blog Post';
   
@@ -20,17 +22,18 @@ export async function generateMetadata({
       title: `${postTitle} – Flowxtra Blog`,
       description: "Discover insights, tips, and trends in recruitment and talent management.",
       keywords: ["recruitment", "hiring", "HR", "talent management", "ATS"],
+      metadataBase: new URL(baseUrl),
       openGraph: {
         title: `${postTitle} – Flowxtra Blog`,
         description: "Discover insights, tips, and trends in recruitment and talent management.",
-        url: `https://flowxtra.com/en/blog/${slug}`,
+        url: `${baseUrl}/en/blog/${slug}`,
         type: "article",
       },
       alternates: {
-        canonical: `https://flowxtra.com/en/blog/${slug}`,
+        canonical: `${baseUrl}/en/blog/${slug}`,
         languages: {
-          'en': `https://flowxtra.com/en/blog/${slug}`,
-          'de': `https://flowxtra.com/de/blog/${slug}`,
+          'en': `${baseUrl}/en/blog/${slug}`,
+          'de': `${baseUrl}/de/blog/${slug}`,
         },
       },
     },
@@ -38,17 +41,18 @@ export async function generateMetadata({
       title: `${postTitle} – Flowxtra Blog`,
       description: "Entdecken Sie Erkenntnisse, Tipps und Trends in der Rekrutierung und Talentmanagement.",
       keywords: ["rekrutierung", "einstellung", "hr", "talentmanagement", "ats"],
+      metadataBase: new URL(baseUrl),
       openGraph: {
         title: `${postTitle} – Flowxtra Blog`,
         description: "Entdecken Sie Erkenntnisse, Tipps und Trends in der Rekrutierung und Talentmanagement.",
-        url: `https://flowxtra.com/de/blog/${slug}`,
+        url: `${baseUrl}/de/blog/${slug}`,
         type: "article",
       },
       alternates: {
-        canonical: `https://flowxtra.com/de/blog/${slug}`,
+        canonical: `${baseUrl}/de/blog/${slug}`,
         languages: {
-          'en': `https://flowxtra.com/en/blog/${slug}`,
-          'de': `https://flowxtra.com/de/blog/${slug}`,
+          'en': `${baseUrl}/en/blog/${slug}`,
+          'de': `${baseUrl}/de/blog/${slug}`,
         },
       },
     },

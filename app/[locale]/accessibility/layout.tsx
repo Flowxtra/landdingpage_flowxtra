@@ -8,22 +8,25 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {locale} = await params;
   
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
+  
   const metadata = {
     en: {
       title: "Accessibility Statement - Flowxtra | WCAG 2.1 AA Compliance",
       description: "Our commitment to web accessibility and WCAG compliance. Learn how Flowxtra ensures an inclusive experience for all users.",
       keywords: ["accessibility", "WCAG 2.1", "AA compliance", "screen reader", "keyboard navigation", "inclusive design"],
+      metadataBase: new URL(baseUrl),
       openGraph: {
         title: "Accessibility Statement - Flowxtra | WCAG 2.1 AA Compliance",
         description: "Our commitment to web accessibility and WCAG compliance. Learn how Flowxtra ensures an inclusive experience for all users.",
-        url: "https://flowxtra.com/en/accessibility",
+        url: `${baseUrl}/en/accessibility`,
         type: "website",
       },
       alternates: {
-        canonical: "https://flowxtra.com/en/accessibility",
+        canonical: `${baseUrl}/en/accessibility`,
         languages: {
-          'en': 'https://flowxtra.com/en/accessibility',
-          'de': 'https://flowxtra.com/de/barrierefreiheit',
+          'en': `${baseUrl}/en/accessibility`,
+          'de': `${baseUrl}/de/barrierefreiheit`,
         },
       },
     },
@@ -31,17 +34,18 @@ export async function generateMetadata({
       title: "Barrierefreiheitserklärung - Flowxtra | WCAG 2.1 AA-Konformität",
       description: "Unser Engagement für Web-Barrierefreiheit und WCAG-Konformität. Erfahren Sie, wie Flowxtra ein inklusives Erlebnis für alle Benutzer gewährleistet.",
       keywords: ["barrierefreiheit", "WCAG 2.1", "AA-Konformität", "screenreader", "tastaturnavigation", "inklusives design"],
+      metadataBase: new URL(baseUrl),
       openGraph: {
         title: "Barrierefreiheitserklärung - Flowxtra | WCAG 2.1 AA-Konformität",
         description: "Unser Engagement für Web-Barrierefreiheit und WCAG-Konformität. Erfahren Sie, wie Flowxtra ein inklusives Erlebnis für alle Benutzer gewährleistet.",
-        url: "https://flowxtra.com/de/barrierefreiheit",
+        url: `${baseUrl}/de/barrierefreiheit`,
         type: "website",
       },
       alternates: {
-        canonical: "https://flowxtra.com/de/barrierefreiheit",
+        canonical: `${baseUrl}/de/barrierefreiheit`,
         languages: {
-          'en': 'https://flowxtra.com/en/accessibility',
-          'de': 'https://flowxtra.com/de/barrierefreiheit',
+          'en': `${baseUrl}/en/accessibility`,
+          'de': `${baseUrl}/de/barrierefreiheit`,
         },
       },
     },
