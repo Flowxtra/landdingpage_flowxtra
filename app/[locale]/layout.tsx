@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieScriptLoader from "@/components/CookieConsent/CookieScriptLoader";
 import CookieBanner from "@/components/CookieConsent/CookieBanner";
+import FontAwesomeLoader from "@/components/FontAwesomeLoader";
 
 // Viewport configuration
 export const viewport: Viewport = {
@@ -99,9 +100,29 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <head>
+        {/* Preconnect to external CDNs for faster loading - Only DNS lookup, no cookies */}
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+        
+        {/* Apply dark mode immediately before React loads to prevent flash */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const savedTheme = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                  document.documentElement.classList.add('dark');
+                }
+              })();
+            `,
+          }}
+        />
         {/* Tracking scripts will be loaded by CookieScriptLoader only after consent */}
       </head>
       <body className="antialiased">
+        {/* Load Font Awesome only after functional cookies consent */}
+        <FontAwesomeLoader />
         {/* Load tracking scripts only if consent is given */}
         <CookieScriptLoader />
 

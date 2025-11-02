@@ -8,6 +8,7 @@ import { ConsentManager } from '@/lib/consentManager';
 
 export default function CookieBanner() {
   const { hasConsent, location, acceptAll, rejectAll } = useConsent();
+  const [consentState, setConsentState] = useState(hasConsent);
   const [showPreferences, setShowPreferences] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [shouldShowBanner, setShouldShowBanner] = useState(false);
@@ -16,13 +17,32 @@ export default function CookieBanner() {
 
   // Check consent immediately to prevent flash
   useEffect(() => {
-    const consent = ConsentManager.getConsent();
-    setShouldShowBanner(!consent);
-    setIsLoading(false);
+    const updateBanner = () => {
+      const consent = ConsentManager.getConsent();
+      setShouldShowBanner(!consent);
+      setConsentState(!!consent);
+      setIsLoading(false);
+    };
+
+    // Initial check
+    updateBanner();
+
+    // Listen for consent changes
+    window.addEventListener('consentUpdated', updateBanner);
+
+    return () => {
+      window.removeEventListener('consentUpdated', updateBanner);
+    };
   }, []);
 
+  // Sync with useConsent hook
+  useEffect(() => {
+    setConsentState(hasConsent);
+    setShouldShowBanner(!hasConsent);
+  }, [hasConsent]);
+
   // Don't show banner if consent already exists or still loading
-  if (hasConsent || !shouldShowBanner || isLoading) return null;
+  if (consentState || !shouldShowBanner || isLoading) return null;
 
   const isEU = location === 'EU';
   const isCalifornia = location === 'US-CA';

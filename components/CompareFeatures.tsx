@@ -810,8 +810,6 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       {/* Accordion Content */}
       {isOpen && (
         <div className="w-full mt-6 rounded-lg border border-gray-200 dark:border-gray-700 shadow-xl bg-white dark:bg-gray-900">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
           {/* Mobile/Tablet Tabs Navigation - Hidden on Desktop */}
           <div className="lg:hidden sticky top-0 z-10 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
             {/* Horizontal Scrollable Tabs */}

@@ -1049,8 +1049,6 @@ function ReviewsSection() {
 
   return (
     <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-      
       <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
         {/* Header */}
         <div className="text-center mb-12">
@@ -1288,6 +1286,36 @@ function ContactUsSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
+  // Clean up browser extension injected elements that cause hydration mismatches
+  useEffect(() => {
+    const cleanupExtensions = () => {
+      // Remove LastPass and other password manager injected elements
+      const extensionElements = document.querySelectorAll(
+        '[data-lastpass-icon-root], [data-1password-root], [data-bitwarden-watching]'
+      );
+      extensionElements.forEach(el => {
+        try {
+          if (el.parentNode) {
+            el.parentNode.removeChild(el);
+          }
+        } catch (e) {
+          // Ignore errors if element was already removed
+        }
+      });
+    };
+
+    // Clean up immediately and after a delay (extensions inject at different times)
+    cleanupExtensions();
+    const timers = [
+      setTimeout(cleanupExtensions, 100),
+      setTimeout(cleanupExtensions, 500),
+    ];
+    
+    return () => {
+      timers.forEach(timer => clearTimeout(timer));
+    };
+  }, []);
+
   // Load reCAPTCHA script - Temporarily Disabled
   // useEffect(() => {
   //   const script = document.createElement('script');
@@ -1406,7 +1434,7 @@ function ContactUsSection() {
               {/* Email and First Name Row */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Email Address */}
-                <div className="relative">
+                <div className="relative" suppressHydrationWarning>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     {t("form.email")} <span className="text-red-500">*</span>
                   </label>
@@ -1419,6 +1447,7 @@ function ContactUsSection() {
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:border-primary dark:focus:border-secondary focus:outline-none bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors"
                     placeholder={t("form.emailPlaceholder")}
+                    suppressHydrationWarning
                   />
                 </div>
 

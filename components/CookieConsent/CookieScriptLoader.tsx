@@ -8,14 +8,29 @@ export default function CookieScriptLoader() {
   const [hasConsent, setHasConsent] = useState(false);
   const [analyticsAllowed, setAnalyticsAllowed] = useState(false);
   const [marketingAllowed, setMarketingAllowed] = useState(false);
+  const [scriptKey, setScriptKey] = useState(0);
 
   useEffect(() => {
-    const consent = ConsentManager.getConsent();
-    if (consent) {
-      setHasConsent(true);
-      setAnalyticsAllowed(consent.preferences.analytics);
-      setMarketingAllowed(consent.preferences.marketing);
-    }
+    const updateConsent = () => {
+      const consent = ConsentManager.getConsent();
+      if (consent) {
+        setHasConsent(true);
+        setAnalyticsAllowed(consent.preferences.analytics);
+        setMarketingAllowed(consent.preferences.marketing);
+        // Force scripts to reload by updating key
+        setScriptKey(prev => prev + 1);
+      }
+    };
+
+    // Initial check
+    updateConsent();
+
+    // Listen for consent changes
+    window.addEventListener('consentUpdated', updateConsent);
+
+    return () => {
+      window.removeEventListener('consentUpdated', updateConsent);
+    };
   }, []);
 
   // Don't load any scripts until consent is given
@@ -28,10 +43,11 @@ export default function CookieScriptLoader() {
         <>
           {/* Google Analytics */}
           <Script
+            key={`ga-${scriptKey}`}
             src="https://www.googletagmanager.com/gtag/js?id=G-33HQSXK6F2"
             strategy="afterInteractive"
           />
-          <Script id="google-analytics-config" strategy="afterInteractive">
+          <Script key={`ga-config-${scriptKey}`} id="google-analytics-config" strategy="afterInteractive">
             {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
@@ -43,7 +59,7 @@ export default function CookieScriptLoader() {
           </Script>
 
           {/* Microsoft Clarity */}
-          <Script id="microsoft-clarity" strategy="afterInteractive">
+          <Script key={`clarity-${scriptKey}`} id="microsoft-clarity" strategy="afterInteractive">
             {`
               (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -60,6 +76,7 @@ export default function CookieScriptLoader() {
         <>
           {/* Google Tag Manager */}
           <Script
+            key={`gtm-${scriptKey}`}
             id="google-tag-manager"
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{

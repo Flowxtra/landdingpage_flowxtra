@@ -46,10 +46,14 @@ export function useConsent() {
     setPreferences(newPreferences);
     setHasConsent(true);
 
-    // Small delay to ensure state is saved before reload
-    setTimeout(() => {
-      window.location.reload();
-    }, 100);
+    // Dispatch custom event to notify other components about consent change
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(
+        new CustomEvent("consentUpdated", {
+          detail: { preferences: newPreferences },
+        })
+      );
+    }
   };
 
   const rejectAll = () => {
@@ -65,10 +69,14 @@ export function useConsent() {
     setPreferences(newPreferences);
     setHasConsent(true);
 
-    // Small delay to ensure state is saved before reload
-    setTimeout(() => {
-      window.location.reload();
-    }, 100);
+    // Dispatch custom event to notify other components about consent change
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(
+        new CustomEvent("consentUpdated", {
+          detail: { preferences: newPreferences },
+        })
+      );
+    }
   };
 
   const savePreferences = (newPreferences: ConsentPreferences) => {
@@ -76,10 +84,14 @@ export function useConsent() {
     setPreferences(newPreferences);
     setHasConsent(true);
 
-    // Small delay to ensure state is saved before reload
-    setTimeout(() => {
-      window.location.reload();
-    }, 100);
+    // Dispatch custom event to notify other components about consent change
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(
+        new CustomEvent("consentUpdated", {
+          detail: { preferences: newPreferences },
+        })
+      );
+    }
   };
 
   const isCategoryAllowed = (category: ConsentCategory): boolean => {
