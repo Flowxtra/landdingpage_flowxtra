@@ -155,7 +155,15 @@ export default function PricingSection({ defaultCompareOpen = false }: PricingSe
           </div>
 
           {/* Professional Plan */}
-          <div className="border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col relative overflow-hidden bg-gradient-to-br from-primary via-primary/95 to-primary/90 shadow-2xl">
+          <div 
+            className="border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col relative overflow-hidden shadow-2xl"
+            style={{
+              backgroundImage: 'url(/img/overlay_border_shadow.webp)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}
+          >
             
             <h3 className="text-xl font-bold text-white mb-6 relative z-10">{t("plans.professional")}</h3>
             
@@ -272,7 +280,15 @@ export default function PricingSection({ defaultCompareOpen = false }: PricingSe
             </div>
 
             {/* Enterprise Plan */}
-            <div className="border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-8 relative overflow-hidden bg-gradient-to-br from-secondary via-secondary/95 to-secondary/90 shadow-2xl flex flex-col">
+            <div 
+              className="border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-8 relative overflow-hidden shadow-2xl flex flex-col"
+              style={{
+                backgroundImage: 'url(/img/overlay_border_shadow2.webp)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+              }}
+            >
               
               <h3 className="text-2xl font-bold text-white mb-6 relative z-10">{t("plans.enterprise")}</h3>
               
