@@ -8,12 +8,13 @@ import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 // Dynamic imports for non-critical components to reduce initial bundle size
 // CodeEditor is heavy (includes Shiki syntax highlighter ~600ms), so load only when needed
-const CodeEditor = dynamic(() => import("@/components/ui/code-editor").then(mod => ({ default: mod.CodeEditor })), {
+// DISABLED - Code editor slide is hidden
+/* const CodeEditor = dynamic(() => import("@/components/ui/code-editor").then(mod => ({ default: mod.CodeEditor })), {
   ssr: false,
   loading: () => (
     <div className="w-full h-64 bg-gray-100 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 animate-pulse" />
   ),
-});
+}); */
 
 const PricingSection = dynamic(() => import("@/components/PricingSection"), {
   loading: () => <div className="w-full h-64 bg-gray-100 dark:bg-gray-800 animate-pulse rounded-lg" />,
@@ -26,9 +27,9 @@ const AnimatedBeamMultipleOutputs = dynamic(() => import("@/components/AnimatedB
   ),
 });
 
-// Lazy-loaded CodeEditor - only loads when it comes into viewport
+// DISABLED - Lazy-loaded CodeEditor - only loads when it comes into viewport
 // Also lazy loads Code icon to reduce initial bundle size
-function LazyCodeEditor({ children, ...props }: { children: string; [key: string]: any }) {
+/* function LazyCodeEditor({ children, ...props }: { children: string; [key: string]: any }) {
   const [isVisible, setIsVisible] = useState(false);
   const [CodeIcon, setCodeIcon] = useState<React.ComponentType<any> | null>(null);
   const [ref, setRef] = useState<HTMLDivElement | null>(null);
@@ -68,7 +69,7 @@ function LazyCodeEditor({ children, ...props }: { children: string; [key: string
   const propsWithIcon = CodeIcon && !props.icon ? { ...props, icon: <CodeIcon /> } : props;
 
   return <CodeEditor {...propsWithIcon}>{children}</CodeEditor>;
-}
+} */
 
 // Generic Lazy Section Wrapper - loads component only when in viewport
 function LazySection({ Component }: { Component: React.ComponentType }) {
@@ -210,7 +211,8 @@ function FeaturesSlider() {
       imageAlt: t("slide6.imageAlt"),
       imageOnRight: false,
     },
-    {
+    // DISABLED - Code editor slide with job widget embed
+    /* {
       badge: t("slide7.badge"),
       title: t("slide7.title"),
       description: t("slide7.description"),
@@ -234,7 +236,7 @@ allowfullscreen>
 </iframe>
 
 <!-- End of Flowxtra.com Job Widget -->`,
-    },
+    }, */
   ];
 
   return (
@@ -266,35 +268,19 @@ allowfullscreen>
                     {slide.title}
                   </h2>
                   
-                  {/* Image or Code Block inside content on mobile/tablet only */}
+                  {/* Image inside content on mobile/tablet only */}
                   <div className="lg:hidden mb-4 w-full flex items-center justify-center">
-                    {slide.showCodeBlock ? (
-                      <div className="w-full max-w-[310px] flex justify-center">
-                        <LazyCodeEditor
-                          title={t("slide7.embedCodeTitle")}
-                          lang="html"
-                          copyButton
-                          header
-                          dots
-                          writing={false}
-                          className="w-full h-auto"
-                        >
-                          {slide.codeBlock}
-                        </LazyCodeEditor>
-                      </div>
-                    ) : (
-                      <Image
-                        src={slide.image}
-                        alt={slide.imageAlt}
-                        width={1200}
-                        height={900}
-                        quality={100}
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1200px"
-                        className="w-full h-auto rounded-xl"
-                        unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.png')}
-                        loading={index === 0 ? "eager" : "lazy"}
-                      />
-                    )}
+                    <Image
+                      src={slide.image}
+                      alt={slide.imageAlt}
+                      width={1200}
+                      height={900}
+                      quality={100}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1200px"
+                      className="w-full h-auto rounded-xl"
+                      unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.png')}
+                      loading={index === 0 ? "eager" : "lazy"}
+                    />
                   </div>
                   
                   <p className="text-xs md:text-base lg:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-2.5">
@@ -311,35 +297,19 @@ allowfullscreen>
                   </div>
                 </div>
 
-                {/* Image or Code Block - Hidden on mobile/tablet, shown on desktop */}
+                {/* Image - Hidden on mobile/tablet, shown on desktop */}
                 <div className={`hidden lg:block ${slide.imageOnRight ? 'order-2' : 'order-2 lg:order-1'}`}>
-                  {slide.showCodeBlock ? (
-                    <div className="flex items-center justify-center w-full px-2 md:px-0">
-                      <LazyCodeEditor
-                        title={t("slide7.embedCodeTitle")}
-                        lang="html"
-                        copyButton
-                        header
-                        dots
-                        writing={false}
-                        className="w-full max-w-[360px] md:max-w-lg lg:max-w-2xl h-auto"
-                      >
-                        {slide.codeBlock}
-                      </LazyCodeEditor>
-                    </div>
-                  ) : (
-                    <Image
-                      src={slide.image}
-                      alt={slide.imageAlt}
-                      width={1200}
-                      height={900}
-                      quality={100}
-                      sizes={slide.image.includes('hiring-email-template') ? "(max-width: 1200px) 50vw, 600px" : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1200px"}
-                      className={slide.image.includes('hiring-email-template') ? "w-1/2 h-auto mx-auto" : "w-full h-auto"}
-                      unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.png')}
-                      loading={index === 0 ? "eager" : "lazy"}
-                    />
-                  )}
+                  <Image
+                    src={slide.image}
+                    alt={slide.imageAlt}
+                    width={1200}
+                    height={900}
+                    quality={100}
+                    sizes={slide.image.includes('hiring-email-template') ? "(max-width: 1200px) 50vw, 600px" : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1200px"}
+                    className={slide.image.includes('hiring-email-template') ? "w-1/2 h-auto mx-auto" : "w-full h-auto"}
+                    unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.png')}
+                    loading={index === 0 ? "eager" : "lazy"}
+                  />
                 </div>
               </div>
             </div>
