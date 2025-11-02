@@ -388,12 +388,12 @@ export default function Homepage() {
                     src="/img/ATS-Software-for-Recruitment2.webp"
                     alt={t("hero.imageAlt")}
                     title={t("hero.imageTitle")}
-                    width={800}
-                    height={600}
-                    quality={100}
+                    width={750}
+                    height={512}
+                    quality={75}
                     priority
                     fetchPriority="high"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
+                    sizes="(max-width: 768px) 100vw, 750px"
                     className="w-full h-auto block md:hidden"
                   />
                   {/* Desktop Image - LCP Element */}

@@ -10,22 +10,38 @@ export default function CookieBanner() {
   const { hasConsent, acceptAll, rejectAll } = useConsent();
   const [consentState, setConsentState] = useState(hasConsent);
   const [showPreferences, setShowPreferences] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const [shouldShowBanner, setShouldShowBanner] = useState(false);
+  const [isReady, setIsReady] = useState(false);
   const t = useTranslations('cookieConsent.banner');
   const tButtons = useTranslations('cookieConsent.buttons');
 
-  // Check consent immediately to prevent flash
+  // Check consent and delay banner to avoid affecting LCP
   useEffect(() => {
     const updateBanner = () => {
       const consent = ConsentManager.getConsent();
       setShouldShowBanner(!consent);
       setConsentState(!!consent);
-      setIsLoading(false);
     };
 
-    // Initial check
+    // Initial check (synchronous for faster initial render)
     updateBanner();
+
+    // Delay banner appearance to not affect LCP and initial render
+    // Use requestIdleCallback for better performance, fallback to setTimeout
+    const showBanner = () => {
+      setIsReady(true);
+    };
+
+    if (typeof window !== 'undefined') {
+      // Wait for LCP and idle time before showing banner
+      // This prevents layout shifts during critical rendering
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(showBanner, { timeout: 1000 });
+      } else {
+        // Fallback for browsers without requestIdleCallback
+        setTimeout(showBanner, 800);
+      }
+    }
 
     // Listen for consent changes
     window.addEventListener('consentUpdated', updateBanner);
@@ -35,18 +51,29 @@ export default function CookieBanner() {
     };
   }, []);
 
-  // Sync with useConsent hook
+  // Sync with useConsent hook (only if already initialized)
   useEffect(() => {
-    setConsentState(hasConsent);
-    setShouldShowBanner(!hasConsent);
-  }, [hasConsent]);
+    if (isReady) {
+      setConsentState(hasConsent);
+      setShouldShowBanner(!hasConsent);
+    }
+  }, [hasConsent, isReady]);
 
-  // Don't show banner if consent already exists or still loading
-  if (consentState || !shouldShowBanner || isLoading) return null;
+  // Don't show banner if consent already exists, not ready yet, or no consent needed
+  if (consentState || !shouldShowBanner) {
+    return null;
+  }
+
+  // If not ready yet, reserve space to prevent layout shift
+  if (!isReady) {
+    return (
+      <div className="h-[120px] md:h-[100px] pointer-events-none" aria-hidden="true" />
+    );
+  }
 
   return (
     <>
-      <div className="fixed bottom-0 left-0 right-0 z-[9999] bg-white dark:bg-gray-900 border-t-2 border-gray-200 dark:border-gray-700 shadow-2xl">
+      <div className="fixed bottom-0 left-0 right-0 z-[9999] bg-white dark:bg-gray-900 border-t-2 border-gray-200 dark:border-gray-700 shadow-2xl animate-slideUp">
         <div className="container mx-auto px-4 md:px-8 py-4 md:py-6">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             {/* Message */}

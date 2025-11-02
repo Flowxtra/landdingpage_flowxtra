@@ -31,7 +31,8 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   // swcMinify is enabled by default in Next.js 15+
   experimental: {
-    optimizeCss: true,
+    // optimizeCss requires 'critters' package - commented out to avoid build errors
+    // optimizeCss: true,
     optimizePackageImports: ["framer-motion", "lucide-react"],
     // Reduce bundle size
     optimizeServerReact: true,
