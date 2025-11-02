@@ -309,33 +309,34 @@ export default function SocialMediaManagement() {
                 </div>
 
                 {/* Features List - Responsive Layout */}
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 md:gap-6 pt-4">
+                {/* Grid on small/medium screens (mobile, tablet, small laptop), flex row on large screens */}
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:flex lg:flex-row items-start lg:items-center gap-4 md:gap-6 pt-4">
                   {/* Free - Gift Icon */}
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex items-start lg:items-center gap-2 sm:gap-3 w-full lg:w-auto">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white flex-shrink-0 mt-0.5 lg:mt-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
                     </svg>
-                    <span className="text-sm sm:text-base md:text-lg text-white font-medium">
+                    <span className="text-sm sm:text-base md:text-lg text-white font-medium leading-relaxed">
                       {t("features.freeForever")}
                     </span>
                   </div>
 
                   {/* No credit card required - Credit Card Icon */}
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex items-start lg:items-center gap-2 sm:gap-3 w-full lg:w-auto">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white flex-shrink-0 mt-0.5 lg:mt-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                     </svg>
-                    <span className="text-sm sm:text-base md:text-lg text-white font-medium">
+                    <span className="text-sm sm:text-base md:text-lg text-white font-medium leading-relaxed">
                       {t("features.noCreditCard")}
                     </span>
                   </div>
 
                   {/* Cancel anytime */}
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex items-start lg:items-center gap-2 sm:gap-3 w-full lg:w-auto">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white flex-shrink-0 mt-0.5 lg:mt-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
-                    <span className="text-sm sm:text-base md:text-lg text-white font-medium">
+                    <span className="text-sm sm:text-base md:text-lg text-white font-medium leading-relaxed">
                       {t("features.cancelAnytime")}
                     </span>
                   </div>
