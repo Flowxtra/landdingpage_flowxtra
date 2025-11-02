@@ -83,13 +83,40 @@ const nextConfig: NextConfig = {
   experimental: {
     // optimizeCss requires 'critters' package - commented out to avoid build errors
     // optimizeCss: true,
-    optimizePackageImports: ["framer-motion", "lucide-react"],
+    optimizePackageImports: [
+      "framer-motion",
+      "lucide-react",
+      "next-intl",
+      "@radix-ui/react-icons",
+    ],
     // Reduce bundle size
     optimizeServerReact: true,
+    // Enable partial prerendering for better performance
+    ppr: false, // Disable for now, can be enabled later
   },
   // Reduce JavaScript bundle size and improve code splitting
   webpack: (config, { isServer, dev }) => {
     if (!isServer) {
+      // Exclude next-devtools completely in production builds
+      if (!dev && process.env.NODE_ENV === "production") {
+        const webpack = require("webpack");
+        config.plugins = config.plugins || [];
+        config.plugins.push(
+          new webpack.NormalModuleReplacementPlugin(
+            /next[\\/]dist[\\/]compiled[\\/]next-devtools/,
+            require.resolve("./lib/empty-module.ts")
+          )
+        );
+        // Also exclude any devtools-related modules
+        config.resolve = config.resolve || {};
+        config.resolve.alias = {
+          ...config.resolve.alias,
+          "next/dist/compiled/next-devtools": require.resolve(
+            "./lib/empty-module.ts"
+          ),
+        };
+      }
+
       config.optimization = {
         ...config.optimization,
         moduleIds: "deterministic",
@@ -102,8 +129,8 @@ const nextConfig: NextConfig = {
           chunks: "all",
           maxInitialRequests: 25,
           maxAsyncRequests: 40,
-          minSize: 15000, // Reduced to catch smaller unused code
-          maxSize: 180000, // Further reduced for better splitting and tree shaking
+          minSize: 20000, // Increased slightly to avoid too many small chunks
+          maxSize: 120000, // Further reduced for faster parsing and execution
           cacheGroups: {
             default: false,
             vendors: false,
@@ -114,7 +141,7 @@ const nextConfig: NextConfig = {
               test: /[\\/]node_modules[\\/](react|scheduler)[\\/]/,
               priority: 50,
               enforce: true,
-              maxSize: 80000, // Smaller chunk = faster parsing
+              maxSize: 55000, // Smaller chunk = faster parsing and execution
             },
             // React DOM in separate chunk - often parsed but not executed immediately
             reactDom: {
@@ -123,7 +150,7 @@ const nextConfig: NextConfig = {
               test: /[\\/]node_modules[\\/]react-dom[\\/]/,
               priority: 49,
               enforce: true,
-              maxSize: 100000, // React DOM is larger, allow up to 100KB
+              maxSize: 70000, // Reduced for faster parsing
             },
             // Split Next.js into smaller chunks - exclude devtools in production
             nextjsCore: {
@@ -132,15 +159,16 @@ const nextConfig: NextConfig = {
               test: /[\\/]node_modules[\\/]next[\\/]dist[\\/](client|shared-runtime|build)[\\/]/,
               priority: 48,
               enforce: true,
-              maxSize: 80000, // Smaller chunks = faster parsing/execution
+              maxSize: 55000, // Smaller chunks = faster parsing/execution
             },
+            // Exclude next-devtools from nextjs chunk in production
             nextjs: {
               name: "nextjs",
               chunks: "all",
               test: /[\\/]node_modules[\\/]next[\\/](?!dist[\\/](client|shared-runtime|build|compiled[\\/]next-devtools)[\\/])/,
               priority: 45,
               enforce: true,
-              maxSize: 120000, // Reduced to 120KB for faster execution
+              maxSize: 90000, // Reduced for faster execution
             },
             // Large libraries in separate chunks for better caching
             shiki: {
@@ -164,14 +192,16 @@ const nextConfig: NextConfig = {
               priority: 45,
               enforce: true,
               chunks: "all",
+              maxSize: 80000, // Limit size for faster parsing
             },
-            // lucide-react icons
+            // lucide-react icons - split by usage to reduce bundle size
             lucideReact: {
               test: /[\\/]node_modules[\\/]lucide-react[\\/]/,
               name: "lucide-react",
               priority: 45,
               enforce: true,
-              chunks: "all",
+              chunks: "async", // Load icons asynchronously - most icons are not critical
+              maxSize: 50000, // Smaller chunks for icons
             },
             // Other node_modules libraries - split smaller to reduce unused code
             lib: {
@@ -185,16 +215,16 @@ const nextConfig: NextConfig = {
               priority: 30,
               minChunks: 1,
               reuseExistingChunk: true,
-              minSize: 15000, // Reduced to 15KB for better tree shaking
-              maxSize: 100000, // Limit individual library chunks
+              minSize: 20000, // Increased to avoid too many tiny chunks
+              maxSize: 80000, // Reduced limit for faster parsing
             },
             // Common shared code - only include if shared across multiple chunks
             commons: {
               name: "commons",
-              minChunks: 3, // Increased from 2 to 3 - only truly shared code
+              minChunks: 4, // Increased to 4 - only truly shared code (reduces initial bundle)
               priority: 20,
               reuseExistingChunk: true,
-              minSize: 15000, // Reduced to 15KB
+              minSize: 20000, // Increased to avoid tiny chunks
             },
           },
         },
@@ -204,6 +234,8 @@ const nextConfig: NextConfig = {
         runtimeChunk: {
           name: "runtime",
         },
+        // Enable module concatenation for better tree shaking and smaller bundles
+        concatenateModules: true,
       };
 
       // DO NOT modify minimizer - Next.js 15 automatically uses SWC minifier
@@ -212,6 +244,7 @@ const nextConfig: NextConfig = {
 
       // Tree shaking is handled by package.json sideEffects field
       // CSS files are marked as side effects to prevent removal
+      // usedExports conflicts with cacheUnaffected (used by Next.js) - DO NOT enable
     }
     return config;
   },

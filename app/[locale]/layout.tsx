@@ -1,12 +1,19 @@
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import type { Metadata, Viewport } from "next";
+import dynamic from "next/dynamic";
 import "../globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import CookieScriptLoader from "@/components/CookieConsent/CookieScriptLoader";
-import CookieBanner from "@/components/CookieConsent/CookieBanner";
-import FontAwesomeLoader from "@/components/FontAwesomeLoader";
+import ClientScripts from "@/components/ClientScripts";
+
+// Lazy load non-critical components to reduce initial bundle size
+// Header and Footer are loaded after initial render to reduce main-thread work
+const Header = dynamic(() => import("@/components/Header"), {
+  ssr: true, // Keep SSR for SEO, but load JS asynchronously
+});
+
+const Footer = dynamic(() => import("@/components/Footer"), {
+  ssr: true,
+});
 
 // Viewport configuration
 export const viewport: Viewport = {
@@ -166,18 +173,18 @@ export default async function LocaleLayout({
         {/* Preload LCP image (mobile) - Critical for performance */}
         <link
           rel="preload"
-          href="/img/ATS-Software-for-Recruitment2.webp"
+          href="/img/ATS-Software-for-Recruitment2.svg"
           as="image"
-          type="image/webp"
+          type="image/svg+xml"
           media="(max-width: 768px)"
           fetchPriority="high"
         />
         {/* Preload LCP image (desktop) - Critical for performance */}
         <link
           rel="preload"
-          href="/img/ATS-Software-for-Recruitment.webp"
+          href="/img/ATS-Software-for-Recruitment.svg"
           as="image"
-          type="image/webp"
+          type="image/svg+xml"
           media="(min-width: 769px)"
           fetchPriority="high"
         />
@@ -448,19 +455,15 @@ export default async function LocaleLayout({
         />
       </head>
       <body className="antialiased">
-        {/* Load Font Awesome only after functional cookies consent */}
-        <FontAwesomeLoader />
-        {/* Load tracking scripts only if consent is given */}
-        <CookieScriptLoader />
-
         <NextIntlClientProvider locale={locale} messages={messages}>
+          {/* Client-side only scripts - loaded asynchronously */}
+          <ClientScripts />
+          
           <Header />
           <main>
             {children}
           </main>
           <Footer />
-          {/* Cookie Consent Banner - Shows only if no consent exists */}
-          <CookieBanner />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -364,9 +364,9 @@ export default function Homepage() {
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
       {/* Hero Section - Full Width */}
       <section className="w-full pt-2.5 pb-16 md:pb-24 px-[10px] bg-white dark:bg-gray-900 transition-colors">
-        <div className="w-full rounded-[10px] px-[10px] py-16 md:py-20 bg-[#f4f6f8] dark:bg-gray-800">
-          <div className="flex flex-col items-center space-y-12 max-w-7xl mx-auto">
-            {/* Top Content */}
+        <div className="w-full rounded-[10px] px-[10px] pt-16 md:pt-20 pb-0 bg-[#f4f6f8] dark:bg-gray-800">
+          {/* Top Content */}
+          <div className="flex flex-col items-center max-w-7xl mx-auto">
             <div className="w-full px-4 md:px-8 text-center space-y-6 min-h-[200px]">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight mx-auto max-w-5xl px-2">
                 {t("hero.title")}
@@ -389,42 +389,26 @@ export default function Homepage() {
                 </a>
               </div>
             </div>
+          </div>
 
-            {/* Bottom Image - Full Width - LCP Element */}
-            <div className="w-full">
-              {/* Mobile Image - LCP Element - Only visible on mobile (< 768px) */}
-              <figure className="m-0 block md:hidden">
+          {/* Bottom Image - Natural Size - LCP Element - Starts from bottom directly - Full Width */}
+          <div className="w-full flex justify-center items-center mt-0 -mx-[10px] md:-mx-[10px]">
+            {/* Mobile Image - LCP Element - Only visible on mobile (< 768px) */}
+            <div className="w-full flex justify-center items-center md:hidden px-4">
+              <figure className="m-0 flex justify-center items-center">
                 <Image
-                  src="/img/ATS-Software-for-Recruitment2.webp"
+                  src="/img/ATS-Software-for-Recruitment2.svg"
                   alt={t("hero.imageAlt")}
                   title={t("hero.imageTitle")}
                   width={750}
                   height={512}
-                  quality={75}
-                  priority
-                  fetchPriority="high"
-                  sizes="(max-width: 375px) calc(100vw - 40px), (max-width: 640px) calc(100vw - 40px), (max-width: 768px) calc(100vw - 40px), 750px"
-                  className="w-full h-auto"
-                  decoding="sync"
-                  loading="eager"
-                />
-                <figcaption className="sr-only">
-                  {t("hero.figcaption")}
-                </figcaption>
-              </figure>
-              {/* Desktop Image - LCP Element - Only visible on tablet/desktop (>= 768px) */}
-              <figure className="m-0 hidden md:block">
-                <Image
-                  src="/img/ATS-Software-for-Recruitment.webp"
-                  alt={t("hero.imageAlt")}
-                  title={t("hero.imageTitle")}
-                  width={1920}
-                  height={1080}
                   quality={100}
                   priority
                   fetchPriority="high"
-                  sizes="(max-width: 1200px) 100vw, 1920px"
-                  className="w-full h-auto"
+                  unoptimized
+                  sizes="(max-width: 375px) 375px, (max-width: 640px) 640px, (max-width: 768px) 750px, 750px"
+                  className="h-auto max-w-full mx-auto"
+                  style={{ display: 'block' }}
                   decoding="sync"
                   loading="eager"
                 />
@@ -433,6 +417,25 @@ export default function Homepage() {
                 </figcaption>
               </figure>
             </div>
+            {/* Desktop Image - LCP Element - Only visible on tablet/desktop (>= 768px) - Full Width */}
+            <figure className="m-0 hidden md:block w-full">
+              <Image
+                src="/img/ATS-Software-for-Recruitment.svg"
+                alt={t("hero.imageAlt")}
+                title={t("hero.imageTitle")}
+                quality={100}
+                priority
+                fetchPriority="high"
+                unoptimized
+                className="w-full h-auto"
+                style={{ display: 'block' }}
+                decoding="sync"
+                loading="eager"
+              />
+              <figcaption className="sr-only">
+                {t("hero.figcaption")}
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>

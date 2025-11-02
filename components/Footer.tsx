@@ -4,8 +4,16 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import ConsentPreferencesPanel from "@/components/CookieConsent/ConsentPreferences";
-import AccessibilityPanel from "@/components/Accessibility/AccessibilityPanel";
+import dynamic from "next/dynamic";
+
+// Lazy load heavy components - only load when user opens panels
+const ConsentPreferencesPanel = dynamic(() => import("@/components/CookieConsent/ConsentPreferences"), {
+  ssr: false,
+});
+
+const AccessibilityPanel = dynamic(() => import("@/components/Accessibility/AccessibilityPanel"), {
+  ssr: false,
+});
 
 export default function Footer() {
   const t = useTranslations("footer");
