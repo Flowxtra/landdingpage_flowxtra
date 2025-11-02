@@ -381,8 +381,8 @@ export default function Homepage() {
 
             {/* Bottom Image - Full Width - LCP Element */}
             <div className="w-full">
-              <figure className="m-0 block">
-                {/* Mobile Image - LCP Element */}
+              {/* Mobile Image - LCP Element - Only visible on mobile (< 768px) */}
+              <figure className="m-0 block md:hidden">
                 <Image
                   src="/img/ATS-Software-for-Recruitment2.webp"
                   alt={t("hero.imageAlt")}
@@ -393,12 +393,16 @@ export default function Homepage() {
                   priority
                   fetchPriority="high"
                   sizes="(max-width: 375px) calc(100vw - 40px), (max-width: 640px) calc(100vw - 40px), (max-width: 768px) calc(100vw - 40px), 750px"
-                  className="w-full h-auto block md:hidden"
+                  className="w-full h-auto"
                   decoding="sync"
                   loading="eager"
-                  style={{ display: 'block' }}
                 />
-                {/* Desktop Image - LCP Element */}
+                <figcaption className="sr-only">
+                  {t("hero.figcaption")}
+                </figcaption>
+              </figure>
+              {/* Desktop Image - LCP Element - Only visible on tablet/desktop (>= 768px) */}
+              <figure className="m-0 hidden md:block">
                 <Image
                   src="/img/ATS-Software-for-Recruitment.webp"
                   alt={t("hero.imageAlt")}
@@ -409,10 +413,9 @@ export default function Homepage() {
                   priority
                   fetchPriority="high"
                   sizes="(max-width: 1200px) 100vw, 1920px"
-                  className="w-full h-auto hidden md:block"
+                  className="w-full h-auto"
                   decoding="sync"
                   loading="eager"
-                  style={{ display: 'block' }}
                 />
                 <figcaption className="sr-only">
                   {t("hero.figcaption")}
@@ -488,188 +491,42 @@ export default function Homepage() {
               </div>
             </div>
 
-            {/* Right Icons - Animated Rows */}
+            {/* Right Icons - Animated Rows - TEMPORARILY DISABLED */}
+            {/* Commented out temporarily - Too many icons causing performance issues */}
+            {/* 
             <div className="space-y-8 overflow-hidden">
-              {/* Row 1 - Move Right (3 icons) */}
               <div className="overflow-hidden flex">
                 <div className="flex gap-3 animate-scroll-right whitespace-nowrap">
-                  <Image
-                    src="/img/icon/Frame-2095584493.png"
-                    alt="Review us on Trustpilot"
-                    width={120}
-                    height={60}
-                    quality={100}
-                    className="flex-shrink-0 h-12 w-auto inline-block"
-                    loading="lazy"
-                  />
-                  <Image
-                    src="/img/icon/Frame-1984078831-1.png"
-                    alt="Made in Austria"
-                    width={120}
-                    height={60}
-                    quality={100}
-                    className="flex-shrink-0 h-12 w-auto inline-block"
-                    loading="lazy"
-                  />
-                  <Image
-                    src="/img/icon/dsvgo-icon.svg"
-                    alt="DSGVO Compliant"
-                    width={120}
-                    height={60}
-                    quality={100}
-                    className="flex-shrink-0 h-12 w-auto inline-block"
-                    loading="lazy"
-                  />
-                  <Image
-                    src="/img/icon/Frame-2095584493.png"
-                    alt="Review us on Trustpilot"
-                    width={120}
-                    height={60}
-                    quality={100}
-                    className="flex-shrink-0 h-12 w-auto inline-block"
-                    loading="lazy"
-                  />
-                  <Image
-                    src="/img/icon/Frame-1984078831-1.png"
-                    alt="Made in Austria"
-                    width={120}
-                    height={60}
-                    quality={100}
-                    className="flex-shrink-0 h-12 w-auto inline-block"
-                    loading="lazy"
-                  />
-                  <Image
-                    src="/img/icon/dsvgo-icon.svg"
-                    alt="DSGVO Compliant"
-                    width={120}
-                    height={60}
-                    quality={100}
-                    className="flex-shrink-0 h-12 w-auto inline-block"
-                    loading="lazy"
-                  />
+                  <Image src="/img/icon/Frame-2095584493.png" alt="Review us on Trustpilot" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
+                  <Image src="/img/icon/Frame-1984078831-1.png" alt="Made in Austria" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
+                  <Image src="/img/icon/dsvgo-icon.svg" alt="DSGVO Compliant" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
+                  <Image src="/img/icon/Frame-2095584493.png" alt="Review us on Trustpilot" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
+                  <Image src="/img/icon/Frame-1984078831-1.png" alt="Made in Austria" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
+                  <Image src="/img/icon/dsvgo-icon.svg" alt="DSGVO Compliant" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
                 </div>
               </div>
-
-              {/* Row 2 - Move Left (3 icons) */}
               <div className="overflow-hidden flex">
                 <div className="flex gap-3 animate-scroll-left whitespace-nowrap">
-                  <Image
-                    src="/img/icon/trust.svg"
-                    alt="Trustpilot Reviews"
-                    width={120}
-                    height={60}
-                    quality={100}
-                    className="flex-shrink-0 h-12 w-auto inline-block"
-                    loading="lazy"
-                  />
-                  <Image
-                    src="/img/icon/at.svg"
-                    alt="Made in Austria"
-                    width={120}
-                    height={60}
-                    quality={100}
-                    className="flex-shrink-0 h-12 w-auto inline-block"
-                    loading="lazy"
-                  />
-                  <Image
-                    src="/img/icon/de.svg"
-                    alt="Made in Germany"
-                    width={120}
-                    height={60}
-                    quality={100}
-                    className="flex-shrink-0 h-12 w-auto inline-block"
-                    loading="lazy"
-                  />
-                  <Image
-                    src="/img/icon/trust.svg"
-                    alt="Trustpilot Reviews"
-                    width={120}
-                    height={60}
-                    quality={100}
-                    className="flex-shrink-0 h-12 w-auto inline-block"
-                    loading="lazy"
-                  />
-                  <Image
-                    src="/img/icon/at.svg"
-                    alt="Made in Austria"
-                    width={120}
-                    height={60}
-                    quality={100}
-                    className="flex-shrink-0 h-12 w-auto inline-block"
-                    loading="lazy"
-                  />
-                  <Image
-                    src="/img/icon/de.svg"
-                    alt="Made in Germany"
-                    width={120}
-                    height={60}
-                    quality={100}
-                    className="flex-shrink-0 h-12 w-auto inline-block"
-                    loading="lazy"
-                  />
+                  <Image src="/img/icon/trust.svg" alt="Trustpilot Reviews" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
+                  <Image src="/img/icon/at.svg" alt="Made in Austria" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
+                  <Image src="/img/icon/de.svg" alt="Made in Germany" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
+                  <Image src="/img/icon/trust.svg" alt="Trustpilot Reviews" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
+                  <Image src="/img/icon/at.svg" alt="Made in Austria" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
+                  <Image src="/img/icon/de.svg" alt="Made in Germany" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
                 </div>
               </div>
-
-              {/* Row 3 - Move Right (3 icons) */}
               <div className="overflow-hidden flex">
                 <div className="flex gap-3 animate-scroll-right whitespace-nowrap">
-                  <Image
-                    src="/img/icon/Frame-2095584494.png"
-                    alt="eIDAS"
-                    width={120}
-                    height={60}
-                    quality={100}
-                    className="flex-shrink-0 h-12 w-auto inline-block"
-                    loading="lazy"
-                  />
-                  <Image
-                    src="/img/icon/Frame-2095584495.png"
-                    alt="Time Saving Features"
-                    width={120}
-                    height={60}
-                    quality={100}
-                    className="flex-shrink-0 h-12 w-auto inline-block"
-                    loading="lazy"
-                  />
-                  <Image
-                    src="/img/icon/Frame-2095584496.png"
-                    alt="AI-Powered"
-                    width={120}
-                    height={60}
-                    quality={100}
-                    className="flex-shrink-0 h-12 w-auto inline-block"
-                    loading="lazy"
-                  />
-                  <Image
-                    src="/img/icon/Frame-2095584494.png"
-                    alt="eIDAS"
-                    width={120}
-                    height={60}
-                    quality={100}
-                    className="flex-shrink-0 h-12 w-auto inline-block"
-                    loading="lazy"
-                  />
-                  <Image
-                    src="/img/icon/Frame-2095584495.png"
-                    alt="Time Saving Features"
-                    width={120}
-                    height={60}
-                    quality={100}
-                    className="flex-shrink-0 h-12 w-auto inline-block"
-                    loading="lazy"
-                  />
-                  <Image
-                    src="/img/icon/Frame-2095584496.png"
-                    alt="AI-Powered"
-                    width={120}
-                    height={60}
-                    quality={100}
-                    className="flex-shrink-0 h-12 w-auto inline-block"
-                    loading="lazy"
-                  />
+                  <Image src="/img/icon/Frame-2095584494.png" alt="eIDAS" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
+                  <Image src="/img/icon/Frame-2095584495.png" alt="Time Saving Features" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
+                  <Image src="/img/icon/Frame-2095584496.png" alt="AI-Powered" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
+                  <Image src="/img/icon/Frame-2095584494.png" alt="eIDAS" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
+                  <Image src="/img/icon/Frame-2095584495.png" alt="Time Saving Features" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
+                  <Image src="/img/icon/Frame-2095584496.png" alt="AI-Powered" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
                 </div>
               </div>
             </div>
+            */}
           </div>
         </div>
       </section>
