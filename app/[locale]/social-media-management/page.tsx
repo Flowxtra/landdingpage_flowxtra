@@ -852,7 +852,7 @@ export default function SocialMediaManagement() {
 
           {/* FAQ Accordion */}
           <div className="space-y-0">
-            {[1, 2, 3, 4, 5, 6, 7].map((qNum) => {
+            {[1, 2, 3, 4].map((qNum) => {
               const question = faqT(`questions.q${qNum}.question`);
               const answer = faqT(`questions.q${qNum}.answer`);
               const index = qNum - 1;
