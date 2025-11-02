@@ -165,6 +165,7 @@ allowfullscreen>
                         width={1200}
                         height={900}
                         quality={100}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1200px"
                         className="w-full h-auto rounded-xl"
                         unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.png')}
                         loading={index === 0 ? "eager" : "lazy"}
@@ -210,6 +211,7 @@ allowfullscreen>
                       width={1200}
                       height={900}
                       quality={100}
+                      sizes={slide.image.includes('hiring-email-template') ? "(max-width: 1200px) 50vw, 600px" : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1200px"}
                       className={slide.image.includes('hiring-email-template') ? "w-1/2 h-auto mx-auto" : "w-full h-auto"}
                       unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.png')}
                       loading={index === 0 ? "eager" : "lazy"}
@@ -1466,7 +1468,7 @@ function ContactUsSection() {
             </p>
 
             {/* Contact Form */}
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6 min-h-[300px]">
               {/* Email and First Name Row */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Email Address */}
@@ -1607,6 +1609,7 @@ function ContactUsSection() {
                   height={600}
                   quality={100}
                   unoptimized
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
                   className="w-full h-auto rounded-lg"
                 />
                 <figcaption className="sr-only">
