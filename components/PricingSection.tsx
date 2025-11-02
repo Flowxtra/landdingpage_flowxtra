@@ -158,7 +158,7 @@ export default function PricingSection({ defaultCompareOpen = false }: PricingSe
           <div 
             className="border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col relative overflow-hidden shadow-2xl"
             style={{
-              backgroundImage: 'url(/img/overlay_border_shadow.webp)',
+              backgroundImage: 'url(/img/1bg.svg)',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat'
@@ -283,7 +283,7 @@ export default function PricingSection({ defaultCompareOpen = false }: PricingSe
             <div 
               className="border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-8 relative overflow-hidden shadow-2xl flex flex-col"
               style={{
-                backgroundImage: 'url(/img/overlay_border_shadow2.webp)',
+                backgroundImage: 'url(/img/2bg.svg)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat'
