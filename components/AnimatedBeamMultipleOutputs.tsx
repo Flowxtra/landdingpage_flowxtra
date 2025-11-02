@@ -28,10 +28,16 @@ export function AnimatedBeamMultipleOutputs({
   className,
   facebookConnected = false,
   instagramConnected = false,
+  linkedinConnected = false,
+  twitterConnected = false,
+  tiktokConnected = false,
 }: { 
   className?: string;
   facebookConnected?: boolean;
   instagramConnected?: boolean;
+  linkedinConnected?: boolean;
+  twitterConnected?: boolean;
+  tiktokConnected?: boolean;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const div1Ref = useRef<HTMLDivElement>(null);
@@ -98,16 +104,18 @@ export function AnimatedBeamMultipleOutputs({
       </div>
 
       {/* Lines from Social Media to Flowxtra - All with unified timing and colors */}
-      {/* LinkedIn - Always connected */}
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div1Ref}
-        toRef={div6Ref}
-        duration={3}
-        delay={0}
-        gradientStartColor="#003f4d"
-        gradientStopColor="#00A8CD"
-      />
+      {/* LinkedIn - Only show when connected */}
+      {linkedinConnected && (
+        <AnimatedBeam
+          containerRef={containerRef}
+          fromRef={div1Ref}
+          toRef={div6Ref}
+          duration={3}
+          delay={0}
+          gradientStartColor="#003f4d"
+          gradientStopColor="#00A8CD"
+        />
+      )}
       {/* Facebook - Only show when connected */}
       {facebookConnected && (
         <AnimatedBeam
@@ -132,26 +140,30 @@ export function AnimatedBeamMultipleOutputs({
           gradientStopColor="#00A8CD"
         />
       )}
-      {/* Twitter - Always connected */}
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div4Ref}
-        toRef={div6Ref}
-        duration={3}
-        delay={0}
-        gradientStartColor="#003f4d"
-        gradientStopColor="#00A8CD"
-      />
-      {/* TikTok - Always connected */}
-      <AnimatedBeam
-        containerRef={containerRef}
-        fromRef={div5Ref}
-        toRef={div6Ref}
-        duration={3}
-        delay={0}
-        gradientStartColor="#003f4d"
-        gradientStopColor="#00A8CD"
-      />
+      {/* Twitter/X - Only show when connected */}
+      {twitterConnected && (
+        <AnimatedBeam
+          containerRef={containerRef}
+          fromRef={div4Ref}
+          toRef={div6Ref}
+          duration={3}
+          delay={0}
+          gradientStartColor="#003f4d"
+          gradientStopColor="#00A8CD"
+        />
+      )}
+      {/* TikTok - Only show when connected */}
+      {tiktokConnected && (
+        <AnimatedBeam
+          containerRef={containerRef}
+          fromRef={div5Ref}
+          toRef={div6Ref}
+          duration={3}
+          delay={0}
+          gradientStartColor="#003f4d"
+          gradientStopColor="#00A8CD"
+        />
+      )}
       {/* Line from Flowxtra to User - Always connected */}
       <AnimatedBeam
         containerRef={containerRef}
