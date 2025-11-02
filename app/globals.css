@@ -1,9 +1,10 @@
 /* Roboto Font - Inlined to prevent render blocking */
+/* Using font-display: optional to prevent layout shift - text shows immediately with fallback, then upgrades to Roboto if loaded */
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
+  font-display: optional;
   src: url('/fonts/Roboto-Regular.woff2') format('woff2'),
        url('/fonts/Roboto-Regular.woff') format('woff');
 }
@@ -12,7 +13,7 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  font-display: swap;
+  font-display: optional;
   src: url('/fonts/Roboto-Medium.woff2') format('woff2'),
        url('/fonts/Roboto-Medium.woff') format('woff');
 }
@@ -21,7 +22,7 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  font-display: swap;
+  font-display: optional;
   src: url('/fonts/Roboto-Bold.woff2') format('woff2'),
        url('/fonts/Roboto-Bold.woff') format('woff');
 }

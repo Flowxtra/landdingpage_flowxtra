@@ -100,6 +100,29 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
+        {/* Preload critical fonts to prevent layout shift */}
+        <link
+          rel="preload"
+          href="/fonts/Roboto-Regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/Roboto-Medium.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/Roboto-Bold.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        
         {/* Preconnect only when Font Awesome will be loaded (after consent) - using dns-prefetch instead to avoid unused preconnect */}
         <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
         

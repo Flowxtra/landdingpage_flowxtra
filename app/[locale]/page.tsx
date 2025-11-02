@@ -236,7 +236,7 @@ export default function Homepage() {
         <div className="w-full rounded-[10px] px-[10px] py-16 md:py-20 bg-[#f4f6f8] dark:bg-gray-800">
           <div className="flex flex-col items-center space-y-12">
             {/* Top Content */}
-            <div className="w-full px-4 md:px-8 text-center space-y-6">
+            <div className="w-full px-4 md:px-8 text-center space-y-6 min-h-[200px]">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight mx-auto max-w-5xl px-2">
                 {t("hero.title")}
               </h1>
@@ -272,6 +272,7 @@ export default function Homepage() {
                     height={600}
                     quality={100}
                     priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
                     className="w-full h-auto block md:hidden"
                   />
                   {/* Desktop Image */}
@@ -283,6 +284,7 @@ export default function Homepage() {
                     height={1080}
                     quality={100}
                     priority
+                    sizes="(max-width: 1200px) 100vw, 1920px"
                     className="w-full h-auto hidden md:block"
                   />
                   <figcaption className="sr-only">
@@ -300,7 +302,7 @@ export default function Homepage() {
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
-            <div className="space-y-6">
+            <div className="space-y-6 min-h-[100px]">
               {/* Badge */}
               <div className="inline-block">
                 <span className="px-4 py-2 text-primary dark:text-blue-400 rounded-full text-sm font-medium" style={{ backgroundColor: '#d9e9ec' }}>
@@ -552,7 +554,7 @@ export default function Homepage() {
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
           <div className="flex flex-col gap-12">
             {/* Top Content */}
-            <div className="space-y-6 text-center max-w-4xl mx-auto">
+            <div className="space-y-6 text-center max-w-4xl mx-auto min-h-[150px]">
               {/* Badge */}
               <div className="inline-block">
               </div>
@@ -607,6 +609,7 @@ export default function Homepage() {
                     quality={100}
                     className="object-cover"
                     loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
                   />
                   {/* Play Button Overlay */}
                   <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all">
@@ -1613,7 +1616,7 @@ function ContactUsSection() {
             </div>
 
             {/* Contact Information */}
-            <div className="space-y-6">
+            <div className="space-y-6 min-h-[150px]">
               {/* Email */}
               <div className="flex items-center gap-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center hover:bg-primary dark:hover:bg-secondary transition-colors duration-300 group">
