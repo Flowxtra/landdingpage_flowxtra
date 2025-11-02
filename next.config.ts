@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     qualities: [50, 75, 100],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512, 640],
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
@@ -45,9 +45,8 @@ const nextConfig: NextConfig = {
         moduleIds: "deterministic",
         // Tree shaking is already enabled by Next.js via SWC
         // usedExports conflicts with cacheUnaffected (used by Next.js)
-        // Minimize bundle size in production (SWC minifier is used automatically in Next.js 15+)
-        // This ensures runtime.js and all other chunks are minified
-        minimize: !dev,
+        // DO NOT modify minimize or minimizer - Next.js 15 uses SWC minifier automatically
+        // Modifying these settings can disable minification in production builds
         // Better code splitting
         splitChunks: {
           chunks: "all",
@@ -141,11 +140,15 @@ const nextConfig: NextConfig = {
         },
         // Reduce chunk size
         chunkIds: "deterministic",
-        // Optimize runtime chunk
+        // Optimize runtime chunk - ensure it's minified
         runtimeChunk: {
           name: "runtime",
         },
       };
+
+      // DO NOT modify minimizer - Next.js 15 automatically uses SWC minifier
+      // Modifying minimizer can disable minification for runtime.js and other chunks
+      // SWC minifier is enabled by default and works for all chunks including runtime
 
       // Tree shaking is handled by package.json sideEffects field
       // CSS files are marked as side effects to prevent removal

@@ -354,7 +354,7 @@ export default function Homepage() {
       {/* Hero Section - Full Width */}
       <section className="w-full pt-2.5 pb-16 md:pb-24 px-[10px] bg-white dark:bg-gray-900 transition-colors">
         <div className="w-full rounded-[10px] px-[10px] py-16 md:py-20 bg-[#f4f6f8] dark:bg-gray-800">
-          <div className="flex flex-col items-center space-y-12">
+          <div className="flex flex-col items-center space-y-12 max-w-7xl mx-auto">
             {/* Top Content */}
             <div className="w-full px-4 md:px-8 text-center space-y-6 min-h-[200px]">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight mx-auto max-w-5xl px-2">
@@ -379,45 +379,45 @@ export default function Homepage() {
               </div>
             </div>
 
-            {/* Bottom Image - Full Width */}
+            {/* Bottom Image - Full Width - LCP Element */}
             <div className="w-full">
-              <div className="overflow-hidden">
-                <figure>
-                  {/* Mobile Image - LCP Element */}
-                  <Image
-                    src="/img/ATS-Software-for-Recruitment2.webp"
-                    alt={t("hero.imageAlt")}
-                    title={t("hero.imageTitle")}
-                    width={750}
-                    height={512}
-                    quality={75}
-                    priority
-                    fetchPriority="high"
-                    sizes="(max-width: 768px) 100vw, 750px"
-                    className="w-full h-auto block md:hidden"
-                    decoding="sync"
-                    loading="eager"
-                  />
-                  {/* Desktop Image - LCP Element */}
-                  <Image
-                    src="/img/ATS-Software-for-Recruitment.webp"
-                    alt={t("hero.imageAlt")}
-                    title={t("hero.imageTitle")}
-                    width={1920}
-                    height={1080}
-                    quality={100}
-                    priority
-                    fetchPriority="high"
-                    sizes="(max-width: 1200px) 100vw, 1920px"
-                    className="w-full h-auto hidden md:block"
-                    decoding="sync"
-                    loading="eager"
-                  />
-                  <figcaption className="sr-only">
-                    {t("hero.figcaption")}
-                  </figcaption>
-                </figure>
-              </div>
+              <figure className="m-0 block">
+                {/* Mobile Image - LCP Element */}
+                <Image
+                  src="/img/ATS-Software-for-Recruitment2.webp"
+                  alt={t("hero.imageAlt")}
+                  title={t("hero.imageTitle")}
+                  width={750}
+                  height={512}
+                  quality={75}
+                  priority
+                  fetchPriority="high"
+                  sizes="(max-width: 375px) calc(100vw - 40px), (max-width: 640px) calc(100vw - 40px), (max-width: 768px) calc(100vw - 40px), 750px"
+                  className="w-full h-auto block md:hidden"
+                  decoding="sync"
+                  loading="eager"
+                  style={{ display: 'block' }}
+                />
+                {/* Desktop Image - LCP Element */}
+                <Image
+                  src="/img/ATS-Software-for-Recruitment.webp"
+                  alt={t("hero.imageAlt")}
+                  title={t("hero.imageTitle")}
+                  width={1920}
+                  height={1080}
+                  quality={100}
+                  priority
+                  fetchPriority="high"
+                  sizes="(max-width: 1200px) 100vw, 1920px"
+                  className="w-full h-auto hidden md:block"
+                  decoding="sync"
+                  loading="eager"
+                  style={{ display: 'block' }}
+                />
+                <figcaption className="sr-only">
+                  {t("hero.figcaption")}
+                </figcaption>
+              </figure>
             </div>
           </div>
         </div>
