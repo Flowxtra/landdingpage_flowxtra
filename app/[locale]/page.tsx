@@ -3,14 +3,18 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { Code } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 // Dynamic imports for non-critical components to reduce initial bundle size
+// CodeEditor is heavy (includes Shiki syntax highlighter ~600ms), so load only when needed
 const CodeEditor = dynamic(() => import("@/components/ui/code-editor").then(mod => ({ default: mod.CodeEditor })), {
   ssr: false,
+  loading: () => (
+    <div className="w-full h-64 bg-gray-100 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 animate-pulse" />
+  ),
 });
 
 const PricingSection = dynamic(() => import("@/components/PricingSection"), {
@@ -19,7 +23,121 @@ const PricingSection = dynamic(() => import("@/components/PricingSection"), {
 
 const AnimatedBeamMultipleOutputs = dynamic(() => import("@/components/AnimatedBeamMultipleOutputs").then(mod => ({ default: mod.AnimatedBeamMultipleOutputs })), {
   ssr: false,
+  loading: () => (
+    <div className="w-full h-[500px] bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl animate-pulse" />
+  ),
 });
+
+// Lazy-loaded CodeEditor - only loads when it comes into viewport
+function LazyCodeEditor({ children, ...props }: { children: string; [key: string]: any }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const [ref, setRef] = useState<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!ref) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" } // Start loading 200px before it comes into view
+    );
+
+    observer.observe(ref);
+
+    return () => observer.disconnect();
+  }, [ref]);
+
+  if (!isVisible) {
+    return (
+      <div
+        ref={setRef}
+        className="w-full h-64 bg-gray-100 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 animate-pulse"
+      />
+    );
+  }
+
+  return <CodeEditor {...props}>{children}</CodeEditor>;
+}
+
+// Generic Lazy Section Wrapper - loads component only when in viewport
+function LazySection({ Component }: { Component: React.ComponentType }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const [ref, setRef] = useState<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!ref) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "400px" } // Start loading 400px before it comes into view
+    );
+
+    observer.observe(ref);
+
+    return () => observer.disconnect();
+  }, [ref]);
+
+  if (!isVisible) {
+    return (
+      <div
+        ref={setRef}
+        className="w-full min-h-[400px] bg-gray-50 dark:bg-gray-800 animate-pulse rounded-lg"
+      />
+    );
+  }
+
+  return <Component />;
+}
+
+// Lazy-loaded AnimatedBeam - only loads when it comes into viewport
+function LazyAnimatedBeam() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [ref, setRef] = useState<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!ref) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px" } // Start loading 300px before it comes into view
+    );
+
+    observer.observe(ref);
+
+    return () => observer.disconnect();
+  }, [ref]);
+
+  if (!isVisible) {
+    return (
+      <div
+        ref={setRef}
+        className="flex items-center justify-center w-full bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl overflow-hidden min-h-[500px]"
+      >
+        <div className="w-full h-[500px] animate-pulse" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex items-center justify-center w-full bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl overflow-hidden min-h-[500px]">
+      <AnimatedBeamMultipleOutputs />
+    </div>
+  );
+}
 
 // Features Sticky Sections Component
 function FeaturesSlider() {
@@ -145,7 +263,7 @@ allowfullscreen>
                   <div className="lg:hidden mb-4 w-full flex items-center justify-center">
                     {slide.showCodeBlock ? (
                       <div className="w-full max-w-[310px] flex justify-center">
-                        <CodeEditor
+                        <LazyCodeEditor
                           title={t("slide7.embedCodeTitle")}
                           icon={<Code />}
                           lang="html"
@@ -156,7 +274,7 @@ allowfullscreen>
                           className="w-full h-auto"
                         >
                           {slide.codeBlock}
-                        </CodeEditor>
+                        </LazyCodeEditor>
                       </div>
                     ) : (
                       <Image
@@ -191,7 +309,7 @@ allowfullscreen>
                 <div className={`hidden lg:block ${slide.imageOnRight ? 'order-2' : 'order-2 lg:order-1'}`}>
                   {slide.showCodeBlock ? (
                     <div className="flex items-center justify-center w-full px-2 md:px-0">
-                      <CodeEditor
+                      <LazyCodeEditor
                         title={t("slide7.embedCodeTitle")}
                         icon={<Code />}
                         lang="html"
@@ -202,7 +320,7 @@ allowfullscreen>
                         className="w-full max-w-[360px] md:max-w-lg lg:max-w-2xl h-auto"
                       >
                         {slide.codeBlock}
-                      </CodeEditor>
+                      </LazyCodeEditor>
                     </div>
                   ) : (
                     <Image
@@ -265,7 +383,7 @@ export default function Homepage() {
             <div className="w-full">
               <div className="overflow-hidden">
                 <figure>
-                  {/* Mobile Image */}
+                  {/* Mobile Image - LCP Element */}
                   <Image
                     src="/img/ATS-Software-for-Recruitment2.webp"
                     alt={t("hero.imageAlt")}
@@ -274,10 +392,11 @@ export default function Homepage() {
                     height={600}
                     quality={100}
                     priority
+                    fetchPriority="high"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
                     className="w-full h-auto block md:hidden"
                   />
-                  {/* Desktop Image */}
+                  {/* Desktop Image - LCP Element */}
                   <Image
                     src="/img/ATS-Software-for-Recruitment.webp"
                     alt={t("hero.imageAlt")}
@@ -286,6 +405,7 @@ export default function Homepage() {
                     height={1080}
                     quality={100}
                     priority
+                    fetchPriority="high"
                     sizes="(max-width: 1200px) 100vw, 1920px"
                     className="w-full h-auto hidden md:block"
                   />
@@ -575,9 +695,8 @@ export default function Homepage() {
             </div>
 
             {/* Bottom - Animated Beam Diagram - Full Width */}
-            <div className="flex items-center justify-center w-full bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl overflow-hidden min-h-[500px]">
-              <AnimatedBeamMultipleOutputs />
-            </div>
+            {/* Lazy load AnimatedBeam only when section is in viewport */}
+            <LazyAnimatedBeam />
           </div>
         </div>
       </section>
@@ -988,14 +1107,14 @@ export default function Homepage() {
         </div>
       </section>
 
-      {/* Reviews Section */}
-      <ReviewsSection />
+      {/* Reviews Section - Lazy loaded when in viewport */}
+      <LazySection Component={ReviewsSection} />
 
-      {/* FAQ Section */}
-      <FAQSection />
+      {/* FAQ Section - Lazy loaded when in viewport */}
+      <LazySection Component={FAQSection} />
 
-      {/* Contact Us Section */}
-      <ContactUsSection />
+      {/* Contact Us Section - Lazy loaded when in viewport */}
+      <LazySection Component={ContactUsSection} />
     </div>
   );
 }
