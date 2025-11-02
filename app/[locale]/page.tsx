@@ -393,7 +393,7 @@ export default function Homepage() {
 
           {/* Mobile Image - LCP Element - Only visible on mobile (< 768px) - Full Width - Natural Size */}
           <div className="w-full mt-0 md:hidden">
-            <figure className="m-0 w-screen -mx-[10px]">
+            <figure className="m-0 w-screen -mx-[10px] flex justify-center">
               <Image
                 src="/img/ATS-Software-for-Recruitment2.svg"
                 alt={t("hero.imageAlt")}
@@ -405,7 +405,8 @@ export default function Homepage() {
                 fetchPriority="high"
                 unoptimized
                 sizes="100vw"
-                className="w-full h-auto"
+                className="w-full h-auto mx-auto"
+                style={{ marginRight: '70px' }}
                 decoding="sync"
                 loading="eager"
               />
