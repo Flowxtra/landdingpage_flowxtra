@@ -65,6 +65,26 @@ npm run build
 npm start
 ```
 
+---
+
+## 🔌 Backend API Configuration
+
+### Development/Testing API Endpoint
+
+**API Base URL**: `http://localhost:8765`
+
+Use this endpoint for local development and testing when connecting to the backend API.
+
+**Example Usage:**
+```typescript
+const API_BASE_URL = 'http://localhost:8765';
+
+// Example API call
+fetch(`${API_BASE_URL}/api/endpoint`)
+  .then(response => response.json())
+  .then(data => console.log(data));
+```
+
 ## 📄 Available Pages
 
 - **Homepage**: `/` - Main homepage (labeled as "Features" in the header)

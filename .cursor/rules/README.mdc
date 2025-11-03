@@ -115,6 +115,8 @@ This rule applies to:
 
 ## 🔗 API Integration
 - API Base URL: `https://api.flowxtra.com`
+- Api Developemant **API Base URL**: `http://localhost:8765`
+- 
 - Store API URL in environment variables
 - Handle loading and error states
 - Implement proper error messages

@@ -610,7 +610,7 @@ const post = postData.data.post;
 
 ```
 Production:  https://api.flowxtra.com
-Development: http://localhost:8000 (or your dev server)
+Development: http://localhost:8765 (or your dev server)
 ```
 
 ---

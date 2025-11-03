@@ -91,7 +91,45 @@ export class ConsentManager {
   }
 
   /**
-   * Log consent to backend server for GDPR Article 7 compliance
+   * Get backend URL from environment variables
+   * Development: Uses NEXT_PUBLIC_developemant_BACKEND_URL from .env.local
+   * Production: Uses NEXT_PUBLIC_BACKEND_URL from production environment
+   *
+   * @throws Error if backend URL is not configured
+   */
+  private static getBackendUrl(): string {
+    // Check if we're in development mode
+    const isDevelopment = process.env.NODE_ENV === "development";
+
+    if (isDevelopment) {
+      // Development: Use local backend URL from .env.local
+      const devUrl = process.env.NEXT_PUBLIC_developemant_BACKEND_URL;
+
+      if (!devUrl) {
+        const error =
+          "NEXT_PUBLIC_developemant_BACKEND_URL is not configured in .env.local. Please add it.";
+        console.error("❌", error);
+        throw new Error(error);
+      }
+
+      return devUrl;
+    } else {
+      // Production: Use production backend URL from environment
+      const prodUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+
+      if (!prodUrl) {
+        const error =
+          "NEXT_PUBLIC_BACKEND_URL is not configured in production environment.";
+        console.error("❌", error);
+        throw new Error(error);
+      }
+
+      return prodUrl;
+    }
+  }
+
+  /**
+   * Log consent to Laravel backend server for GDPR Article 7 compliance
    * GDPR requires you to PROVE that consent was given
    *
    * Backend should store:
@@ -106,9 +144,36 @@ export class ConsentManager {
    */
   private static async logConsentToServer(data: ConsentData): Promise<void> {
     try {
-      await fetch("/api/consent/log", {
+      // Get backend URL based on environment (development or production)
+      let backendUrl: string;
+
+      try {
+        backendUrl = this.getBackendUrl();
+      } catch (error) {
+        // If backend URL is not configured, fail gracefully
+        // Consent is still stored in localStorage, so user experience is not affected
+        if (process.env.NODE_ENV === "development") {
+          console.error("❌ Backend URL configuration error:", error);
+          console.error(
+            "💡 Please create .env.local file with NEXT_PUBLIC_developemant_BACKEND_URL"
+          );
+        }
+        return; // Exit silently - consent is saved in localStorage
+      }
+
+      const apiEndpoint = `${backendUrl}/api/consent/log`;
+
+      // Log which backend we're connecting to (development only)
+      if (process.env.NODE_ENV === "development") {
+        console.log(`📡 Connecting to backend: ${apiEndpoint}`);
+      }
+
+      const response = await fetch(apiEndpoint, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({
           consentId: data.consentId,
           preferences: data.preferences,
@@ -120,9 +185,31 @@ export class ConsentManager {
           // IP address will be captured by backend automatically
         }),
       });
+
+      if (!response.ok) {
+        const errorText = await response.text().catch(() => "Unknown error");
+        throw new Error(
+          `Backend responded with status ${response.status}: ${errorText}`
+        );
+      }
+
+      const result = await response.json();
+
+      // Log success in development only
+      if (process.env.NODE_ENV === "development") {
+        console.log("✅ Consent logged to backend:", result);
+      }
     } catch (error) {
       // Fail silently - consent is still stored in localStorage
-      console.error("Failed to log consent to server:", error);
+      // Only log errors in development
+      if (process.env.NODE_ENV === "development") {
+        console.error("❌ Failed to log consent to backend:", error);
+        try {
+          console.error("Backend URL:", this.getBackendUrl());
+        } catch {
+          // Ignore if getBackendUrl also fails
+        }
+      }
     }
   }
 }

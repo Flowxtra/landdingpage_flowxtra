@@ -129,6 +129,8 @@ Set the API base URL in `.env.local`:
 
 ```bash
 NEXT_PUBLIC_API_URL=https://api.flowxtra.com
+Backend Developamnet URL: http://localhost:8765
+
 ```
 
 ---
