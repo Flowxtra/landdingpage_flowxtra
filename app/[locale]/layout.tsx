@@ -454,13 +454,13 @@ export default async function LocaleLayout({
           }}
         />
       </head>
-      <body className="antialiased">
+      <body className="antialiased" suppressHydrationWarning>
         <NextIntlClientProvider locale={locale} messages={messages}>
           {/* Client-side only scripts - loaded asynchronously */}
           <ClientScripts />
           
           <Header />
-          <main>
+          <main suppressHydrationWarning>
             {children}
           </main>
           <Footer />

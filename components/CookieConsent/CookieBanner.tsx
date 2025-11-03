@@ -8,22 +8,31 @@ import { ConsentManager } from '@/lib/consentManager';
 
 export default function CookieBanner() {
   const { hasConsent, acceptAll, rejectAll } = useConsent();
-  const [consentState, setConsentState] = useState(hasConsent);
+  // Initialize with false to prevent hydration mismatch (same on server and client)
+  const [consentState, setConsentState] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
   const [shouldShowBanner, setShouldShowBanner] = useState(false);
   const [isReady, setIsReady] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const t = useTranslations('cookieConsent.banner');
   const tButtons = useTranslations('cookieConsent.buttons');
 
-  // Check consent and delay banner to avoid affecting LCP
+  // Mark component as mounted (client-side only)
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Check consent and delay banner to avoid affecting LCP (only on client)
+  useEffect(() => {
+    if (!isMounted || typeof window === 'undefined') return;
+
     const updateBanner = () => {
       const consent = ConsentManager.getConsent();
       setShouldShowBanner(!consent);
       setConsentState(!!consent);
     };
 
-    // Initial check (synchronous for faster initial render)
+    // Initial check (after mount to prevent hydration mismatch)
     updateBanner();
 
     // Delay banner appearance to not affect LCP and initial render
@@ -32,15 +41,13 @@ export default function CookieBanner() {
       setIsReady(true);
     };
 
-    if (typeof window !== 'undefined') {
-      // Wait for LCP and idle time before showing banner
-      // This prevents layout shifts during critical rendering
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(showBanner, { timeout: 1000 });
-      } else {
-        // Fallback for browsers without requestIdleCallback
-        setTimeout(showBanner, 800);
-      }
+    // Wait for LCP and idle time before showing banner
+    // This prevents layout shifts during critical rendering
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(showBanner, { timeout: 1000 });
+    } else {
+      // Fallback for browsers without requestIdleCallback
+      setTimeout(showBanner, 800);
     }
 
     // Listen for consent changes
@@ -49,15 +56,15 @@ export default function CookieBanner() {
     return () => {
       window.removeEventListener('consentUpdated', updateBanner);
     };
-  }, []);
+  }, [isMounted]);
 
   // Sync with useConsent hook (only if already initialized)
   useEffect(() => {
-    if (isReady) {
+    if (isReady && isMounted) {
       setConsentState(hasConsent);
       setShouldShowBanner(!hasConsent);
     }
-  }, [hasConsent, isReady]);
+  }, [hasConsent, isReady, isMounted]);
 
   // Don't show banner if consent already exists, not ready yet, or no consent needed
   if (consentState || !shouldShowBanner) {

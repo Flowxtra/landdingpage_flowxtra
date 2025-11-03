@@ -27,12 +27,18 @@ export class ConsentManager {
   static getConsent(): ConsentData | null {
     if (typeof window === "undefined") return null;
 
-    const stored = localStorage.getItem(CONSENT_STORAGE_KEY);
-    if (!stored) return null;
-
     try {
+      // Check if localStorage is available (Safari Private Mode may throw error)
+      const stored = localStorage.getItem(CONSENT_STORAGE_KEY);
+      if (!stored) return null;
+
       return JSON.parse(stored);
-    } catch {
+    } catch (error) {
+      // Handle localStorage errors (Safari Private Mode, disabled storage, etc.)
+      // Fail silently - return null to show banner again
+      if (process.env.NODE_ENV === "development") {
+        console.warn("localStorage access failed:", error);
+      }
       return null;
     }
   }
@@ -63,7 +69,16 @@ export class ConsentManager {
       consentMethod, // How consent was given (banner or preferences panel)
     };
 
-    localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(consentData));
+    // Save to localStorage (with error handling for Safari Private Mode, etc.)
+    try {
+      localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(consentData));
+    } catch (error) {
+      // Handle localStorage errors (Safari Private Mode, quota exceeded, etc.)
+      if (process.env.NODE_ENV === "development") {
+        console.warn("Failed to save consent to localStorage:", error);
+      }
+      // Continue anyway - try to log to backend even if localStorage fails
+    }
 
     // Log to backend for GDPR compliance (Article 7 - proof of consent)
     this.logConsentToServer(consentData);
@@ -87,7 +102,14 @@ export class ConsentManager {
 
   // Revoke consent
   static revokeConsent(): void {
-    localStorage.removeItem(CONSENT_STORAGE_KEY);
+    try {
+      localStorage.removeItem(CONSENT_STORAGE_KEY);
+    } catch (error) {
+      // Handle localStorage errors (Safari Private Mode, etc.)
+      if (process.env.NODE_ENV === "development") {
+        console.warn("Failed to remove consent from localStorage:", error);
+      }
+    }
   }
 
   /**
@@ -168,7 +190,18 @@ export class ConsentManager {
         console.log(`📡 Connecting to backend: ${apiEndpoint}`);
       }
 
-      const response = await fetch(apiEndpoint, {
+      // Use fetch with timeout for better cross-browser compatibility
+      // AbortController is supported in all modern browsers (Chrome 66+, Firefox 57+, Safari 12.1+)
+      let controller: AbortController | null = null;
+      let timeoutId: NodeJS.Timeout | null = null;
+
+      // Only use AbortController if available (for older browsers fallback)
+      if (typeof AbortController !== "undefined") {
+        controller = new AbortController();
+        timeoutId = setTimeout(() => controller!.abort(), 10000); // 10 second timeout
+      }
+
+      const fetchOptions: RequestInit = {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -184,7 +217,19 @@ export class ConsentManager {
           consentMethod: data.consentMethod,
           // IP address will be captured by backend automatically
         }),
-      });
+        credentials: "omit", // Don't send cookies (GDPR compliant)
+      };
+
+      // Add timeout signal if AbortController is available
+      if (controller) {
+        fetchOptions.signal = controller.signal;
+      }
+
+      const response = await fetch(apiEndpoint, fetchOptions);
+
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
 
       if (!response.ok) {
         const errorText = await response.text().catch(() => "Unknown error");

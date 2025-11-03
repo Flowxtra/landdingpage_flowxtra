@@ -5,21 +5,19 @@ import { ConsentManager } from "@/lib/consentManager";
 export function useConsent() {
   // No longer need geo-location detection - all options shown to everyone
 
-  // Check consent immediately on initialization (synchronously)
-  const storedConsent =
-    typeof window !== "undefined" ? ConsentManager.getConsent() : null;
+  // Initialize with default values (same on server and client to prevent hydration mismatch)
+  const [hasConsent, setHasConsent] = useState(false);
+  const [preferences, setPreferences] = useState<ConsentPreferences>({
+    essential: true,
+    functional: false,
+    analytics: false,
+    marketing: false,
+  });
 
-  const [hasConsent, setHasConsent] = useState(!!storedConsent);
-  const [preferences, setPreferences] = useState<ConsentPreferences>(
-    storedConsent?.preferences || {
-      essential: true,
-      functional: false,
-      analytics: false,
-      marketing: false,
-    }
-  );
-
+  // Load consent from localStorage only on client side (after hydration)
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const stored = ConsentManager.getConsent();
     if (stored) {
       setHasConsent(true);
