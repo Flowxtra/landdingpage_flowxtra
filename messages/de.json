@@ -744,15 +744,14 @@
             "esignature": "E-Signatur"
         },
         "ats": {
-            "title": "ATS",
+            "title": "ATS Software",
             "aiAts": "KI-ATS-Software",
             "candidateFiltering": "Kandidatenfilterung",
-            "interviewRating": "Interview-Bewertungsbögen",
-            "interviewScoring": "Interview-Bewertungsbogen",
-            "emailTemplates": "E-Mail-Vorlagen",
             "multiposting": "Multiposting von Stellenanzeigen",
             "jobWidget": "Stellenanzeigen-Widget",
-            "hiringFlow": "Einstellungsprozess"
+            "freeJobPosting": "Kostenlose Stellenausschreibung",
+            "applicantTracking": "Bewerberverwaltungssystem Software",
+            "socialMediaManagement": "Social Media Management"
         },
         "terms": {
             "title": "Rechtliches",
@@ -761,7 +760,7 @@
             "disclaimer": "Haftungsausschluss",
             "privacy": "Datenschutzrichtlinie",
             "cookie": "Cookie-Richtlinie",
-            "companies": "Nutzungsbedingungen für Unternehmen",
+            "companies": "Nutzungsbedingungen",
             "candidates": "Nutzungsbedingungen für Kandidaten"
         },
         "followUs": {

@@ -167,13 +167,13 @@ export default function ContactUs() {
                   onChange={handleCheckboxChange}
                   className="mt-1 w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary dark:focus:ring-secondary"
                 />
-                <label htmlFor="privacy" className="text-sm text-gray-600 dark:text-gray-300">
+                <label htmlFor="privacy" className="text-sm text-gray-600 dark:text-white">
                   {t("form.agreeWith")}{" "}
-                  <a href="/privacy-policy" className="text-primary dark:text-secondary hover:underline font-medium">
+                  <a href="/privacy-policy" className="text-primary dark:text-white dark:underline hover:underline dark:hover:text-[#00A8CD] font-medium">
                     {t("form.privacyPolicy")}
                   </a>{" "}
                   {t("form.and")}{" "}
-                  <a href="/terms-conditions" className="text-primary dark:text-secondary hover:underline font-medium">
+                  <a href="/terms-of-use" className="text-primary dark:text-white dark:underline hover:underline dark:hover:text-[#00A8CD] font-medium">
                     {t("form.termsConditions")}
                   </a>
                   {" "}<span className="text-red-500">{t("form.required")}</span>
@@ -249,7 +249,7 @@ export default function ContactUs() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500 dark:text-gray-400">{t("info.email")}</p>
-                  <a href="mailto:sales@flowxtra.com" className="text-lg font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-secondary transition-colors">
+                  <a href="mailto:sales@flowxtra.com" className="text-lg font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-[#00A8CD] transition-colors">
                     sales@flowxtra.com
                   </a>
                 </div>
@@ -264,7 +264,7 @@ export default function ContactUs() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500 dark:text-gray-400">{t("info.phone")}</p>
-                  <a href="tel:+436769054441" className="text-lg font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-secondary transition-colors">
+                  <a href="tel:+436769054441" className="text-lg font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-[#00A8CD] transition-colors">
                     +43 676 905 4441
                   </a>
                 </div>

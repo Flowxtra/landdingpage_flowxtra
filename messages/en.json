@@ -744,15 +744,14 @@
             "esignature": "E-signature"
         },
         "ats": {
-            "title": "ATS",
+            "title": "ATS Software",
             "aiAts": "AI ATS Software",
             "candidateFiltering": "Candidate Filtering",
-            "interviewRating": "Interview rating sheets",
-            "interviewScoring": "Interview Scoring Sheet",
-            "emailTemplates": "Email Templates",
             "multiposting": "Multiposting Jobs",
             "jobWidget": "Job Widget",
-            "hiringFlow": "Hiring Flow"
+            "freeJobPosting": "Free Job Posting",
+            "applicantTracking": "Applicant Tracking System Software",
+            "socialMediaManagement": "Social Media Management"
         },
         "terms": {
             "title": "Terms",
@@ -761,7 +760,7 @@
             "disclaimer": "Disclaimer",
             "privacy": "Privacy policy",
             "cookie": "Cookie policy",
-            "companies": "Terms of use Companies",
+            "companies": "Terms of use",
             "candidates": "Terms of use Candidates"
         },
         "followUs": {

@@ -105,8 +105,8 @@ The frontend provides:
 | Disclaimer | `/disclaimer/` |
 | Privacy Policy | `/privacy-policy/` |
 | Cookie Policy | `/cookie-policy/` |
-| Terms of Use (Companies) | `/terms-of-use-companies/` |
-| Terms of Use (Candidates) | `/terms-of-use-candidates/` |
+| Terms of Use (Companies) | `///terms-of-use/` |
+| Terms of Use (Candidates) | `//terms-of-use-candidates/` |
 
 All pages are static, multilingual (EN / DE / AR), and fully optimized for SEO.
 
@@ -270,8 +270,8 @@ All original WordPress URLs are preserved to maintain SEO authority.
 /imprint/
 /privacy-policy/
 /cookie-policy/
-/terms-of-use-companies/
-/terms-of-use-candidates/
+///terms-of-use/
+//terms-of-use-candidates/
 ```
 
 ---

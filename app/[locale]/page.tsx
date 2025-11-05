@@ -212,7 +212,7 @@ allowfullscreen>
               <div className={`grid gap-8 lg:gap-12 items-center max-w-7xl mx-auto ${slide.imageOnRight ? 'lg:grid-cols-[33%_67%]' : 'lg:grid-cols-[67%_33%]'}`}>
                 {/* Content */}
                 <div className={`bg-gray-50 dark:bg-gray-800 p-5 md:p-8 lg:p-10 rounded-3xl ${slide.imageOnRight ? 'order-1' : 'order-1 lg:order-2'}`}>
-                  <span className="inline-block px-3 py-1.5 bg-[#e6f4f7] dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md text-sm font-normal mb-3">
+                  <span className="inline-block px-3 py-1.5 bg-[#e6f4f7] dark:bg-gray-700 text-gray-600 dark:text-white rounded-md text-sm font-normal mb-3">
                     {slide.badge}
                   </span>
                   
@@ -372,7 +372,7 @@ export default function Homepage() {
             <div className="space-y-6 min-h-[100px]">
               {/* Badge */}
               <div className="inline-block">
-                <span className="px-4 py-2 text-primary dark:text-blue-400 rounded-full text-sm font-medium" style={{ backgroundColor: '#d9e9ec' }}>
+                <span className="px-4 py-2 text-primary dark:text-white rounded-full text-sm font-medium" style={{ backgroundColor: '#d9e9ec' }}>
                   {t("gdpr.badge")}
                 </span>
               </div>
@@ -396,7 +396,7 @@ export default function Homepage() {
               <div className="pt-4">
                 <a
                   href="/faq"
-                  className="inline-flex items-center text-primary dark:text-secondary-light hover:text-secondary dark:hover:text-secondary font-medium text-lg group"
+                  className="inline-flex items-center text-primary dark:text-secondary-light hover:text-secondary dark:hover:text-[#00A8CD] font-medium text-lg group"
                 >
                   <svg
                     className="w-5 h-5 mr-2"
@@ -935,7 +935,7 @@ export default function Homepage() {
             {/* Left Side - Content */}
             <div className="order-1 lg:order-1 space-y-8">
               <div className="inline-block bg-[#e6f4f7] dark:bg-gray-800 px-4 py-2 rounded-lg">
-                <span className="text-sm md:text-base font-semibold text-primary dark:text-secondary-light">
+                <span className="text-sm md:text-base font-semibold text-primary dark:text-white">
                   {t("multipleJobPosting.badge")}
                 </span>
               </div>
@@ -1233,7 +1233,7 @@ function FAQSection() {
             <svg className="w-5 h-5 text-primary dark:text-white" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
             </svg>
-            <span>{t("helpText")} <a href="/contact-us" className="text-primary dark:text-white dark:underline hover:underline font-semibold">{t("chatLink")}</a></span>
+            <span>{t("helpText")} <a href="/contact-us" className="text-primary dark:text-white dark:underline hover:underline dark:hover:text-[#00A8CD] font-semibold">{t("chatLink")}</a></span>
           </div>
         </div>
 
@@ -1243,7 +1243,7 @@ function FAQSection() {
             <div key={index}>
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full flex items-center gap-4 py-6 text-left transition-colors hover:text-primary dark:hover:text-secondary-light group"
+                className="w-full flex items-center gap-4 py-6 text-left transition-colors hover:text-primary dark:hover:text-[#00A8CD]-light group"
               >
                 <svg
                   className={`w-5 h-5 text-primary dark:text-secondary flex-shrink-0 transition-transform duration-300 dark:group-hover:text-secondary-light ${
@@ -1279,7 +1279,7 @@ function FAQSection() {
                               href={link.url}
                               target="_blank"
                               rel="nofollow noopener"
-                              className="text-sm text-primary dark:text-white dark:underline hover:underline flex items-center gap-2"
+                              className="text-sm text-primary dark:text-white dark:underline hover:underline dark:hover:text-[#00A8CD] flex items-center gap-2"
                             >
                               <svg className="w-4 h-4 text-primary dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -1445,7 +1445,7 @@ function ContactUsSection() {
           <div className="order-2 lg:order-1">
             {/* Badge */}
             <div className="inline-block bg-[#e6f4f7] dark:bg-gray-800 px-4 py-2 rounded-lg mb-6">
-              <span className="text-sm md:text-base font-semibold text-primary dark:text-secondary-light">
+              <span className="text-sm md:text-base font-semibold text-primary dark:text-white">
                 {t("badge")}
               </span>
             </div>
@@ -1530,13 +1530,13 @@ function ContactUsSection() {
                   onChange={handleCheckboxChange}
                   className="mt-1 w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary dark:focus:ring-secondary"
                 />
-                <label htmlFor="privacy" className="text-sm text-gray-600 dark:text-gray-300">
+                <label htmlFor="privacy" className="text-sm text-gray-600 dark:text-white">
                   {t("form.agreeWith")}{" "}
-                  <a href="/privacy-policy" className="text-primary dark:text-secondary hover:underline font-medium">
+                  <a href="/privacy-policy" className="text-primary dark:text-white dark:underline hover:underline dark:hover:text-[#00A8CD] font-medium">
                     {t("form.privacyPolicy")}
                   </a>{" "}
                   {t("form.and")}{" "}
-                  <a href="/terms-conditions" className="text-primary dark:text-secondary hover:underline font-medium">
+                  <a href="/terms-of-use" className="text-primary dark:text-white dark:underline hover:underline dark:hover:text-[#00A8CD] font-medium">
                     {t("form.termsConditions")}
                   </a>
                   {" "}<span className="text-red-500">*</span>
@@ -1622,7 +1622,7 @@ function ContactUsSection() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500 dark:text-gray-400">{t("info.email")}</p>
-                  <a href="mailto:sales@flowxtra.com" className="text-lg font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-secondary transition-colors">
+                  <a href="mailto:sales@flowxtra.com" className="text-lg font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-[#00A8CD] transition-colors">
                     sales@flowxtra.com
                   </a>
                 </div>
@@ -1637,7 +1637,7 @@ function ContactUsSection() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500 dark:text-gray-400">{t("info.phone")}</p>
-                  <a href="tel:+436769054441" className="text-lg font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-secondary transition-colors">
+                  <a href="tel:+436769054441" className="text-lg font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-[#00A8CD] transition-colors">
                     +43 676 905 4441
                   </a>
                 </div>
