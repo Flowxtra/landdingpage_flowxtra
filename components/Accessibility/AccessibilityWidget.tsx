@@ -1,15 +1,110 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AccessibilityPanel from './AccessibilityPanel';
+import { useAccessibility } from './hooks/useAccessibility';
+
+const DEFAULT_SETTINGS = {
+  fontSize: 1,
+  lineHeight: 1.5,
+  textAlign: "left",
+  readableFont: false,
+  highlightLinks: false,
+  largeCursor: false,
+  readingMask: false,
+  stopAnimations: false,
+  highContrast: false,
+  monochrome: false,
+  hideImages: false,
+  outlineFocus: false,
+  pageStructure: false,
+};
 
 export default function AccessibilityWidget() {
   const [isOpen, setIsOpen] = useState(false);
+  const { settings } = useAccessibility();
+  const [hasActiveSettings, setHasActiveSettings] = useState(false);
+
+  // Check if any accessibility setting is active
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const checkActiveSettings = () => {
+      try {
+        const saved = localStorage.getItem("flowxtra_accessibility_settings");
+        if (!saved) {
+          setHasActiveSettings(false);
+          return;
+        }
+
+        const parsed = JSON.parse(saved);
+        const hasActive = Object.keys(parsed).some((key) => {
+          const value = parsed[key];
+          const defaultValue = DEFAULT_SETTINGS[key as keyof typeof DEFAULT_SETTINGS];
+          
+          // Check if value is different from default
+          if (key === 'fontSize' && value !== 1) return true;
+          if (key === 'lineHeight' && value !== 1.5) return true;
+          if (key === 'textAlign' && value !== 'left') return true;
+          if (typeof value === 'boolean' && value !== defaultValue) return true;
+          
+          return false;
+        });
+
+        setHasActiveSettings(hasActive);
+      } catch (error) {
+        setHasActiveSettings(false);
+      }
+    };
+
+    checkActiveSettings();
+
+    // Listen for storage changes (when reset is called from another tab)
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === "flowxtra_accessibility_settings") {
+        checkActiveSettings();
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    
+    // Also check periodically in case localStorage is changed in same window
+    const interval = setInterval(checkActiveSettings, 300);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      clearInterval(interval);
+    };
+  }, [settings]);
+
+  // Also check when settings object changes (when user modifies settings)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const hasActive = Object.keys(settings).some((key) => {
+      const value = settings[key as keyof typeof settings];
+      const defaultValue = DEFAULT_SETTINGS[key as keyof typeof DEFAULT_SETTINGS];
+      
+      // Check if value is different from default
+      if (key === 'fontSize' && value !== 1) return true;
+      if (key === 'lineHeight' && value !== 1.5) return true;
+      if (key === 'textAlign' && value !== 'left') return true;
+      if (typeof value === 'boolean' && value !== defaultValue) return true;
+      
+      return false;
+    });
+
+    setHasActiveSettings(hasActive);
+  }, [settings]);
+
+  // Show button if there are active settings and panel is closed
+  // Button stays visible even when panel is closed, but hides when panel is open to avoid overlap
+  const showButton = hasActiveSettings && !isOpen;
 
   return (
     <>
       {/* Floating Button - Fixed on Right */}
-      {!isOpen && (
+      {showButton && (
         <button
           onClick={() => setIsOpen(true)}
           className="fixed right-0 top-1/2 -translate-y-1/2 translate-x-0 z-[9998] bg-primary dark:bg-secondary text-white p-4 rounded-l-2xl shadow-lg hover:shadow-xl transition-all hover:translate-x-[-4px] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"

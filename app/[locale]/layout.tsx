@@ -4,6 +4,7 @@ import type { Metadata, Viewport } from "next";
 import dynamic from "next/dynamic";
 import "../globals.css";
 import ClientScripts from "@/components/ClientScripts";
+import AccessibilityWidgetLoader from "@/components/Accessibility/AccessibilityWidgetLoader";
 
 // Lazy load non-critical components to reduce initial bundle size
 // Header and Footer are loaded after initial render to reduce main-thread work
@@ -464,6 +465,7 @@ export default async function LocaleLayout({
             {children}
           </main>
           <Footer />
+          <AccessibilityWidgetLoader />
         </NextIntlClientProvider>
       </body>
     </html>
