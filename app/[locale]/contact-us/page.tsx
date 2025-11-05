@@ -223,7 +223,7 @@ export default function ContactUs() {
             <div className="rounded-2xl overflow-hidden">
               <figure>
                 <Image
-                  src="/img/ai-powered-recruiting.webp"
+                  src="/img/ai-powered-recruiting.svg"
                   alt="AI-powered recruiting and HR platform for smarter hiring"
                   title="Flowxtra – All-in-One AI Recruiting & HR Platform"
                   width={800}

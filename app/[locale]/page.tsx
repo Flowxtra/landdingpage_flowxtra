@@ -109,7 +109,7 @@ function FeaturesSlider() {
       description: t("slide1.description"),
       buttonText: t("slide1.buttonText"),
       buttonLink: "https://my.flowxtra.com/registration",
-      image: "/img/Smarter-Candidate-Filtering.png",
+      image: "/img/Smarter-Candidate-Filtering.svg",
       imageAlt: t("slide1.imageAlt"),
       imageOnRight: true,
     },
@@ -129,7 +129,7 @@ function FeaturesSlider() {
       description: t("slide3.description"),
       buttonText: t("slide3.buttonText"),
       buttonLink: "https://my.flowxtra.com/registration",
-      image: "/img/Candidate-Profile.webp",
+      image: "/img/Candidate-Profile.svg",
       imageAlt: t("slide3.imageAlt"),
       imageOnRight: true,
     },
@@ -139,7 +139,7 @@ function FeaturesSlider() {
       description: t("slide4.description"),
       buttonText: t("slide4.buttonText"),
       buttonLink: "https://my.flowxtra.com/registration",
-      image: "/img/Multiposting-job.webp",
+      image: "/img/Multiposting-job.svg",
       imageAlt: t("slide4.imageAlt"),
       imageOnRight: false,
     },
@@ -149,7 +149,7 @@ function FeaturesSlider() {
       description: t("slide5.description"),
       buttonText: t("slide5.buttonText"),
       buttonLink: "https://my.flowxtra.com/registration",
-      image: "/img/hiring-email-template.webp",
+      image: "/img/hiring-email-template.svg",
       imageAlt: t("slide5.imageAlt"),
       imageOnRight: true,
     },
@@ -1505,7 +1505,7 @@ function ContactUsSection() {
             <div className="rounded-2xl overflow-hidden">
               <figure>
                 <Image
-                  src="/img/ai-powered-recruiting.webp"
+                  src="/img/ai-powered-recruiting.svg"
                   alt={t("imageAlt")}
                   title={t("imageTitle")}
                   width={800}

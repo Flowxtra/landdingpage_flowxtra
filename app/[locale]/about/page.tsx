@@ -46,7 +46,7 @@ export default function About() {
             <div className="rounded-2xl overflow-hidden">
               <figure>
                 <Image
-                  src="/img/ai-powered-recruiting.webp"
+                  src="/img/ai-powered-recruiting.svg"
                   alt="Flowxtra team working on AI-powered recruitment solutions"
                   title="Flowxtra – Innovative Recruitment Solutions"
                   width={800}
