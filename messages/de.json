@@ -14,7 +14,7 @@
         },
         "affiliate": {
             "title": "Partnerprogramm – Verdienen Sie 50% Provision | Flowxtra",
-            "description": "Treten Sie Flowxtras Partnerprogramm bei und verdienen Sie 50% Provision auf Abonnements im ersten Jahr. Teilen Sie Ihren eindeutigen Empfehlungslink und fangen Sie noch heute an zu verdienen."
+            "description": "Treten Sie Flowxtras Partnerprogramm bei und verdienen Sie 50% Provision für bis zu 12 Monate pro Empfehlung. Teilen Sie Ihren eindeutigen Empfehlungslink und fangen Sie noch heute an zu verdienen."
         },
         "features": {
             "title": "Funktionen – KI-gestützte Recruiting & ATS-Software | Flowxtra",
@@ -506,8 +506,8 @@
     "affiliate": {
         "hero": {
             "title": "Teilen Sie Flowxtra & Verdienen Sie 50% Provision",
-            "subtitle": "Verdienen Sie jeden Monat 50% Provision für jeden von Ihnen geworbenen Benutzer",
-            "description": "Treten Sie unserem Partnerprogramm bei und helfen Sie Unternehmen, Flowxtra zu entdecken. Erhalten Sie einen eindeutigen Empfehlungslink und beginnen Sie noch heute, Provisionen zu verdienen. Die Provision wird monatlich gezahlt, solange Ihre geworbenen Benutzer abonniert bleiben.",
+            "subtitle": "Verdienen Sie jeden Monat 50% Provision für jeden von Ihnen geworbenen Benutzer (bis zu 12 Monate)",
+            "description": "Treten Sie unserem Partnerprogramm bei und helfen Sie Unternehmen, Flowxtra zu entdecken. Erhalten Sie einen eindeutigen Empfehlungslink und beginnen Sie noch heute, Provisionen zu verdienen. Die Provision wird monatlich für bis zu 12 Monate gezahlt, solange Ihre geworbenen Benutzer abonniert bleiben.",
             "cta": "Partnerprogramm beitreten",
             "ctaSecondary": "Mehr erfahren"
         },
@@ -527,7 +527,7 @@
             },
             "step4": {
                 "title": "Monatliche Provisionen verdienen",
-                "description": "Verdienen Sie jeden Monat 50% Provision, solange Ihre geworbenen Benutzer abonniert bleiben. Die Provision wird jeden Monat auf Ihr Konto gutgeschrieben."
+                "description": "Verdienen Sie jeden Monat 50% Provision für bis zu 12 Monate, solange Ihre geworbenen Benutzer abonniert bleiben. Die Provision wird jeden Monat auf Ihr Konto gutgeschrieben."
             }
         },
         "commission": {
@@ -549,8 +549,8 @@
             "perMonth": "/Monat",
             "example": {
                 "title": "Beispiel",
-                "description": "Für Professional Plan (€249/Monat): Sie verdienen €124,50/Monat, solange der Benutzer abonniert bleibt. Wenn er ein ganzes Jahr bleibt, verdienen Sie insgesamt €1.494.",
-                "note": "* Das jährliche Potential wird auf Basis von 12 Monaten Abonnement berechnet. Die Provision wird monatlich gezahlt, solange die Benutzer abonniert bleiben."
+                "description": "Für Professional Plan (€249/Monat): Sie verdienen €124,50/Monat für bis zu 12 Monate, solange der Benutzer abonniert bleibt. Maximale Einnahmen: €1.494 (12 Monate).",
+                "note": "* Die maximale Provisionsdauer beträgt 12 Monate pro Empfehlung. Die Provision wird monatlich für bis zu 12 Monate gezahlt, solange die Benutzer abonniert bleiben."
             }
         },
         "paymentTerms": {
@@ -558,8 +558,8 @@
             "subtitle": "Wie Provisionen berechnet und ausgezahlt werden",
             "terms": [
                 {
-                    "title": "Laufende Provision",
-                    "description": "Provision wird jeden Monat gezahlt, solange Ihre geworbenen Benutzer abonniert bleiben. Es gibt kein Zeitlimit."
+                    "title": "Provisionsdauer",
+                    "description": "Provision wird jeden Monat für bis zu 12 Monate gezahlt, solange Ihre geworbenen Benutzer abonniert bleiben. Die maximale Provisionsdauer beträgt 12 Monate pro Empfehlung."
                 },
                 {
                     "title": "Monatliche Gutschrift",
@@ -567,11 +567,11 @@
                 },
                 {
                     "title": "Mindestauszahlung",
-                    "description": "Der Mindestbetrag für eine Auszahlung beträgt €120. Sie können Ihre Einnahmen ansammeln, bis Sie diesen Schwellenwert erreichen."
+                    "description": "Der Mindestbetrag für eine Auszahlung beträgt €180. Sie können Ihre Einnahmen ansammeln, bis Sie diesen Schwellenwert erreichen."
                 },
                 {
                     "title": "Auszahlungsprozess",
-                    "description": "Sobald Sie €120 oder mehr erreichen, können Sie eine Auszahlung beantragen. Zahlungen werden monatlich per Banküberweisung oder PayPal abgewickelt."
+                    "description": "Sobald Sie €180 oder mehr erreichen, können Sie eine Auszahlung beantragen. Zahlungen werden monatlich per Banküberweisung oder PayPal abgewickelt."
                 }
             ]
         },
@@ -596,7 +596,7 @@
             },
             "q2": {
                 "question": "Wann werde ich bezahlt?",
-                "answer": "Die Provision wird jeden Monat auf Ihr Konto gutgeschrieben, solange Ihre geworbenen Benutzer abonniert bleiben. Sie können eine Auszahlung beantragen, sobald Ihr Guthaben €120 oder mehr erreicht."
+                "answer": "Die Provision wird jeden Monat auf Ihr Konto gutgeschrieben, solange Ihre geworbenen Benutzer abonniert bleiben. Sie können eine Auszahlung beantragen, sobald Ihr Guthaben €180 oder mehr erreicht."
             },
             "q3": {
                 "question": "Wie lange dauern die Provisionen?",
@@ -608,7 +608,7 @@
             },
             "q5": {
                 "question": "Wie hoch ist der Mindestauszahlungsbetrag?",
-                "answer": "Der Mindestauszahlungsbetrag beträgt €120. Sie können Ihre Einnahmen auf Ihrem Konto ansammeln, bis Sie diesen Schwellenwert erreichen, und dann eine Auszahlung beantragen."
+                "answer": "Der Mindestauszahlungsbetrag beträgt €180. Sie können Ihre Einnahmen auf Ihrem Konto ansammeln, bis Sie diesen Schwellenwert erreichen, und dann eine Auszahlung beantragen."
             }
         }
     },

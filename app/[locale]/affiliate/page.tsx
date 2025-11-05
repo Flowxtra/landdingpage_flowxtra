@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
 import dynamic from "next/dynamic";
+import { Infinity, CreditCard, DollarSign, ArrowRight } from "lucide-react";
 
 // Dynamic import for PricingSection to reduce initial bundle size
 const PricingSection = dynamic(() => import("@/components/PricingSection"), {
@@ -320,17 +321,29 @@ export default function AffiliatePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {[0, 1, 2, 3].map((index) => (
+            {[
+              { icon: Infinity, color: "text-[#00A8CD]" },
+              { icon: CreditCard, color: "text-[#00A8CD]" },
+              { icon: DollarSign, color: "text-[#00A8CD]" },
+              { icon: ArrowRight, color: "text-[#00A8CD]" },
+            ].map(({ icon: Icon, color }, index) => (
               <div
                 key={index}
-                className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700"
+                className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow"
               >
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
-                  {t(`paymentTerms.terms.${index}.title`)}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {t(`paymentTerms.terms.${index}.description`)}
-                </p>
+                <div className="flex items-start gap-4">
+                  <div className={`flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 dark:bg-secondary/10 flex items-center justify-center ${color}`}>
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                      {t(`paymentTerms.terms.${index}.title`)}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-300">
+                      {t(`paymentTerms.terms.${index}.description`)}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>

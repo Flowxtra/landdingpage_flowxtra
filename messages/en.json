@@ -14,7 +14,7 @@
         },
         "affiliate": {
             "title": "Affiliate Program – Earn 50% Commission | Flowxtra",
-            "description": "Join Flowxtra's affiliate program and earn 50% commission on first-year subscriptions. Share your unique referral link and start earning today."
+            "description": "Join Flowxtra's affiliate program and earn 50% commission for up to 12 months on each referral. Share your unique referral link and start earning today."
         },
         "features": {
             "title": "Features – AI-Powered Recruiting & ATS Software | Flowxtra",
@@ -506,8 +506,8 @@
     "affiliate": {
         "hero": {
             "title": "Share Flowxtra & Earn 50% Commission",
-            "subtitle": "Earn 50% commission every month for every user you refer",
-            "description": "Join our affiliate program and help businesses discover Flowxtra. Get a unique referral link and start earning commissions today. Commission is paid monthly as long as your referred users stay subscribed.",
+            "subtitle": "Earn 50% commission every month for every user you refer (up to 12 months)",
+            "description": "Join our affiliate program and help businesses discover Flowxtra. Get a unique referral link and start earning commissions today. Commission is paid monthly for up to 12 months as long as your referred users stay subscribed.",
             "cta": "Join Affiliate Program",
             "ctaSecondary": "Learn More"
         },
@@ -527,7 +527,7 @@
             },
             "step4": {
                 "title": "Earn Monthly Commissions",
-                "description": "Earn 50% commission every month as long as your referred users stay subscribed. Commission is credited to your account each month."
+                "description": "Earn 50% commission every month for up to 12 months as long as your referred users stay subscribed. Commission is credited to your account each month."
             }
         },
         "commission": {
@@ -549,8 +549,8 @@
             "perMonth": "/month",
             "example": {
                 "title": "Example",
-                "description": "For Professional Plan (€249/month): You earn €124.50/month as long as the user stays subscribed. If they stay for a full year, you'll earn €1,494 total.",
-                "note": "* Annual potential is calculated based on 12 months of subscription. Commission is paid monthly as long as users stay subscribed."
+                "description": "For Professional Plan (€249/month): You earn €124.50/month for up to 12 months as long as the user stays subscribed. Maximum earnings: €1,494 (12 months).",
+                "note": "* Maximum commission period is 12 months per referral. Commission is paid monthly for up to 12 months as long as users stay subscribed."
             }
         },
         "paymentTerms": {
@@ -558,8 +558,8 @@
             "subtitle": "How commissions are calculated and paid",
             "terms": [
                 {
-                    "title": "Ongoing Commission",
-                    "description": "Commission is paid every month as long as your referred users stay subscribed. There's no time limit."
+                    "title": "Commission Period",
+                    "description": "Commission is paid every month for up to 12 months as long as your referred users stay subscribed. Maximum commission period is 12 months per referral."
                 },
                 {
                     "title": "Monthly Credit",
@@ -567,11 +567,11 @@
                 },
                 {
                     "title": "Minimum Withdrawal",
-                    "description": "The minimum balance required to withdraw earnings is €120. You can accumulate earnings until you reach this threshold."
+                    "description": "The minimum balance required to withdraw earnings is €180. You can accumulate earnings until you reach this threshold."
                 },
                 {
                     "title": "Withdrawal Process",
-                    "description": "Once you reach €120 or more, you can request a withdrawal. Payments are processed monthly via bank transfer or PayPal."
+                    "description": "Once you reach €180 or more, you can request a withdrawal. Payments are processed monthly via bank transfer or PayPal."
                 }
             ]
         },
@@ -596,7 +596,7 @@
             },
             "q2": {
                 "question": "When do I get paid?",
-                "answer": "Commission is credited to your account each month as long as your referred users stay subscribed. You can withdraw once your balance reaches €120 or more."
+                "answer": "Commission is credited to your account each month as long as your referred users stay subscribed. You can withdraw once your balance reaches €180 or more."
             },
             "q3": {
                 "question": "How long do commissions last?",
@@ -608,7 +608,7 @@
             },
             "q5": {
                 "question": "What is the minimum withdrawal amount?",
-                "answer": "The minimum withdrawal amount is €120. You can accumulate earnings in your account until you reach this threshold, then request a withdrawal."
+                "answer": "The minimum withdrawal amount is €180. You can accumulate earnings in your account until you reach this threshold, then request a withdrawal."
             }
         }
     },
