@@ -440,7 +440,7 @@ export default function SocialMediaManagement() {
               {/* LinkedIn Button */}
               <button
                 onClick={handleLinkedinClick}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-primary dark:hover:border-secondary hover:text-primary dark:hover:text-secondary transition-all duration-300 font-medium text-base cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-primary dark:hover:border-secondary hover:text-primary dark:hover:text-[#00A8CD] transition-all duration-300 font-medium text-base cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={linkedinStatus === 'connecting'}
               >
                 {/* LinkedIn Icon - Always visible with natural color */}
@@ -477,7 +477,7 @@ export default function SocialMediaManagement() {
               {/* Facebook Button */}
               <button
                 onClick={handleFacebookClick}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-primary dark:hover:border-secondary hover:text-primary dark:hover:text-secondary transition-all duration-300 font-medium text-base cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-primary dark:hover:border-secondary hover:text-primary dark:hover:text-[#00A8CD] transition-all duration-300 font-medium text-base cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={facebookStatus === 'connecting'}
               >
                 {/* Facebook Icon - Always visible with natural color */}
@@ -514,7 +514,7 @@ export default function SocialMediaManagement() {
               {/* Instagram Button */}
               <button
                 onClick={handleInstagramClick}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-primary dark:hover:border-secondary hover:text-primary dark:hover:text-secondary transition-all duration-300 font-medium text-base cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-primary dark:hover:border-secondary hover:text-primary dark:hover:text-[#00A8CD] transition-all duration-300 font-medium text-base cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={instagramStatus === 'connecting'}
               >
                 {/* Instagram Icon - Always visible */}
@@ -560,7 +560,7 @@ export default function SocialMediaManagement() {
               {/* Twitter/X Button */}
               <button
                 onClick={handleTwitterClick}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-primary dark:hover:border-secondary hover:text-primary dark:hover:text-secondary transition-all duration-300 font-medium text-base cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-primary dark:hover:border-secondary hover:text-primary dark:hover:text-[#00A8CD] transition-all duration-300 font-medium text-base cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={twitterStatus === 'connecting'}
               >
                 {/* Twitter/X Icon - Always visible with natural color */}
@@ -597,7 +597,7 @@ export default function SocialMediaManagement() {
               {/* TikTok Button */}
               <button
                 onClick={handleTiktokClick}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-primary dark:hover:border-secondary hover:text-primary dark:hover:text-secondary transition-all duration-300 font-medium text-base cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-primary dark:hover:border-secondary hover:text-primary dark:hover:text-[#00A8CD] transition-all duration-300 font-medium text-base cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={tiktokStatus === 'connecting'}
               >
                 {/* TikTok Icon - Always visible with natural color */}
@@ -649,19 +649,19 @@ export default function SocialMediaManagement() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-3 group cursor-pointer">
-                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#00A8CD] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                   <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">{t("sections.section3.features.feature1")}</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
-                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#00A8CD] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                   <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">{t("sections.section3.features.feature2")}</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
-                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#00A8CD] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                   <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">{t("sections.section3.features.feature3")}</span>
@@ -717,19 +717,19 @@ export default function SocialMediaManagement() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-3 group cursor-pointer">
-                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#00A8CD] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                   <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">{t("sections.section4.features.feature1")}</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
-                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#00A8CD] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                   <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">{t("sections.section4.features.feature2")}</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
-                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#00A8CD] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                   <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">{t("sections.section4.features.feature3")}</span>
@@ -761,19 +761,19 @@ export default function SocialMediaManagement() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-3 group cursor-pointer">
-                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#00A8CD] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                   <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">{t("sections.section5.features.feature1")}</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
-                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#00A8CD] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                   <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">{t("sections.section5.features.feature2")}</span>
                 </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
-                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#00A8CD] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                   <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">{t("sections.section5.features.feature3")}</span>
@@ -861,7 +861,7 @@ export default function SocialMediaManagement() {
                 <div key={qNum}>
                   <button
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                    className="w-full flex items-center gap-4 py-6 text-left transition-colors hover:text-primary dark:hover:text-secondary group"
+                    className="w-full flex items-center gap-4 py-6 text-left transition-colors hover:text-primary dark:hover:text-[#00A8CD] group"
                   >
                     <svg
                       className={`w-5 h-5 text-primary dark:text-secondary flex-shrink-0 transition-transform duration-300 ${
@@ -873,7 +873,7 @@ export default function SocialMediaManagement() {
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
-                    <span className="text-base md:text-lg font-semibold text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-secondary transition-colors">
+                    <span className="text-base md:text-lg font-semibold text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-[#00A8CD] transition-colors">
                       {question}
                     </span>
                   </button>
