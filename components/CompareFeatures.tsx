@@ -2,10 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 // Import individual icons to avoid loading entire lucide-react bundle
-import ChevronDown from 'lucide-react/dist/esm/icons/chevron-down';
-import ChevronUp from 'lucide-react/dist/esm/icons/chevron-up';
-import ChevronLeft from 'lucide-react/dist/esm/icons/chevron-left';
-import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right';
+import { ChevronDown, ChevronUp, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 // Feature data structure
