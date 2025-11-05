@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, memo, useEffect } from "react";
+import { useState, memo, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
@@ -17,6 +17,7 @@ function Header() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [language, setLanguage] = useState("EN");
   const [isLangOpen, setIsLangOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   // Initialize dark mode from localStorage or browser preferences
   useEffect(() => {
@@ -158,6 +159,23 @@ function Header() {
     }
     return `/${currentLocale}${path}`;
   };
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isMenuOpen && mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white dark:bg-gray-900 transition-colors">
@@ -388,7 +406,7 @@ function Header() {
             {/* Login & Signup Buttons */}
             <Link
               href="https://my.flowxtra.com/login"
-              className="border-2 border-white text-white px-6 py-2 rounded-lg hover:bg-[#00A8CD] hover:border-[#00A8CD] hover:text-white transition-all font-medium"
+              className="border-2 border-[#00A8CD] bg-transparent text-[#00A8CD] px-6 py-2 rounded-lg hover:bg-[#00A8CD] hover:border-[#00A8CD] hover:text-white transition-all font-medium"
             >
               {t("login")}
             </Link>
@@ -440,7 +458,7 @@ function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden py-4 border-t dark:border-gray-700">
+          <div ref={mobileMenuRef} className="lg:hidden py-4 border-t dark:border-gray-700">
             <div className="flex flex-col space-y-4">
               <Link
                 href={`/${currentLocale}`}
@@ -585,7 +603,7 @@ function Header() {
               <div className="pt-4 border-t space-y-3">
                 <Link
                   href="https://my.flowxtra.com/login"
-                  className="block text-center border-2 border-white text-white px-6 py-2 rounded-lg hover:bg-white hover:text-primary transition-all font-medium"
+                  className="block text-center border-2 border-[#00A8CD] bg-transparent text-[#00A8CD] px-6 py-2 rounded-lg hover:bg-[#00A8CD] hover:border-[#00A8CD] hover:text-white transition-all font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t("login")}
