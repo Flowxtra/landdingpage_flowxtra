@@ -65,6 +65,8 @@
             "title": "Why Use Flowxtra?",
             "description": "At Flowxtra, we'll help you manage your entire business, from creating job applications, managing your social media accounts, and signing your contracts online.",
             "features": {
+                "freePosting": "Free job posting",
+                "freeScheduling": "Free social media scheduling",
                 "userFriendly": "User-friendly interface.",
                 "highSecurity": "High security.",
                 "integration": "Integration between applications.",

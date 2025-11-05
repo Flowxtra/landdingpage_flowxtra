@@ -65,6 +65,8 @@
             "title": "Warum Flowxtra verwenden?",
             "description": "Bei Flowxtra helfen wir Ihnen, Ihr gesamtes Geschäft zu verwalten, von der Erstellung von Stellenanzeigen über die Verwaltung Ihrer Social-Media-Konten bis hin zur Online-Unterzeichnung Ihrer Verträge.",
             "features": {
+                "freePosting": "Kostenlose Stellenausschreibung",
+                "freeScheduling": "Kostenlose Social-Media-Planung",
                 "userFriendly": "Benutzerfreundliche Oberfläche.",
                 "highSecurity": "Hohe Sicherheit.",
                 "integration": "Integration zwischen Anwendungen.",
