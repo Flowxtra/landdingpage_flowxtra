@@ -1112,9 +1112,9 @@ function ReviewsSection() {
 
                 {/* Reviewer Info */}
                 <div className="mb-4">
-                  <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
                     {review.name}
-                  </h4>
+                  </h3>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
                     {review.title}
                   </p>

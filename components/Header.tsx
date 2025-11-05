@@ -388,7 +388,7 @@ function Header() {
             {/* Login & Signup Buttons */}
             <Link
               href="https://my.flowxtra.com/login"
-              className="border-2 border-primary text-primary px-6 py-2 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
+              className="border-2 border-white text-white px-6 py-2 rounded-lg hover:bg-[#00A8CD] hover:border-[#00A8CD] hover:text-white transition-all font-medium"
             >
               {t("login")}
             </Link>
@@ -585,14 +585,14 @@ function Header() {
               <div className="pt-4 border-t space-y-3">
                 <Link
                   href="https://my.flowxtra.com/login"
-                  className="block text-center border-2 border-primary text-primary px-6 py-2 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
+                  className="block text-center border-2 border-white text-white px-6 py-2 rounded-lg hover:bg-white hover:text-primary transition-all font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t("login")}
                 </Link>
                 <Link
                   href="https://my.flowxtra.com/registration"
-                  className="block text-center bg-button-primary border-2 border-button-primary text-white px-6 py-2 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium"
+                  className="block text-center bg-[#00A8CD] border-2 border-[#00A8CD] text-white px-6 py-2 rounded-lg hover:bg-[#00A8CD] hover:border-[#00A8CD] transition-colors font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t("signup")}
