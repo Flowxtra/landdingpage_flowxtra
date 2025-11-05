@@ -12,13 +12,13 @@ export async function generateMetadata({
   
   const metadata = {
     en: {
-      title: "Affiliate Program – Earn 50% Commission | Flowxtra",
-      description: "Join Flowxtra's affiliate program and earn 50% commission on first-year subscriptions. Share your unique referral link and start earning today.",
-      keywords: ["affiliate program", "referral program", "earn commission", "partner program", "flowxtra affiliate"],
+      title: "Flowxtra Affiliate Program – Earn 50% Commission Promoting Recruitment Software",
+      description: "Join Flowxtra's affiliate program and earn 50% recurring commissions for 12 months promoting AI-powered HR software in Europe.",
+      keywords: ["affiliate program", "referral program", "earn commission", "partner program", "flowxtra affiliate", "hr software affiliate", "recruitment software affiliate", "ats affiliate program"],
       metadataBase: new URL(baseUrl),
       openGraph: {
-        title: "Affiliate Program – Earn 50% Commission | Flowxtra",
-        description: "Join Flowxtra's affiliate program and earn 50% commission on first-year subscriptions. Share your unique referral link and start earning today.",
+        title: "Flowxtra Affiliate Program – Earn 50% Commission Promoting Recruitment Software",
+        description: "Join Flowxtra's affiliate program and earn 50% recurring commissions for 12 months promoting AI-powered HR software in Europe.",
         url: `${baseUrl}/en/affiliate`,
         type: "website",
       },
@@ -31,13 +31,13 @@ export async function generateMetadata({
       },
     },
     de: {
-      title: "Partnerprogramm – Verdienen Sie 50% Provision | Flowxtra",
-      description: "Treten Sie Flowxtras Partnerprogramm bei und verdienen Sie 50% Provision auf Abonnements im ersten Jahr. Teilen Sie Ihren eindeutigen Empfehlungslink und fangen Sie noch heute an zu verdienen.",
-      keywords: ["partnerprogramm", "empfehlungsprogramm", "provision verdienen", "partnerprogramm", "flowxtra partner"],
+      title: "Flowxtra Partnerprogramm – Verdienen Sie 50% Provision bei der Bewerbung von Recruiting-Software",
+      description: "Treten Sie Flowxtras Partnerprogramm bei und verdienen Sie 50% wiederkehrende Provisionen für 12 Monate bei der Bewerbung von KI-gestützter HR-Software in Europa.",
+      keywords: ["partnerprogramm", "empfehlungsprogramm", "provision verdienen", "partnerprogramm", "flowxtra partner", "hr-software partner", "recruiting-software partner", "ats partnerprogramm"],
       metadataBase: new URL(baseUrl),
       openGraph: {
-        title: "Partnerprogramm – Verdienen Sie 50% Provision | Flowxtra",
-        description: "Treten Sie Flowxtras Partnerprogramm bei und verdienen Sie 50% Provision auf Abonnements im ersten Jahr. Teilen Sie Ihren eindeutigen Empfehlungslink und fangen Sie noch heute an zu verdienen.",
+        title: "Flowxtra Partnerprogramm – Verdienen Sie 50% Provision bei der Bewerbung von Recruiting-Software",
+        description: "Treten Sie Flowxtras Partnerprogramm bei und verdienen Sie 50% wiederkehrende Provisionen für 12 Monate bei der Bewerbung von KI-gestützter HR-Software in Europa.",
         url: `${baseUrl}/de/affiliate`,
         type: "website",
       },
@@ -54,11 +54,80 @@ export async function generateMetadata({
   return metadata[locale as keyof typeof metadata] || metadata.en;
 }
 
-export default function AffiliateLayout({
+export default async function AffiliateLayout({
   children,
+  params
 }: {
   children: React.ReactNode;
+  params: Promise<{locale: string}>;
 }) {
-  return <>{children}</>;
+  const {locale} = await params;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
+  
+  // AffiliateProgram JSON-LD Structured Data (using Program type from Schema.org)
+  const affiliateProgramSchema = {
+    "@context": "https://schema.org",
+    "@type": "Program",
+    "name": locale === "de" ? "Flowxtra Partnerprogramm" : "Flowxtra Affiliate Program",
+    "description": locale === "de" 
+      ? "Verdienen Sie 50% wiederkehrende Provisionen für 12 Monate bei der Bewerbung von KI-gestützter HR-Software in Europa."
+      : "Join Flowxtra's affiliate program and earn 50% recurring commissions for 12 months promoting AI-powered HR software in Europe.",
+    "url": `${baseUrl}/${locale}/affiliate`,
+    "programType": "Affiliate Program",
+    "provider": {
+      "@type": "Organization",
+      "name": "Flowxtra GmbH",
+      "url": baseUrl,
+      "logo": `${baseUrl}/wp-content/uploads/2025/02/Signature@2x.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Wipplingerstraße 20/18",
+        "addressLocality": "Wien",
+        "postalCode": "1010",
+        "addressCountry": "AT"
+      }
+    },
+    "offers": {
+      "@type": "Offer",
+      "description": locale === "de"
+        ? "50% Provision für bis zu 12 Monate"
+        : "50% commission for up to 12 months",
+      "price": "0",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "50%",
+        "priceCurrency": "EUR",
+        "valueAddedTaxIncluded": false,
+        "description": locale === "de"
+          ? "50% Provision auf monatliche Abonnements"
+          : "50% commission on monthly subscriptions"
+      }
+    },
+    "termsOfService": `${baseUrl}/${locale}/affiliate`,
+    "areaServed": {
+      "@type": "Place",
+      "name": "Europe"
+    },
+    "about": {
+      "@type": "SoftwareApplication",
+      "name": "Flowxtra",
+      "applicationCategory": "BusinessApplication",
+      "description": locale === "de"
+        ? "KI-gestützte Recruiting- und HR-Software mit kostenloser Stellenausschreibung"
+        : "AI-powered recruitment and HR software with free job posting"
+    }
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(affiliateProgramSchema) }}
+      />
+      {children}
+    </>
+  );
 }
 
