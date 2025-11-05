@@ -93,7 +93,7 @@ export default function CookieBanner() {
                 {' '}
                 <a 
                   href="/cookie-policy" 
-                  className="text-primary dark:text-secondary underline hover:no-underline"
+                  className="text-primary dark:text-white dark:underline"
                 >
                   {t('cookiePolicy')}
                 </a>
@@ -105,7 +105,7 @@ export default function CookieBanner() {
               {/* Reject All - Always shown for all users */}
               <button
                 onClick={rejectAll}
-                className="px-4 py-2 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors font-medium text-sm md:text-base"
+                className="px-4 py-2 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-red-500 hover:border-red-500 hover:text-white dark:hover:bg-red-500 dark:hover:border-red-500 dark:hover:text-white transition-colors font-medium text-sm md:text-base"
               >
                 {tButtons('rejectAll')}
               </button>

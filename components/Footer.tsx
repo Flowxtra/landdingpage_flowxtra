@@ -279,13 +279,13 @@ export default function Footer() {
               </div>
 
               {/* reCAPTCHA Disclaimer */}
-              <p className="text-xs text-gray-500 dark:text-gray-400">
+              <p className="text-xs text-gray-500 dark:text-white">
                 {t("followUs.recaptcha.text")}{" "}
                 <a 
                   href="https://policies.google.com/privacy" 
                   target="_blank" 
                   rel="nofollow noopener"
-                  className="underline hover:text-primary dark:hover:text-secondary"
+                  className="underline dark:underline hover:text-primary dark:hover:text-secondary dark:text-white"
                 >
                   {t("followUs.recaptcha.privacy")}
                 </a>
@@ -294,7 +294,7 @@ export default function Footer() {
                   href="https://policies.google.com/terms" 
                   target="_blank" 
                   rel="nofollow noopener"
-                  className="underline hover:text-primary dark:hover:text-secondary"
+                  className="underline dark:underline hover:text-primary dark:hover:text-secondary dark:text-white"
                 >
                   {t("followUs.recaptcha.terms")}
                 </a>
@@ -401,13 +401,13 @@ export default function Footer() {
             </div>
 
             {/* Copyright */}
-            <div className="text-xs text-gray-500 dark:text-gray-400 text-center">
+            <div className="text-xs text-gray-500 dark:text-white text-center">
               {t("copyright.text")}{" "}
               <a 
                 href="https://dpro.at/" 
                 target="_blank" 
                 rel="noopener noreferrer nofollow"
-                className="text-primary dark:text-secondary-light hover:text-secondary dark:hover:text-secondary-light transition-colors"
+                className="text-primary dark:text-white dark:underline hover:text-secondary dark:hover:text-secondary-light transition-colors"
               >
                 {t("copyright.madeBy")}
               </a>

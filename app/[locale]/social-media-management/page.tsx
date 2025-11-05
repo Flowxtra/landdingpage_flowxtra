@@ -842,11 +842,11 @@ export default function SocialMediaManagement() {
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               {faqT("title")}
             </h2>
-            <div className="flex items-center gap-2 text-base md:text-lg text-gray-600 dark:text-gray-400">
-              <svg className="w-5 h-5 text-primary dark:text-secondary" fill="currentColor" viewBox="0 0 20 20">
+            <div className="flex items-center gap-2 text-base md:text-lg text-gray-600 dark:text-white">
+              <svg className="w-5 h-5 text-primary dark:text-white" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
               </svg>
-              <span>{faqT("helpText")} <a href="/contact-us" className="text-primary dark:text-secondary hover:underline font-semibold">{faqT("chatLink")}</a></span>
+              <span>{faqT("helpText")} <a href="/contact-us" className="text-primary dark:text-white dark:underline hover:underline font-semibold">{faqT("chatLink")}</a></span>
             </div>
           </div>
 

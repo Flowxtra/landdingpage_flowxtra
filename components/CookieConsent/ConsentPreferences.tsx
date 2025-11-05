@@ -317,7 +317,7 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
           <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-6">
             {tAbout('intro')}{' '}
             {tAbout('seeCookiePolicy')}{' '}
-            <Link href={`/${locale}/cookie-policy`} className="text-primary dark:text-secondary hover:underline">
+            <Link href={`/${locale}/cookie-policy`} className="text-primary dark:text-white dark:underline">
               {tAbout('cookiePolicy')}
             </Link>
           </p>
@@ -329,7 +329,7 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
                 onClick={() => setActiveTab('declaration')}
                 className={`px-4 py-2 text-sm font-medium transition-colors ${
                   activeTab === 'declaration'
-                    ? 'text-primary dark:text-secondary border-b-2 border-primary dark:border-secondary'
+                    ? 'text-primary dark:text-white border-b-2 border-primary dark:border-white'
                     : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                 }`}
               >
@@ -339,7 +339,7 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
                 onClick={() => setActiveTab('about')}
                 className={`px-4 py-2 text-sm font-medium transition-colors ${
                   activeTab === 'about'
-                    ? 'text-primary dark:text-secondary border-b-2 border-primary dark:border-secondary'
+                    ? 'text-primary dark:text-white border-b-2 border-primary dark:border-white'
                     : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                 }`}
               >
@@ -404,7 +404,7 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
                                 href={service.privacyPolicy} 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="text-primary dark:text-secondary hover:underline inline-flex items-center gap-1"
+                                className="text-primary dark:text-white dark:underline inline-flex items-center gap-1"
                               >
                                 {t('table.view')}
                                 <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -484,7 +484,7 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
                                   href={service.privacyPolicy} 
                                   target="_blank" 
                                   rel="noopener noreferrer"
-                                  className="text-primary dark:text-secondary hover:underline inline-flex items-center gap-1"
+                                  className="text-primary dark:text-white dark:underline inline-flex items-center gap-1"
                                 >
                                   {t('table.view')}
                                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -567,7 +567,7 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
                                   href={service.privacyPolicy} 
                                   target="_blank" 
                                   rel="noopener noreferrer"
-                                  className="text-primary dark:text-secondary hover:underline inline-flex items-center gap-1"
+                                  className="text-primary dark:text-white dark:underline inline-flex items-center gap-1"
                                 >
                                   {t('table.view')}
                                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -650,7 +650,7 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
                                   href={service.privacyPolicy} 
                                   target="_blank" 
                                   rel="noopener noreferrer"
-                                  className="text-primary dark:text-secondary hover:underline inline-flex items-center gap-1"
+                                  className="text-primary dark:text-white dark:underline inline-flex items-center gap-1"
                                 >
                                   {t('table.view')}
                                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -692,7 +692,7 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
                 </p>
                 <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-4">
                   {tAbout('changeConsent')}{' '}
-                  <Link href={`/${locale}/privacy-policy`} className="text-primary dark:text-secondary hover:underline">
+                  <Link href={`/${locale}/privacy-policy`} className="text-primary dark:text-white dark:underline">
                     {tAbout('privacyPolicy')}
                   </Link>
                   {' '}{tAbout('page')}
@@ -703,7 +703,7 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
                     href="https://business.safety.google/privacy/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-primary dark:text-secondary hover:underline"
+                    className="text-primary dark:text-white dark:underline"
                   >
                     {tAbout('googlePrivacyPolicy')}
                   </a>
@@ -750,7 +750,7 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
             </button>
             <button
               onClick={handleAcceptNecessary}
-              className="px-6 py-3 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-all font-medium"
+              className="px-6 py-3 border-2 border-primary dark:border-white text-primary dark:text-white rounded-lg hover:bg-primary hover:text-white transition-all font-medium"
             >
               {t('buttons.acceptNecessary')}
             </button>
@@ -770,7 +770,7 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
                 href="https://dpro.at" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-primary dark:text-secondary hover:underline"
+                className="text-primary dark:text-white dark:underline"
               >
                 {tBanner('dproLink')}
               </a>

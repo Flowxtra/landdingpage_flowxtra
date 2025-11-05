@@ -20,13 +20,6 @@ const PricingSection = dynamic(() => import("@/components/PricingSection"), {
   loading: () => <div className="w-full h-64 bg-gray-100 dark:bg-gray-800 animate-pulse rounded-lg" />,
 });
 
-const AnimatedBeamMultipleOutputs = dynamic(() => import("@/components/AnimatedBeamMultipleOutputs").then(mod => ({ default: mod.AnimatedBeamMultipleOutputs })), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-[500px] bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl animate-pulse" />
-  ),
-});
-
 // DISABLED - Lazy-loaded CodeEditor - only loads when it comes into viewport
 // Also lazy loads Code icon to reduce initial bundle size
 /* function LazyCodeEditor({ children, ...props }: { children: string; [key: string]: any }) {
@@ -104,47 +97,6 @@ function LazySection({ Component }: { Component: React.ComponentType }) {
   }
 
   return <Component />;
-}
-
-// Lazy-loaded AnimatedBeam - only loads when it comes into viewport
-function LazyAnimatedBeam() {
-  const [isVisible, setIsVisible] = useState(false);
-  const [ref, setRef] = useState<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (!ref) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "300px" } // Start loading 300px before it comes into view
-    );
-
-    observer.observe(ref);
-
-    return () => observer.disconnect();
-  }, [ref]);
-
-  if (!isVisible) {
-    return (
-      <div
-        ref={setRef}
-        className="flex items-center justify-center w-full bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl overflow-hidden min-h-[500px]"
-      >
-        <div className="w-full h-[500px] animate-pulse" />
-      </div>
-    );
-  }
-
-  return (
-    <div className="flex items-center justify-center w-full bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl overflow-hidden min-h-[500px]">
-      <AnimatedBeamMultipleOutputs />
-    </div>
-  );
 }
 
 // Features Sticky Sections Component
@@ -361,9 +313,9 @@ export default function Homepage() {
             </div>
           </div>
 
-          {/* Mobile Image - LCP Element - Only visible on mobile (< 768px) - Full Width - Natural Size */}
-          <div className="w-full mt-0 md:hidden">
-            <figure className="m-0 w-screen -mx-[10px] flex justify-center">
+          {/* Mobile Image - LCP Element - Only visible on mobile (< 768px) - Centered */}
+          <div className="w-full mt-0 md:hidden flex justify-center">
+            <figure className="m-0 flex justify-center">
               <Image
                 src="/img/ATS-Software-for-Recruitment2.svg"
                 alt={t("hero.imageAlt")}
@@ -374,9 +326,8 @@ export default function Homepage() {
                 priority
                 fetchPriority="high"
                 unoptimized
-                sizes="100vw"
-                className="w-full h-auto mx-auto"
-                style={{ marginRight: '70px' }}
+                sizes="(max-width: 768px) 100vw, 750px"
+                className="max-w-full h-auto"
                 decoding="sync"
                 loading="eager"
               />
@@ -511,38 +462,6 @@ export default function Homepage() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-      )}
-
-      {/* Integration Section - Reversed Layout - Currently Hidden */}
-      {false && (
-      <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
-        <div className="container mx-auto px-4 md:px-8 lg:px-12">
-          <div className="flex flex-col gap-12">
-            {/* Top Content */}
-            <div className="space-y-6 text-center max-w-4xl mx-auto min-h-[150px]">
-              {/* Badge */}
-              <div className="inline-block">
-              </div>
-
-              {/* Title */}
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
-                Fast Integration
-              </h2>
-
-              {/* Description */}
-              <div className="space-y-4 text-gray-600 dark:text-gray-300">
-                <p className="text-base md:text-lg leading-relaxed">
-                  Connect Flowxtra to your existing tools and platforms seamlessly. Our platform integrates with everything you need.
-                </p>
-              </div>
-            </div>
-
-            {/* Bottom - Animated Beam Diagram - Full Width */}
-            {/* Lazy load AnimatedBeam only when section is in viewport */}
-            <LazyAnimatedBeam />
           </div>
         </div>
       </section>
@@ -1310,11 +1229,11 @@ function FAQSection() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             {t("title")}
           </h2>
-          <div className="flex items-center gap-2 text-base md:text-lg text-gray-600 dark:text-gray-400">
-            <svg className="w-5 h-5 text-primary dark:text-secondary" fill="currentColor" viewBox="0 0 20 20">
+          <div className="flex items-center gap-2 text-base md:text-lg text-gray-600 dark:text-white">
+            <svg className="w-5 h-5 text-primary dark:text-white" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
             </svg>
-            <span>{t("helpText")} <a href="/contact-us" className="text-primary dark:text-secondary hover:underline font-semibold">{t("chatLink")}</a></span>
+            <span>{t("helpText")} <a href="/contact-us" className="text-primary dark:text-white dark:underline hover:underline font-semibold">{t("chatLink")}</a></span>
           </div>
         </div>
 
@@ -1324,10 +1243,10 @@ function FAQSection() {
             <div key={index}>
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full flex items-center gap-4 py-6 text-left transition-colors hover:text-primary dark:hover:text-secondary group"
+                className="w-full flex items-center gap-4 py-6 text-left transition-colors hover:text-primary dark:hover:text-secondary-light group"
               >
                 <svg
-                  className={`w-5 h-5 text-primary dark:text-secondary flex-shrink-0 transition-transform duration-300 ${
+                  className={`w-5 h-5 text-primary dark:text-secondary flex-shrink-0 transition-transform duration-300 dark:group-hover:text-secondary-light ${
                     openIndex === index ? 'rotate-90' : ''
                   }`}
                   fill="none"
@@ -1336,7 +1255,7 @@ function FAQSection() {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-                <span className="text-base md:text-lg font-semibold text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-secondary transition-colors">
+                <span className="text-base md:text-lg font-semibold text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-secondary-light transition-colors">
                   {faq.question}
                 </span>
               </button>
@@ -1360,9 +1279,9 @@ function FAQSection() {
                               href={link.url}
                               target="_blank"
                               rel="nofollow noopener"
-                              className="text-sm text-primary dark:text-secondary hover:underline flex items-center gap-2"
+                              className="text-sm text-primary dark:text-white dark:underline hover:underline flex items-center gap-2"
                             >
-                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <svg className="w-4 h-4 text-primary dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                               </svg>
                               {link.text}
