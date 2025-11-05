@@ -12,6 +12,10 @@
             "title": "Preispläne – Flowxtra | Kostenlose ATS & Recruiting-Software",
             "description": "Wählen Sie den perfekten Plan für Ihr Unternehmen. Beginnen Sie mit 5 kostenlosen Stellenanzeigen pro Monat. Transparente Preise, keine versteckten Gebühren."
         },
+        "affiliate": {
+            "title": "Partnerprogramm – Verdienen Sie 50% Provision | Flowxtra",
+            "description": "Treten Sie Flowxtras Partnerprogramm bei und verdienen Sie 50% Provision auf Abonnements im ersten Jahr. Teilen Sie Ihren eindeutigen Empfehlungslink und fangen Sie noch heute an zu verdienen."
+        },
         "features": {
             "title": "Funktionen – KI-gestützte Recruiting & ATS-Software | Flowxtra",
             "description": "Entdecken Sie die leistungsstarken Funktionen von Flowxtra: kostenlose Stellenausschreibung, KI-Kandidatenfilterung, Multiposting, E-Mail-Vorlagen und mehr."
@@ -499,6 +503,115 @@
         },
         "compareFeatures": "Funktionen vergleichen"
     },
+    "affiliate": {
+        "hero": {
+            "title": "Teilen Sie Flowxtra & Verdienen Sie 50% Provision",
+            "subtitle": "Verdienen Sie jeden Monat 50% Provision für jeden von Ihnen geworbenen Benutzer",
+            "description": "Treten Sie unserem Partnerprogramm bei und helfen Sie Unternehmen, Flowxtra zu entdecken. Erhalten Sie einen eindeutigen Empfehlungslink und beginnen Sie noch heute, Provisionen zu verdienen. Die Provision wird monatlich gezahlt, solange Ihre geworbenen Benutzer abonniert bleiben.",
+            "cta": "Partnerprogramm beitreten",
+            "ctaSecondary": "Mehr erfahren"
+        },
+        "howItWorks": {
+            "title": "Wie unser Partnerprogramm funktioniert",
+            "step1": {
+                "title": "Anmelden & Link erhalten",
+                "description": "Registrieren Sie sich für unser Partnerprogramm und erhalten Sie sofort Ihren eindeutigen Empfehlungslink."
+            },
+            "step2": {
+                "title": "Teilen Sie Ihren Link",
+                "description": "Teilen Sie Ihren Empfehlungslink mit potenziellen Kunden über Ihre Website, Social Media oder E-Mail."
+            },
+            "step3": {
+                "title": "Benutzer melden sich an",
+                "description": "Wenn sich jemand über Ihren Link anmeldet, beginnt er, Flowxtras leistungsstarke Recruiting-Tools zu verwenden."
+            },
+            "step4": {
+                "title": "Monatliche Provisionen verdienen",
+                "description": "Verdienen Sie jeden Monat 50% Provision, solange Ihre geworbenen Benutzer abonniert bleiben. Die Provision wird jeden Monat auf Ihr Konto gutgeschrieben."
+            }
+        },
+        "commission": {
+            "title": "Verdienstpotential",
+            "subtitle": "Sehen Sie, wie viel Sie mit jedem Plan jeden Monat verdienen können",
+            "table": {
+                "plan": "Plan",
+                "monthlyPrice": "Monatspreis",
+                "yourCommission": "Ihre Provision",
+                "monthlyEarning": "Monatlicher Verdienst",
+                "annualPotential": "Jährliches Potential"
+            },
+            "free": "Kostenlos",
+            "starter": "Starter",
+            "basic": "Basic",
+            "professional": "Professional",
+            "advanced": "Advanced",
+            "enterprise": "Enterprise",
+            "perMonth": "/Monat",
+            "example": {
+                "title": "Beispiel",
+                "description": "Für Professional Plan (€249/Monat): Sie verdienen €124,50/Monat, solange der Benutzer abonniert bleibt. Wenn er ein ganzes Jahr bleibt, verdienen Sie insgesamt €1.494.",
+                "note": "* Das jährliche Potential wird auf Basis von 12 Monaten Abonnement berechnet. Die Provision wird monatlich gezahlt, solange die Benutzer abonniert bleiben."
+            }
+        },
+        "paymentTerms": {
+            "title": "Zahlungsbedingungen",
+            "subtitle": "Wie Provisionen berechnet und ausgezahlt werden",
+            "terms": [
+                {
+                    "title": "Laufende Provision",
+                    "description": "Provision wird jeden Monat gezahlt, solange Ihre geworbenen Benutzer abonniert bleiben. Es gibt kein Zeitlimit."
+                },
+                {
+                    "title": "Monatliche Gutschrift",
+                    "description": "Jeden Monat, den ein Benutzer sein Abonnement bezahlt, werden automatisch 50% der Zahlung auf Ihr Partnerkonto gutgeschrieben."
+                },
+                {
+                    "title": "Mindestauszahlung",
+                    "description": "Der Mindestbetrag für eine Auszahlung beträgt €120. Sie können Ihre Einnahmen ansammeln, bis Sie diesen Schwellenwert erreichen."
+                },
+                {
+                    "title": "Auszahlungsprozess",
+                    "description": "Sobald Sie €120 oder mehr erreichen, können Sie eine Auszahlung beantragen. Zahlungen werden monatlich per Banküberweisung oder PayPal abgewickelt."
+                }
+            ]
+        },
+        "pricingReference": {
+            "title": "Unsere Preispläne",
+            "subtitle": "Empfehlen Sie Benutzer für einen dieser Pläne und verdienen Sie Provisionen",
+            "viewAll": "Alle Pläne anzeigen"
+        },
+        "cta": {
+            "title": "Bereit, mit dem Verdienen zu beginnen?",
+            "subtitle": "Treten Sie Tausenden von Partnern bei, die Flowxtra bewerben",
+            "button": "Jetzt loslegen",
+            "buttonSecondary": "Vertrieb kontaktieren"
+        },
+        "faq": {
+            "title": "Häufig gestellte Fragen",
+            "helpText": "Noch Hilfe benötigt?",
+            "chatLink": "Chatten Sie mit uns",
+            "q1": {
+                "question": "Wie erhalte ich meinen Empfehlungslink?",
+                "answer": "Nach der Anmeldung für unser Partnerprogramm erhalten Sie einen eindeutigen Empfehlungslink, den Sie mit potenziellen Kunden teilen können."
+            },
+            "q2": {
+                "question": "Wann werde ich bezahlt?",
+                "answer": "Die Provision wird jeden Monat auf Ihr Konto gutgeschrieben, solange Ihre geworbenen Benutzer abonniert bleiben. Sie können eine Auszahlung beantragen, sobald Ihr Guthaben €120 oder mehr erreicht."
+            },
+            "q3": {
+                "question": "Wie lange dauern die Provisionen?",
+                "answer": "Provisionen werden weiterhin gezahlt, solange Ihre geworbenen Benutzer abonniert bleiben. Es gibt kein Zeitlimit - Sie verdienen jeden Monat, in dem sie aktiv bleiben, 50% Provision."
+            },
+            "q4": {
+                "question": "Was passiert, wenn ein Benutzer kündigt?",
+                "answer": "Sie erhalten Provisionen nur für die Monate, in denen der Benutzer abonniert war. Sobald er kündigt, werden keine weiteren Provisionen von diesem Benutzer verdient."
+            },
+            "q5": {
+                "question": "Wie hoch ist der Mindestauszahlungsbetrag?",
+                "answer": "Der Mindestauszahlungsbetrag beträgt €120. Sie können Ihre Einnahmen auf Ihrem Konto ansammeln, bis Sie diesen Schwellenwert erreichen, und dann eine Auszahlung beantragen."
+            }
+        }
+    },
     "compareFeatures": {
         "featureUsage": "Funktion / Nutzung",
         "comingSoon": "Bald verfügbar",
@@ -734,7 +847,8 @@
             "blog": "Blog & Neuigkeiten",
             "about": "Über uns",
             "contact": "Kontakt",
-            "pricing": "Preise"
+            "pricing": "Preise",
+            "affiliate": "Affiliate"
         },
         "software": {
             "title": "Software",
@@ -1007,5 +1121,10 @@
                 }
             }
         }
+    },
+    "affiliateBanner": {
+        "message": "Lade einen Freund ein und erhalte ein €594 Geschenk!",
+        "linkText": "Partnerprogramm beitreten",
+        "closeLabel": "Banner schließen"
     }
 }

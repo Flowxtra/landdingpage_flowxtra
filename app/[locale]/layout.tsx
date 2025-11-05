@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import "../globals.css";
 import ClientScripts from "@/components/ClientScripts";
 import AccessibilityWidgetLoader from "@/components/Accessibility/AccessibilityWidgetLoader";
+import AffiliateBanner from "@/components/AffiliateBanner";
 
 // Lazy load non-critical components to reduce initial bundle size
 // Header and Footer are loaded after initial render to reduce main-thread work
@@ -460,6 +461,7 @@ export default async function LocaleLayout({
           {/* Client-side only scripts - loaded asynchronously */}
           <ClientScripts />
           
+          <AffiliateBanner />
           <Header />
           <main suppressHydrationWarning>
             {children}

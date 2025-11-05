@@ -80,6 +80,11 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/pricing" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-[#00A8CD] transition-colors">
+                    {t("company.pricing")}
+                  </Link>
+                </li>
+                <li>
                   <Link href="/blog" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-[#00A8CD] transition-colors">
                     {t("company.blog")}
                   </Link>
@@ -95,8 +100,8 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/pricing" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-[#00A8CD] transition-colors">
-                    {t("company.pricing")}
+                  <Link href="/affiliate" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-[#00A8CD] transition-colors">
+                    {t("company.affiliate")}
                   </Link>
                 </li>
               </ul>
