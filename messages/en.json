@@ -480,6 +480,7 @@
         },
         "features": {
             "jobPostings": {
+                "5": "5 job postings",
                 "10": "10 job postings",
                 "15": "15 job postings",
                 "25": "25 job postings",

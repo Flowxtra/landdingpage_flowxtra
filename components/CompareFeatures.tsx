@@ -1,7 +1,11 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { ChevronDown, ChevronUp, ChevronLeft, ChevronRight } from 'lucide-react';
+// Import individual icons to avoid loading entire lucide-react bundle
+import ChevronDown from 'lucide-react/dist/esm/icons/chevron-down';
+import ChevronUp from 'lucide-react/dist/esm/icons/chevron-up';
+import ChevronLeft from 'lucide-react/dist/esm/icons/chevron-left';
+import ChevronRight from 'lucide-react/dist/esm/icons/chevron-right';
 import { useTranslations } from 'next-intl';
 
 // Feature data structure
@@ -98,8 +102,8 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       id: 'desc-jobs',
       icon: 'fas fa-briefcase',
       name: tCompare('features.jobPostings.name'),
-      free: '10',
-      starter: '15',
+      free: '5',
+      starter: '10',
       basic: '25',
       professional: '35',
       advanced: tCompare("unlimited"),

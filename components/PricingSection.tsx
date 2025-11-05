@@ -64,7 +64,7 @@ export default function PricingSection({ defaultCompareOpen = false }: PricingSe
                 <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.jobPostings.10")}</span>
+                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.jobPostings.5")}</span>
               </li>
               <li className="flex items-start gap-2 group cursor-pointer">
                 <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 24 24">
@@ -100,7 +100,7 @@ export default function PricingSection({ defaultCompareOpen = false }: PricingSe
                 <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.jobPostings.15")}</span>
+                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.jobPostings.10")}</span>
               </li>
               <li className="flex items-start gap-2 group cursor-pointer">
                 <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 24 24">
@@ -169,7 +169,7 @@ export default function PricingSection({ defaultCompareOpen = false }: PricingSe
             
             <div className="mb-6 relative z-10">
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-white">€387</span>
+                <span className="text-4xl font-bold text-white">€249</span>
                 <span className="text-sm text-white/80 font-medium">{t("plans.monthly")}</span>
               </div>
             </div>
@@ -205,7 +205,7 @@ export default function PricingSection({ defaultCompareOpen = false }: PricingSe
             
             <div className="mb-6">
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-gray-900 dark:text-white">€581</span>
+                <span className="text-4xl font-bold text-gray-900 dark:text-white">€399</span>
                 <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">{t("plans.monthly")}</span>
               </div>
             </div>
@@ -249,7 +249,7 @@ export default function PricingSection({ defaultCompareOpen = false }: PricingSe
               
               <div className="mb-6">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-bold text-gray-900 dark:text-white">€999</span>
+                <span className="text-5xl font-bold text-gray-900 dark:text-white">€799</span>
                   <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">{t("plans.monthly")}</span>
                 </div>
               </div>

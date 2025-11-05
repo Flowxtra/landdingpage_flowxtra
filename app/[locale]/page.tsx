@@ -412,7 +412,8 @@ export default function Homepage() {
         </div>
       </section>
 
-      {/* GDPR & Compliance Section */}
+      {/* GDPR & Compliance Section - Hidden */}
+      {false && (
       <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -477,9 +478,7 @@ export default function Homepage() {
               </div>
             </div>
 
-            {/* Right Icons - Animated Rows - TEMPORARILY DISABLED */}
-            {/* Commented out temporarily - Too many icons causing performance issues */}
-            {/* 
+            {/* Right Icons - Animated Rows */}
             <div className="space-y-8 overflow-hidden">
               <div className="overflow-hidden flex">
                 <div className="flex gap-3 animate-scroll-right whitespace-nowrap">
@@ -512,10 +511,10 @@ export default function Homepage() {
                 </div>
               </div>
             </div>
-            */}
           </div>
         </div>
       </section>
+      )}
 
       {/* Integration Section - Reversed Layout - Currently Hidden */}
       {false && (
@@ -645,6 +644,13 @@ export default function Homepage() {
 
               {/* Features List */}
               <ul className="space-y-2">
+                {/* First point: 4 Free social media accounts */}
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">4 Free Social media accounts</span>
+                </li>
                 <li className="flex items-start gap-3 group cursor-pointer">
                   <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -689,6 +695,89 @@ export default function Homepage() {
             </div>
           </div>
         </div>
+        </div>
+      </section>
+
+      {/* Social Media Manager Section - White Background (placed above Recruitment) */}
+      <section className="w-full py-16 md:py-24 px-[10px] bg-white dark:bg-gray-900 transition-colors">
+        <div className="w-full rounded-[10px] px-[10px] py-16 md:py-20 bg-white dark:bg-gray-900">
+          <div className="container mx-auto px-4 md:px-8 lg:px-12">
+            <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+            {/* Left Side - Image */}
+            <div className="order-2 lg:order-1">
+              <Image
+                src="/img/social-media-management.webp"
+                alt={t("socialMediaManager.imageAlt")}
+                title={t("socialMediaManager.imageTitle")}
+                width={1200}
+                height={900}
+                quality={100}
+                className="w-full h-auto"
+                unoptimized
+              />
+          
+            </div>
+
+            {/* Right Side - Content */}
+            <div className="order-1 lg:order-2 space-y-8">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+                {t("socialMediaManager.title")}
+              </h2>
+
+              <p className="text-base md:text-lg text-gray-600 dark:text-white leading-relaxed">
+                {t("socialMediaManager.description")}
+              </p>
+
+              {/* Features List */}
+              <ul className="space-y-2">
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">{t("socialMediaManager.features.connectManage")}</span>
+                </li>
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">{t("socialMediaManager.features.schedule")}</span>
+                </li>
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">{t("socialMediaManager.features.collaboration")}</span>
+                </li>
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#006980] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-white">{t("socialMediaManager.features.analytics")}</span>
+                </li>
+              </ul>
+
+              {/* Who Is It For Section */}
+              <div className="pt-4">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                  {t("socialMediaManager.whoIsItFor.title")}
+                </h3>
+                <p className="text-base md:text-lg text-gray-600 dark:text-white leading-relaxed">
+                  {t("socialMediaManager.whoIsItFor.description")}
+                </p>
+              </div>
+
+              {/* CTA Button */}
+              <div className="pt-4">
+                <a
+                  href="https://my.flowxtra.com/registration"
+                  className="inline-block bg-button-primary border-2 border-button-primary text-white px-8 py-4 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-lg shadow-lg"
+                >
+                  {t("socialMediaManager.cta")}
+                </a>
+              </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -792,36 +881,7 @@ export default function Homepage() {
         </div>
       </section>
 
-      {/* Free Job Posting Section */}
-      <section className="w-full pt-12 md:pt-16 pb-3 md:pb-4 bg-white dark:bg-gray-900 transition-colors">
-        <div className="container mx-auto px-4 md:px-8 lg:px-12">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-6">
-              {t("freeJobPosting.title")}
-            </h1>
-            
-            <div className="space-y-3">
-              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                {t("freeJobPosting.description1")}
-              </p>
-              
-              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                {t("freeJobPosting.description2")}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sticky Slider Section - Lazy loaded when in viewport */}
-      <div className="w-full pb-32 md:pb-48">
-        <LazySection Component={FeaturesSlider} />
-      </div>
-
-      {/* Pricing Section */}
-      <PricingSection />
-
-      {/* Social Media Manager Section - White Background */}
+      {/* Social Media Manager Section - White Background (moved below Recruitment) */}
       <section className="w-full py-16 md:py-24 px-[10px] bg-white dark:bg-gray-900 transition-colors">
         <div className="w-full rounded-[10px] px-[10px] py-16 md:py-20 bg-white dark:bg-gray-900">
           <div className="container mx-auto px-4 md:px-8 lg:px-12">
@@ -903,6 +963,38 @@ export default function Homepage() {
           </div>
         </div>
       </section>
+
+      {/* Free Job Posting Section */}
+      <section className="w-full pt-12 md:pt-16 pb-3 md:pb-4 bg-white dark:bg-gray-900 transition-colors">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-6">
+              {t("freeJobPosting.title")}
+            </h1>
+            
+            <div className="space-y-3">
+              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                {t("freeJobPosting.description1")}
+              </p>
+              
+              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                {t("freeJobPosting.description2")}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sticky Slider Section - Lazy loaded when in viewport */}
+      <div className="w-full pb-32 md:pb-48">
+        <LazySection Component={FeaturesSlider} />
+      </div>
+
+      {/* Pricing Section */}
+      <PricingSection />
+
+      {/* Social Media Manager Section - White Background */}
+      {/* Moved above under Recruitment */}
 
       {/* Multiple Job Posting Section - White Background */}
       <section className="w-full py-16 md:py-24 px-[10px] bg-white dark:bg-gray-900 transition-colors">
