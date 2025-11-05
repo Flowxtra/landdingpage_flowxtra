@@ -1144,13 +1144,14 @@ function ReviewsSection() {
   }, [cardsPerView, reviews.length]);
 
   const renderStars = (rating: number) => {
-    const stars = [];
+    const stars = [] as React.ReactNode[];
     for (let i = 1; i <= 5; i++) {
-      if (i <= rating) {
-        stars.push(<i key={i} className="fas fa-star"></i>);
-      } else {
-        stars.push(<i key={i} className="far fa-star"></i>);
-      }
+      const filled = i <= rating;
+      stars.push(
+        <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill={filled ? "currentColor" : "none"} stroke="currentColor" className="w-4 h-4">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={filled ? 0 : 1.5} d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.074 3.3a1 1 0 00.95.69h3.469c.967 0 1.371 1.24.588 1.81l-2.807 2.039a1 1 0 00-.364 1.118l1.073 3.3c.301.922-.755 1.688-1.538 1.118l-2.807-2.039a1 1 0 00-1.175 0l-2.807 2.039c-.783.57-1.84-.196-1.538-1.118l1.073-3.3a1 1 0 00-.364-1.118L2.868 8.727c-.783-.57-.379-1.81.588-1.81h3.469a1 1 0 00.95-.69l1.074-3.3z" />
+        </svg>
+      );
     }
     return stars;
   };
@@ -1165,11 +1166,7 @@ function ReviewsSection() {
           </h2>
           <div className="flex items-center justify-center gap-3 mt-6">
             <div className="text-yellow-400 text-2xl flex gap-1">
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star"></i>
-              <i className="fas fa-star-half-alt"></i>
+              {renderStars(5)}
             </div>
             <span className="text-base md:text-lg text-gray-600 dark:text-gray-300 font-semibold">{t("rating")}</span>
           </div>
@@ -1190,7 +1187,9 @@ function ReviewsSection() {
                 className="flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-8 shadow-md hover:shadow-xl hover:-translate-y-2 hover:border-button-hover dark:hover:border-button-hover transition-all duration-300 relative"
               >
                 {/* Quote Icon */}
-                <i className="fas fa-quote-right absolute top-5 right-5 text-4xl text-primary/10 dark:text-secondary/10"></i>
+                <svg className="absolute top-5 right-5 w-8 h-8 text-primary/10 dark:text-secondary/10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M7 7h5v10H6V9a2 2 0 011-2zm9 0h5v10h-6V9a2 2 0 011-2z" />
+                </svg>
 
                 {/* Reviewer Info */}
                 <div className="mb-4">
@@ -1214,7 +1213,12 @@ function ReviewsSection() {
 
                 {/* Date */}
                 <div className="flex items-center gap-2 text-xs md:text-sm text-gray-500 dark:text-gray-400 mt-4">
-                  <i className="far fa-calendar"></i>
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
                   <span>{review.date}</span>
                 </div>
               </div>
