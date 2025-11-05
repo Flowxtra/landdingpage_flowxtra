@@ -500,10 +500,15 @@ export default function Homepage() {
                   {/* Play Button Overlay */}
                   <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all">
                     <div className="relative">
-                      {/* Pulse Ring */}
-                      <div className="absolute inset-0 w-20 h-20 md:w-24 md:h-24 rounded-full animate-pulse-ring border-4 border-secondary-light"></div>
+                      {/* Pulse Rings - Multiple rings for pulsing effect */}
+                      <div className="absolute inset-0 w-20 h-20 md:w-24 md:h-24 rounded-full animate-pulse-ring border-4 border-[#00A8CD]"></div>
+                      <div className="absolute inset-0 w-20 h-20 md:w-24 md:h-24 rounded-full animate-pulse-ring border-4 border-[#00A8CD]" style={{ animationDelay: '0.3s' }}></div>
+                      <div className="absolute inset-0 w-20 h-20 md:w-24 md:h-24 rounded-full animate-pulse-ring border-4 border-[#00A8CD]" style={{ animationDelay: '0.6s' }}></div>
+                      <div className="absolute inset-0 w-20 h-20 md:w-24 md:h-24 rounded-full animate-pulse-ring border-4 border-[#00A8CD]" style={{ animationDelay: '0.9s' }}></div>
+                      <div className="absolute inset-0 w-20 h-20 md:w-24 md:h-24 rounded-full animate-pulse-ring border-4 border-[#00A8CD]" style={{ animationDelay: '1.2s' }}></div>
+                      <div className="absolute inset-0 w-20 h-20 md:w-24 md:h-24 rounded-full animate-pulse-ring border-4 border-[#00A8CD]" style={{ animationDelay: '1.5s' }}></div>
                       {/* Play Button */}
-                      <div className="relative w-20 h-20 md:w-24 md:h-24 bg-white/90 group-hover:bg-white rounded-full flex items-center justify-center shadow-xl transform group-hover:scale-110 transition-all">
+                      <div className="relative w-20 h-20 md:w-24 md:h-24 bg-white/90 group-hover:bg-white rounded-full flex items-center justify-center shadow-xl transform group-hover:scale-110 transition-all z-10">
                         <svg
                           className="w-10 h-10 md:w-12 md:h-12 text-primary dark:text-primary ml-1"
                           fill="currentColor"
@@ -519,7 +524,7 @@ export default function Homepage() {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube-nocookie.com/embed/CGa2grClFsw?autoplay=1"
+                  src="https://www.youtube-nocookie.com/embed/CGa2grClFsw?autoplay=1&rel=0&modestbranding=1&controls=1&playsinline=1"
                   title={t("video.iframeTitle")}
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
