@@ -38,6 +38,10 @@ function FAQAccordion() {
     {
       question: t("q5.question"),
       answer: t("q5.answer")
+    },
+    {
+      question: t("q6.question"),
+      answer: t("q6.answer")
     }
   ];
 
@@ -105,7 +109,7 @@ export default function AffiliatePage() {
         <div className="w-full rounded-[10px] px-[10px] pt-16 md:pt-20 pb-16 md:pb-20 bg-[#f4f6f8] dark:bg-gray-800">
           <div className="container mx-auto px-4 md:px-8 lg:px-12">
             <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6">
               {t("hero.title")}
             </h1>
             <p className="text-xl md:text-2xl text-primary dark:text-secondary font-semibold mb-4">
@@ -383,35 +387,7 @@ export default function AffiliatePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="w-full py-16 md:py-24 bg-gradient-to-b from-primary/10 to-transparent dark:from-primary/20">
-        <div className="container mx-auto px-4 md:px-8 lg:px-12">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              {t("cta.title")}
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-              {t("cta.subtitle")}
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="https://my.flowxtra.com/registration"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-button-primary border-2 border-button-primary text-white px-8 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-lg"
-              >
-                {t("cta.button")}
-              </a>
-              <Link
-                href="/contact-us"
-                className="border-2 border-primary text-primary dark:border-white dark:text-white px-8 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium text-lg"
-              >
-                {t("cta.buttonSecondary")}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      
     </div>
   );
 }

@@ -296,10 +296,10 @@
         "description": "Have questions or feedback? We're here to help. Send us a message, and we'll respond within 24 hours",
         "form": {
             "email": "Email Address",
-            "firstName": "First Name",
+            "firstName": "Full Name",
             "message": "Your Message",
             "emailPlaceholder": "your@email.com",
-            "firstNamePlaceholder": "John",
+            "firstNamePlaceholder": "John Doe",
             "messagePlaceholder": "Write your message here...",
             "required": "*",
             "agreeWith": "Yes, I agree with the",
@@ -506,7 +506,7 @@
     "affiliate": {
         "hero": {
             "title": "Share Flowxtra & Earn 50% Commission",
-            "subtitle": "Earn 50% commission every month for every user you refer (up to 12 months)",
+            "subtitle": "Earn 50% commission every month for every user you refer",
             "description": "Join our affiliate program and help businesses discover Flowxtra. Get a unique referral link and start earning commissions today. Commission is paid monthly for up to 12 months as long as your referred users stay subscribed.",
             "cta": "Join Affiliate Program",
             "ctaSecondary": "Learn More"
@@ -600,7 +600,7 @@
             },
             "q3": {
                 "question": "How long do commissions last?",
-                "answer": "Commissions continue as long as your referred users stay subscribed. There's no time limit - you'll earn 50% commission every month they remain active."
+                "answer": "Commissions are paid monthly for up to 12 months per referral, as long as the user stays subscribed during that period. After 12 months, no further commission is paid for that referral."
             },
             "q4": {
                 "question": "What if a user cancels?",
@@ -609,6 +609,10 @@
             "q5": {
                 "question": "What is the minimum withdrawal amount?",
                 "answer": "The minimum withdrawal amount is €180. You can accumulate earnings in your account until you reach this threshold, then request a withdrawal."
+            },
+            "q6": {
+                "question": "What happens after 12 months?",
+                "answer": "After 12 months, your commission for that customer stops. We only pay commission for the first 12 months of the customer's subscription. If the customer renews after the first year, no commission is paid on those renewals."
             }
         }
     },

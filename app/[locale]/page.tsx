@@ -5,7 +5,7 @@
 import Image from "next/image";
 import React, { useState, useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 // Dynamic imports for non-critical components to reduce initial bundle size
 // CodeEditor is heavy (includes Shiki syntax highlighter ~600ms), so load only when needed
 // DISABLED - Code editor slide is hidden
@@ -276,6 +276,8 @@ export default function Homepage() {
   const t = useTranslations("homepage");
   const tContact = useTranslations("contact");
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const locale = useLocale();
+  const videoId = locale === 'de' ? 'r5sBu2-NOqs' : 'CGa2grClFsw';
   
   // Memoize video play handler to prevent re-creating on every render
   const handleVideoPlay = useCallback(() => {
@@ -524,7 +526,7 @@ export default function Homepage() {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube-nocookie.com/embed/CGa2grClFsw?autoplay=1&rel=0&modestbranding=1&controls=1&playsinline=1"
+                  src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&controls=1&playsinline=1`}
                   title={t("video.iframeTitle")}
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

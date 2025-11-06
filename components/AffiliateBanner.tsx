@@ -77,7 +77,7 @@ export default function AffiliateBanner() {
               index === 0 ? (
                 <span key={index}>
                   {part}
-                  <span className="text-lg md:text-xl font-bold text-[#00A8CD]">€594</span>
+                  <span className="text-lg md:text-xl font-bold text-yellow-400">€594</span>
                 </span>
               ) : (
                 <span key={index}>{part}</span>

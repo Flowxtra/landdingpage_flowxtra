@@ -432,9 +432,9 @@ export default async function LocaleLayout({
                 "@type": "Organization",
                 "name": "Flowxtra GmbH"
               },
-              "contentUrl": "https://www.youtube.com/watch?v=CGa2grClFsw",
-              "embedUrl": "https://www.youtube.com/embed/CGa2grClFsw",
-              "inLanguage": "en"
+              "contentUrl": `https://www.youtube.com/watch?v=${locale === 'de' ? 'r5sBu2-NOqs' : 'CGa2grClFsw'}`,
+              "embedUrl": `https://www.youtube.com/embed/${locale === 'de' ? 'r5sBu2-NOqs' : 'CGa2grClFsw'}`,
+              "inLanguage": locale === 'de' ? 'de' : 'en'
             })
           }}
         />
