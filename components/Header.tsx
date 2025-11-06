@@ -17,6 +17,8 @@ function Header() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [language, setLanguage] = useState("EN");
   const [isLangOpen, setIsLangOpen] = useState(false);
+  const [currency, setCurrency] = useState<string>("EUR");
+  const [isCurrencyOpen, setIsCurrencyOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   // Initialize dark mode from localStorage or browser preferences
@@ -176,6 +178,12 @@ function Header() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isMenuOpen]);
+
+  // Load currency on mount
+  useEffect(() => {
+    const saved = localStorage.getItem("fx_currency_code");
+    if (saved) setCurrency(saved);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white dark:bg-gray-900 transition-colors">
@@ -592,8 +600,8 @@ function Header() {
                       onChange={(e) => changeLanguage(e.target.value)}
                       className="bg-gray-200 dark:bg-gray-700 border-0 text-gray-700 dark:text-gray-300 px-3 py-1.5 rounded-md focus:outline-none focus:ring-2 focus:ring-primary font-medium"
                     >
-                      <option value="EN">EN</option>
-                      <option value="DE">DE</option>
+                      <option value="EN">English</option>
+                      <option value="DE">Deutsch</option>
                     </select>
                   </div>
                 </div>

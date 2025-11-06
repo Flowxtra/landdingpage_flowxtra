@@ -20,6 +20,20 @@ export default function Footer() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [showConsentPreferences, setShowConsentPreferences] = useState(false);
   const [showAccessibilityPanel, setShowAccessibilityPanel] = useState(false);
+  const [selectedCurrency, setSelectedCurrency] = useState<string>("EUR");
+  const [showCurrencyMenu, setShowCurrencyMenu] = useState<boolean>(false);
+
+  const currencies: { code: string; label: string; symbol: string; display: string }[] = [
+    { code: "EUR", label: "Euro", symbol: "€", display: "EUR - Euro (€)" },
+    { code: "USD", label: "US Dollar", symbol: "$", display: "USD - US Dollar ($)" },
+    { code: "SAR", label: "Saudi Arabian Riyal", symbol: "﷼", display: "SAR - Saudi Arabian Riyal (﷼)" },
+    { code: "AUD", label: "Australian Dollar", symbol: "AU$", display: "AUD - Australian Dollar (AU$)" },
+    { code: "CAD", label: "Canadian Dollar", symbol: "CA$", display: "CAD - Canadian Dollar (CA$)" },
+    { code: "CNY", label: "China Renminbi", symbol: "¥", display: "CNY - China Renminbi (¥)" },    { code: "TRY", label: "Turkish Lira", symbol: "₺", display: "TRY - Turkish Lira (₺)" },
+    { code: "INR", label: "Indian Rupee", symbol: "₹", display: "INR - Indian Rupee (₹)" },
+    { code: "GBP", label: "Great Britain Pound", symbol: "£", display: "GBP - Great Britain Pound (£)" },
+
+  ];
 
   // Initialize dark mode from localStorage or browser preferences
   useEffect(() => {
@@ -47,6 +61,12 @@ export default function Footer() {
       attributes: true,
       attributeFilter: ["class"],
     });
+
+    // Load currency from localStorage
+    const savedCurrency = localStorage.getItem("fx_currency_code");
+    if (savedCurrency && currencies.some(c => c.code === savedCurrency)) {
+      setSelectedCurrency(savedCurrency);
+    }
 
     return () => observer.disconnect();
   }, []);
@@ -384,8 +404,42 @@ export default function Footer() {
               </a>
             </div>
 
-            {/* Consent Preferences, Dark Mode & Accessibility */}
-            <div className="flex flex-wrap items-center justify-center md:justify-end gap-2 md:gap-4 w-full md:w-auto">
+            {/* Consent Preferences, Dark Mode, Accessibility & Currency */}
+            <div className="flex flex-wrap items-center justify-center md:justify-end gap-2 md:gap-4 w-full md:w-auto relative">
+              {/* Currency Switcher */}
+              <div className="relative">
+                <button
+                  onClick={() => setShowCurrencyMenu(v => !v)}
+                  className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-primary dark:text-primary hover:text-secondary dark:hover:text-[#00A8CD] transition-colors whitespace-nowrap rounded-md px-2 py-1 bg-[#f4f6f8] dark:bg-[#f4f6f8]"
+                  aria-haspopup="listbox"
+                  aria-expanded={showCurrencyMenu}
+                >
+                  <span className="font-medium">{selectedCurrency}</span>
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.25 8.29a.75.75 0 01-.02-1.08z" clipRule="evenodd"/></svg>
+                </button>
+                {showCurrencyMenu && (
+                  <ul
+                    role="listbox"
+                    className="absolute right-0 bottom-full mb-2 w-72 max-h-80 overflow-auto rounded-md shadow-lg bg-white text-gray-900 dark:bg-white dark:text-gray-900 border border-gray-300 z-50"
+                  >
+                    {currencies.map(curr => (
+                      <li
+                        key={curr.code}
+                        role="option"
+                        aria-selected={selectedCurrency === curr.code}
+                        onClick={() => {
+                          setSelectedCurrency(curr.code);
+                          localStorage.setItem("fx_currency_code", curr.code);
+                          setShowCurrencyMenu(false);
+                        }}
+                        className={`px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-100 ${selectedCurrency === curr.code ? 'bg-gray-100' : ''}`}
+                      >
+                        {curr.display}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
               <button 
                 onClick={() => setShowConsentPreferences(true)}
                 className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-primary dark:text-white hover:text-secondary dark:hover:text-[#00A8CD] transition-colors whitespace-nowrap"
