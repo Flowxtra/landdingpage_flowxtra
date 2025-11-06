@@ -575,34 +575,48 @@ function Header() {
                   )}
                 </button>
 
-                {/* Language Selector */}
+                {/* Language Selector (Mobile-friendly buttons) */}
                 <div className="w-full p-3 rounded-lg bg-gray-100 dark:bg-gray-800">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      <svg
-                        className="w-5 h-5 text-gray-700 dark:text-gray-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle cx="12" cy="12" r="10" strokeWidth="2"/>
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"
-                        />
-                      </svg>
-                      <span className="text-gray-700 dark:text-gray-300 font-medium">Language</span>
-                    </div>
-                    <select
-                      value={language}
-                      onChange={(e) => changeLanguage(e.target.value)}
-                      className="bg-gray-200 dark:bg-gray-700 border-0 text-gray-700 dark:text-gray-300 px-3 py-1.5 rounded-md focus:outline-none focus:ring-2 focus:ring-primary font-medium"
+                  <div className="flex items-center gap-2 mb-3">
+                    <svg
+                      className="w-5 h-5 text-gray-700 dark:text-gray-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
                     >
-                      <option value="EN">English</option>
-                      <option value="DE">Deutsch</option>
-                    </select>
+                      <circle cx="12" cy="12" r="10" strokeWidth="2"/>
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"
+                      />
+                    </svg>
+                    <span className="text-gray-700 dark:text-gray-300 font-medium">Language</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <button
+                      onClick={() => changeLanguage('EN')}
+                      className={`w-full px-4 py-3 rounded-md text-center text-sm font-semibold transition-colors ${
+                        language === 'EN'
+                          ? 'bg-button-primary text-white'
+                          : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                      }`}
+                      aria-pressed={language === 'EN'}
+                    >
+                      English
+                    </button>
+                    <button
+                      onClick={() => changeLanguage('DE')}
+                      className={`w-full px-4 py-3 rounded-md text-center text-sm font-semibold transition-colors ${
+                        language === 'DE'
+                          ? 'bg-button-primary text-white'
+                          : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                      }`}
+                      aria-pressed={language === 'DE'}
+                    >
+                      Deutsch
+                    </button>
                   </div>
                 </div>
               </div>
