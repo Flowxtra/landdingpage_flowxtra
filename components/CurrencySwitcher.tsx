@@ -12,13 +12,13 @@ export default function CurrencySwitcher() {
   const currencies: Currency[] = [
     { code: 'EUR', label: 'Euro', symbol: '€', display: 'EUR - Euro (€)' },
     { code: 'USD', label: 'US Dollar', symbol: '$', display: 'USD - US Dollar ($)' },
+    { code: 'GBP', label: 'Great Britain Pound', symbol: '£', display: 'GBP - Great Britain Pound (£)' },
     { code: 'SAR', label: 'Saudi Arabian Riyal', symbol: '﷼', display: 'SAR - Saudi Arabian Riyal (﷼)' },
     { code: 'AUD', label: 'Australian Dollar', symbol: 'AU$', display: 'AUD - Australian Dollar (AU$)' },
     { code: 'CAD', label: 'Canadian Dollar', symbol: 'CA$', display: 'CAD - Canadian Dollar (CA$)' },
     { code: 'CNY', label: 'China Renminbi', symbol: '¥', display: 'CNY - China Renminbi (¥)' },
-    { code: 'TRY', label: 'Turkish Lira', symbol: '₺', display: 'TRY - Turkish Lira (₺)' },
+   // { code: 'TRY', label: 'Turkish Lira', symbol: '₺', display: 'TRY - Turkish Lira (₺)' },
     { code: 'INR', label: 'Indian Rupee', symbol: '₹', display: 'INR - Indian Rupee (₹)' },
-    { code: 'GBP', label: 'Great Britain Pound', symbol: '£', display: 'GBP - Great Britain Pound (£)' },
   ];
 
   useEffect(() => {
