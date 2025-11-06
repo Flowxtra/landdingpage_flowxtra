@@ -50,7 +50,7 @@ export default function CurrencySwitcher() {
     <div ref={containerRef} className="relative">
       <button
         onClick={() => setShowCurrencyMenu(v => !v)}
-        className="flex items-center gap-1.5 md:gap-2 text-sm md:text-sm text-primary dark:text-white hover:text-secondary dark:hover:text-[#00A8CD] transition-colors whitespace-nowrap rounded-md px-3 py-2 bg-[#f4f6f8] dark:bg-transparent"
+        className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-primary dark:text-white hover:text-secondary dark:hover:text-[#00A8CD] transition-colors whitespace-nowrap rounded-md px-3 py-2 bg-[#f4f6f8] dark:bg-transparent"
         aria-haspopup="listbox"
         aria-expanded={showCurrencyMenu}
         aria-label="Change currency"
