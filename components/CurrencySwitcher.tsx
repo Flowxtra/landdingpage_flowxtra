@@ -17,7 +17,7 @@ export default function CurrencySwitcher() {
     { code: 'AUD', label: 'Australian Dollar', symbol: 'AU$', display: 'AUD - Australian Dollar (AU$)' },
     { code: 'CAD', label: 'Canadian Dollar', symbol: 'CA$', display: 'CAD - Canadian Dollar (CA$)' },
     { code: 'CNY', label: 'China Renminbi', symbol: '¥', display: 'CNY - China Renminbi (¥)' },
-   // { code: 'TRY', label: 'Turkish Lira', symbol: '₺', display: 'TRY - Turkish Lira (₺)' },
+    //{ code: 'TRY', label: 'Turkish Lira', symbol: '₺', display: 'TRY - Turkish Lira (₺)' },
     { code: 'INR', label: 'Indian Rupee', symbol: '₹', display: 'INR - Indian Rupee (₹)' },
   ];
 
@@ -50,7 +50,7 @@ export default function CurrencySwitcher() {
     <div ref={containerRef} className="relative">
       <button
         onClick={() => setShowCurrencyMenu(v => !v)}
-        className="flex items-center gap-1.5 md:gap-2 text-sm md:text-sm text-primary dark:text-primary hover:text-secondary dark:hover:text-[#00A8CD] transition-colors whitespace-nowrap rounded-md px-3 py-2 bg-[#f4f6f8] dark:bg-[#f4f6f8]"
+        className="flex items-center gap-1.5 md:gap-2 text-sm md:text-sm text-primary dark:text-white hover:text-secondary dark:hover:text-[#00A8CD] transition-colors whitespace-nowrap rounded-md px-3 py-2 bg-[#f4f6f8] dark:bg-transparent"
         aria-haspopup="listbox"
         aria-expanded={showCurrencyMenu}
         aria-label="Change currency"
@@ -71,6 +71,9 @@ export default function CurrencySwitcher() {
               onClick={() => {
                 setSelectedCurrency(curr.code);
                 localStorage.setItem('fx_currency_code', curr.code);
+                try {
+                  window.dispatchEvent(new CustomEvent('fx_currency_changed', { detail: curr.code }));
+                } catch {}
                 setShowCurrencyMenu(false);
               }}
               className={`px-4 py-3 cursor-pointer text-base md:text-sm hover:bg-gray-100 dark:hover:bg-gray-100 ${selectedCurrency === curr.code ? 'bg-gray-100' : ''}`}

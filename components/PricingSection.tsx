@@ -2,6 +2,7 @@
 
 import CompareFeatures from "@/components/CompareFeatures";
 import { useTranslations } from "next-intl";
+import { useCurrency } from "@/lib/currency";
 
 interface PricingSectionProps {
   defaultCompareOpen?: boolean;
@@ -9,6 +10,7 @@ interface PricingSectionProps {
 
 export default function PricingSection({ defaultCompareOpen = false }: PricingSectionProps) {
   const t = useTranslations("pricing");
+  const { formatFromEur } = useCurrency();
   
   return (
     <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
@@ -52,7 +54,7 @@ export default function PricingSection({ defaultCompareOpen = false }: PricingSe
             
             <div className="mb-6">
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-gray-900 dark:text-white">€0</span>
+                <span className="text-4xl font-bold text-gray-900 dark:text-white">{formatFromEur(0)}</span>
                 <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">{t("plans.monthly")}</span>
               </div>
             </div>
@@ -88,7 +90,7 @@ export default function PricingSection({ defaultCompareOpen = false }: PricingSe
             
             <div className="mb-6">
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-gray-900 dark:text-white">€30</span>
+                <span className="text-4xl font-bold text-gray-900 dark:text-white">{formatFromEur(30)}</span>
                 <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">{t("plans.monthly")}</span>
               </div>
             </div>
@@ -124,7 +126,7 @@ export default function PricingSection({ defaultCompareOpen = false }: PricingSe
             
             <div className="mb-6">
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-gray-900 dark:text-white">€99</span>
+                <span className="text-4xl font-bold text-gray-900 dark:text-white">{formatFromEur(99)}</span>
                 <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">{t("plans.monthly")}</span>
               </div>
             </div>
@@ -169,7 +171,7 @@ export default function PricingSection({ defaultCompareOpen = false }: PricingSe
             
             <div className="mb-6 relative z-10">
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-white">€249</span>
+                <span className="text-4xl font-bold text-white">{formatFromEur(249)}</span>
                 <span className="text-sm text-white/80 font-medium">{t("plans.monthly")}</span>
               </div>
             </div>
@@ -205,7 +207,7 @@ export default function PricingSection({ defaultCompareOpen = false }: PricingSe
             
             <div className="mb-6">
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-gray-900 dark:text-white">€399</span>
+                <span className="text-4xl font-bold text-gray-900 dark:text-white">{formatFromEur(399)}</span>
                 <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">{t("plans.monthly")}</span>
               </div>
             </div>
@@ -249,7 +251,7 @@ export default function PricingSection({ defaultCompareOpen = false }: PricingSe
               
               <div className="mb-6">
                 <div className="flex items-baseline gap-2">
-                <span className="text-5xl font-bold text-gray-900 dark:text-white">€799</span>
+                <span className="text-5xl font-bold text-gray-900 dark:text-white">{formatFromEur(799)}</span>
                   <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">{t("plans.monthly")}</span>
                 </div>
               </div>
