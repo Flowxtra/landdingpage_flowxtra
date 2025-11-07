@@ -358,11 +358,6 @@ export async function getBlogCategories(
 ): Promise<CategoriesResponse> {
   const url = `${API_BASE_URL}/blog/categories?locale=${locale}`;
 
-  // Debug logging
-  if (process.env.NODE_ENV === "development") {
-    console.log("[Blog API] getBlogCategories - Request URL:", url);
-  }
-
   // Build fetch options
   const fetchOptions: RequestInit = {
     headers: {

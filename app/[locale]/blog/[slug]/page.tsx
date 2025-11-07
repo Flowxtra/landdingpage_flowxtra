@@ -7,7 +7,7 @@ import { useParams, usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { generateBlogPostSchema } from '@/lib/seo';
 import JsonLd from '@/components/JsonLd';
-import { getBlogPost, getBlogCategories, getImageUrl, formatDate, formatReadingTime, type BlogPost, type Category } from '@/lib/blogApi';
+import { getBlogPost, getImageUrl, formatDate, formatReadingTime, type BlogPost } from '@/lib/blogApi';
 
 function BlogPostContent() {
   const t = useTranslations('blog');
@@ -21,7 +21,6 @@ function BlogPostContent() {
   // API State
   const [post, setPost] = useState<BlogPost | null>(null);
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
-  const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -43,7 +42,7 @@ function BlogPostContent() {
             locale: currentLocale,
             pathname,
             params: params,
-            forceRefresh,
+            forceRefresh: true, // Always true - we always force refresh to get latest content
             timestamp: new Date().toISOString(),
           });
         }
@@ -65,18 +64,6 @@ function BlogPostContent() {
           setRelatedPosts(response.data.relatedPosts || []);
         } else {
           setError('Post not found');
-        }
-
-        // Fetch categories (optional - don't fail if endpoint doesn't exist)
-        try {
-          const categoriesResponse = await getBlogCategories(currentLocale);
-          if (isMounted && categoriesResponse.success && categoriesResponse.data) {
-            setCategories(categoriesResponse.data.categories);
-          }
-        } catch (categoriesError) {
-          // Categories endpoint might not exist - this is optional
-          console.warn('[Blog Post Page] Could not fetch categories (endpoint may not exist):', categoriesError);
-          // Continue without categories - not critical
         }
       } catch (err) {
         if (!isMounted) return;
@@ -120,12 +107,8 @@ function BlogPostContent() {
     };
   }, [slug, currentLocale, pathname, params]);
 
-  // Get category name
-  const categoryName = post ? (
-    categories.find(cat => cat.id === post.categoryId)?.translations?.[currentLocale as 'en' | 'de'] || 
-    categories.find(cat => cat.id === post.categoryId)?.name || 
-    post.category
-  ) : '';
+  // Get category name (use post.category directly since categories endpoint doesn't exist)
+  const categoryName = post?.category || '';
 
   // Loading state
   if (loading) {
@@ -283,9 +266,7 @@ function BlogPostContent() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {relatedPosts.map((relatedPost) => {
-                const relatedCategoryName = categories.find(cat => cat.id === relatedPost.categoryId)?.translations?.[currentLocale as 'en' | 'de'] || 
-                                           categories.find(cat => cat.id === relatedPost.categoryId)?.name || 
-                                           relatedPost.category;
+                const relatedCategoryName = relatedPost.category || '';
                 return (
                   <article
                     key={relatedPost.id}
