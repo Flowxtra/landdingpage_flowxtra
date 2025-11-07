@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isSupportedLocale } from "@/lib/locales";
+import { getBlogPosts } from "@/lib/blogApi";
 
 /**
  * Blog Posts Sitemap (Split by locale and batch index)
@@ -8,6 +9,7 @@ import { isSupportedLocale } from "@/lib/locales";
  * Each file contains up to 100 blog posts
  *
  * Locales are dynamically validated using lib/locales.ts
+ * Uses getBlogPosts from lib/blogApi.ts to fetch real data from API
  */
 
 interface BlogPost {
@@ -23,37 +25,26 @@ async function getBlogPostsBatch(
   batchSize: number = 100
 ): Promise<BlogPost[]> {
   try {
-    const apiUrl =
-      process.env.NEXT_PUBLIC_API_URL || "https://api.flowxtra.com";
-
     // Calculate which page contains the posts for this batch
     // batchIndex 0 = posts 0-99 (page 1, if limit=100)
     // batchIndex 1 = posts 100-199 (page 2, if limit=100)
     const page = batchIndex + 1;
-    const limit = 100;
+    const limit = batchSize;
 
-    const response = await fetch(
-      `${apiUrl}/api/blog?page=${page}&limit=${limit}&locale=${locale}`,
-      {
-        next: { revalidate: 3600 }, // Revalidate every hour
-      }
-    );
+    // Use getBlogPosts from lib/blogApi.ts to fetch real data
+    const response = await getBlogPosts({
+      page,
+      limit,
+      locale,
+      minimal: true, // Only fetch minimal data needed for sitemap
+    });
 
-    if (!response.ok) {
-      console.error(
-        `Failed to fetch blog posts for sitemap (locale: ${locale}, batch: ${batchIndex})`
-      );
-      return [];
-    }
-
-    const data = await response.json();
-
-    if (data.success && data.data && data.data.posts) {
-      return data.data.posts.map((post: any) => ({
+    if (response.success && response.data && response.data.posts) {
+      return response.data.posts.map((post) => ({
         id: post.id,
         slug: post.slug,
         date: post.date,
-        updatedAt: post.updatedAt || post.date,
+        updatedAt: post.updatedAt || post.dateModified || post.date,
       }));
     }
 

@@ -7,6 +7,16 @@ import { useEffect, useState, useMemo, Suspense, useRef } from 'react';
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 import { generateBlogListingSchema } from '@/lib/seo';
 import JsonLd from '@/components/JsonLd';
+import { getBlogPosts, getBlogCategories, getImageUrl, formatDate, formatReadingTime, type BlogPost, type Category } from '@/lib/blogApi';
+
+// Get API base URL for logging
+const getApiBaseUrl = () => {
+  if (typeof window === 'undefined') return 'N/A';
+  return process.env.NEXT_PUBLIC_API_URL || 
+         (process.env.NODE_ENV === 'development' 
+           ? process.env.NEXT_PUBLIC_developemant_BACKEND_URL 
+           : process.env.NEXT_PUBLIC_BACKEND_URL) || 'N/A';
+};
 
 function BlogContent() {
   const t = useTranslations('blog');
@@ -19,6 +29,13 @@ function BlogContent() {
   const [showSearchModal, setShowSearchModal] = useState<boolean>(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchModalInputRef = useRef<HTMLInputElement>(null);
+  
+  // API State
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [pagination, setPagination] = useState<any>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
   
   // Get page from URL params for SEO
   const currentPage = parseInt(searchParams.get('page') || '1', 10);
@@ -58,294 +75,193 @@ function BlogContent() {
     }
   }, [showSearchModal]);
 
-  // Mock data for latest post - Replace with API call later
-  const latestPost = {
-    id: 1,
-    title: "How AI is Transforming Frontend Development",
-    excerpt: "Explore how tools like GitHub Copilot, AI design generators, and code assistants are changing the way developers build UIs and ship features faster.",
-    category: "Innovation Spotlight",
-    image: "/img/blog/latest-post.jpg", // Placeholder - replace with actual image
-    slug: "how-ai-is-transforming-frontend-development",
-    date: "2024-01-15",
-  };
+  // Fetch blog posts and categories from API
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      setError(null);
+      
+      try {
+        // Check if "all" is selected
+        const isAllSelected = selectedCategories.includes('all');
+        
+        // If "all" is selected, we need to fetch posts without category filter
+        // However, if API has a bug and returns only 1 post, we'll try a workaround
+        let apiParams: any = {
+          page: currentPage,
+          limit: postsPerPage,
+          locale: currentLocale,
+        };
 
-  // Mock data for blog posts - Replace with API call later
-  // TODO: Replace with actual API call
-  // const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blog`);
-  // const data = await response.json();
-  // const allPosts = data.posts;
-  // const categoriesFromAPI = data.categories; // Should include { id, name, slug } from backend
+        // Add category filter if not 'all'
+        const selectedCategory = selectedCategories.find(cat => cat !== 'all');
+        if (selectedCategory) {
+          apiParams.category = selectedCategory;
+        }
+        // Note: When 'all' is selected, we don't add category filter
+        // This should return all posts from API
+        // If API returns only 1 post when no category is specified, 
+        // this is a backend API issue that needs to be fixed
 
-  const allPosts = [
-    {
-      id: 1,
-      title: "How AI is Transforming Frontend Development",
-      excerpt: "Explore how tools like GitHub Copilot, AI design generators, and code assistants are changing the way developers build UIs and ship features faster.",
-      category: "Productivity",
-      categoryId: 1,
-      image: "/img/blog/post-1.jpg",
-      slug: "how-ai-is-transforming-frontend-development",
-      date: "2024-01-15",
-      time: "5 min read",
-    },
-    {
-      id: 2,
-      title: "5 VS Code Extensions That Will Save You Hours",
-      excerpt: "Discover must-have extensions to boost your coding efficiency and streamline your workflow.",
-      category: "Productivity",
-      categoryId: 1,
-      image: "/img/blog/post-2.jpg",
-      slug: "5-vs-code-extensions",
-      date: "2024-01-10",
-      time: "3 min read",
-    },
-    {
-      id: 3,
-      title: "Time Management for Developers: What Really Works",
-      excerpt: "Learn proven strategies to avoid burnout and stay on top of your tasks without stress.",
-      category: "Productivity",
-      categoryId: 1,
-      image: "/img/blog/post-3.jpg",
-      slug: "time-management-for-developers",
-      date: "2024-01-05",
-      time: "7 min read",
-    },
-    {
-      id: 4,
-      title: "Automate Your Workflow with Task Runners",
-      excerpt: "Use tools like Gulp, npm scripts, and GitHub Actions to automate repetitive development tasks.",
-      category: "Productivity",
-      categoryId: 1,
-      image: "/img/blog/post-4.jpg",
-      slug: "automate-your-workflow",
-      date: "2023-12-28",
-      time: "6 min read",
-    },
-    {
-      id: 5,
-      title: "Building Accessible Web Applications",
-      excerpt: "A comprehensive guide to making your websites accessible to all users, following WCAG guidelines.",
-      category: "Accessibility",
-      categoryId: 2,
-      image: "/img/blog/post-5.jpg",
-      slug: "building-accessible-web-applications",
-      date: "2023-12-20",
-      time: "10 min read",
-    },
-    {
-      id: 6,
-      title: "Performance Optimization Techniques",
-      excerpt: "Learn how to optimize your applications for better performance and faster load times.",
-      category: "Performance",
-      categoryId: 3,
-      image: "/img/blog/post-6.jpg",
-      slug: "performance-optimization-techniques",
-      date: "2023-12-15",
-      time: "8 min read",
-    },
-    {
-      id: 7,
-      title: "Modern CSS Techniques You Should Know",
-      excerpt: "Discover the latest CSS features including Grid, Flexbox, and CSS custom properties that make styling easier.",
-      category: "Productivity",
-      categoryId: 1,
-      image: "/img/blog/post-7.jpg",
-      slug: "modern-css-techniques",
-      date: "2023-12-10",
-      time: "6 min read",
-    },
-    {
-      id: 8,
-      title: "TypeScript Best Practices for Large Projects",
-      excerpt: "Learn how to structure your TypeScript codebase for scalability and maintainability in enterprise applications.",
-      category: "Productivity",
-      categoryId: 1,
-      image: "/img/blog/post-8.jpg",
-      slug: "typescript-best-practices",
-      date: "2023-12-05",
-      time: "9 min read",
-    },
-    {
-      id: 9,
-      title: "Understanding React Hooks Deep Dive",
-      excerpt: "A comprehensive guide to React Hooks, from useState to custom hooks and advanced patterns.",
-      category: "Productivity",
-      categoryId: 1,
-      image: "/img/blog/post-9.jpg",
-      slug: "react-hooks-deep-dive",
-      date: "2023-11-30",
-      time: "12 min read",
-    },
-    {
-      id: 10,
-      title: "Accessibility Testing Tools and Methods",
-      excerpt: "Explore the best tools and techniques for testing web accessibility and ensuring WCAG compliance.",
-      category: "Accessibility",
-      categoryId: 2,
-      image: "/img/blog/post-10.jpg",
-      slug: "accessibility-testing-tools",
-      date: "2023-11-25",
-      time: "7 min read",
-    },
-    {
-      id: 11,
-      title: "Screen Reader Optimization Guide",
-      excerpt: "Learn how to optimize your websites for screen readers and improve the experience for visually impaired users.",
-      category: "Accessibility",
-      categoryId: 2,
-      image: "/img/blog/post-11.jpg",
-      slug: "screen-reader-optimization",
-      date: "2023-11-20",
-      time: "8 min read",
-    },
-    {
-      id: 12,
-      title: "Color Contrast and Web Accessibility",
-      excerpt: "Understanding color contrast ratios and how to ensure your designs meet accessibility standards.",
-      category: "Accessibility",
-      categoryId: 2,
-      image: "/img/blog/post-12.jpg",
-      slug: "color-contrast-accessibility",
-      date: "2023-11-15",
-      time: "5 min read",
-    },
-    {
-      id: 13,
-      title: "Website Speed Optimization Strategies",
-      excerpt: "Essential techniques to improve your website's loading speed and overall performance metrics.",
-      category: "Performance",
-      categoryId: 3,
-      image: "/img/blog/post-13.jpg",
-      slug: "website-speed-optimization",
-      date: "2023-11-10",
-      time: "10 min read",
-    },
-    {
-      id: 14,
-      title: "Lazy Loading Images for Better Performance",
-      excerpt: "Implement lazy loading strategies to reduce initial page load time and improve user experience.",
-      category: "Performance",
-      categoryId: 3,
-      image: "/img/blog/post-14.jpg",
-      slug: "lazy-loading-images",
-      date: "2023-11-05",
-      time: "6 min read",
-    },
-    {
-      id: 15,
-      title: "Code Splitting and Bundle Optimization",
-      excerpt: "Learn how to split your JavaScript bundles effectively to reduce load times and improve performance.",
-      category: "Performance",
-      categoryId: 3,
-      image: "/img/blog/post-15.jpg",
-      slug: "code-splitting-bundle-optimization",
-      date: "2023-10-30",
-      time: "9 min read",
-    },
-    {
-      id: 16,
-      title: "GraphQL vs REST API: Making the Right Choice",
-      excerpt: "A detailed comparison of GraphQL and REST APIs to help you choose the right approach for your project.",
-      category: "Productivity",
-      categoryId: 1,
-      image: "/img/blog/post-16.jpg",
-      slug: "graphql-vs-rest-api",
-      date: "2023-10-25",
-      time: "11 min read",
-    },
-    {
-      id: 17,
-      title: "Database Optimization Techniques",
-      excerpt: "Essential strategies for optimizing database queries and improving application performance.",
-      category: "Performance",
-      categoryId: 3,
-      image: "/img/blog/post-17.jpg",
-      slug: "database-optimization-techniques",
-      date: "2023-10-20",
-      time: "8 min read",
-    },
-    {
-      id: 18,
-      title: "Responsive Design Best Practices",
-      excerpt: "Modern approaches to creating responsive layouts that work seamlessly across all device sizes.",
-      category: "Accessibility",
-      categoryId: 2,
-      image: "/img/blog/post-18.jpg",
-      slug: "responsive-design-best-practices",
-      date: "2023-10-15",
-      time: "7 min read",
-    },
-  ];
+        // Add search query if exists
+        if (searchQuery.trim()) {
+          apiParams.search = searchQuery.trim();
+        }
 
-  // Mock categories from backend - Replace with API call
-  // Expected API response format:
-  // { id: number, name: string, slug: string, translations: { en: string, de: string } }
-  const categoriesFromAPI = [
-    { id: 1, name: "Productivity", slug: "productivity", translations: { en: "Productivity", de: "Produktivität" } },
-    { id: 2, name: "Accessibility", slug: "accessibility", translations: { en: "Accessibility", de: "Barrierefreiheit" } },
-    { id: 3, name: "Performance", slug: "performance", translations: { en: "Performance", de: "Leistung" } },
-  ];
+        // Debug: Log API params (always log to help debug)
+        console.log("[Blog List] Fetching posts with params:", {
+          ...apiParams,
+          selectedCategories,
+          isAllSelected,
+          postsPerPage,
+          currentPage,
+        });
 
-  // Get categories list with "All" option
-  const categories = ['all', ...categoriesFromAPI.map(cat => cat.slug)];
+        // Fetch posts
+        let postsResponse = await getBlogPosts(apiParams);
+        
+        // Workaround: If "all" is selected but API returns only 1 post,
+        // try fetching with a higher limit or without pagination
+        if (isAllSelected && 
+            postsResponse.success && 
+            postsResponse.data?.posts?.length === 1 && 
+            postsResponse.data?.pagination?.totalPosts === 1) {
+          console.warn("[Blog List] ⚠️ API returned only 1 post when 'all' is selected. Trying workaround...");
+          
+          // Try fetching with a much higher limit
+          const workaroundParams = {
+            ...apiParams,
+            limit: 100, // Try to get more posts
+            page: 1, // Start from page 1
+          };
+          
+          console.log("[Blog List] Workaround: Fetching with higher limit:", workaroundParams);
+          const workaroundResponse = await getBlogPosts(workaroundParams);
+          
+          if (workaroundResponse.success && 
+              workaroundResponse.data?.posts && 
+              workaroundResponse.data.posts.length > 1) {
+            console.log("[Blog List] ✅ Workaround successful! Got", workaroundResponse.data.posts.length, "posts");
+            postsResponse = workaroundResponse;
+          } else {
+            console.warn("[Blog List] ❌ Workaround failed. API still returns limited posts.");
+            console.warn("[Blog List] This is a backend API issue. Please check the API endpoint.");
+          }
+        }
+        
+        if (postsResponse.success && postsResponse.data) {
+          const fetchedPosts = postsResponse.data.posts || [];
+          
+          // Debug: Log first post to verify slug format
+          if (process.env.NODE_ENV === "development" && fetchedPosts.length > 0) {
+            console.log("[Blog List] First post sample:", {
+              id: fetchedPosts[0].id,
+              title: fetchedPosts[0].title,
+              slug: fetchedPosts[0].slug,
+              locale: currentLocale,
+              categorySlug: fetchedPosts[0].categorySlug,
+            });
+          }
+          
+          setPosts(fetchedPosts);
+          setPagination(postsResponse.data.pagination);
+          
+          // Debug: Log fetched results (always log to help debug)
+          console.log("[Blog List] Fetched posts:", {
+            count: fetchedPosts.length,
+            totalPosts: postsResponse.data.pagination?.totalPosts,
+            currentPage: postsResponse.data.pagination?.currentPage,
+            totalPages: postsResponse.data.pagination?.totalPages,
+            hasNextPage: postsResponse.data.pagination?.hasNextPage,
+            hasPreviousPage: postsResponse.data.pagination?.hasPreviousPage,
+            selectedCategories,
+            isAllSelected: selectedCategories.includes('all'),
+            requestedLimit: postsPerPage,
+            requestedPage: currentPage,
+          });
+          
+          // Warning: If "all" is selected but API returns only 1 post, this is a backend issue
+          if (selectedCategories.includes('all') && 
+              fetchedPosts.length === 1 && 
+              postsResponse.data.pagination?.totalPosts === 1) {
+            console.warn("[Blog List] ⚠️ API returned only 1 post when 'all' is selected. This indicates a backend API issue.");
+            console.warn("[Blog List] Expected: All posts. Got: 1 post only.");
+            const apiBaseUrl = getApiBaseUrl();
+            console.warn("[Blog List] API URL:", `${apiBaseUrl}/blog?page=${currentPage}&limit=${postsPerPage}&locale=${currentLocale}`);
+          }
+          
+          // Log first few posts for debugging
+          if (fetchedPosts.length > 0) {
+            console.log("[Blog List] Sample posts:", fetchedPosts.slice(0, 3).map(p => ({
+              id: p.id,
+              title: p.title,
+              slug: p.slug,
+              category: p.category,
+              categorySlug: p.categorySlug,
+            })));
+          }
+          
+          // Set categories if provided
+          if (postsResponse.data.categories) {
+            setCategories(postsResponse.data.categories);
+          }
+        }
 
-  // Filter posts by search query for modal (all posts)
+        // Fetch categories separately if not included in posts response (optional)
+        if (!postsResponse.data?.categories) {
+          try {
+            const categoriesResponse = await getBlogCategories(currentLocale);
+            if (categoriesResponse.success && categoriesResponse.data) {
+              setCategories(categoriesResponse.data.categories);
+            }
+          } catch (categoriesError) {
+            // Categories endpoint might not exist - this is optional
+            console.warn('[Blog List] Could not fetch categories (endpoint may not exist):', categoriesError);
+            // Continue without categories - not critical
+            // Categories will be empty, which is fine
+          }
+        }
+      } catch (err) {
+        console.error('Error fetching blog data:', err);
+        setError(err instanceof Error ? err.message : 'Failed to load blog posts');
+        setPosts([]);
+        setCategories([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [currentPage, postsPerPage, currentLocale, selectedCategories, searchQuery]);
+
+  // Get latest post (first post from API)
+  const latestPost = posts.length > 0 ? posts[0] : null;
+
+  // Filter posts by search query for modal (all posts from API)
   const searchResults = useMemo(() => {
-    if (!searchQuery.trim()) {
+    if (!searchQuery.trim() || posts.length === 0) {
       return [];
     }
     const query = searchQuery.toLowerCase().trim();
-    return allPosts.filter(post => 
+    return posts.filter(post => 
       post.title.toLowerCase().includes(query) ||
       post.excerpt.toLowerCase().includes(query) ||
       post.category.toLowerCase().includes(query)
     ).slice(0, 6); // Limit to 6 results in modal
-  }, [searchQuery, allPosts]);
+  }, [searchQuery, posts]);
 
-  // Filter posts by selected categories and search query
-  const filteredPosts = useMemo(() => {
-    let posts = allPosts;
-    
-    // Filter by categories
-    if (!selectedCategories.includes('all')) {
-      posts = posts.filter(post => {
-        const categorySlug = categoriesFromAPI.find(cat => cat.id === post.categoryId)?.slug;
-        return categorySlug && selectedCategories.includes(categorySlug);
-      });
-    }
-    
-    // Filter by search query
-    if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase().trim();
-      posts = posts.filter(post => 
-        post.title.toLowerCase().includes(query) ||
-        post.excerpt.toLowerCase().includes(query) ||
-        post.category.toLowerCase().includes(query)
-      );
-    }
-    
-    return posts;
-  }, [selectedCategories, searchQuery, allPosts]);
-
-  // Calculate pagination
-  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
-  const startIndex = (currentPage - 1) * postsPerPage;
-  const endIndex = startIndex + postsPerPage;
-  const currentPosts = filteredPosts.slice(startIndex, endIndex);
+  // Use posts directly from API (already filtered by API)
+  const currentPosts = posts;
+  
+  // Get categories list with "All" option
+  const categoriesList = ['all', ...categories.map(cat => cat.slug)];
 
   // Reset to page 1 when categories or search query change
   useEffect(() => {
-    if (currentPage > totalPages && totalPages > 0) {
+    if (pagination && currentPage > pagination.totalPages && pagination.totalPages > 0) {
       router.replace(`${pathname}?page=1`);
     }
-  }, [selectedCategories, searchQuery, currentPage, totalPages, pathname, router]);
-
-  // Reset to page 1 when search query changes
-  useEffect(() => {
-    if (searchQuery && currentPage !== 1) {
-      router.replace(`${pathname}?page=1`);
-    }
-  }, [searchQuery, pathname, router, currentPage]);
+  }, [selectedCategories, searchQuery, currentPage, pagination, pathname, router]);
 
   // Handle category toggle
   const handleCategoryToggle = (category: string) => {
@@ -391,19 +307,16 @@ function BlogContent() {
     return `${pathname}${queryString ? `?${queryString}` : ''}`;
   };
 
-  // Format date
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'short', 
-      day: 'numeric' 
-    });
-  };
 
   // Generate JSON-LD schema for blog listing page
+  // Adapt posts data to match schema generator's expected format
   const blogListingSchema = generateBlogListingSchema({
-    posts: filteredPosts,
+    posts: posts.map(post => ({
+      ...post,
+      author: post.author?.name,
+      authorImage: post.author?.photo,
+      time: formatReadingTime(post.readingTime),
+    })),
     locale: currentLocale,
   });
 
@@ -465,13 +378,13 @@ function BlogContent() {
                   searchResults.length > 0 ? (
                     <div className="p-2">
                       {searchResults.map((post) => {
-                        const categoryName = categoriesFromAPI.find(cat => cat.id === post.categoryId)?.translations?.[currentLocale as 'en' | 'de'] || 
-                                            categoriesFromAPI.find(cat => cat.id === post.categoryId)?.name || 
+                        const categoryName = categories.find(cat => cat.id === post.categoryId)?.translations?.[currentLocale as 'en' | 'de'] || 
+                                            categories.find(cat => cat.id === post.categoryId)?.name || 
                                             post.category;
                         return (
                           <Link
                             key={post.id}
-                            href={`/blog/${post.slug}`}
+                            href={`/${currentLocale}/blog/${post.slug}`}
                             onClick={() => setShowSearchModal(false)}
                             className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group"
                           >
@@ -579,57 +492,61 @@ function BlogContent() {
           </div>
 
           {/* Right Side - Latest Post */}
-          <div className="lg:col-span-5">
-            {/* Latest Post Card */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow max-w-md mx-auto lg:mx-0">
-              {/* Category Badge */}
-              <div className="px-4 pt-4">
-                <span className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
-                  {latestPost.category}
-                </span>
-              </div>
-
-              {/* Image */}
-              <Link href={`/blog/${latestPost.slug}`} className="block cursor-pointer">
-                <div className="relative w-full h-48 md:h-56 lg:h-64 mt-3">
-                  <Image
-                    src={latestPost.image}
-                    alt={latestPost.title}
-                    fill
-                    className="object-cover transition-transform hover:scale-105"
-                    quality={100}
-                    unoptimized
-                    onError={(e) => {
-                      // Fallback to placeholder if image doesn't exist
-                      const target = e.target as HTMLImageElement;
-                      target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="400"%3E%3Crect fill="%23e5e7eb" width="800" height="400"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="system-ui" font-size="24" fill="%239ca3af"%3EImage%3C/text%3E%3C/svg%3E';
-                    }}
-                  />
+          {latestPost && (
+            <div className="lg:col-span-5">
+              {/* Latest Post Card */}
+              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow max-w-md mx-auto lg:mx-0">
+                {/* Category Badge */}
+                <div className="px-4 pt-4">
+                  <span className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+                    {categories.find(cat => cat.id === latestPost.categoryId)?.translations?.[currentLocale as 'en' | 'de'] || 
+                     categories.find(cat => cat.id === latestPost.categoryId)?.name || 
+                     latestPost.category}
+                  </span>
                 </div>
-              </Link>
 
-              {/* Content */}
-              <div className="p-4 md:p-5">
-                <Link href={`/blog/${latestPost.slug}`}>
-                  <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3 hover:text-primary dark:hover:text-secondary transition-colors cursor-pointer">
-                    {latestPost.title}
-                  </h2>
+                {/* Image */}
+                <Link href={`/${currentLocale}/blog/${latestPost.slug}`} className="block cursor-pointer">
+                  <div className="relative w-full h-48 md:h-56 lg:h-64 mt-3">
+                    <Image
+                      src={getImageUrl(latestPost.image)}
+                      alt={latestPost.title}
+                      fill
+                      className="object-cover transition-transform hover:scale-105"
+                      quality={100}
+                      unoptimized
+                      onError={(e) => {
+                        // Fallback to placeholder if image doesn't exist
+                        const target = e.target as HTMLImageElement;
+                        target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="400"%3E%3Crect fill="%23e5e7eb" width="800" height="400"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="system-ui" font-size="24" fill="%239ca3af"%3EImage%3C/text%3E%3C/svg%3E';
+                      }}
+                    />
+                  </div>
                 </Link>
-                <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                  {latestPost.excerpt}
-                </p>
-                <Link
-                  href={`/blog/${latestPost.slug}`}
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-secondary transition-colors"
-                >
-                  {t('discoverFuture')}
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
+
+                {/* Content */}
+                <div className="p-4 md:p-5">
+                  <Link href={`/${currentLocale}/blog/${latestPost.slug}`}>
+                    <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3 hover:text-primary dark:hover:text-secondary transition-colors cursor-pointer">
+                      {latestPost.title}
+                    </h2>
+                  </Link>
+                  <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                    {latestPost.excerpt}
+                  </p>
+                  <Link
+                    href={`/${currentLocale}/blog/${latestPost.slug}`}
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-secondary transition-colors"
+                  >
+                    {t('discoverFuture')}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
           </div>
         </div>
@@ -647,7 +564,7 @@ function BlogContent() {
           <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
             {/* Category Filters */}
             <div className="flex flex-wrap gap-3">
-            {categories.map((category) => {
+            {categoriesList.map((category) => {
               const isSelected = isCategorySelected(category);
               return (
                 <button
@@ -679,8 +596,8 @@ function BlogContent() {
                   </div>
                   {category === 'all' 
                     ? t('categories.all')
-                    : categoriesFromAPI.find(cat => cat.slug === category)?.translations?.[currentLocale as 'en' | 'de'] || 
-                      categoriesFromAPI.find(cat => cat.slug === category)?.name || 
+                    : categories.find(cat => cat.slug === category)?.translations?.[currentLocale as 'en' | 'de'] || 
+                      categories.find(cat => cat.slug === category)?.name || 
                       category
                   }
                 </button>
@@ -783,8 +700,28 @@ function BlogContent() {
             </div>
           </div>
 
+          {/* Loading State */}
+          {loading && (
+            <div className="py-16 text-center">
+              <div className="text-gray-500 dark:text-gray-400">Loading...</div>
+            </div>
+          )}
+
+          {/* Error State */}
+          {error && !loading && (
+            <div className="py-16 text-center">
+              <p className="text-red-500 dark:text-red-400 mb-4">{error}</p>
+              <button
+                onClick={() => window.location.reload()}
+                className="px-4 py-2 rounded-lg bg-primary dark:bg-secondary text-white hover:bg-secondary-light dark:hover:bg-secondary-hover transition-colors"
+              >
+                Retry
+              </button>
+            </div>
+          )}
+
           {/* Blog Posts - Grid or List View */}
-          {currentPosts.length > 0 ? (
+          {!loading && !error && currentPosts.length > 0 ? (
             <div className={viewMode === 'grid' 
               ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
               : 'flex flex-col gap-6'
@@ -799,12 +736,12 @@ function BlogContent() {
               >
                 {/* Image */}
                 <Link 
-                  href={`/blog/${post.slug}`} 
+                  href={`/${currentLocale}/blog/${post.slug}`} 
                   className={viewMode === 'list' ? 'block cursor-pointer flex-shrink-0' : 'block cursor-pointer'}
                 >
                   <div className={`relative overflow-hidden ${viewMode === 'list' ? 'w-56 h-40 flex-shrink-0 rounded-lg' : 'w-full aspect-[16/10]'} ${viewMode === 'grid' ? 'mt-3 rounded-lg' : ''}`}>
                     <Image
-                      src={post.image}
+                      src={getImageUrl(post.image)}
                       alt={post.title}
                       fill
                       className="object-cover transition-transform hover:scale-105"
@@ -824,13 +761,13 @@ function BlogContent() {
                   {/* Category Badge */}
                   <div className="mb-2">
                     <span className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
-                      {categoriesFromAPI.find(cat => cat.id === post.categoryId)?.translations?.[currentLocale as 'en' | 'de'] || 
-                       categoriesFromAPI.find(cat => cat.id === post.categoryId)?.name || 
+                      {categories.find(cat => cat.id === post.categoryId)?.translations?.[currentLocale as 'en' | 'de'] || 
+                       categories.find(cat => cat.id === post.categoryId)?.name || 
                        post.category}
                     </span>
                   </div>
 
-                  <Link href={`/blog/${post.slug}`}>
+                  <Link href={`/${currentLocale}/blog/${post.slug}`}>
                     <h3 className={`font-bold text-gray-900 dark:text-white mb-2 hover:text-primary dark:hover:text-secondary transition-colors cursor-pointer ${viewMode === 'list' ? 'text-xl' : 'text-lg'}`}>
                       {post.title}
                     </h3>
@@ -843,11 +780,11 @@ function BlogContent() {
                   <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400 mb-4">
                     <span>{formatDate(post.date)}</span>
                     <span>•</span>
-                    <span>{post.time}</span>
+                    <span>{formatReadingTime(post.readingTime)}</span>
                   </div>
 
                   <Link
-                    href={`/blog/${post.slug}`}
+                    href={`/${currentLocale}/blog/${post.slug}`}
                     className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-secondary transition-colors"
                   >
                     {t('readMore')}
@@ -899,10 +836,10 @@ function BlogContent() {
           )}
 
           {/* Pagination */}
-          {totalPages > 1 && (
+          {!loading && !error && pagination && pagination.totalPages > 1 && (
             <nav className="mt-12 flex items-center justify-center gap-2" aria-label="Pagination">
               {/* Previous Button */}
-              {currentPage > 1 ? (
+              {pagination.hasPreviousPage ? (
                 <Link
                   href={getPageUrl(currentPage - 1)}
                   className="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-secondary"
@@ -918,11 +855,11 @@ function BlogContent() {
 
               {/* Page Numbers */}
               <div className="flex items-center gap-1">
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+                {Array.from({ length: pagination.totalPages }, (_, i) => i + 1).map((page) => {
                   // Show first page, last page, current page, and pages around current
                   const showPage = 
                     page === 1 || 
-                    page === totalPages || 
+                    page === pagination.totalPages || 
                     (page >= currentPage - 1 && page <= currentPage + 1);
 
                   if (!showPage) {
@@ -958,7 +895,7 @@ function BlogContent() {
               </div>
 
               {/* Next Button */}
-              {currentPage < totalPages ? (
+              {pagination.hasNextPage ? (
                 <Link
                   href={getPageUrl(currentPage + 1)}
                   className="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-secondary"

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { supportedLocales } from "@/lib/locales";
+import { getBlogPosts } from "@/lib/blogApi";
 
 /**
  * Sitemap Index for SEO
@@ -14,38 +15,22 @@ import { supportedLocales } from "@/lib/locales";
  * - /sitemap-de-blog-0.xml, /sitemap-de-blog-1.xml, etc. (German blog posts)
  *
  * Languages are dynamically loaded from lib/locales.ts - no manual updates needed!
+ * Uses getBlogPosts from lib/blogApi.ts to fetch real data from API
  */
 
 async function getBlogPostsCount(locale: string): Promise<number> {
   try {
-    const apiUrl =
-      process.env.NEXT_PUBLIC_API_URL || "https://api.flowxtra.com";
-
+    // Use getBlogPosts from lib/blogApi.ts to fetch real data
     // Fetch first page to get total count
-    const response = await fetch(
-      `${apiUrl}/api/blog?page=1&limit=1&locale=${locale}`,
-      {
-        next: { revalidate: 3600 },
-      }
-    );
+    const response = await getBlogPosts({
+      page: 1,
+      limit: 1,
+      locale,
+      minimal: true, // Only fetch minimal data needed for count
+    });
 
-    if (!response.ok) {
-      console.error(
-        `❌ Failed to fetch blog posts count for sitemap (locale: ${locale}): ${response.status} ${response.statusText}`
-      );
-      console.error(
-        `   API URL attempted: ${apiUrl}/api/blog?page=1&limit=1&locale=${locale}`
-      );
-      console.error(
-        `   This is normal if the blog API is not implemented yet. Static pages sitemap will still work.`
-      );
-      return 0;
-    }
-
-    const data = await response.json();
-
-    if (data.success && data.data && data.data.pagination) {
-      const totalPosts = data.data.pagination.totalPosts || 0;
+    if (response.success && response.data && response.data.pagination) {
+      const totalPosts = response.data.pagination.totalPosts || 0;
       if (totalPosts > 0) {
         console.log(`✅ Found ${totalPosts} blog posts for locale "${locale}"`);
       }
@@ -53,15 +38,15 @@ async function getBlogPostsCount(locale: string): Promise<number> {
     }
 
     // Log if response structure is unexpected
-    if (!data.success) {
+    if (!response.success) {
       console.warn(
         `⚠️ API returned success=false for locale "${locale}":`,
-        data.message || "Unknown error"
+        (response as any).message || "Unknown error"
       );
-    } else if (!data.data?.pagination) {
+    } else if (!response.data?.pagination) {
       console.warn(
         `⚠️ API response missing pagination data for locale "${locale}". Response structure:`,
-        Object.keys(data.data || {})
+        Object.keys(response.data || {})
       );
     }
 
@@ -72,28 +57,36 @@ async function getBlogPostsCount(locale: string): Promise<number> {
     const limit = 100;
 
     while (hasMorePages) {
-      const pageResponse = await fetch(
-        `${apiUrl}/api/blog?page=${currentPage}&limit=${limit}&locale=${locale}`,
-        {
-          next: { revalidate: 3600 },
-        }
-      );
+      try {
+        const pageResponse = await getBlogPosts({
+          page: currentPage,
+          limit,
+          locale,
+          minimal: true,
+        });
 
-      if (!pageResponse.ok) break;
+        if (
+          pageResponse.success &&
+          pageResponse.data &&
+          pageResponse.data.posts
+        ) {
+          totalCount += pageResponse.data.posts.length;
 
-      const pageData = await pageResponse.json();
-
-      if (pageData.success && pageData.data && pageData.data.posts) {
-        totalCount += pageData.data.posts.length;
-
-        if (pageData.data.pagination) {
-          hasMorePages = pageData.data.pagination.hasNextPage;
-          currentPage++;
+          if (pageResponse.data.pagination) {
+            hasMorePages = pageResponse.data.pagination.hasNextPage || false;
+            currentPage++;
+          } else {
+            hasMorePages = pageResponse.data.posts.length === limit;
+            currentPage++;
+          }
         } else {
-          hasMorePages = pageData.data.posts.length === limit;
-          currentPage++;
+          hasMorePages = false;
         }
-      } else {
+      } catch (pageError) {
+        console.warn(
+          `⚠️ Error fetching page ${currentPage} for locale "${locale}":`,
+          pageError
+        );
         hasMorePages = false;
       }
 

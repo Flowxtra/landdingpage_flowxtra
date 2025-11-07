@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { getBlogPost } from "@/lib/blogApi";
+import { getImageUrl } from "@/lib/blogApi";
 
 // Generate SEO metadata for Blog Post page
 export async function generateMetadata({ 
@@ -8,57 +10,54 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {locale, slug} = await params;
   
-  // TODO: Fetch post data from API
-  // const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blog/${slug}`);
-  // const post = await response.json();
-  
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
   
-  // Mock data for metadata
+  try {
+    // Fetch post data from API
+    const response = await getBlogPost(slug, locale);
+    
+    if (response.success && response.data?.post) {
+      const post = response.data.post;
+      const imageUrl = post.image ? getImageUrl(post.image) : `${baseUrl}/favicon.png`;
+      
+      const metadata: Metadata = {
+        title: `${post.title} – Flowxtra Blog`,
+        description: post.excerpt || "Discover insights, tips, and trends in recruitment and talent management.",
+        keywords: post.keywords ? post.keywords.split(',').map(k => k.trim()) : ["recruitment", "hiring", "HR", "talent management", "ATS"],
+        metadataBase: new URL(baseUrl),
+        openGraph: {
+          title: post.title,
+          description: post.excerpt || "Discover insights, tips, and trends in recruitment and talent management.",
+          url: `${baseUrl}/${locale}/blog/${slug}`,
+          type: "article",
+          images: [imageUrl],
+          publishedTime: post.datePublished,
+          modifiedTime: post.dateModified || post.datePublished,
+          authors: post.author ? [post.author.name] : undefined,
+        },
+        alternates: {
+          canonical: `${baseUrl}/${locale}/blog/${slug}`,
+          languages: post.availableLanguages.reduce((acc: Record<string, string>, lang: string) => {
+            acc[lang] = `${baseUrl}/${lang}/blog/${slug}`;
+            return acc;
+          }, {}),
+        },
+      };
+
+      return metadata;
+    }
+  } catch (error) {
+    console.error('Error fetching post metadata:', error);
+  }
+  
+  // Fallback metadata if API fails
   const postTitle = slug ? slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') : 'Blog Post';
   
-  const metadata = {
-    en: {
-      title: `${postTitle} – Flowxtra Blog`,
-      description: "Discover insights, tips, and trends in recruitment and talent management.",
-      keywords: ["recruitment", "hiring", "HR", "talent management", "ATS"],
-      metadataBase: new URL(baseUrl),
-      openGraph: {
-        title: `${postTitle} – Flowxtra Blog`,
-        description: "Discover insights, tips, and trends in recruitment and talent management.",
-        url: `${baseUrl}/en/blog/${slug}`,
-        type: "article",
-      },
-      alternates: {
-        canonical: `${baseUrl}/en/blog/${slug}`,
-        languages: {
-          'en': `${baseUrl}/en/blog/${slug}`,
-          'de': `${baseUrl}/de/blog/${slug}`,
-        },
-      },
-    },
-    de: {
-      title: `${postTitle} – Flowxtra Blog`,
-      description: "Entdecken Sie Erkenntnisse, Tipps und Trends in der Rekrutierung und Talentmanagement.",
-      keywords: ["rekrutierung", "einstellung", "hr", "talentmanagement", "ats"],
-      metadataBase: new URL(baseUrl),
-      openGraph: {
-        title: `${postTitle} – Flowxtra Blog`,
-        description: "Entdecken Sie Erkenntnisse, Tipps und Trends in der Rekrutierung und Talentmanagement.",
-        url: `${baseUrl}/de/blog/${slug}`,
-        type: "article",
-      },
-      alternates: {
-        canonical: `${baseUrl}/de/blog/${slug}`,
-        languages: {
-          'en': `${baseUrl}/en/blog/${slug}`,
-          'de': `${baseUrl}/de/blog/${slug}`,
-        },
-      },
-    },
+  return {
+    title: `${postTitle} – Flowxtra Blog`,
+    description: "Discover insights, tips, and trends in recruitment and talent management.",
+    metadataBase: new URL(baseUrl),
   };
-
-  return metadata[locale as keyof typeof metadata] || metadata.en;
 }
 
 export default function BlogPostLayout({
