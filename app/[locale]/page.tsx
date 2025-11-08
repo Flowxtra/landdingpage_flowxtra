@@ -340,8 +340,8 @@ export default function Homepage() {
           </div>
 
           {/* Desktop Image - LCP Element - Only visible on tablet/desktop (>= 768px) - Full Width Inside Container - Natural Size */}
-          <div className="w-full mt-0 hidden md:block">
-            <figure className="m-0 w-screen -mx-[10px]">
+          <div className="w-full mt-0 hidden md:block overflow-hidden">
+            <figure className="m-0 w-full">
               <Image
                 src="/img/ATS-Software-for-Recruitment.svg"
                 alt={t("hero.imageAlt")}
