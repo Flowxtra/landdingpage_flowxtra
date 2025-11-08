@@ -10,6 +10,14 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "api.flowxtra.com",
       },
+      {
+        protocol: "https",
+        hostname: "flowxtra.com",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+      },
     ],
     formats: ["image/avif", "image/webp"],
     qualities: [50, 75, 100],

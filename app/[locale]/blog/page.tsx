@@ -1,7 +1,6 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState, useMemo, Suspense, useRef } from 'react';
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
@@ -152,15 +151,27 @@ function BlogContent() {
         if (postsResponse.success && postsResponse.data) {
           const fetchedPosts = postsResponse.data.posts || [];
           
-          // Debug: Log first post to verify slug format
-          if (process.env.NODE_ENV === "development" && fetchedPosts.length > 0) {
+          // Debug: Log first post to verify slug format and image
+          if (fetchedPosts.length > 0) {
+            const firstPost = fetchedPosts[0];
             console.log("[Blog List] First post sample:", {
-              id: fetchedPosts[0].id,
-              title: fetchedPosts[0].title,
-              slug: fetchedPosts[0].slug,
+              id: firstPost.id,
+              title: firstPost.title,
+              slug: firstPost.slug,
               locale: currentLocale,
-              categorySlug: fetchedPosts[0].categorySlug,
+              categorySlug: firstPost.categorySlug,
+              image: firstPost.image,
+              imageUrl: getImageUrl(firstPost.image || ''),
+              hasImage: !!firstPost.image,
             });
+            
+            // Log all posts images for debugging
+            console.log("[Blog List] All posts images:", fetchedPosts.map(post => ({
+              id: post.id,
+              title: post.title,
+              image: post.image,
+              imageUrl: getImageUrl(post.image || ''),
+            })));
           }
           
           setPosts(fetchedPosts);
@@ -234,8 +245,9 @@ function BlogContent() {
     fetchData();
   }, [currentPage, postsPerPage, currentLocale, selectedCategories, searchQuery]);
 
-  // Get latest post (first post from API)
-  const latestPost = posts.length > 0 ? posts[0] : null;
+  // Get first post (oldest post from API - last in array)
+  // The API returns posts sorted by date (newest first), so the oldest is the last one
+  const latestPost = posts.length > 0 ? posts[posts.length - 1] : null;
 
   // Filter posts by search query for modal (all posts from API)
   const searchResults = useMemo(() => {
@@ -507,20 +519,24 @@ function BlogContent() {
 
                 {/* Image */}
                 <Link href={`/${currentLocale}/blog/${latestPost.slug}`} className="block cursor-pointer">
-                  <div className="relative w-full h-48 md:h-56 lg:h-64 mt-3">
-                    <Image
-                      src={getImageUrl(latestPost.image)}
-                      alt={latestPost.title}
-                      fill
-                      className="object-cover transition-transform hover:scale-105"
-                      quality={100}
-                      unoptimized
-                      onError={(e) => {
-                        // Fallback to placeholder if image doesn't exist
-                        const target = e.target as HTMLImageElement;
-                        target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="400"%3E%3Crect fill="%23e5e7eb" width="800" height="400"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="system-ui" font-size="24" fill="%239ca3af"%3EImage%3C/text%3E%3C/svg%3E';
-                      }}
-                    />
+                  <div className="relative w-full h-48 md:h-56 lg:h-64 mt-3 overflow-hidden rounded-lg">
+                    {latestPost.image ? (
+                      <img
+                        src={getImageUrl(latestPost.image)}
+                        alt={latestPost.title}
+                        className="w-full h-full object-cover transition-transform hover:scale-105"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="400"%3E%3Crect fill="%23e5e7eb" width="800" height="400"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="system-ui" font-size="24" fill="%239ca3af"%3EImage%3C/text%3E%3C/svg%3E';
+                        }}
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                        <svg className="w-20 h-20 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                    )}
                   </div>
                 </Link>
 
@@ -740,19 +756,23 @@ function BlogContent() {
                   className={viewMode === 'list' ? 'block cursor-pointer flex-shrink-0' : 'block cursor-pointer'}
                 >
                   <div className={`relative overflow-hidden ${viewMode === 'list' ? 'w-56 h-40 flex-shrink-0 rounded-lg' : 'w-full aspect-[16/10]'} ${viewMode === 'grid' ? 'mt-3 rounded-lg' : ''}`}>
-                    <Image
-                      src={getImageUrl(post.image)}
-                      alt={post.title}
-                      fill
-                      className="object-cover transition-transform hover:scale-105"
-                      quality={100}
-                      unoptimized
-                      sizes={viewMode === 'list' ? '224px' : '(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw'}
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="500"%3E%3Crect fill="%23e5e7eb" width="800" height="500"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="system-ui" font-size="24" fill="%239ca3af"%3EImage%3C/text%3E%3C/svg%3E';
-                      }}
-                    />
+                    {post.image ? (
+                      <img
+                        src={getImageUrl(post.image)}
+                        alt={post.title}
+                        className="w-full h-full object-cover transition-transform hover:scale-105"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="500"%3E%3Crect fill="%23e5e7eb" width="800" height="500"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="system-ui" font-size="24" fill="%239ca3af"%3EImage%3C/text%3E%3C/svg%3E';
+                        }}
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                        <svg className="w-16 h-16 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                    )}
                   </div>
                 </Link>
 

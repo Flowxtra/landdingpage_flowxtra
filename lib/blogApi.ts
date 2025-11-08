@@ -140,8 +140,22 @@ export function getImageUrl(imagePath: string): string {
     return "";
   }
 
-  // If already absolute URL, return as is
+  // If already absolute URL, check if we need to replace domain for development
   if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) {
+    // In development, replace flowxtra.com with localhost:8765
+    // Check if we're in development mode (client-side or server-side)
+    const isDevelopment =
+      (typeof window !== "undefined" &&
+        window.location.hostname === "localhost") ||
+      process.env.NODE_ENV === "development";
+
+    if (isDevelopment && imagePath.includes("flowxtra.com")) {
+      const devBackendUrl =
+        process.env.NEXT_PUBLIC_developemant_BACKEND_URL ||
+        "http://localhost:8765";
+      const devBaseUrl = devBackendUrl.replace("/api", ""); // Remove /api if present
+      return imagePath.replace("https://flowxtra.com", devBaseUrl);
+    }
     return imagePath;
   }
 
