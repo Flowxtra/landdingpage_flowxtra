@@ -238,6 +238,8 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       enterprise: '✓',
       description: tCompare('features.careerPage.description'),
     },
+   
+  
     {
       id: 'desc-widget',
       icon: 'fas fa-code',
@@ -342,6 +344,32 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       premium: '✓',
       enterprise: '✓',
       description: tCompare('features.privacyGenerator.description'),
+    },
+    {
+      id: 'desc-smtp',
+      icon: 'fas fa-envelope',
+      name: tCompare('features.smtp.name'),
+      free: '—',
+      starter: '✓',
+      basic: '✓',
+      professional: '✓',
+      advanced: '✓',
+      premium: '✓',
+      enterprise: '✓',
+      description: tCompare('features.smtp.description'),
+    },
+    {
+      id: 'desc-remove-branding',
+      icon: 'fas fa-tag',
+      name: tCompare('features.removeBranding.name'),
+      free: '—',
+      starter: '✓',
+      basic: '✓',
+      professional: '✓',
+      advanced: '✓',
+      premium: '✓',
+      enterprise: '✓',
+      description: tCompare('features.removeBranding.description'),
     },
     {
       id: 'desc-filtering',

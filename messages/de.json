@@ -670,6 +670,14 @@
                 "name": "Karriereseite",
                 "description": "Ihre markeneigene öffentliche Karriereseite mit allen offenen Stellen."
             },
+            "removeBranding": {
+                "name": "Flowxtra-Branding entfernen",
+                "description": "Entfernen Sie das Flowxtra-Logo und Branding von Ihrer Karriereseite. Zeigen Sie nur Ihr Unternehmensbranding an."
+            },
+            "smtp": {
+                "name": "Benutzerdefinierte E-Mail SMTP-Integration",
+                "description": "Verbinden Sie Ihren SMTP-Server des Unternehmens, um E-Mails direkt von Ihrer eigenen E-Mail-Adresse über unsere Plattform zu senden. Senden Sie Kandidatenkommunikation, Benachrichtigungen und Updates mit Ihrer markeneigenen E-Mail-Domain."
+            },
             "jobWidget": {
                 "name": "Stellenanzeigen-Widget",
                 "description": "Betten Sie Ihre Stellenliste auf jeder Website mit einem Copy-Paste-Snippet ein."

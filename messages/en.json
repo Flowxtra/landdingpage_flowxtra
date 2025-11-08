@@ -670,6 +670,14 @@
                 "name": "Career page",
                 "description": "Your branded public careers page listing all open roles."
             },
+            "removeBranding": {
+                "name": "Remove Flowxtra branding",
+                "description": "Remove Flowxtra logo and branding from your career page. Display your company branding only."
+            },
+            "smtp": {
+                "name": "Custom Email SMTP integration",
+                "description": "Connect your company's SMTP server to send emails directly from your own email address through our platform. Send candidate communications, notifications, and updates using your branded email domain."
+            },
             "jobWidget": {
                 "name": "Job widget",
                 "description": "Embed your job list on any website with a copy-paste snippet."
