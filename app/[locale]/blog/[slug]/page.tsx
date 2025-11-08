@@ -101,40 +101,16 @@ function BlogPostContent() {
       }
     };
 
-    // Initial fetch
-    fetchPost();
-
-    // Refresh on window focus (when user comes back to tab)
-    // This ensures fresh content when user returns to the page
-    const handleFocus = () => {
-      // Only refresh if page is visible
-      if (document.visibilityState === 'visible') {
-        fetchPost(true);
-      }
-    };
-
-    // Refresh on visibility change (when tab becomes visible)
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        fetchPost(true);
-      }
-    };
-
-    // Also refresh when page becomes visible (handles tab switching and back button)
-    const handlePageShow = () => {
-      fetchPost(true);
-    };
-
-    window.addEventListener('focus', handleFocus);
-    window.addEventListener('pageshow', handlePageShow);
-    document.addEventListener('visibilitychange', handleVisibilityChange);
+    // Initial fetch only - no auto-refresh on tab switch
+    // This prevents unnecessary API calls when user switches tabs
+    // Data will only refresh when:
+    // 1. Page is manually refreshed (F5 / Ctrl+R)
+    // 2. User navigates to a different post (slug changes)
+    fetchPost(true);
 
     // Cleanup
     return () => {
       isMounted = false;
-      window.removeEventListener('focus', handleFocus);
-      window.removeEventListener('pageshow', handlePageShow);
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, [slug, currentLocale, pathname, params]);
 

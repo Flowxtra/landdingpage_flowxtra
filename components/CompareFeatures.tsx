@@ -358,19 +358,7 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       enterprise: '✓',
       description: tCompare('features.smtp.description'),
     },
-    {
-      id: 'desc-remove-branding',
-      icon: 'fas fa-tag',
-      name: tCompare('features.removeBranding.name'),
-      free: '—',
-      starter: '✓',
-      basic: '✓',
-      professional: '✓',
-      advanced: '✓',
-      premium: '✓',
-      enterprise: '✓',
-      description: tCompare('features.removeBranding.description'),
-    },
+  
     {
       id: 'desc-filtering',
       icon: 'fas fa-filter',
@@ -555,6 +543,19 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       description: tCompare('features.unlimitedStorage.description'),
     },
     {
+      id: 'desc-remove-branding',
+      icon: 'fas fa-tag',
+      name: tCompare('features.removeBranding.name'),
+      free: '—',
+      starter: '—',
+      basic: '✓',
+      professional: '✓',
+      advanced: '✓',
+      premium: '✓',
+      enterprise: '✓',
+      description: tCompare('features.removeBranding.description'),
+    },
+    {
       id: 'desc-journey-flow',
       icon: 'fas fa-route',
       name: tCompare('features.journeyFlow.name'),
@@ -674,7 +675,7 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
     },
   ];
 
-  // Coming Soon Features
+  // Coming Soon Features - COMMENTED OUT (definition kept, usage commented)
   const comingSoonFeatures: Feature[] = [
     {
       id: 'desc-esign',
@@ -1083,46 +1084,49 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
                   </React.Fragment>
                 ))}
 
-                {/* Coming Soon Header */}
-                <tr>
-                  <th colSpan={8} style={{ textAlign: 'left', paddingLeft: '16px', background: '#f8fafc', fontWeight: 800 }}>
-                    {tCompare("comingSoon")}
-                  </th>
-                </tr>
-
-                {/* Coming Soon Features */}
-                {comingSoonFeatures.map((feature) => (
-                  <React.Fragment key={feature.id}>
-                    <tr
-                      className="fx-hoverable"
-                      onClick={() => toggleRow(feature.id)}
-                    >
-                      <td className="fx-feature">
-                        <i
-                          className={feature.icon}
-                          style={{ color: '#006980', marginRight: '8px' }}
-                        ></i>
-                        {feature.name}
-                      </td>
-                      <td data-plan="Free">{feature.free}</td>
-                      <td data-plan="Starter">{feature.starter}</td>
-                      <td data-plan="Basic">{feature.basic}</td>
-                      <td data-plan="Professional">{feature.professional}</td>
-                      <td data-plan="Advanced">{feature.advanced}</td>
-                      <td data-plan="Premium">{feature.premium}</td>
-                      <td data-plan="Enterprise">{feature.enterprise}</td>
+                {/* Coming Soon Header - COMMENTED OUT */}
+                {false && (
+                  <>
+                    <tr>
+                      <th colSpan={8} style={{ textAlign: 'left', paddingLeft: '16px', background: '#f8fafc', fontWeight: 800 }}>
+                        {tCompare("comingSoon")}
+                      </th>
                     </tr>
-                    {expandedRow === feature.id && (
-                      <tr className="fx-explain">
-                        <td colSpan={8}>
-                          <div className="fx-explain-inner">
-                            {feature.description}
-                          </div>
-                        </td>
-                      </tr>
-                    )}
-                  </React.Fragment>
-                ))}
+                    {/* Coming Soon Features */}
+                    {comingSoonFeatures.map((feature) => (
+                      <React.Fragment key={feature.id}>
+                        <tr
+                          className="fx-hoverable"
+                          onClick={() => toggleRow(feature.id)}
+                        >
+                          <td className="fx-feature">
+                            <i
+                              className={feature.icon}
+                              style={{ color: '#006980', marginRight: '8px' }}
+                            ></i>
+                            {feature.name}
+                          </td>
+                          <td data-plan="Free">{feature.free}</td>
+                          <td data-plan="Starter">{feature.starter}</td>
+                          <td data-plan="Basic">{feature.basic}</td>
+                          <td data-plan="Professional">{feature.professional}</td>
+                          <td data-plan="Advanced">{feature.advanced}</td>
+                          <td data-plan="Premium">{feature.premium}</td>
+                          <td data-plan="Enterprise">{feature.enterprise}</td>
+                        </tr>
+                        {expandedRow === feature.id && (
+                          <tr className="fx-explain">
+                            <td colSpan={8}>
+                              <div className="fx-explain-inner">
+                                {feature.description}
+                              </div>
+                            </td>
+                          </tr>
+                        )}
+                      </React.Fragment>
+                    ))}
+                  </>
+                )}
               </tbody>
             </table>
           </div>
@@ -1197,58 +1201,61 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
                 );
               })}
 
-              {/* Coming Soon Header */}
-              <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-3 mt-6">
-                <h3 className="font-bold text-gray-900 dark:text-white">
-                  {tCompare("comingSoon")}
-                </h3>
-              </div>
-
-              {/* Coming Soon Features */}
-              {comingSoonFeatures.map((feature) => {
-                const value = feature[selectedPlan];
-                
-                return (
-                  <React.Fragment key={feature.id}>
-                    <div
-                      className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 cursor-pointer hover:shadow-md transition-shadow"
-                      onClick={() => toggleRow(feature.id)}
-                    >
-                      <div className="flex items-start justify-between gap-3">
-                        <div className="flex items-start gap-3 flex-1">
-                          <i
-                            className={feature.icon}
-                            style={{ color: currentPlan.color, fontSize: '20px' }}
-                          ></i>
-                          <div className="flex-1">
-                            <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
-                              {feature.name}
-                            </h4>
+              {/* Coming Soon Header - COMMENTED OUT */}
+              {false && (
+                <>
+                  <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-3 mt-6">
+                    <h3 className="font-bold text-gray-900 dark:text-white">
+                      {tCompare("comingSoon")}
+                    </h3>
+                  </div>
+                  {/* Coming Soon Features */}
+                  {comingSoonFeatures.map((feature) => {
+                    const value = feature[selectedPlan];
+                    
+                    return (
+                      <React.Fragment key={feature.id}>
+                        <div
+                          className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 cursor-pointer hover:shadow-md transition-shadow"
+                          onClick={() => toggleRow(feature.id)}
+                        >
+                          <div className="flex items-start justify-between gap-3">
+                            <div className="flex items-start gap-3 flex-1">
+                              <i
+                                className={feature.icon}
+                                style={{ color: currentPlan.color, fontSize: '20px' }}
+                              ></i>
+                              <div className="flex-1">
+                                <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
+                                  {feature.name}
+                                </h4>
+                              </div>
+                            </div>
+                            <div className="flex-shrink-0">
+                              <span
+                                className="text-xs font-medium px-2 py-1 rounded"
+                                style={{
+                                  backgroundColor: `${currentPlan.color}20`,
+                                  color: currentPlan.color,
+                                }}
+                              >
+                                {tCompare("soon")}
+                              </span>
+                            </div>
                           </div>
                         </div>
-                        <div className="flex-shrink-0">
-                          <span
-                            className="text-xs font-medium px-2 py-1 rounded"
-                            style={{
-                              backgroundColor: `${currentPlan.color}20`,
-                              color: currentPlan.color,
-                            }}
-                          >
-                            {tCompare("soon")}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    {expandedRow === feature.id && (
-                      <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-4 -mt-2">
-                        <p className="text-sm text-gray-700 dark:text-gray-300">
-                          {feature.description}
-                        </p>
-                      </div>
-                    )}
-                  </React.Fragment>
-                );
-              })}
+                        {expandedRow === feature.id && (
+                          <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-4 -mt-2">
+                            <p className="text-sm text-gray-700 dark:text-gray-300">
+                              {feature.description}
+                            </p>
+                          </div>
+                        )}
+                      </React.Fragment>
+                    );
+                  })}
+                </>
+              )}
             </div>
           </div>
 
