@@ -1016,6 +1016,8 @@
         "post": {
             "previous": "Vorherige",
             "next": "Nächste",
+            "previousPost": "Vorheriger Artikel",
+            "nextPost": "Nächster Artikel",
             "relatedPosts": "Verwandte Artikel",
             "writtenBy": "Geschrieben von {author}"
         }

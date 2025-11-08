@@ -122,11 +122,19 @@ export interface BlogPostsResponse {
   };
 }
 
+export interface PreviousNextPost {
+  id: number;
+  title: string;
+  slug: string;
+}
+
 export interface BlogPostResponse {
   success: boolean;
   data: {
     post: BlogPost;
     relatedPosts: BlogPost[];
+    previousPost?: PreviousNextPost;
+    nextPost?: PreviousNextPost;
     structuredData?: any;
   };
 }

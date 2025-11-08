@@ -4,10 +4,10 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams, usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { generateBlogPostSchema } from '@/lib/seo';
 import JsonLd from '@/components/JsonLd';
-import { getBlogPost, getImageUrl, formatDate, formatReadingTime, type BlogPost } from '@/lib/blogApi';
+import { getBlogPost, getBlogPosts, getImageUrl, formatDate, formatReadingTime, type BlogPost, type PreviousNextPost } from '@/lib/blogApi';
 
 function BlogPostContent() {
   const t = useTranslations('blog');
@@ -21,12 +21,22 @@ function BlogPostContent() {
   // API State
   const [post, setPost] = useState<BlogPost | null>(null);
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
+  const [previousPost, setPreviousPost] = useState<PreviousNextPost | null>(null);
+  const [nextPost, setNextPost] = useState<PreviousNextPost | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  
+  // Ref to track if we've already fetched previous/next posts
+  const hasFetchedPreviousNext = useRef<boolean>(false);
 
   // Fetch blog post from API
   useEffect(() => {
     let isMounted = true;
+    
+    // Reset previous/next posts when slug changes
+    hasFetchedPreviousNext.current = false;
+    setPreviousPost(null);
+    setNextPost(null);
     
     const fetchPost = async (forceRefresh: boolean = false) => {
       if (!slug) return;
@@ -62,6 +72,16 @@ function BlogPostContent() {
         if (response.success && response.data) {
           setPost(response.data.post);
           setRelatedPosts(response.data.relatedPosts || []);
+          
+          // If API provides previous/next posts, use them
+          if (response.data.previousPost) {
+            setPreviousPost(response.data.previousPost);
+            hasFetchedPreviousNext.current = true; // Mark as fetched from API
+          }
+          if (response.data.nextPost) {
+            setNextPost(response.data.nextPost);
+            hasFetchedPreviousNext.current = true; // Mark as fetched from API
+          }
         } else {
           setError('Post not found');
         }
@@ -106,6 +126,64 @@ function BlogPostContent() {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, [slug, currentLocale, pathname, params]);
+
+  // Separate useEffect to fetch previous/next posts
+  useEffect(() => {
+    if (!post) return; // Skip if post not loaded
+    if (hasFetchedPreviousNext.current) return; // Skip if already fetched (from API or manually)
+    
+    let isMounted = true;
+    
+    const fetchPreviousNextPosts = async () => {
+      try {
+        // Fetch all posts to find previous and next
+        const postsResponse = await getBlogPosts({
+          locale: currentLocale,
+          limit: 100, // Get enough posts to find neighbors
+        });
+        
+        if (!isMounted) return;
+        
+        if (postsResponse.success && postsResponse.data.posts) {
+          const posts = postsResponse.data.posts;
+          const currentIndex = posts.findIndex(p => p.id === post.id);
+          
+          if (currentIndex !== -1) {
+            // Previous post (newer, index - 1)
+            if (currentIndex > 0) {
+              const prev = posts[currentIndex - 1];
+              setPreviousPost({
+                id: prev.id,
+                title: prev.title,
+                slug: prev.slug,
+              });
+            }
+            
+            // Next post (older, index + 1)
+            if (currentIndex < posts.length - 1) {
+              const next = posts[currentIndex + 1];
+              setNextPost({
+                id: next.id,
+                title: next.title,
+                slug: next.slug,
+              });
+            }
+          }
+        }
+        
+        // Mark as fetched
+        hasFetchedPreviousNext.current = true;
+      } catch (err) {
+        console.error('Error fetching previous/next posts:', err);
+      }
+    };
+
+    fetchPreviousNextPosts();
+    
+    return () => {
+      isMounted = false;
+    };
+  }, [post?.id, currentLocale]); // Only depend on post ID and locale
 
   // Get category name (use post.category directly since categories endpoint doesn't exist)
   const categoryName = post?.category || '';
@@ -250,6 +328,57 @@ function BlogPostContent() {
                       </p>
                     )}
                   </div>
+                </div>
+              </div>
+            )}
+
+            {/* Previous/Next Post Navigation */}
+            {(previousPost || nextPost) && (
+              <div className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
+                <div className="flex flex-col md:flex-row gap-4 md:gap-8">
+                  {/* Previous Post */}
+                  {previousPost ? (
+                    <Link
+                      href={`/${currentLocale}/blog/${previousPost.slug}`}
+                      className="flex-1 group flex items-center gap-3"
+                    >
+                      <svg className="w-5 h-5 text-gray-400 dark:text-gray-500 group-hover:text-primary dark:group-hover:text-secondary transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                      </svg>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">
+                          {t('post.previousPost') || 'Previous Post'}
+                        </div>
+                        <div className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-secondary transition-colors line-clamp-2">
+                          {previousPost.title}
+                        </div>
+                      </div>
+                    </Link>
+                  ) : (
+                    <div className="flex-1"></div>
+                  )}
+
+                  {/* Next Post */}
+                  {nextPost ? (
+                    <Link
+                      href={`/${currentLocale}/blog/${nextPost.slug}`}
+                      className="flex-1 group flex items-center gap-3"
+                    >
+                      <div className="flex-1 min-w-0 text-right">
+                        <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">
+                          {t('post.nextPost') || 'Next Post'}
+                        </div>
+                        <div className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-secondary transition-colors line-clamp-2">
+                          {nextPost.title}
+                        </div>
+                      </div>
+                      <svg className="w-5 h-5 text-gray-400 dark:text-gray-500 group-hover:text-primary dark:group-hover:text-secondary transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
+                  ) : (
+                    <div className="flex-1"></div>
+                  )}
                 </div>
               </div>
             )}

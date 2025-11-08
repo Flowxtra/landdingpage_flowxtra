@@ -1016,6 +1016,8 @@
         "post": {
             "previous": "Previous",
             "next": "Next",
+            "previousPost": "Previous Post",
+            "nextPost": "Next Post",
             "relatedPosts": "Related Posts",
             "writtenBy": "Written by {author}"
         }
