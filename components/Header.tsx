@@ -36,49 +36,26 @@ function Header() {
   // Update language state when pathname changes
   useEffect(() => {
     // Language initialization - Detect from URL path (source of truth)
-    if (pathname.startsWith('/de')) {
-      // German page - always set to German
-      setLanguage("DE");
-      localStorage.setItem("language", "DE");
-    } else if (pathname.startsWith('/en')) {
-      // English page - always set to English
-      setLanguage("EN");
-      localStorage.setItem("language", "EN");
-    } else {
-      // For root path or other paths, detect language preference
-      const savedLanguage = localStorage.getItem("language");
-      const hasVisitedBefore = localStorage.getItem("hasVisited");
-      
-      if (savedLanguage) {
-        // Use saved preference
-        setLanguage(savedLanguage);
-      } else if (!hasVisitedBefore) {
-        // First visit - Auto-detect browser language
-        const browserLang = navigator.language || (navigator as any).userLanguage;
-        
-        // Detect language and redirect
-        if (browserLang.startsWith('de')) {
-          setLanguage("DE");
-          localStorage.setItem("language", "DE");
-          localStorage.setItem("hasVisited", "true");
-          // Auto-redirect to German version on first visit
-          window.location.replace(`/de${pathname === '/' ? '' : pathname}`);
-        } else {
-          // Default to English (fallback)
-          setLanguage("EN");
-          localStorage.setItem("language", "EN");
-          localStorage.setItem("hasVisited", "true");
-          // Auto-redirect to English version on first visit
-          if (!pathname.startsWith('/en')) {
-            window.location.replace(`/en${pathname === '/' ? '' : pathname}`);
-          }
-        }
-      } else {
-        // Default fallback to English
-        setLanguage("EN");
-        localStorage.setItem("language", "EN");
+    const localeMap: { [key: string]: string } = {
+      '/de': 'DE',
+      '/en': 'EN',
+      '/fr': 'FR',
+      '/es': 'ES',
+      '/it': 'IT',
+      '/nl': 'NL',
+      // '/ar': 'AR', // Temporarily disabled
+    };
+    
+    let detectedLang = 'EN'; // Default
+    for (const [prefix, lang] of Object.entries(localeMap)) {
+      if (pathname.startsWith(prefix)) {
+        detectedLang = lang;
+        break;
       }
     }
+    
+    setLanguage(detectedLang);
+    localStorage.setItem("language", detectedLang);
   }, [pathname]);
 
   // Toggle dark mode
@@ -96,12 +73,26 @@ function Header() {
 
   // Change language
   const changeLanguage = (lang: string) => {
-    const newLocale = lang === "EN" ? "en" : "de";
+    const langToLocale: { [key: string]: string } = {
+      "EN": "en",
+      "DE": "de",
+      "FR": "fr",
+      "ES": "es",
+      "IT": "it",
+      "NL": "nl",
+      // "AR": "ar", // Temporarily disabled
+    };
+    
+    const newLocale = langToLocale[lang] || "en";
     
     // Get current path without locale
     let pathWithoutLocale = pathname;
-    if (pathname.startsWith('/en') || pathname.startsWith('/de')) {
-      pathWithoutLocale = pathname.substring(3) || '/';
+    const localePrefixes = ['/en', '/de', '/fr', '/es', '/it', '/nl', '/ar'];
+    for (const prefix of localePrefixes) {
+      if (pathname.startsWith(prefix)) {
+        pathWithoutLocale = pathname.substring(prefix.length) || '/';
+        break;
+      }
     }
     
     // Translate German URLs back to English URLs first
@@ -119,7 +110,7 @@ function Header() {
       pathWithoutLocale = germanToEnglish[pathWithoutLocale];
     }
     
-    // Now translate to target language if needed
+    // Now translate to target language if needed (only German has custom URLs for now)
     if (newLocale === 'de') {
       const englishToGerman: { [key: string]: string } = {
         '/contact-us': '/kontakt',
@@ -136,7 +127,6 @@ function Header() {
     const newPath = `/${newLocale}${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
     
     // Clear language from localStorage before reload
-    // This forces the page to read from URL pathname only
     localStorage.removeItem("language");
     
     // Force full page reload to ensure translations update
@@ -144,7 +134,17 @@ function Header() {
   };
 
   // Get current locale from pathname
-  const currentLocale = pathname.startsWith('/de') ? 'de' : pathname.startsWith('/en') ? 'en' : 'en';
+  const getCurrentLocale = () => {
+    if (pathname.startsWith('/de')) return 'de';
+    if (pathname.startsWith('/en')) return 'en';
+    if (pathname.startsWith('/fr')) return 'fr';
+    if (pathname.startsWith('/es')) return 'es';
+    if (pathname.startsWith('/it')) return 'it';
+    if (pathname.startsWith('/nl')) return 'nl';
+    if (pathname.startsWith('/ar')) return 'ar';
+    return 'en'; // Default
+  };
+  const currentLocale = getCurrentLocale();
 
   // Helper function to get translated route
   const getLocalizedPath = (path: string) => {
@@ -382,7 +382,7 @@ function Header() {
               </button>
 
               {isLangOpen && (
-                <div className="absolute right-0 mt-2 w-40 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-lg">
+                <div className="absolute right-0 mt-2 w-48 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-lg max-h-96 overflow-y-auto">
                   <div className="p-2">
                     <button
                       onClick={() => changeLanguage("EN")}
@@ -406,6 +406,62 @@ function Header() {
                     >
                       Deutsch
                     </button>
+                    <button
+                      onClick={() => changeLanguage("FR")}
+                      className={cn(
+                        "block w-full text-left px-3 py-2 text-sm rounded-md transition-colors",
+                        language === "FR" 
+                          ? "bg-primary text-white" 
+                          : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      )}
+                    >
+                      Français
+                    </button>
+                    <button
+                      onClick={() => changeLanguage("ES")}
+                      className={cn(
+                        "block w-full text-left px-3 py-2 text-sm rounded-md transition-colors",
+                        language === "ES" 
+                          ? "bg-primary text-white" 
+                          : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      )}
+                    >
+                      Español
+                    </button>
+                    <button
+                      onClick={() => changeLanguage("IT")}
+                      className={cn(
+                        "block w-full text-left px-3 py-2 text-sm rounded-md transition-colors",
+                        language === "IT" 
+                          ? "bg-primary text-white" 
+                          : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      )}
+                    >
+                      Italiano
+                    </button>
+                    <button
+                      onClick={() => changeLanguage("NL")}
+                      className={cn(
+                        "block w-full text-left px-3 py-2 text-sm rounded-md transition-colors",
+                        language === "NL" 
+                          ? "bg-primary text-white" 
+                          : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      )}
+                    >
+                      Nederlands
+                    </button>
+                    {/* Arabic temporarily disabled */}
+                    {/* <button
+                      onClick={() => changeLanguage("AR")}
+                      className={cn(
+                        "block w-full text-left px-3 py-2 text-sm rounded-md transition-colors",
+                        language === "AR" 
+                          ? "bg-primary text-white" 
+                          : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      )}
+                    >
+                      العربية
+                    </button> */}
                   </div>
                 </div>
               )}
@@ -603,6 +659,12 @@ function Header() {
                     >
                       <option value="EN">English</option>
                       <option value="DE">Deutsch</option>
+                      <option value="FR">Français</option>
+                      <option value="ES">Español</option>
+                      <option value="IT">Italiano</option>
+                      <option value="NL">Nederlands</option>
+                      {/* Arabic temporarily disabled */}
+                      {/* <option value="AR">العربية</option> */}
                     </select>
                   </div>
                 </div>

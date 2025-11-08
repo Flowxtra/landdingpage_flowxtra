@@ -64,6 +64,11 @@ export async function generateMetadata({
         languages: {
           'en': `${baseUrl}/en`,
           'de': `${baseUrl}/de`,
+          'fr': `${baseUrl}/fr`,
+          'es': `${baseUrl}/es`,
+          'it': `${baseUrl}/it`,
+          'nl': `${baseUrl}/nl`,
+          // 'ar': `${baseUrl}/ar`, // Temporarily disabled
         },
       },
       robots: {
@@ -104,6 +109,11 @@ export async function generateMetadata({
         languages: {
           'en': `${baseUrl}/en`,
           'de': `${baseUrl}/de`,
+          'fr': `${baseUrl}/fr`,
+          'es': `${baseUrl}/es`,
+          'it': `${baseUrl}/it`,
+          'nl': `${baseUrl}/nl`,
+          // 'ar': `${baseUrl}/ar`, // Temporarily disabled
         },
       },
       robots: {
@@ -118,6 +128,232 @@ export async function generateMetadata({
         },
       },
     },
+    fr: {
+      title: {
+        default: "Flowxtra – Logiciel de Recrutement & Outil d'Embauche Intelligent | Publication d'Emplois Gratuite",
+        template: "%s | Flowxtra",
+      },
+      description: "Embauchez plus intelligemment avec l'IA — publiez des offres d'emploi gratuitement et gérez les candidats sur une plateforme simple et puissante.",
+      keywords: ["recrutement", "logiciel de recrutement", "ATS", "embauche alimentée par l'IA", "outil d'embauche intelligent", "publication d'emplois gratuite", "gestion des candidats", "plateforme d'embauche"],
+      metadataBase: new URL(baseUrl),
+      openGraph: {
+        title: "Flowxtra – Logiciel de Recrutement & Outil d'Embauche Intelligent | Publication d'Emplois Gratuite",
+        description: "Embauchez plus intelligemment avec l'IA — publiez des offres d'emploi gratuitement et gérez les candidats sur une plateforme simple et puissante.",
+        type: "website",
+        locale: "fr_FR",
+        url: `${baseUrl}/fr`,
+        siteName: "Flowxtra",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Flowxtra – Logiciel de Recrutement & Outil d'Embauche Intelligent | Publication d'Emplois Gratuite",
+        description: "Embauchez plus intelligemment avec l'IA — publiez des offres d'emploi gratuitement et gérez les candidats sur une plateforme simple et puissante.",
+      },
+      alternates: {
+        canonical: canonicalUrl,
+        languages: {
+          'en': `${baseUrl}/en`,
+          'de': `${baseUrl}/de`,
+          'fr': `${baseUrl}/fr`,
+          'es': `${baseUrl}/es`,
+          'it': `${baseUrl}/it`,
+          'nl': `${baseUrl}/nl`,
+          // 'ar': `${baseUrl}/ar`, // Temporarily disabled
+        },
+      },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large' as const,
+          'max-snippet': -1,
+        },
+      },
+    },
+    es: {
+      title: {
+        default: "Flowxtra – Software de Reclutamiento & Herramienta de Contratación Inteligente | Publicación de Empleos Gratuita",
+        template: "%s | Flowxtra",
+      },
+      description: "Contrata de forma más inteligente con IA — publica empleos gratis y gestiona candidatos en una plataforma simple y potente.",
+      keywords: ["reclutamiento", "software de reclutamiento", "ATS", "contratación con IA", "herramienta de contratación inteligente", "publicación de empleos gratuita", "gestión de candidatos", "plataforma de contratación"],
+      metadataBase: new URL(baseUrl),
+      openGraph: {
+        title: "Flowxtra – Software de Reclutamiento & Herramienta de Contratación Inteligente | Publicación de Empleos Gratuita",
+        description: "Contrata de forma más inteligente con IA — publica empleos gratis y gestiona candidatos en una plataforma simple y potente.",
+        type: "website",
+        locale: "es_ES",
+        url: `${baseUrl}/es`,
+        siteName: "Flowxtra",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Flowxtra – Software de Reclutamiento & Herramienta de Contratación Inteligente | Publicación de Empleos Gratuita",
+        description: "Contrata de forma más inteligente con IA — publica empleos gratis y gestiona candidatos en una plataforma simple y potente.",
+      },
+      alternates: {
+        canonical: canonicalUrl,
+        languages: {
+          'en': `${baseUrl}/en`,
+          'de': `${baseUrl}/de`,
+          'fr': `${baseUrl}/fr`,
+          'es': `${baseUrl}/es`,
+          'it': `${baseUrl}/it`,
+          'nl': `${baseUrl}/nl`,
+          // 'ar': `${baseUrl}/ar`, // Temporarily disabled
+        },
+      },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large' as const,
+          'max-snippet': -1,
+        },
+      },
+    },
+    it: {
+      title: {
+        default: "Flowxtra – Software di Reclutamento & Strumento di Assunzione Intelligente | Pubblicazione Lavori Gratuita",
+        template: "%s | Flowxtra",
+      },
+      description: "Assumi in modo più intelligente con l'IA — pubblica offerte di lavoro gratuitamente e gestisci i candidati su una piattaforma semplice e potente.",
+      keywords: ["reclutamento", "software di reclutamento", "ATS", "assunzione con IA", "strumento di assunzione intelligente", "pubblicazione lavori gratuita", "gestione candidati", "piattaforma di assunzione"],
+      metadataBase: new URL(baseUrl),
+      openGraph: {
+        title: "Flowxtra – Software di Reclutamento & Strumento di Assunzione Intelligente | Pubblicazione Lavori Gratuita",
+        description: "Assumi in modo più intelligente con l'IA — pubblica offerte di lavoro gratuitamente e gestisci i candidati su una piattaforma semplice e potente.",
+        type: "website",
+        locale: "it_IT",
+        url: `${baseUrl}/it`,
+        siteName: "Flowxtra",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Flowxtra – Software di Reclutamento & Strumento di Assunzione Intelligente | Pubblicazione Lavori Gratuita",
+        description: "Assumi in modo più intelligente con l'IA — pubblica offerte di lavoro gratuitamente e gestisci i candidati su una piattaforma semplice e potente.",
+      },
+      alternates: {
+        canonical: canonicalUrl,
+        languages: {
+          'en': `${baseUrl}/en`,
+          'de': `${baseUrl}/de`,
+          'fr': `${baseUrl}/fr`,
+          'es': `${baseUrl}/es`,
+          'it': `${baseUrl}/it`,
+          'nl': `${baseUrl}/nl`,
+          // 'ar': `${baseUrl}/ar`, // Temporarily disabled
+        },
+      },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large' as const,
+          'max-snippet': -1,
+        },
+      },
+    },
+    nl: {
+      title: {
+        default: "Flowxtra – Wervingssoftware & Slimme Wervings Tool | Gratis Vacatures Plaatsen",
+        template: "%s | Flowxtra",
+      },
+      description: "Werve slimmer met AI — plaats vacatures gratis en beheer kandidaten op één eenvoudig, krachtig platform.",
+      keywords: ["werving", "wervingssoftware", "ATS", "AI-aangedreven werving", "slimme wervings tool", "gratis vacatures plaatsen", "kandidaatbeheer", "wervingsplatform"],
+      metadataBase: new URL(baseUrl),
+      openGraph: {
+        title: "Flowxtra – Wervingssoftware & Slimme Wervings Tool | Gratis Vacatures Plaatsen",
+        description: "Werve slimmer met AI — plaats vacatures gratis en beheer kandidaten op één eenvoudig, krachtig platform.",
+        type: "website",
+        locale: "nl_NL",
+        url: `${baseUrl}/nl`,
+        siteName: "Flowxtra",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Flowxtra – Wervingssoftware & Slimme Wervings Tool | Gratis Vacatures Plaatsen",
+        description: "Werve slimmer met AI — plaats vacatures gratis en beheer kandidaten op één eenvoudig, krachtig platform.",
+      },
+      alternates: {
+        canonical: canonicalUrl,
+        languages: {
+          'en': `${baseUrl}/en`,
+          'de': `${baseUrl}/de`,
+          'fr': `${baseUrl}/fr`,
+          'es': `${baseUrl}/es`,
+          'it': `${baseUrl}/it`,
+          'nl': `${baseUrl}/nl`,
+          // 'ar': `${baseUrl}/ar`, // Temporarily disabled
+        },
+      },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large' as const,
+          'max-snippet': -1,
+        },
+      },
+    },
+    // Arabic temporarily disabled
+    // ar: {
+    //   title: {
+    //     default: "Flowxtra – برنامج التوظيف & أداة التوظيف الذكية | نشر الوظائف مجاناً",
+    //     template: "%s | Flowxtra",
+    //   },
+    //   description: "وظّف بذكاء أكبر مع الذكاء الاصطناعي — انشر الوظائف مجاناً وأدر المرشحين في منصة واحدة بسيطة وقوية.",
+    //   keywords: ["توظيف", "برنامج توظيف", "ATS", "توظيف بالذكاء الاصطناعي", "أداة توظيف ذكية", "نشر وظائف مجاني", "إدارة المرشحين", "منصة توظيف"],
+    //   metadataBase: new URL(baseUrl),
+    //   openGraph: {
+    //     title: "Flowxtra – برنامج التوظيف & أداة التوظيف الذكية | نشر الوظائف مجاناً",
+    //     description: "وظّف بذكاء أكبر مع الذكاء الاصطناعي — انشر الوظائف مجاناً وأدر المرشحين في منصة واحدة بسيطة وقوية.",
+    //     type: "website",
+    //     locale: "ar_SA",
+    //     url: `${baseUrl}/ar`,
+    //     siteName: "Flowxtra",
+    //   },
+    //   twitter: {
+    //     card: "summary_large_image",
+    //     title: "Flowxtra – برنامج التوظيف & أداة التوظيف الذكية | نشر الوظائف مجاناً",
+    //     description: "وظّف بذكاء أكبر مع الذكاء الاصطناعي — انشر الوظائف مجاناً وأدر المرشحين في منصة واحدة بسيطة وقوية.",
+    //   },
+    //   alternates: {
+    //     canonical: canonicalUrl,
+    //     languages: {
+    //       'en': `${baseUrl}/en`,
+    //       'de': `${baseUrl}/de`,
+    //       'fr': `${baseUrl}/fr`,
+    //       'es': `${baseUrl}/es`,
+    //       'it': `${baseUrl}/it`,
+    //       'nl': `${baseUrl}/nl`,
+    //       // 'ar': `${baseUrl}/ar`, // Temporarily disabled
+    //     },
+    //   },
+    //   robots: {
+    //     index: true,
+    //     follow: true,
+    //     googleBot: {
+    //       index: true,
+    //       follow: true,
+    //       'max-video-preview': -1,
+    //       'max-image-preview': 'large' as const,
+    //       'max-snippet': -1,
+    //     },
+    //   },
+    // },
   };
 
   return metadata[locale as keyof typeof metadata] || metadata.en;
@@ -142,7 +378,7 @@ export default async function LocaleLayout({
     : '';
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} suppressHydrationWarning>
       <head>
         {/* Meta description - Explicitly add to ensure Lighthouse detects it */}
         {metaDescription && (
@@ -413,7 +649,7 @@ export default async function LocaleLayout({
               ],
               "softwareHelp": {
                 "@type": "CreativeWork",
-                "url": "https://flowxtra.com/contact/"
+                "url": "https://flowxtra.com/contact-us/"
               }
             })
           }}

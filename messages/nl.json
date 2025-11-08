@@ -1,0 +1,1147 @@
+{
+    "metadata": {
+        "home": {
+            "title": "Flowxtra – Werving Software & Slimme Wervingstool | Gratis Vacatureplaatsing",
+            "description": "Werf slimmer met AI — plaats gratis vacatures en beheer kandidaten in één eenvoudig, krachtig platform."
+        },
+        "contact": {
+            "title": "Contact Opnemen – Flowxtra Ondersteuning | Hulp bij Wervingssoftware",
+            "description": "Heeft u vragen over Flowxtra? Neem contact op met ons ondersteuningsteam voor hulp bij wervingssoftware, ATS-functies en wervingsoplossingen. We reageren binnen 24 uur."
+        },
+        "pricing": {
+            "title": "Prijsplannen – Flowxtra | Gratis ATS & Wervingssoftware",
+            "description": "Kies het perfecte plan voor uw bedrijf. Start met 5 gratis vacatureplaatsingen per maand. Transparante prijzen, geen verborgen kosten."
+        },
+        "affiliate": {
+            "title": "Partnerprogramma – Verdien 50% Commissie | Flowxtra",
+            "description": "Word lid van Flowxtra's partnerprogramma en verdien 50% commissie tot 12 maanden op elke verwijzing. Deel uw unieke verwijzingslink en begin vandaag met verdienen."
+        },
+        "features": {
+            "title": "Functies – AI-aangedreven Werving & ATS Software | Flowxtra",
+            "description": "Ontdek de krachtige functies van Flowxtra: gratis vacatureplaatsing, AI-kandidaatfiltering, multiposting, e-mailsjablonen en meer."
+        }
+    },
+    "common": {
+        "language": "Taal",
+        "english": "Engels",
+        "german": "Duits",
+        "registerForFree": "Gratis Registreren",
+        "getStarted": "Begin Nu",
+        "login": "Inloggen",
+        "signup": "Aanmelden",
+        "learnMore": "Meer Informatie",
+        "viewPricing": "Bekijk Prijzen",
+        "contactUs": "Contact Opnemen",
+        "features": "Functies",
+        "pricing": "Prijzen",
+        "services": "Diensten"
+    },
+    "navigation": {
+        "socialMediaManagement": "Social Media Beheer",
+        "atsRecruitingSoftware": "ATS Wervingssoftware"
+    },
+    "homepage": {
+        "title": "Welkom bij Flowxtra",
+        "subtitle": "Test meertalige ondersteuning",
+        "hero": {
+            "title": "ATS Software voor Werving & Aanwerving",
+            "subtitle": "Alles-in-één Platform om Uw Wervingsproces te Stroomlijnen",
+            "description": "Volledige ATS-software om aanwerving te stroomlijnen en uw team te beheren. Start met 5 gratis vacatureplaatsingen per maand",
+            "cta": "Start Uw Gratis Plan",
+            "imageAlt": "Waarom Flowxtra Het Beste Gratis Vacatureplaatsingsplatform Is",
+            "imageTitle": "Gratis Vacatureplaatsing",
+            "figcaption": "Beheer alles vanuit één slim dashboard. Volledig overzicht van Flowxtra's dashboard om gratis vacatures te beheren en te publiceren."
+        },
+        "gdpr": {
+            "badge": "GDPR & AVG",
+            "title": "Flowxtra Slimmer\nWerven Snellere Groei",
+            "description1": "Flowxtra stroomlijnt werving met AI! Maak vacatures, kom in contact met kandidaten en automatiseer taken zoals plannen—waardoor werving sneller en slimmer wordt.",
+            "description2": "Alle gegevens worden veilig opgeslagen in de EU. Transparantie. Privacy. Compliance — standaard ingebouwd.",
+            "faqLink": "Lees onze volledige FAQ"
+        },
+        "video": {
+            "title": "ATS Wervingssoftware binnen handbereik",
+            "description": "Versnel uw talentacquisitieproces met onze innovatieve AI-wervingsoplossing.",
+            "playButton": "Video Afspelen",
+            "iframeTitle": "ATS Wervingssoftware"
+        },
+        "whyUseFlowxtra": {
+            "title": "Waarom Flowxtra Gebruiken?",
+            "description": "Bij Flowxtra helpen we u uw hele bedrijf te beheren, van het maken van vacatures, het beheren van uw social media-accounts en het online ondertekenen van uw contracten.",
+            "features": {
+                "freePosting": "Gratis vacatureplaatsing",
+                "freeScheduling": "Gratis social media planning",
+                "userFriendly": "Gebruiksvriendelijke interface.",
+                "highSecurity": "Hoge beveiliging.",
+                "integration": "Integratie tussen applicaties.",
+                "support": "Continue ondersteuningsdienst.",
+                "scalable": "Schaalbaar voor alle bedrijfsgroottes — van startups tot bedrijven"
+            },
+            "cta": "Ontdek Flowxtra"
+        },
+        "recruitment": {
+            "title": "Werving",
+            "description": "De Wervingsapp helpt bedrijven en HR-teams het wervingsproces te stroomlijnen—van het plaatsen van vacatures tot het aannemen van het juiste talent.",
+            "features": {
+                "freeJobPosting": "Gratis Vacatureplaatsing Met Flowxtra",
+                "postManage": "Plaats en beheer vacatures eenvoudig",
+                "tracking": "Gecentraliseerde sollicitantenregistratie met slimme filters",
+                "interviews": "Geïntegreerde online interviews",
+                "collaboration": "Teamsamenwerking voor kandidaatevaluatie",
+                "reports": "Rapporten & analyses om werving te optimaliseren"
+            },
+            "whoIsItFor": {
+                "title": "Voor Wie Is Het?",
+                "description": "Startups, bedrijven en wervingsbureaus die sneller, slimmer en efficiënter willen werven."
+            },
+            "cta": "Start Nu",
+            "imageAlt": "Flowxtra Gratis vacatureplaatsing dashboard",
+            "imageTitle": "Gratis Vacatureplaatsing Dashboard",
+            "figcaption": "Beheer alles vanuit één slim dashboard. Volledig overzicht van Flowxtra's dashboard om gratis vacatures te beheren en te publiceren."
+        },
+        "freeJobPosting": {
+            "title": "Gratis Vacatureplaatsing voor Slim Werven",
+            "description1": "Plaats tot 5 vacatures gratis elke maand — geen verborgen kosten, geen creditcard vereist.",
+            "description2": "Flowxtra helpt u vacatures te publiceren op LinkedIn, Google Jobs & meer — allemaal vanuit één krachtig dashboard."
+        },
+        "socialMediaManager": {
+            "title": "Social Media Manager",
+            "description": "De Social Media Manager App helpt bedrijven en makers om content op meerdere platforms te beheren, plannen en analyseren op één plek.",
+            "features": {
+                "connectManage": "Verbind en beheer meerdere accounts",
+                "schedule": "Plan berichten eenvoudig vooruit",
+                "collaboration": "Teamsamenwerking en goedkeuringswerkstromen",
+                "analytics": "Analyses & rapporten om prestaties en betrokkenheid te volgen"
+            },
+            "whoIsItFor": {
+                "title": "Voor Wie Is Het?",
+                "description": "Bureaus, kleine bedrijven en freelancers die tijd willen besparen, georganiseerd willen blijven en hun online aanwezigheid willen laten groeien."
+            },
+            "cta": "Altijd gratis",
+            "imageAlt": "Plaats Vacatures op Social Media Gratis – Flowxtra Planner",
+            "imageTitle": "Gratis social media vacatureplaatsing en planning met Flowxtra"
+        },
+        "multipleJobPosting": {
+            "badge": "Meerdere Vacatureplaatsingen",
+            "title": "Plaats Vacatures Direct op Meerdere Platforms",
+            "description": "Flowxtra's gratis wervingssoftware stelt u in staat vacatures te plaatsen en te plannen op top social media platforms — inclusief LinkedIn, Facebook en Instagram. Automatiseer uw bereik, bespaar waardevolle tijd en werf slimmer — allemaal kosteloos.",
+            "cta": "Begin Gratis Met Plaatsen",
+            "imageAlt": "Gratis social media vacatureplaatsing en planning met Flowxtra",
+            "imageTitle": "Plaats Vacatures op Social Media Gratis – Flowxtra Planner"
+        },
+        "featuresSlider": {
+            "slides": {
+                "slide1": {
+                    "badge": "Echte Wervingsresultaten",
+                    "title": "Slimmere Kandidaatfiltering & Visualisatie",
+                    "description": "Flowxtra's AI-aangedreven ATS stroomlijnt werving. Filter en visualiseer kandidaten met lijst-, kaart- of drag-and-drop bordweergaven, en beweeg toptalent gemakkelijk door elke fase.",
+                    "buttonText": "Gratis Registreren",
+                    "imageAlt": "Visueel kandidatenbord – onderdeel van gratis AI-wervingstool"
+                },
+                "slide2": {
+                    "badge": "Kandidatenbord Stroom",
+                    "title": "Visuele Talentinformatie",
+                    "description": "Vergelijk, filter en breng kandidaten in kaart met Flowxtra's dynamisch wervingsbord. Volg sollicitaties, verkrijg inzichten en neem slimmere wervingsbeslissingen — allemaal vanuit één krachtige, interactieve weergave.",
+                    "buttonText": "Gratis Registreren",
+                    "imageAlt": "Bekijk kandidaat CV's binnen gratis AI-wervingssysteem"
+                },
+                "slide3": {
+                    "badge": "Gecentraliseerde Sollicitanteninformatie",
+                    "title": "Kandidaatprofielweergave",
+                    "description": "Toegang tot cv's, motivatiebrieven, LinkedIn-profielen en screeningantwoorden in één overzichtelijke interface. Voeg notities toe, wijs interviews toe, verstuur beoordelingen en beoordeel kandidaten — allemaal vanuit een uniforme profielweergave.",
+                    "buttonText": "Gratis Registreren",
+                    "imageAlt": "Bekijk kandidaat CV's binnen gratis AI-wervingssysteem"
+                },
+                "slide4": {
+                    "badge": "Eén Vacature. Meerdere Platforms.",
+                    "title": "Multiposting Eenvoudig Gemaakt",
+                    "description": "Plaats één keer en publiceer op top vacaturesites — LinkedIn, Google Jobs, Stepstone & meer. Volg kliks, weergaven en sollicitaties van overal — uw website, externe platforms en meer — allemaal in één slim dashboard.",
+                    "buttonText": "Gratis Registreren",
+                    "imageAlt": "Multiposting Eenvoudig Gemaakt"
+                },
+                "slide5": {
+                    "badge": "Geautomatiseerde & Gepersonaliseerde Communicatie",
+                    "title": "Wervings E-mailsjabloon",
+                    "description": "Bespaar tijd met slimme e-mailsjablonen voor elke wervingsfase. Verstuur afwijzingen, interview-uitnodigingen of updates — sneller, consistent en altijd professioneel.",
+                    "buttonText": "Gratis Registreren",
+                    "imageAlt": "Wervings E-mailsjabloon"
+                },
+                "slide6": {
+                    "badge": "Visualiseer Uw Gehele Wervingsproces in Één Oogopslag",
+                    "title": "Slim Wervingsdiagrambord",
+                    "description": "Flowxtra's geavanceerde diagrambord laat u kandidaatrelaties, wervingsfasen en teamfeedback in realtime in kaart brengen. Sleep kandidaten, wijs taken toe en werk samen met uw team — allemaal in één visueel dashboard.",
+                    "buttonText": "Gratis Registreren",
+                    "imageAlt": "Visueel kandidatenbord – onderdeel van gratis AI-wervingstool"
+                },
+                "slide7": {
+                    "badge": "VACATURE WIDGET",
+                    "title": "Voeg Vacaturelijsten Toe aan Elke Website",
+                    "description": "Met Flowxtra's Vacature Widget kunt u direct de openstaande posities van uw bedrijf op uw website weergeven — zonder technische setup of API-integratie. Of u nu WordPress, Wix, Shopify of een ander platform gebruikt, kopieer eenvoudig de insluitcode en uw vacaturebord gaat automatisch live.",
+                    "buttonText": "Gratis Registreren",
+                    "imageAlt": "Voeg Vacaturelijsten Toe aan Elke Website",
+                    "embedCodeTitle": "Insluitcode"
+                }
+            }
+        },
+        "reviews": {
+            "title": "De #1 keuze voor moderne wervers",
+            "rating": "4.8",
+            "reviews": {
+                "review1": {
+                    "name": "Sarah Mitchell",
+                    "title": "HR Manager",
+                    "text": "Flowxtra heeft ons wervingsproces getransformeerd! De 10 gratis vacatureplaatsingen per maand zijn perfect voor onze startup, en de AI-aangedreven kandidaatfiltering bespaart ons elke week uren.",
+                    "date": "12 juli 2025"
+                },
+                "review2": {
+                    "name": "Klaus Müller",
+                    "title": "Wervingsdirecteur",
+                    "text": "Beste wervingssoftware die we ooit hebben gebruikt. De multiposting-functie en social media manager-integratie zijn echte spelbrekers. Sterk aanbevolen!",
+                    "date": "5 augustus 2025"
+                },
+                "review3": {
+                    "name": "Sophie Laurent",
+                    "title": "HR Manager",
+                    "text": "Als HR-manager voldoet Flowxtra aan al mijn behoeften: ATS en social media beheer in één platform. GDPR-compliance geeft ons volledige gemoedsrust.",
+                    "date": "28 augustus 2025"
+                },
+                "review4": {
+                    "name": "Petra Schneider",
+                    "title": "Talent Acquisitie Specialist",
+                    "text": "Geweldige software met uitstekende functies. Het gratis plan is royaal en de gebruikersinterface is intuïtief. Klantenondersteuning zou sneller kunnen, maar over het algemeen zeer tevreden.",
+                    "date": "18 september 2025"
+                },
+                "review5": {
+                    "name": "Michael Thompson",
+                    "title": "CEO & Oprichter",
+                    "text": "Eindelijk een alles-in-één oplossing die echt werkt! Flowxtra combineert werving en social media beheer naadloos. De 5 gratis vacatureplaatsingen zijn een redder voor ons team.",
+                    "date": "22 oktober 2025"
+                }
+            }
+        },
+        "faq": {
+            "title": "Veelgestelde Vragen",
+            "helpText": "Nog steeds hulp nodig?",
+            "chatLink": "Chat met ons",
+            "officialSources": "Officiële Bronnen:",
+            "questions": {
+                "q1": {
+                    "question": "Is Flowxtra gratis te gebruiken voor het plaatsen van vacatures?",
+                    "answer": "Ja — Flowxtra biedt een volledig gratis plan met tot 5 gratis vacatureplaatsingen per maand. U kunt uw vacatures publiceren op top platforms zoals LinkedIn, Google Jobs en Stepstone zonder een cent te betalen. Het is de perfecte oplossing voor startups, kleine bedrijven en groeiende teams die gratis online vacatures willen plaatsen en moeiteloos toptalent willen aantrekken."
+                },
+                "q2": {
+                    "question": "Kan ik mijn Flowxtra-plan later upgraden indien nodig?",
+                    "answer": "Ja, u kunt op elk moment upgraden naar een hoger plan om toegang te krijgen tot meer functies en hogere limieten."
+                },
+                "q3": {
+                    "question": "Welke functies zijn inbegrepen in elk plan?",
+                    "answer": "Plannen bieden verschillende functies zoals verhoogde vacatureplaatsingslimieten, teamsamenwerking tools, wervingspijplijnen, e-mailsjablonen, AI-chatbot integratie en ondersteuning voor aangepaste domeinen."
+                },
+                "q4": {
+                    "question": "Bevat elk plan AI-chatbot ondersteuning?",
+                    "answer": "Ja, binnenkort zal elk plan een AI-chatbot bevatten. Flowxtra voert geen AI-scoring of matching uit. Onze AI-chatbot helpt wervers eenvoudigweg sneller sollicitanten te filteren — bijvoorbeeld door te vragen \"Wie kent JavaScript of PHP?\" zoekt het systeem snel door CV's en toont overeenkomende namen. Wanneer u op een naam klikt, verschijnen de volledige CV-gegevens van de sollicitant."
+                },
+                "q5": {
+                    "question": "Wat is de Aangepast Domein functie?",
+                    "answer": "De Aangepast Domein functie stelt u in staat uw eigen domeinnaam te gebruiken voor uw bedrijfspagina."
+                },
+                "q6": {
+                    "question": "Kan ik Flowxtra integreren met andere applicaties?",
+                    "answer": "Ja, alle plannen bevatten een API-token voor integratie met applicaties van derden en automatisering."
+                },
+                "q7": {
+                    "question": "Is Flowxtra een vacatureplatform of een wervingssysteem?",
+                    "answer": "Flowxtra is meer dan alleen een ATS — het is een flexibel AI-aangedreven wervingsplatform. Bedrijven kunnen Flowxtra op twee manieren gebruiken:\n\n• Als openbaar vacatureplatform: Publiceer gratis vacatures op Flowxtra en partnernetwerken zoals Google Jobs, LinkedIn en meer.\n\n• Als privé aanwervsysteem: Zet uw eigen merkgebonden ATS op waar alleen uw team kandidaatgegevens, interviews en aanwervingen beheert — volledig beveiligd en zelf gehost.\n\nWij zijn gespecialiseerd in het bouwen van aangepaste wervingssoftware op maat van uw bedrijfsbehoeften, of u nu een startup of een groot bedrijf bent."
+                },
+                "q8": {
+                    "question": "Is Flowxtra geschikt voor kleine, middelgrote en grote bedrijven?",
+                    "answer": "Ja, absoluut. Flowxtra is gebouwd om zich aan te passen aan elke bedrijfsgrootte — of u nu een startup, een groeiend bedrijf of een groot bedrijf bent. Het platform schaalt automatisch om te voldoen aan uw wervingsvolume, teamstructuur en workflowbehoeften. Het is perfect voor kleine teams die een eenvoudige en efficiënte manier nodig hebben om vacatures te beheren, evenals voor wereldwijde bedrijven die dagelijks duizenden kandidaten verwerken — allemaal met dezelfde betrouwbaarheid, snelheid en veiligheid."
+                },
+                "q9": {
+                    "question": "Kan Flowxtra duizenden sollicitaties verwerken?",
+                    "answer": "Ja, dat kan. Flowxtra's moderne cloud-gebaseerde architectuur is ontworpen voor prestaties en schaalbaarheid. Het kan gemakkelijk duizenden sollicitaties verwerken en organiseren zonder te vertragen, waardoor HR-teams van elke grootte efficiënt kunnen werken, zelfs tijdens drukke wervingsperiodes."
+                },
+                "q10": {
+                    "question": "Voldoet Flowxtra aan de Europese AI-wet voor wervingssystemen?",
+                    "answer": "Ja, Flowxtra voldoet volledig aan de EU AI-wet (Verordening 2024/1689) en AVG.\n\nWat betekent dat?\n\nFlowxtra is geen geautomatiseerd besluitvormingsinstrument. Het gebruikt geen kunstmatige intelligentie om:\n• Sollicitanten te scoren, rangschikken of filteren\n• \"De beste kandidaat\" te selecteren of aan te bevelen\n• Geautomatiseerde profilering of matching uit te voeren\n\nIn plaats daarvan is Flowxtra een mens-eerst Applicant Tracking System (ATS). Onze AI wordt alleen gebruikt om:\n• Bedrijven te helpen sneller vacatures te schrijven\n• Te helpen bij communicatie met sollicitanten\n• Vacatureplaatsing te automatiseren op platforms zoals LinkedIn en Google Jobs\n\nU behoudt volledige controle over alle wervingsbeslissingen. Flowxtra vervangt nooit menselijk oordeel."
+                },
+                "q11": {
+                    "question": "Voldoet Flowxtra volledig aan de EU AI-wet?",
+                    "answer": "Nee, op basis van de huidige juridische interpretatie door de Oostenrijkse toezichthouder RTR (KI-Servicestelle), wordt Flowxtra niet geclassificeerd als een hoog-risico AI-systeem — zolang:\n\n• Geen geautomatiseerde besluitvorming of filtering wordt gebruikt\n• De AI alleen wordt gebruikt om te assisteren, niet om te beslissen\n• Interacties met AI (bijv. chatbots) duidelijk worden vermeld\n• Flowxtra geen gevoelige persoonlijke gegevens verwerkt zoals geslacht, afkomst of religie\n\nAl het AI-gebruik is transparant, verklaarbaar en voldoet aan Artikel 50 van de EU AI-wet.",
+                    "links": [
+                        {
+                            "text": "EU AI-wet – EUR-Lex (Verordening 2024/1689)",
+                            "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32024R1689"
+                        },
+                        {
+                            "text": "Transparantievereisten (RTR Oostenrijk)",
+                            "url": "https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Transparenzpflichten.de.html"
+                        },
+                        {
+                            "text": "Algemene AI-wet Richtlijnen (RTR Oostenrijk)",
+                            "url": "https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/AI_Act.de.html"
+                        }
+                    ]
+                },
+                "q12": {
+                    "question": "Voldoet Flowxtra volledig aan de AVG en GDPR?",
+                    "answer": "Ja, Flowxtra voldoet volledig aan de Algemene Verordening Gegevensbescherming (AVG) en de General Data Protection Regulation (GDPR).\n\nWij verwerken geen gevoelige persoonlijke gegevens zoals geslacht, etniciteit, religie of politieke overtuigingen. Kandidaatgegevens worden veilig opgeslagen en uitsluitend beheerd door het bedrijf dat het platform gebruikt.\n\nFlowxtra neemt geen geautomatiseerde beslissingen over kandidaten. Werkgevers behouden volledige controle over alle sollicitantgegevens en wervingsbeslissingen.\n\nOnze systemen omvatten transparant toestemmingsbeheer, gegevenstoegangscontroles en een duidelijke procedure voor kandidaten om gegevensverwijdering aan te vragen of klachten in te dienen, in overeenstemming met Artikelen 12–23 van de AVG.\n\nAlle gegevens worden gehost in de Europese Unie en onze infrastructuur volgt best practices uit de industrie voor beveiliging en gegevensbescherming."
+                }
+            }
+        }
+    },
+    "contact": {
+        "badge": "Neem Contact Op",
+        "title": "Laten We Praten, Neem Contact Met Ons Op.",
+        "description": "Heeft u vragen of feedback? Wij zijn er om te helpen. Stuur ons een bericht en we reageren binnen 24 uur",
+        "form": {
+            "email": "E-mailadres",
+            "firstName": "Volledige Naam",
+            "message": "Uw Bericht",
+            "emailPlaceholder": "uw@email.com",
+            "firstNamePlaceholder": "Jan Jansen",
+            "messagePlaceholder": "Schrijf hier uw bericht...",
+            "required": "*",
+            "agreeWith": "Ja, ik ga akkoord met het",
+            "privacyPolicy": "privacybeleid",
+            "and": "en",
+            "termsConditions": "algemene voorwaarden",
+            "sendButton": "Bericht Versturen",
+            "sending": "Versturen...",
+            "successTitle": "Bericht succesvol verzonden!",
+            "successMessage": "We reageren binnen 24 uur.",
+            "errorTitle": "Bericht verzenden mislukt",
+            "errorMessage": "Probeer het later opnieuw."
+        },
+        "info": {
+            "email": "E-mail",
+            "phone": "Telefoon",
+            "address": "Adres",
+            "addressValue": "Wipplingerstraße 20/18, 1010 Wenen"
+        },
+        "imageAlt": "AI-aangedreven werving- en HR-platform voor slimmer werven",
+        "imageTitle": "Flowxtra – Alles-in-één AI Werving & HR Platform",
+        "figcaption": "Beheer vacatures, kandidaten en contracten met AI — allemaal op één plek, Gratis."
+    },
+    "about": {
+        "badge": "Over Ons",
+        "title": "De Toekomst van Werving Bouwen",
+        "description": "Flowxtra heeft de missie om te transformeren hoe bedrijven talent werven. We combineren geavanceerde AI-technologie met intuïtief ontwerp om werving sneller, slimmer en toegankelijker te maken voor iedereen.",
+        "mission": {
+            "title": "Onze Missie",
+            "description": "Wij geloven dat het vinden en aannemen van het juiste talent niet ingewikkeld of duur hoeft te zijn. Daarom hebben we Flowxtra gebouwd—een uitgebreid platform dat elke stap van het wervingsproces vereenvoudigt.",
+            "description2": "Van het plaatsen van vacatures op meerdere platforms tot het beheren van kandidaten met AI-aangedreven filtering, we zijn er om bedrijven van alle groottes te helpen sterkere teams te bouwen."
+        },
+        "values": {
+            "title": "Onze Kernwaarden",
+            "innovation": {
+                "title": "Innovatie",
+                "description": "We verleggen voortdurend de grenzen van wat mogelijk is in wervingstechnologie."
+            },
+            "transparency": {
+                "title": "Transparantie",
+                "description": "We geloven in eerlijke, duidelijke communicatie en transparante prijzen—geen verborgen kosten, ooit."
+            },
+            "security": {
+                "title": "Beveiliging & Privacy",
+                "description": "Uw gegevens zijn veilig. We voldoen aan de AVG en slaan alle gegevens op in EU-servers met de hoogste beveiligingsstandaarden."
+            }
+        },
+        "team": {
+            "title": "Ons Team",
+            "description": "Gevestigd in Wenen, Oostenrijk, zijn we een toegewijd team van ontwikkelaars, ontwerpers en HR-professionals die gepassioneerd zijn over het verbeteren van werving voor iedereen."
+        }
+    },
+    "accessibility": {
+        "title": "Toegankelijkheidsverklaring",
+        "subtitle": "Onze Inzet voor Webtoegang en WCAG-Compliance",
+        "introduction": {
+            "title": "Inleiding",
+            "paragraph1": "Flowxtra zet zich in voor het waarborgen van digitale toegankelijkheid voor mensen met een handicap. We verbeteren voortdurend de gebruikerservaring voor iedereen en passen relevante toegankelijkheidsnormen toe om onze doelen van gelijke toegang tot informatie en functionaliteit voor alle gebruikers te bereiken."
+        },
+        "wcagStandards": {
+            "title": "WCAG-Compliancenormen",
+            "paragraph1": "Onze website streeft ernaar te voldoen aan de Web Content Accessibility Guidelines (WCAG) 2.1 Level AA-normen. Deze richtlijnen leggen uit hoe webcontent toegankelijker te maken voor mensen met een handicap en gebruiksvriendelijker voor iedereen.",
+            "principles": {
+                "title": "WCAG 2.1 Level AA Principes:",
+                "perceivable": {
+                    "title": "Waarneembaar",
+                    "description": "Informatie en gebruikersinterfacecomponenten moeten presenteerbaar zijn voor gebruikers op manieren die ze kunnen waarnemen."
+                },
+                "operable": {
+                    "title": "Bedienbaar",
+                    "description": "Gebruikersinterfacecomponenten en navigatie moeten bedienbaar zijn."
+                },
+                "understandable": {
+                    "title": "Begrijpelijk",
+                    "description": "Informatie en de werking van de gebruikersinterface moeten begrijpelijk zijn."
+                },
+                "robust": {
+                    "title": "Robuust",
+                    "description": "Content moet robuust genoeg zijn om geïnterpreteerd te kunnen worden door een breed scala aan user agents, inclusief ondersteunende technologieën."
+                }
+            }
+        },
+        "accessibilityFeatures": {
+            "title": "Toegankelijkheidsfuncties",
+            "keyboardNavigation": {
+                "title": "Toetsenbordnavigatie",
+                "description": "Alle interactieve elementen zijn toegankelijk met alleen toetsenbordnavigatie. Gebruik Tab om vooruit te gaan, Shift+Tab om achteruit te gaan en Enter of Spatie om knoppen en links te activeren."
+            },
+            "screenReaderSupport": {
+                "title": "Schermlezersondersteuning",
+                "description": "Onze website bevat correcte semantische HTML, ARIA-labels en alt-tekst voor afbeeldingen om compatibiliteit met schermlezers en andere ondersteunende technologieën te waarborgen."
+            },
+            "colorContrast": {
+                "title": "Kleurcontrast",
+                "description": "Tekst- en achtergrondkleuren voldoen aan WCAG AA-normen voor kleurcontrastverhoudingen, waardoor content leesbaar is voor gebruikers met een visuele beperking."
+            },
+            "responsiveDesign": {
+                "title": "Responsive Ontwerp",
+                "description": "Onze website is volledig responsive en kan worden gebruikt op verschillende apparaten en schermformaten, met ondersteuning voor zoom tot 200% zonder verlies van functionaliteit."
+            }
+        },
+        "knownIssues": {
+            "title": "Bekende Problemen en Beperkingen",
+            "paragraph1": "Ondanks onze inspanningen om toegankelijkheid te waarborgen, kunnen er enkele beperkingen zijn. We werken actief aan het aanpakken van deze problemen en het verbeteren van de toegankelijkheid van onze website.",
+            "paragraph2": "Als u toegankelijkheidsbarrières tegenkomt, neem dan contact met ons op via de onderstaande informatie."
+        },
+        "feedback": {
+            "title": "Feedback en Contact",
+            "paragraph1": "We verwelkomen uw feedback over de toegankelijkheid van Flowxtra. Als u toegankelijkheidsbarrières bent tegengekomen, of als u suggesties voor verbetering heeft, neem dan contact met ons op:",
+            "emailLabel": "E-mail",
+            "addressLabel": "Adres",
+            "addressValue": "Wipplingerstraße 20/18, 1010 Wenen, Oostenrijk"
+        },
+        "updates": {
+            "title": "Updates van Deze Verklaring",
+            "paragraph1": "We beoordelen en actualiseren deze toegankelijkheidsverklaring regelmatig om onze voortdurende inzet en vooruitgang te weerspiegelen. Deze verklaring is voor het laatst bijgewerkt op {date}."
+        },
+        "conformance": {
+            "title": "Conformiteitsstatus",
+            "paragraph1": "De Web Content Accessibility Guidelines (WCAG) definiëren vereisten voor ontwerpers en ontwikkelaars om de toegankelijkheid voor mensen met een handicap te verbeteren.",
+            "paragraph2": "Flowxtra website streeft ernaar te voldoen aan WCAG 2.1 Level AA-normen. We werken voortdurend aan het verbeteren van de toegankelijkheid van onze website en verwelkomen feedback van gebruikers."
+        },
+        "widget": {
+            "title": "Toegankelijkheid",
+            "close": "Sluiten",
+            "reset": "Reset",
+            "sections": {
+                "contentAdjustments": "Contentaanpassingen",
+                "orientationAdjustments": "Oriëntatie-aanpassingen",
+                "colorAdjustments": "Kleurenaanpassingen"
+            },
+            "content": {
+                "biggerText": "Grotere tekst",
+                "biggerLineHeight": "Grotere regelhoogte",
+                "textAlign": "Tekstuitlijning",
+                "readableFont": "Leesbaar lettertype"
+            },
+            "orientation": {
+                "pageStructure": "Paginastructuur",
+                "screenReader": "Schermlezer",
+                "readingMask": "Leesmasker",
+                "hideImages": "Verberg afbeeldingen",
+                "pauseAnimations": "Pauzeer animaties",
+                "highlightLinks": "Markeer links",
+                "outlineFocus": "Omtrek focus"
+            },
+            "color": {
+                "darkMode": "Donkere modus",
+                "lightMode": "Lichte modus",
+                "greyscale": "Grijswaarden",
+                "contrast": "Contrast"
+            },
+            "navigation": {
+                "search": "Zoeken"
+            },
+            "footer": {
+                "poweredBy": "Toegankelijkheid door",
+                "dpro": "Dpro",
+                "statement": "Verklaring",
+                "sitemap": "Sitemap"
+            }
+        }
+    },
+    "pricing": {
+        "section": {
+            "title": "Plannen en Prijzen",
+            "subtitle": "Wat u ziet is precies wat u betaalt: één eenvoudig abonnement, geen extra kosten.",
+            "noCreditCard": "Geen creditcard vereist",
+            "cancelAnytime": "Op elk moment opzegbaar"
+        },
+        "plans": {
+            "free": "Gratis",
+            "starter": "Starter",
+            "basic": "Basis",
+            "professional": "Professioneel",
+            "advanced": "Geavanceerd",
+            "premium": "Premium",
+            "enterprise": "Enterprise",
+            "monthly": "/ maandelijks",
+            "forGrowingBusinesses": "Voor groeiende bedrijven",
+            "forCustomNeeds": "Voor aangepaste behoeften",
+            "getStarted": "Begin nu",
+            "contactUs": "Neem contact op"
+        },
+        "features": {
+            "keyFeatures": "Belangrijkste Functies:",
+            "jobPostings": {
+                "5": "5 vacatureplaatsingen",
+                "10": "10 vacatureplaatsingen",
+                "15": "15 vacatureplaatsingen",
+                "25": "25 vacatureplaatsingen",
+                "35": "35 vacatureplaatsingen",
+                "unlimited": "Onbeperkte vacatureplaatsingen"
+            },
+            "socialMediaPosts": "Social Media Berichten",
+            "databaseMigration": "Databasemigratie",
+            "customerSupport": "24/7 klantenondersteuning",
+            "crmIntegration": "Integratie met uw CRM-systemen"
+        },
+        "enterprise": {
+            "title": "Enterprise Plannen"
+        },
+        "compareFeatures": "Vergelijk functies"
+    },
+    "affiliate": {
+        "hero": {
+            "title": "Deel Flowxtra & Verdien 50% Commissie",
+            "subtitle": "Verdien elke maand 50% commissie voor elke gebruiker die u verwijst",
+            "description": "Word lid van ons partnerprogramma en help bedrijven Flowxtra te ontdekken. Krijg een unieke verwijzingslink en begin vandaag met verdienen. Commissie wordt maandelijks betaald tot 12 maanden zolang uw verwezen gebruikers geabonneerd blijven.",
+            "cta": "Word Lid van Partnerprogramma",
+            "ctaSecondary": "Meer Informatie"
+        },
+        "howItWorks": {
+            "title": "Hoe Ons Partnerprogramma Werkt",
+            "step1": {
+                "title": "Meld U Aan & Krijg Uw Link",
+                "description": "Registreer voor ons partnerprogramma en ontvang direct uw unieke verwijzingslink."
+            },
+            "step2": {
+                "title": "Deel Uw Link",
+                "description": "Deel uw verwijzingslink met potentiële klanten via uw website, social media of e-mail."
+            },
+            "step3": {
+                "title": "Gebruikers Melden Zich Aan",
+                "description": "Wanneer iemand zich aanmeldt via uw link, beginnen ze met het gebruik van Flowxtra's krachtige wervingstools."
+            },
+            "step4": {
+                "title": "Verdien Maandelijkse Commissies",
+                "description": "Verdien elke maand 50% commissie tot 12 maanden zolang uw verwezen gebruikers geabonneerd blijven. Commissie wordt elke maand aan uw account toegevoegd."
+            }
+        },
+        "commission": {
+            "title": "Verdienpotentieel",
+            "subtitle": "Zie hoeveel u elke maand kunt verdienen met elk plan",
+            "table": {
+                "plan": "Plan",
+                "monthlyPrice": "Maandelijkse Prijs",
+                "yourCommission": "Uw Commissie",
+                "monthlyEarning": "Maandelijkse Verdienste",
+                "annualPotential": "Jaarlijks Potentieel"
+            },
+            "free": "Gratis",
+            "starter": "Starter",
+            "basic": "Basis",
+            "professional": "Professioneel",
+            "advanced": "Geavanceerd",
+            "enterprise": "Enterprise",
+            "perMonth": "/maand",
+            "example": {
+                "title": "Voorbeeld",
+                "description": "Voor Professioneel Plan (€249/maand): U verdient €124,50/maand tot 12 maanden zolang de gebruiker geabonneerd blijft. Maximale verdienste: €1.494 (12 maanden).",
+                "note": "* Maximale commissieperiode is 12 maanden per verwijzing. Commissie wordt maandelijks betaald tot 12 maanden zolang gebruikers geabonneerd blijven."
+            }
+        },
+        "paymentTerms": {
+            "title": "Betalingsvoorwaarden",
+            "subtitle": "Hoe commissies worden berekend en betaald",
+            "terms": [
+                {
+                    "title": "Commissieperiode",
+                    "description": "Commissie wordt elke maand betaald tot 12 maanden zolang uw verwezen gebruikers geabonneerd blijven. Maximale commissieperiode is 12 maanden per verwijzing."
+                },
+                {
+                    "title": "Maandelijks Tegoed",
+                    "description": "Elke maand dat een gebruiker zijn abonnement betaalt, wordt 50% van de betaling automatisch aan uw partneraccount toegevoegd."
+                },
+                {
+                    "title": "Minimum Opname",
+                    "description": "Het minimum saldo dat vereist is om verdiensten op te nemen is €180. U kunt verdiensten verzamelen totdat u deze drempel bereikt."
+                },
+                {
+                    "title": "Opnameproces",
+                    "description": "Zodra u €180 of meer bereikt, kunt u een opname aanvragen. Betalingen worden maandelijks verwerkt via bankoverschrijving of PayPal."
+                }
+            ]
+        },
+        "pricingReference": {
+            "title": "Onze Prijsplannen",
+            "subtitle": "Verwijs gebruikers naar een van deze plannen en verdien commissies",
+            "viewAll": "Bekijk Alle Plannen"
+        },
+        "cta": {
+            "title": "Klaar om te Beginnen met Verdienen?",
+            "subtitle": "Word lid van duizenden partners die Flowxtra promoten",
+            "button": "Begin Nu",
+            "buttonSecondary": "Neem Contact Op met Sales"
+        },
+        "faq": {
+            "title": "Veelgestelde Vragen",
+            "helpText": "Nog steeds hulp nodig?",
+            "chatLink": "Chat met ons",
+            "q1": {
+                "question": "Hoe krijg ik mijn verwijzingslink?",
+                "answer": "Na aanmelding voor ons partnerprogramma ontvangt u een unieke verwijzingslink die u kunt delen met potentiële klanten."
+            },
+            "q2": {
+                "question": "Wanneer word ik betaald?",
+                "answer": "Commissie wordt elke maand aan uw account toegevoegd zolang uw verwezen gebruikers geabonneerd blijven. U kunt opnemen zodra uw saldo €180 of meer bereikt."
+            },
+            "q3": {
+                "question": "Hoe lang duren commissies?",
+                "answer": "Commissies worden maandelijks betaald tot 12 maanden per verwijzing, zolang de gebruiker tijdens die periode geabonneerd blijft. Na 12 maanden wordt er geen verdere commissie betaald voor die verwijzing."
+            },
+            "q4": {
+                "question": "Wat als een gebruiker annuleert?",
+                "answer": "U ontvangt alleen commissies voor de maanden dat de gebruiker geabonneerd was. Zodra ze annuleren, worden er geen verdere commissies verdiend van die gebruiker."
+            },
+            "q5": {
+                "question": "Wat is het minimum opnamebedrag?",
+                "answer": "Het minimum opnamebedrag is €180. U kunt verdiensten verzamelen in uw account totdat u deze drempel bereikt, en dan een opname aanvragen."
+            },
+            "q6": {
+                "question": "Wat gebeurt er na 12 maanden?",
+                "answer": "Na 12 maanden stopt uw commissie voor die klant. We betalen alleen commissie voor de eerste 12 maanden van het klantabonnement. Als de klant na het eerste jaar verlengt, wordt er geen commissie betaald over die verlengingen."
+            }
+        }
+    },
+    "compareFeatures": {
+        "featureUsage": "Functie / Gebruik",
+        "comingSoon": "Binnenkort Beschikbaar",
+        "previous": "Vorige",
+        "next": "Volgende",
+        "notAvailable": "Niet beschikbaar",
+        "soon": "Binnenkort",
+        "unlimited": "Onbeperkt",
+        "features": {
+            "jobPostings": {
+                "name": "Vacatureplaatsingen / maand",
+                "description": "Aantal actieve vacatureslots dat u gelijktijdig per maand kunt publiceren."
+            },
+            "userSeats": {
+                "name": "Gebruikersplaatsen",
+                "description": "Totaal aantal teamleden dat kan samenwerken binnen uw account."
+            },
+            "support247": {
+                "name": "Ondersteuning 24/7",
+                "description": "Ronde-de-klok prioriteitsondersteuning via Chat en Online Vergaderingen met onze senior ondersteuningsingenieurs."
+            },
+            "gdprCcpa": {
+                "name": "AVG & CCPA compliance",
+                "description": "Volledige compliance met AVG (Europese Unie) en CCPA (Californië) gegevensbeschermingsregels. Omvat beheer van rechten van betrokkenen, tracking van toestemming, gegevensportabiliteit, recht op vergetelheid, privacycontroles en geautomatiseerde compliance-rapporten. Bescherm kandidaatprivacy en voldoe aan internationale wettelijke vereisten."
+            },
+            "googleJobs": {
+                "name": "Google vacaturevermeldingen",
+                "description": "Plaats uw vacatures automatisch gratis op Google for Jobs. Vergroot zichtbaarheid en bereik meer kandidaten via Google Zoeken zonder extra kosten."
+            },
+            "onlineMeeting": {
+                "name": "Online vergaderingstool",
+                "description": "Plan en host interviews met kandidaten direct vanuit Flowxtra."
+            },
+            "cvParsing": {
+                "name": "CV-parsing",
+                "description": "Automatisch kandidaatinformatie extraheren en structureren uit CV's en resumes. Ondersteunt meerdere bestandsformaten inclusief PDF, Word en tekstbestanden. Parseert intelligent contactgegevens, werkervaring, opleiding, vaardigheden en kwalificaties om kandidaatprofielen direct in te vullen."
+            },
+            "kanbanBoard": {
+                "name": "Kanbanbord",
+                "description": "Kanban-stijl bord om kandidaten te visualiseren en door wervingsfasen te verplaatsen. Eenvoudige kolomweergave voor snel kandidaatbeheer."
+            },
+            "diagramBoard": {
+                "name": "Diagrambord",
+                "description": "Geavanceerd diagrambord met drag-and-drop functionaliteit, gedetailleerde activiteitengeschiedenis en uitgebreide kandidaattracking. Verbeterde visualisatie met filters en analyses."
+            },
+            "multiposting": {
+                "name": "Multiposting",
+                "description": "Distribueer vacatures gelijktijdig naar meerdere kanalen voor maximale exposure. Inclusief Google Jobs, LinkedIn en andere platforms."
+            },
+            "careerPage": {
+                "name": "Carrièrepagina",
+                "description": "Uw merkgebonden openbare carrièrepagina met alle openstaande functies."
+            },
+            "removeBranding": {
+                "name": "Verwijder Flowxtra branding",
+                "description": "Verwijder Flowxtra logo en branding van uw carrièrepagina. Toon alleen uw bedrijfsbranding."
+            },
+            "smtp": {
+                "name": "Aangepaste E-mail SMTP integratie",
+                "description": "Verbind de SMTP-server van uw bedrijf om e-mails direct van uw eigen e-mailadres via ons platform te versturen. Verstuur kandidaatcommunicatie, meldingen en updates met uw merkgebonden e-maildomein."
+            },
+            "jobWidget": {
+                "name": "Vacature widget",
+                "description": "Sluit uw vacaturelijst in op elke website met een copy-paste fragment."
+            },
+            "atsIntegrations": {
+                "name": "ATS integraties",
+                "description": "Verbind Flowxtra met uw HR-stack, websites en interne tools."
+            },
+            "twoFactorAuth": {
+                "name": "Twee-factor authenticatie",
+                "description": "Bescherm accounts met een extra verificatiestap bij inloggen. Ook bekend als 2FA."
+            },
+            "crmIntegration": {
+                "name": "Integratie met CRM-systemen",
+                "description": "Synchroniseer kandidaat- en klantgegevens met uw CRM voor naadloze workflows."
+            },
+            "apiMcp": {
+                "name": "API/MCP",
+                "description": "Volledige documentatie voor het integreren van Flowxtra met uw aangepaste systemen en LLM's. Bevat gedetailleerde API-referenties, MCP-protocolhandleidingen, codevoorbeelden en integratiehandleidingen."
+            },
+            "companyPage": {
+                "name": "Bedrijfspagina",
+                "description": "Krijg een merkgebonden subdomein met uw bedrijfsprofiel en vacatures."
+            },
+            "customLlms": {
+                "name": "Aangepaste LLM's Integratie",
+                "description": "Integreer uw eigen LLM's die worden gehost op uw infrastructuur. Wij leveren de integratie-tools (API & MCP) zodat uw AI-modellen naadloos kunnen werken binnen Flowxtra terwijl ze in uw omgeving blijven."
+            },
+            "privacyGenerator": {
+                "name": "Privacybeleid generator",
+                "description": "Maak aangepaste privacybeleid op maat van uw behoeften. Kies uit vooraf gebouwde sjablonen voor verschillende privacyregelgeving (AVG, CCPA, enz.) en pas de tekst aan om te voldoen aan uw bedrijfsvereisten. Genereer professioneel, juridisch compliant privacybeleid zonder juridische expertise."
+            },
+            "smartFiltering": {
+                "name": "Slimme kandidaatfiltering",
+                "description": "Geeft automatisch prioriteit aan sollicitanten op basis van functievereisten en aangepaste criteria."
+            },
+            "customFields": {
+                "name": "Aangepaste velden op vacatures",
+                "description": "Voeg alle velden toe die u nodig heeft om vacaturegegevens en formulieren te structureren."
+            },
+            "rolesPermissions": {
+                "name": "Rollen & machtigingen",
+                "description": "Granulaire toegangscontrole voor wervers, hiring managers en beheerders."
+            },
+            "hiringStages": {
+                "name": "Wervingsfasen",
+                "description": "Aanpasbare wervingsfasen. Definieer en beheer wervingsfasen zoals sollicitatiebeoordeling, interviews, beoordelingen en definitieve beslissingen. Volledig aanpasbaar om te voldoen aan uw unieke wervingsworkflow."
+            },
+            "appStoreIntegrations": {
+                "name": "App store integraties",
+                "description": "Plug-and-play integraties met populaire HR-, communicatie- en analysetools."
+            },
+            "ratingSheets": {
+                "name": "Beoordelingsformulieren",
+                "description": "Gestructureerde scorecards om kandidaten consistent te evalueren."
+            },
+            "customSocialSharing": {
+                "name": "Aangepast social sharing",
+                "description": "Pas OG-tags, banners en bijschriften aan voor vacaturelinks."
+            },
+            "brandKit": {
+                "name": "Brand Kit",
+                "description": "Pas uw hele systeem aan met uw merkkleur, lettertypen en logo. Uw carrièrepagina's, e-mails en alle kandidaatgerichte content zullen uw merkidentiteit consistent weerspiegelen."
+            },
+            "emailTemplates": {
+                "name": "E-mailsjabloon builder",
+                "description": "Ontwerp en pas e-mailsjablonen aan voor alle kandidaatcommunicatie. Maak merkgebonden, professionele e-mails met uw eigen ontwerp, lay-out en boodschap."
+            },
+            "automatedMessages": {
+                "name": "Geautomatiseerde berichten",
+                "description": "Verstuur automatische bevestigingen, afwijzingen en herinneringen naar kandidaten."
+            },
+            "customCareerPage": {
+                "name": "Aangepaste carrièrepagina",
+                "description": "Bouw rijke carrièrepagina's met secties voor cultuur, voordelen en teams. Ondersteunt multi-sectie lay-outs."
+            },
+            "customDomain": {
+                "name": "Aangepast domein",
+                "description": "Gebruik uw eigen domein voor carrièrepagina's en sollicitatieformulieren."
+            },
+            "skillsReservoir": {
+                "name": "Vaardigheden reservoir",
+                "description": "Sla topkandidaten op en organiseer ze die niet werden aangenomen voor toekomstige kansen. Bouw een database van gekwalificeerd talent klaar voor toekomstige posities die bij hun vaardigheden passen."
+            },
+            "unlimitedStorage": {
+                "name": "Onbeperkte gegevensopslag",
+                "description": "Sla bestanden, resumes en activiteitenlogboeken op zonder harde limieten."
+            },
+            "journeyFlow": {
+                "name": "Journey flow",
+                "description": "Geavanceerde workflow automatisering builder (zoals n8n). Maak aangepaste wervingsprocessen met voorwaardelijke paden op basis van kandidaatreacties. Verstuur automatisch welkomst-e-mails, vraag extra informatie aan, verstuur contracten, trainingscursussen en creëer dynamische workflows met triggers, wachttijden, voorwaarden en meerdere vertakkingen. Bouw gepersonaliseerde kandidaattrajecten voor elke vacature met slimme segmentatie op basis van locatie, antwoorden of aangepaste criteria."
+            },
+            "aiJobAdBuilder": {
+                "name": "AI vacature-advertentie builder",
+                "description": "Genereer geoptimaliseerde functiebeschrijvingen afgestemd op functievereisten."
+            },
+            "clientProfiles": {
+                "name": "Klantprofielen",
+                "description": "Beheer meerdere klantbedrijven met afzonderlijke vacatures en teams. Perfect voor bureaus."
+            },
+            "multiOfficeLocation": {
+                "name": "Meerdere kantoorlocaties",
+                "description": "Organiseer vacatures, gebruikers en rapporten per locatie. Ondersteuning voor bedrijven met meerdere locaties."
+            },
+            "newsletter": {
+                "name": "Nieuwsbrief",
+                "description": "Verstuur geautomatiseerde vacaturemeldingen naar kandidaten die zich hebben aangemeld tijdens sollicitatie. Informeer ze over nieuwe kansen via e-mail, SMS, WhatsApp of Telegram. Inclusief Mailchimp-integratie voor geavanceerde campagnes en automatische vacaturemeldingen."
+            },
+            "talentPool": {
+                "name": "Talentenpool",
+                "description": "Onderhoud een database van tweede-keus en toekomstig geschikte kandidaten."
+            },
+            "reportsAnalytics": {
+                "name": "Rapporten & analyses",
+                "description": "Inzichten over bronnen, pijplijnsnelheid, uitval en teamproductiviteit. Inclusief gedetailleerde sollicitantenrapporten."
+            },
+            "databaseMigration": {
+                "name": "Databasemigratie",
+                "description": "We helpen bij het importeren van kandidaten, vacatures en notities uit andere systemen."
+            },
+            "candidateExport": {
+                "name": "Kandidaatexport",
+                "description": "Exporteer lijsten en rapporten voor externe analyse en back-ups. Ondersteunt CSV- en Excel-formaten."
+            },
+            "esignature": {
+                "name": "eHandtekening",
+                "description": "Verstuur, onderteken en volg juridisch bindende digitale contracten met audit trails en tijdstempels."
+            },
+            "elearning": {
+                "name": "E-learning",
+                "description": "Train wervingsteams met ingebouwde cursussen en certificeringen. Inclusief bedrijfsspecifieke cursusontwikkeling."
+            },
+            "assessments": {
+                "name": "Beoordelingen",
+                "description": "Vaardigheids- en persoonlijkheidstests met gestructureerde, vergelijkbare resultaten."
+            },
+            "socialAdsManager": {
+                "name": "Social Ads Manager",
+                "description": "Maak en beheer vacatureadvertenties op belangrijke platforms waaronder Facebook, Instagram, SnapChat, Google, YouTube, TikTok en LinkedIn. Bespaar op extra kosten door al uw social media-advertenties direct binnen Flowxtra te beheren."
+            },
+            "idVerification": {
+                "name": "ID-verificatie",
+                "description": "Verifieer kandidaatidentiteitsdocumenten inclusief paspoorten, nationale ID's en andere officiële identificatiedocumenten voor verbeterde beveiliging en compliance."
+            },
+            "applyViaSocialChatbot": {
+                "name": "Solliciteren via social Chatbot",
+                "description": "Verbind uw eigen WhatsApp Business-, Telegram-, Facebook Messenger-, Discord- of WeChat-accounts van uw bedrijf. Kandidaten solliciteren direct via uw bedrijfschat, waardoor kosten worden verlaagd terwijl directe communicatie met sollicitanten behouden blijft."
+            },
+            "candidatePresentation": {
+                "name": "Kandidaatpresentatie",
+                "description": "Genereer veilige deelbare links om kandidaatprofielen met uw notities en opmerkingen te presenteren aan klanten, managers of externe partners. Deel specifieke kandidaatinformatie zonder volledige systeemtoegang te verlenen. Kandidaten stemmen vooraf in met het delen van informatie. Perfect voor wervingsbureaus die profielen aan klanten presenteren of interne belanghebbenden die kandidaten beoordelen."
+            },
+            "socialMediaPosts": {
+                "name": "Social media berichten",
+                "description": "Plan en publiceer onbeperkte berichten, verhalen, video's en alle content op alle social media platforms. Volledig contentplanning- en beheersysteem."
+            },
+            "aiChatbot": {
+                "name": "AI Chatbot",
+                "description": "Beantwoord kandidaat-FAQ's en voer pre-screening uit direct op uw carrièrepagina's."
+            },
+            "oneWayVideo": {
+                "name": "Eenrichtings video-interviews",
+                "description": "Kandidaten kunnen video-antwoorden opnemen en uploaden tijdens het sollicitatieproces. Screen kandidaten asynchroon door vooraf opgenomen video-antwoorden op uw aangepaste vragen te bekijken. Bespaar tijd door antwoorden op uw schema te bekijken zonder live interviewtijden te coördineren."
+            },
+            "employeeOnboarding": {
+                "name": "Werknemersonboarding",
+                "description": "Stroomlijn nieuwe medewerker integratie met geautomatiseerde onboarding workflows. Verstuur arbeidsdocumenten, contracten en trainingsmateriaal. Maak aanpasbare checklists voor nieuwe werknemers, plan hun eerste dagen, stel ze voor aan het team en volg hun voortgang. Compleet onboarding-traject van aanvaarding aanbod tot volledige productiviteit."
+            }
+        },
+        "values": {
+            "tickets": "Tickets",
+            "chat": "Chat",
+            "chatOnlineMeetings": "Chat, Online Vergaderingen"
+        }
+    },
+    "footer": {
+        "company": {
+            "title": "Bedrijf",
+            "features": "Functies",
+            "blog": "Blog & Nieuws",
+            "about": "Over ons",
+            "contact": "Contact opnemen",
+            "pricing": "Prijzen",
+            "affiliate": "Partner"
+        },
+        "software": {
+            "title": "Software",
+            "ats": "ATS Wervingssoftware",
+            "socialMedia": "Social Media Manager",
+            "freeJobPosting": "Gratis Vacatureplaatsing",
+            "esignature": "E-handtekening"
+        },
+        "ats": {
+            "title": "ATS Software",
+            "aiAts": "AI ATS Software",
+            "candidateFiltering": "Kandidaatfiltering",
+            "multiposting": "Multiposting Vacatures",
+            "jobWidget": "Vacature Widget",
+            "freeJobPosting": "Gratis Vacatureplaatsing",
+            "applicantTracking": "Applicant Tracking System Software",
+            "socialMediaManagement": "Social Media Beheer"
+        },
+        "terms": {
+            "title": "Voorwaarden",
+            "dpa": "DPA",
+            "imprint": "Impressum",
+            "disclaimer": "Disclaimer",
+            "privacy": "Privacybeleid",
+            "cookie": "Cookiebeleid",
+            "companies": "Gebruiksvoorwaarden",
+            "candidates": "Gebruiksvoorwaarden Kandidaten"
+        },
+        "followUs": {
+            "title": "Volg Ons",
+            "companyName": "Flowxtra GmbH",
+            "address": "Wipplingerstraße 20/18, 1010 Wenen",
+            "recaptcha": {
+                "text": "*Deze site wordt beschermd door reCAPTCHA. Google",
+                "privacy": "Privacybeleid",
+                "and": "en",
+                "terms": "Servicevoorwaarden",
+                "apply": "zijn van toepassing."
+            }
+        },
+        "copyright": {
+            "text": "Copyright © 2025 Flowxtra | Gemaakt door",
+            "madeBy": "Dpro"
+        },
+        "consent": {
+            "preferences": "Toestemmingsvoorkeuren",
+            "short": "Toestemming"
+        },
+        "darkMode": {
+            "dark": "Donkere Modus",
+            "light": "Lichte Modus"
+        },
+        "accessibility": "Toegankelijkheid",
+        "badges": {
+            "madeInAustria": "Gemaakt in Oostenrijk",
+            "trustpilot": "Trustpilot",
+            "serverLocation": "Serverlocaties Duitsland",
+            "gdpr": "AVG & GDPR Compliant",
+            "aiAct": "AI-wet Compliant"
+        },
+        "logoAlt": "Flowxtra"
+    },
+    "cookieConsent": {
+        "title": "Cookievoorkeuren",
+        "description": "Beheer uw cookievoorkeuren. U kunt hieronder verschillende soorten cookies in- of uitschakelen.",
+        "strictlyNecessary": {
+            "title": "Strikt Noodzakelijk",
+            "description": "Deze cookies zijn noodzakelijk voor het correct functioneren van de website. Ze kunnen niet worden uitgeschakeld."
+        },
+        "functionality": {
+            "title": "Functionaliteit",
+            "description": "Deze cookies maken verbeterde functionaliteit en personalisatie mogelijk (taal, thema, voorkeuren)."
+        },
+        "performance": {
+            "title": "Prestaties",
+            "description": "Deze cookies helpen ons begrijpen hoe bezoekers omgaan met onze website door anoniem informatie te verzamelen en te rapporteren."
+        },
+        "targeting": {
+            "title": "Targeting",
+            "description": "Deze cookies worden gebruikt om gepersonaliseerde advertenties te leveren en de prestaties van advertentiecampagnes te volgen."
+        },
+        "table": {
+            "name": "Naam",
+            "provider": "Provider",
+            "storage": "Gegevensopslag",
+            "retention": "Bewaartermijn",
+            "privacyPolicy": "Privacybeleid",
+            "view": "Bekijken"
+        },
+        "doNotSell": {
+            "title": "Verkoop Mijn Persoonlijke Gegevens Niet",
+            "description": "Onder de CCPA heeft u het recht om af te zien van de verkoop van uw persoonlijke gegevens."
+        },
+        "consentId": {
+            "title": "Uw Toestemming ID",
+            "description": "Deze unieke ID bewijst dat u toestemming heeft gegeven. Bewaar het voor uw administratie of toekomstige referentie.",
+            "copy": "Kopieer naar klembord"
+        },
+        "buttons": {
+            "cancel": "Annuleren",
+            "save": "Voorkeuren Opslaan",
+            "acceptAll": "Alles Accepteren",
+            "rejectAll": "Alles Weigeren",
+            "preferences": "Voorkeuren",
+            "acceptNecessary": "Accepteer Alleen Noodzakelijke"
+        },
+        "banner": {
+            "titleEU": "We gebruiken cookies",
+            "titleUS": "Cookiemelding",
+            "descriptionEU": "We gebruiken cookies om uw browse-ervaring te verbeteren, gepersonaliseerde content te leveren en ons verkeer te analyseren. Door op \"Alles Accepteren\" te klikken, stemt u in met ons gebruik van cookies. Zie ons",
+            "descriptionCA": "We verzamelen en kunnen uw persoonlijke gegevens verkopen. U heeft het recht om af te zien. Klik op \"Niet Verkopen\" om uw rechten onder de CCPA uit te oefenen. Zie ons",
+            "descriptionUS": "We gebruiken cookies om uw ervaring te verbeteren. U kunt uw voorkeuren op elk moment beheren. Zie ons",
+            "cookiePolicy": "Cookiebeleid",
+            "developedBy": "Gemaakt door",
+            "dproLink": "Dpro"
+        },
+        "tabs": {
+            "cookieDeclaration": "Cookie-instellingen",
+            "aboutCookies": "Over Cookies"
+        },
+        "aboutCookies": {
+            "intro": "We gebruiken cookies om uw ervaring te verbeteren en websiteverkeer te analyseren. Door op \"Alles Accepteren\" te klikken, gaat u akkoord met alle cookies. U kunt voorkeuren beheren in Cookie-instellingen.",
+            "description": "Cookies zijn kleine tekstbestanden die op uw computer worden geplaatst door websites die u bezoekt. Websites gebruiken cookies om gebruikers efficiënt te helpen navigeren en bepaalde functies uit te voeren. Cookies die nodig zijn om de website correct te laten functioneren, mogen worden ingesteld zonder uw toestemming. Alle andere cookies moeten worden goedgekeurd voordat ze in de browser kunnen worden ingesteld.",
+            "changeConsent": "U kunt uw toestemming voor cookiegebruik op elk moment wijzigen op onze",
+            "privacyPolicy": "Privacybeleid",
+            "page": "pagina.",
+            "advertising": "We gebruiken ook cookies om gegevens te verzamelen voor het personaliseren en meten van de effectiviteit van onze advertenties. Voor meer details, bezoek het",
+            "googlePrivacyPolicy": "Google Privacybeleid",
+            "consentIdLabel": "Cookies toestemming ID:",
+            "seeCookiePolicy": "Zie ons",
+            "cookiePolicy": "Cookiebeleid"
+        }
+    },
+    "blog": {
+        "title": "Artikelen",
+        "description": "Welkom bij de Flowxtra Blog — uw bron voor slimme wervingsinzichten, HR-innovaties en wervingstrends. Ontdek praktische strategieën, experttips en de nieuwste updates die de toekomst van werving en talentbeheer vormgeven.",
+        "discoverFuture": "Lees Meer",
+        "allBlogs": "Alle Blogs",
+        "readMore": "Lees Meer",
+        "categories": {
+            "all": "Alle",
+            "productivity": "Productiviteit",
+            "accessibility": "Toegankelijkheid",
+            "performance": "Prestaties"
+        },
+        "pagination": {
+            "previous": "Vorige",
+            "next": "Volgende",
+            "page": "Pagina {page}"
+        },
+        "viewMode": "Weergavemodus",
+        "viewModeList": "Lijstweergave",
+        "viewModeGrid": "Rasterweergave",
+        "search": {
+            "placeholder": "Zoek berichten...",
+            "startTyping": "Begin met typen om naar berichten te zoeken...",
+            "noResults": "Geen berichten gevonden die overeenkomen met \"{query}\"",
+            "noResultsInPage": "Geen berichten gevonden die overeenkomen met uw zoekcriteria.",
+            "clearSearch": "Zoekopdracht wissen"
+        },
+        "post": {
+            "previous": "Vorige",
+            "next": "Volgende",
+            "previousPost": "Vorig Bericht",
+            "nextPost": "Volgend Bericht",
+            "relatedPosts": "Gerelateerde Berichten",
+            "writtenBy": "Geschreven door {author}"
+        },
+        "latestPosts": "Nieuwste Berichten",
+        "tableOfContents": "Inhoudsopgave"
+    },
+    "socialMediaManagement": {
+        "title": "Social Media Beheer",
+        "description": "Beheer en analyseer uw sociale kanalen vanaf één platform. Onze Social Media Manager bespaart tijd, houdt u georganiseerd en helpt uw online aanwezigheid te laten groeien.",
+        "cta": "Begin Nu",
+        "features": {
+            "freeForever": "100% Gratis",
+            "noCreditCard": "Geen creditcard vereist",
+            "cancelAnytime": "Op elk moment opzegbaar"
+        },
+        "imageAlt": "Social Media Beheerplatform - Beheer al uw sociale kanalen vanaf één plek",
+        "imageTitle": "Flowxtra – Social Media Beheerplatform",
+        "figcaption": "Beheer en analyseer uw sociale kanalen vanaf één platform",
+        "sections": {
+            "section1": {
+                "title": "Beheer uw social media als een bedrijf, niet als een last",
+                "description": "Verbind al uw social media-accounts — Instagram, Facebook, LinkedIn, TikTok en X — en beheer ze vanaf één slim dashboard.",
+                "paragraph1": "Geen gesleep meer tussen tools of verspilde uren aan repetitieve taken.",
+                "paragraph2": "Flowxtra helpt u uw social media-activiteit te plannen, te plaatsen en te analyseren op één plek — uw merk consistent, efficiënt en altijd actief houden.",
+                "cta": "Gratis Registreren"
+            },
+            "section2": {
+                "title": "Uw Gegevens Blijven Van U",
+                "description": "Flowxtra geeft u volledige controle over uw gegevens.",
+                "paragraph1": "Al uw bestanden worden veilig opgeslagen in uw eigen verbonden opslag — Google Drive, Dropbox of AWS — niet op onze servers.",
+                "paragraph2": "We bewaren alleen de minimale technische gegevens die nodig zijn om uw services naadloos te verbinden en te synchroniseren.",
+                "paragraph3": "Uw privacy, uw controle, uw gegevens — altijd beschermd.",
+                "cta": "Gratis Registreren"
+            },
+            "section3": {
+                "title": "Plan en Beheer Elk Bericht vanaf Eén Visuele Kalender",
+                "description": "Stop met schakelen tussen platforms of raden wat u vervolgens moet plaatsen.",
+                "paragraph1": "Flowxtra's Visuele Contentkalender brengt al uw geplande berichten — op Instagram, Facebook, LinkedIn, TikTok en X — in één duidelijk, uniform overzicht.",
+                "features": {
+                    "feature1": "Plan één keer, publiceer overal.",
+                    "feature2": "Sleep en zet neer om direct aan te passen.",
+                    "feature3": "Blijf consistent en mis nooit een bericht."
+                },
+                "paragraph2": "Plan campagnes, volg prestaties en houd uw gehele social media-strategie perfect georganiseerd — allemaal vanuit één slimme, visuele werkruimte.",
+                "cta": "Gratis Registreren"
+            },
+            "section4": {
+                "title": "Uw AI-assistent voor Moeiteloze Contentcreatie",
+                "description": "Stop met tijd verspillen aan lege schermen.",
+                "paragraph1": "Flowxtra's ingebouwde AI-assistent helpt u boeiende berichten te maken, creatieve bijschriften te genereren en uw toon aan te passen voor elk platform — of het nu LinkedIn, Instagram, TikTok of X is.",
+                "features": {
+                    "feature1": "Genereer direct ideeën en bijschriften.",
+                    "feature2": "Optimaliseer toon en taal voor elk kanaal.",
+                    "feature3": "Bespaar tijd terwijl u uw merk consistent houdt."
+                },
+                "paragraph2": "Creëer in enkele seconden hoogwaardige content en houd uw social media actief — zonder de energie van uw team uit te putten.",
+                "cta": "Gratis Registreren"
+            },
+            "section5": {
+                "title": "Creëer en Deel Pipelines — Zonder Volledige Toegang Te Geven",
+                "description": "Werk veilig samen met uw team of partners met Flowxtra Pipelines.",
+                "paragraph1": "Wijs specifieke social media-accounts toe, genereer een unieke deelbare link en laat anderen berichten maken of publiceren — allemaal zonder toegang tot uw Flowxtra-dashboard of sociale accounts.",
+                "features": {
+                    "feature1": "Deel publicatietoegang via veilige links.",
+                    "feature2": "Maak pipelines voor teams, klanten of afdelingen.",
+                    "feature3": "Beheer machtigingen en behoud volledige platformbeveiliging."
+                },
+                "paragraph2": "Perfect voor marketingbureaus, grote teams en bedrijven met meerdere afdelingen — samenwerking mogelijk maken zonder controle in te leveren.",
+                "cta": "Probeer Social Media Pipeline"
+            },
+            "ctaSection": {
+                "title": "Klaar om Slimmer en Sneller Te Werven?",
+                "description": "Stop met tijd verspillen aan schakelen tussen vacaturesites. Plaats vacatures, volg sollicitanten en werf toptalent — allemaal vanaf één intelligent wervingsplatform.",
+                "cta": "Start uw gratis plan"
+            },
+            "faq": {
+                "title": "Veelgestelde Vragen",
+                "helpText": "Nog steeds hulp nodig?",
+                "chatLink": "Chat met ons",
+                "questions": {
+                    "q1": {
+                        "question": "Is Flowxtra Social Media Beheer gratis te gebruiken?",
+                        "answer": "Ja — Flowxtra Social Media Beheer biedt een gratis plan met tot 4 social media-accounts. U kunt uw accounts van Instagram, Facebook, LinkedIn, TikTok en X verbinden, ze beheren vanaf één dashboard, berichten plannen en uw activiteit analyseren zonder kosten. Als u meer dan 4 accounts nodig heeft, kunt u upgraden naar een betaald plan. De enige betaalde functie is de Social Media Pipeline, waarmee u kunt samenwerken met teams en partners zonder volledige toegang tot uw accounts te geven."
+                    },
+                    "q2": {
+                        "question": "Wat is Social Media Pipeline en waarom heb ik het nodig?",
+                        "answer": "Social Media Pipeline is een betaalde functie die veilige samenwerking mogelijk maakt. Met één Pipeline-abonnement kunt u tot 2 social media-accounts toewijzen aan teamleden, klanten of afdelingen, unieke deelbare links genereren en anderen berichten laten maken of publiceren — allemaal zonder toegang tot uw Flowxtra-dashboard of sociale accounts. Het is perfect voor marketingbureaus, grote teams en bedrijven met meerdere afdelingen die samenwerking mogelijk willen maken zonder controle in te leveren."
+                    },
+                    "q3": {
+                        "question": "Hoeveel social media-accounts kan ik verbinden?",
+                        "answer": "Met het gratis plan kunt u tot 4 social media-accounts van verschillende platforms (Instagram, Facebook, LinkedIn, TikTok, X) verbinden met uw Flowxtra-dashboard. Alle accounts worden beheerd vanaf één uniforme interface, waardoor het gemakkelijk is om uw social media-activiteit over alle platforms te plannen, plannen en volgen. Als u meer dan 4 accounts nodig heeft, kunt u upgraden naar een betaald abonnementsplan."
+                    },
+                    "q4": {
+                        "question": "Kan ik berichten voor meerdere platforms tegelijk plannen?",
+                        "answer": "Ja! Flowxtra's Visuele Contentkalender stelt u in staat om berichten te plannen voor al uw verbonden platforms (Instagram, Facebook, LinkedIn, TikTok en X) vanaf één plek. Plan één keer en publiceer overal, of pas berichten individueel aan voor elk platform. U kunt ook slepen en neerzetten om uw publicatieschema direct aan te passen."
+                    },
+                    "q5": {
+                        "question": "Waar worden mijn gegevens opgeslagen?",
+                        "answer": "Uw privacy en gegevensbeveiliging zijn onze topprioriteiten. Al uw bestanden worden veilig opgeslagen in uw eigen verbonden opslag — Google Drive, Dropbox of AWS — niet op onze servers. Flowxtra bewaart alleen de minimale technische gegevens die nodig zijn om uw services naadloos te verbinden en te synchroniseren. Uw gegevens blijven van u, altijd beschermd."
+                    },
+                    "q6": {
+                        "question": "Heeft Flowxtra een AI-assistent voor contentcreatie?",
+                        "answer": "Ja! Flowxtra bevat een ingebouwde AI-assistent die u helpt boeiende berichten te maken, creatieve bijschriften te genereren en uw toon aan te passen voor elk platform. Of u nu content maakt voor LinkedIn, Instagram, TikTok of X, de AI-assistent kan direct ideeën en bijschriften genereren, toon en taal optimaliseren voor elk kanaal en tijd besparen terwijl u uw merk consistent houdt."
+                    },
+                    "q7": {
+                        "question": "Kan ik op elk moment annuleren?",
+                        "answer": "Ja, absoluut. Omdat de kern Social Media Beheer functies gratis zijn, kunt u ze voor onbepaalde tijd gebruiken zonder enige verplichting. Als u de betaalde Social Media Pipeline-functie gebruikt, kunt u op elk moment annuleren zonder boetes of langetermijncontracten."
+                    }
+                }
+            }
+        }
+    },
+    "affiliateBanner": {
+        "message": "Nodig een vriend uit en ontvang €594 cadeau!",
+        "linkText": "Word Lid van Partnerprogramma",
+        "closeLabel": "Banner sluiten"
+    }
+}

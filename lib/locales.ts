@@ -12,7 +12,15 @@
  * All supported locales in the application
  * Add new locales here to automatically enable them across the app
  */
-export const supportedLocales = ["en", "de"] as const;
+export const supportedLocales = [
+  "en",
+  "de",
+  "fr",
+  "es",
+  "it",
+  "nl",
+  // "ar", // Temporarily disabled
+] as const;
 
 /**
  * Type for supported locale values

@@ -1,0 +1,1147 @@
+{
+    "metadata": {
+        "home": {
+            "title": "Flowxtra – Software di Reclutamento & Strumento di Assunzione Intelligente | Pubblicazione Gratuita Offerte di Lavoro",
+            "description": "Assumi in modo più intelligente con l'IA — pubblica offerte di lavoro gratuitamente e gestisci i candidati in un'unica piattaforma semplice e potente."
+        },
+        "contact": {
+            "title": "Contattaci – Supporto Flowxtra | Ottieni Aiuto con il Software di Reclutamento",
+            "description": "Hai domande su Flowxtra? Contatta il nostro team di supporto per ottenere aiuto con il software di reclutamento, le funzionalità ATS e le soluzioni di assunzione. Rispondiamo entro 24 ore."
+        },
+        "pricing": {
+            "title": "Piani Tariffari – Flowxtra | ATS Gratuito & Software di Reclutamento",
+            "description": "Scegli il piano perfetto per la tua azienda. Inizia con 5 pubblicazioni gratuite al mese. Prezzi trasparenti, nessun costo nascosto."
+        },
+        "affiliate": {
+            "title": "Programma di Affiliazione – Guadagna il 50% di Commissione | Flowxtra",
+            "description": "Unisciti al programma di affiliazione di Flowxtra e guadagna il 50% di commissione fino a 12 mesi per ogni referral. Condividi il tuo link di referral unico e inizia a guadagnare oggi."
+        },
+        "features": {
+            "title": "Funzionalità – Reclutamento IA & Software ATS | Flowxtra",
+            "description": "Scopri le potenti funzionalità di Flowxtra: pubblicazione gratuita di offerte di lavoro, filtro candidati IA, multipubblicazione, modelli email e molto altro."
+        }
+    },
+    "common": {
+        "language": "Lingua",
+        "english": "Inglese",
+        "german": "Tedesco",
+        "registerForFree": "Registrati Gratuitamente",
+        "getStarted": "Inizia",
+        "login": "Accedi",
+        "signup": "Iscriviti",
+        "learnMore": "Scopri di più",
+        "viewPricing": "Vedi i prezzi",
+        "contactUs": "Contattaci",
+        "features": "Funzionalità",
+        "pricing": "Prezzi",
+        "services": "Servizi"
+    },
+    "navigation": {
+        "socialMediaManagement": "Gestione Social Media",
+        "atsRecruitingSoftware": "Software di Reclutamento ATS"
+    },
+    "homepage": {
+        "title": "Benvenuto in Flowxtra",
+        "subtitle": "Testa il supporto multilingue",
+        "hero": {
+            "title": "Software ATS per il Reclutamento & Assunzioni",
+            "subtitle": "Piattaforma Tutto-in-Uno per Ottimizzare il Tuo Processo di Assunzione",
+            "description": "Software ATS completo per semplificare le assunzioni e gestire il tuo team. Inizia con 5 pubblicazioni gratuite al mese",
+            "cta": "Inizia il Tuo Piano Gratuito",
+            "imageAlt": "Perché Flowxtra è la Migliore Piattaforma Gratuita per Offerte di Lavoro",
+            "imageTitle": "Pubblicazione Gratuita Offerte di Lavoro",
+            "figcaption": "Controlla tutto da un'unica dashboard intelligente. Vista completa della dashboard di Flowxtra per gestire e pubblicare offerte di lavoro gratuite."
+        },
+        "gdpr": {
+            "badge": "GDPR & DSGVO",
+            "title": "Flowxtra Assunzioni Più Intelligenti\nCrescita Più Veloce",
+            "description1": "Flowxtra semplifica le assunzioni con l'IA! Crea annunci di lavoro, connettiti con i candidati e automatizza attività come la pianificazione—rendendo il reclutamento più veloce e intelligente.",
+            "description2": "Tutti i dati sono archiviati in modo sicuro nell'UE. Trasparenza. Privacy. Conformità — integrata fin dalla progettazione.",
+            "faqLink": "Leggi le nostre FAQ complete"
+        },
+        "video": {
+            "title": "Software di Reclutamento ATS nelle tue mani",
+            "description": "Accelera il tuo processo di acquisizione talenti utilizzando la nostra innovativa soluzione di reclutamento IA.",
+            "playButton": "Riproduci Video",
+            "iframeTitle": "Software di Reclutamento ATS"
+        },
+        "whyUseFlowxtra": {
+            "title": "Perché Usare Flowxtra?",
+            "description": "Con Flowxtra, ti aiuteremo a gestire l'intera tua attività, dalla creazione di candidature, alla gestione dei tuoi account social media, alla firma dei contratti online.",
+            "features": {
+                "freePosting": "Pubblicazione gratuita offerte di lavoro",
+                "freeScheduling": "Pianificazione gratuita social media",
+                "userFriendly": "Interfaccia user-friendly.",
+                "highSecurity": "Alta sicurezza.",
+                "integration": "Integrazione tra applicazioni.",
+                "support": "Servizio di supporto continuo.",
+                "scalable": "Scalabile per tutte le dimensioni aziendali — dalle startup alle grandi imprese"
+            },
+            "cta": "Scopri Flowxtra"
+        },
+        "recruitment": {
+            "title": "Reclutamento",
+            "description": "L'App di Reclutamento aiuta le aziende e i team HR a semplificare il processo di assunzione—dalla pubblicazione di annunci di lavoro all'assunzione del talento giusto.",
+            "features": {
+                "freeJobPosting": "Pubblicazione Gratuita Offerte di Lavoro Con Flowxtra",
+                "postManage": "Pubblica e gestisci facilmente le posizioni aperte",
+                "tracking": "Tracciamento centralizzato dei candidati con filtri intelligenti",
+                "interviews": "Colloqui online integrati",
+                "collaboration": "Collaborazione del team per la valutazione dei candidati",
+                "reports": "Report e analytics per ottimizzare le assunzioni"
+            },
+            "whoIsItFor": {
+                "title": "Per Chi È?",
+                "description": "Startup, aziende e agenzie di reclutamento che vogliono assumere più velocemente, in modo più intelligente ed efficiente."
+            },
+            "cta": "Inizia Ora",
+            "imageAlt": "Dashboard gratuita pubblicazione offerte di lavoro Flowxtra",
+            "imageTitle": "Dashboard Pubblicazione Gratuita Offerte di Lavoro",
+            "figcaption": "Controlla tutto da un'unica dashboard intelligente. Vista completa della dashboard di Flowxtra per gestire e pubblicare offerte di lavoro gratuite."
+        },
+        "freeJobPosting": {
+            "title": "Pubblicazione Gratuita Offerte di Lavoro per Assunzioni Intelligenti",
+            "description1": "Pubblica fino a 5 annunci di lavoro gratuitamente ogni mese — nessun costo nascosto, nessuna carta di credito richiesta.",
+            "description2": "Flowxtra ti aiuta a pubblicare offerte di lavoro su LinkedIn, Google Jobs e altro — tutto da un'unica potente dashboard."
+        },
+        "socialMediaManager": {
+            "title": "Gestore Social Media",
+            "description": "L'App Gestore Social Media aiuta aziende e creator a gestire, pianificare e analizzare contenuti su più piattaforme in un unico posto.",
+            "features": {
+                "connectManage": "Connetti e gestisci più account",
+                "schedule": "Pianifica i post in anticipo con facilità",
+                "collaboration": "Collaborazione del team e workflow di approvazione",
+                "analytics": "Analytics e report per tracciare performance e coinvolgimento"
+            },
+            "whoIsItFor": {
+                "title": "Per Chi È?",
+                "description": "Agenzie, piccole imprese e freelancer che vogliono risparmiare tempo, rimanere organizzati e far crescere la loro presenza online."
+            },
+            "cta": "Gratis per sempre",
+            "imageAlt": "Pubblica Offerte di Lavoro sui Social Media Gratuitamente – Pianificatore Flowxtra",
+            "imageTitle": "Pubblicazione e pianificazione gratuita offerte di lavoro sui social media con Flowxtra"
+        },
+        "multipleJobPosting": {
+            "badge": "Multipubblicazione Offerte di Lavoro",
+            "title": "Pubblica Offerte di Lavoro su Più Piattaforme Istantaneamente",
+            "description": "Il software di reclutamento gratuito di Flowxtra ti permette di pubblicare e pianificare annunci di lavoro sulle principali piattaforme social media — inclusi LinkedIn, Facebook e Instagram. Automatizza la tua diffusione, risparmia tempo prezioso e assumi in modo più intelligente — tutto senza costi.",
+            "cta": "Inizia a Pubblicare Gratuitamente",
+            "imageAlt": "Pubblicazione e pianificazione gratuita offerte di lavoro sui social media con Flowxtra",
+            "imageTitle": "Pubblica Offerte di Lavoro sui Social Media Gratuitamente – Pianificatore Flowxtra"
+        },
+        "featuresSlider": {
+            "slides": {
+                "slide1": {
+                    "badge": "Risultati di Reclutamento Reali",
+                    "title": "Filtraggio e Visualizzazione Candidati Più Intelligenti",
+                    "description": "L'ATS alimentato dall'IA di Flowxtra semplifica il reclutamento. Filtra e visualizza i candidati con viste elenco, scheda o board drag-and-drop, poi muovi i migliori talenti attraverso ogni fase con facilità.",
+                    "buttonText": "Registrati Gratuitamente",
+                    "imageAlt": "Board visuale candidati – parte dello strumento gratuito di reclutamento IA"
+                },
+                "slide2": {
+                    "badge": "Flusso Board Candidati",
+                    "title": "Intelligenza Visuale dei Talenti",
+                    "description": "Confronta, filtra e mappa i candidati con il board di assunzione dinamico di Flowxtra. Traccia le candidature, ottieni insights e prendi decisioni di assunzione più intelligenti — tutto da un'unica vista potente e interattiva.",
+                    "buttonText": "Registrati Gratuitamente",
+                    "imageAlt": "Visualizza i CV dei candidati all'interno del sistema gratuito di reclutamento IA"
+                },
+                "slide3": {
+                    "badge": "Intelligenza Candidati Centralizzata",
+                    "title": "Vista Profilo Candidato",
+                    "description": "Accedi a curriculum, lettere di presentazione, profili LinkedIn e risposte di screening in un'unica interfaccia pulita. Aggiungi note, assegna colloqui, invia valutazioni e valuta i candidati — tutto da una vista profilo unificata.",
+                    "buttonText": "Registrati Gratuitamente",
+                    "imageAlt": "Visualizza i CV dei candidati all'interno del sistema gratuito di reclutamento IA"
+                },
+                "slide4": {
+                    "badge": "Un Annuncio di Lavoro. Più Piattaforme.",
+                    "title": "Multipubblicazione Semplificata",
+                    "description": "Pubblica una volta e diffondi sui principali portali di lavoro — LinkedIn, Google Jobs, Stepstone e altro. Traccia clic, visualizzazioni e candidature da ovunque — il tuo sito web, piattaforme esterne e oltre — tutto in un'unica dashboard intelligente.",
+                    "buttonText": "Registrati Gratuitamente",
+                    "imageAlt": "Multipubblicazione Semplificata"
+                },
+                "slide5": {
+                    "badge": "Comunicazione Automatizzata e Personalizzata",
+                    "title": "Modelli Email per Assunzioni",
+                    "description": "Risparmia tempo con modelli email intelligenti personalizzati per ogni fase di assunzione. Invia rifiuti, inviti a colloqui o aggiornamenti — più velocemente, in modo coerente e sempre professionale.",
+                    "buttonText": "Registrati Gratuitamente",
+                    "imageAlt": "Modelli Email per Assunzioni"
+                },
+                "slide6": {
+                    "badge": "Visualizza l'Intero Processo di Reclutamento a Colpo d'Occhio",
+                    "title": "Board Diagramma Assunzioni Intelligente",
+                    "description": "Il board diagramma avanzato di Flowxtra ti permette di mappare relazioni tra candidati, fasi di assunzione e feedback del team in tempo reale. Trascina e rilascia i candidati, assegna compiti e collabora con il tuo team — tutto in un'unica dashboard visuale.",
+                    "buttonText": "Registrati Gratuitamente",
+                    "imageAlt": "Board visuale candidati – parte dello strumento gratuito di reclutamento IA"
+                },
+                "slide7": {
+                    "badge": "WIDGET LAVORO",
+                    "title": "Aggiungi Elenchi di Lavoro a Qualsiasi Sito Web",
+                    "description": "Con il Widget Lavoro di Flowxtra, puoi visualizzare istantaneamente le posizioni aperte della tua azienda sul tuo sito web — senza alcuna configurazione tecnica o integrazione API. Che tu stia usando WordPress, Wix, Shopify o qualsiasi altra piattaforma, copia semplicemente il codice di incorporamento e il tuo portale lavoro diventa attivo automaticamente.",
+                    "buttonText": "Registrati Gratuitamente",
+                    "imageAlt": "Aggiungi Elenchi di Lavoro a Qualsiasi Sito Web",
+                    "embedCodeTitle": "Codice di Incorporamento"
+                }
+            }
+        },
+        "reviews": {
+            "title": "La scelta n°1 per i reclutatori moderni",
+            "rating": "4.8",
+            "reviews": {
+                "review1": {
+                    "name": "Sarah Mitchell",
+                    "title": "Responsabile HR",
+                    "text": "Flowxtra ha trasformato il nostro processo di assunzione! Le 10 pubblicazioni gratuite mensili sono perfette per la nostra startup, e il filtro candidati alimentato dall'IA ci fa risparmiare ore ogni settimana.",
+                    "date": "12 luglio 2025"
+                },
+                "review2": {
+                    "name": "Klaus Müller",
+                    "title": "Direttore del Reclutamento",
+                    "text": "Il miglior software di reclutamento che abbiamo mai usato. La funzione di multipubblicazione e l'integrazione del gestore social media sono veri game changer. Altamente raccomandato!",
+                    "date": "5 agosto 2025"
+                },
+                "review3": {
+                    "name": "Sophie Laurent",
+                    "title": "Responsabile HR",
+                    "text": "Come responsabile HR, Flowxtra soddisfa tutte le mie esigenze: ATS e gestione social media in un'unica piattaforma. La conformità GDPR ci dà completa tranquillità.",
+                    "date": "28 agosto 2025"
+                },
+                "review4": {
+                    "name": "Petra Schneider",
+                    "title": "Specialista Acquisizione Talenti",
+                    "text": "Ottimo software con eccellenti funzionalità. Il piano gratuito è generoso e l'interfaccia utente è intuitiva. Il supporto clienti potrebbe essere più veloce, ma nel complesso molto soddisfatta.",
+                    "date": "18 settembre 2025"
+                },
+                "review5": {
+                    "name": "Michael Thompson",
+                    "title": "CEO & Fondatore",
+                    "text": "Finalmente, una soluzione tutto-in-uno che funziona davvero! Flowxtra combina reclutamento e gestione social media senza problemi. Le 5 pubblicazioni gratuite sono una salvezza per il nostro team.",
+                    "date": "22 ottobre 2025"
+                }
+            }
+        },
+        "faq": {
+            "title": "Domande Frequenti",
+            "helpText": "Hai ancora bisogno di aiuto?",
+            "chatLink": "Chatta con noi",
+            "officialSources": "Fonti Ufficiali:",
+            "questions": {
+                "q1": {
+                    "question": "Flowxtra è gratuito per pubblicare offerte di lavoro?",
+                    "answer": "Sì — Flowxtra offre un piano completamente gratuito che include fino a 5 pubblicazioni gratuite al mese. Puoi pubblicare i tuoi annunci di lavoro sulle principali piattaforme come LinkedIn, Google Jobs e Stepstone senza pagare un centesimo. È la soluzione perfetta per startup, piccole imprese e team in crescita che cercano di pubblicare offerte di lavoro online gratuitamente e attrarre i migliori talenti senza sforzo."
+                },
+                "q2": {
+                    "question": "Posso aggiornare il mio piano Flowxtra in seguito se necessario?",
+                    "answer": "Sì, puoi passare a un piano superiore in qualsiasi momento per accedere a più funzionalità e limiti più elevati."
+                },
+                "q3": {
+                    "question": "Quali funzionalità sono incluse in ogni piano?",
+                    "answer": "I piani offrono varie funzionalità come limiti di pubblicazione aumentati, strumenti di collaborazione del team, pipeline di assunzione, modelli email, integrazione chatbot IA e supporto dominio personalizzato."
+                },
+                "q4": {
+                    "question": "Ogni piano include il supporto chatbot IA?",
+                    "answer": "Sì, presto ogni piano includerà un chatbot IA. Flowxtra non esegue punteggi IA o matching. Il nostro chatbot IA aiuta semplicemente i reclutatori a filtrare i candidati più velocemente — per esempio, chiedendo \"Chi conosce JavaScript o PHP?\" il sistema cerca rapidamente nei CV e mostra i nomi corrispondenti. Quando clicchi su un nome, appaiono i dettagli completi del CV del candidato."
+                },
+                "q5": {
+                    "question": "Cos'è la funzionalità Dominio Personalizzato?",
+                    "answer": "La funzionalità Dominio Personalizzato ti permette di usare il tuo nome di dominio per la pagina della tua azienda."
+                },
+                "q6": {
+                    "question": "Posso integrare Flowxtra con altre applicazioni?",
+                    "answer": "Sì, tutti i piani includono un token API per l'integrazione e l'automazione di app di terze parti."
+                },
+                "q7": {
+                    "question": "Flowxtra è una piattaforma di lavoro o un sistema di reclutamento?",
+                    "answer": "Flowxtra è più di un semplice ATS — è una piattaforma di reclutamento flessibile alimentata dall'IA. Le aziende possono usare Flowxtra in due modi:\n\n• Come piattaforma di lavoro pubblica: Pubblica offerte gratuitamente su Flowxtra e reti partner come Google Jobs, LinkedIn e altro.\n\n• Come sistema di assunzione privato: Configura il tuo ATS personalizzato dove solo il tuo team gestisce dati candidati, colloqui e assunzioni — completamente sicuro e self-hosted.\n\nSiamo specializzati nella creazione di software di reclutamento personalizzato su misura per le esigenze della tua azienda, che tu sia una startup o una grande impresa."
+                },
+                "q8": {
+                    "question": "Flowxtra è adatto per piccole, medie e grandi aziende?",
+                    "answer": "Sì, assolutamente. Flowxtra è costruito per adattarsi a ogni dimensione aziendale — che tu sia una startup, un'azienda in crescita o una grande impresa. La piattaforma si scala automaticamente per corrispondere al tuo volume di assunzioni, struttura del team e esigenze di workflow. È perfetto per piccoli team che hanno bisogno di un modo semplice ed efficiente per gestire le offerte di lavoro, così come per corporation globali che gestiscono migliaia di candidati ogni giorno — tutto con la stessa affidabilità, velocità e sicurezza."
+                },
+                "q9": {
+                    "question": "Flowxtra può gestire migliaia di candidature?",
+                    "answer": "Sì, può farlo. L'architettura cloud moderna di Flowxtra è progettata per performance e scalabilità. Può facilmente elaborare e organizzare migliaia di candidature senza rallentare, garantendo che i team HR di qualsiasi dimensione possano lavorare in modo efficiente, anche durante periodi di reclutamento intenso."
+                },
+                "q10": {
+                    "question": "Flowxtra è conforme all'EU AI Act per i sistemi di reclutamento?",
+                    "answer": "Sì, Flowxtra è completamente conforme all'EU AI Act (Regolamento 2024/1689) e GDPR.\n\nCosa significa?\n\nFlowxtra non è uno strumento di decisione automatizzata. Non usa l'intelligenza artificiale per:\n• Assegnare punteggi, classificare o filtrare i candidati\n• Selezionare o raccomandare \"il miglior candidato\"\n• Eseguire profilazione o matching automatizzati\n\nInvece, Flowxtra è un Applicant Tracking System (ATS) human-first. La nostra IA è usata solo per:\n• Aiutare le aziende a scrivere annunci di lavoro più velocemente\n• Assistere nella comunicazione con i candidati\n• Automatizzare la pubblicazione di offerte di lavoro su piattaforme come LinkedIn e Google Jobs\n\nRimani completamente in controllo di tutte le decisioni di assunzione. Flowxtra non sostituisce mai il giudizio umano."
+                },
+                "q11": {
+                    "question": "Flowxtra è completamente conforme all'EU AI Act?",
+                    "answer": "No, basandosi sull'attuale interpretazione legale dell'organismo regolatore austriaco RTR (KI-Servicestelle), Flowxtra non è classificato come sistema IA ad alto rischio — a condizione che:\n\n• Non vengano utilizzati decision-making o filtri automatizzati\n• L'IA sia usata solo per assistere, non per decidere\n• Le interazioni con l'IA (es. chatbot) siano chiaramente divulgate\n• Flowxtra non elabori dati personali sensibili come genere, origine o religione\n\nTutto l'uso dell'IA è trasparente, spiegabile e conforme all'Articolo 50 dell'EU AI Act.",
+                    "links": [
+                        {
+                            "text": "EU AI Act – EUR-Lex (Regolamento 2024/1689)",
+                            "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32024R1689"
+                        },
+                        {
+                            "text": "Requisiti di Trasparenza (RTR Austria)",
+                            "url": "https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Transparenzpflichten.de.html"
+                        },
+                        {
+                            "text": "Linee Guida Generali AI Act (RTR Austria)",
+                            "url": "https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/AI_Act.de.html"
+                        }
+                    ]
+                },
+                "q12": {
+                    "question": "Flowxtra è completamente conforme al GDPR e DSGVO?",
+                    "answer": "Sì, Flowxtra è completamente conforme al Regolamento Generale sulla Protezione dei Dati (GDPR) e al Datenschutz-Grundverordnung (DSGVO).\n\nNon elaboriamo dati personali sensibili come genere, etnia, religione o convinzioni politiche. I dati dei candidati sono archiviati in modo sicuro e gestiti esclusivamente dall'azienda che usa la piattaforma.\n\nFlowxtra non prende decisioni automatizzate sui candidati. I datori di lavoro mantengono il pieno controllo su tutti i dati dei candidati e le decisioni di assunzione.\n\nI nostri sistemi includono gestione trasparente del consenso, controlli di accesso ai dati e una procedura chiara per i candidati per richiedere la cancellazione dei dati o presentare reclami, in linea con gli Articoli 12–23 del GDPR.\n\nTutti i dati sono ospitati nell'Unione Europea e la nostra infrastruttura segue le migliori pratiche del settore per sicurezza e protezione dei dati."
+                }
+            }
+        }
+    },
+    "contact": {
+        "badge": "Mettiti in Contatto",
+        "title": "Parliamo, Contattaci.",
+        "description": "Hai domande o feedback? Siamo qui per aiutarti. Inviaci un messaggio e risponderemo entro 24 ore",
+        "form": {
+            "email": "Indirizzo Email",
+            "firstName": "Nome Completo",
+            "message": "Il Tuo Messaggio",
+            "emailPlaceholder": "tuo@email.com",
+            "firstNamePlaceholder": "Mario Rossi",
+            "messagePlaceholder": "Scrivi il tuo messaggio qui...",
+            "required": "*",
+            "agreeWith": "Sì, accetto la",
+            "privacyPolicy": "politica sulla privacy",
+            "and": "e",
+            "termsConditions": "termini e condizioni",
+            "sendButton": "Invia Messaggio",
+            "sending": "Invio in corso...",
+            "successTitle": "Messaggio inviato con successo!",
+            "successMessage": "Risponderemo entro 24 ore.",
+            "errorTitle": "Invio messaggio fallito",
+            "errorMessage": "Riprova più tardi."
+        },
+        "info": {
+            "email": "Email",
+            "phone": "Telefono",
+            "address": "Indirizzo",
+            "addressValue": "Wipplingerstraße 20/18, 1010 Vienna"
+        },
+        "imageAlt": "Piattaforma di reclutamento e HR alimentata dall'IA per assunzioni più intelligenti",
+        "imageTitle": "Flowxtra – Piattaforma Tutto-in-Uno di Reclutamento IA & HR",
+        "figcaption": "Gestisci offerte di lavoro, candidati e contratti con l'IA — tutto in un unico posto, Gratis."
+    },
+    "about": {
+        "badge": "Chi Siamo",
+        "title": "Costruire il Futuro del Reclutamento",
+        "description": "Flowxtra ha la missione di trasformare il modo in cui le aziende assumono talenti. Combiniamo tecnologia IA all'avanguardia con design intuitivo per rendere il reclutamento più veloce, intelligente e accessibile per tutti.",
+        "mission": {
+            "title": "La Nostra Missione",
+            "description": "Crediamo che trovare e assumere il talento giusto non dovrebbe essere complicato o costoso. Ecco perché abbiamo costruito Flowxtra—una piattaforma completa che semplifica ogni fase del processo di reclutamento.",
+            "description2": "Dalla pubblicazione di offerte su più piattaforme alla gestione dei candidati con filtri alimentati dall'IA, siamo qui per aiutare aziende di tutte le dimensioni a costruire team più forti."
+        },
+        "values": {
+            "title": "I Nostri Valori Fondamentali",
+            "innovation": {
+                "title": "Innovazione",
+                "description": "Spingiamo costantemente i confini di ciò che è possibile nella tecnologia di reclutamento."
+            },
+            "transparency": {
+                "title": "Trasparenza",
+                "description": "Crediamo in una comunicazione onesta e chiara e in prezzi trasparenti—nessun costo nascosto, mai."
+            },
+            "security": {
+                "title": "Sicurezza & Privacy",
+                "description": "I tuoi dati sono sicuri. Siamo conformi al GDPR e archiviamo tutti i dati su server UE con i più alti standard di sicurezza."
+            }
+        },
+        "team": {
+            "title": "Il Nostro Team",
+            "description": "Con sede a Vienna, Austria, siamo un team dedicato di sviluppatori, designer e professionisti HR appassionati nel rendere il reclutamento migliore per tutti."
+        }
+    },
+    "accessibility": {
+        "title": "Dichiarazione di Accessibilità",
+        "subtitle": "Il Nostro Impegno per l'Accessibilità Web e la Conformità WCAG",
+        "introduction": {
+            "title": "Introduzione",
+            "paragraph1": "Flowxtra è impegnata a garantire l'accessibilità digitale per le persone con disabilità. Miglioriamo continuamente l'esperienza utente per tutti e applichiamo standard di accessibilità rilevanti per raggiungere i nostri obiettivi di accesso paritario alle informazioni e alle funzionalità per tutti gli utenti."
+        },
+        "wcagStandards": {
+            "title": "Standard di Conformità WCAG",
+            "paragraph1": "Il nostro sito web mira a conformarsi agli standard Web Content Accessibility Guidelines (WCAG) 2.1 Livello AA. Queste linee guida spiegano come rendere i contenuti web più accessibili per le persone con disabilità e user-friendly per tutti.",
+            "principles": {
+                "title": "Principi WCAG 2.1 Livello AA:",
+                "perceivable": {
+                    "title": "Percepibile",
+                    "description": "Le informazioni e i componenti dell'interfaccia utente devono essere presentabili agli utenti in modi che possano percepire."
+                },
+                "operable": {
+                    "title": "Operabile",
+                    "description": "I componenti dell'interfaccia utente e la navigazione devono essere operabili."
+                },
+                "understandable": {
+                    "title": "Comprensibile",
+                    "description": "Le informazioni e il funzionamento dell'interfaccia utente devono essere comprensibili."
+                },
+                "robust": {
+                    "title": "Robusto",
+                    "description": "Il contenuto deve essere sufficientemente robusto da poter essere interpretato da un'ampia varietà di user agent, comprese le tecnologie assistive."
+                }
+            }
+        },
+        "accessibilityFeatures": {
+            "title": "Funzionalità di Accessibilità",
+            "keyboardNavigation": {
+                "title": "Navigazione da Tastiera",
+                "description": "Tutti gli elementi interattivi possono essere accessibili usando solo la navigazione da tastiera. Usa Tab per avanzare, Shift+Tab per tornare indietro e Invio o Spazio per attivare pulsanti e link."
+            },
+            "screenReaderSupport": {
+                "title": "Supporto Screen Reader",
+                "description": "Il nostro sito web include HTML semantico appropriato, etichette ARIA e testo alternativo per le immagini per garantire la compatibilità con screen reader e altre tecnologie assistive."
+            },
+            "colorContrast": {
+                "title": "Contrasto Colore",
+                "description": "I colori del testo e dello sfondo soddisfano gli standard WCAG AA per i rapporti di contrasto del colore, garantendo che il contenuto sia leggibile per gli utenti con disabilità visive."
+            },
+            "responsiveDesign": {
+                "title": "Design Responsivo",
+                "description": "Il nostro sito web è completamente responsivo e può essere accessibile su vari dispositivi e dimensioni dello schermo, con supporto per zoom fino al 200% senza perdere funzionalità."
+            }
+        },
+        "knownIssues": {
+            "title": "Problemi Noti e Limitazioni",
+            "paragraph1": "Nonostante i nostri sforzi per garantire l'accessibilità, potrebbero esserci alcune limitazioni. Stiamo lavorando attivamente per affrontare questi problemi e migliorare l'accessibilità del nostro sito web.",
+            "paragraph2": "Se incontri barriere di accessibilità, contattaci usando le informazioni fornite di seguito."
+        },
+        "feedback": {
+            "title": "Feedback e Contatto",
+            "paragraph1": "Accogliamo il tuo feedback sull'accessibilità di Flowxtra. Se hai incontrato barriere di accessibilità, o se hai suggerimenti per miglioramenti, contattaci:",
+            "emailLabel": "Email",
+            "addressLabel": "Indirizzo",
+            "addressValue": "Wipplingerstraße 20/18, 1010 Vienna, Austria"
+        },
+        "updates": {
+            "title": "Aggiornamenti a Questa Dichiarazione",
+            "paragraph1": "Esaminiamo e aggiorniamo regolarmente questa dichiarazione di accessibilità per riflettere il nostro impegno e progresso continui. Questa dichiarazione è stata aggiornata l'ultima volta il {date}."
+        },
+        "conformance": {
+            "title": "Stato di Conformità",
+            "paragraph1": "Le Web Content Accessibility Guidelines (WCAG) definiscono i requisiti per designer e sviluppatori per migliorare l'accessibilità per le persone con disabilità.",
+            "paragraph2": "Il sito web di Flowxtra mira a conformarsi agli standard WCAG 2.1 Livello AA. Stiamo continuamente lavorando per migliorare l'accessibilità del nostro sito web e accogliamo il feedback dagli utenti."
+        },
+        "widget": {
+            "title": "Accessibilità",
+            "close": "Chiudi",
+            "reset": "Ripristina",
+            "sections": {
+                "contentAdjustments": "Regolazioni Contenuto",
+                "orientationAdjustments": "Regolazioni Orientamento",
+                "colorAdjustments": "Regolazioni Colore"
+            },
+            "content": {
+                "biggerText": "Testo più grande",
+                "biggerLineHeight": "Altezza riga più grande",
+                "textAlign": "Allineamento testo",
+                "readableFont": "Font leggibile"
+            },
+            "orientation": {
+                "pageStructure": "Struttura pagina",
+                "screenReader": "Screen reader",
+                "readingMask": "Maschera di lettura",
+                "hideImages": "Nascondi immagini",
+                "pauseAnimations": "Pausa animazioni",
+                "highlightLinks": "Evidenzia link",
+                "outlineFocus": "Contorno focus"
+            },
+            "color": {
+                "darkMode": "Modalità scura",
+                "lightMode": "Modalità chiara",
+                "greyscale": "Scala di grigi",
+                "contrast": "Contrasto"
+            },
+            "navigation": {
+                "search": "Cerca"
+            },
+            "footer": {
+                "poweredBy": "Accessibilità di",
+                "dpro": "Dpro",
+                "statement": "Dichiarazione",
+                "sitemap": "Mappa del sito"
+            }
+        }
+    },
+    "pricing": {
+        "section": {
+            "title": "Piani e Prezzi",
+            "subtitle": "Quello che vedi è esattamente quello che paghi: un abbonamento semplice, nessun costo aggiuntivo.",
+            "noCreditCard": "Nessuna carta di credito richiesta",
+            "cancelAnytime": "Annulla in qualsiasi momento"
+        },
+        "plans": {
+            "free": "Gratuito",
+            "starter": "Starter",
+            "basic": "Basic",
+            "professional": "Professional",
+            "advanced": "Advanced",
+            "premium": "Premium",
+            "enterprise": "Enterprise",
+            "monthly": "/ al mese",
+            "forGrowingBusinesses": "Per aziende in crescita",
+            "forCustomNeeds": "Per esigenze personalizzate",
+            "getStarted": "Inizia",
+            "contactUs": "Contattaci"
+        },
+        "features": {
+            "keyFeatures": "Funzionalità Chiave:",
+            "jobPostings": {
+                "5": "5 pubblicazioni",
+                "10": "10 pubblicazioni",
+                "15": "15 pubblicazioni",
+                "25": "25 pubblicazioni",
+                "35": "35 pubblicazioni",
+                "unlimited": "Pubblicazioni illimitate"
+            },
+            "socialMediaPosts": "Post Social Media",
+            "databaseMigration": "Migrazione database",
+            "customerSupport": "Supporto clienti 24/7",
+            "crmIntegration": "Integrazione con i tuoi sistemi CRM"
+        },
+        "enterprise": {
+            "title": "Piani Enterprise"
+        },
+        "compareFeatures": "Confronta funzionalità"
+    },
+    "affiliate": {
+        "hero": {
+            "title": "Condividi Flowxtra e Guadagna il 50% di Commissione",
+            "subtitle": "Guadagna il 50% di commissione ogni mese per ogni utente che referenzi",
+            "description": "Unisciti al nostro programma di affiliazione e aiuta le aziende a scoprire Flowxtra. Ottieni un link di referral unico e inizia a guadagnare commissioni oggi. La commissione è pagata mensilmente fino a 12 mesi finché i tuoi utenti referenziati rimangono abbonati.",
+            "cta": "Unisciti al Programma di Affiliazione",
+            "ctaSecondary": "Scopri di più"
+        },
+        "howItWorks": {
+            "title": "Come Funziona il Nostro Programma di Affiliazione",
+            "step1": {
+                "title": "Iscriviti e Ottieni il Tuo Link",
+                "description": "Registrati per il nostro programma di affiliazione e ricevi istantaneamente il tuo link di referral unico."
+            },
+            "step2": {
+                "title": "Condividi il Tuo Link",
+                "description": "Condividi il tuo link di referral con potenziali clienti attraverso il tuo sito web, social media o email."
+            },
+            "step3": {
+                "title": "Gli Utenti si Iscrivono",
+                "description": "Quando qualcuno si iscrive tramite il tuo link, inizia a usare i potenti strumenti di reclutamento di Flowxtra."
+            },
+            "step4": {
+                "title": "Guadagna Commissioni Mensili",
+                "description": "Guadagna il 50% di commissione ogni mese fino a 12 mesi finché i tuoi utenti referenziati rimangono abbonati. La commissione è accreditata sul tuo account ogni mese."
+            }
+        },
+        "commission": {
+            "title": "Potenziale di Guadagno",
+            "subtitle": "Vedi quanto puoi guadagnare con ogni piano ogni mese",
+            "table": {
+                "plan": "Piano",
+                "monthlyPrice": "Prezzo Mensile",
+                "yourCommission": "La Tua Commissione",
+                "monthlyEarning": "Guadagno Mensile",
+                "annualPotential": "Potenziale Annuale"
+            },
+            "free": "Gratuito",
+            "starter": "Starter",
+            "basic": "Basic",
+            "professional": "Professional",
+            "advanced": "Advanced",
+            "enterprise": "Enterprise",
+            "perMonth": "/mese",
+            "example": {
+                "title": "Esempio",
+                "description": "Per il Piano Professional (€249/mese): Guadagni €124,50/mese fino a 12 mesi finché l'utente rimane abbonato. Guadagno massimo: €1.494 (12 mesi).",
+                "note": "* Il periodo di commissione massimo è di 12 mesi per referral. La commissione è pagata mensilmente fino a 12 mesi finché gli utenti rimangono abbonati."
+            }
+        },
+        "paymentTerms": {
+            "title": "Termini e Condizioni di Pagamento",
+            "subtitle": "Come vengono calcolate e pagate le commissioni",
+            "terms": [
+                {
+                    "title": "Periodo di Commissione",
+                    "description": "La commissione è pagata ogni mese fino a 12 mesi finché i tuoi utenti referenziati rimangono abbonati. Il periodo di commissione massimo è di 12 mesi per referral."
+                },
+                {
+                    "title": "Credito Mensile",
+                    "description": "Ogni mese che un utente paga il suo abbonamento, il 50% del pagamento è automaticamente accreditato sul tuo account affiliato."
+                },
+                {
+                    "title": "Prelievo Minimo",
+                    "description": "Il saldo minimo richiesto per prelevare guadagni è €180. Puoi accumulare guadagni fino a raggiungere questa soglia."
+                },
+                {
+                    "title": "Processo di Prelievo",
+                    "description": "Una volta raggiunto €180 o più, puoi richiedere un prelievo. I pagamenti sono elaborati mensilmente tramite bonifico bancario o PayPal."
+                }
+            ]
+        },
+        "pricingReference": {
+            "title": "I Nostri Piani Tariffari",
+            "subtitle": "Referenzia utenti a uno qualsiasi di questi piani e guadagna commissioni",
+            "viewAll": "Vedi Tutti i Piani"
+        },
+        "cta": {
+            "title": "Pronto a Iniziare a Guadagnare?",
+            "subtitle": "Unisciti a migliaia di affiliati che promuovono Flowxtra",
+            "button": "Inizia Ora",
+            "buttonSecondary": "Contatta le Vendite"
+        },
+        "faq": {
+            "title": "Domande Frequenti",
+            "helpText": "Hai ancora bisogno di aiuto?",
+            "chatLink": "Chatta con noi",
+            "q1": {
+                "question": "Come ottengo il mio link di referral?",
+                "answer": "Dopo esserti iscritto al nostro programma di affiliazione, riceverai un link di referral unico che puoi condividere con potenziali clienti."
+            },
+            "q2": {
+                "question": "Quando vengo pagato?",
+                "answer": "La commissione è accreditata sul tuo account ogni mese finché i tuoi utenti referenziati rimangono abbonati. Puoi prelevare una volta che il tuo saldo raggiunge €180 o più."
+            },
+            "q3": {
+                "question": "Quanto durano le commissioni?",
+                "answer": "Le commissioni sono pagate mensilmente fino a 12 mesi per referral, finché l'utente rimane abbonato durante quel periodo. Dopo 12 mesi, non viene pagata ulteriore commissione per quel referral."
+            },
+            "q4": {
+                "question": "Cosa succede se un utente cancella?",
+                "answer": "Riceverai commissioni solo per i mesi in cui l'utente era abbonato. Una volta che cancellano, non verranno più guadagnate commissioni da quell'utente."
+            },
+            "q5": {
+                "question": "Qual è l'importo minimo di prelievo?",
+                "answer": "L'importo minimo di prelievo è €180. Puoi accumulare guadagni nel tuo account fino a raggiungere questa soglia, poi richiedere un prelievo."
+            },
+            "q6": {
+                "question": "Cosa succede dopo 12 mesi?",
+                "answer": "Dopo 12 mesi, la tua commissione per quel cliente si ferma. Paghiamo commissione solo per i primi 12 mesi dell'abbonamento del cliente. Se il cliente rinnova dopo il primo anno, non viene pagata commissione su quei rinnovi."
+            }
+        }
+    },
+    "compareFeatures": {
+        "featureUsage": "Funzionalità / Utilizzo",
+        "comingSoon": "Prossimamente",
+        "previous": "Precedente",
+        "next": "Successivo",
+        "notAvailable": "Non disponibile",
+        "soon": "Presto",
+        "unlimited": "Illimitato",
+        "features": {
+            "jobPostings": {
+                "name": "Pubblicazioni / mese",
+                "description": "Numero di slot lavoro attivi che puoi pubblicare simultaneamente al mese."
+            },
+            "userSeats": {
+                "name": "Posti utente",
+                "description": "Membri del team totali che possono collaborare nel tuo account."
+            },
+            "support247": {
+                "name": "Supporto 24/7",
+                "description": "Supporto prioritario 24 ore su 24 tramite Chat e Riunioni Online con i nostri ingegneri di supporto senior."
+            },
+            "gdprCcpa": {
+                "name": "Conformità GDPR & CCPA",
+                "description": "Piena conformità con i regolamenti GDPR (Unione Europea) e CCPA (California) sulla protezione dei dati. Include gestione dei diritti degli interessati, tracciamento del consenso, portabilità dei dati, diritto alla cancellazione, controlli sulla privacy e report di conformità automatizzati. Proteggi la privacy dei candidati e soddisfa i requisiti legali internazionali."
+            },
+            "googleJobs": {
+                "name": "Elenco lavori Google",
+                "description": "Elenca automaticamente i tuoi lavori su Google for Jobs gratuitamente. Aumenta la visibilità e raggiungi più candidati tramite Google Search senza costi aggiuntivi."
+            },
+            "onlineMeeting": {
+                "name": "Strumento riunioni online",
+                "description": "Pianifica e ospita colloqui con i candidati direttamente da Flowxtra."
+            },
+            "cvParsing": {
+                "name": "Parsing CV",
+                "description": "Estrai e struttura automaticamente le informazioni dei candidati da CV e curriculum. Supporta più formati di file inclusi PDF, Word e file di testo. Analizza intelligentemente dettagli di contatto, esperienza lavorativa, istruzione, competenze e qualifiche per popolare istantaneamente i profili dei candidati."
+            },
+            "kanbanBoard": {
+                "name": "Board Kanban",
+                "description": "Board stile Kanban per visualizzare e muovere i candidati attraverso le fasi di assunzione. Vista colonne semplice per gestione rapida dei candidati."
+            },
+            "diagramBoard": {
+                "name": "Board diagramma",
+                "description": "Board diagramma avanzato con funzionalità drag-and-drop, cronologia attività dettagliata e tracciamento completo dei candidati. Visualizzazione migliorata con filtri e analytics."
+            },
+            "multiposting": {
+                "name": "Multipubblicazione",
+                "description": "Distribuisci annunci di lavoro su più canali simultaneamente per massima esposizione. Include Google Jobs, LinkedIn e altre piattaforme."
+            },
+            "careerPage": {
+                "name": "Pagina carriere",
+                "description": "La tua pagina carriere pubblica brandizzata che elenca tutti i ruoli aperti."
+            },
+            "removeBranding": {
+                "name": "Rimuovi branding Flowxtra",
+                "description": "Rimuovi logo e branding Flowxtra dalla tua pagina carriere. Mostra solo il tuo branding aziendale."
+            },
+            "smtp": {
+                "name": "Integrazione Email SMTP personalizzata",
+                "description": "Connetti il server SMTP della tua azienda per inviare email direttamente dal tuo indirizzo email attraverso la nostra piattaforma. Invia comunicazioni ai candidati, notifiche e aggiornamenti usando il tuo dominio email brandizzato."
+            },
+            "jobWidget": {
+                "name": "Widget lavoro",
+                "description": "Incorpora il tuo elenco lavori su qualsiasi sito web con uno snippet copia-incolla."
+            },
+            "atsIntegrations": {
+                "name": "Integrazioni ATS",
+                "description": "Connetti Flowxtra con il tuo stack HR, siti web e strumenti interni."
+            },
+            "twoFactorAuth": {
+                "name": "Autenticazione a due fattori",
+                "description": "Proteggi gli account con un passaggio di verifica extra al login. Anche noto come 2FA."
+            },
+            "crmIntegration": {
+                "name": "Integrazione con sistemi CRM",
+                "description": "Sincronizza dati candidati e clienti con il tuo CRM per workflow senza interruzioni."
+            },
+            "apiMcp": {
+                "name": "API/MCP",
+                "description": "Documentazione completa per integrare Flowxtra con i tuoi sistemi personalizzati e LLM. Include riferimenti API dettagliati, guide protocollo MCP, esempi di codice e tutorial di integrazione."
+            },
+            "companyPage": {
+                "name": "Pagina aziendale",
+                "description": "Ottieni un sottodominio brandizzato con il profilo della tua azienda e i lavori."
+            },
+            "customLlms": {
+                "name": "Integrazione LLM Personalizzati",
+                "description": "Integra i tuoi LLM ospitati sulla tua infrastruttura. Forniamo gli strumenti di integrazione (API & MCP) in modo che i tuoi modelli IA possano funzionare senza problemi all'interno di Flowxtra rimanendo nel tuo ambiente."
+            },
+            "privacyGenerator": {
+                "name": "Generatore politica privacy",
+                "description": "Crea politiche privacy personalizzate su misura per le tue esigenze. Scegli da modelli pre-costruiti per diverse normative privacy (GDPR, CCPA, ecc.) e personalizza il testo per corrispondere ai requisiti della tua azienda. Genera politiche privacy professionali e conformi legalmente senza competenze legali."
+            },
+            "smartFiltering": {
+                "name": "Filtro candidati intelligente",
+                "description": "Prioritizza automaticamente i candidati in base ai requisiti del ruolo e criteri personalizzati."
+            },
+            "customFields": {
+                "name": "Campi personalizzati sui lavori",
+                "description": "Aggiungi qualsiasi campo di cui hai bisogno per strutturare dati lavori e form."
+            },
+            "rolesPermissions": {
+                "name": "Ruoli e permessi",
+                "description": "Controllo accesso granulare per reclutatori, hiring manager e admin."
+            },
+            "hiringStages": {
+                "name": "Fasi assunzione",
+                "description": "Fasi di assunzione personalizzabili. Definisci e gestisci fasi di reclutamento come revisione candidature, colloqui, valutazioni e decisioni finali. Completamente personalizzabile per corrispondere al tuo flusso di assunzione unico."
+            },
+            "appStoreIntegrations": {
+                "name": "Integrazioni app store",
+                "description": "Integrazioni plug-and-play con popolari strumenti HR, comunicazioni e analytics."
+            },
+            "ratingSheets": {
+                "name": "Schede valutazione",
+                "description": "Scorecard strutturate per valutare i candidati in modo coerente."
+            },
+            "customSocialSharing": {
+                "name": "Condivisione social personalizzata",
+                "description": "Personalizza tag OG, banner e didascalie per link lavori."
+            },
+            "brandKit": {
+                "name": "Brand Kit",
+                "description": "Personalizza l'intero sistema con i colori, font e logo del tuo brand. Le tue pagine carriere, email e tutti i contenuti rivolti ai candidati rifletteranno costantemente la tua identità di brand."
+            },
+            "emailTemplates": {
+                "name": "Costruttore modelli email",
+                "description": "Progetta e personalizza modelli email per tutte le comunicazioni con i candidati. Crea email brandizzate e professionali con il tuo design, layout e messaggistica."
+            },
+            "automatedMessages": {
+                "name": "Messaggi automatizzati",
+                "description": "Invia conferme, rifiuti e promemoria automatici ai candidati."
+            },
+            "customCareerPage": {
+                "name": "Pagina carriere personalizzata",
+                "description": "Costruisci pagine carriere ricche con sezioni per cultura, benefit e team. Supporta layout multi-sezione."
+            },
+            "customDomain": {
+                "name": "Dominio personalizzato",
+                "description": "Usa il tuo dominio per pagine carriere e form candidature."
+            },
+            "skillsReservoir": {
+                "name": "Serbatoio competenze",
+                "description": "Archivia e organizza i migliori candidati che non sono stati assunti per opportunità future. Costruisci un database di talenti qualificati pronti per posizioni future che corrispondono alle loro competenze."
+            },
+            "unlimitedStorage": {
+                "name": "Archiviazione dati illimitata",
+                "description": "Archivia file, curriculum e log attività senza limiti rigidi."
+            },
+            "journeyFlow": {
+                "name": "Flusso percorso",
+                "description": "Costruttore automazione workflow avanzato (come n8n). Crea processi di reclutamento personalizzati con percorsi condizionali basati sulle risposte dei candidati. Invia automaticamente email di benvenuto, richiedi informazioni aggiuntive, invia contratti, corsi di formazione e crea workflow dinamici con trigger, tempi di attesa, condizioni e più rami. Costruisci percorsi candidati personalizzati per ogni lavoro con segmentazione intelligente basata su posizione, risposte o qualsiasi criterio personalizzato."
+            },
+            "aiJobAdBuilder": {
+                "name": "Costruttore annunci lavoro IA",
+                "description": "Genera descrizioni lavoro ottimizzate allineate ai requisiti del ruolo."
+            },
+            "clientProfiles": {
+                "name": "Profili clienti",
+                "description": "Gestisci più aziende clienti con lavori e team separati. Perfetto per agenzie."
+            },
+            "multiOfficeLocation": {
+                "name": "Multi sede ufficio",
+                "description": "Organizza lavori, utenti e report per posizione. Supporto per aziende multi-sede."
+            },
+            "newsletter": {
+                "name": "Newsletter",
+                "description": "Invia avvisi lavoro automatizzati ai candidati che hanno optato durante la candidatura. Notificali di nuove opportunità via email, SMS, WhatsApp o Telegram. Include integrazione Mailchimp per campagne avanzate e notifiche automatiche posizioni vacanti."
+            },
+            "talentPool": {
+                "name": "Pool talenti",
+                "description": "Mantieni un database di candidati medaglia d'argento e candidati adatti per il futuro."
+            },
+            "reportsAnalytics": {
+                "name": "Report e analytics",
+                "description": "Insights su fonti, velocità pipeline, abbandono e produttività team. Include report dettagliati candidati."
+            },
+            "databaseMigration": {
+                "name": "Migrazione database",
+                "description": "Ti aiutiamo a importare candidati, lavori e note da altri sistemi."
+            },
+            "candidateExport": {
+                "name": "Export candidati",
+                "description": "Esporta elenchi e report per analisi esterna e backup. Supporta formati CSV ed Excel."
+            },
+            "esignature": {
+                "name": "Firma elettronica",
+                "description": "Invia, firma e traccia contratti digitali legalmente vincolanti con audit trail e timestamp."
+            },
+            "elearning": {
+                "name": "E-learning",
+                "description": "Forma i team di assunzione con corsi integrati e certificazioni. Include creazione corsi specifici azienda."
+            },
+            "assessments": {
+                "name": "Valutazioni",
+                "description": "Test competenze e personalità con risultati strutturati e comparabili."
+            },
+            "socialAdsManager": {
+                "name": "Gestore Annunci Social",
+                "description": "Crea e gestisci annunci lavoro su principali piattaforme inclusi Facebook, Instagram, SnapChat, Google, YouTube, TikTok e LinkedIn. Risparmia su costi aggiuntivi gestendo tutta la tua pubblicità social media direttamente all'interno di Flowxtra."
+            },
+            "idVerification": {
+                "name": "Verifica ID",
+                "description": "Verifica documenti identità candidati inclusi passaporti, ID nazionali e altri documenti identificazione ufficiali per maggiore sicurezza e conformità."
+            },
+            "applyViaSocialChatbot": {
+                "name": "Candidatura via chatbot social",
+                "description": "Connetti i tuoi account aziendali WhatsApp Business, Telegram, Facebook Messenger, Discord o WeChat. I candidati si candidano direttamente attraverso la tua chat aziendale, riducendo i costi mantenendo comunicazione diretta con i candidati."
+            },
+            "candidatePresentation": {
+                "name": "Presentazione candidati",
+                "description": "Genera link condivisibili sicuri per presentare profili candidati con le tue note e commenti a clienti, manager o partner esterni. Condividi informazioni specifiche candidati senza concedere accesso completo al sistema. I candidati acconsentono alla condivisione informazioni in anticipo. Perfetto per agenzie di reclutamento che presentano profili ai clienti o stakeholder interni che recensiscono candidati."
+            },
+            "socialMediaPosts": {
+                "name": "Post social media",
+                "description": "Pianifica e pubblica post, storie, video e qualsiasi contenuto illimitati su tutte le piattaforme social media. Sistema completo pianificazione e gestione contenuti."
+            },
+            "aiChatbot": {
+                "name": "Chatbot IA",
+                "description": "Rispondi alle FAQ candidati e pre-seleziona direttamente sulle tue pagine carriere."
+            },
+            "oneWayVideo": {
+                "name": "Colloqui video unidirezionali",
+                "description": "I candidati possono registrare e caricare risposte video durante il processo di candidatura. Seleziona candidati in modo asincrono recensendo risposte video pre-registrate alle tue domande personalizzate. Risparmia tempo guardando le risposte secondo il tuo programma senza coordinare orari colloqui dal vivo."
+            },
+            "employeeOnboarding": {
+                "name": "Onboarding dipendenti",
+                "description": "Semplifica l'integrazione nuovi assunti con workflow onboarding automatizzati. Invia documenti impiego, contratti e materiali formativi. Crea checklist personalizzabili per nuovi dipendenti, pianifica i loro primi giorni, presentali al team e traccia il loro progresso. Percorso onboarding completo dall'accettazione offerta alla piena produttività."
+            }
+        },
+        "values": {
+            "tickets": "Ticket",
+            "chat": "Chat",
+            "chatOnlineMeetings": "Chat, Riunioni Online"
+        }
+    },
+    "footer": {
+        "company": {
+            "title": "Azienda",
+            "features": "Funzionalità",
+            "blog": "Blog & News",
+            "about": "Chi siamo",
+            "contact": "Contattaci",
+            "pricing": "Prezzi",
+            "affiliate": "Affiliazione"
+        },
+        "software": {
+            "title": "Software",
+            "ats": "Software di Reclutamento ATS",
+            "socialMedia": "Gestore Social Media",
+            "freeJobPosting": "Pubblicazione Gratuita Offerte di Lavoro",
+            "esignature": "Firma elettronica"
+        },
+        "ats": {
+            "title": "Software ATS",
+            "aiAts": "Software ATS IA",
+            "candidateFiltering": "Filtro Candidati",
+            "multiposting": "Multipubblicazione Lavori",
+            "jobWidget": "Widget Lavoro",
+            "freeJobPosting": "Pubblicazione Gratuita Offerte di Lavoro",
+            "applicantTracking": "Software Sistema Tracciamento Candidati",
+            "socialMediaManagement": "Gestione Social Media"
+        },
+        "terms": {
+            "title": "Termini",
+            "dpa": "DPA",
+            "imprint": "Impronta",
+            "disclaimer": "Disclaimer",
+            "privacy": "Politica privacy",
+            "cookie": "Politica cookie",
+            "companies": "Termini di utilizzo",
+            "candidates": "Termini di utilizzo Candidati"
+        },
+        "followUs": {
+            "title": "Seguici",
+            "companyName": "Flowxtra GmbH",
+            "address": "Wipplingerstraße 20/18, 1010 Vienna",
+            "recaptcha": {
+                "text": "*Questo sito è protetto da reCAPTCHA. Google",
+                "privacy": "Politica Privacy",
+                "and": "e",
+                "terms": "Termini di Servizio",
+                "apply": "si applicano."
+            }
+        },
+        "copyright": {
+            "text": "Copyright © 2025 Flowxtra | Realizzato da",
+            "madeBy": "Dpro"
+        },
+        "consent": {
+            "preferences": "Preferenze Consenso",
+            "short": "Consenso"
+        },
+        "darkMode": {
+            "dark": "Modalità Scura",
+            "light": "Modalità Chiara"
+        },
+        "accessibility": "Accessibilità",
+        "badges": {
+            "madeInAustria": "Fatto in Austria",
+            "trustpilot": "Trustpilot",
+            "serverLocation": "Sedi Server Germania",
+            "gdpr": "Conforme DSGVO & GDPR",
+            "aiAct": "Conforme AI Act"
+        },
+        "logoAlt": "Flowxtra"
+    },
+    "cookieConsent": {
+        "title": "Preferenze Cookie",
+        "description": "Gestisci le tue preferenze cookie. Puoi abilitare o disabilitare diversi tipi di cookie di seguito.",
+        "strictlyNecessary": {
+            "title": "Strettamente Necessari",
+            "description": "Questi cookie sono necessari per il corretto funzionamento del sito web. Non possono essere disabilitati."
+        },
+        "functionality": {
+            "title": "Funzionalità",
+            "description": "Questi cookie abilitano funzionalità migliorate e personalizzazione (lingua, tema, preferenze)."
+        },
+        "performance": {
+            "title": "Performance",
+            "description": "Questi cookie ci aiutano a capire come i visitatori interagiscono con il nostro sito web raccogliendo e riportando informazioni in modo anonimo."
+        },
+        "targeting": {
+            "title": "Targeting",
+            "description": "Questi cookie sono usati per fornire pubblicità personalizzate e tracciare le performance delle campagne pubblicitarie."
+        },
+        "table": {
+            "name": "Nome",
+            "provider": "Provider",
+            "storage": "Archiviazione Dati",
+            "retention": "Ritenzione",
+            "privacyPolicy": "Politica Privacy",
+            "view": "Visualizza"
+        },
+        "doNotSell": {
+            "title": "Non Vendere le Mie Informazioni Personali",
+            "description": "Ai sensi del CCPA, hai il diritto di rinunciare alla vendita delle tue informazioni personali."
+        },
+        "consentId": {
+            "title": "Il Tuo ID Consenso",
+            "description": "Questo ID unico prova che hai dato il consenso. Salvalo per i tuoi archivi o riferimento futuro.",
+            "copy": "Copia negli appunti"
+        },
+        "buttons": {
+            "cancel": "Annulla",
+            "save": "Salva Preferenze",
+            "acceptAll": "Accetta Tutti",
+            "rejectAll": "Rifiuta Tutti",
+            "preferences": "Preferenze",
+            "acceptNecessary": "Accetta Solo Necessari"
+        },
+        "banner": {
+            "titleEU": "Usiamo i cookie",
+            "titleUS": "Avviso Cookie",
+            "descriptionEU": "Usiamo i cookie per migliorare la tua esperienza di navigazione, fornire contenuti personalizzati e analizzare il nostro traffico. Cliccando \"Accetta Tutti\", acconsenti al nostro uso dei cookie. Vedi la nostra",
+            "descriptionCA": "Raccogliamo e potremmo vendere le tue informazioni personali. Hai il diritto di rinunciare. Clicca \"Non Vendere\" per esercitare i tuoi diritti ai sensi del CCPA. Vedi la nostra",
+            "descriptionUS": "Usiamo i cookie per migliorare la tua esperienza. Puoi gestire le tue preferenze in qualsiasi momento. Vedi la nostra",
+            "cookiePolicy": "Politica Cookie",
+            "developedBy": "Creato da",
+            "dproLink": "Dpro"
+        },
+        "tabs": {
+            "cookieDeclaration": "Impostazioni Cookie",
+            "aboutCookies": "Info Cookie"
+        },
+        "aboutCookies": {
+            "intro": "Usiamo i cookie per migliorare la tua esperienza e analizzare il traffico del sito web. Cliccando \"Accetta Tutti\", accetti tutti i cookie. Puoi gestire le preferenze in Impostazioni Cookie.",
+            "description": "I cookie sono piccoli file di testo che vengono inseriti sul tuo computer dai siti web che visiti. I siti web usano i cookie per aiutare gli utenti a navigare in modo efficiente ed eseguire determinate funzioni. I cookie necessari per il corretto funzionamento del sito web possono essere impostati senza il tuo permesso. Tutti gli altri cookie devono essere approvati prima di poter essere impostati nel browser.",
+            "changeConsent": "Puoi modificare il tuo consenso all'uso dei cookie in qualsiasi momento sulla nostra pagina",
+            "privacyPolicy": "Politica Privacy",
+            "page": ".",
+            "advertising": "Usiamo anche i cookie per raccogliere dati al fine di personalizzare e misurare l'efficacia della nostra pubblicità. Per maggiori dettagli, visita la",
+            "googlePrivacyPolicy": "Politica Privacy di Google",
+            "consentIdLabel": "ID consenso cookie:",
+            "seeCookiePolicy": "Vedi la nostra",
+            "cookiePolicy": "Politica Cookie"
+        }
+    },
+    "blog": {
+        "title": "Articoli",
+        "description": "Benvenuto nel Blog Flowxtra — la tua fonte per insights su assunzioni intelligenti, innovazioni HR e tendenze di reclutamento. Scopri strategie pratiche, consigli di esperti e gli ultimi aggiornamenti che plasmano il futuro del reclutamento e della gestione talenti.",
+        "discoverFuture": "Leggi di più",
+        "allBlogs": "Tutti i Blog",
+        "readMore": "Leggi di più",
+        "categories": {
+            "all": "Tutti",
+            "productivity": "Produttività",
+            "accessibility": "Accessibilità",
+            "performance": "Performance"
+        },
+        "pagination": {
+            "previous": "Precedente",
+            "next": "Successivo",
+            "page": "Pagina {page}"
+        },
+        "viewMode": "Modalità Visualizzazione",
+        "viewModeList": "Vista elenco",
+        "viewModeGrid": "Vista griglia",
+        "search": {
+            "placeholder": "Cerca post...",
+            "startTyping": "Inizia a digitare per cercare post...",
+            "noResults": "Nessun post trovato corrispondente a \"{query}\"",
+            "noResultsInPage": "Nessun post trovato corrispondente ai tuoi criteri di ricerca.",
+            "clearSearch": "Cancella ricerca"
+        },
+        "post": {
+            "previous": "Precedente",
+            "next": "Successivo",
+            "previousPost": "Post Precedente",
+            "nextPost": "Post Successivo",
+            "relatedPosts": "Post Correlati",
+            "writtenBy": "Scritto da {author}"
+        },
+        "latestPosts": "Ultimi Post",
+        "tableOfContents": "Indice"
+    },
+    "socialMediaManagement": {
+        "title": "Gestione Social Media",
+        "description": "Gestisci e analizza i tuoi canali social da un'unica piattaforma. Il nostro Gestore Social Media fa risparmiare tempo, ti mantiene organizzato e aiuta a far crescere la tua presenza online.",
+        "cta": "Inizia",
+        "features": {
+            "freeForever": "100% Gratuito",
+            "noCreditCard": "Nessuna carta di credito richiesta",
+            "cancelAnytime": "Annulla in qualsiasi momento"
+        },
+        "imageAlt": "Piattaforma Gestione Social Media - Gestisci tutti i tuoi canali social da un unico posto",
+        "imageTitle": "Flowxtra – Piattaforma Gestione Social Media",
+        "figcaption": "Gestisci e analizza i tuoi canali social da un'unica piattaforma",
+        "sections": {
+            "section1": {
+                "title": "Gestisci i tuoi social media come un'azienda, non come un peso",
+                "description": "Connetti tutti i tuoi account social media — Instagram, Facebook, LinkedIn, TikTok e X — e gestiscili da un'unica dashboard intelligente.",
+                "paragraph1": "Basta passare da uno strumento all'altro o perdere ore su compiti ripetitivi.",
+                "paragraph2": "Flowxtra ti aiuta a pianificare, postare e analizzare la tua attività social media in un unico posto — mantenendo il tuo brand coerente, efficiente e sempre attivo.",
+                "cta": "Registrati Gratuitamente"
+            },
+            "section2": {
+                "title": "I Tuoi Dati Rimangono Tuoi",
+                "description": "Flowxtra ti dà il pieno controllo sui tuoi dati.",
+                "paragraph1": "Tutti i tuoi file sono archiviati in modo sicuro nel tuo storage connesso — Google Drive, Dropbox o AWS — non sui nostri server.",
+                "paragraph2": "Conserviamo solo i dati tecnici minimi richiesti per connettere e sincronizzare i tuoi servizi senza problemi.",
+                "paragraph3": "La tua privacy, il tuo controllo, i tuoi dati — sempre protetti.",
+                "cta": "Registrati Gratuitamente"
+            },
+            "section3": {
+                "title": "Pianifica e Controlla Ogni Post da Un Calendario Visuale",
+                "description": "Smetti di passare da una piattaforma all'altra o di indovinare cosa postare dopo.",
+                "paragraph1": "Il Calendario Contenuti Visuale di Flowxtra riunisce tutti i tuoi post programmati — su Instagram, Facebook, LinkedIn, TikTok e X — in un'unica vista chiara e unificata.",
+                "features": {
+                    "feature1": "Pianifica una volta, pubblica ovunque.",
+                    "feature2": "Trascina e rilascia per regolare istantaneamente.",
+                    "feature3": "Rimani coerente e non perdere mai un post."
+                },
+                "paragraph2": "Pianifica campagne, traccia le performance e mantieni la tua intera strategia social perfettamente organizzata — tutto da un unico workspace visuale intelligente.",
+                "cta": "Registrati Gratuitamente"
+            },
+            "section4": {
+                "title": "Il Tuo Assistente IA per Creazione Contenuti Senza Sforzo",
+                "description": "Smetti di perdere tempo su schermi vuoti.",
+                "paragraph1": "L'Assistente IA integrato di Flowxtra ti aiuta a creare post coinvolgenti, generare didascalie creative e adattare il tuo tono per ogni piattaforma — che sia LinkedIn, Instagram, TikTok o X.",
+                "features": {
+                    "feature1": "Genera idee e didascalie istantaneamente.",
+                    "feature2": "Ottimizza tono e linguaggio per ogni canale.",
+                    "feature3": "Risparmia tempo mantenendo il tuo brand coerente."
+                },
+                "paragraph2": "Crea contenuti ad alte performance in secondi e mantieni i tuoi social media attivi — senza prosciugare l'energia del tuo team.",
+                "cta": "Registrati Gratuitamente"
+            },
+            "section5": {
+                "title": "Crea e Condividi Pipeline — Senza Dare Accesso Completo",
+                "description": "Collabora in modo sicuro con il tuo team o partner usando le Pipeline Flowxtra.",
+                "paragraph1": "Assegna account social media specifici, genera un link condivisibile unico e lascia che altri creino o pubblichino post — tutto senza accedere alla tua dashboard Flowxtra o account social.",
+                "features": {
+                    "feature1": "Condividi accesso pubblicazione tramite link sicuri.",
+                    "feature2": "Crea pipeline per team, clienti o dipartimenti.",
+                    "feature3": "Controlla i permessi e mantieni la piena sicurezza della piattaforma."
+                },
+                "paragraph2": "Perfetto per agenzie marketing, grandi team e aziende con più dipartimenti — potenziando la collaborazione senza compromettere il controllo.",
+                "cta": "Prova Pipeline Social Media"
+            },
+            "ctaSection": {
+                "title": "Pronto ad Assumere in Modo Più Intelligente e Veloce?",
+                "description": "Smetti di perdere tempo passando da un portale lavoro all'altro. Pubblica offerte, traccia candidati e assumi i migliori talenti—tutto da un'unica piattaforma di reclutamento intelligente.",
+                "cta": "Inizia il tuo piano gratuito"
+            },
+            "faq": {
+                "title": "Domande Frequenti",
+                "helpText": "Hai ancora bisogno di aiuto?",
+                "chatLink": "Chatta con noi",
+                "questions": {
+                    "q1": {
+                        "question": "La Gestione Social Media di Flowxtra è gratuita?",
+                        "answer": "Sì — Gestione Social Media di Flowxtra offre un piano gratuito che include fino a 4 account social media. Puoi connettere i tuoi account da Instagram, Facebook, LinkedIn, TikTok e X, gestirli da una dashboard, pianificare post e analizzare la tua attività senza costi. Se hai bisogno di più di 4 account, puoi passare a un piano a pagamento. L'unica funzionalità a pagamento è la Pipeline Social Media, che ti permette di collaborare con team e partner senza dare accesso completo ai tuoi account."
+                    },
+                    "q2": {
+                        "question": "Cos'è la Pipeline Social Media e perché ne ho bisogno?",
+                        "answer": "La Pipeline Social Media è una funzionalità a pagamento che abilita collaborazione sicura. Con un abbonamento Pipeline, puoi assegnare fino a 2 account social media a membri del team, clienti o dipartimenti, generare link condivisibili unici e lasciare che altri creino o pubblichino post—tutto senza accedere alla tua dashboard Flowxtra o account social. È perfetto per agenzie marketing, grandi team e aziende con più dipartimenti che hanno bisogno di potenziare la collaborazione senza compromettere il controllo."
+                    },
+                    "q3": {
+                        "question": "Quanti account social media posso connettere?",
+                        "answer": "Con il piano gratuito, puoi connettere fino a 4 account social media da diverse piattaforme (Instagram, Facebook, LinkedIn, TikTok, X) alla tua dashboard Flowxtra. Tutti gli account sono gestiti da un'unica interfaccia unificata, rendendo facile pianificare, programmare e tracciare la tua attività social media su tutte le piattaforme. Se hai bisogno di più di 4 account, puoi passare a un piano a pagamento."
+                    },
+                    "q4": {
+                        "question": "Posso pianificare post per più piattaforme contemporaneamente?",
+                        "answer": "Sì! Il Calendario Contenuti Visuale di Flowxtra ti permette di pianificare post su tutte le tue piattaforme connesse (Instagram, Facebook, LinkedIn, TikTok e X) da un unico posto. Pianifica una volta e pubblica ovunque, o personalizza i post per ogni piattaforma individualmente. Puoi anche trascinare e rilasciare per regolare istantaneamente il tuo programma di pubblicazione."
+                    },
+                    "q5": {
+                        "question": "Dove vengono archiviati i miei dati?",
+                        "answer": "La tua privacy e la sicurezza dei dati sono le nostre massime priorità. Tutti i tuoi file sono archiviati in modo sicuro nel tuo storage connesso—Google Drive, Dropbox o AWS—non sui nostri server. Flowxtra conserva solo i dati tecnici minimi richiesti per connettere e sincronizzare i tuoi servizi senza problemi. I tuoi dati rimangono tuoi, sempre protetti."
+                    },
+                    "q6": {
+                        "question": "Flowxtra ha un assistente IA per la creazione di contenuti?",
+                        "answer": "Sì! Flowxtra include un Assistente IA integrato che ti aiuta a creare post coinvolgenti, generare didascalie creative e adattare il tuo tono per ogni piattaforma. Che tu stia creando contenuti per LinkedIn, Instagram, TikTok o X, l'Assistente IA può generare idee e didascalie istantaneamente, ottimizzare tono e linguaggio per ogni canale e risparmiare tempo mantenendo il tuo brand coerente."
+                    },
+                    "q7": {
+                        "question": "Posso annullare in qualsiasi momento?",
+                        "answer": "Sì, assolutamente. Poiché le funzionalità principali di Gestione Social Media sono gratuite, puoi usarle indefinitamente senza alcun impegno. Se stai usando la funzionalità a pagamento Pipeline Social Media, puoi annullare in qualsiasi momento senza penali o contratti a lungo termine."
+                    }
+                }
+            }
+        }
+    },
+    "affiliateBanner": {
+        "message": "Invita un amico e ricevi un regalo di €594!",
+        "linkText": "Unisciti al Programma di Affiliazione",
+        "closeLabel": "Chiudi banner"
+    }
+}

@@ -67,5 +67,9 @@ export default function middleware(request: NextRequest) {
 
 export const config = {
   // Match all paths except static files and API routes
-  matcher: ["/", "/(de|en)/:path*", "/((?!_next|_vercel|.*\\..*).*)"],
+  matcher: [
+    "/",
+    "/(de|en|fr|es|it|nl)/:path*",
+    "/((?!_next|_vercel|.*\\..*).*)",
+  ],
 };
