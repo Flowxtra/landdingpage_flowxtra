@@ -8,6 +8,7 @@ import { useEffect, useState, useRef } from 'react';
 import { generateBlogPostSchema } from '@/lib/seo';
 import JsonLd from '@/components/JsonLd';
 import { getBlogPost, getBlogPosts, getImageUrl, formatDate, formatReadingTime, type BlogPost, type PreviousNextPost } from '@/lib/blogApi';
+import TableOfContents from '@/components/TableOfContents';
 
 function BlogPostContent() {
   const t = useTranslations('blog');
@@ -290,98 +291,105 @@ function BlogPostContent() {
       {/* Content Section */}
       <section className="w-full py-12 md:py-16 px-[10px] bg-white dark:bg-gray-900 transition-colors">
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
-          <div className="max-w-4xl mx-auto">
-            {/* Post Content */}
-            <article 
-              className="prose prose-lg max-w-none"
-              dangerouslySetInnerHTML={{ __html: post.content || post.excerpt || '' }}
-            />
+          <div className="flex flex-col lg:flex-row gap-8 items-start">
+            {/* Table of Contents Sidebar - On the left */}
+            {post.content && <TableOfContents content={post.content} />}
+            
+            {/* Main Content */}
+            <div className="flex-1 min-w-0 max-w-4xl w-full lg:w-auto">
+              {/* Post Content */}
+              <article
+                className="prose prose-lg max-w-none blog-content"
+                dangerouslySetInnerHTML={{ __html: post.content || post.excerpt || '' }}
+              />
 
-            {/* Author Section (if available) */}
-            {post.author && (
-              <div className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
-                <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
-                    {post.author.photo ? (
-                      <Image
-                        src={getImageUrl(post.author.photo)}
-                        alt={post.author.name}
-                        width={64}
-                        height={64}
-                        className="rounded-full"
-                        quality={100}
-                        unoptimized
-                      />
+              {/* Author Section (if available) */}
+              {post.author && (
+                <div className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
+                      {post.author.photo ? (
+                        <Image
+                          src={getImageUrl(post.author.photo)}
+                          alt={post.author.name}
+                          width={64}
+                          height={64}
+                          className="rounded-full"
+                          quality={100}
+                          unoptimized
+                        />
+                      ) : (
+                        <svg className="w-8 h-8 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                      )}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+                        {post.author.name}
+                      </h3>
+                      {post.author.shortBio && (
+                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                          {post.author.shortBio}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Previous/Next Post Navigation */}
+              {(previousPost || nextPost) && (
+                <div className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
+                  <div className="flex flex-col md:flex-row gap-4 md:gap-8">
+                    {/* Previous Post */}
+                    {previousPost ? (
+                      <Link
+                        href={`/${currentLocale}/blog/${previousPost.slug}`}
+                        className="flex-1 group flex items-center gap-3"
+                      >
+                        <svg className="w-5 h-5 text-gray-400 dark:text-gray-500 group-hover:text-primary dark:group-hover:text-secondary transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                        </svg>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">
+                            {t('post.previousPost') || 'Previous Post'}
+                          </div>
+                          <div className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-secondary transition-colors line-clamp-2">
+                            {previousPost.title}
+                          </div>
+                        </div>
+                      </Link>
                     ) : (
-                      <svg className="w-8 h-8 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                      </svg>
+                      <div className="flex-1"></div>
                     )}
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
-                      {post.author.name}
-                    </h3>
-                    {post.author.shortBio && (
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
-                        {post.author.shortBio}
-                      </p>
+
+                    {/* Next Post */}
+                    {nextPost ? (
+                      <Link
+                        href={`/${currentLocale}/blog/${nextPost.slug}`}
+                        className="flex-1 group flex items-center gap-3"
+                      >
+                        <div className="flex-1 min-w-0 text-right">
+                          <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">
+                            {t('post.nextPost') || 'Next Post'}
+                          </div>
+                          <div className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-secondary transition-colors line-clamp-2">
+                            {nextPost.title}
+                          </div>
+                        </div>
+                        <svg className="w-5 h-5 text-gray-400 dark:text-gray-500 group-hover:text-primary dark:group-hover:text-secondary transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </Link>
+                    ) : (
+                      <div className="flex-1"></div>
                     )}
                   </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
 
-            {/* Previous/Next Post Navigation */}
-            {(previousPost || nextPost) && (
-              <div className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
-                <div className="flex flex-col md:flex-row gap-4 md:gap-8">
-                  {/* Previous Post */}
-                  {previousPost ? (
-                    <Link
-                      href={`/${currentLocale}/blog/${previousPost.slug}`}
-                      className="flex-1 group flex items-center gap-3"
-                    >
-                      <svg className="w-5 h-5 text-gray-400 dark:text-gray-500 group-hover:text-primary dark:group-hover:text-secondary transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                      </svg>
-                      <div className="flex-1 min-w-0">
-                        <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">
-                          {t('post.previousPost') || 'Previous Post'}
-                        </div>
-                        <div className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-secondary transition-colors line-clamp-2">
-                          {previousPost.title}
-                        </div>
-                      </div>
-                    </Link>
-                  ) : (
-                    <div className="flex-1"></div>
-                  )}
-
-                  {/* Next Post */}
-                  {nextPost ? (
-                    <Link
-                      href={`/${currentLocale}/blog/${nextPost.slug}`}
-                      className="flex-1 group flex items-center gap-3"
-                    >
-                      <div className="flex-1 min-w-0 text-right">
-                        <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">
-                          {t('post.nextPost') || 'Next Post'}
-                        </div>
-                        <div className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-secondary transition-colors line-clamp-2">
-                          {nextPost.title}
-                        </div>
-                      </div>
-                      <svg className="w-5 h-5 text-gray-400 dark:text-gray-500 group-hover:text-primary dark:group-hover:text-secondary transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </Link>
-                  ) : (
-                    <div className="flex-1"></div>
-                  )}
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </section>

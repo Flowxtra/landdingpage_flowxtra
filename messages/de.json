@@ -1020,7 +1020,8 @@
             "nextPost": "Nächster Artikel",
             "relatedPosts": "Verwandte Artikel",
             "writtenBy": "Geschrieben von {author}"
-        }
+        },
+        "tableOfContents": "Inhaltsverzeichnis"
     },
     "socialMediaManagement": {
         "title": "Social Media Management",
