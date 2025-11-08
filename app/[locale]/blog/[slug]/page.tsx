@@ -9,6 +9,7 @@ import { generateBlogPostSchema } from '@/lib/seo';
 import JsonLd from '@/components/JsonLd';
 import { getBlogPost, getBlogPosts, getImageUrl, formatDate, formatReadingTime, type BlogPost, type PreviousNextPost } from '@/lib/blogApi';
 import TableOfContents from '@/components/TableOfContents';
+import ProfessionalPlanSidebar from '@/components/ProfessionalPlanSidebar';
 
 function BlogPostContent() {
   const t = useTranslations('blog');
@@ -296,7 +297,7 @@ function BlogPostContent() {
             {post.content && <TableOfContents content={post.content} />}
             
             {/* Main Content */}
-            <div className="flex-1 min-w-0 max-w-4xl w-full lg:w-auto">
+            <div className="flex-1 min-w-0 max-w-4xl w-full lg:w-auto mx-auto">
               {/* Post Content */}
               <article
                 className="prose prose-lg max-w-none blog-content"
@@ -390,6 +391,8 @@ function BlogPostContent() {
               )}
             </div>
 
+            {/* Professional Plan Sidebar - On the right */}
+            <ProfessionalPlanSidebar />
           </div>
         </div>
       </section>
