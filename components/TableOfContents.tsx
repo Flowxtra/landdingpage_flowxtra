@@ -46,19 +46,26 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
     setHeadings(extractedHeadings);
 
     // Wait for DOM to be ready, then add IDs to actual rendered headings
-    const timer = setTimeout(() => {
+    const addIdsToHeadings = () => {
       const contentElement = document.querySelector('.blog-content');
-      if (!contentElement) return;
+      if (!contentElement) {
+        // Retry if content not ready yet
+        setTimeout(addIdsToHeadings, 100);
+        return;
+      }
 
       const renderedH1Elements = contentElement.querySelectorAll('h1');
       renderedH1Elements.forEach((h1, index) => {
-        if (index < extractedHeadings.length && !h1.id) {
+        if (index < extractedHeadings.length) {
           h1.id = extractedHeadings[index].id;
         }
       });
-    }, 100);
+    };
 
-    return () => clearTimeout(timer);
+    // Try multiple times to ensure DOM is ready
+    setTimeout(addIdsToHeadings, 100);
+    setTimeout(addIdsToHeadings, 300);
+    setTimeout(addIdsToHeadings, 500);
   }, [content]);
 
   // Track active heading on scroll
@@ -91,15 +98,38 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
 
   // Smooth scroll to heading
   const scrollToHeading = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offsetTop = element.offsetTop - 80; // Offset for fixed header
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth',
-      });
-      setActiveId(id);
+    // Try to find the element
+    let element = document.getElementById(id);
+    
+    // If not found, try again after a short delay (in case DOM is still loading)
+    if (!element) {
+      setTimeout(() => {
+        element = document.getElementById(id);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const offsetTop = rect.top + scrollTop - 100; // Offset for fixed header
+          
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth',
+          });
+          setActiveId(id);
+        }
+      }, 100);
+      return;
     }
+
+    // Calculate position relative to viewport
+    const rect = element.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const offsetTop = rect.top + scrollTop - 100; // Offset for fixed header
+    
+    window.scrollTo({
+      top: offsetTop,
+      behavior: 'smooth',
+    });
+    setActiveId(id);
   };
 
   if (headings.length === 0) {
