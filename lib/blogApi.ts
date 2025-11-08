@@ -38,10 +38,14 @@ function getApiBaseUrl(): string {
     const prodUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
     if (!prodUrl) {
-      const error =
-        "NEXT_PUBLIC_BACKEND_URL is not configured in production environment.";
-      console.error("❌", error);
-      throw new Error(error);
+      // Fallback to API_URL or default production URL
+      const fallbackUrl =
+        process.env.NEXT_PUBLIC_API_URL || "https://flowxtra.com/api";
+      console.warn(
+        "⚠️ NEXT_PUBLIC_BACKEND_URL is not configured. Using fallback:",
+        fallbackUrl
+      );
+      return fallbackUrl.endsWith("/api") ? fallbackUrl : `${fallbackUrl}/api`;
     }
 
     // Add /api if not already included
