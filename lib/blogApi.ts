@@ -284,9 +284,11 @@ export async function getBlogPost(
   // Don't encode the slug - Next.js router already handles URL encoding
   // The slug should be used as-is from the API response
   // Note: According to API docs, slug must match the locale (en slug for en locale, de slug for de locale)
-  // Add timestamp query parameter to prevent caching when forceRefresh is true
-  const timestamp = options?.forceRefresh ? `&_t=${Date.now()}` : "";
-  const url = `${API_BASE_URL}/blog/${slug}?locale=${locale}${timestamp}`;
+  // Add timestamp and random query parameters to prevent caching
+  // Always add timestamp to ensure fresh data - use both timestamp and random to completely bypass cache
+  const timestamp = Date.now();
+  const random = Math.random().toString(36).substring(7);
+  const url = `${API_BASE_URL}/blog/${slug}?locale=${locale}&_t=${timestamp}&_r=${random}`;
 
   // Debug logging (always log in development, or when error occurs)
   if (process.env.NODE_ENV === "development") {
@@ -304,15 +306,17 @@ export async function getBlogPost(
     headers: {
       Accept: "application/json",
       // Add cache-control headers to prevent caching
-      "Cache-Control": "no-cache, no-store, must-revalidate",
+      "Cache-Control": "no-cache, no-store, must-revalidate, max-age=0",
       Pragma: "no-cache",
       Expires: "0",
+      // Add random header to prevent any caching
+      "X-Request-ID": `${Date.now()}-${Math.random()}`,
     },
   };
 
   // Only add next.revalidate if we're in a server component (not client-side)
   // For client-side calls, use cache option instead
-  if (typeof window === "undefined" && options?.revalidate) {
+  if (typeof window === "undefined" && options?.revalidate !== undefined) {
     // Server-side: can use next.revalidate
     (fetchOptions as any).next = { revalidate: options.revalidate };
   } else if (options?.cache) {
@@ -321,7 +325,8 @@ export async function getBlogPost(
   } else {
     // Default: no cache for client-side, revalidate for server-side
     if (typeof window === "undefined") {
-      (fetchOptions as any).next = { revalidate: 900 };
+      // Use revalidate from options or default to 0 for fresh data
+      (fetchOptions as any).next = { revalidate: options?.revalidate ?? 0 };
     } else {
       // Force no cache for client-side to always get fresh data
       fetchOptions.cache = "no-store";

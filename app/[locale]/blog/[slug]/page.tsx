@@ -63,9 +63,11 @@ function BlogPostContent() {
         // This ensures we always get the latest content from API
         // Add forceRefresh flag to add timestamp to URL and prevent any caching
         // Always use forceRefresh=true to ensure we get the latest content from API
+        // Add random query param to completely bypass any cache
         const response = await getBlogPost(slug, currentLocale, {
           cache: "no-store",
           forceRefresh: true, // Always force refresh to get latest content
+          revalidate: 0, // No revalidation time - always fetch fresh
         });
         
         // Only update state if component is still mounted
@@ -118,13 +120,20 @@ function BlogPostContent() {
       }
     };
 
+    // Also refresh when page becomes visible (handles tab switching and back button)
+    const handlePageShow = () => {
+      fetchPost(true);
+    };
+
     window.addEventListener('focus', handleFocus);
+    window.addEventListener('pageshow', handlePageShow);
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
     // Cleanup
     return () => {
       isMounted = false;
       window.removeEventListener('focus', handleFocus);
+      window.removeEventListener('pageshow', handlePageShow);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, [slug, currentLocale, pathname, params]);
