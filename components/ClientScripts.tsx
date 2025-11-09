@@ -12,7 +12,10 @@ const CookieBanner = dynamic(() => import("@/components/CookieConsent/CookieBann
   ssr: false,
 });
 
-// FontAwesomeLoader disabled to eliminate unused CSS from CDN on homepage
+// Load Font Awesome for icons (used in CompareFeatures, etc.)
+const FontAwesomeLoader = dynamic(() => import("@/components/FontAwesomeLoader"), {
+  ssr: false,
+});
 
 export default function ClientScripts() {
   // Clean up browser extension injected attributes that cause hydration mismatches
@@ -120,7 +123,8 @@ export default function ClientScripts() {
 
   return (
     <>
-      {/* Font Awesome loading disabled */}
+      {/* Load Font Awesome for icons (used in CompareFeatures, etc.) */}
+      <FontAwesomeLoader />
       {/* Load tracking scripts only if consent is given */}
       <CookieScriptLoader />
       {/* Cookie Consent Banner - Shows only if no consent exists */}

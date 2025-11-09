@@ -427,6 +427,14 @@ export default async function LocaleLayout({
           fetchPriority="high"
         />
         
+        {/* Font Awesome - Required for icons in CompareFeatures */}
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossOrigin="anonymous"
+        />
+        
         {/* DNS prefetch removed - scripts are lazy loaded after user interaction, prefetch is unnecessary and triggers "unused preconnect" warnings */}
         
         {/* Apply dark mode immediately before React loads to prevent flash */}
