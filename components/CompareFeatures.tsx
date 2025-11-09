@@ -3,7 +3,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 // Import individual icons to avoid loading entire lucide-react bundle
 import { ChevronDown, ChevronUp, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import { cn } from '@/lib/utils';
 
 // Feature data structure
 interface Feature {
@@ -35,6 +36,8 @@ interface CompareFeaturesProps {
 export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesProps) {
   const t = useTranslations("pricing");
   const tCompare = useTranslations("compareFeatures");
+  const locale = useLocale();
+  const isRTL = locale === 'ar';
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const [expandedRow, setExpandedRow] = useState<string | null>(null);
   const [selectedPlan, setSelectedPlan] = useState<PlanKey>('professional'); // Default to Professional
@@ -918,13 +921,14 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
           </div>
 
           {/* Desktop Table View - Hidden on Mobile/Tablet */}
-          <div className="hidden lg:block overflow-x-auto">
+          <div className={cn("hidden lg:block overflow-x-auto", isRTL && "direction-rtl")}>
           <style dangerouslySetInnerHTML={{ __html: `
             .fx-wrap {
               width: 100% !important;
               margin: 0 !important;
-              padding: 32px 16px !important;
+              padding: 32px ${isRTL ? '16px 16px 16px' : '16px'} !important;
               font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif !important;
+              direction: ${isRTL ? 'rtl' : 'ltr'} !important;
             }
 
             .fx-table {
@@ -963,8 +967,9 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
 
             .fx-table th.fx-feature,
             .fx-table td.fx-feature {
-              text-align: left !important;
-              padding-left: 16px !important;
+              text-align: ${isRTL ? 'right' : 'left'} !important;
+              padding-left: ${isRTL ? '0' : '16px'} !important;
+              padding-right: ${isRTL ? '16px' : '0'} !important;
               width: 30% !important;
               font-weight: 600 !important;
             }
@@ -1029,7 +1034,7 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
 
             .fx-explain td {
               padding: 12px 16px !important;
-              text-align: left !important;
+              text-align: ${isRTL ? 'right' : 'left'} !important;
               color: #374151 !important;
             }
 
@@ -1038,13 +1043,16 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
             }
 
             .fx-explain-inner {
-              border-left: 3px solid #006980;
-              padding-left: 12px;
+              border-left: ${isRTL ? 'none' : '3px solid #006980'};
+              border-right: ${isRTL ? '3px solid #006980' : 'none'};
+              padding-left: ${isRTL ? '0' : '12px'};
+              padding-right: ${isRTL ? '12px' : '0'};
             }
 
             .fx-table th[colspan='8'] {
-              text-align: left !important;
-              padding-left: 16px !important;
+              text-align: ${isRTL ? 'right' : 'left'} !important;
+              padding-left: ${isRTL ? '0' : '16px'} !important;
+              padding-right: ${isRTL ? '16px' : '0'} !important;
             }
           ` }} />
 
@@ -1073,7 +1081,11 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
                       <td className="fx-feature">
                         <i
                           className={feature.icon}
-                          style={{ color: '#006980', marginRight: '8px' }}
+                          style={{ 
+                            color: '#006980', 
+                            marginRight: isRTL ? '0' : '8px',
+                            marginLeft: isRTL ? '8px' : '0'
+                          }}
                         ></i>
                         {feature.name}
                       </td>

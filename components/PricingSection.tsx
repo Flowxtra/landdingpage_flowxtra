@@ -50,12 +50,12 @@ export default function PricingSection({ defaultCompareOpen = true }: PricingSec
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16 max-w-7xl mx-auto">
+        <div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16 max-w-7xl mx-auto"
+          dir={isRTL ? "rtl" : "ltr"}
+        >
           {/* Free Plan */}
-          <div className={cn(
-            "bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col",
-            isRTL ? "lg:order-5" : "lg:order-1"
-          )}>
+          <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col">
             <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{t("plans.free")}</h3>
             
             <div className="mb-6">
@@ -91,10 +91,7 @@ export default function PricingSection({ defaultCompareOpen = true }: PricingSec
           </div>
 
           {/* Starter Plan */}
-          <div className={cn(
-            "bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col",
-            isRTL ? "lg:order-4" : "lg:order-2"
-          )}>
+          <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col">
             
             <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{t("plans.starter")}</h3>
             
@@ -131,10 +128,7 @@ export default function PricingSection({ defaultCompareOpen = true }: PricingSec
           </div>
 
           {/* Basic Plan */}
-          <div className={cn(
-            "bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col",
-            isRTL ? "lg:order-3" : "lg:order-3"
-          )}>
+          <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col">
             <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{t("plans.basic")}</h3>
             
             <div className="mb-6">
@@ -170,10 +164,7 @@ export default function PricingSection({ defaultCompareOpen = true }: PricingSec
           </div>
 
           {/* Professional Plan */}
-          <div className={cn(
-            "border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col relative overflow-hidden shadow-2xl",
-            isRTL ? "lg:order-2" : "lg:order-4"
-          )}
+          <div className="border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col relative overflow-hidden shadow-2xl"
             style={{
               backgroundImage: 'url(/img/1bg.svg)',
               backgroundSize: 'cover',
@@ -216,10 +207,7 @@ export default function PricingSection({ defaultCompareOpen = true }: PricingSec
           </div>
 
           {/* Advanced Plan */}
-          <div className={cn(
-            "bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col",
-            isRTL ? "lg:order-1" : "lg:order-5"
-          )}>
+          <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col">
             <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{t("plans.advanced")}</h3>
             
             <div className="mb-6">

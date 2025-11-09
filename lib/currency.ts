@@ -35,7 +35,11 @@ export function convertFromEur(amountEur: number, toCode: string): number {
   return amountEur * rate;
 }
 
-export function formatPriceFromEur(amountEur: number, toCode: string, locale?: string): string {
+export function formatPriceFromEur(
+  amountEur: number,
+  toCode: string,
+  locale?: string
+): string {
   const symbol = currencySymbols[toCode] ?? "€";
   const converted = convertFromEur(amountEur, toCode);
   // Display without cents: round to nearest integer for clean UI
@@ -52,12 +56,22 @@ export function formatPriceFromEur(amountEur: number, toCode: string, locale?: s
 }
 
 export function useCurrency(defaultCode: string = "EUR", locale?: string) {
-  const [code, setCode] = useState<string>(() => {
-    if (typeof window === "undefined") return defaultCode;
-    return getSelectedCurrency();
-  });
+  // Always start with defaultCode to avoid hydration mismatch
+  const [code, setCode] = useState<string>(defaultCode);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Update currency after hydration (client-side only)
+  useEffect(() => {
+    setIsMounted(true);
+    const selectedCurrency = getSelectedCurrency();
+    if (selectedCurrency !== defaultCode) {
+      setCode(selectedCurrency);
+    }
+  }, [defaultCode]);
 
   useEffect(() => {
+    if (!isMounted) return;
+
     const handleStorage = (e: StorageEvent) => {
       if (e.key === "fx_currency_code") {
         setCode(getSelectedCurrency());
@@ -78,12 +92,13 @@ export function useCurrency(defaultCode: string = "EUR", locale?: string) {
         handleCustom as EventListener
       );
     };
-  }, []);
+  }, [isMounted]);
 
   return {
     code,
     symbol: currencySymbols[code] ?? "€",
     convertFromEur: (amountEur: number) => convertFromEur(amountEur, code),
-    formatFromEur: (amountEur: number) => formatPriceFromEur(amountEur, code, locale),
+    formatFromEur: (amountEur: number) =>
+      formatPriceFromEur(amountEur, code, locale),
   };
 }
