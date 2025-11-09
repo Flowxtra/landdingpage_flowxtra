@@ -60,6 +60,11 @@ function getApiBaseUrl(): string {
 
 const API_BASE_URL = getApiBaseUrl();
 
+// Log API base URL on initialization (only in development)
+if (process.env.NODE_ENV === "development") {
+  console.log(`[App Store API] Base URL: ${API_BASE_URL}`);
+}
+
 // TypeScript Interfaces
 export interface AppCategory {
   id: number;
@@ -226,16 +231,26 @@ export async function getApps(params: {
   }
 
   try {
+    console.log(`[App Store API] Fetching apps from: ${url}`);
     const response = await fetch(url, fetchOptions);
 
     if (!response.ok) {
-      throw new Error(`API Error: ${response.status}`);
+      const errorText = await response.text().catch(() => "Unknown error");
+      console.error(`[App Store API] API Error ${response.status}:`, errorText);
+      throw new Error(`API Error: ${response.status} - ${errorText}`);
     }
 
-    return response.json();
+    const data = await response.json();
+    console.log(
+      `[App Store API] Successfully fetched ${
+        data.data?.apps?.length || 0
+      } apps`
+    );
+    return data;
   } catch (error) {
     // Fallback to mock data if API fails
     console.warn("[App Store API] Using mock data due to API error:", error);
+    console.warn(`[App Store API] Failed URL: ${url}`);
     const mockData = getMockApps({
       page: params.page,
       limit: params.limit,
@@ -274,19 +289,25 @@ export async function getApp(
   }
 
   try {
+    console.log(`[App Store API] Fetching app: ${slug} from: ${url}`);
     const response = await fetch(url, fetchOptions);
 
     if (!response.ok) {
-      throw new Error(`API Error: ${response.status}`);
+      const errorText = await response.text().catch(() => "Unknown error");
+      console.error(`[App Store API] API Error ${response.status}:`, errorText);
+      throw new Error(`API Error: ${response.status} - ${errorText}`);
     }
 
-    return response.json();
+    const data = await response.json();
+    console.log(`[App Store API] Successfully fetched app: ${slug}`);
+    return data;
   } catch (error) {
     // Fallback to mock data if API fails
     console.warn(
       "[App Store API] Using mock data for app detail due to API error:",
       error
     );
+    console.warn(`[App Store API] Failed URL: ${url}`);
     const mockApp = getMockApp(slug);
 
     if (!mockApp) {
@@ -327,19 +348,29 @@ export async function getAppCategories(locale: string = "en"): Promise<{
   }
 
   try {
+    console.log(`[App Store API] Fetching categories from: ${url}`);
     const response = await fetch(url, fetchOptions);
 
     if (!response.ok) {
-      throw new Error(`API Error: ${response.status}`);
+      const errorText = await response.text().catch(() => "Unknown error");
+      console.error(`[App Store API] API Error ${response.status}:`, errorText);
+      throw new Error(`API Error: ${response.status} - ${errorText}`);
     }
 
-    return response.json();
+    const data = await response.json();
+    console.log(
+      `[App Store API] Successfully fetched ${
+        data.data?.categories?.length || 0
+      } categories`
+    );
+    return data;
   } catch (error) {
     // Fallback to mock data if API fails
     console.warn(
       "[App Store API] Using mock data for categories due to API error:",
       error
     );
+    console.warn(`[App Store API] Failed URL: ${url}`);
     return {
       success: true,
       data: {
