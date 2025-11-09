@@ -802,6 +802,10 @@
                 "name": "Exportación de candidatos",
                 "description": "Exporta listas e informes para análisis externo y respaldos. Soporta formatos CSV y Excel."
             },
+            "candidateImport": {
+                "name": "Importación de candidatos",
+                "description": "Importa datos de candidatos desde CSV, Excel y otros sistemas ATS. Carga masiva de candidatos con mapeo automático de datos y validación."
+            },
             "esignature": {
                 "name": "Firma electrónica",
                 "description": "Envía, firma y rastrea contratos digitales legalmente vinculantes con pistas de auditoría y marcas de tiempo."
@@ -861,7 +865,8 @@
             "about": "Sobre nosotros",
             "contact": "Contáctanos",
             "pricing": "Precios",
-            "affiliate": "Afiliados"
+            "affiliate": "Afiliados",
+            "appStore": "App Store"
         },
         "software": {
             "title": "Software",
@@ -1032,6 +1037,37 @@
         },
         "latestPosts": "Últimas Publicaciones",
         "tableOfContents": "Tabla de Contenidos"
+    },
+    "appStore": {
+        "title": "Tienda de Aplicaciones",
+        "description": "Descubre integraciones y aplicaciones potentes para ampliar tu Flowxtra ATS. Conéctate con herramientas de RR. HH., plataformas de comunicación y servicios de análisis para optimizar tu flujo de trabajo de reclutamiento.",
+        "viewDetails": "Ver Detalles",
+        "allApps": "Todas las Aplicaciones",
+        "categories": {
+            "all": "Todas"
+        },
+        "pagination": {
+            "previous": "Anterior",
+            "next": "Siguiente",
+            "page": "Página {page}"
+        },
+        "viewMode": "Modo de Visualización",
+        "viewModeList": "Vista de lista",
+        "viewModeGrid": "Vista de cuadrícula",
+        "search": {
+            "placeholder": "Buscar aplicaciones...",
+            "startTyping": "Comienza a escribir para buscar aplicaciones...",
+            "noResults": "No se encontraron aplicaciones que coincidan con \"{query}\"",
+            "noResultsInPage": "No se encontraron aplicaciones que coincidan con tus criterios de búsqueda.",
+            "clearSearch": "Limpiar búsqueda"
+        },
+        "install": "Instalar",
+        "visitWebsite": "Visitar Sitio Web",
+        "about": "Acerca de",
+        "features": "Características",
+        "screenshots": "Capturas de Pantalla",
+        "relatedApps": "Aplicaciones Relacionadas",
+        "backToAppStore": "Volver a la Tienda de Aplicaciones"
     },
     "socialMediaManagement": {
         "title": "Gestión de Redes Sociales",

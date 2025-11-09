@@ -86,6 +86,11 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/app-store" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-[#00A8CD] transition-colors">
+                    {t("company.appStore")}
+                  </Link>
+                </li>
+                <li>
                   <Link href="/blog" className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-[#00A8CD] transition-colors">
                     {t("company.blog")}
                   </Link>

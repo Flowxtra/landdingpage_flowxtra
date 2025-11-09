@@ -802,6 +802,10 @@
                 "name": "Candidate export",
                 "description": "Export lists and reports for external analysis and backups. Supports CSV and Excel formats."
             },
+            "candidateImport": {
+                "name": "Candidate import",
+                "description": "Import candidate data from CSV, Excel, and other ATS systems. Bulk upload candidates with automatic data mapping and validation."
+            },
             "esignature": {
                 "name": "eSignature",
                 "description": "Send, sign, and track legally binding digital contracts with audit trails and timestamps."
@@ -861,7 +865,8 @@
             "about": "About us",
             "contact": "Contact us",
             "pricing": "Pricing",
-            "affiliate": "Affiliate"
+            "affiliate": "Affiliate",
+            "appStore": "App Store"
         },
         "software": {
             "title": "Software",
@@ -1032,6 +1037,37 @@
         },
         "latestPosts": "Latest Posts",
         "tableOfContents": "Table of Contents"
+    },
+    "appStore": {
+        "title": "متجر التطبيقات",
+        "description": "اكتشف التكاملات والتطبيقات القوية لتوسيع نظام Flowxtra ATS الخاص بك. اتصل بأدوات الموارد البشرية ومنصات التواصل وخدمات التحليلات لتبسيط سير عمل التوظيف الخاص بك.",
+        "viewDetails": "عرض التفاصيل",
+        "allApps": "جميع التطبيقات",
+        "categories": {
+            "all": "الكل"
+        },
+        "pagination": {
+            "previous": "السابق",
+            "next": "التالي",
+            "page": "الصفحة {page}"
+        },
+        "viewMode": "وضع العرض",
+        "viewModeList": "عرض القائمة",
+        "viewModeGrid": "عرض الشبكة",
+        "search": {
+            "placeholder": "البحث عن التطبيقات...",
+            "startTyping": "ابدأ الكتابة للبحث عن التطبيقات...",
+            "noResults": "لم يتم العثور على تطبيقات تطابق \"{query}\"",
+            "noResultsInPage": "لم يتم العثور على تطبيقات تطابق معايير البحث الخاصة بك.",
+            "clearSearch": "مسح البحث"
+        },
+        "install": "تثبيت",
+        "visitWebsite": "زيارة الموقع",
+        "about": "حول",
+        "features": "المميزات",
+        "screenshots": "لقطات الشاشة",
+        "relatedApps": "تطبيقات ذات صلة",
+        "backToAppStore": "العودة إلى متجر التطبيقات"
     },
     "socialMediaManagement": {
         "title": "Social Media Management",

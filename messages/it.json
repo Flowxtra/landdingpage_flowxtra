@@ -802,6 +802,10 @@
                 "name": "Export candidati",
                 "description": "Esporta elenchi e report per analisi esterna e backup. Supporta formati CSV ed Excel."
             },
+            "candidateImport": {
+                "name": "Import candidati",
+                "description": "Importa dati candidati da CSV, Excel e altri sistemi ATS. Caricamento bulk di candidati con mappatura automatica dei dati e validazione."
+            },
             "esignature": {
                 "name": "Firma elettronica",
                 "description": "Invia, firma e traccia contratti digitali legalmente vincolanti con audit trail e timestamp."
@@ -861,7 +865,8 @@
             "about": "Chi siamo",
             "contact": "Contattaci",
             "pricing": "Prezzi",
-            "affiliate": "Affiliazione"
+            "affiliate": "Affiliazione",
+            "appStore": "App Store"
         },
         "software": {
             "title": "Software",
@@ -1032,6 +1037,37 @@
         },
         "latestPosts": "Ultimi Post",
         "tableOfContents": "Indice"
+    },
+    "appStore": {
+        "title": "Negozio di App",
+        "description": "Scopri integrazioni e applicazioni potenti per estendere il tuo Flowxtra ATS. Connettiti con strumenti HR, piattaforme di comunicazione e servizi di analisi per semplificare il tuo flusso di lavoro di reclutamento.",
+        "viewDetails": "Visualizza Dettagli",
+        "allApps": "Tutte le App",
+        "categories": {
+            "all": "Tutte"
+        },
+        "pagination": {
+            "previous": "Precedente",
+            "next": "Successivo",
+            "page": "Pagina {page}"
+        },
+        "viewMode": "Modalità Visualizzazione",
+        "viewModeList": "Vista elenco",
+        "viewModeGrid": "Vista griglia",
+        "search": {
+            "placeholder": "Cerca app...",
+            "startTyping": "Inizia a digitare per cercare app...",
+            "noResults": "Nessuna app trovata corrispondente a \"{query}\"",
+            "noResultsInPage": "Nessuna app trovata corrispondente ai tuoi criteri di ricerca.",
+            "clearSearch": "Cancella ricerca"
+        },
+        "install": "Installa",
+        "visitWebsite": "Visita il Sito Web",
+        "about": "Informazioni",
+        "features": "Funzionalità",
+        "screenshots": "Screenshot",
+        "relatedApps": "App Correlate",
+        "backToAppStore": "Torna al Negozio di App"
     },
     "socialMediaManagement": {
         "title": "Gestione Social Media",

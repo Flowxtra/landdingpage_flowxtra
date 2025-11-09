@@ -802,6 +802,10 @@
                 "name": "Kandidatenexport",
                 "description": "Exportieren Sie Listen und Berichte für externe Analysen und Backups. Unterstützt CSV- und Excel-Formate."
             },
+            "candidateImport": {
+                "name": "Kandidatenimport",
+                "description": "Importieren Sie Kandidatendaten aus CSV, Excel und anderen ATS-Systemen. Massenupload von Kandidaten mit automatischem Datenmapping und Validierung."
+            },
             "esignature": {
                 "name": "Elektronische Signatur",
                 "description": "Senden, signieren und verfolgen Sie rechtsverbindliche digitale Verträge mit Prüfpfaden und Zeitstempeln."
@@ -861,7 +865,8 @@
             "about": "Über uns",
             "contact": "Kontakt",
             "pricing": "Preise",
-            "affiliate": "Affiliate"
+            "affiliate": "Affiliate",
+            "appStore": "App Store"
         },
         "software": {
             "title": "Software",
@@ -1032,6 +1037,37 @@
         },
         "latestPosts": "Neueste Beiträge",
         "tableOfContents": "Inhaltsverzeichnis"
+    },
+    "appStore": {
+        "title": "App Store",
+        "description": "Entdecken Sie leistungsstarke Integrationen und Anwendungen, um Ihr Flowxtra ATS zu erweitern. Verbinden Sie sich mit HR-Tools, Kommunikationsplattformen und Analysediensten, um Ihren Rekrutierungs-Workflow zu optimieren.",
+        "viewDetails": "Details anzeigen",
+        "allApps": "Alle Apps",
+        "categories": {
+            "all": "Alle"
+        },
+        "pagination": {
+            "previous": "Zurück",
+            "next": "Weiter",
+            "page": "Seite {page}"
+        },
+        "viewMode": "Ansichtsmodus",
+        "viewModeList": "Listenansicht",
+        "viewModeGrid": "Rasteransicht",
+        "search": {
+            "placeholder": "Apps suchen...",
+            "startTyping": "Beginnen Sie mit der Eingabe, um nach Apps zu suchen...",
+            "noResults": "Keine Apps gefunden, die \"{query}\" entsprechen",
+            "noResultsInPage": "Keine Apps gefunden, die Ihren Suchkriterien entsprechen.",
+            "clearSearch": "Suche löschen"
+        },
+        "install": "Installieren",
+        "visitWebsite": "Website besuchen",
+        "about": "Über",
+        "features": "Funktionen",
+        "screenshots": "Screenshots",
+        "relatedApps": "Verwandte Apps",
+        "backToAppStore": "Zurück zum App Store"
     },
     "socialMediaManagement": {
         "title": "Social Media Management",

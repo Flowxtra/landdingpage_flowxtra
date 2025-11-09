@@ -8,7 +8,7 @@ interface PricingSectionProps {
   defaultCompareOpen?: boolean;
 }
 
-export default function PricingSection({ defaultCompareOpen = false }: PricingSectionProps) {
+export default function PricingSection({ defaultCompareOpen = true }: PricingSectionProps) {
   const t = useTranslations("pricing");
   const { formatFromEur } = useCurrency();
   

@@ -802,6 +802,10 @@
                 "name": "Kandidaatexport",
                 "description": "Exporteer lijsten en rapporten voor externe analyse en back-ups. Ondersteunt CSV- en Excel-formaten."
             },
+            "candidateImport": {
+                "name": "Kandidaatimporteren",
+                "description": "Importeer kandidaatgegevens uit CSV, Excel en andere ATS-systemen. Bulk upload van kandidaten met automatische gegevensmapping en validatie."
+            },
             "esignature": {
                 "name": "eHandtekening",
                 "description": "Verstuur, onderteken en volg juridisch bindende digitale contracten met audit trails en tijdstempels."
@@ -861,7 +865,8 @@
             "about": "Over ons",
             "contact": "Contact opnemen",
             "pricing": "Prijzen",
-            "affiliate": "Partner"
+            "affiliate": "Partner",
+            "appStore": "App Store"
         },
         "software": {
             "title": "Software",
@@ -1032,6 +1037,37 @@
         },
         "latestPosts": "Nieuwste Berichten",
         "tableOfContents": "Inhoudsopgave"
+    },
+    "appStore": {
+        "title": "App Store",
+        "description": "Ontdek krachtige integraties en applicaties om uw Flowxtra ATS uit te breiden. Verbind met HR-tools, communicatieplatforms en analyseservices om uw wervingsworkflow te stroomlijnen.",
+        "viewDetails": "Details Bekijken",
+        "allApps": "Alle Apps",
+        "categories": {
+            "all": "Alle"
+        },
+        "pagination": {
+            "previous": "Vorige",
+            "next": "Volgende",
+            "page": "Pagina {page}"
+        },
+        "viewMode": "Weergavemodus",
+        "viewModeList": "Lijstweergave",
+        "viewModeGrid": "Rasterweergave",
+        "search": {
+            "placeholder": "Zoek apps...",
+            "startTyping": "Begin met typen om apps te zoeken...",
+            "noResults": "Geen apps gevonden die overeenkomen met \"{query}\"",
+            "noResultsInPage": "Geen apps gevonden die overeenkomen met uw zoekcriteria.",
+            "clearSearch": "Zoekopdracht wissen"
+        },
+        "install": "Installeren",
+        "visitWebsite": "Website Bezoeken",
+        "about": "Over",
+        "features": "Functies",
+        "screenshots": "Screenshots",
+        "relatedApps": "Gerelateerde Apps",
+        "backToAppStore": "Terug naar App Store"
     },
     "socialMediaManagement": {
         "title": "Social Media Beheer",

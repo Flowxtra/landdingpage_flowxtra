@@ -32,7 +32,7 @@ interface CompareFeaturesProps {
   defaultOpen?: boolean;
 }
 
-export default function CompareFeatures({ defaultOpen = false }: CompareFeaturesProps) {
+export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesProps) {
   const t = useTranslations("pricing");
   const tCompare = useTranslations("compareFeatures");
   const [isOpen, setIsOpen] = useState(defaultOpen);
@@ -672,6 +672,19 @@ export default function CompareFeatures({ defaultOpen = false }: CompareFeatures
       premium: '✓',
       enterprise: '✓',
       description: tCompare('features.candidateExport.description'),
+    },
+    {
+      id: 'desc-import',
+      icon: 'fas fa-file-import',
+      name: tCompare('features.candidateImport.name'),
+      free: '—',
+      starter: '—',
+      basic: '—',
+      professional: '✓',
+      advanced: '✓',
+      premium: '✓',
+      enterprise: '✓',
+      description: tCompare('features.candidateImport.description'),
     },
   ];
 

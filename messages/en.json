@@ -802,6 +802,10 @@
                 "name": "Candidate export",
                 "description": "Export lists and reports for external analysis and backups. Supports CSV and Excel formats."
             },
+            "candidateImport": {
+                "name": "Candidate import",
+                "description": "Import candidate data from CSV, Excel, and other ATS systems. Bulk upload candidates with automatic data mapping and validation."
+            },
             "esignature": {
                 "name": "eSignature",
                 "description": "Send, sign, and track legally binding digital contracts with audit trails and timestamps."
@@ -861,7 +865,8 @@
             "about": "About us",
             "contact": "Contact us",
             "pricing": "Pricing",
-            "affiliate": "Affiliate"
+            "affiliate": "Affiliate",
+            "appStore": "App Store"
         },
         "software": {
             "title": "Software",
@@ -1032,6 +1037,37 @@
         },
         "latestPosts": "Latest Posts",
         "tableOfContents": "Table of Contents"
+    },
+    "appStore": {
+        "title": "App Store",
+        "description": "Discover powerful integrations and applications to extend your Flowxtra ATS. Connect with HR tools, communication platforms, and analytics services to streamline your recruitment workflow.",
+        "viewDetails": "View Details",
+        "allApps": "All Apps",
+        "categories": {
+            "all": "All"
+        },
+        "pagination": {
+            "previous": "Previous",
+            "next": "Next",
+            "page": "Page {page}"
+        },
+        "viewMode": "View Mode",
+        "viewModeList": "List view",
+        "viewModeGrid": "Grid view",
+        "search": {
+            "placeholder": "Search apps...",
+            "startTyping": "Start typing to search for apps...",
+            "noResults": "No apps found matching \"{query}\"",
+            "noResultsInPage": "No apps found matching your search criteria.",
+            "clearSearch": "Clear search"
+        },
+        "install": "Install",
+        "visitWebsite": "Visit Website",
+        "about": "About",
+        "features": "Features",
+        "screenshots": "Screenshots",
+        "relatedApps": "Related Apps",
+        "backToAppStore": "Back to App Store"
     },
     "socialMediaManagement": {
         "title": "Social Media Management",
