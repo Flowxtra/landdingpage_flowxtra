@@ -427,12 +427,91 @@ export default async function LocaleLayout({
           fetchPriority="high"
         />
         
-        {/* Font Awesome - Required for icons in CompareFeatures */}
+        {/* Preconnect to Cloudflare CDN for Font Awesome fonts - improves font loading performance */}
+        <link
+          rel="preconnect"
+          href="https://cdnjs.cloudflare.com"
+          crossOrigin="anonymous"
+        />
+        
+        {/* Override Font Awesome font-display for better performance */}
+        {/* Must be BEFORE Font Awesome CSS loads to ensure font-display: swap is applied */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              @font-face {
+                font-family: 'Font Awesome 6 Brands';
+                font-display: swap !important;
+                font-style: normal;
+                font-weight: 400;
+                src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2') format('woff2');
+              }
+              @font-face {
+                font-family: 'Font Awesome 6 Free';
+                font-display: swap !important;
+                font-style: normal;
+                font-weight: 400;
+                src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-regular-400.woff2') format('woff2');
+              }
+              @font-face {
+                font-family: 'Font Awesome 6 Free';
+                font-display: swap !important;
+                font-style: normal;
+                font-weight: 900;
+                src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2') format('woff2');
+              }
+            `,
+          }}
+        />
+        
+        {/* Font Awesome - Load asynchronously to prevent render blocking */}
+        {/* Use media="print" trick to load asynchronously, then switch to "all" after load */}
+        {/* suppressHydrationWarning is needed because media attribute changes after hydration */}
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
           integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
           crossOrigin="anonymous"
+          media="print"
+          id="font-awesome-css"
+          suppressHydrationWarning
+        />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossOrigin="anonymous"
+          />
+        </noscript>
+        {/* Script to change media from "print" to "all" after Font Awesome loads */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                function loadFontAwesome() {
+                  const link = document.getElementById('font-awesome-css');
+                  if (link && link.media === 'print') {
+                    link.media = 'all';
+                  }
+                }
+                
+                // Try immediately
+                loadFontAwesome();
+                
+                // Also try after DOM loads
+                if (document.readyState === 'loading') {
+                  document.addEventListener('DOMContentLoaded', loadFontAwesome);
+                }
+                
+                // Watch for link load event
+                const link = document.getElementById('font-awesome-css');
+                if (link) {
+                  link.addEventListener('load', loadFontAwesome, { once: true });
+                }
+              })();
+            `,
+          }}
         />
         
         {/* DNS prefetch removed - scripts are lazy loaded after user interaction, prefetch is unnecessary and triggers "unused preconnect" warnings */}

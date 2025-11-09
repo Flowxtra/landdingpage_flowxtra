@@ -4,12 +4,100 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams, usePathname } from 'next/navigation';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useMemo } from 'react';
 import { generateBlogPostSchema } from '@/lib/seo';
 import JsonLd from '@/components/JsonLd';
 import { getBlogPost, getBlogPosts, getImageUrl, formatDate, formatReadingTime, type BlogPost, type PreviousNextPost } from '@/lib/blogApi';
 import TableOfContents from '@/components/TableOfContents';
 import ProfessionalPlanSidebar from '@/components/ProfessionalPlanSidebar';
+
+// Function to process HTML content and add alt attributes to images, fix heading order, and improve links
+function processContentImages(html: string, postTitle: string): string {
+  if (!html) return html;
+  
+  try {
+    // Use DOMParser on client-side, or simple regex/string replacement on server-side
+    if (typeof window !== 'undefined') {
+      // Client-side: Use DOMParser for accurate HTML parsing
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+    
+    // Find all images without alt attributes or with empty alt
+    const images = doc.querySelectorAll('img');
+    images.forEach((img) => {
+      // If image doesn't have alt attribute or has empty alt, add descriptive alt
+      if (!img.getAttribute('alt') || img.getAttribute('alt') === '') {
+        // Try to get alt from title attribute, or use post title as fallback
+        const altText = img.getAttribute('title') || 
+                       img.getAttribute('aria-label') || 
+                       `Image from ${postTitle}`;
+        img.setAttribute('alt', altText);
+      }
+    });
+    
+    // Note: Heading order is handled by the content structure
+    // We don't modify heading tags to preserve their original styling
+    
+    // Add underline to links for better accessibility
+    const links = doc.querySelectorAll('a');
+    links.forEach((link) => {
+      if (!link.style.textDecoration && !link.className.includes('no-underline')) {
+        link.style.textDecoration = 'underline';
+        link.style.textDecorationThickness = '1px';
+        link.style.textUnderlineOffset = '2px';
+      }
+    });
+    
+      return doc.body.innerHTML;
+    } else {
+      // Server-side: Process HTML without modifying heading tags
+      // Heading order should be handled by the content structure
+      let processedHtml = html;
+      
+      // Add alt attributes to images without alt (simple regex approach)
+      processedHtml = processedHtml.replace(
+        /<img([^>]*?)(?:\s+alt\s*=\s*["'][^"']*["'])?([^>]*?)>/gi,
+        (match, before, after) => {
+          if (!/<img[^>]*alt\s*=/i.test(match)) {
+            // No alt attribute, add one
+            return `<img${before} alt="Image from ${postTitle}"${after}>`;
+          }
+          return match;
+        }
+      );
+      
+      // Add underline to links (simple regex approach)
+      processedHtml = processedHtml.replace(
+        /<a([^>]*?)(?:\s+class\s*=\s*["']([^"']*?)["'])?([^>]*?)>/gi,
+        (match, before, classAttr, after) => {
+          if (classAttr && classAttr.includes('no-underline')) {
+            return match; // Skip links with no-underline class
+          }
+          // Add inline style for underline
+          const styleMatch = match.match(/style\s*=\s*["']([^"']*?)["']/i);
+          if (styleMatch) {
+            // Append to existing style
+            return match.replace(
+              /style\s*=\s*["']([^"']*?)["']/i,
+              `style="$1; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px;"`
+            );
+          } else {
+            // Add new style attribute
+            return match.replace(/>$/, ' style="text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px;">');
+          }
+        }
+      );
+      
+      return processedHtml;
+    }
+  } catch (error) {
+    // If parsing fails, return original HTML
+    if (typeof window !== 'undefined') {
+      console.warn('Failed to process content:', error);
+    }
+    return html;
+  }
+}
 
 function BlogPostContent() {
   const t = useTranslations('blog');
@@ -175,6 +263,12 @@ function BlogPostContent() {
   // Get category name (use post.category directly since categories endpoint doesn't exist)
   const categoryName = post?.category || '';
 
+  // Process content to add alt attributes to images
+  const processedContent = useMemo(() => {
+    if (!post?.content) return '';
+    return processContentImages(post.content, post.title);
+  }, [post?.content, post?.title]);
+
   // Loading state
   if (loading) {
     return (
@@ -223,21 +317,21 @@ function BlogPostContent() {
         <div className="w-full rounded-[10px] px-[10px] py-16 md:py-20 bg-[#f4f6f8] dark:bg-gray-800">
           <div className="container mx-auto px-4 md:px-8 lg:px-12">
             {/* Breadcrumbs */}
-            <nav className="text-sm text-gray-500 dark:text-gray-400 mb-6">
-              <Link href={`/${currentLocale}`} className="hover:text-primary dark:hover:text-secondary transition-colors">
+            <nav className="text-sm text-gray-600 dark:text-gray-300 mb-6">
+              <Link href={`/${currentLocale}`} className="hover:text-primary dark:hover:text-secondary transition-colors underline decoration-1 underline-offset-2">
                 Home
               </Link>
               {' / '}
-              <Link href={`/${currentLocale}/blog`} className="hover:text-primary dark:hover:text-secondary transition-colors">
+              <Link href={`/${currentLocale}/blog`} className="hover:text-primary dark:hover:text-secondary transition-colors underline decoration-1 underline-offset-2">
                 Blog
               </Link>
               {' / '}
-              <span className="text-gray-700 dark:text-gray-300">{post.title}</span>
+              <span className="text-gray-700 dark:text-gray-200">{post.title}</span>
             </nav>
 
             {/* Category Badge */}
             <div className="mb-4">
-              <span className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+              <span className="text-xs font-medium text-gray-600 dark:text-gray-300 uppercase tracking-wide">
                 {categoryName}
               </span>
             </div>
@@ -286,7 +380,9 @@ function BlogPostContent() {
               {/* Post Content */}
               <article
                 className="prose prose-lg max-w-none blog-content"
-                dangerouslySetInnerHTML={{ __html: post.content || post.excerpt || '' }}
+                dangerouslySetInnerHTML={{ 
+                  __html: processedContent || post.excerpt || '' 
+                }}
               />
 
               {/* Author Section (if available) */}
@@ -311,9 +407,9 @@ function BlogPostContent() {
                       )}
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+                      <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
                         {post.author.name}
-                      </h3>
+                      </h2>
                       {post.author.shortBio && (
                         <p className="text-sm text-gray-600 dark:text-gray-400">
                           {post.author.shortBio}
@@ -332,13 +428,13 @@ function BlogPostContent() {
                     {previousPost ? (
                       <Link
                         href={`/${currentLocale}/blog/${previousPost.slug}`}
-                        className="flex-1 group flex items-center gap-3"
+                        className="flex-1 group flex items-center gap-3 underline decoration-1 underline-offset-2"
                       >
                         <svg className="w-5 h-5 text-gray-400 dark:text-gray-500 group-hover:text-primary dark:group-hover:text-secondary transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
                         <div className="flex-1 min-w-0">
-                          <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">
+                          <div className="text-xs text-gray-600 dark:text-gray-300 mb-1">
                             {t('post.previousPost') || 'Previous Post'}
                           </div>
                           <div className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-secondary transition-colors line-clamp-2">
@@ -354,10 +450,10 @@ function BlogPostContent() {
                     {nextPost ? (
                       <Link
                         href={`/${currentLocale}/blog/${nextPost.slug}`}
-                        className="flex-1 group flex items-center gap-3"
+                        className="flex-1 group flex items-center gap-3 underline decoration-1 underline-offset-2"
                       >
                         <div className="flex-1 min-w-0 text-right">
-                          <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">
+                          <div className="text-xs text-gray-600 dark:text-gray-300 mb-1">
                             {t('post.nextPost') || 'Next Post'}
                           </div>
                           <div className="text-sm font-medium text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-secondary transition-colors line-clamp-2">
@@ -423,22 +519,25 @@ function BlogPostContent() {
                     <div className="p-4">
                       {/* Category Badge */}
                       <div className="mb-2">
-                        <span className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+                        <span className="text-xs font-medium text-gray-600 dark:text-gray-300 uppercase tracking-wide">
                           {relatedCategoryName}
                         </span>
                       </div>
 
-                      <Link href={`/${currentLocale}/blog/${relatedPost.slug}`}>
-                        <h3 className="font-bold text-gray-900 dark:text-white mb-2 hover:text-primary dark:hover:text-secondary transition-colors cursor-pointer text-lg">
+                      <Link 
+                        href={`/${currentLocale}/blog/${relatedPost.slug}`}
+                        className="underline decoration-1 underline-offset-2"
+                      >
+                        <h2 className="font-bold text-gray-900 dark:text-white mb-2 hover:text-primary dark:hover:text-secondary transition-colors cursor-pointer text-lg">
                           {relatedPost.title}
-                        </h3>
+                        </h2>
                       </Link>
                       <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed text-sm">
                         {relatedPost.excerpt}
                       </p>
                       
                       {/* Date and Time */}
-                      <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400 mb-4">
+                      <div className="flex items-center gap-4 text-xs text-gray-600 dark:text-gray-300 mb-4">
                         <span>{formatDate(relatedPost.date)}</span>
                         <span>•</span>
                         <span>{formatReadingTime(relatedPost.readingTime)}</span>
@@ -448,8 +547,11 @@ function BlogPostContent() {
                         href={`/${currentLocale}/blog/${relatedPost.slug}`}
                         className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-secondary transition-colors"
                       >
-                        {t('readMore')}
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <span>
+                          {t('readMore')}
+                          <span className="sr-only">: {relatedPost.title}</span>
+                        </span>
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                       </Link>

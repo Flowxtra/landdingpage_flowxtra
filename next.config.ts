@@ -37,6 +37,9 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   compress: true,
   poweredByHeader: false,
+  // Enable source maps in production for debugging (optional - can be disabled for security)
+  // Source maps help with debugging but increase build time and expose source code structure
+  productionBrowserSourceMaps: false, // Set to true if you need source maps in production
   // Enable bfcache for better performance
   async rewrites() {
     return [

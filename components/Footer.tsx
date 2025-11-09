@@ -256,13 +256,13 @@ export default function Footer() {
               </div>
 
               {/* reCAPTCHA Disclaimer */}
-              <p className="text-xs text-gray-500 dark:text-white">
+              <p className="text-xs text-gray-600 dark:text-gray-200">
                 {t("followUs.recaptcha.text")}{" "}
                 <a 
                   href="https://policies.google.com/privacy" 
                   target="_blank" 
                   rel="nofollow noopener"
-                  className="underline dark:underline hover:text-primary dark:hover:text-[#00A8CD] dark:text-white"
+                  className="underline dark:underline hover:text-primary dark:hover:text-[#00A8CD] dark:text-gray-200"
                 >
                   {t("followUs.recaptcha.privacy")}
                 </a>
@@ -271,7 +271,7 @@ export default function Footer() {
                   href="https://policies.google.com/terms" 
                   target="_blank" 
                   rel="nofollow noopener"
-                  className="underline dark:underline hover:text-primary dark:hover:text-[#00A8CD] dark:text-white"
+                  className="underline dark:underline hover:text-primary dark:hover:text-[#00A8CD] dark:text-gray-200"
                 >
                   {t("followUs.recaptcha.terms")}
                 </a>
@@ -378,13 +378,13 @@ export default function Footer() {
             </div>
 
             {/* Copyright */}
-            <div className="text-xs text-gray-500 dark:text-white text-center">
+            <div className="text-xs text-gray-600 dark:text-gray-200 text-center">
               {t("copyright.text")}{" "}
               <a 
                 href="https://dpro.at/" 
                 target="_blank" 
                 rel="noopener noreferrer nofollow"
-                className="text-primary dark:text-white dark:underline hover:text-secondary dark:hover:text-[#00A8CD]-light transition-colors"
+                className="text-primary dark:text-gray-200 dark:underline hover:text-secondary dark:hover:text-[#00A8CD] transition-colors underline decoration-1 underline-offset-2"
               >
                 {t("copyright.madeBy")}
               </a>
@@ -395,10 +395,10 @@ export default function Footer() {
               <CurrencySwitcher />
               <button 
                 onClick={() => setShowConsentPreferences(true)}
-                className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-primary dark:text-white hover:text-secondary dark:hover:text-[#00A8CD] transition-colors whitespace-nowrap"
+                className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-primary dark:text-gray-200 hover:text-secondary dark:hover:text-[#00A8CD] transition-colors whitespace-nowrap underline decoration-1 underline-offset-2"
               >
                 <svg 
-                  className="w-4 h-4 md:w-5 md:h-5 text-primary dark:text-white dark:group-hover:text-[#00A8CD] flex-shrink-0 transition-colors" 
+                  className="w-4 h-4 md:w-5 md:h-5 text-primary dark:text-gray-200 dark:group-hover:text-[#00A8CD] flex-shrink-0 transition-colors" 
                   viewBox="0 0 24 24" 
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
@@ -424,12 +424,12 @@ export default function Footer() {
               {/* Dark Mode Toggle */}
               <button
                 onClick={toggleDarkMode}
-                className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-primary dark:text-white hover:text-secondary dark:hover:text-[#00A8CD] transition-colors whitespace-nowrap"
+                className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-primary dark:text-gray-200 hover:text-secondary dark:hover:text-[#00A8CD] transition-colors whitespace-nowrap underline decoration-1 underline-offset-2"
                 aria-label="Toggle dark mode"
               >
                 {isDarkMode ? (
                   <svg
-                    className="w-4 h-4 md:w-5 md:h-5 text-primary dark:text-white flex-shrink-0"
+                    className="w-4 h-4 md:w-5 md:h-5 text-primary dark:text-gray-200 flex-shrink-0"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -443,7 +443,7 @@ export default function Footer() {
                   </svg>
                 ) : (
                   <svg
-                    className="w-4 h-4 md:w-5 md:h-5 text-primary dark:text-white flex-shrink-0"
+                    className="w-4 h-4 md:w-5 md:h-5 text-primary dark:text-gray-200 flex-shrink-0"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -461,11 +461,11 @@ export default function Footer() {
               
               <button
                 onClick={() => setShowAccessibilityPanel(true)}
-                className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-primary dark:text-white hover:text-secondary dark:hover:text-[#00A8CD] transition-colors whitespace-nowrap"
+                className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-primary dark:text-gray-200 hover:text-secondary dark:hover:text-[#00A8CD] transition-colors whitespace-nowrap underline decoration-1 underline-offset-2"
                 aria-label={t("accessibility")}
               >
                 <svg 
-                  className="w-4 h-4 md:w-5 md:h-5 text-primary dark:text-white flex-shrink-0" 
+                  className="w-4 h-4 md:w-5 md:h-5 text-primary dark:text-gray-200 flex-shrink-0" 
                   viewBox="0 0 24 24" 
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
