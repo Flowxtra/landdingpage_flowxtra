@@ -550,15 +550,6 @@ function BlogContent() {
                   <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
                     {latestPost.excerpt}
                   </p>
-                  <Link
-                    href={`/${currentLocale}/blog/${latestPost.slug}`}
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-secondary transition-colors"
-                  >
-                    {t('discoverFuture')}
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
                 </div>
               </div>
             </div>
@@ -802,19 +793,6 @@ function BlogContent() {
                     <span>•</span>
                     <span>{formatReadingTime(post.readingTime)}</span>
                   </div>
-
-                  <Link
-                    href={`/${currentLocale}/blog/${post.slug}`}
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-secondary transition-colors"
-                  >
-                    <span>
-                      {t('readMore')}
-                      <span className="sr-only">: {post.title}</span>
-                    </span>
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
                 </div>
               </article>
               ))}

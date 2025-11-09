@@ -2,6 +2,7 @@ import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import type { Metadata, Viewport } from "next";
 import dynamic from "next/dynamic";
+import { headers } from 'next/headers';
 import "../globals.css";
 import ClientScripts from "@/components/ClientScripts";
 import AccessibilityWidgetLoader from "@/components/Accessibility/AccessibilityWidgetLoader";
@@ -34,8 +35,46 @@ export async function generateMetadata({
   
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
   
-  // Canonical URL for homepage
-  const canonicalUrl = `${baseUrl}/${locale}`;
+  // Get current pathname from headers (set by middleware) to build canonical URL
+  const headersList = await headers();
+  const pathname = headersList.get('x-pathname') || '';
+  
+  // Build canonical URL and hreflang URLs based on current pathname
+  // Only set canonical for homepage and pages without nested layouts
+  // Pages with nested layouts (blog/[slug], etc.) define their own canonical
+  let canonicalUrl: string | undefined = undefined;
+  let hreflangUrls: Record<string, string> = {};
+  
+  if (pathname && pathname.startsWith(`/${locale}`)) {
+    // Extract the path after locale (e.g., "/blog", "/pricing", etc.)
+    const pathAfterLocale = pathname.replace(`/${locale}`, '') || '/';
+    
+    // Check if this is a page that should have canonical in root layout
+    // Skip pages with nested layouts (blog posts, app store items, etc.)
+    // But allow blog listing page (/en/blog) and app store listing page (/en/app-store)
+    const hasNestedLayout = (pathname.match(/\/blog\/[^\/]+/) || // Blog post: /en/blog/slug
+                             pathname.match(/\/app-store\/[^\/]+/) || // App store item: /en/app-store/slug
+                             pathname.match(/\/[^\/]+\/[^\/]+\/[^\/]+/)); // Pattern like /locale/section/subsection/page
+    
+    if (!hasNestedLayout) {
+      // This is a simple page (homepage, pricing, contact, etc.)
+      canonicalUrl = `${baseUrl}${pathname}`;
+      
+      // Build hreflang URLs for the same page in all languages
+      const supportedLocales = ['en', 'de', 'fr', 'es', 'it', 'nl'];
+      supportedLocales.forEach(lang => {
+        hreflangUrls[lang] = `${baseUrl}/${lang}${pathAfterLocale}`;
+      });
+    }
+    // If hasNestedLayout, leave canonicalUrl as undefined - nested layout will handle it
+  } else {
+    // Fallback to homepage if pathname is not available
+    canonicalUrl = `${baseUrl}/${locale}`;
+    const supportedLocales = ['en', 'de', 'fr', 'es', 'it', 'nl'];
+    supportedLocales.forEach(lang => {
+      hreflangUrls[lang] = `${baseUrl}/${lang}`;
+    });
+  }
   
   const metadata = {
     en: {
@@ -60,8 +99,8 @@ export async function generateMetadata({
         description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform.",
       },
       alternates: {
-        canonical: canonicalUrl,
-        languages: {
+        ...(canonicalUrl && { canonical: canonicalUrl }),
+        languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
           'en': `${baseUrl}/en`,
           'de': `${baseUrl}/de`,
           'fr': `${baseUrl}/fr`,
@@ -105,8 +144,8 @@ export async function generateMetadata({
         description: "Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform.",
       },
       alternates: {
-        canonical: canonicalUrl,
-        languages: {
+        ...(canonicalUrl && { canonical: canonicalUrl }),
+        languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
           'en': `${baseUrl}/en`,
           'de': `${baseUrl}/de`,
           'fr': `${baseUrl}/fr`,
@@ -150,8 +189,8 @@ export async function generateMetadata({
         description: "Embauchez plus intelligemment avec l'IA — publiez des offres d'emploi gratuitement et gérez les candidats sur une plateforme simple et puissante.",
       },
       alternates: {
-        canonical: canonicalUrl,
-        languages: {
+        ...(canonicalUrl && { canonical: canonicalUrl }),
+        languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
           'en': `${baseUrl}/en`,
           'de': `${baseUrl}/de`,
           'fr': `${baseUrl}/fr`,
@@ -195,8 +234,8 @@ export async function generateMetadata({
         description: "Contrata de forma más inteligente con IA — publica empleos gratis y gestiona candidatos en una plataforma simple y potente.",
       },
       alternates: {
-        canonical: canonicalUrl,
-        languages: {
+        ...(canonicalUrl && { canonical: canonicalUrl }),
+        languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
           'en': `${baseUrl}/en`,
           'de': `${baseUrl}/de`,
           'fr': `${baseUrl}/fr`,
@@ -240,8 +279,8 @@ export async function generateMetadata({
         description: "Assumi in modo più intelligente con l'IA — pubblica offerte di lavoro gratuitamente e gestisci i candidati su una piattaforma semplice e potente.",
       },
       alternates: {
-        canonical: canonicalUrl,
-        languages: {
+        ...(canonicalUrl && { canonical: canonicalUrl }),
+        languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
           'en': `${baseUrl}/en`,
           'de': `${baseUrl}/de`,
           'fr': `${baseUrl}/fr`,
@@ -285,8 +324,8 @@ export async function generateMetadata({
         description: "Werve slimmer met AI — plaats vacatures gratis en beheer kandidaten op één eenvoudig, krachtig platform.",
       },
       alternates: {
-        canonical: canonicalUrl,
-        languages: {
+        ...(canonicalUrl && { canonical: canonicalUrl }),
+        languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
           'en': `${baseUrl}/en`,
           'de': `${baseUrl}/de`,
           'fr': `${baseUrl}/fr`,

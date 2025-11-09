@@ -39,27 +39,43 @@ const intlMiddleware = createMiddleware({
 export default function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
+  // Store original pathname for canonical URL (before any rewrites)
+  const originalPathname = pathname;
+
   // Redirect German URLs with English paths to translated German URLs
   if (englishToGerman[pathname]) {
     const url = request.nextUrl.clone();
     url.pathname = englishToGerman[pathname];
-    return NextResponse.redirect(url, 301); // Permanent redirect
+    const redirectResponse = NextResponse.redirect(url, 301); // Permanent redirect
+    redirectResponse.headers.set("x-pathname", originalPathname);
+    return redirectResponse;
   }
 
   // Rewrite translated German URLs to internal English paths
   if (germanToEnglish[pathname]) {
     const url = request.nextUrl.clone();
     url.pathname = germanToEnglish[pathname];
-    return NextResponse.rewrite(url);
+    const rewriteResponse = NextResponse.rewrite(url);
+    // Use original pathname (German URL) for canonical
+    rewriteResponse.headers.set("x-pathname", originalPathname);
+    return rewriteResponse;
   }
 
   // Run next-intl middleware
   const response = intlMiddleware(request);
 
-  // Enable bfcache (back/forward cache) by not setting no-store
-  // Only set cache headers for pages, not for API routes or static files
-  if (response && !pathname.startsWith("/api") && !pathname.includes(".")) {
-    response.headers.set("Cache-Control", "public, max-age=0, must-revalidate");
+  // Add pathname to headers for canonical URL generation in generateMetadata
+  if (response) {
+    response.headers.set("x-pathname", originalPathname);
+
+    // Enable bfcache (back/forward cache) by not setting no-store
+    // Only set cache headers for pages, not for API routes or static files
+    if (!pathname.startsWith("/api") && !pathname.includes(".")) {
+      response.headers.set(
+        "Cache-Control",
+        "public, max-age=0, must-revalidate"
+      );
+    }
   }
 
   return response;
