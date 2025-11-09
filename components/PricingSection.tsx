@@ -3,6 +3,7 @@
 import CompareFeatures from "@/components/CompareFeatures";
 import { useTranslations, useLocale } from "next-intl";
 import { useCurrency } from "@/lib/currency";
+import { cn } from "@/lib/utils";
 
 interface PricingSectionProps {
   defaultCompareOpen?: boolean;
@@ -12,6 +13,7 @@ export default function PricingSection({ defaultCompareOpen = true }: PricingSec
   const t = useTranslations("pricing");
   const locale = useLocale();
   const { formatFromEur } = useCurrency("EUR", locale);
+  const isRTL = locale === 'ar';
   
   return (
     <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
@@ -49,13 +51,16 @@ export default function PricingSection({ defaultCompareOpen = true }: PricingSec
 
         {/* Pricing Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16 max-w-7xl mx-auto">
-          {/* Advanced Plan */}
-          <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{t("plans.advanced")}</h3>
+          {/* Free Plan */}
+          <div className={cn(
+            "bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col",
+            isRTL ? "lg:order-5" : "lg:order-1"
+          )}>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{t("plans.free")}</h3>
             
             <div className="mb-6">
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-gray-900 dark:text-white">{formatFromEur(399)}</span>
+                <span className="text-4xl font-bold text-gray-900 dark:text-white">{formatFromEur(0)}</span>
                 <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">{t("plans.monthly")}</span>
               </div>
             </div>
@@ -67,7 +72,7 @@ export default function PricingSection({ defaultCompareOpen = true }: PricingSec
                 <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.jobPostings.unlimited")}</span>
+                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.jobPostings.5")}</span>
               </li>
               <li className="flex items-start gap-2 group cursor-pointer">
                 <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 24 24">
@@ -85,34 +90,29 @@ export default function PricingSection({ defaultCompareOpen = true }: PricingSec
             </a>
           </div>
 
-          {/* Professional Plan */}
-          <div 
-            className="border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col relative overflow-hidden shadow-2xl"
-            style={{
-              backgroundImage: 'url(/img/1bg.svg)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat'
-            }}
-          >
+          {/* Starter Plan */}
+          <div className={cn(
+            "bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col",
+            isRTL ? "lg:order-4" : "lg:order-2"
+          )}>
             
-            <h3 className="text-xl font-bold text-white mb-6 relative z-10">{t("plans.professional")}</h3>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{t("plans.starter")}</h3>
             
-            <div className="mb-6 relative z-10">
+            <div className="mb-6">
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-white">{formatFromEur(249)}</span>
-                <span className="text-sm text-white/80 font-medium">{t("plans.monthly")}</span>
+                <span className="text-4xl font-bold text-gray-900 dark:text-white">{formatFromEur(30)}</span>
+                <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">{t("plans.monthly")}</span>
               </div>
             </div>
 
-            <p className="text-sm text-white/90 mb-4 relative z-10">{t("plans.forCustomNeeds")}</p>
+            <p className="text-sm text-gray-600 dark:text-white mb-4">{t("plans.forGrowingBusinesses")}</p>
             
-            <ul className="space-y-3 mb-8 flex-grow relative z-10">
+            <ul className="space-y-3 mb-8 flex-grow">
               <li className="flex items-start gap-2 group cursor-pointer">
-                <svg className="w-5 h-5 text-white group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                <span className="text-sm text-white/90 group-hover:text-button-hover transition-colors">{t("features.jobPostings.35")}</span>
+                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.jobPostings.10")}</span>
               </li>
               <li className="flex items-start gap-2 group cursor-pointer">
                 <svg className="w-5 h-5 text-white group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 24 24">
@@ -124,14 +124,17 @@ export default function PricingSection({ defaultCompareOpen = true }: PricingSec
 
             <a
               href="https://my.flowxtra.com/registration"
-              className="block text-center bg-white text-primary border-2 border-white px-6 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium relative z-10"
+              className="block text-center border-2 border-primary text-primary dark:border-white dark:text-white px-6 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
             >
               {t("plans.getStarted")}
             </a>
           </div>
 
           {/* Basic Plan */}
-          <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col">
+          <div className={cn(
+            "bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col",
+            isRTL ? "lg:order-3" : "lg:order-3"
+          )}>
             <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{t("plans.basic")}</h3>
             
             <div className="mb-6">
@@ -166,25 +169,35 @@ export default function PricingSection({ defaultCompareOpen = true }: PricingSec
             </a>
           </div>
 
-          {/* Starter Plan */}
-          <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{t("plans.starter")}</h3>
+          {/* Professional Plan */}
+          <div className={cn(
+            "border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col relative overflow-hidden shadow-2xl",
+            isRTL ? "lg:order-2" : "lg:order-4"
+          )}
+            style={{
+              backgroundImage: 'url(/img/1bg.svg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}
+          >
+            <h3 className="text-xl font-bold text-white mb-6 relative z-10">{t("plans.professional")}</h3>
             
-            <div className="mb-6">
+            <div className="mb-6 relative z-10">
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-gray-900 dark:text-white">{formatFromEur(30)}</span>
-                <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">{t("plans.monthly")}</span>
+                <span className="text-4xl font-bold text-white">{formatFromEur(249)}</span>
+                <span className="text-sm text-white/80 font-medium">{t("plans.monthly")}</span>
               </div>
             </div>
 
-            <p className="text-sm text-gray-600 dark:text-white mb-4">{t("plans.forGrowingBusinesses")}</p>
+            <p className="text-sm text-white/90 mb-4 relative z-10">{t("plans.forCustomNeeds")}</p>
             
-            <ul className="space-y-3 mb-8 flex-grow">
+            <ul className="space-y-3 mb-8 flex-grow relative z-10">
               <li className="flex items-start gap-2 group cursor-pointer">
-                <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 text-white group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.jobPostings.10")}</span>
+                <span className="text-sm text-white/90 group-hover:text-button-hover transition-colors">{t("features.jobPostings.35")}</span>
               </li>
               <li className="flex items-start gap-2 group cursor-pointer">
                 <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 24 24">
@@ -196,19 +209,22 @@ export default function PricingSection({ defaultCompareOpen = true }: PricingSec
 
             <a
               href="https://my.flowxtra.com/registration"
-              className="block text-center border-2 border-primary text-primary dark:border-white dark:text-white px-6 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
+              className="block text-center bg-white text-primary border-2 border-white px-6 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium relative z-10"
             >
               {t("plans.getStarted")}
             </a>
           </div>
 
-          {/* Free Plan */}
-          <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{t("plans.free")}</h3>
+          {/* Advanced Plan */}
+          <div className={cn(
+            "bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col",
+            isRTL ? "lg:order-1" : "lg:order-5"
+          )}>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{t("plans.advanced")}</h3>
             
             <div className="mb-6">
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-gray-900 dark:text-white">{formatFromEur(0)}</span>
+                <span className="text-4xl font-bold text-gray-900 dark:text-white">{formatFromEur(399)}</span>
                 <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">{t("plans.monthly")}</span>
               </div>
             </div>
@@ -220,7 +236,7 @@ export default function PricingSection({ defaultCompareOpen = true }: PricingSec
                 <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.jobPostings.5")}</span>
+                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.jobPostings.unlimited")}</span>
               </li>
               <li className="flex items-start gap-2 group cursor-pointer">
                 <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 24 24">
