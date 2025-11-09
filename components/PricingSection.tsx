@@ -1,7 +1,7 @@
 "use client";
 
 import CompareFeatures from "@/components/CompareFeatures";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useCurrency } from "@/lib/currency";
 
 interface PricingSectionProps {
@@ -10,7 +10,8 @@ interface PricingSectionProps {
 
 export default function PricingSection({ defaultCompareOpen = true }: PricingSectionProps) {
   const t = useTranslations("pricing");
-  const { formatFromEur } = useCurrency();
+  const locale = useLocale();
+  const { formatFromEur } = useCurrency("EUR", locale);
   
   return (
     <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
@@ -48,13 +49,13 @@ export default function PricingSection({ defaultCompareOpen = true }: PricingSec
 
         {/* Pricing Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16 max-w-7xl mx-auto">
-          {/* Free Plan */}
+          {/* Advanced Plan */}
           <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{t("plans.free")}</h3>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{t("plans.advanced")}</h3>
             
             <div className="mb-6">
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-gray-900 dark:text-white">{formatFromEur(0)}</span>
+                <span className="text-4xl font-bold text-gray-900 dark:text-white">{formatFromEur(399)}</span>
                 <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">{t("plans.monthly")}</span>
               </div>
             </div>
@@ -66,79 +67,7 @@ export default function PricingSection({ defaultCompareOpen = true }: PricingSec
                 <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.jobPostings.5")}</span>
-              </li>
-              <li className="flex items-start gap-2 group cursor-pointer">
-                <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66 10.48 12h.01L7.8 14.39c-.64.64-1.49.99-2.4.99-1.87 0-3.39-1.51-3.39-3.38S3.53 8.62 5.4 8.62c.91 0 1.76.35 2.44 1.03l1.13 1 1.51-1.34L9.22 8.2C8.2 7.18 6.84 6.62 5.4 6.62 2.42 6.62 0 9.04 0 12s2.42 5.38 5.4 5.38c1.44 0 2.8-.56 3.77-1.53l2.83-2.5.01.01L13.52 12h-.01l2.69-2.39c.64-.64 1.49-.99 2.4-.99 1.87 0 3.39 1.51 3.39 3.38s-1.52 3.38-3.39 3.38c-.9 0-1.76-.35-2.44-1.03l-1.14-1.01-1.51 1.34 1.27 1.12c1.02 1.01 2.37 1.57 3.82 1.57 2.98 0 5.4-2.41 5.4-5.38s-2.42-5.37-5.4-5.37z"/>
-                </svg>
-                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.socialMediaPosts")}</span>
-              </li>
-            </ul>
-
-            <a
-              href="https://my.flowxtra.com/registration"
-              className="block text-center border-2 border-primary text-primary dark:border-white dark:text-white px-6 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
-            >
-              {t("plans.getStarted")}
-            </a>
-          </div>
-
-          {/* Starter Plan */}
-          <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{t("plans.starter")}</h3>
-            
-            <div className="mb-6">
-              <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-gray-900 dark:text-white">{formatFromEur(30)}</span>
-                <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">{t("plans.monthly")}</span>
-              </div>
-            </div>
-
-            <p className="text-sm text-gray-600 dark:text-white mb-4">{t("plans.forGrowingBusinesses")}</p>
-            
-            <ul className="space-y-3 mb-8 flex-grow">
-              <li className="flex items-start gap-2 group cursor-pointer">
-                <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.jobPostings.10")}</span>
-              </li>
-              <li className="flex items-start gap-2 group cursor-pointer">
-                <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66 10.48 12h.01L7.8 14.39c-.64.64-1.49.99-2.4.99-1.87 0-3.39-1.51-3.39-3.38S3.53 8.62 5.4 8.62c.91 0 1.76.35 2.44 1.03l1.13 1 1.51-1.34L9.22 8.2C8.2 7.18 6.84 6.62 5.4 6.62 2.42 6.62 0 9.04 0 12s2.42 5.38 5.4 5.38c1.44 0 2.8-.56 3.77-1.53l2.83-2.5.01.01L13.52 12h-.01l2.69-2.39c.64-.64 1.49-.99 2.4-.99 1.87 0 3.39 1.51 3.39 3.38s-1.52 3.38-3.39 3.38c-.9 0-1.76-.35-2.44-1.03l-1.14-1.01-1.51 1.34 1.27 1.12c1.02 1.01 2.37 1.57 3.82 1.57 2.98 0 5.4-2.41 5.4-5.38s-2.42-5.37-5.4-5.37z"/>
-                </svg>
-                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.socialMediaPosts")}</span>
-              </li>
-            </ul>
-
-            <a
-              href="https://my.flowxtra.com/registration"
-              className="block text-center border-2 border-primary text-primary dark:border-white dark:text-white px-6 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
-            >
-              {t("plans.getStarted")}
-            </a>
-          </div>
-
-          {/* Basic Plan */}
-          <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{t("plans.basic")}</h3>
-            
-            <div className="mb-6">
-              <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-gray-900 dark:text-white">{formatFromEur(99)}</span>
-                <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">{t("plans.monthly")}</span>
-              </div>
-            </div>
-
-            <p className="text-sm text-gray-600 dark:text-white mb-4">{t("plans.forGrowingBusinesses")}</p>
-            
-            <ul className="space-y-3 mb-8 flex-grow">
-              <li className="flex items-start gap-2 group cursor-pointer">
-                <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.jobPostings.25")}</span>
+                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.jobPostings.unlimited")}</span>
               </li>
               <li className="flex items-start gap-2 group cursor-pointer">
                 <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 24 24">
@@ -201,13 +130,13 @@ export default function PricingSection({ defaultCompareOpen = true }: PricingSec
             </a>
           </div>
 
-          {/* Advanced Plan */}
+          {/* Basic Plan */}
           <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{t("plans.advanced")}</h3>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{t("plans.basic")}</h3>
             
             <div className="mb-6">
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-gray-900 dark:text-white">{formatFromEur(399)}</span>
+                <span className="text-4xl font-bold text-gray-900 dark:text-white">{formatFromEur(99)}</span>
                 <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">{t("plans.monthly")}</span>
               </div>
             </div>
@@ -219,7 +148,79 @@ export default function PricingSection({ defaultCompareOpen = true }: PricingSec
                 <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.jobPostings.unlimited")}</span>
+                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.jobPostings.25")}</span>
+              </li>
+              <li className="flex items-start gap-2 group cursor-pointer">
+                <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66 10.48 12h.01L7.8 14.39c-.64.64-1.49.99-2.4.99-1.87 0-3.39-1.51-3.39-3.38S3.53 8.62 5.4 8.62c.91 0 1.76.35 2.44 1.03l1.13 1 1.51-1.34L9.22 8.2C8.2 7.18 6.84 6.62 5.4 6.62 2.42 6.62 0 9.04 0 12s2.42 5.38 5.4 5.38c1.44 0 2.8-.56 3.77-1.53l2.83-2.5.01.01L13.52 12h-.01l2.69-2.39c.64-.64 1.49-.99 2.4-.99 1.87 0 3.39 1.51 3.39 3.38s-1.52 3.38-3.39 3.38c-.9 0-1.76-.35-2.44-1.03l-1.14-1.01-1.51 1.34 1.27 1.12c1.02 1.01 2.37 1.57 3.82 1.57 2.98 0 5.4-2.41 5.4-5.38s-2.42-5.37-5.4-5.37z"/>
+                </svg>
+                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.socialMediaPosts")}</span>
+              </li>
+            </ul>
+
+            <a
+              href="https://my.flowxtra.com/registration"
+              className="block text-center border-2 border-primary text-primary dark:border-white dark:text-white px-6 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
+            >
+              {t("plans.getStarted")}
+            </a>
+          </div>
+
+          {/* Starter Plan */}
+          <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{t("plans.starter")}</h3>
+            
+            <div className="mb-6">
+              <div className="flex items-baseline gap-2">
+                <span className="text-4xl font-bold text-gray-900 dark:text-white">{formatFromEur(30)}</span>
+                <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">{t("plans.monthly")}</span>
+              </div>
+            </div>
+
+            <p className="text-sm text-gray-600 dark:text-white mb-4">{t("plans.forGrowingBusinesses")}</p>
+            
+            <ul className="space-y-3 mb-8 flex-grow">
+              <li className="flex items-start gap-2 group cursor-pointer">
+                <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.jobPostings.10")}</span>
+              </li>
+              <li className="flex items-start gap-2 group cursor-pointer">
+                <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66 10.48 12h.01L7.8 14.39c-.64.64-1.49.99-2.4.99-1.87 0-3.39-1.51-3.39-3.38S3.53 8.62 5.4 8.62c.91 0 1.76.35 2.44 1.03l1.13 1 1.51-1.34L9.22 8.2C8.2 7.18 6.84 6.62 5.4 6.62 2.42 6.62 0 9.04 0 12s2.42 5.38 5.4 5.38c1.44 0 2.8-.56 3.77-1.53l2.83-2.5.01.01L13.52 12h-.01l2.69-2.39c.64-.64 1.49-.99 2.4-.99 1.87 0 3.39 1.51 3.39 3.38s-1.52 3.38-3.39 3.38c-.9 0-1.76-.35-2.44-1.03l-1.14-1.01-1.51 1.34 1.27 1.12c1.02 1.01 2.37 1.57 3.82 1.57 2.98 0 5.4-2.41 5.4-5.38s-2.42-5.37-5.4-5.37z"/>
+                </svg>
+                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.socialMediaPosts")}</span>
+              </li>
+            </ul>
+
+            <a
+              href="https://my.flowxtra.com/registration"
+              className="block text-center border-2 border-primary text-primary dark:border-white dark:text-white px-6 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
+            >
+              {t("plans.getStarted")}
+            </a>
+          </div>
+
+          {/* Free Plan */}
+          <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{t("plans.free")}</h3>
+            
+            <div className="mb-6">
+              <div className="flex items-baseline gap-2">
+                <span className="text-4xl font-bold text-gray-900 dark:text-white">{formatFromEur(0)}</span>
+                <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">{t("plans.monthly")}</span>
+              </div>
+            </div>
+
+            <p className="text-sm text-gray-600 dark:text-white mb-4">{t("plans.forGrowingBusinesses")}</p>
+            
+            <ul className="space-y-3 mb-8 flex-grow">
+              <li className="flex items-start gap-2 group cursor-pointer">
+                <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.jobPostings.5")}</span>
               </li>
               <li className="flex items-start gap-2 group cursor-pointer">
                 <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 24 24">

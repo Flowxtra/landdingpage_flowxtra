@@ -35,15 +35,23 @@ export function convertFromEur(amountEur: number, toCode: string): number {
   return amountEur * rate;
 }
 
-export function formatPriceFromEur(amountEur: number, toCode: string): string {
+export function formatPriceFromEur(amountEur: number, toCode: string, locale?: string): string {
   const symbol = currencySymbols[toCode] ?? "€";
   const converted = convertFromEur(amountEur, toCode);
   // Display without cents: round to nearest integer for clean UI
   const value = Math.round(converted).toString();
+
+  // RTL languages: Arabic
+  const isRTL = locale === "ar";
+
+  if (isRTL) {
+    return `${value}${symbol}`;
+  }
+
   return `${symbol}${value}`;
 }
 
-export function useCurrency(defaultCode: string = "EUR") {
+export function useCurrency(defaultCode: string = "EUR", locale?: string) {
   const [code, setCode] = useState<string>(() => {
     if (typeof window === "undefined") return defaultCode;
     return getSelectedCurrency();
@@ -76,6 +84,6 @@ export function useCurrency(defaultCode: string = "EUR") {
     code,
     symbol: currencySymbols[code] ?? "€",
     convertFromEur: (amountEur: number) => convertFromEur(amountEur, code),
-    formatFromEur: (amountEur: number) => formatPriceFromEur(amountEur, code),
+    formatFromEur: (amountEur: number) => formatPriceFromEur(amountEur, code, locale),
   };
 }

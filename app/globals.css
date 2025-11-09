@@ -72,9 +72,10 @@ body {
   direction: rtl;
 }
 
-[dir="rtl"] .flex {
+/* Removed global flex reversal - causes issues with pricing and other layouts */
+/* [dir="rtl"] .flex {
   flex-direction: row-reverse;
-}
+} */
 
 [dir="rtl"] .text-left {
   text-align: right;

@@ -43,7 +43,7 @@ function Header() {
       '/es': 'ES',
       '/it': 'IT',
       '/nl': 'NL',
-      // '/ar': 'AR', // Temporarily disabled
+      '/ar': 'AR',
     };
     
     let detectedLang = 'EN'; // Default
@@ -80,7 +80,7 @@ function Header() {
       "ES": "es",
       "IT": "it",
       "NL": "nl",
-      // "AR": "ar", // Temporarily disabled
+      "AR": "ar",
     };
     
     const newLocale = langToLocale[lang] || "en";
@@ -450,8 +450,7 @@ function Header() {
                     >
                       Nederlands
                     </button>
-                    {/* Arabic temporarily disabled */}
-                    {/* <button
+                    <button
                       onClick={() => changeLanguage("AR")}
                       className={cn(
                         "block w-full text-left px-3 py-2 text-sm rounded-md transition-colors",
@@ -461,7 +460,7 @@ function Header() {
                       )}
                     >
                       العربية
-                    </button> */}
+                    </button>
                   </div>
                 </div>
               )}
@@ -663,8 +662,7 @@ function Header() {
                       <option value="ES">Español</option>
                       <option value="IT">Italiano</option>
                       <option value="NL">Nederlands</option>
-                      {/* Arabic temporarily disabled */}
-                      {/* <option value="AR">العربية</option> */}
+                      <option value="AR">العربية</option>
                     </select>
                   </div>
                 </div>

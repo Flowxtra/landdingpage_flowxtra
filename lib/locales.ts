@@ -19,7 +19,7 @@ export const supportedLocales = [
   "es",
   "it",
   "nl",
-  // "ar", // Temporarily disabled
+  "ar",
 ] as const;
 
 /**
