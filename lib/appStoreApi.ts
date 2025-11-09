@@ -1,13 +1,6 @@
 // App Store API Service
 // This file handles all API calls to the app store backend
 
-import {
-  getMockApps,
-  getMockApp,
-  getMockRelatedApps,
-  mockCategories,
-} from "./appStoreMockData";
-
 /**
  * Get API base URL from environment variables
  * Development: Uses NEXT_PUBLIC_developemant_BACKEND_URL from .env.local
@@ -248,24 +241,10 @@ export async function getApps(params: {
     );
     return data;
   } catch (error) {
-    // Fallback to mock data if API fails
-    console.warn("[App Store API] Using mock data due to API error:", error);
-    console.warn(`[App Store API] Failed URL: ${url}`);
-    const mockData = getMockApps({
-      page: params.page,
-      limit: params.limit,
-      category: params.category,
-      search: params.search,
-    });
-
-    return {
-      success: true,
-      data: {
-        apps: mockData.apps,
-        categories: mockCategories,
-        pagination: mockData.pagination,
-      },
-    };
+    // Log error and rethrow
+    console.error("[App Store API] Failed to fetch apps:", error);
+    console.error(`[App Store API] Failed URL: ${url}`);
+    throw error;
   }
 }
 
@@ -302,27 +281,10 @@ export async function getApp(
     console.log(`[App Store API] Successfully fetched app: ${slug}`);
     return data;
   } catch (error) {
-    // Fallback to mock data if API fails
-    console.warn(
-      "[App Store API] Using mock data for app detail due to API error:",
-      error
-    );
-    console.warn(`[App Store API] Failed URL: ${url}`);
-    const mockApp = getMockApp(slug);
-
-    if (!mockApp) {
-      throw new Error("App not found");
-    }
-
-    const relatedApps = getMockRelatedApps(mockApp.id, mockApp.categorySlug);
-
-    return {
-      success: true,
-      data: {
-        app: mockApp,
-        relatedApps,
-      },
-    };
+    // Log error and rethrow
+    console.error("[App Store API] Failed to fetch app:", error);
+    console.error(`[App Store API] Failed URL: ${url}`);
+    throw error;
   }
 }
 
@@ -365,17 +327,9 @@ export async function getAppCategories(locale: string = "en"): Promise<{
     );
     return data;
   } catch (error) {
-    // Fallback to mock data if API fails
-    console.warn(
-      "[App Store API] Using mock data for categories due to API error:",
-      error
-    );
-    console.warn(`[App Store API] Failed URL: ${url}`);
-    return {
-      success: true,
-      data: {
-        categories: mockCategories,
-      },
-    };
+    // Log error and rethrow
+    console.error("[App Store API] Failed to fetch categories:", error);
+    console.error(`[App Store API] Failed URL: ${url}`);
+    throw error;
   }
 }

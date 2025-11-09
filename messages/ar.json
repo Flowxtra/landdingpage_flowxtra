@@ -1,1042 +1,1042 @@
 {
     "metadata": {
         "home": {
-            "title": "Flowxtra – Recruiting Software & Smart Hiring Tool | Free Job Posting",
-            "description": "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform."
+            "title": "Flowxtra – برنامج التوظيف وأداة التوظيف الذكية | نشر وظائف مجاني",
+            "description": "وظّف بذكاء أكبر مع الذكاء الاصطناعي — انشر الوظائف مجاناً وأدر المرشحين في منصة واحدة بسيطة وقوية."
         },
         "contact": {
-            "title": "Contact Us – Flowxtra Support | Get Help with Recruiting Software",
-            "description": "Have questions about Flowxtra? Contact our support team for help with recruiting software, ATS features, and hiring solutions. We respond within 24 hours."
+            "title": "اتصل بنا – دعم Flowxtra | احصل على المساعدة في برنامج التوظيف",
+            "description": "هل لديك أسئلة حول Flowxtra؟ اتصل بفريق الدعم للحصول على المساعدة في برنامج التوظيف وميزات ATS وحلول التوظيف. نرد خلال 24 ساعة."
         },
         "pricing": {
-            "title": "Pricing Plans – Flowxtra | Free ATS & Recruiting Software",
-            "description": "Choose the perfect plan for your business. Start with 5 free job postings per month. Transparent pricing, no hidden fees."
+            "title": "خطط الأسعار – Flowxtra | برنامج ATS وتوظيف مجاني",
+            "description": "اختر الخطة المثالية لعملك. ابدأ بـ 5 منشورات وظيفية مجانية شهرياً. أسعار شفافة، بدون رسوم خفية."
         },
         "affiliate": {
-            "title": "Affiliate Program – Earn 50% Commission | Flowxtra",
-            "description": "Join Flowxtra's affiliate program and earn 50% commission for up to 12 months on each referral. Share your unique referral link and start earning today."
+            "title": "برنامج الشراكة – اكسب عمولة 50% | Flowxtra",
+            "description": "انضم إلى برنامج الشراكة في Flowxtra واكسب عمولة 50% لمدة تصل إلى 12 شهراً على كل إحالة. شارك رابط الإحالة الفريد الخاص بك وابدأ في الكسب اليوم."
         },
         "features": {
-            "title": "Features – AI-Powered Recruiting & ATS Software | Flowxtra",
-            "description": "Discover Flowxtra's powerful features: free job posting, AI candidate filtering, multiposting, email templates, and more."
+            "title": "الميزات – برنامج التوظيف و ATS المدعوم بالذكاء الاصطناعي | Flowxtra",
+            "description": "اكتشف ميزات Flowxtra القوية: نشر وظائف مجاني، تصفية المرشحين بالذكاء الاصطناعي، النشر المتعدد، قوالب البريد الإلكتروني، والمزيد."
         }
     },
     "common": {
-        "language": "Language",
-        "english": "English",
-        "german": "German",
-        "registerForFree": "Register For Free",
-        "getStarted": "Get Started",
-        "login": "Login",
-        "signup": "Signup",
-        "learnMore": "Learn More",
-        "viewPricing": "View Pricing",
-        "contactUs": "Contact Us",
-        "features": "Features",
-        "pricing": "Pricing",
-        "services": "Services"
+        "language": "اللغة",
+        "english": "الإنجليزية",
+        "german": "الألمانية",
+        "registerForFree": "سجل مجاناً",
+        "getStarted": "ابدأ الآن",
+        "login": "تسجيل الدخول",
+        "signup": "إنشاء حساب",
+        "learnMore": "اعرف المزيد",
+        "viewPricing": "عرض الأسعار",
+        "contactUs": "اتصل بنا",
+        "features": "الميزات",
+        "pricing": "الأسعار",
+        "services": "الخدمات"
     },
     "navigation": {
-        "socialMediaManagement": "Social Media Management",
-        "atsRecruitingSoftware": "ATS Recruiting Software"
+        "socialMediaManagement": "إدارة وسائل التواصل الاجتماعي",
+        "atsRecruitingSoftware": "برنامج التوظيف ATS"
     },
     "homepage": {
-        "title": "Welcome to Flowxtra",
-        "subtitle": "Test multilingual support",
+        "title": "مرحباً بك في Flowxtra",
+        "subtitle": "اختبار الدعم متعدد اللغات",
         "hero": {
-            "title": "ATS Software for Recruitment & Hiring",
-            "subtitle": "All-in-One Platform to Streamline Your Hiring Process",
-            "description": "Complete ATS software to streamline hiring and manage your team. Start with 5 free job postings per month",
-            "cta": "Start Your Free Plan",
-            "imageAlt": "Why Flowxtra Is the Best Free Job Posting Platform",
-            "imageTitle": "Free Job Posting",
-            "figcaption": "Control everything from one smart dashboard. Full view of Flowxtra's dashboard to manage and publish free job posts."
+            "title": "برنامج ATS للتوظيف والتعيين",
+            "subtitle": "منصة شاملة لتبسيط عملية التوظيف",
+            "description": "برنامج ATS كامل لتبسيط التوظيف وإدارة فريقك. ابدأ بـ 5 منشورات وظيفية مجانية شهرياً",
+            "cta": "ابدأ خطتك المجانية",
+            "imageAlt": "لماذا Flowxtra هي أفضل منصة نشر وظائف مجانية",
+            "imageTitle": "نشر وظائف مجاني",
+            "figcaption": "تحكم في كل شيء من لوحة تحكم ذكية واحدة. عرض كامل للوحة تحكم Flowxtra لإدارة ونشر منشورات الوظائف المجانية."
         },
         "gdpr": {
-            "badge": "GDPR & DSGVO",
-            "title": "Flowxtra Smarter\nHiring Faster Growth",
-            "description1": "Flowxtra streamlines hiring with AI! Create job ads, connect with candidates, and automate tasks like scheduling—making recruitment faster and smarter.",
-            "description2": "All data is securely stored in the EU. Transparency. Privacy. Compliance — built in by design.",
-            "faqLink": "Read our full FAQ"
+            "badge": "GDPR و DSGVO",
+            "title": "Flowxtra توظيف أذكى\nنمو أسرع",
+            "description1": "Flowxtra تبسط التوظيف بالذكاء الاصطناعي! أنشئ إعلانات الوظائف، تواصل مع المرشحين، وأتمتة المهام مثل الجدولة - مما يجعل التوظيف أسرع وأذكى.",
+            "description2": "جميع البيانات مخزنة بشكل آمن في الاتحاد الأوروبي. الشفافية. الخصوصية. الامتثال - مدمج بالتصميم.",
+            "faqLink": "اقرأ الأسئلة الشائعة الكاملة"
         },
         "video": {
-            "title": "ATS Recruitment Software in your hands",
-            "description": "Accelerate your talent acquisition process using our innovative AI recruitment solution.",
-            "playButton": "Play Video",
-            "iframeTitle": "ATS Recruitment Software"
+            "title": "برنامج التوظيف ATS في يديك",
+            "description": "سرّع عملية اكتساب المواهب باستخدام حل التوظيف بالذكاء الاصطناعي المبتكر.",
+            "playButton": "تشغيل الفيديو",
+            "iframeTitle": "برنامج التوظيف ATS"
         },
         "whyUseFlowxtra": {
-            "title": "Why Use Flowxtra?",
-            "description": "At Flowxtra, we'll help you manage your entire business, from creating job applications, managing your social media accounts, and signing your contracts online.",
+            "title": "لماذا تستخدم Flowxtra؟",
+            "description": "في Flowxtra، سنساعدك في إدارة عملك بالكامل، من إنشاء طلبات الوظائف، إدارة حسابات وسائل التواصل الاجتماعي، وتوقيع عقودك عبر الإنترنت.",
             "features": {
-                "freePosting": "Free job posting",
-                "freeScheduling": "Free social media scheduling",
-                "userFriendly": "User-friendly interface.",
-                "highSecurity": "High security.",
-                "integration": "Integration between applications.",
-                "support": "Continuous support service.",
-                "scalable": "Scalable for all business sizes — from startups to enterprises"
+                "freePosting": "نشر وظائف مجاني",
+                "freeScheduling": "جدولة وسائل التواصل الاجتماعي مجاناً",
+                "userFriendly": "واجهة سهلة الاستخدام",
+                "highSecurity": "أمان عالي",
+                "integration": "التكامل بين التطبيقات",
+                "support": "خدمة دعم مستمرة",
+                "scalable": "قابل للتوسع لجميع أحجام الأعمال - من الشركات الناشئة إلى المؤسسات"
             },
-            "cta": "Discover Flowxtra"
+            "cta": "اكتشف Flowxtra"
         },
         "recruitment": {
-            "title": "Recruitment",
-            "description": "The Recruitment App helps companies and HR teams streamline the hiring process—from posting job ads to hiring the right talent.",
+            "title": "التوظيف",
+            "description": "تطبيق التوظيف يساعد الشركات وفرق الموارد البشرية على تبسيط عملية التوظيف - من نشر إعلانات الوظائف إلى توظيف المواهب المناسبة.",
             "features": {
-                "freeJobPosting": "Free Job Posting With Flowxtra",
-                "postManage": "Post and manage job openings easily",
-                "tracking": "Centralized applicant tracking with smart filters",
-                "interviews": "Integrated online interviews",
-                "collaboration": "Team collaboration for candidate evaluation",
-                "reports": "Reports & analytics to optimize hiring"
+                "freeJobPosting": "نشر وظائف مجاني مع Flowxtra",
+                "postManage": "نشر وإدارة الوظائف الشاغرة بسهولة",
+                "tracking": "تتبع مركزي للمتقدمين مع فلاتر ذكية",
+                "interviews": "مقابلات عبر الإنترنت متكاملة",
+                "collaboration": "تعاون الفريق لتقييم المرشحين",
+                "reports": "تقارير وتحليلات لتحسين التوظيف"
             },
             "whoIsItFor": {
-                "title": "Who Is It For?",
-                "description": "Startups, enterprises, and recruitment agencies that want to hire faster, smarter, and more efficiently."
+                "title": "لمن هو مناسب؟",
+                "description": "الشركات الناشئة، المؤسسات، ووكالات التوظيف التي تريد التوظيف بشكل أسرع وأذكى وأكثر كفاءة."
             },
-            "cta": "Start Now",
-            "imageAlt": "Flowxtra Free job posting dashboard",
-            "imageTitle": "Free Job Posting Dashboard",
-            "figcaption": "Control everything from one smart dashboard. Full view of Flowxtra's dashboard to manage and publish free job posts."
+            "cta": "ابدأ الآن",
+            "imageAlt": "لوحة تحكم نشر الوظائف المجانية في Flowxtra",
+            "imageTitle": "لوحة تحكم نشر الوظائف المجانية",
+            "figcaption": "تحكم في كل شيء من لوحة تحكم ذكية واحدة. عرض كامل للوحة تحكم Flowxtra لإدارة ونشر منشورات الوظائف المجانية."
         },
         "freeJobPosting": {
-            "title": "Free Job Posting for Smart Hiring",
-            "description1": "Post up to 5 job ads for free every month — no hidden fees, no credit card required.",
-            "description2": "Flowxtra helps you publish jobs across LinkedIn, Google Jobs & more — all from one powerful dashboard."
+            "title": "نشر وظائف مجاني للتوظيف الذكي",
+            "description1": "انشر حتى 5 إعلانات وظيفية مجاناً كل شهر - بدون رسوم خفية، بدون الحاجة لبطاقة ائتمان.",
+            "description2": "Flowxtra تساعدك على نشر الوظائف عبر LinkedIn، Google Jobs والمزيد - كل ذلك من لوحة تحكم واحدة قوية."
         },
         "socialMediaManager": {
-            "title": "Social Media Manager",
-            "description": "The Social Media Manager App helps businesses and creators manage, schedule, and analyze content across multiple platforms in one place.",
+            "title": "مدير وسائل التواصل الاجتماعي",
+            "description": "تطبيق مدير وسائل التواصل الاجتماعي يساعد الشركات والمبدعين على إدارة وجدولة وتحليل المحتوى عبر منصات متعددة في مكان واحد.",
             "features": {
-                "connectManage": "Connect and manage multiple accounts",
-                "schedule": "Schedule posts in advance with ease",
-                "collaboration": "Team collaboration and approval workflows",
-                "analytics": "Analytics & reports to track performance and engagement"
+                "connectManage": "ربط وإدارة حسابات متعددة",
+                "schedule": "جدولة المنشورات مسبقاً بسهولة",
+                "collaboration": "تعاون الفريق وسير عمل الموافقات",
+                "analytics": "تحليلات وتقارير لتتبع الأداء والتفاعل"
             },
             "whoIsItFor": {
-                "title": "Who Is It For?",
-                "description": "Agencies, small businesses, and freelancers who want to save time, stay organized, and grow their online presence."
+                "title": "لمن هو مناسب؟",
+                "description": "الوكالات، الشركات الصغيرة، والمستقلون الذين يريدون توفير الوقت، البقاء منظمين، وتنمية حضورهم على الإنترنت."
             },
-            "cta": "Free forever",
-            "imageAlt": "Post Jobs to Social Media for Free – Flowxtra Scheduler",
-            "imageTitle": "Free social media job posting and scheduling with Flowxtra"
+            "cta": "مجاني للأبد",
+            "imageAlt": "نشر الوظائف على وسائل التواصل الاجتماعي مجاناً - جدولة Flowxtra",
+            "imageTitle": "نشر وجدولة الوظائف على وسائل التواصل الاجتماعي مجاناً مع Flowxtra"
         },
         "multipleJobPosting": {
-            "badge": "Multiple Job Posting",
-            "title": "Post Jobs Across Platforms Instantly",
-            "description": "Flowxtra's free recruiting software lets you post and schedule job ads across top social media platforms — including LinkedIn, Facebook, and Instagram. Automate your outreach, save valuable time, and hire smarter — all at no cost.",
-            "cta": "Start Posting for Free",
-            "imageAlt": "Free social media job posting and scheduling with Flowxtra",
-            "imageTitle": "Post Jobs to Social Media for Free – Flowxtra Scheduler"
+            "badge": "نشر وظائف متعدد",
+            "title": "انشر الوظائف عبر المنصات فوراً",
+            "description": "برنامج التوظيف المجاني من Flowxtra يتيح لك نشر وجدولة إعلانات الوظائف عبر أفضل منصات التواصل الاجتماعي - بما في ذلك LinkedIn و Facebook و Instagram. أتمتة التواصل، توفير الوقت الثمين، والتوظيف بذكاء أكبر - كل ذلك بدون تكلفة.",
+            "cta": "ابدأ النشر مجاناً",
+            "imageAlt": "نشر وجدولة الوظائف على وسائل التواصل الاجتماعي مجاناً مع Flowxtra",
+            "imageTitle": "نشر الوظائف على وسائل التواصل الاجتماعي مجاناً - جدولة Flowxtra"
         },
         "featuresSlider": {
             "slides": {
                 "slide1": {
-                    "badge": "Real Recruiting Results",
-                    "title": "Smarter Candidate Filtering & Visualization",
-                    "description": "Flowxtra's AI-powered ATS streamlines recruitment. Filter and visualize candidates with list, card or drag-and-drop board views, then move top talent through every stage with ease.",
-                    "buttonText": "Register For Free",
-                    "imageAlt": "Visual candidate board – part of free AI recruiting tool"
+                    "badge": "نتائج توظيف حقيقية",
+                    "title": "تصفية وتصور أذكى للمرشحين",
+                    "description": "نظام ATS المدعوم بالذكاء الاصطناعي من Flowxtra يبسط التوظيف. قم بتصفية وتصور المرشحين باستخدام عروض القائمة، البطاقات أو اللوحة بالسحب والإفلات، ثم انقل أفضل المواهب عبر كل مرحلة بسهولة.",
+                    "buttonText": "سجل مجاناً",
+                    "imageAlt": "لوحة المرشحين المرئية - جزء من أداة التوظيف بالذكاء الاصطناعي المجانية"
                 },
                 "slide2": {
-                    "badge": "Candidate Board Flow",
-                    "title": "Visual Talent Intelligence",
-                    "description": "Compare, filter, and map candidates with Flowxtra's dynamic hiring board. Track applications, gain insights, and make smarter hiring decisions — all from one powerful, interactive view.",
-                    "buttonText": "Register For Free",
-                    "imageAlt": "View candidate CVs inside free AI recruiting system"
+                    "badge": "سير عمل لوحة المرشحين",
+                    "title": "ذكاء المواهب المرئي",
+                    "description": "قارن، صفّي، وخطط المرشحين باستخدام لوحة التوظيف الديناميكية من Flowxtra. تتبع الطلبات، اكتسب رؤى، واتخذ قرارات توظيف أذكى - كل ذلك من عرض تفاعلي قوي واحد.",
+                    "buttonText": "سجل مجاناً",
+                    "imageAlt": "عرض السير الذاتية للمرشحين داخل نظام التوظيف بالذكاء الاصطناعي المجاني"
                 },
                 "slide3": {
-                    "badge": "Centralized Applicant Intelligence",
-                    "title": "Candidate Profile View",
-                    "description": "Access resumes, cover letters, LinkedIn profiles, and screening answers in one clean interface. Add notes, assign interviews, send assessments, and rate candidates — all from a unified profile view.",
-                    "buttonText": "Register For Free",
-                    "imageAlt": "View candidate CVs inside free AI recruiting system"
+                    "badge": "معلومات المتقدمين المركزية",
+                    "title": "عرض الملف الشخصي للمرشح",
+                    "description": "الوصول إلى السير الذاتية، خطابات التغطية، ملفات LinkedIn، وإجابات الفحص في واجهة واحدة نظيفة. أضف ملاحظات، حدد مقابلات، أرسل تقييمات، وقيّم المرشحين - كل ذلك من عرض ملف شخصي موحد.",
+                    "buttonText": "سجل مجاناً",
+                    "imageAlt": "عرض السير الذاتية للمرشحين داخل نظام التوظيف بالذكاء الاصطناعي المجاني"
                 },
                 "slide4": {
-                    "badge": "One Job Ad. Multiple Platforms.",
-                    "title": "Multiposting Made Simple",
-                    "description": "Post once and publish across top job boards — LinkedIn, Google Jobs, Stepstone & more. Track clicks, views, and applications from everywhere — your website, external platforms, and beyond — all in one smart dashboard.",
-                    "buttonText": "Register For Free",
-                    "imageAlt": "Multiposting Made Simple"
+                    "badge": "إعلان وظيفة واحد. منصات متعددة.",
+                    "title": "النشر المتعدد بسيط",
+                    "description": "انشر مرة واحدة وانشر عبر أفضل لوحات الوظائف - LinkedIn، Google Jobs، Stepstone والمزيد. تتبع النقرات، المشاهدات، والطلبات من كل مكان - موقعك، المنصات الخارجية، وما بعدها - كل ذلك في لوحة تحكم ذكية واحدة.",
+                    "buttonText": "سجل مجاناً",
+                    "imageAlt": "النشر المتعدد بسيط"
                 },
                 "slide5": {
-                    "badge": "Automated & Personalized Communication",
-                    "title": "Hiring Email Template",
-                    "description": "Save time with smart email templates tailored to every hiring stage. Send rejections, interview invites, or updates — faster, consistent, and always professional.",
-                    "buttonText": "Register For Free",
-                    "imageAlt": "Hiring Email Template"
+                    "badge": "تواصل تلقائي ومخصص",
+                    "title": "قالب البريد الإلكتروني للتوظيف",
+                    "description": "وفر الوقت مع قوالب البريد الإلكتروني الذكية المصممة لكل مرحلة توظيف. أرسل الرفض، دعوات المقابلة، أو التحديثات - أسرع، متسق، واحترافي دائماً.",
+                    "buttonText": "سجل مجاناً",
+                    "imageAlt": "قالب البريد الإلكتروني للتوظيف"
                 },
                 "slide6": {
-                    "badge": "Visualize Your Entire Recruitment Process at a Glance",
-                    "title": "Smart Hiring Diagram Board",
-                    "description": "Flowxtra's advanced diagram board lets you map candidate relationships, hiring stages, and team feedback in real time. Drag and drop candidates, assign tasks, and collaborate with your team — all in one visual dashboard.",
-                    "buttonText": "Register For Free",
-                    "imageAlt": "Visual candidate board – part of free AI recruiting tool"
+                    "badge": "تصور عملية التوظيف الكاملة بنظرة واحدة",
+                    "title": "لوحة مخطط التوظيف الذكية",
+                    "description": "لوحة المخطط المتقدمة من Flowxtra تتيح لك رسم علاقات المرشحين، مراحل التوظيف، وملاحظات الفريق في الوقت الفعلي. اسحب وأفلت المرشحين، عيّن المهام، وتعاون مع فريقك - كل ذلك في لوحة تحكم مرئية واحدة.",
+                    "buttonText": "سجل مجاناً",
+                    "imageAlt": "لوحة المرشحين المرئية - جزء من أداة التوظيف بالذكاء الاصطناعي المجانية"
                 },
                 "slide7": {
-                    "badge": "JOB WIDGET",
-                    "title": "Add Job Listings to Any Website",
-                    "description": "With Flowxtra's Job Widget, you can instantly display your company's open positions on your website — without any technical setup or API integration. Whether you're using WordPress, Wix, Shopify, or any other platform, simply copy the embed code and your job board goes live automatically.",
-                    "buttonText": "Register For Free",
-                    "imageAlt": "Add Job Listings to Any Website",
-                    "embedCodeTitle": "Embed Code"
+                    "badge": "أداة الوظائف",
+                    "title": "أضف قوائم الوظائف إلى أي موقع ويب",
+                    "description": "مع أداة الوظائف من Flowxtra، يمكنك عرض الوظائف المفتوحة لشركتك على موقعك الإلكتروني فوراً - بدون أي إعداد تقني أو تكامل API. سواء كنت تستخدم WordPress، Wix، Shopify، أو أي منصة أخرى، ببساطة انسخ كود التضمين ولوحة الوظائف الخاصة بك تبدأ تلقائياً.",
+                    "buttonText": "سجل مجاناً",
+                    "imageAlt": "أضف قوائم الوظائف إلى أي موقع ويب",
+                    "embedCodeTitle": "كود التضمين"
                 }
             }
         },
         "reviews": {
-            "title": "The #1 choice for modern recruiters",
+            "title": "الخيار الأول لمحترفي التوظيف الحديثين",
             "rating": "4.8",
             "reviews": {
                 "review1": {
                     "name": "Sarah Mitchell",
-                    "title": "HR Manager",
-                    "text": "Flowxtra transformed our hiring process! The free 10 job postings monthly are perfect for our startup, and the AI-powered candidate filtering saves us hours every week.",
-                    "date": "July 12, 2025"
+                    "title": "مديرة الموارد البشرية",
+                    "text": "Flowxtra حوّلت عملية التوظيف لدينا! منشورات الوظائف المجانية الـ 5 شهرياً مثالية لشركتنا الناشئة، وتصفية المرشحين المدعومة بالذكاء الاصطناعي توفر لنا ساعات كل أسبوع.",
+                    "date": "12 يوليو 2025"
                 },
                 "review2": {
                     "name": "Klaus Müller",
-                    "title": "Recruitment Director",
-                    "text": "Best recruitment software we've ever used. The multiposting feature and social media manager integration are real game changers. Highly recommended!",
-                    "date": "August 5, 2025"
+                    "title": "مدير التوظيف",
+                    "text": "أفضل برنامج توظيف استخدمناه على الإطلاق. ميزة النشر المتعدد وتكامل مدير وسائل التواصل الاجتماعي تغيران قواعد اللعبة حقاً. ننصح به بشدة!",
+                    "date": "5 أغسطس 2025"
                 },
                 "review3": {
                     "name": "Sophie Laurent",
-                    "title": "HR Manager",
-                    "text": "As an HR manager, Flowxtra meets all my needs: ATS and social media management in one platform. GDPR compliance gives us complete peace of mind.",
-                    "date": "August 28, 2025"
+                    "title": "مديرة الموارد البشرية",
+                    "text": "كمديرة موارد بشرية، Flowxtra تلبي جميع احتياجاتي: ATS وإدارة وسائل التواصل الاجتماعي في منصة واحدة. الامتثال لـ GDPR يمنحنا راحة بال تامة.",
+                    "date": "28 أغسطس 2025"
                 },
                 "review4": {
                     "name": "Petra Schneider",
-                    "title": "Talent Acquisition Specialist",
-                    "text": "Great software with excellent features. The free plan is generous and the user interface is intuitive. Customer support could be faster, but overall very satisfied.",
-                    "date": "September 18, 2025"
+                    "title": "أخصائية اكتساب المواهب",
+                    "text": "برنامج رائع مع ميزات ممتازة. الخطة المجانية سخية وواجهة المستخدم بديهية. دعم العملاء يمكن أن يكون أسرع، لكن راضية جداً بشكل عام.",
+                    "date": "18 سبتمبر 2025"
                 },
                 "review5": {
                     "name": "Michael Thompson",
-                    "title": "CEO & Founder",
-                    "text": "Finally, an all-in-one solution that actually works! Flowxtra combines recruitment and social media management seamlessly. The 5 free job posts are a lifesaver for our team.",
-                    "date": "October 22, 2025"
+                    "title": "المدير التنفيذي والمؤسس",
+                    "text": "أخيراً، حل شامل يعمل بالفعل! Flowxtra تجمع بين التوظيف وإدارة وسائل التواصل الاجتماعي بسلاسة. منشورات الوظائف المجانية الـ 5 منقذة لفريقنا.",
+                    "date": "22 أكتوبر 2025"
                 }
             }
         },
         "faq": {
-            "title": "Frequently Asked Questions",
-            "helpText": "Still need help?",
-            "chatLink": "Chat with us",
-            "officialSources": "Official Sources:",
+            "title": "الأسئلة الشائعة",
+            "helpText": "لا تزال بحاجة إلى مساعدة؟",
+            "chatLink": "تحدث معنا",
+            "officialSources": "المصادر الرسمية:",
             "questions": {
                 "q1": {
-                    "question": "Is Flowxtra free to use for posting job?",
-                    "answer": "Yes — Flowxtra offers a completely free plan that includes up to 5 free job postings per month. You can publish your job ads across top platforms like LinkedIn, Google Jobs, and Stepstone without paying a cent. It's the perfect solution for startups, small businesses, and growing teams looking to post jobs online for free and attract top talent effortlessly."
+                    "question": "هل Flowxtra مجاني للاستخدام لنشر الوظائف؟",
+                    "answer": "نعم - Flowxtra يقدم خطة مجانية تماماً تتضمن ما يصل إلى 5 منشورات وظيفية مجانية شهرياً. يمكنك نشر إعلانات وظائفك عبر أفضل المنصات مثل LinkedIn، Google Jobs، و Stepstone بدون دفع قرش واحد. إنه الحل المثالي للشركات الناشئة، الشركات الصغيرة، والفرق المتنامية التي تبحث عن نشر الوظائف عبر الإنترنت مجاناً وجذب أفضل المواهب بسهولة."
                 },
                 "q2": {
-                    "question": "Can I upgrade my Flowxtra plan later if needed?",
-                    "answer": "Yes, you can upgrade to a higher plan at any time to access more features and higher limits."
+                    "question": "هل يمكنني ترقية خطة Flowxtra لاحقاً إذا لزم الأمر؟",
+                    "answer": "نعم، يمكنك الترقية إلى خطة أعلى في أي وقت للوصول إلى المزيد من الميزات والحدود الأعلى."
                 },
                 "q3": {
-                    "question": "What features are included in each plan?",
-                    "answer": "Plans offer various features such as increased job posting limits, team collaboration tools, hiring pipelines, email templates, AI chatbot integration, and custom domain support."
+                    "question": "ما هي الميزات المضمنة في كل خطة؟",
+                    "answer": "تقدم الخطط ميزات متنوعة مثل حدود منشورات الوظائف المتزايدة، أدوات تعاون الفريق، خطوط التوظيف، قوالب البريد الإلكتروني، تكامل روبوت الدردشة بالذكاء الاصطناعي، ودعم النطاق المخصص."
                 },
                 "q4": {
-                    "question": "Does every plan include AI chatbot support?",
-                    "answer": "Yes, soon every plan will include an AI chatbot. Flowxtra does not perform AI scoring or matching. Our AI chatbot simply helps recruiters filter applicants faster — for example, by asking \"Who knows JavaScript or PHP?\" the system quickly searches through CVs and displays matching names. When you click on a name, the applicant's full CV details appear."
+                    "question": "هل تتضمن كل خطة دعم روبوت الدردشة بالذكاء الاصطناعي؟",
+                    "answer": "نعم، قريباً ستتضمن كل خطة روبوت دردشة بالذكاء الاصطناعي. Flowxtra لا يقوم بالتسجيل أو المطابقة بالذكاء الاصطناعي. روبوت الدردشة بالذكاء الاصطناعي الخاص بنا يساعد المجندين فقط على تصفية المتقدمين بشكل أسرع - على سبيل المثال، عن طريق السؤال \"من يعرف JavaScript أو PHP؟\" يبحث النظام بسرعة في السير الذاتية ويعرض الأسماء المطابقة. عند النقر على اسم، تظهر تفاصيل السيرة الذاتية الكاملة للمتقدم."
                 },
                 "q5": {
-                    "question": "What is the Custom Domain feature?",
-                    "answer": "The Custom Domain feature allows you to use your own domain name for your company page."
+                    "question": "ما هي ميزة النطاق المخصص؟",
+                    "answer": "ميزة النطاق المخصص تسمح لك باستخدام اسم نطاقك الخاص لصفحة شركتك."
                 },
                 "q6": {
-                    "question": "Can I integrate Flowxtra with other applications?",
-                    "answer": "Yes, all plans include an API token for third-party app integration and automation."
+                    "question": "هل يمكنني دمج Flowxtra مع تطبيقات أخرى؟",
+                    "answer": "نعم، جميع الخطط تتضمن رمز API لتكامل التطبيقات الخارجية والأتمتة."
                 },
                 "q7": {
-                    "question": "Is Flowxtra a job platform or a recruitment system?",
-                    "answer": "Flowxtra is more than just an ATS — it's a flexible AI-powered recruitment platform. Companies can use Flowxtra in two ways:\n\n• As a public job platform: Publish jobs for free across Flowxtra and partner networks like Google Jobs, LinkedIn, and more.\n\n• As a private hiring system: Set up your own branded ATS where only your team manages candidate data, interviews, and hiring — fully secure and self-hosted.\n\nWe specialize in building custom recruitment software tailored to your business needs, whether you're a startup or a large enterprise."
+                    "question": "هل Flowxtra منصة وظائف أم نظام توظيف؟",
+                    "answer": "Flowxtra أكثر من مجرد ATS - إنها منصة توظيف مرنة مدعومة بالذكاء الاصطناعي. يمكن للشركات استخدام Flowxtra بطريقتين:\n\n• كمنصة وظائف عامة: نشر الوظائف مجاناً عبر Flowxtra وشبكات الشركاء مثل Google Jobs، LinkedIn، والمزيد.\n\n• كنظام توظيف خاص: إعداد ATS الخاص بعلامتك التجارية حيث يدير فريقك فقط بيانات المرشحين، المقابلات، والتوظيف - آمن تماماً ومستضاف ذاتياً.\n\nنحن متخصصون في بناء برامج توظيف مخصصة مصممة وفقاً لاحتياجات عملك، سواء كنت شركة ناشئة أو مؤسسة كبيرة."
                 },
                 "q8": {
-                    "question": "Is Flowxtra suitable for small, medium, and large companies?",
-                    "answer": "Yes, absolutely. Flowxtra is built to adapt to every business size — whether you're a startup, a growing company, or a large enterprise. The platform scales automatically to match your hiring volume, team structure, and workflow needs. It's perfect for small teams that need a simple and efficient way to manage job posts, as well as for global corporations that handle thousands of candidates daily — all with the same reliability, speed, and security."
+                    "question": "هل Flowxtra مناسب للشركات الصغيرة والمتوسطة والكبيرة؟",
+                    "answer": "نعم، بالتأكيد. Flowxtra مبني للتكيف مع كل حجم عمل - سواء كنت شركة ناشئة، شركة متنامية، أو مؤسسة كبيرة. المنصة تتوسع تلقائياً لتتناسب مع حجم التوظيف، هيكل الفريق، واحتياجات سير العمل. إنها مثالية للفرق الصغيرة التي تحتاج إلى طريقة بسيطة وفعالة لإدارة منشورات الوظائف، وكذلك للشركات العالمية التي تتعامل مع آلاف المرشحين يومياً - كل ذلك بنفس الموثوقية، السرعة، والأمان."
                 },
                 "q9": {
-                    "question": "Can Flowxtra handle thousands of job applications?",
-                    "answer": "Yes, it can. Flowxtra's modern cloud-based architecture is designed for performance and scalability. It can easily process and organize thousands of job applications without slowing down, ensuring that HR teams of any size can work efficiently, even during high recruitment periods."
+                    "question": "هل يمكن لـ Flowxtra التعامل مع آلاف طلبات الوظائف؟",
+                    "answer": "نعم، يمكنه ذلك. البنية السحابية الحديثة لـ Flowxtra مصممة للأداء وقابلية التوسع. يمكنه معالجة وتنظيم آلاف طلبات الوظائف بسهولة دون التباطؤ، مما يضمن أن فرق الموارد البشرية من أي حجم يمكنها العمل بكفاءة، حتى خلال فترات التوظيف المكثفة."
                 },
                 "q10": {
-                    "question": "Flowxtra complies with the European AI Act for recruitment systems?",
-                    "answer": "Yes, Flowxtra is fully compliant with the EU AI Act (Regulation 2024/1689) and GDPR.\n\nWhat does that mean?\n\nFlowxtra is not an automated decision-making tool. It does not use artificial intelligence to:\n• Score, rank, or filter applicants\n• Select or recommend \"the best candidate\"\n• Perform automated profiling or matching\n\nInstead, Flowxtra is a human-first Applicant Tracking System (ATS). Our AI is used only to:\n• Help companies write job ads faster\n• Assist in communication with applicants\n• Automate job posting to platforms like LinkedIn and Google Jobs\n\nYou stay fully in control of all hiring decisions. Flowxtra never replaces human judgment."
+                    "question": "هل Flowxtra متوافق مع قانون الذكاء الاصطناعي الأوروبي لأنظمة التوظيف؟",
+                    "answer": "نعم، Flowxtra متوافق تماماً مع قانون الذكاء الاصطناعي للاتحاد الأوروبي (اللائحة 2024/1689) و GDPR.\n\nماذا يعني ذلك؟\n\nFlowxtra ليس أداة اتخاذ قرار آلي. لا يستخدم الذكاء الاصطناعي في:\n• تسجيل، ترتيب، أو تصفية المتقدمين\n• اختيار أو التوصية بـ \"أفضل مرشح\"\n• إجراء تصنيف آلي أو مطابقة\n\nبدلاً من ذلك، Flowxtra هو نظام تتبع المتقدمين (ATS) الذي يضع الإنسان أولاً. الذكاء الاصطناعي لدينا يُستخدم فقط في:\n• مساعدة الشركات على كتابة إعلانات الوظائف بشكل أسرع\n• المساعدة في التواصل مع المتقدمين\n• أتمتة نشر الوظائف على منصات مثل LinkedIn و Google Jobs\n\nأنت تبقى في السيطرة الكاملة على جميع قرارات التوظيف. Flowxtra لا يحل أبداً محل الحكم البشري."
                 },
                 "q11": {
-                    "question": "Flowxtra is fully compliant with the EU AI Act?",
-                    "answer": "No, based on the current legal interpretation by Austria's regulatory body RTR (KI-Servicestelle), Flowxtra is not classified as a high-risk AI system — as long as:\n\n• No automated decision-making or filtering is used\n• The AI is only used to assist, not to decide\n• Interactions with AI (e.g., chatbots) are clearly disclosed\n• Flowxtra does not process sensitive personal data like gender, origin, or religion\n\nAll AI use is transparent, explainable, and compliant with Article 50 of the EU AI Act.",
+                    "question": "هل Flowxtra متوافق بالكامل مع قانون الذكاء الاصطناعي للاتحاد الأوروبي؟",
+                    "answer": "لا، بناءً على التفسير القانوني الحالي من قبل الهيئة التنظيمية النمساوية RTR (KI-Servicestelle)، Flowxtra لا يُصنف كنظام ذكاء اصطناعي عالي الخطورة - طالما أن:\n\n• لا يتم استخدام اتخاذ القرار الآلي أو التصفية\n• الذكاء الاصطناعي يُستخدم فقط للمساعدة، وليس للقرار\n• التفاعلات مع الذكاء الاصطناعي (مثل روبوتات الدردشة) يتم الإفصاح عنها بوضوح\n• Flowxtra لا يعالج البيانات الشخصية الحساسة مثل الجنس، الأصل، أو الدين\n\nجميع استخدامات الذكاء الاصطناعي شفافة، قابلة للتفسير، ومتوافقة مع المادة 50 من قانون الذكاء الاصطناعي للاتحاد الأوروبي.",
                     "links": [
                         {
-                            "text": "EU AI Act – EUR-Lex (Regulation 2024/1689)",
+                            "text": "قانون الذكاء الاصطناعي للاتحاد الأوروبي - EUR-Lex (اللائحة 2024/1689)",
                             "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32024R1689"
                         },
                         {
-                            "text": "Transparency Requirements (RTR Austria)",
+                            "text": "متطلبات الشفافية (RTR النمسا)",
                             "url": "https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/Transparenzpflichten.de.html"
                         },
                         {
-                            "text": "General AI Act Guidelines (RTR Austria)",
+                            "text": "إرشادات قانون الذكاء الاصطناعي العامة (RTR النمسا)",
                             "url": "https://www.rtr.at/rtr/service/ki-servicestelle/ai-act/AI_Act.de.html"
                         }
                     ]
                 },
                 "q12": {
-                    "question": "Flowxtra is fully compliant with the GDPR and DSGVO?",
-                    "answer": "Yes, Flowxtra is fully compliant with the General Data Protection Regulation (GDPR) and the Datenschutz-Grundverordnung (DSGVO).\n\nWe do not process sensitive personal data such as gender, ethnicity, religion, or political beliefs. Candidate data is stored securely and managed exclusively by the company using the platform.\n\nFlowxtra does not make automated decisions about candidates. Employers retain full control over all applicant data and hiring decisions.\n\nOur systems include transparent consent management, data access controls, and a clear procedure for candidates to request data deletion or submit complaints, in line with Articles 12–23 of the GDPR.\n\nAll data is hosted in the European Union, and our infrastructure follows industry best practices for security and data protection."
+                    "question": "هل Flowxtra متوافق بالكامل مع GDPR و DSGVO؟",
+                    "answer": "نعم، Flowxtra متوافق تماماً مع اللائحة العامة لحماية البيانات (GDPR) و Datenschutz-Grundverordnung (DSGVO).\n\nنحن لا نعالج البيانات الشخصية الحساسة مثل الجنس، العرق، الدين، أو المعتقدات السياسية. بيانات المرشحين مخزنة بشكل آمن وتُدار حصرياً من قبل الشركة التي تستخدم المنصة.\n\nFlowxtra لا يتخذ قرارات آلية بشأن المرشحين. أصحاب العمل يحتفظون بالسيطرة الكاملة على جميع بيانات المتقدمين وقرارات التوظيف.\n\nأنظمتنا تتضمن إدارة موافقة شفافة، ضوابط الوصول للبيانات، وإجراء واضح للمرشحين لطلب حذف البيانات أو تقديم الشكاوى، بما يتماشى مع المواد 12-23 من GDPR.\n\nجميع البيانات مستضافة في الاتحاد الأوروبي، وبنيتنا التحتية تتبع أفضل ممارسات الصناعة للأمان وحماية البيانات."
                 }
             }
         }
     },
     "contact": {
-        "badge": "Get In Touch",
-        "title": "Let's Chat, Reach Out To Us.",
-        "description": "Have questions or feedback? We're here to help. Send us a message, and we'll respond within 24 hours",
+        "badge": "تواصل معنا",
+        "title": "لنتحدث، تواصل معنا.",
+        "description": "لديك أسئلة أو ملاحظات؟ نحن هنا للمساعدة. أرسل لنا رسالة، وسنرد خلال 24 ساعة",
         "form": {
-            "email": "Email Address",
-            "firstName": "Full Name",
-            "message": "Your Message",
+            "email": "عنوان البريد الإلكتروني",
+            "firstName": "الاسم الكامل",
+            "message": "رسالتك",
             "emailPlaceholder": "your@email.com",
-            "firstNamePlaceholder": "John Doe",
-            "messagePlaceholder": "Write your message here...",
+            "firstNamePlaceholder": "أحمد محمد",
+            "messagePlaceholder": "اكتب رسالتك هنا...",
             "required": "*",
-            "agreeWith": "Yes, I agree with the",
-            "privacyPolicy": "privacy policy",
-            "and": "and",
-            "termsConditions": "terms and conditions",
-            "sendButton": "Send Message",
-            "sending": "Sending...",
-            "successTitle": "Message sent successfully!",
-            "successMessage": "We'll respond within 24 hours.",
-            "errorTitle": "Failed to send message",
-            "errorMessage": "Please try again later."
+            "agreeWith": "نعم، أوافق على",
+            "privacyPolicy": "سياسة الخصوصية",
+            "and": "و",
+            "termsConditions": "الشروط والأحكام",
+            "sendButton": "إرسال الرسالة",
+            "sending": "جاري الإرسال...",
+            "successTitle": "تم إرسال الرسالة بنجاح!",
+            "successMessage": "سنرد خلال 24 ساعة.",
+            "errorTitle": "فشل إرسال الرسالة",
+            "errorMessage": "يرجى المحاولة مرة أخرى لاحقاً."
         },
         "info": {
-            "email": "Email",
-            "phone": "Phone",
-            "address": "Address",
+            "email": "البريد الإلكتروني",
+            "phone": "الهاتف",
+            "address": "العنوان",
             "addressValue": "Wipplingerstraße 20/18, 1010 Vienna"
         },
-        "imageAlt": "AI-powered recruiting and HR platform for smarter hiring",
-        "imageTitle": "Flowxtra – All-in-One AI Recruiting & HR Platform",
-        "figcaption": "Manage job posts, candidates, and contracts with AI — all in one place, Free."
+        "imageAlt": "منصة التوظيف والموارد البشرية المدعومة بالذكاء الاصطناعي للتوظيف الأذكى",
+        "imageTitle": "Flowxtra - منصة التوظيف والموارد البشرية الشاملة بالذكاء الاصطناعي",
+        "figcaption": "إدارة منشورات الوظائف، المرشحين، والعقود بالذكاء الاصطناعي - كل شيء في مكان واحد، مجاناً."
     },
     "about": {
-        "badge": "About Us",
-        "title": "Building the Future of Recruitment",
-        "description": "Flowxtra is on a mission to transform how businesses hire talent. We combine cutting-edge AI technology with intuitive design to make recruitment faster, smarter, and more accessible for everyone.",
+        "badge": "عن الشركة",
+        "title": "بناء مستقبل التوظيف",
+        "description": "Flowxtra في مهمة لتحويل كيفية توظيف الشركات للمواهب. نجمع بين تكنولوجيا الذكاء الاصطناعي المتطورة والتصميم البديهي لجعل التوظيف أسرع وأذكى وأكثر سهولة للجميع.",
         "mission": {
-            "title": "Our Mission",
-            "description": "We believe that finding and hiring the right talent shouldn't be complicated or expensive. That's why we've built Flowxtra—a comprehensive platform that simplifies every step of the recruitment process.",
-            "description2": "From posting jobs across multiple platforms to managing candidates with AI-powered filtering, we're here to help businesses of all sizes build stronger teams."
+            "title": "مهمتنا",
+            "description": "نعتقد أن إيجاد وتوظيف المواهب المناسبة لا ينبغي أن يكون معقداً أو مكلفاً. لهذا السبب قمنا ببناء Flowxtra - منصة شاملة تبسط كل خطوة من خطوات عملية التوظيف.",
+            "description2": "من نشر الوظائف عبر منصات متعددة إلى إدارة المرشحين بالتصفية المدعومة بالذكاء الاصطناعي، نحن هنا لمساعدة الشركات بجميع أحجامها على بناء فرق أقوى."
         },
         "values": {
-            "title": "Our Core Values",
+            "title": "قيمنا الأساسية",
             "innovation": {
-                "title": "Innovation",
-                "description": "We constantly push the boundaries of what's possible in recruitment technology."
+                "title": "الابتكار",
+                "description": "ندفع باستمرار حدود ما هو ممكن في تكنولوجيا التوظيف."
             },
             "transparency": {
-                "title": "Transparency",
-                "description": "We believe in honest, clear communication and transparent pricing—no hidden fees, ever."
+                "title": "الشفافية",
+                "description": "نؤمن بالتواصل الصادق والواضح والتسعير الشفاف - بدون رسوم خفية، أبداً."
             },
             "security": {
-                "title": "Security & Privacy",
-                "description": "Your data is secure. We're GDPR compliant and store all data in EU servers with the highest security standards."
+                "title": "الأمان والخصوصية",
+                "description": "بياناتك آمنة. نحن متوافقون مع GDPR ونخزن جميع البيانات في خوادم الاتحاد الأوروبي بأعلى معايير الأمان."
             }
         },
         "team": {
-            "title": "Our Team",
-            "description": "Based in Vienna, Austria, we're a dedicated team of developers, designers, and HR professionals passionate about making recruitment better for everyone."
+            "title": "فريقنا",
+            "description": "مقرنا في فيينا، النمسا، نحن فريق متفان من المطورين، المصممين، ومحترفي الموارد البشرية المتحمسين لجعل التوظيف أفضل للجميع."
         }
     },
     "accessibility": {
-        "title": "Accessibility Statement",
-        "subtitle": "Our Commitment to Web Accessibility and WCAG Compliance",
+        "title": "بيان إمكانية الوصول",
+        "subtitle": "التزامنا بإمكانية الوصول على الويب والامتثال لمعايير WCAG",
         "introduction": {
-            "title": "Introduction",
-            "paragraph1": "Flowxtra is committed to ensuring digital accessibility for people with disabilities. We continually improve the user experience for everyone and apply relevant accessibility standards to achieve our goals of equal access to information and functionality for all users."
+            "title": "مقدمة",
+            "paragraph1": "تلتزم Flowxtra بضمان إمكانية الوصول الرقمي للأشخاص ذوي الإعاقة. نحن نعمل باستمرار على تحسين تجربة المستخدم للجميع ونطبق معايير إمكانية الوصول ذات الصلة لتحقيق أهدافنا في الوصول المتساوي للمعلومات والوظائف لجميع المستخدمين."
         },
         "wcagStandards": {
-            "title": "WCAG Compliance Standards",
-            "paragraph1": "Our website aims to conform to the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards. These guidelines explain how to make web content more accessible for people with disabilities and user-friendly for everyone.",
+            "title": "معايير الامتثال لـ WCAG",
+            "paragraph1": "يهدف موقعنا إلى الامتثال لمعايير إرشادات إمكانية الوصول لمحتوى الويب (WCAG) 2.1 المستوى AA. توضح هذه الإرشادات كيفية جعل محتوى الويب أكثر سهولة في الوصول للأشخاص ذوي الإعاقة وسهل الاستخدام للجميع.",
             "principles": {
-                "title": "WCAG 2.1 Level AA Principles:",
+                "title": "مبادئ WCAG 2.1 المستوى AA:",
                 "perceivable": {
-                    "title": "Perceivable",
-                    "description": "Information and user interface components must be presentable to users in ways they can perceive."
+                    "title": "قابل للإدراك",
+                    "description": "يجب أن تكون المعلومات ومكونات واجهة المستخدم قابلة للعرض للمستخدمين بطرق يمكنهم إدراكها."
                 },
                 "operable": {
-                    "title": "Operable",
-                    "description": "User interface components and navigation must be operable."
+                    "title": "قابل للتشغيل",
+                    "description": "يجب أن تكون مكونات واجهة المستخدم والتنقل قابلة للتشغيل."
                 },
                 "understandable": {
-                    "title": "Understandable",
-                    "description": "Information and the operation of user interface must be understandable."
+                    "title": "قابل للفهم",
+                    "description": "يجب أن تكون المعلومات وتشغيل واجهة المستخدم قابلة للفهم."
                 },
                 "robust": {
-                    "title": "Robust",
-                    "description": "Content must be robust enough that it can be interpreted by a wide variety of user agents, including assistive technologies."
+                    "title": "قوي",
+                    "description": "يجب أن يكون المحتوى قوياً بما يكفي بحيث يمكن تفسيره من قبل مجموعة واسعة من وكلاء المستخدم، بما في ذلك التقنيات المساعدة."
                 }
             }
         },
         "accessibilityFeatures": {
-            "title": "Accessibility Features",
+            "title": "ميزات إمكانية الوصول",
             "keyboardNavigation": {
-                "title": "Keyboard Navigation",
-                "description": "All interactive elements can be accessed using keyboard-only navigation. Use Tab to move forward, Shift+Tab to move backward, and Enter or Space to activate buttons and links."
+                "title": "التنقل بلوحة المفاتيح",
+                "description": "يمكن الوصول إلى جميع العناصر التفاعلية باستخدام التنقل بلوحة المفاتيح فقط. استخدم Tab للانتقال للأمام، Shift+Tab للانتقال للخلف، و Enter أو Space لتفعيل الأزرار والروابط."
             },
             "screenReaderSupport": {
-                "title": "Screen Reader Support",
-                "description": "Our website includes proper semantic HTML, ARIA labels, and alt text for images to ensure compatibility with screen readers and other assistive technologies."
+                "title": "دعم قارئ الشاشة",
+                "description": "يتضمن موقعنا HTML دلالي صحيح، تسميات ARIA، ونص بديل للصور لضمان التوافق مع قارئات الشاشة والتقنيات المساعدة الأخرى."
             },
             "colorContrast": {
-                "title": "Color Contrast",
-                "description": "Text and background colors meet WCAG AA standards for color contrast ratios, ensuring content is readable for users with visual impairments."
+                "title": "تباين الألوان",
+                "description": "تلبي ألوان النص والخلفية معايير WCAG AA لنسب تباين الألوان، مما يضمن أن المحتوى قابل للقراءة للمستخدمين ذوي الإعاقات البصرية."
             },
             "responsiveDesign": {
-                "title": "Responsive Design",
-                "description": "Our website is fully responsive and can be accessed on various devices and screen sizes, with support for zoom up to 200% without losing functionality."
+                "title": "التصميم المتجاوب",
+                "description": "موقعنا متجاوب بالكامل ويمكن الوصول إليه على أجهزة وأحجام شاشات مختلفة، مع دعم التكبير حتى 200% دون فقدان الوظائف."
             }
         },
         "knownIssues": {
-            "title": "Known Issues and Limitations",
-            "paragraph1": "Despite our efforts to ensure accessibility, there may be some limitations. We are actively working to address these issues and improve our website's accessibility.",
-            "paragraph2": "If you encounter any accessibility barriers, please contact us using the information provided below."
+            "title": "المشاكل والقيود المعروفة",
+            "paragraph1": "على الرغم من جهودنا لضمان إمكانية الوصول، قد تكون هناك بعض القيود. نحن نعمل بنشاط على معالجة هذه المشاكل وتحسين إمكانية الوصول لموقعنا.",
+            "paragraph2": "إذا واجهت أي عوائق في إمكانية الوصول، يرجى الاتصال بنا باستخدام المعلومات المقدمة أدناه."
         },
         "feedback": {
-            "title": "Feedback and Contact",
-            "paragraph1": "We welcome your feedback on the accessibility of Flowxtra. If you have encountered any accessibility barriers, or if you have suggestions for improvement, please contact us:",
-            "emailLabel": "Email",
-            "addressLabel": "Address",
+            "title": "التعليقات والاتصال",
+            "paragraph1": "نرحب بتعليقاتك حول إمكانية الوصول في Flowxtra. إذا واجهت أي عوائق في إمكانية الوصول، أو إذا كان لديك اقتراحات للتحسين، يرجى الاتصال بنا:",
+            "emailLabel": "البريد الإلكتروني",
+            "addressLabel": "العنوان",
             "addressValue": "Wipplingerstraße 20/18, 1010 Vienna, Austria"
         },
         "updates": {
-            "title": "Updates to This Statement",
-            "paragraph1": "We regularly review and update this accessibility statement to reflect our ongoing commitment and progress. This statement was last updated on {date}."
+            "title": "تحديثات هذا البيان",
+            "paragraph1": "نراجع ونحدث بيان إمكانية الوصول هذا بانتظام ليعكس التزامنا وتقدمنا المستمر. تم آخر تحديث لهذا البيان في {date}."
         },
         "conformance": {
-            "title": "Conformance Status",
-            "paragraph1": "The Web Content Accessibility Guidelines (WCAG) defines requirements for designers and developers to improve accessibility for people with disabilities.",
-            "paragraph2": "Flowxtra website aims to conform to WCAG 2.1 Level AA standards. We are continuously working to improve our website's accessibility and welcome feedback from users."
+            "title": "حالة الامتثال",
+            "paragraph1": "تحدد إرشادات إمكانية الوصول لمحتوى الويب (WCAG) المتطلبات للمصممين والمطورين لتحسين إمكانية الوصول للأشخاص ذوي الإعاقة.",
+            "paragraph2": "يهدف موقع Flowxtra إلى الامتثال لمعايير WCAG 2.1 المستوى AA. نحن نعمل باستمرار على تحسين إمكانية الوصول لموقعنا ونتلقى بترحيب التعليقات من المستخدمين."
         },
         "widget": {
-            "title": "Accessibility",
-            "close": "Close",
-            "reset": "Reset",
+            "title": "إمكانية الوصول",
+            "close": "إغلاق",
+            "reset": "إعادة تعيين",
             "sections": {
-                "contentAdjustments": "Content Adjustments",
-                "orientationAdjustments": "Orientation Adjustments",
-                "colorAdjustments": "Color Adjustments"
+                "contentAdjustments": "تعديلات المحتوى",
+                "orientationAdjustments": "تعديلات الاتجاه",
+                "colorAdjustments": "تعديلات الألوان"
             },
             "content": {
-                "biggerText": "Bigger text",
-                "biggerLineHeight": "Bigger line height",
-                "textAlign": "Text align",
-                "readableFont": "Readable font"
+                "biggerText": "نص أكبر",
+                "biggerLineHeight": "ارتفاع سطر أكبر",
+                "textAlign": "محاذاة النص",
+                "readableFont": "خط قابل للقراءة"
             },
             "orientation": {
-                "pageStructure": "Page structure",
-                "screenReader": "Screen reader",
-                "readingMask": "Reading mask",
-                "hideImages": "Hide images",
-                "pauseAnimations": "Pause animations",
-                "highlightLinks": "Highlight links",
-                "outlineFocus": "Outline focus"
+                "pageStructure": "هيكل الصفحة",
+                "screenReader": "قارئ الشاشة",
+                "readingMask": "قناع القراءة",
+                "hideImages": "إخفاء الصور",
+                "pauseAnimations": "إيقاف الرسوم المتحركة",
+                "highlightLinks": "تمييز الروابط",
+                "outlineFocus": "تحديد التركيز"
             },
             "color": {
-                "darkMode": "Dark mode",
-                "lightMode": "Light mode",
-                "greyscale": "Greyscale",
-                "contrast": "Contrast"
+                "darkMode": "الوضع الداكن",
+                "lightMode": "الوضع الفاتح",
+                "greyscale": "تدرج رمادي",
+                "contrast": "التباين"
             },
             "navigation": {
-                "search": "Search"
+                "search": "بحث"
             },
             "footer": {
-                "poweredBy": "Accessibility by",
+                "poweredBy": "إمكانية الوصول بواسطة",
                 "dpro": "Dpro",
-                "statement": "Statement",
-                "sitemap": "Sitemap"
+                "statement": "البيان",
+                "sitemap": "خريطة الموقع"
             }
         }
     },
     "pricing": {
         "section": {
-            "title": "Plans and Pricing",
-            "subtitle": "What you see is exactly what you pay: one simple subscription, no additional charges.",
-            "noCreditCard": "No credit card required",
-            "cancelAnytime": "Cancel anytime"
+            "title": "الخطط والأسعار",
+            "subtitle": "ما تراه هو بالضبط ما تدفعه: اشتراك بسيط واحد، بدون رسوم إضافية.",
+            "noCreditCard": "لا حاجة لبطاقة ائتمان",
+            "cancelAnytime": "إلغاء في أي وقت"
         },
         "plans": {
-            "free": "Free",
-            "starter": "Starter",
-            "basic": "Basic",
-            "professional": "Professional",
-            "advanced": "Advanced",
-            "premium": "Premium",
-            "enterprise": "Enterprise",
-            "monthly": "/ monthly",
-            "forGrowingBusinesses": "For growing businesses",
-            "forCustomNeeds": "For custom needs",
-            "getStarted": "Get started",
-            "contactUs": "Contact us"
+            "free": "مجاني",
+            "starter": "المبتدئ",
+            "basic": "الأساسي",
+            "professional": "المحترف",
+            "advanced": "المتقدم",
+            "premium": "المميز",
+            "enterprise": "المؤسسات",
+            "monthly": "/ شهرياً",
+            "forGrowingBusinesses": "للشركات المتنامية",
+            "forCustomNeeds": "للاحتياجات المخصصة",
+            "getStarted": "ابدأ الآن",
+            "contactUs": "اتصل بنا"
         },
         "features": {
-            "keyFeatures": "Key Features:",
+            "keyFeatures": "الميزات الرئيسية:",
             "jobPostings": {
-                "5": "5 job postings",
-                "10": "10 job postings",
-                "15": "15 job postings",
-                "25": "25 job postings",
-                "35": "35 job postings",
-                "unlimited": "Unlimited Job postings"
+                "5": "5 منشورات وظيفية",
+                "10": "10 منشورات وظيفية",
+                "15": "15 منشور وظيفي",
+                "25": "25 منشور وظيفي",
+                "35": "35 منشور وظيفي",
+                "unlimited": "منشورات وظيفية غير محدودة"
             },
-            "socialMediaPosts": "Social Media Posts",
-            "databaseMigration": "Database migration",
-            "customerSupport": "24/7 customer support",
-            "crmIntegration": "Integration with your CRM systems"
+            "socialMediaPosts": "منشورات وسائل التواصل الاجتماعي",
+            "databaseMigration": "ترحيل قاعدة البيانات",
+            "customerSupport": "دعم العملاء على مدار الساعة",
+            "crmIntegration": "التكامل مع أنظمة CRM الخاصة بك"
         },
         "enterprise": {
-            "title": "Enterprise Plans"
+            "title": "خطط المؤسسات"
         },
-        "compareFeatures": "Compare features"
+        "compareFeatures": "مقارنة الميزات"
     },
     "affiliate": {
         "hero": {
-            "title": "Share Flowxtra & Earn 50% Commission",
-            "subtitle": "Earn 50% commission every month for every user you refer",
-            "description": "Join our affiliate program and help businesses discover Flowxtra. Get a unique referral link and start earning commissions today. Commission is paid monthly for up to 12 months as long as your referred users stay subscribed.",
-            "cta": "Join Affiliate Program",
-            "ctaSecondary": "Learn More"
+            "title": "شارك Flowxtra واكسب عمولة 50%",
+            "subtitle": "اكسب عمولة 50% كل شهر لكل مستخدم تحيله",
+            "description": "انضم إلى برنامج الشراكة الخاص بنا وساعد الشركات على اكتشاف Flowxtra. احصل على رابط إحالة فريد وابدأ في كسب العمولات اليوم. يتم دفع العمولة شهرياً لمدة تصل إلى 12 شهراً طالما أن المستخدمين المحالين يبقون مشتركين.",
+            "cta": "انضم إلى برنامج الشراكة",
+            "ctaSecondary": "اعرف المزيد"
         },
         "howItWorks": {
-            "title": "How Our Affiliate Program Works",
+            "title": "كيف يعمل برنامج الشراكة لدينا",
             "step1": {
-                "title": "Sign Up & Get Your Link",
-                "description": "Register for our affiliate program and receive your unique referral link instantly."
+                "title": "سجل واحصل على رابطك",
+                "description": "سجل في برنامج الشراكة الخاص بنا واحصل على رابط إحالة فريد على الفور."
             },
             "step2": {
-                "title": "Share Your Link",
-                "description": "Share your referral link with potential customers through your website, social media, or email."
+                "title": "شارك رابطك",
+                "description": "شارك رابط الإحالة الخاص بك مع العملاء المحتملين من خلال موقعك الإلكتروني، وسائل التواصل الاجتماعي، أو البريد الإلكتروني."
             },
             "step3": {
-                "title": "Users Sign Up",
-                "description": "When someone signs up through your link, they start using Flowxtra's powerful recruitment tools."
+                "title": "يسجل المستخدمون",
+                "description": "عندما يسجل شخص ما من خلال رابطك، يبدأ في استخدام أدوات التوظيف القوية من Flowxtra."
             },
             "step4": {
-                "title": "Earn Monthly Commissions",
-                "description": "Earn 50% commission every month for up to 12 months as long as your referred users stay subscribed. Commission is credited to your account each month."
+                "title": "اكسب عمولات شهرية",
+                "description": "اكسب عمولة 50% كل شهر لمدة تصل إلى 12 شهراً طالما أن المستخدمين المحالين يبقون مشتركين. يتم إضافة العمولة إلى حسابك كل شهر."
             }
         },
         "commission": {
-            "title": "Earning Potential",
-            "subtitle": "See how much you can earn with each plan every month",
+            "title": "إمكانيات الكسب",
+            "subtitle": "شاهد كم يمكنك كسبه مع كل خطة كل شهر",
             "table": {
-                "plan": "Plan",
-                "monthlyPrice": "Monthly Price",
-                "yourCommission": "Your Commission",
-                "monthlyEarning": "Monthly Earning",
-                "annualPotential": "Annual Potential"
+                "plan": "الخطة",
+                "monthlyPrice": "السعر الشهري",
+                "yourCommission": "عمولتك",
+                "monthlyEarning": "الكسب الشهري",
+                "annualPotential": "الإمكانية السنوية"
             },
-            "free": "Free",
+            "free": "مجاني",
             "starter": "Starter",
             "basic": "Basic",
             "professional": "Professional",
             "advanced": "Advanced",
             "enterprise": "Enterprise",
-            "perMonth": "/month",
+            "perMonth": "/شهر",
             "example": {
-                "title": "Example",
-                "description": "For Professional Plan (€249/month): You earn €124.50/month for up to 12 months as long as the user stays subscribed. Maximum earnings: €1,494 (12 months).",
-                "note": "* Maximum commission period is 12 months per referral. Commission is paid monthly for up to 12 months as long as users stay subscribed."
+                "title": "مثال",
+                "description": "للخطة Professional (€249/شهر): تكسب €124.50/شهر لمدة تصل إلى 12 شهراً طالما أن المستخدم يبقى مشتركاً. الحد الأقصى للأرباح: €1,494 (12 شهراً).",
+                "note": "* الحد الأقصى لفترة العمولة هو 12 شهراً لكل إحالة. يتم دفع العمولة شهرياً لمدة تصل إلى 12 شهراً طالما أن المستخدمين يبقون مشتركين."
             }
         },
         "paymentTerms": {
-            "title": "Payment Terms & Conditions",
-            "subtitle": "How commissions are calculated and paid",
+            "title": "شروط وأحكام الدفع",
+            "subtitle": "كيف يتم حساب ودفع العمولات",
             "terms": [
                 {
-                    "title": "Commission Period",
-                    "description": "Commission is paid every month for up to 12 months as long as your referred users stay subscribed. Maximum commission period is 12 months per referral."
+                    "title": "فترة العمولة",
+                    "description": "يتم دفع العمولة كل شهر لمدة تصل إلى 12 شهراً طالما أن المستخدمين المحالين يبقون مشتركين. الحد الأقصى لفترة العمولة هو 12 شهراً لكل إحالة."
                 },
                 {
-                    "title": "Monthly Credit",
-                    "description": "Each month a user pays their subscription, 50% of the payment is automatically credited to your affiliate account."
+                    "title": "الإضافة الشهرية",
+                    "description": "كل شهر يدفع فيه المستخدم اشتراكه، يتم إضافة 50% من الدفعة تلقائياً إلى حساب الشراكة الخاص بك."
                 },
                 {
-                    "title": "Minimum Withdrawal",
-                    "description": "The minimum balance required to withdraw earnings is €180. You can accumulate earnings until you reach this threshold."
+                    "title": "الحد الأدنى للسحب",
+                    "description": "الحد الأدنى للرصيد المطلوب لسحب الأرباح هو €180. يمكنك تراكم الأرباح حتى تصل إلى هذا الحد."
                 },
                 {
-                    "title": "Withdrawal Process",
-                    "description": "Once you reach €180 or more, you can request a withdrawal. Payments are processed monthly via bank transfer or PayPal."
+                    "title": "عملية السحب",
+                    "description": "بمجرد وصولك إلى €180 أو أكثر، يمكنك طلب السحب. يتم معالجة المدفوعات شهرياً عبر التحويل البنكي أو PayPal."
                 }
             ]
         },
         "pricingReference": {
-            "title": "Our Pricing Plans",
-            "subtitle": "Refer users to any of these plans and earn commissions",
-            "viewAll": "View All Plans"
+            "title": "خطط الأسعار لدينا",
+            "subtitle": "أحل المستخدمين إلى أي من هذه الخطط واكسب العمولات",
+            "viewAll": "عرض جميع الخطط"
         },
         "cta": {
-            "title": "Ready to Start Earning?",
-            "subtitle": "Join thousands of affiliates promoting Flowxtra",
-            "button": "Get Started Now",
-            "buttonSecondary": "Contact Sales"
+            "title": "جاهز للبدء في الكسب؟",
+            "subtitle": "انضم إلى آلاف الشركاء الذين يروجون لـ Flowxtra",
+            "button": "ابدأ الآن",
+            "buttonSecondary": "اتصل بالمبيعات"
         },
         "faq": {
-            "title": "Frequently Asked Questions",
-            "helpText": "Still need help?",
-            "chatLink": "Chat with us",
+            "title": "الأسئلة الشائعة",
+            "helpText": "ما زلت بحاجة إلى مساعدة؟",
+            "chatLink": "تحدث معنا",
             "q1": {
-                "question": "How do I get my referral link?",
-                "answer": "After signing up for our affiliate program, you'll receive a unique referral link that you can share with potential customers."
+                "question": "كيف أحصل على رابط الإحالة الخاص بي؟",
+                "answer": "بعد التسجيل في برنامج الشراكة الخاص بنا، ستحصل على رابط إحالة فريد يمكنك مشاركته مع العملاء المحتملين."
             },
             "q2": {
-                "question": "When do I get paid?",
-                "answer": "Commission is credited to your account each month as long as your referred users stay subscribed. You can withdraw once your balance reaches €180 or more."
+                "question": "متى يتم الدفع لي؟",
+                "answer": "يتم إضافة العمولة إلى حسابك كل شهر طالما أن المستخدمين المحالين يبقون مشتركين. يمكنك السحب بمجرد وصول رصيدك إلى €180 أو أكثر."
             },
             "q3": {
-                "question": "How long do commissions last?",
-                "answer": "Commissions are paid monthly for up to 12 months per referral, as long as the user stays subscribed during that period. After 12 months, no further commission is paid for that referral."
+                "question": "كم تستمر العمولات؟",
+                "answer": "يتم دفع العمولات شهرياً لمدة تصل إلى 12 شهراً لكل إحالة، طالما أن المستخدم يبقى مشتركاً خلال تلك الفترة. بعد 12 شهراً، لا يتم دفع عمولة إضافية لتلك الإحالة."
             },
             "q4": {
-                "question": "What if a user cancels?",
-                "answer": "You'll receive commissions only for the months the user was subscribed. Once they cancel, no further commissions will be earned from that user."
+                "question": "ماذا لو ألغى المستخدم؟",
+                "answer": "ستحصل على العمولات فقط للأشهر التي كان فيها المستخدم مشتركاً. بمجرد إلغائه، لن يتم كسب عمولات إضافية من ذلك المستخدم."
             },
             "q5": {
-                "question": "What is the minimum withdrawal amount?",
-                "answer": "The minimum withdrawal amount is €180. You can accumulate earnings in your account until you reach this threshold, then request a withdrawal."
+                "question": "ما هو الحد الأدنى لمبلغ السحب؟",
+                "answer": "الحد الأدنى لمبلغ السحب هو €180. يمكنك تراكم الأرباح في حسابك حتى تصل إلى هذا الحد، ثم اطلب السحب."
             },
             "q6": {
-                "question": "What happens after 12 months?",
-                "answer": "After 12 months, your commission for that customer stops. We only pay commission for the first 12 months of the customer's subscription. If the customer renews after the first year, no commission is paid on those renewals."
+                "question": "ماذا يحدث بعد 12 شهراً؟",
+                "answer": "بعد 12 شهراً، تتوقف عمولتك لذلك العميل. ندفع العمولة فقط للأشهر الـ 12 الأولى من اشتراك العميل. إذا جدد العميل بعد السنة الأولى، لا يتم دفع عمولة على تلك التجديدات."
             }
         }
     },
     "compareFeatures": {
-        "featureUsage": "Feature / Usage",
-        "comingSoon": "Coming Soon",
-        "previous": "Previous",
-        "next": "Next",
-        "notAvailable": "Not available",
-        "soon": "Soon",
-        "unlimited": "Unlimited",
+        "featureUsage": "الميزة / الاستخدام",
+        "comingSoon": "قريباً",
+        "previous": "السابق",
+        "next": "التالي",
+        "notAvailable": "غير متاح",
+        "soon": "قريباً",
+        "unlimited": "غير محدود",
         "features": {
             "jobPostings": {
-                "name": "Job postings / month",
-                "description": "Number of active job slots you can publish simultaneously per month."
+                "name": "إعلانات الوظائف / شهر",
+                "description": "عدد الوظائف النشطة التي يمكنك نشرها في نفس الوقت كل شهر."
             },
             "userSeats": {
-                "name": "User seats",
-                "description": "Total team members who can collaborate inside your account."
+                "name": "مقاعد المستخدمين",
+                "description": "إجمالي أعضاء الفريق الذين يمكنهم التعاون داخل حسابك."
             },
             "support247": {
-                "name": "Support 24/7",
-                "description": "Round-the-clock priority support through Chat and Online Meetings with our senior support engineers."
+                "name": "دعم 24/7",
+                "description": "دعم ذو أولوية على مدار الساعة من خلال الدردشة والاجتماعات عبر الإنترنت مع مهندسي الدعم المتقدمين لدينا."
             },
             "gdprCcpa": {
-                "name": "GDPR & CCPA compliance",
-                "description": "Full compliance with GDPR (European Union) and CCPA (California) data protection regulations. Includes data subject rights management, consent tracking, data portability, right to erasure, privacy controls, and automated compliance reports. Protect candidate privacy and meet international legal requirements."
+                "name": "الامتثال لـ GDPR و CCPA",
+                "description": "امتثال كامل لمعايير حماية البيانات GDPR (الاتحاد الأوروبي) و CCPA (كاليفورنيا). يتضمن إدارة حقوق أصحاب البيانات، تتبع الموافقة، قابلية نقل البيانات، الحق في المحو، ضوابط الخصوصية، وتقارير الامتثال الآلية. احمِ خصوصية المرشحين ووافق على المتطلبات القانونية الدولية."
             },
             "googleJobs": {
-                "name": "Google job listing",
-                "description": "Automatically list your jobs on Google for Jobs for free. Increase visibility and reach more candidates through Google Search without additional costs."
+                "name": "قائمة الوظائف على Google",
+                "description": "اعرض وظائفك تلقائياً على Google for Jobs مجاناً. زد من الرؤية ووصل إلى المزيد من المرشحين من خلال بحث Google دون تكاليف إضافية."
             },
             "onlineMeeting": {
-                "name": "Online meeting tool",
-                "description": "Schedule and host interviews with candidates directly from Flowxtra."
+                "name": "أداة الاجتماعات عبر الإنترنت",
+                "description": "حدد مواعيد وأجرِ المقابلات مع المرشحين مباشرة من Flowxtra."
             },
             "cvParsing": {
-                "name": "CV parsing",
-                "description": "Automatically extract and structure candidate information from CVs and resumes. Supports multiple file formats including PDF, Word, and text files. Intelligently parses contact details, work experience, education, skills, and qualifications to populate candidate profiles instantly."
+                "name": "تحليل السيرة الذاتية",
+                "description": "استخرج وقم ببناء معلومات المرشح تلقائياً من السير الذاتية. يدعم تنسيقات ملفات متعددة بما في ذلك PDF و Word وملفات النص. يحلل بذكاء تفاصيل الاتصال، الخبرة العملية، التعليم، المهارات، والمؤهلات لملء ملفات المرشحين على الفور."
             },
             "kanbanBoard": {
-                "name": "Kanban board",
-                "description": "Kanban-style board to visualize and move candidates through hiring stages. Simple column view for quick candidate management."
+                "name": "لوحة Kanban",
+                "description": "لوحة على نمط Kanban لتصور ونقل المرشحين عبر مراحل التوظيف. عرض عمودي بسيط لإدارة سريعة للمرشحين."
             },
             "diagramBoard": {
-                "name": "Diagram board",
-                "description": "Advanced diagram board with drag-and-drop functionality, detailed activity history, and comprehensive candidate tracking. Enhanced visualization with filters and analytics."
+                "name": "لوحة المخططات",
+                "description": "لوحة مخططات متقدمة مع وظيفة السحب والإفلات، سجل نشاط مفصل، وتتبع شامل للمرشحين. تصور محسّن مع المرشحات والتحليلات."
             },
             "multiposting": {
-                "name": "Multiposting",
-                "description": "Distribute job ads to multiple channels simultaneously for maximum exposure. Includes Google Jobs, LinkedIn, and other platforms."
+                "name": "النشر المتعدد",
+                "description": "وزع إعلانات الوظائف على قنوات متعددة في نفس الوقت لأقصى تعرض. يتضمن Google Jobs و LinkedIn ومنصات أخرى."
             },
             "careerPage": {
-                "name": "Career page",
-                "description": "Your branded public careers page listing all open roles."
+                "name": "صفحة الوظائف",
+                "description": "صفحة الوظائف العامة المميزة بعلامتك التجارية والتي تعرض جميع الأدوار المفتوحة."
             },
             "removeBranding": {
-                "name": "Remove Flowxtra branding",
-                "description": "Remove Flowxtra logo and branding from your career page. Display your company branding only."
+                "name": "إزالة علامة Flowxtra التجارية",
+                "description": "أزل شعار وعلامة Flowxtra التجارية من صفحة الوظائف الخاصة بك. اعرض علامتك التجارية فقط."
             },
             "smtp": {
-                "name": "Custom Email SMTP integration",
-                "description": "Connect your company's SMTP server to send emails directly from your own email address through our platform. Send candidate communications, notifications, and updates using your branded email domain."
+                "name": "تكامل SMTP للبريد الإلكتروني المخصص",
+                "description": "اتصل بخادم SMTP الخاص بشركتك لإرسال رسائل البريد الإلكتروني مباشرة من عنوان بريدك الإلكتروني الخاص من خلال منصتنا. أرسل اتصالات المرشحين، الإشعارات، والتحديثات باستخدام نطاق بريدك الإلكتروني المميز."
             },
             "jobWidget": {
-                "name": "Job widget",
-                "description": "Embed your job list on any website with a copy-paste snippet."
+                "name": "أداة الوظائف",
+                "description": "أدرج قائمة الوظائف الخاصة بك على أي موقع ويب باستخدام مقتطف نسخ ولصق."
             },
             "atsIntegrations": {
-                "name": "ATS integrations",
-                "description": "Connect Flowxtra with your HR stack, websites, and internal tools."
+                "name": "تكاملات ATS",
+                "description": "اتصل بـ Flowxtra مع مجموعة الموارد البشرية الخاصة بك، المواقع الإلكترونية، والأدوات الداخلية."
             },
             "twoFactorAuth": {
-                "name": "Two-factor authentication",
-                "description": "Protect accounts with an extra verification step at login. Also known as 2FA."
+                "name": "المصادقة الثنائية",
+                "description": "احمِ الحسابات بخطوة تحقق إضافية عند تسجيل الدخول. تُعرف أيضاً باسم 2FA."
             },
             "crmIntegration": {
-                "name": "Integration with CRM systems",
-                "description": "Sync candidate and client data with your CRM for seamless workflows."
+                "name": "التكامل مع أنظمة CRM",
+                "description": "زامن بيانات المرشحين والعملاء مع CRM الخاص بك لسير عمل سلس."
             },
             "apiMcp": {
                 "name": "API/MCP",
-                "description": "Complete documentation for integrating Flowxtra with your custom systems and LLMs. Includes detailed API references, MCP protocol guides, code examples, and integration tutorials."
+                "description": "وثائق كاملة لدمج Flowxtra مع أنظمتك المخصصة و LLMs. يتضمن مراجع API مفصلة، أدلة بروتوكول MCP، أمثلة الكود، ودروس التكامل."
             },
             "companyPage": {
-                "name": "Company page",
-                "description": "Get a branded subdomain with your company profile and jobs."
+                "name": "صفحة الشركة",
+                "description": "احصل على نطاق فرعي مميز بعلامتك التجارية مع ملف شركتك والوظائف."
             },
             "customLlms": {
-                "name": "Custom LLMs Integration",
-                "description": "Integrate your own LLMs that are hosted on your infrastructure. We provide the integration tools (API & MCP) so your AI models can work seamlessly within Flowxtra while staying in your environment."
+                "name": "تكامل LLMs المخصص",
+                "description": "ادمج LLMs الخاصة بك المستضافة على بنيتك التحتية. نوفر أدوات التكامل (API & MCP) حتى تعمل نماذج الذكاء الاصطناعي الخاصة بك بسلاسة داخل Flowxtra مع البقاء في بيئتك."
             },
             "privacyGenerator": {
-                "name": "Privacy policy generator",
-                "description": "Create customized privacy policies tailored to your needs. Choose from pre-built templates for different privacy regulations (GDPR, CCPA, etc.) and customize the text to match your company requirements. Generate professional, legally-compliant privacy policies without legal expertise."
+                "name": "مولد سياسة الخصوصية",
+                "description": "أنشئ سياسات خصوصية مخصصة مصممة خصيصاً لاحتياجاتك. اختر من قوالب جاهزة لتنظيمات الخصوصية المختلفة (GDPR، CCPA، إلخ) وخصص النص ليتطابق مع متطلبات شركتك. أنشئ سياسات خصوصية احترافية ومتوافقة قانونياً دون خبرة قانونية."
             },
             "smartFiltering": {
-                "name": "Smart candidate filtering",
-                "description": "Auto-prioritizes applicants based on role requirements and custom criteria."
+                "name": "تصفية المرشحين الذكية",
+                "description": "يحدد أولويات المتقدمين تلقائياً بناءً على متطلبات الدور والمعايير المخصصة."
             },
             "customFields": {
-                "name": "Custom fields on jobs",
-                "description": "Add any fields you need to structure job data and forms."
+                "name": "حقول مخصصة على الوظائف",
+                "description": "أضف أي حقول تحتاجها لتنظيم بيانات الوظائف والنماذج."
             },
             "rolesPermissions": {
-                "name": "Roles & permissions",
-                "description": "Granular access control for recruiters, hiring managers, and admins."
+                "name": "الأدوار والصلاحيات",
+                "description": "تحكم دقيق في الوصول للموظفين، مديري التوظيف، والمسؤولين."
             },
             "hiringStages": {
-                "name": "Hiring stages",
-                "description": "Customizable hiring stages. Define and manage recruitment phases like application review, interviews, assessments, and final decisions. Fully customizable to match your unique hiring workflow."
+                "name": "مراحل التوظيف",
+                "description": "مراحل توظيف قابلة للتخصيص. حدد وأدرِ مراحل التوظيف مثل مراجعة الطلبات، المقابلات، التقييمات، والقرارات النهائية. قابل للتخصيص بالكامل ليتطابق مع سير عمل التوظيف الفريد الخاص بك."
             },
             "appStoreIntegrations": {
-                "name": "App store integrations",
-                "description": "Plug-and-play integrations with popular HR, comms, and analytics tools."
+                "name": "تكاملات متجر التطبيقات",
+                "description": "تكاملات جاهزة للاستخدام مع أدوات الموارد البشرية، الاتصالات، والتحليلات الشائعة."
             },
             "ratingSheets": {
-                "name": "Rating sheets",
-                "description": "Structured scorecards to evaluate candidates consistently."
+                "name": "أوراق التقييم",
+                "description": "بطاقات تقييم منظمة لتقييم المرشحين بشكل متسق."
             },
             "customSocialSharing": {
-                "name": "Custom social sharing",
-                "description": "Customize OG tags, banners, and captions for job links."
+                "name": "مشاركة اجتماعية مخصصة",
+                "description": "خصص علامات OG، البانرات، والتسميات التوضيحية لروابط الوظائف."
             },
             "brandKit": {
-                "name": "Brand Kit",
-                "description": "Customize your entire system with your brand colors, fonts, and logo. Your career pages, emails, and all candidate-facing content will reflect your brand identity consistently."
+                "name": "مجموعة العلامة التجارية",
+                "description": "خصص نظامك بالكامل بألوان علامتك التجارية، الخطوط، والشعار. صفحات الوظائف، رسائل البريد الإلكتروني، وجميع المحتويات الموجهة للمرشحين ستعكس هوية علامتك التجارية بشكل متسق."
             },
             "emailTemplates": {
-                "name": "Email template builder",
-                "description": "Design and customize email templates for all candidate communications. Create branded, professional emails with your own design, layout, and messaging."
+                "name": "منشئ قوالب البريد الإلكتروني",
+                "description": "صمم وخصص قوالب البريد الإلكتروني لجميع اتصالات المرشحين. أنشئ رسائل بريد إلكتروني مميزة واحترافية بتصميمك، تخطيطك، ورسالتك الخاصة."
             },
             "automatedMessages": {
-                "name": "Automated messages",
-                "description": "Send automatic confirmations, rejections, and reminders to candidates."
+                "name": "الرسائل الآلية",
+                "description": "أرسل تأكيدات، رفض، وتذكيرات تلقائية للمرشحين."
             },
             "customCareerPage": {
-                "name": "Custom career page",
-                "description": "Build rich careers pages with sections for culture, benefits, and teams. Supports multi-section layouts."
+                "name": "صفحة وظائف مخصصة",
+                "description": "أنشئ صفحات وظائف غنية بأقسام للثقافة، المزايا، والفرق. يدعم تخطيطات متعددة الأقسام."
             },
             "customDomain": {
-                "name": "Custom domain",
-                "description": "Use your own domain for careers pages and application forms."
+                "name": "نطاق مخصص",
+                "description": "استخدم نطاقك الخاص لصفحات الوظائف ونماذج التقديم."
             },
             "skillsReservoir": {
-                "name": "Skills reservoir",
-                "description": "Store and organize top candidates who didn't get hired for future opportunities. Build a database of qualified talent ready for upcoming positions that match their skills."
+                "name": "مخزن المهارات",
+                "description": "احفظ ونظم أفضل المرشحين الذين لم يتم توظيفهم لفرص مستقبلية. أنشئ قاعدة بيانات للمواهب المؤهلة جاهزة للمناصب القادمة التي تطابق مهاراتهم."
             },
             "unlimitedStorage": {
-                "name": "Unlimited data storage",
-                "description": "Store files, resumes, and activity logs without hard caps."
+                "name": "تخزين بيانات غير محدود",
+                "description": "احفظ الملفات، السير الذاتية، وسجلات النشاط دون حدود صارمة."
             },
             "journeyFlow": {
-                "name": "Journey flow",
-                "description": "Advanced workflow automation builder (like n8n). Create custom recruitment processes with conditional paths based on candidate responses. Auto-send welcome emails, request additional info, send contracts, training courses, and create dynamic workflows with triggers, wait times, conditions, and multiple branches. Build personalized candidate journeys for each job with smart segmentation based on location, answers, or any custom criteria."
+                "name": "تدفق الرحلة",
+                "description": "منشئ أتمتة سير عمل متقدم (مثل n8n). أنشئ عمليات توظيف مخصصة مع مسارات شرطية بناءً على ردود المرشحين. أرسل تلقائياً رسائل بريد إلكتروني ترحيبية، اطلب معلومات إضافية، أرسل العقود، دورات تدريبية، وأنشئ سير عمل ديناميكي مع المحفزات، أوقات الانتظار، الشروط، وفروع متعددة. أنشئ رحلات مرشحين مخصصة لكل وظيفة مع تجزئة ذكية بناءً على الموقع، الإجابات، أو أي معايير مخصصة."
             },
             "aiJobAdBuilder": {
-                "name": "AI job ad builder",
-                "description": "Generate optimized job descriptions aligned to role requirements."
+                "name": "منشئ إعلانات الوظائف بالذكاء الاصطناعي",
+                "description": "أنشئ أوصاف وظائف محسّنة تتماشى مع متطلبات الدور."
             },
             "clientProfiles": {
-                "name": "Client profiles",
-                "description": "Manage multiple client companies with separate jobs and teams. Perfect for agencies."
+                "name": "ملفات العملاء",
+                "description": "أدرِ شركات عملاء متعددة مع وظائف وفرق منفصلة. مثالي للوكالات."
             },
             "multiOfficeLocation": {
-                "name": "Multi office location",
-                "description": "Organize jobs, users, and reports by location. Support for multi-location companies."
+                "name": "مواقع مكاتب متعددة",
+                "description": "نظم الوظائف، المستخدمين، والتقارير حسب الموقع. دعم للشركات متعددة المواقع."
             },
             "newsletter": {
-                "name": "Newsletter",
-                "description": "Send automated job alerts to candidates who opted-in during application. Notify them about new opportunities via email, SMS, WhatsApp, or Telegram. Includes Mailchimp integration for advanced campaigns and automatic job vacancy notifications."
+                "name": "النشرة الإخبارية",
+                "description": "أرسل تنبيهات وظائف آلية للمرشحين الذين وافقوا أثناء التقديم. أبلغهم عن فرص جديدة عبر البريد الإلكتروني، SMS، WhatsApp، أو Telegram. يتضمن تكامل Mailchimp للحملات المتقدمة وإشعارات الشواغر الوظيفية التلقائية."
             },
             "talentPool": {
-                "name": "Talent pool",
-                "description": "Maintain a database of silver-medalist and future-fit candidates."
+                "name": "مجموعة المواهب",
+                "description": "حافظ على قاعدة بيانات للمرشحين الحاصلين على الميدالية الفضية والمناسبين للمستقبل."
             },
             "reportsAnalytics": {
-                "name": "Reports & analytics",
-                "description": "Insights on sources, pipeline speed, drop-off, and team productivity. Includes detailed applicant reports."
+                "name": "التقارير والتحليلات",
+                "description": "رؤى حول المصادر، سرعة خط الأنابيب، الانسحاب، وإنتاجية الفريق. يتضمن تقارير المتقدمين المفصلة."
             },
             "databaseMigration": {
-                "name": "Database migration",
-                "description": "We help import candidates, jobs, and notes from other systems."
+                "name": "ترحيل قاعدة البيانات",
+                "description": "نساعد في استيراد المرشحين، الوظائف، والملاحظات من أنظمة أخرى."
             },
             "candidateExport": {
-                "name": "Candidate export",
-                "description": "Export lists and reports for external analysis and backups. Supports CSV and Excel formats."
+                "name": "تصدير المرشحين",
+                "description": "صدّر القوائم والتقارير للتحليل الخارجي والنسخ الاحتياطية. يدعم تنسيقات CSV و Excel."
             },
             "candidateImport": {
-                "name": "Candidate import",
-                "description": "Import candidate data from CSV, Excel, and other ATS systems. Bulk upload candidates with automatic data mapping and validation."
+                "name": "استيراد المرشحين",
+                "description": "استورد بيانات المرشحين من CSV و Excel وأنظمة ATS أخرى. رفع جماعي للمرشحين مع تعيين بيانات تلقائي والتحقق."
             },
             "esignature": {
-                "name": "eSignature",
-                "description": "Send, sign, and track legally binding digital contracts with audit trails and timestamps."
+                "name": "التوقيع الإلكتروني",
+                "description": "أرسل، وقع، وتتبع العقود الرقمية الملزمة قانونياً مع سجلات التدقيق والطوابع الزمنية."
             },
             "elearning": {
-                "name": "E-learning",
-                "description": "Train hiring teams with built-in courses and certifications. Includes company-specific course creation."
+                "name": "التعلم الإلكتروني",
+                "description": "درّب فرق التوظيف بدورات وشهادات مدمجة. يتضمن إنشاء دورات خاصة بالشركة."
             },
             "assessments": {
-                "name": "Assessments",
-                "description": "Skills and personality tests with structured, comparable results."
+                "name": "التقييمات",
+                "description": "اختبارات المهارات والشخصية مع نتائج منظمة وقابلة للمقارنة."
             },
             "socialAdsManager": {
-                "name": "Social Ads Manager",
-                "description": "Create and manage job advertisements across major platforms including Facebook, Instagram, SnapChat, Google, YouTube, TikTok, and LinkedIn. Save on additional fees by managing all your social media advertising directly within Flowxtra."
+                "name": "مدير الإعلانات الاجتماعية",
+                "description": "أنشئ وأدرِ إعلانات الوظائف عبر المنصات الرئيسية بما في ذلك Facebook، Instagram، SnapChat، Google، YouTube، TikTok، و LinkedIn. وفر على الرسوم الإضافية من خلال إدارة جميع إعلانات وسائل التواصل الاجتماعي الخاصة بك مباشرة داخل Flowxtra."
             },
             "idVerification": {
-                "name": "ID Verification",
-                "description": "Verify candidate identity documents including passports, national IDs, and other official identification documents for enhanced security and compliance."
+                "name": "التحقق من الهوية",
+                "description": "تحقق من وثائق هوية المرشحين بما في ذلك جوازات السفر، بطاقات الهوية الوطنية، ووثائق التعريف الرسمية الأخرى لتعزيز الأمان والامتثال."
             },
             "applyViaSocialChatbot": {
-                "name": "Apply via social Chatbot",
-                "description": "Connect your company's own WhatsApp Business, Telegram, Facebook Messenger, Discord, or WeChat accounts. Candidates apply directly through your business chat, reducing costs while maintaining direct communication with applicants."
+                "name": "التقديم عبر روبوت الدردشة الاجتماعي",
+                "description": "اتصل بحسابات WhatsApp Business، Telegram، Facebook Messenger، Discord، أو WeChat الخاصة بشركتك. يتقدم المرشحون مباشرة من خلال دردشة عملك، مما يقلل التكاليف مع الحفاظ على التواصل المباشر مع المتقدمين."
             },
             "candidatePresentation": {
-                "name": "Candidate presentation",
-                "description": "Generate secure shareable links to present candidate profiles with your notes and comments to clients, managers, or external partners. Share specific candidate information without granting full system access. Candidates consent to information sharing in advance. Perfect for recruitment agencies presenting profiles to clients or internal stakeholders reviewing candidates."
+                "name": "عرض المرشح",
+                "description": "أنشئ روابط قابلة للمشاركة آمنة لعرض ملفات المرشحين مع ملاحظاتك وتعليقاتك للعملاء، المديرين، أو الشركاء الخارجيين. شارك معلومات مرشح محددة دون منح وصول كامل للنظام. يوافق المرشحون على مشاركة المعلومات مسبقاً. مثالي لوكالات التوظيف التي تعرض الملفات للعملاء أو أصحاب المصلحة الداخليين الذين يراجعون المرشحين."
             },
             "socialMediaPosts": {
-                "name": "Social media posts",
-                "description": "Schedule and publish unlimited posts, stories, videos, and any content across all social media platforms. Full content scheduling and management system."
+                "name": "منشورات وسائل التواصل الاجتماعي",
+                "description": "حدد مواعيد ونشر منشورات، قصص، فيديوهات، وأي محتوى غير محدود عبر جميع منصات وسائل التواصل الاجتماعي. نظام كامل لجدولة وإدارة المحتوى."
             },
             "aiChatbot": {
-                "name": "AI Chatbot",
-                "description": "Answer candidate FAQs and pre-screen directly on your careers pages."
+                "name": "روبوت الدردشة بالذكاء الاصطناعي",
+                "description": "أجب على الأسئلة الشائعة للمرشحين وفحص مسبق مباشرة على صفحات الوظائف الخاصة بك."
             },
             "oneWayVideo": {
-                "name": "One-way video interviews",
-                "description": "Candidates can record and upload video responses during the application process. Screen candidates asynchronously by reviewing pre-recorded video answers to your custom questions. Save time by watching responses on your schedule without coordinating live interview times."
+                "name": "مقابلات الفيديو أحادية الاتجاه",
+                "description": "يمكن للمرشحين تسجيل وتحميل ردود فيديو أثناء عملية التقديم. افحص المرشحين بشكل غير متزامن من خلال مراجعة إجابات الفيديو المسجلة مسبقاً لأسئلتك المخصصة. وفر الوقت من خلال مشاهدة الردود في جدولك دون تنسيق أوقات المقابلات المباشرة."
             },
             "employeeOnboarding": {
-                "name": "Employee onboarding",
-                "description": "Streamline new hire integration with automated onboarding workflows. Send employment documents, contracts, and training materials. Create customizable checklists for new employees, schedule their first days, introduce them to the team, and track their progress. Complete onboarding journey from offer acceptance to full productivity."
+                "name": "دمج الموظفين",
+                "description": "بسّط دمج الموظفين الجدد مع سير عمل دمج آلي. أرسل وثائق التوظيف، العقود، ومواد التدريب. أنشئ قوائم تحقق قابلة للتخصيص للموظفين الجدد، حدد مواعيد أيامهم الأولى، قدّمهم للفريق، وتتبع تقدمهم. رحلة دمج كاملة من قبول العرض إلى الإنتاجية الكاملة."
             }
         },
         "values": {
-            "tickets": "Tickets",
-            "chat": "Chat",
-            "chatOnlineMeetings": "Chat, Online Meetings"
+            "tickets": "التذاكر",
+            "chat": "الدردشة",
+            "chatOnlineMeetings": "الدردشة، الاجتماعات عبر الإنترنت"
         }
     },
     "footer": {
         "company": {
-            "title": "Company",
-            "features": "Features",
-            "blog": "Blog & News",
-            "about": "About us",
-            "contact": "Contact us",
-            "pricing": "Pricing",
-            "affiliate": "Affiliate",
-            "appStore": "App Store"
+            "title": "الشركة",
+            "features": "الميزات",
+            "blog": "المدونة والأخبار",
+            "about": "عن الشركة",
+            "contact": "اتصل بنا",
+            "pricing": "الأسعار",
+            "affiliate": "برنامج الشراكة",
+            "appStore": "متجر التطبيقات"
         },
         "software": {
-            "title": "Software",
-            "ats": "ATS Recruiting Software",
-            "socialMedia": "Social Media Manager",
-            "freeJobPosting": "Free Job Posting",
-            "esignature": "E-signature"
+            "title": "البرامج",
+            "ats": "برنامج التوظيف ATS",
+            "socialMedia": "مدير وسائل التواصل الاجتماعي",
+            "freeJobPosting": "نشر وظائف مجاني",
+            "esignature": "التوقيع الإلكتروني"
         },
         "ats": {
-            "title": "ATS Software",
-            "aiAts": "AI ATS Software",
-            "candidateFiltering": "Candidate Filtering",
-            "multiposting": "Multiposting Jobs",
-            "jobWidget": "Job Widget",
-            "freeJobPosting": "Free Job Posting",
-            "applicantTracking": "Applicant Tracking System Software",
-            "socialMediaManagement": "Social Media Management"
+            "title": "برنامج ATS",
+            "aiAts": "برنامج ATS بالذكاء الاصطناعي",
+            "candidateFiltering": "تصفية المرشحين",
+            "multiposting": "نشر الوظائف المتعدد",
+            "jobWidget": "أداة الوظائف",
+            "freeJobPosting": "نشر وظائف مجاني",
+            "applicantTracking": "برنامج نظام تتبع المتقدمين",
+            "socialMediaManagement": "إدارة وسائل التواصل الاجتماعي"
         },
         "terms": {
-            "title": "Terms",
-            "dpa": "DPA",
-            "imprint": "Imprint",
-            "disclaimer": "Disclaimer",
-            "privacy": "Privacy policy",
-            "cookie": "Cookie policy",
-            "companies": "Terms of use",
-            "candidates": "Terms of use Candidates"
+            "title": "الشروط",
+            "dpa": "اتفاقية معالجة البيانات",
+            "imprint": "معلومات الناشر",
+            "disclaimer": "إخلاء المسؤولية",
+            "privacy": "سياسة الخصوصية",
+            "cookie": "سياسة ملفات تعريف الارتباط",
+            "companies": "شروط الاستخدام",
+            "candidates": "شروط الاستخدام للمرشحين"
         },
         "followUs": {
-            "title": "Follow Us",
+            "title": "تابعنا",
             "companyName": "Flowxtra GmbH",
             "address": "Wipplingerstraße 20/18, 1010 Vienna",
             "recaptcha": {
-                "text": "*This site is protected by reCAPTCHA. Google",
-                "privacy": "Privacy Policy",
-                "and": "and",
-                "terms": "Terms of Service",
-                "apply": "apply."
+                "text": "*هذا الموقع محمي بواسطة reCAPTCHA. تنطبق",
+                "privacy": "سياسة الخصوصية",
+                "and": "و",
+                "terms": "شروط الخدمة",
+                "apply": "من Google."
             }
         },
         "copyright": {
-            "text": "Copyright © 2025 Flowxtra | Made by",
+            "text": "حقوق النشر © 2025 Flowxtra | صنع بواسطة",
             "madeBy": "Dpro"
         },
         "consent": {
-            "preferences": "Consent Preferences",
-            "short": "Consent"
+            "preferences": "تفضيلات الموافقة",
+            "short": "الموافقة"
         },
         "darkMode": {
-            "dark": "Dark Mode",
-            "light": "Light Mode"
+            "dark": "الوضع الداكن",
+            "light": "الوضع الفاتح"
         },
-        "accessibility": "Accessibility",
+        "accessibility": "إمكانية الوصول",
         "badges": {
-            "madeInAustria": "Made in Austria",
+            "madeInAustria": "صنع في النمسا",
             "trustpilot": "Trustpilot",
-            "serverLocation": "Server Locations Germany",
-            "gdpr": "DSGVO & GDPR Compliant",
-            "aiAct": "AI Act Compliant"
+            "serverLocation": "خوادم في ألمانيا",
+            "gdpr": "متوافق مع DSGVO و GDPR",
+            "aiAct": "متوافق مع قانون الذكاء الاصطناعي"
         },
         "logoAlt": "Flowxtra"
     },
     "cookieConsent": {
-        "title": "Cookie Preferences",
-        "description": "Manage your cookie preferences. You can enable or disable different types of cookies below.",
+        "title": "تفضيلات ملفات تعريف الارتباط",
+        "description": "أدر تفضيلات ملفات تعريف الارتباط الخاصة بك. يمكنك تفعيل أو تعطيل أنواع مختلفة من ملفات تعريف الارتباط أدناه.",
         "strictlyNecessary": {
-            "title": "Strictly Necessary",
-            "description": "These cookies are necessary for the website to function properly. They cannot be disabled."
+            "title": "ضرورية تماماً",
+            "description": "هذه الملفات ضرورية لكي يعمل الموقع بشكل صحيح. لا يمكن تعطيلها."
         },
         "functionality": {
-            "title": "Functionality",
-            "description": "These cookies enable enhanced functionality and personalization (language, theme, preferences)."
+            "title": "الوظائف",
+            "description": "هذه الملفات تمكن الوظائف المحسّنة والتخصيص (اللغة، المظهر، التفضيلات)."
         },
         "performance": {
-            "title": "Performance",
-            "description": "These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously."
+            "title": "الأداء",
+            "description": "هذه الملفات تساعدنا على فهم كيفية تفاعل الزوار مع موقعنا من خلال جمع المعلومات والإبلاغ عنها بشكل مجهول."
         },
         "targeting": {
-            "title": "Targeting",
-            "description": "These cookies are used to deliver personalized advertisements and track advertising campaign performance."
+            "title": "الاستهداف",
+            "description": "تُستخدم هذه الملفات لتقديم إعلانات مخصصة وتتبع أداء الحملات الإعلانية."
         },
         "table": {
-            "name": "Name",
-            "provider": "Provider",
-            "storage": "Data Storage",
-            "retention": "Retention",
-            "privacyPolicy": "Privacy Policy",
-            "view": "View"
+            "name": "الاسم",
+            "provider": "المزود",
+            "storage": "تخزين البيانات",
+            "retention": "الاحتفاظ",
+            "privacyPolicy": "سياسة الخصوصية",
+            "view": "عرض"
         },
         "doNotSell": {
-            "title": "Do Not Sell My Personal Information",
-            "description": "Under CCPA, you have the right to opt-out of the sale of your personal information."
+            "title": "عدم بيع معلوماتي الشخصية",
+            "description": "بموجب CCPA، لديك الحق في إلغاء الاشتراك في بيع معلوماتك الشخصية."
         },
         "consentId": {
-            "title": "Your Consent ID",
-            "description": "This unique ID proves you gave consent. Save it for your records or future reference.",
-            "copy": "Copy to clipboard"
+            "title": "معرف الموافقة الخاص بك",
+            "description": "هذا المعرف الفريد يثبت أنك أعطيت الموافقة. احفظه لسجلاتك أو للمرجع المستقبلي.",
+            "copy": "نسخ إلى الحافظة"
         },
         "buttons": {
-            "cancel": "Cancel",
-            "save": "Save Preferences",
-            "acceptAll": "Accept All",
-            "rejectAll": "Reject All",
-            "preferences": "Preferences",
-            "acceptNecessary": "Accept Necessary Only"
+            "cancel": "إلغاء",
+            "save": "حفظ التفضيلات",
+            "acceptAll": "قبول الكل",
+            "rejectAll": "رفض الكل",
+            "preferences": "التفضيلات",
+            "acceptNecessary": "قبول الضرورية فقط"
         },
         "banner": {
-            "titleEU": "We use cookies",
-            "titleUS": "Cookie Notice",
-            "descriptionEU": "We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking \"Accept All\", you consent to our use of cookies. See our",
-            "descriptionCA": "We collect and may sell your personal information. You have the right to opt-out. Click \"Do Not Sell\" to exercise your rights under CCPA. See our",
-            "descriptionUS": "We use cookies to improve your experience. You can manage your preferences at any time. See our",
-            "cookiePolicy": "Cookie Policy",
-            "developedBy": "Created by",
+            "titleEU": "نستخدم ملفات تعريف الارتباط",
+            "titleUS": "إشعار ملفات تعريف الارتباط",
+            "descriptionEU": "نستخدم ملفات تعريف الارتباط لتحسين تجربة التصفح الخاصة بك، تقديم محتوى مخصص، وتحليل حركة المرور لدينا. بالنقر على \"قبول الكل\"، أنت توافق على استخدامنا لملفات تعريف الارتباط. راجع",
+            "descriptionCA": "نجمع وقد نبيع معلوماتك الشخصية. لديك الحق في إلغاء الاشتراك. انقر على \"عدم البيع\" لممارسة حقوقك بموجب CCPA. راجع",
+            "descriptionUS": "نستخدم ملفات تعريف الارتباط لتحسين تجربتك. يمكنك إدارة تفضيلاتك في أي وقت. راجع",
+            "cookiePolicy": "سياسة ملفات تعريف الارتباط",
+            "developedBy": "تم إنشاؤه بواسطة",
             "dproLink": "Dpro"
         },
         "tabs": {
-            "cookieDeclaration": "Cookie Settings",
-            "aboutCookies": "About Cookies"
+            "cookieDeclaration": "إعدادات ملفات تعريف الارتباط",
+            "aboutCookies": "حول ملفات تعريف الارتباط"
         },
         "aboutCookies": {
-            "intro": "We use cookies to improve your experience and analyse website traffic. By clicking \"Accept All,\" you agree to all cookies. You can manage preferences in Cookie Settings.",
-            "description": "Cookies are small text files that are placed on your computer by websites that you visit. Websites use cookies to help users navigate efficiently and perform certain functions. Cookies that are required for the website to operate properly are allowed to be set without your permission. All other cookies need to be approved before they can be set in the browser.",
-            "changeConsent": "You can change your consent to cookie usage at any time on our",
-            "privacyPolicy": "Privacy Policy",
-            "page": "page.",
-            "advertising": "We also use cookies to collect data for the purpose of personalizing and measuring the effectiveness of our advertising. For more details, visit the",
-            "googlePrivacyPolicy": "Google Privacy Policy",
-            "consentIdLabel": "Cookies consent ID:",
-            "seeCookiePolicy": "See our",
-            "cookiePolicy": "Cookie Policy"
+            "intro": "نستخدم ملفات تعريف الارتباط لتحسين تجربتك وتحليل حركة مرور الموقع. بالنقر على \"قبول الكل\"، أنت توافق على جميع ملفات تعريف الارتباط. يمكنك إدارة التفضيلات في إعدادات ملفات تعريف الارتباط.",
+            "description": "ملفات تعريف الارتباط هي ملفات نصية صغيرة يتم وضعها على جهاز الكمبيوتر الخاص بك من قبل المواقع التي تزورها. تستخدم المواقع ملفات تعريف الارتباط لمساعدة المستخدمين على التنقل بكفاءة وأداء وظائف معينة. يُسمح بملفات تعريف الارتباط المطلوبة لكي يعمل الموقع بشكل صحيح دون الحصول على إذنك. يجب الموافقة على جميع ملفات تعريف الارتباط الأخرى قبل أن يمكن تعيينها في المتصفح.",
+            "changeConsent": "يمكنك تغيير موافقتك على استخدام ملفات تعريف الارتباط في أي وقت على",
+            "privacyPolicy": "سياسة الخصوصية",
+            "page": "صفحتنا.",
+            "advertising": "نستخدم أيضاً ملفات تعريف الارتباط لجمع البيانات لغرض تخصيص وقياس فعالية إعلاناتنا. لمزيد من التفاصيل، قم بزيارة",
+            "googlePrivacyPolicy": "سياسة خصوصية Google",
+            "consentIdLabel": "معرف موافقة ملفات تعريف الارتباط:",
+            "seeCookiePolicy": "راجع",
+            "cookiePolicy": "سياسة ملفات تعريف الارتباط"
         }
     },
     "blog": {
-        "title": "Articles",
-        "description": "Welcome to the Flowxtra Blog — your source for smart hiring insights, HR innovations, and recruiting trends. Discover practical strategies, expert tips, and the latest updates shaping the future of recruitment and talent management.",
-        "discoverFuture": "Read More",
-        "allBlogs": "All Blogs",
-        "readMore": "Read More",
+        "title": "المقالات",
+        "description": "مرحباً بك في مدونة Flowxtra - مصدرك لرؤى التوظيف الذكي، ابتكارات الموارد البشرية، واتجاهات التوظيف. اكتشف الاستراتيجيات العملية، نصائح الخبراء، وآخر التحديثات التي تشكل مستقبل التوظيف وإدارة المواهب.",
+        "discoverFuture": "اقرأ المزيد",
+        "allBlogs": "جميع المقالات",
+        "readMore": "اقرأ المزيد",
         "categories": {
-            "all": "All",
-            "productivity": "Productivity",
-            "accessibility": "Accessibility",
-            "performance": "Performance"
+            "all": "الكل",
+            "productivity": "الإنتاجية",
+            "accessibility": "إمكانية الوصول",
+            "performance": "الأداء"
         },
         "pagination": {
-            "previous": "Previous",
-            "next": "Next",
-            "page": "Page {page}"
+            "previous": "السابق",
+            "next": "التالي",
+            "page": "الصفحة {page}"
         },
-        "viewMode": "View Mode",
-        "viewModeList": "List view",
-        "viewModeGrid": "Grid view",
+        "viewMode": "وضع العرض",
+        "viewModeList": "عرض القائمة",
+        "viewModeGrid": "عرض الشبكة",
         "search": {
-            "placeholder": "Search posts...",
-            "startTyping": "Start typing to search for posts...",
-            "noResults": "No posts found matching \"{query}\"",
-            "noResultsInPage": "No posts found matching your search criteria.",
-            "clearSearch": "Clear search"
+            "placeholder": "البحث عن المقالات...",
+            "startTyping": "ابدأ الكتابة للبحث عن المقالات...",
+            "noResults": "لم يتم العثور على مقالات تطابق \"{query}\"",
+            "noResultsInPage": "لم يتم العثور على مقالات تطابق معايير البحث الخاصة بك.",
+            "clearSearch": "مسح البحث"
         },
         "post": {
-            "previous": "Previous",
-            "next": "Next",
-            "previousPost": "Previous Post",
-            "nextPost": "Next Post",
-            "relatedPosts": "Related Posts",
-            "writtenBy": "Written by {author}"
+            "previous": "السابق",
+            "next": "التالي",
+            "previousPost": "المقال السابق",
+            "nextPost": "المقال التالي",
+            "relatedPosts": "مقالات ذات صلة",
+            "writtenBy": "كتبه {author}"
         },
-        "latestPosts": "Latest Posts",
-        "tableOfContents": "Table of Contents"
+        "latestPosts": "أحدث المقالات",
+        "tableOfContents": "جدول المحتويات"
     },
     "appStore": {
         "title": "متجر التطبيقات",
@@ -1070,115 +1070,115 @@
         "backToAppStore": "العودة إلى متجر التطبيقات"
     },
     "socialMediaManagement": {
-        "title": "Social Media Management",
-        "description": "Manage and analyze your social channels from one platform. Our Social Media Manager saves time, keeps you organized, and helps grow your online presence.",
-        "cta": "Get Started",
+        "title": "إدارة وسائل التواصل الاجتماعي",
+        "description": "إدارة وتحليل قنوات التواصل الاجتماعي من منصة واحدة. مدير وسائل التواصل الاجتماعي لدينا يوفر الوقت، يبقيك منظماً، ويساعد على تنمية حضورك عبر الإنترنت.",
+        "cta": "ابدأ الآن",
         "features": {
-            "freeForever": "100% Free",
-            "noCreditCard": "No credit card required",
-            "cancelAnytime": "Cancel anytime"
+            "freeForever": "مجاني 100%",
+            "noCreditCard": "لا حاجة لبطاقة ائتمان",
+            "cancelAnytime": "إلغاء في أي وقت"
         },
-        "imageAlt": "Social Media Management Platform - Manage all your social channels from one place",
-        "imageTitle": "Flowxtra – Social Media Management Platform",
-        "figcaption": "Manage and analyze your social channels from one platform",
+        "imageAlt": "منصة إدارة وسائل التواصل الاجتماعي - إدارة جميع قنوات التواصل الاجتماعي من مكان واحد",
+        "imageTitle": "Flowxtra - منصة إدارة وسائل التواصل الاجتماعي",
+        "figcaption": "إدارة وتحليل قنوات التواصل الاجتماعي من منصة واحدة",
         "sections": {
             "section1": {
-                "title": "Run your social media like a business, not a burden",
-                "description": "Connect all your social media accounts — Instagram, Facebook, LinkedIn, TikTok, and X — and manage them from one smart dashboard.",
-                "paragraph1": "No more switching between tools or wasting hours on repetitive tasks.",
-                "paragraph2": "Flowxtra helps you plan, post, and analyze your social media activity in one place — keeping your brand consistent, efficient, and always active.",
-                "cta": "Register For Free"
+                "title": "أدر وسائل التواصل الاجتماعي كعمل تجاري، وليس كعبء",
+                "description": "اربط جميع حسابات التواصل الاجتماعي - Instagram، Facebook، LinkedIn، TikTok، و X - وأدرها من لوحة تحكم ذكية واحدة.",
+                "paragraph1": "لا مزيد من التبديل بين الأدوات أو إضاعة ساعات في المهام المتكررة.",
+                "paragraph2": "Flowxtra تساعدك على التخطيط، النشر، وتحليل نشاط وسائل التواصل الاجتماعي في مكان واحد - مما يحافظ على علامتك التجارية متسقة وفعالة ونشطة دائماً.",
+                "cta": "سجل مجاناً"
             },
             "section2": {
-                "title": "Your Data Stays Yours",
-                "description": "Flowxtra gives you full control over your data.",
-                "paragraph1": "All your files are securely stored in your own connected storage — Google Drive, Dropbox, or AWS — not on our servers.",
-                "paragraph2": "We only keep the minimal technical data required to connect and synchronize your services seamlessly.",
-                "paragraph3": "Your privacy, your control, your data — always protected.",
-                "cta": "Register For Free"
+                "title": "بياناتك تبقى ملكك",
+                "description": "Flowxtra تمنحك السيطرة الكاملة على بياناتك.",
+                "paragraph1": "جميع ملفاتك مخزنة بشكل آمن في التخزين المتصل الخاص بك - Google Drive، Dropbox، أو AWS - وليس على خوادمنا.",
+                "paragraph2": "نحن نحتفظ فقط بالحد الأدنى من البيانات التقنية المطلوبة لربط ومزامنة خدماتك بسلاسة.",
+                "paragraph3": "خصوصيتك، سيطرتك، بياناتك - محمية دائماً.",
+                "cta": "سجل مجاناً"
             },
             "section3": {
-                "title": "Plan and Control Every Post from One Visual Calendar",
-                "description": "Stop switching between platforms or guessing what to post next.",
-                "paragraph1": "Flowxtra's Visual Content Calendar brings all your scheduled posts — across Instagram, Facebook, LinkedIn, TikTok, and X — into one clear, unified view.",
+                "title": "خطط وتحكم في كل منشور من تقويم مرئي واحد",
+                "description": "توقف عن التبديل بين المنصات أو التخمين عما يجب نشره لاحقاً.",
+                "paragraph1": "التقويم المرئي للمحتوى من Flowxtra يجمع جميع منشوراتك المجدولة - عبر Instagram، Facebook، LinkedIn، TikTok، و X - في عرض واحد واضح وموحد.",
                 "features": {
-                    "feature1": "Schedule once, publish everywhere.",
-                    "feature2": "Drag and drop to adjust instantly.",
-                    "feature3": "Stay consistent and never miss a post."
+                    "feature1": "جدول مرة واحدة، انشر في كل مكان.",
+                    "feature2": "اسحب وأفلت للتعديل فوراً.",
+                    "feature3": "ابق متسقاً ولا تفوت أي منشور أبداً."
                 },
-                "paragraph2": "Plan campaigns, track performance, and keep your entire social strategy perfectly organized — all from one smart, visual workspace.",
-                "cta": "Register For Free"
+                "paragraph2": "خطط للحملات، تتبع الأداء، وحافظ على استراتيجية وسائل التواصل الاجتماعي بالكامل منظمة تماماً - كل ذلك من مساحة عمل مرئية ذكية واحدة.",
+                "cta": "سجل مجاناً"
             },
             "section4": {
-                "title": "Your AI Assistant for Effortless Content Creation",
-                "description": "Stop wasting time on blank screens.",
-                "paragraph1": "Flowxtra's built-in AI Assistant helps you craft engaging posts, generate creative captions, and adapt your tone for every platform — whether it's LinkedIn, Instagram, TikTok, or X.",
+                "title": "مساعدك بالذكاء الاصطناعي لإنشاء محتوى سهل",
+                "description": "توقف عن إضاعة الوقت على شاشات فارغة.",
+                "paragraph1": "مساعد الذكاء الاصطناعي المدمج في Flowxtra يساعدك على صياغة منشورات جذابة، توليد تعليقات إبداعية، وتكييف نبرتك لكل منصة - سواء كانت LinkedIn، Instagram، TikTok، أو X.",
                 "features": {
-                    "feature1": "Generate ideas and captions instantly.",
-                    "feature2": "Optimize tone and language for each channel.",
-                    "feature3": "Save time while keeping your brand consistent."
+                    "feature1": "توليد الأفكار والتعليقات فوراً.",
+                    "feature2": "تحسين النبرة واللغة لكل قناة.",
+                    "feature3": "توفير الوقت مع الحفاظ على علامتك التجارية متسقة."
                 },
-                "paragraph2": "Create high-performing content in seconds and keep your social media active — without draining your team's energy.",
-                "cta": "Register For Free"
+                "paragraph2": "أنشئ محتوى عالي الأداء في ثوان وحافظ على وسائل التواصل الاجتماعي نشطة - دون استنزاف طاقة فريقك.",
+                "cta": "سجل مجاناً"
             },
             "section5": {
-                "title": "Create and Share Pipelines — Without Giving Full Access",
-                "description": "Collaborate securely with your team or partners using Flowxtra Pipelines.",
-                "paragraph1": "Assign specific social media accounts, generate a unique shareable link, and let others create or publish posts — all without accessing your Flowxtra dashboard or social accounts.",
+                "title": "أنشئ وشارك خطوط العمل - بدون منح وصول كامل",
+                "description": "تعاون بأمان مع فريقك أو شركائك باستخدام خطوط عمل Flowxtra.",
+                "paragraph1": "عيّن حسابات وسائل تواصل اجتماعي محددة، أنشئ رابط مشاركة فريد، ودع الآخرين ينشئون أو ينشرون منشورات - كل ذلك دون الوصول إلى لوحة تحكم Flowxtra أو حسابات التواصل الاجتماعي الخاصة بك.",
                 "features": {
-                    "feature1": "Share publishing access via secure links.",
-                    "feature2": "Create pipelines for teams, clients, or departments.",
-                    "feature3": "Control permissions and keep full platform security."
+                    "feature1": "شارك وصول النشر عبر روابط آمنة.",
+                    "feature2": "أنشئ خطوط عمل للفرق، العملاء، أو الأقسام.",
+                    "feature3": "تحكم في الصلاحيات وحافظ على أمان المنصة الكامل."
                 },
-                "paragraph2": "Perfect for marketing agencies, large teams, and companies with multiple departments — empowering collaboration without compromising control.",
-                "cta": "Try Social Media Pipeline"
+                "paragraph2": "مثالي لوكالات التسويق، الفرق الكبيرة، والشركات ذات الأقسام المتعددة - تمكين التعاون دون المساس بالسيطرة.",
+                "cta": "جرب خط عمل وسائل التواصل الاجتماعي"
             },
             "ctaSection": {
-                "title": "Ready to Hire Smarter and Faster?",
-                "description": "Stop wasting time switching between job boards. Post jobs, track applicants, and hire top talent—all from one intelligent recruiting platform.",
-                "cta": "Start your free plan"
+                "title": "هل أنت مستعد للتوظيف بذكاء وسرعة أكبر؟",
+                "description": "توقف عن إضاعة الوقت في التبديل بين لوحات الوظائف. انشر الوظائف، تتبع المتقدمين، ووظف أفضل المواهب - كل ذلك من منصة توظيف ذكية واحدة.",
+                "cta": "ابدأ خطتك المجانية"
             },
             "faq": {
-                "title": "Frequently Asked Questions",
-                "helpText": "Still need help?",
-                "chatLink": "Chat with us",
+                "title": "الأسئلة الشائعة",
+                "helpText": "لا تزال بحاجة إلى مساعدة؟",
+                "chatLink": "تحدث معنا",
                 "questions": {
                     "q1": {
-                        "question": "Is Flowxtra Social Media Management free to use?",
-                        "answer": "Yes — Flowxtra Social Media Management offers a free plan that includes up to 4 social media accounts. You can connect your accounts from Instagram, Facebook, LinkedIn, TikTok, and X, manage them from one dashboard, schedule posts, and analyze your activity at no cost. If you need more than 4 accounts, you can upgrade to a paid plan. The only paid feature is the Social Media Pipeline, which allows you to collaborate with teams and partners without giving full access to your accounts."
+                        "question": "هل إدارة وسائل التواصل الاجتماعي في Flowxtra مجانية؟",
+                        "answer": "نعم - إدارة وسائل التواصل الاجتماعي في Flowxtra تقدم خطة مجانية تتضمن ما يصل إلى 4 حسابات وسائل تواصل اجتماعي. يمكنك ربط حساباتك من Instagram، Facebook، LinkedIn، TikTok، و X، إدارتها من لوحة تحكم واحدة، جدولة المنشورات، وتحليل نشاطك بدون تكلفة. إذا كنت بحاجة إلى أكثر من 4 حسابات، يمكنك الترقية إلى خطة مدفوعة. الميزة المدفوعة الوحيدة هي خط عمل وسائل التواصل الاجتماعي، والذي يسمح لك بالتعاون مع الفرق والشركاء دون منح وصول كامل لحساباتك."
                     },
                     "q2": {
-                        "question": "What is Social Media Pipeline and why do I need it?",
-                        "answer": "Social Media Pipeline is a paid feature that enables secure collaboration. With one Pipeline subscription, you can assign up to 2 social media accounts to team members, clients, or departments, generate unique shareable links, and let others create or publish posts—all without accessing your Flowxtra dashboard or social accounts. It's perfect for marketing agencies, large teams, and companies with multiple departments who need to empower collaboration without compromising control."
+                        "question": "ما هو خط عمل وسائل التواصل الاجتماعي ولماذا أحتاجه؟",
+                        "answer": "خط عمل وسائل التواصل الاجتماعي هو ميزة مدفوعة تمكّن التعاون الآمن. مع اشتراك خط عمل واحد، يمكنك تعيين ما يصل إلى حسابين من وسائل التواصل الاجتماعي لأعضاء الفريق، العملاء، أو الأقسام، إنشاء روابط مشاركة فريدة، والسماح للآخرين بإنشاء أو نشر منشورات - كل ذلك دون الوصول إلى لوحة تحكم Flowxtra أو حسابات التواصل الاجتماعي الخاصة بك. إنه مثالي لوكالات التسويق، الفرق الكبيرة، والشركات ذات الأقسام المتعددة التي تحتاج إلى تمكين التعاون دون المساس بالسيطرة."
                     },
                     "q3": {
-                        "question": "How many social media accounts can I connect?",
-                        "answer": "With the free plan, you can connect up to 4 social media accounts from different platforms (Instagram, Facebook, LinkedIn, TikTok, X) to your Flowxtra dashboard. All accounts are managed from one unified interface, making it easy to plan, schedule, and track your social media activity across all platforms. If you need more than 4 accounts, you can upgrade to a paid subscription plan."
+                        "question": "كم عدد حسابات وسائل التواصل الاجتماعي التي يمكنني ربطها؟",
+                        "answer": "مع الخطة المجانية، يمكنك ربط ما يصل إلى 4 حسابات وسائل تواصل اجتماعي من منصات مختلفة (Instagram، Facebook، LinkedIn، TikTok، X) بلوحة تحكم Flowxtra. جميع الحسابات تُدار من واجهة موحدة واحدة، مما يسهل التخطيط، الجدولة، وتتبع نشاط وسائل التواصل الاجتماعي عبر جميع المنصات. إذا كنت بحاجة إلى أكثر من 4 حسابات، يمكنك الترقية إلى خطة اشتراك مدفوعة."
                     },
                     "q4": {
-                        "question": "Can I schedule posts for multiple platforms at once?",
-                        "answer": "Yes! Flowxtra's Visual Content Calendar allows you to schedule posts across all your connected platforms (Instagram, Facebook, LinkedIn, TikTok, and X) from one place. Schedule once and publish everywhere, or customize posts for each platform individually. You can also drag and drop to adjust your posting schedule instantly."
+                        "question": "هل يمكنني جدولة منشورات لمنصات متعددة مرة واحدة؟",
+                        "answer": "نعم! التقويم المرئي للمحتوى من Flowxtra يسمح لك بجدولة المنشورات عبر جميع منصاتك المتصلة (Instagram، Facebook، LinkedIn، TikTok، و X) من مكان واحد. جدول مرة واحدة وانشر في كل مكان، أو خصص المنشورات لكل منصة بشكل فردي. يمكنك أيضاً السحب والإفلات لتعديل جدول النشر فوراً."
                     },
                     "q5": {
-                        "question": "Where is my data stored?",
-                        "answer": "Your privacy and data security are our top priorities. All your files are securely stored in your own connected storage—Google Drive, Dropbox, or AWS—not on our servers. Flowxtra only keeps the minimal technical data required to connect and synchronize your services seamlessly. Your data stays yours, always protected."
+                        "question": "أين يتم تخزين بياناتي؟",
+                        "answer": "خصوصيتك وأمان بياناتك هما أولوياتنا القصوى. جميع ملفاتك مخزنة بشكل آمن في التخزين المتصل الخاص بك - Google Drive، Dropbox، أو AWS - وليس على خوادمنا. Flowxtra يحتفظ فقط بالحد الأدنى من البيانات التقنية المطلوبة لربط ومزامنة خدماتك بسلاسة. بياناتك تبقى ملكك، محمية دائماً."
                     },
                     "q6": {
-                        "question": "Does Flowxtra have an AI assistant for content creation?",
-                        "answer": "Yes! Flowxtra includes a built-in AI Assistant that helps you craft engaging posts, generate creative captions, and adapt your tone for every platform. Whether you're creating content for LinkedIn, Instagram, TikTok, or X, the AI Assistant can generate ideas and captions instantly, optimize tone and language for each channel, and save time while keeping your brand consistent."
+                        "question": "هل لدى Flowxtra مساعد ذكاء اصطناعي لإنشاء المحتوى؟",
+                        "answer": "نعم! Flowxtra يتضمن مساعد ذكاء اصطناعي مدمج يساعدك على صياغة منشورات جذابة، توليد تعليقات إبداعية، وتكييف نبرتك لكل منصة. سواء كنت تنشئ محتوى لـ LinkedIn، Instagram، TikTok، أو X، يمكن لمساعد الذكاء الاصطناعي توليد الأفكار والتعليقات فوراً، تحسين النبرة واللغة لكل قناة، وتوفير الوقت مع الحفاظ على علامتك التجارية متسقة."
                     },
                     "q7": {
-                        "question": "Can I cancel anytime?",
-                        "answer": "Yes, absolutely. Since the core Social Media Management features are free, you can use them indefinitely without any commitment. If you're using the paid Social Media Pipeline feature, you can cancel anytime without any penalties or long-term contracts."
+                        "question": "هل يمكنني الإلغاء في أي وقت؟",
+                        "answer": "نعم، بالتأكيد. نظراً لأن ميزات إدارة وسائل التواصل الاجتماعي الأساسية مجانية، يمكنك استخدامها إلى أجل غير مسمى بدون أي التزام. إذا كنت تستخدم ميزة خط عمل وسائل التواصل الاجتماعي المدفوعة، يمكنك الإلغاء في أي وقت بدون أي عقوبات أو عقود طويلة الأجل."
                     }
                 }
             }
         }
     },
     "affiliateBanner": {
-        "message": "Invite a friend and get €594 gift!",
-        "linkText": "Join Affiliate Program",
-        "closeLabel": "Close banner"
+        "message": "ادعُ صديقاً واحصل على هدية €594!",
+        "linkText": "انضم إلى برنامج الشراكة",
+        "closeLabel": "إغلاق الإعلان"
     },
     "notFound": {
         "title": "404 - الصفحة غير موجودة",
