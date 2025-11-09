@@ -1179,5 +1179,22 @@
         "message": "Invitez un ami et recevez un cadeau de 594 € !",
         "linkText": "Rejoindre le Programme d'Affiliation",
         "closeLabel": "Fermer la bannière"
+    },
+    "notFound": {
+        "title": "404 - Page non trouvée",
+        "heading": "Oups ! Page non trouvée",
+        "description": "La page que vous recherchez n'existe pas ou a été déplacée.",
+        "backHome": "Retour à l'accueil",
+        "contactSupport": "Contacter le support",
+        "helpfulLinks": "Vous cherchez peut-être :",
+        "seoKeywords": {
+            "aiAts": "Logiciel ATS IA",
+            "candidateFiltering": "Filtrage des candidats",
+            "multiposting": "Multiposting d'emplois",
+            "jobWidget": "Widget d'emploi",
+            "freeJobPosting": "Publication d'emplois gratuite",
+            "ats": "Logiciel de système de suivi des candidats",
+            "socialMedia": "Gestion des médias sociaux"
+        }
     }
 }

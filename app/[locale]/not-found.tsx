@@ -1,14 +1,11 @@
 import { getTranslations, getLocale } from 'next-intl/server';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 // Force dynamic rendering for not-found page
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
-
-// Lazy load Header and Footer
-const Header = dynamic(() => import('@/components/Header'), { ssr: true });
-const Footer = dynamic(() => import('@/components/Footer'), { ssr: true });
 
 export default async function NotFound() {
   // Get locale from request
@@ -37,20 +34,13 @@ export default async function NotFound() {
             {t('description')}
           </p>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          {/* Action Button */}
+          <div className="flex justify-center">
             <Link
               href="/"
               className="bg-button-primary border-2 border-button-primary text-white px-8 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-center"
             >
               {t('backHome')}
-            </Link>
-            
-            <Link
-              href="/contact-us"
-              className="border-2 border-primary text-primary px-8 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium text-center"
-            >
-              {t('contactSupport')}
             </Link>
           </div>
 
@@ -59,30 +49,48 @@ export default async function NotFound() {
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
               {t('helpfulLinks')}
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-3">
               <Link
-                href="/"
+                href="https://flowxtra.com"
                 className="text-sm text-primary dark:text-secondary hover:underline"
               >
-                Homepage
+                {t('seoKeywords.aiAts')}
               </Link>
               <Link
-                href="/pricing"
+                href="https://flowxtra.com"
                 className="text-sm text-primary dark:text-secondary hover:underline"
               >
-                Pricing
+                {t('seoKeywords.candidateFiltering')}
               </Link>
               <Link
-                href="/app-store"
+                href="https://flowxtra.com"
                 className="text-sm text-primary dark:text-secondary hover:underline"
               >
-                App Store
+                {t('seoKeywords.multiposting')}
               </Link>
               <Link
-                href="/blog"
+                href="https://flowxtra.com"
                 className="text-sm text-primary dark:text-secondary hover:underline"
               >
-                Blog
+                {t('seoKeywords.jobWidget')}
+              </Link>
+              <Link
+                href="https://flowxtra.com"
+                className="text-sm text-primary dark:text-secondary hover:underline"
+              >
+                {t('seoKeywords.freeJobPosting')}
+              </Link>
+              <Link
+                href="https://flowxtra.com"
+                className="text-sm text-primary dark:text-secondary hover:underline"
+              >
+                {t('seoKeywords.ats')}
+              </Link>
+              <Link
+                href="https://flowxtra.com"
+                className="text-sm text-primary dark:text-secondary hover:underline"
+              >
+                {t('seoKeywords.socialMedia')}
               </Link>
             </div>
           </div>

@@ -1179,5 +1179,22 @@
         "message": "Invita un amico e ricevi un regalo di €594!",
         "linkText": "Unisciti al Programma di Affiliazione",
         "closeLabel": "Chiudi banner"
+    },
+    "notFound": {
+        "title": "404 - Pagina non trovata",
+        "heading": "Ops! Pagina non trovata",
+        "description": "La pagina che stai cercando non esiste o è stata spostata.",
+        "backHome": "Torna alla Homepage",
+        "contactSupport": "Contatta il Supporto",
+        "helpfulLinks": "Potresti cercare:",
+        "seoKeywords": {
+            "aiAts": "Software ATS con IA",
+            "candidateFiltering": "Filtraggio candidati",
+            "multiposting": "Multiposting lavori",
+            "jobWidget": "Widget lavoro",
+            "freeJobPosting": "Pubblicazione lavori gratuita",
+            "ats": "Software sistema di tracciamento candidati",
+            "socialMedia": "Gestione social media"
+        }
     }
 }

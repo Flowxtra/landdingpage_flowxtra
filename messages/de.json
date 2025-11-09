@@ -1179,5 +1179,22 @@
         "message": "Lade einen Freund ein und erhalte ein €594 Geschenk!",
         "linkText": "Partnerprogramm beitreten",
         "closeLabel": "Banner schließen"
+    },
+    "notFound": {
+        "title": "404 - Seite nicht gefunden",
+        "heading": "Ups! Seite nicht gefunden",
+        "description": "Die Seite, die Sie suchen, existiert nicht oder wurde verschoben.",
+        "backHome": "Zur Startseite",
+        "contactSupport": "Support kontaktieren",
+        "helpfulLinks": "Sie suchen vielleicht nach:",
+        "seoKeywords": {
+            "aiAts": "KI ATS Software",
+            "candidateFiltering": "Kandidatenfilterung",
+            "multiposting": "Multiposting-Jobs",
+            "jobWidget": "Job-Widget",
+            "freeJobPosting": "Kostenlose Stellenausschreibung",
+            "ats": "Bewerberverwaltungssystem Software",
+            "socialMedia": "Social Media Management"
+        }
     }
 }

@@ -1179,5 +1179,22 @@
         "message": "Nodig een vriend uit en ontvang €594 cadeau!",
         "linkText": "Word Lid van Partnerprogramma",
         "closeLabel": "Banner sluiten"
+    },
+    "notFound": {
+        "title": "404 - Pagina niet gevonden",
+        "heading": "Oeps! Pagina niet gevonden",
+        "description": "De pagina die u zoekt bestaat niet of is verplaatst.",
+        "backHome": "Terug naar Homepage",
+        "contactSupport": "Contact Ondersteuning",
+        "helpfulLinks": "U zoekt misschien naar:",
+        "seoKeywords": {
+            "aiAts": "AI ATS Software",
+            "candidateFiltering": "Kandidaat filteren",
+            "multiposting": "Multiposting vacatures",
+            "jobWidget": "Vacature widget",
+            "freeJobPosting": "Gratis vacatures plaatsen",
+            "ats": "Kandidaat tracking systeem software",
+            "socialMedia": "Social media beheer"
+        }
     }
 }

@@ -1179,5 +1179,22 @@
         "message": "Invite a friend and get €594 gift!",
         "linkText": "Join Affiliate Program",
         "closeLabel": "Close banner"
+    },
+    "notFound": {
+        "title": "404 - Page Not Found",
+        "heading": "Oops! Page Not Found",
+        "description": "The page you're looking for doesn't exist or has been moved.",
+        "backHome": "Back to Homepage",
+        "contactSupport": "Contact Support",
+        "helpfulLinks": "You might be looking for:",
+        "seoKeywords": {
+            "aiAts": "AI ATS Software",
+            "candidateFiltering": "Candidate Filtering",
+            "multiposting": "Multiposting Jobs",
+            "jobWidget": "Job Widget",
+            "freeJobPosting": "Free Job Posting",
+            "ats": "Applicant Tracking System Software",
+            "socialMedia": "Social Media Management"
+        }
     }
 }

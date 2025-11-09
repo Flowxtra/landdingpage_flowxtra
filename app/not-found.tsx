@@ -1,88 +1,109 @@
 import Link from 'next/link';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 // This root not-found.tsx handles unmatched URLs at the root level
-// It displays a simple 404 page and redirects users to the English homepage
-export default function RootNotFound() {
+// It displays a 404 page with Header and Footer
+export default async function RootNotFound() {
+  // Get English messages as default
+  const messages = await getMessages({ locale: 'en' });
+
   return (
     <html lang="en">
       <head>
         <title>404 - Page Not Found | Flowxtra</title>
         <meta name="robots" content="noindex" />
-        <style>{`
-          * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-          }
-          body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #003f4d 0%, #006b7d 100%);
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-          }
-          .container {
-            text-align: center;
-            max-width: 600px;
-          }
-          h1 {
-            font-size: 120px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            line-height: 1;
-            color: #fbbf24;
-          }
-          h2 {
-            font-size: 32px;
-            font-weight: 600;
-            margin-bottom: 16px;
-          }
-          p {
-            font-size: 18px;
-            margin-bottom: 32px;
-            opacity: 0.9;
-          }
-          .button {
-            display: inline-block;
-            background: white;
-            color: #003f4d;
-            padding: 14px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          }
-          .button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-          }
-          @media (max-width: 640px) {
-            h1 {
-              font-size: 80px;
-            }
-            h2 {
-              font-size: 24px;
-            }
-            p {
-              font-size: 16px;
-            }
-          }
-        `}</style>
       </head>
-      <body>
-        <div className="container">
-          <h1>404</h1>
-          <h2>Oops! Page Not Found</h2>
-          <p>The page you're looking for doesn't exist or has been moved.</p>
-          <Link href="/en" className="button">
-            Back to Homepage
-          </Link>
+      <body className="antialiased">
+        <NextIntlClientProvider locale="en" messages={messages}>
+          <div className="min-h-screen bg-white dark:bg-gray-900 flex flex-col">
+            <Header />
+            <div className="flex-1 flex items-center justify-center px-4 py-16">
+            <div className="max-w-2xl mx-auto text-center">
+              {/* 404 Number */}
+              <div className="mb-8">
+                <h1 className="text-9xl md:text-[12rem] font-bold text-primary dark:text-secondary leading-none">
+                  404
+                </h1>
+              </div>
+
+              {/* Heading */}
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                Oops! Page Not Found
+              </h2>
+
+              {/* Description */}
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+                The page you're looking for doesn't exist or has been moved.
+              </p>
+
+              {/* Action Button */}
+              <div className="flex justify-center">
+                <Link
+                  href="/en"
+                  className="bg-button-primary border-2 border-button-primary text-white px-8 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-center"
+                >
+                  Back to Homepage
+                </Link>
+              </div>
+
+              {/* Helpful Links */}
+              <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                  You might be looking for:
+                </p>
+                <div className="flex flex-wrap justify-center gap-3">
+                  <Link
+                    href="https://flowxtra.com"
+                    className="text-sm text-primary dark:text-secondary hover:underline"
+                  >
+                    AI ATS Software
+                  </Link>
+                  <Link
+                    href="https://flowxtra.com"
+                    className="text-sm text-primary dark:text-secondary hover:underline"
+                  >
+                    Candidate Filtering
+                  </Link>
+                  <Link
+                    href="https://flowxtra.com"
+                    className="text-sm text-primary dark:text-secondary hover:underline"
+                  >
+                    Multiposting Jobs
+                  </Link>
+                  <Link
+                    href="https://flowxtra.com"
+                    className="text-sm text-primary dark:text-secondary hover:underline"
+                  >
+                    Job Widget
+                  </Link>
+                  <Link
+                    href="https://flowxtra.com"
+                    className="text-sm text-primary dark:text-secondary hover:underline"
+                  >
+                    Free Job Posting
+                  </Link>
+                  <Link
+                    href="https://flowxtra.com"
+                    className="text-sm text-primary dark:text-secondary hover:underline"
+                  >
+                    Applicant Tracking System Software
+                  </Link>
+                  <Link
+                    href="https://flowxtra.com"
+                    className="text-sm text-primary dark:text-secondary hover:underline"
+                  >
+                    Social Media Management
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+          <Footer />
         </div>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

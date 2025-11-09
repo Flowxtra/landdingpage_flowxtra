@@ -1179,5 +1179,22 @@
         "message": "Invite a friend and get €594 gift!",
         "linkText": "Join Affiliate Program",
         "closeLabel": "Close banner"
+    },
+    "notFound": {
+        "title": "404 - الصفحة غير موجودة",
+        "heading": "عذراً! الصفحة غير موجودة",
+        "description": "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
+        "backHome": "العودة إلى الصفحة الرئيسية",
+        "contactSupport": "اتصل بالدعم",
+        "helpfulLinks": "قد تبحث عن:",
+        "seoKeywords": {
+            "aiAts": "برنامج ATS بالذكاء الاصطناعي",
+            "candidateFiltering": "تصفية المرشحين",
+            "multiposting": "نشر وظائف متعدد",
+            "jobWidget": "أداة الوظائف",
+            "freeJobPosting": "نشر وظائف مجاني",
+            "ats": "برنامج نظام تتبع المتقدمين",
+            "socialMedia": "إدارة وسائل التواصل الاجتماعي"
+        }
     }
 }
