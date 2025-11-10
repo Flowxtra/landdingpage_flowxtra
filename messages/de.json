@@ -46,7 +46,7 @@
         "hero": {
             "title": "ATS-Software für Rekrutierung & Einstellung",
             "subtitle": "All-in-One-Plattform zur Optimierung Ihres Einstellungsprozesses",
-            "description": "Komplette ATS-Software zur Optimierung der Einstellung und Verwaltung Ihres Teams. Beginnen Sie mit 5 kostenlosen Stellenanzeigen pro Monat",
+            "description": "Komplette ATS-Software zur Optimierung der Einstellung und Verwaltung Ihres Teams — jetzt mit unbegrenzten kostenlosen Stellenanzeigen.",
             "cta": "Starten Sie Ihren kostenlosen Plan",
             "imageAlt": "Warum Flowxtra die beste kostenlose Stellenausschreibungsplattform ist",
             "imageTitle": "Kostenlose Stellenausschreibung",
@@ -101,7 +101,7 @@
         },
         "freeJobPosting": {
             "title": "Kostenlose Stellenausschreibung für intelligente Einstellung",
-            "description1": "Veröffentlichen Sie bis zu 5 Stellenanzeigen kostenlos jeden Monat — keine versteckten Gebühren, keine Kreditkarte erforderlich.",
+            "description1": "Veröffentlichen Sie unbegrenzte Stellenanzeigen kostenlos — keine versteckten Gebühren, keine Kreditkarte erforderlich.",
             "description2": "Flowxtra hilft Ihnen, Stellenanzeigen auf LinkedIn, Google Jobs und mehr zu veröffentlichen — alles von einem leistungsstarken Dashboard aus."
         },
         "socialMediaManager": {
@@ -494,10 +494,39 @@
                 "35": "35 Stellenanzeigen",
                 "unlimited": "Unbegrenzte Stellenanzeigen"
             },
+            "socialMediaAccounts": "4 x Social-Media-Konten",
             "socialMediaPosts": "Social Media Beiträge",
+            "gdprCcpa": "DSGVO & CCPA",
+            "googleJobs": "Google Stellenanzeigen",
+            "kanbanBoard": "Kanban-Board",
+            "careerPage": "Karriereseite",
+            "jobWidget": "Stellenanzeigen-Widget",
+            "smtp": "Benutzerdefinierte E-Mail SMTP",
+            "customFields": "Benutzerdefinierte Felder",
+            "rolesPermissions": "Rollen & Berechtigungen",
+            "hiringStages": "Einstellungsphasen",
+            "appStoreIntegrations": "App Store",
+            "accessibilityWcag": "Barrierefreiheit WCAG",
+            "policyGenerator": "Richtlinien-Generator",
+            "skillsReservoir": "Fähigkeiten-Reservoir",
+            "unlimitedStorage": "Unbegrenzter Datenspeicher",
+            "removeBranding": "Flowxtra-Logo entfernen",
+            "journeyFlow": "Reiseablauf",
+            "clientProfiles": "Kundenprofile",
+            "aiJobAdBuilder": "KI-Stellenanzeigen-Generator",
+            "candidateExport": "Kandidatenexport",
+            "candidateImport": "Kandidatenimport",
+            "employeeOnboarding": "Mitarbeiter-Onboarding",
+            "candidatePresentation": "Kandidatenpräsentation",
+            "socialMediaPipeline": "Social Media Pipeline",
+            "multiOfficeLocation": "Mehrere Bürostandorte",
+            "newsletter": "Newsletter",
+            "talentPool": "Talentpool",
+            "reportsAnalytics": "Berichte & Analysen",
             "databaseMigration": "Datenbankmigration",
             "customerSupport": "24/7 Kundensupport",
-            "crmIntegration": "Integration mit Ihren CRM-Systemen"
+            "crmIntegration": "Integration mit Ihren CRM-Systemen",
+            "customizedNeeds": "Individuelle Anforderungen"
         },
         "enterprise": {
             "title": "Enterprise-Pläne"
@@ -706,6 +735,10 @@
                 "name": "Benutzerdefinierte LLM-Integration",
                 "description": "Integrieren Sie Ihre eigenen LLMs, die auf Ihrer Infrastruktur gehostet werden. Wir stellen die Integrations-Tools (API & MCP) bereit, damit Ihre KI-Modelle nahtlos innerhalb von Flowxtra arbeiten können, während sie in Ihrer Umgebung bleiben."
             },
+            "sslCertificate": {
+                "name": "SSL-Zertifikat",
+                "description": "Kostenloses SSL-Zertifikat für Ihre Subdomain. Jedes Unternehmen erhält eine kostenlose Subdomain von Flowxtra, und jede Subdomain erhält ein kostenloses SSL-Zertifikat von uns, um sichere Verbindungen zu gewährleisten."
+            },
             "privacyGenerator": {
                 "name": "Datenschutzerklärung-Generator",
                 "description": "Erstellen Sie angepasste Datenschutzerklärungen nach Ihren Bedürfnissen. Wählen Sie aus vorgefertigten Vorlagen für verschiedene Datenschutzbestimmungen (DSGVO, CCPA usw.) und passen Sie den Text an Ihre Unternehmensanforderungen an. Generieren Sie professionelle, rechtlich konforme Datenschutzerklärungen ohne juristische Expertise."
@@ -729,6 +762,10 @@
             "appStoreIntegrations": {
                 "name": "App-Store-Integrationen",
                 "description": "Plug-and-Play-Integrationen mit beliebten HR-, Kommunikations- und Analysetools."
+            },
+            "accessibilityWcag": {
+                "name": "Barrierefreiheit WCAG",
+                "description": "Vollständige Einhaltung der Web Content Accessibility Guidelines (WCAG) 2.1 Level AA-Standards. Stellt sicher, dass Ihre Karriereseiten und Bewerbungsformulare für alle Benutzer zugänglich sind, einschließlich solcher mit Behinderungen. Umfasst Unterstützung für Bildschirmlesegeräte, Tastaturnavigation, angemessenen Farbkontrast und semantische HTML-Struktur."
             },
             "ratingSheets": {
                 "name": "Bewertungsbögen",

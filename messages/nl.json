@@ -46,7 +46,7 @@
         "hero": {
             "title": "ATS Software voor Werving & Aanwerving",
             "subtitle": "Alles-in-één Platform om Uw Wervingsproces te Stroomlijnen",
-            "description": "Volledige ATS-software om aanwerving te stroomlijnen en uw team te beheren. Start met 5 gratis vacatureplaatsingen per maand",
+            "description": "Volledige ATS-software om aanwerving te stroomlijnen en uw team te beheren — nu met Onbeperkte Gratis Vacatureplaatsingen.",
             "cta": "Start Uw Gratis Plan",
             "imageAlt": "Waarom Flowxtra Het Beste Gratis Vacatureplaatsingsplatform Is",
             "imageTitle": "Gratis Vacatureplaatsing",
@@ -101,7 +101,7 @@
         },
         "freeJobPosting": {
             "title": "Gratis Vacatureplaatsing voor Slim Werven",
-            "description1": "Plaats tot 5 vacatures gratis elke maand — geen verborgen kosten, geen creditcard vereist.",
+            "description1": "Plaats onbeperkte vacatures gratis — geen verborgen kosten, geen creditcard vereist.",
             "description2": "Flowxtra helpt u vacatures te publiceren op LinkedIn, Google Jobs & meer — allemaal vanuit één krachtig dashboard."
         },
         "socialMediaManager": {
@@ -494,10 +494,39 @@
                 "35": "35 vacatureplaatsingen",
                 "unlimited": "Onbeperkte vacatureplaatsingen"
             },
+            "socialMediaAccounts": "4× Social Media Accounts",
             "socialMediaPosts": "Social Media Berichten",
+            "gdprCcpa": "AVG & CCPA compliance",
+            "googleJobs": "Google vacaturevermeldingen",
+            "kanbanBoard": "Kanbanbord",
+            "careerPage": "Carrièrepagina",
+            "jobWidget": "Vacature widget",
+            "smtp": "Aangepaste E-mail SMTP integratie",
+            "customFields": "Aangepaste velden op vacatures",
+            "rolesPermissions": "Rollen & machtigingen",
+            "hiringStages": "Wervingsfasen",
+            "appStoreIntegrations": "App store integraties",
+            "accessibilityWcag": "Toegankelijkheid WCAG",
+            "policyGenerator": "Privacybeleid generator",
+            "skillsReservoir": "Vaardigheden reservoir",
+            "unlimitedStorage": "Onbeperkte gegevensopslag",
+            "removeBranding": "Verwijder Flowxtra branding",
+            "journeyFlow": "Journey flow",
+            "clientProfiles": "Klantprofielen",
+            "aiJobAdBuilder": "AI vacature-advertentie builder",
+            "candidateExport": "Kandidaatexport",
+            "candidateImport": "Kandidaatimport",
+            "employeeOnboarding": "Medewerker onboarding",
+            "candidatePresentation": "Kandidaatpresentatie",
+            "socialMediaPipeline": "Social Media Pipeline",
+            "multiOfficeLocation": "Meerdere kantoorlocaties",
+            "newsletter": "Newsletter",
+            "talentPool": "Talentenpool",
+            "reportsAnalytics": "Rapporten & analyses",
             "databaseMigration": "Databasemigratie",
             "customerSupport": "24/7 klantenondersteuning",
-            "crmIntegration": "Integratie met uw CRM-systemen"
+            "crmIntegration": "Integratie met uw CRM-systemen",
+            "customizedNeeds": "Aangepaste behoeften"
         },
         "enterprise": {
             "title": "Enterprise Plannen"
@@ -706,6 +735,10 @@
                 "name": "Aangepaste LLM's Integratie",
                 "description": "Integreer uw eigen LLM's die worden gehost op uw infrastructuur. Wij leveren de integratie-tools (API & MCP) zodat uw AI-modellen naadloos kunnen werken binnen Flowxtra terwijl ze in uw omgeving blijven."
             },
+            "sslCertificate": {
+                "name": "SSL-certificaat",
+                "description": "Gratis SSL-certificaat voor uw subdomein. Elk bedrijf krijgt een gratis subdomein van Flowxtra, en elk subdomein ontvangt een gratis SSL-certificaat van ons om veilige verbindingen te garanderen."
+            },
             "privacyGenerator": {
                 "name": "Privacybeleid generator",
                 "description": "Maak aangepaste privacybeleid op maat van uw behoeften. Kies uit vooraf gebouwde sjablonen voor verschillende privacyregelgeving (AVG, CCPA, enz.) en pas de tekst aan om te voldoen aan uw bedrijfsvereisten. Genereer professioneel, juridisch compliant privacybeleid zonder juridische expertise."
@@ -729,6 +762,10 @@
             "appStoreIntegrations": {
                 "name": "App store integraties",
                 "description": "Plug-and-play integraties met populaire HR-, communicatie- en analysetools."
+            },
+            "accessibilityWcag": {
+                "name": "Toegankelijkheid WCAG",
+                "description": "Volledige naleving van de Web Content Accessibility Guidelines (WCAG) 2.1 Level AA-standaarden. Zorgt ervoor dat uw carrièrepagina's en sollicitatieformulieren toegankelijk zijn voor alle gebruikers, inclusief mensen met een handicap. Omvat ondersteuning voor schermlezers, toetsenbordnavigatie, juiste kleurcontrast en semantische HTML-structuur."
             },
             "ratingSheets": {
                 "name": "Beoordelingsformulieren",

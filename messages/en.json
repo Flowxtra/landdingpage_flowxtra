@@ -46,7 +46,7 @@
         "hero": {
             "title": "ATS Software for Recruitment & Hiring",
             "subtitle": "All-in-One Platform to Streamline Your Hiring Process",
-            "description": "Complete ATS software to streamline hiring and manage your team. Start with 5 free job postings per month",
+            "description": "Complete ATS software to streamline hiring and manage your team — now with Unlimited Free Job Postings.",
             "cta": "Start Your Free Plan",
             "imageAlt": "Why Flowxtra Is the Best Free Job Posting Platform",
             "imageTitle": "Free Job Posting",
@@ -101,7 +101,7 @@
         },
         "freeJobPosting": {
             "title": "Free Job Posting for Smart Hiring",
-            "description1": "Post up to 5 job ads for free every month — no hidden fees, no credit card required.",
+            "description1": "Post unlimited job ads for free — no hidden fees, no credit card required.",
             "description2": "Flowxtra helps you publish jobs across LinkedIn, Google Jobs & more — all from one powerful dashboard."
         },
         "socialMediaManager": {
@@ -494,6 +494,7 @@
                 "35": "35 job postings",
                 "unlimited": "Unlimited Job postings"
             },
+            "socialMediaAccounts": "Social Media Scheduling",
             "socialMediaPosts": "Social Media Posts",
             "gdprCcpa": "GDPR & CCPA",
             "googleJobs": "Google job listing",
@@ -505,14 +506,27 @@
             "rolesPermissions": "Roles & permissions",
             "hiringStages": "Hiring stages",
             "appStoreIntegrations": "App store",
+            "accessibilityWcag": "Accessibility WCAG",
+            "policyGenerator": "Policy generator",
             "skillsReservoir": "Skills reservoir",
             "unlimitedStorage": "Unlimited data storage",
             "removeBranding": "Remove Flowxtra logo",
             "journeyFlow": "Journey flow",
             "clientProfiles": "Client profiles",
+            "aiJobAdBuilder": "AI job ad builder",
+            "candidateExport": "Candidate export",
+            "candidateImport": "Candidate import",
+            "employeeOnboarding": "Employee Onboarding",
+            "candidatePresentation": "Candidate presentation",
+            "socialMediaPipeline": "Social Media Pipeline",
+            "multiOfficeLocation": "Multi office location",
+            "newsletter": "Newsletter",
+            "talentPool": "Talent pool",
+            "reportsAnalytics": "Reports & analytics",
             "databaseMigration": "Database migration",
             "customerSupport": "24/7 customer support",
-            "crmIntegration": "Integration with your CRM systems"
+            "crmIntegration": "Integration with your CRM systems",
+            "customizedNeeds": "Customized needs"
         },
         "enterprise": {
             "title": "Enterprise Plans"
@@ -721,6 +735,10 @@
                 "name": "Custom LLMs Integration",
                 "description": "Integrate your own LLMs that are hosted on your infrastructure. We provide the integration tools (API & MCP) so your AI models can work seamlessly within Flowxtra while staying in your environment."
             },
+            "sslCertificate": {
+                "name": "SSL Certificate",
+                "description": "Free SSL certificate for your subdomain. Every company gets a free subdomain from Flowxtra, and each subdomain receives a free SSL certificate from us to ensure secure connections."
+            },
             "privacyGenerator": {
                 "name": "Privacy policy generator",
                 "description": "Create customized privacy policies tailored to your needs. Choose from pre-built templates for different privacy regulations (GDPR, CCPA, etc.) and customize the text to match your company requirements. Generate professional, legally-compliant privacy policies without legal expertise."
@@ -744,6 +762,10 @@
             "appStoreIntegrations": {
                 "name": "App store integrations",
                 "description": "Plug-and-play integrations with popular HR, comms, and analytics tools."
+            },
+            "accessibilityWcag": {
+                "name": "Accessibility WCAG",
+                "description": "Full compliance with Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards. Ensures your career pages and application forms are accessible to all users, including those with disabilities. Includes screen reader support, keyboard navigation, proper color contrast, and semantic HTML structure."
             },
             "ratingSheets": {
                 "name": "Rating sheets",

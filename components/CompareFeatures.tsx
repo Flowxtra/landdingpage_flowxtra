@@ -50,7 +50,7 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
     { key: 'basic', name: t("plans.basic"), color: '#006980' },
     { key: 'professional', name: t("plans.professional"), color: '#006980' },
     { key: 'advanced', name: t("plans.advanced"), color: '#006980' },
-    { key: 'premium', name: t("plans.premium"), color: '#006980' },
+    // { key: 'premium', name: t("plans.premium"), color: '#006980' }, // COMMENTED OUT
     { key: 'enterprise', name: t("plans.enterprise"), color: '#006980' },
   ];
 
@@ -334,6 +334,19 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
       enterprise: '✓',
       description: tCompare('features.customLlms.description'),
     },
+    {
+      id: 'desc-ssl-certificate',
+      icon: 'fas fa-lock',
+      name: tCompare('features.sslCertificate.name'),
+      free: '✓',
+      starter: '✓',
+      basic: '✓',
+      professional: '✓',
+      advanced: '✓',
+      premium: '✓',
+      enterprise: '✓',
+      description: tCompare('features.sslCertificate.description'),
+    },
     // Available from Starter and Above
     {
       id: 'desc-privacy-generator',
@@ -426,6 +439,19 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
       premium: '✓',
       enterprise: '✓',
       description: tCompare('features.appStoreIntegrations.description'),
+    },
+    {
+      id: 'desc-accessibility',
+      icon: 'fas fa-universal-access',
+      name: tCompare('features.accessibilityWcag.name'),
+      free: '—',
+      starter: '✓',
+      basic: '✓',
+      professional: '✓',
+      advanced: '✓',
+      premium: '✓',
+      enterprise: '✓',
+      description: tCompare('features.accessibilityWcag.description'),
     },
     {
       id: 'desc-ratings',
@@ -625,9 +651,9 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
       description: tCompare('features.newsletter.description'),
     },
     {
-      id: 'desc-talent',
-      icon: 'fas fa-user-group',
-      name: tCompare('features.talentPool.name'),
+      id: 'desc-candidate-presentation',
+      icon: 'fas fa-share-from-square',
+      name: tCompare('features.candidatePresentation.name'),
       free: '—',
       starter: '—',
       basic: '—',
@@ -635,7 +661,20 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
-      description: tCompare('features.talentPool.description'),
+      description: tCompare('features.candidatePresentation.description'),
+    },
+    {
+      id: 'desc-onboarding',
+      icon: 'fas fa-user-plus',
+      name: tCompare('features.employeeOnboarding.name'),
+      free: '—',
+      starter: '—',
+      basic: '—',
+      professional: '✓',
+      advanced: '✓',
+      premium: '✓',
+      enterprise: '✓',
+      description: tCompare('features.employeeOnboarding.description'),
     },
     {
       id: 'desc-reports',
@@ -644,7 +683,7 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
       free: '—',
       starter: '—',
       basic: '—',
-      professional: '✓',
+      professional: '—',
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
@@ -657,12 +696,13 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
       free: '—',
       starter: '—',
       basic: '—',
-      professional: '✓',
+      professional: '—',
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
       description: tCompare('features.databaseMigration.description'),
     },
+    // Available from Advanced and Above
     {
       id: 'desc-export',
       icon: 'fas fa-file-export',
@@ -670,7 +710,7 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
       free: '—',
       starter: '—',
       basic: '—',
-      professional: '✓',
+      professional: '—',
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
@@ -683,160 +723,37 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
       free: '—',
       starter: '—',
       basic: '—',
-      professional: '✓',
+      professional: '—',
       advanced: '✓',
       premium: '✓',
       enterprise: '✓',
       description: tCompare('features.candidateImport.description'),
     },
+
+
+    {
+      id: 'desc-talent',
+      icon: 'fas fa-user-group',
+      name: tCompare('features.talentPool.name'),
+      free: '—',
+      starter: '—',
+      basic: '—',
+      professional: '—',
+      advanced: '✓',
+      premium: '✓',
+      enterprise: '✓',
+      description: tCompare('features.talentPool.description'),
+    },
+
+
   ];
 
-  // Coming Soon Features - COMMENTED OUT (definition kept, usage commented)
-  const comingSoonFeatures: Feature[] = [
-    {
-      id: 'desc-esign',
-      icon: 'fas fa-file-signature',
-      name: tCompare('features.esignature.name'),
-      free: 'soon',
-      starter: 'soon',
-      basic: 'soon',
-      professional: 'soon',
-      advanced: 'soon',
-      premium: 'soon',
-      enterprise: 'soon',
-      description: tCompare('features.esignature.description'),
-    },
-    {
-      id: 'desc-elearn',
-      icon: 'fas fa-graduation-cap',
-      name: tCompare('features.elearning.name'),
-      free: 'soon',
-      starter: 'soon',
-      basic: 'soon',
-      professional: 'soon',
-      advanced: 'soon',
-      premium: 'soon',
-      enterprise: 'soon',
-      description: tCompare('features.elearning.description'),
-    },
-    {
-      id: 'desc-assess',
-      icon: 'fas fa-clipboard-check',
-      name: tCompare('features.assessments.name'),
-      free: 'soon',
-      starter: 'soon',
-      basic: 'soon',
-      professional: 'soon',
-      advanced: 'soon',
-      premium: 'soon',
-      enterprise: 'soon',
-      description: tCompare('features.assessments.description'),
-    },
-    {
-      id: 'desc-social-ads',
-      icon: 'fas fa-rectangle-ad',
-      name: tCompare('features.socialAdsManager.name'),
-      free: 'soon',
-      starter: 'soon',
-      basic: 'soon',
-      professional: 'soon',
-      advanced: 'soon',
-      premium: 'soon',
-      enterprise: 'soon',
-      description: tCompare('features.socialAdsManager.description'),
-    },
-    {
-      id: 'desc-id-verification',
-      icon: 'fas fa-id-card',
-      name: tCompare('features.idVerification.name'),
-      free: 'soon',
-      starter: 'soon',
-      basic: 'soon',
-      professional: 'soon',
-      advanced: 'soon',
-      premium: 'soon',
-      enterprise: 'soon',
-      description: tCompare('features.idVerification.description'),
-    },
-    {
-      id: 'desc-apply-chatbot',
-      icon: 'fas fa-comment-dots',
-      name: tCompare('features.applyViaSocialChatbot.name'),
-      free: 'soon',
-      starter: 'soon',
-      basic: 'soon',
-      professional: 'soon',
-      advanced: 'soon',
-      premium: 'soon',
-      enterprise: 'soon',
-      description: tCompare('features.applyViaSocialChatbot.description'),
-    },
-    {
-      id: 'desc-candidate-presentation',
-      icon: 'fas fa-share-from-square',
-      name: tCompare('features.candidatePresentation.name'),
-      free: 'soon',
-      starter: 'soon',
-      basic: 'soon',
-      professional: 'soon',
-      advanced: 'soon',
-      premium: 'soon',
-      enterprise: 'soon',
-      description: tCompare('features.candidatePresentation.description'),
-    },
-    {
-      id: 'desc-social',
-      icon: 'fas fa-share-nodes',
-      name: tCompare('features.socialMediaPosts.name'),
-      free: 'soon',
-      starter: 'soon',
-      basic: 'soon',
-      professional: 'soon',
-      advanced: 'soon',
-      premium: 'soon',
-      enterprise: 'soon',
-      description: tCompare('features.socialMediaPosts.description'),
-    },
-    {
-      id: 'desc-chatbot',
-      icon: 'fas fa-robot',
-      name: tCompare('features.aiChatbot.name'),
-      free: 'soon',
-      starter: 'soon',
-      basic: 'soon',
-      professional: 'soon',
-      advanced: 'soon',
-      premium: 'soon',
-      enterprise: 'soon',
-      description: tCompare('features.aiChatbot.description'),
-    },
-    {
-      id: 'desc-one-way-video',
-      icon: 'fas fa-video-camera',
-      name: tCompare('features.oneWayVideo.name'),
-      free: 'soon',
-      starter: 'soon',
-      basic: 'soon',
-      professional: 'soon',
-      advanced: 'soon',
-      premium: 'soon',
-      enterprise: 'soon',
-      description: tCompare('features.oneWayVideo.description'),
-    },
-    {
-      id: 'desc-onboarding',
-      icon: 'fas fa-user-plus',
-      name: tCompare('features.employeeOnboarding.name'),
-      free: 'soon',
-      starter: 'soon',
-      basic: 'soon',
-      professional: 'soon',
-      advanced: 'soon',
-      premium: 'soon',
-      enterprise: 'soon',
-      description: tCompare('features.employeeOnboarding.description'),
-    },
-  ];
+  /*
+   * Coming Soon features are temporarily hidden.
+   * Uncomment the block below (and related render sections) when ready to display them again.
+   *
+   * const comingSoonFeatures: Feature[] = [ ... ];
+   */
 
   return (
     <div className="w-full max-w-7xl mx-auto mt-12 mb-16">
@@ -995,6 +912,8 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
               background-color: #1f2937 !important;
             }
 
+            /* Premium column hidden - nth-child styles remain for Professional (5th column) */
+
             .oi {
               color: #006980;
               font-size: 15px;
@@ -1049,7 +968,7 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
               padding-right: ${isRTL ? '12px' : '0'};
             }
 
-            .fx-table th[colspan='8'] {
+            .fx-table th[colspan='7'] {
               text-align: ${isRTL ? 'right' : 'left'} !important;
               padding-left: ${isRTL ? '0' : '16px'} !important;
               padding-right: ${isRTL ? '16px' : '0'} !important;
@@ -1066,7 +985,7 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
                   <th>{t("plans.basic")}</th>
                   <th>{t("plans.professional")}</th>
                   <th>{t("plans.advanced")}</th>
-                  <th>{t("plans.premium")}</th>
+                  {/* <th>{t("plans.premium")}</th> COMMENTED OUT */}
                   <th>{t("plans.enterprise")}</th>
                 </tr>
               </thead>
@@ -1094,6 +1013,50 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
                       <td data-plan="Basic">{feature.basic}</td>
                       <td data-plan="Professional">{feature.professional}</td>
                       <td data-plan="Advanced">{feature.advanced}</td>
+                      {/* <td data-plan="Premium">{feature.premium}</td> COMMENTED OUT */}
+                      <td data-plan="Enterprise">{feature.enterprise}</td>
+                    </tr>
+                    {expandedRow === feature.id && (
+                      <tr className="fx-explain">
+                        <td colSpan={7}>
+                          <div className="fx-explain-inner">
+                            {feature.description}
+                          </div>
+                        </td>
+                      </tr>
+                    )}
+                  </React.Fragment>
+                ))}
+
+                {/* Coming soon section temporarily hidden */}
+                {/*
+                <tr>
+                  <th colSpan={8} style={{ textAlign: isRTL ? 'right' : 'left', paddingLeft: isRTL ? '0' : '16px', paddingRight: isRTL ? '16px' : '0', background: '#f8fafc', fontWeight: 800 }}>
+                    {tCompare("comingSoon")}
+                  </th>
+                </tr>
+                {comingSoonFeatures.map((feature) => (
+                  <React.Fragment key={feature.id}>
+                    <tr
+                      className="fx-hoverable"
+                      onClick={() => toggleRow(feature.id)}
+                    >
+                      <td className="fx-feature">
+                        <i
+                          className={feature.icon}
+                          style={{
+                            color: '#006980',
+                            marginRight: isRTL ? '0' : '8px',
+                            marginLeft: isRTL ? '8px' : '0'
+                          }}
+                        ></i>
+                        {feature.name}
+                      </td>
+                      <td data-plan="Free">{feature.free}</td>
+                      <td data-plan="Starter">{feature.starter}</td>
+                      <td data-plan="Basic">{feature.basic}</td>
+                      <td data-plan="Professional">{feature.professional}</td>
+                      <td data-plan="Advanced">{feature.advanced}</td>
                       <td data-plan="Premium">{feature.premium}</td>
                       <td data-plan="Enterprise">{feature.enterprise}</td>
                     </tr>
@@ -1108,50 +1071,7 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
                     )}
                   </React.Fragment>
                 ))}
-
-                {/* Coming Soon Header - COMMENTED OUT */}
-                {false && (
-                  <>
-                    <tr>
-                      <th colSpan={8} style={{ textAlign: 'left', paddingLeft: '16px', background: '#f8fafc', fontWeight: 800 }}>
-                        {tCompare("comingSoon")}
-                      </th>
-                    </tr>
-                    {/* Coming Soon Features */}
-                    {comingSoonFeatures.map((feature) => (
-                      <React.Fragment key={feature.id}>
-                        <tr
-                          className="fx-hoverable"
-                          onClick={() => toggleRow(feature.id)}
-                        >
-                          <td className="fx-feature">
-                            <i
-                              className={feature.icon}
-                              style={{ color: '#006980', marginRight: '8px' }}
-                            ></i>
-                            {feature.name}
-                          </td>
-                          <td data-plan="Free">{feature.free}</td>
-                          <td data-plan="Starter">{feature.starter}</td>
-                          <td data-plan="Basic">{feature.basic}</td>
-                          <td data-plan="Professional">{feature.professional}</td>
-                          <td data-plan="Advanced">{feature.advanced}</td>
-                          <td data-plan="Premium">{feature.premium}</td>
-                          <td data-plan="Enterprise">{feature.enterprise}</td>
-                        </tr>
-                        {expandedRow === feature.id && (
-                          <tr className="fx-explain">
-                            <td colSpan={8}>
-                              <div className="fx-explain-inner">
-                                {feature.description}
-                              </div>
-                            </td>
-                          </tr>
-                        )}
-                      </React.Fragment>
-                    ))}
-                  </>
-                )}
+                */}
               </tbody>
             </table>
           </div>
@@ -1226,61 +1146,58 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
                 );
               })}
 
-              {/* Coming Soon Header - COMMENTED OUT */}
-              {false && (
-                <>
-                  <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-3 mt-6">
-                    <h3 className="font-bold text-gray-900 dark:text-white">
-                      {tCompare("comingSoon")}
-                    </h3>
-                  </div>
-                  {/* Coming Soon Features */}
-                  {comingSoonFeatures.map((feature) => {
-                    const value = feature[selectedPlan];
-                    
-                    return (
-                      <React.Fragment key={feature.id}>
-                        <div
-                          className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 cursor-pointer hover:shadow-md transition-shadow"
-                          onClick={() => toggleRow(feature.id)}
-                        >
-                          <div className="flex items-start justify-between gap-3">
-                            <div className="flex items-start gap-3 flex-1">
-                              <i
-                                className={feature.icon}
-                                style={{ color: currentPlan.color, fontSize: '20px' }}
-                              ></i>
-                              <div className="flex-1">
-                                <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
-                                  {feature.name}
-                                </h4>
-                              </div>
-                            </div>
-                            <div className="flex-shrink-0">
-                              <span
-                                className="text-xs font-medium px-2 py-1 rounded"
-                                style={{
-                                  backgroundColor: `${currentPlan.color}20`,
-                                  color: currentPlan.color,
-                                }}
-                              >
-                                {tCompare("soon")}
-                              </span>
-                            </div>
+              {/* Coming soon section temporarily hidden */}
+              {/*
+              <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-3 mt-6">
+                <h3 className="font-bold text-gray-900 dark:text-white">
+                  {tCompare("comingSoon")}
+                </h3>
+              </div>
+              {comingSoonFeatures.map((feature) => {
+                const value = feature[selectedPlan];
+
+                return (
+                  <React.Fragment key={feature.id}>
+                    <div
+                      className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 cursor-pointer hover:shadow-md transition-shadow"
+                      onClick={() => toggleRow(feature.id)}
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex items-start gap-3 flex-1">
+                          <i
+                            className={feature.icon}
+                            style={{ color: currentPlan.color, fontSize: '20px' }}
+                          ></i>
+                          <div className="flex-1">
+                            <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
+                              {feature.name}
+                            </h4>
                           </div>
                         </div>
-                        {expandedRow === feature.id && (
-                          <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-4 -mt-2">
-                            <p className="text-sm text-gray-700 dark:text-gray-300">
-                              {feature.description}
-                            </p>
-                          </div>
-                        )}
-                      </React.Fragment>
-                    );
-                  })}
-                </>
-              )}
+                        <div className="flex-shrink-0">
+                          <span
+                            className="text-xs font-medium px-2 py-1 rounded"
+                            style={{
+                              backgroundColor: `${currentPlan.color}20`,
+                              color: currentPlan.color,
+                            }}
+                          >
+                            {tCompare("soon")}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    {expandedRow === feature.id && (
+                      <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-4 -mt-2">
+                        <p className="text-sm text-gray-700 dark:text-gray-300">
+                          {feature.description}
+                        </p>
+                      </div>
+                    )}
+                  </React.Fragment>
+                );
+              })}
+              */}
             </div>
           </div>
 

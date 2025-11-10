@@ -46,7 +46,7 @@
         "hero": {
             "title": "Logiciel ATS pour le Recrutement & l'Embauche",
             "subtitle": "Plateforme Tout-en-Un pour Optimiser Votre Processus d'Embauche",
-            "description": "Logiciel ATS complet pour simplifier le recrutement et gérer votre équipe. Commencez avec 5 offres d'emploi gratuites par mois",
+            "description": "Logiciel ATS complet pour simplifier le recrutement et gérer votre équipe — maintenant avec des Offres d'Emploi Gratuites Illimitées.",
             "cta": "Démarrez Votre Plan Gratuit",
             "imageAlt": "Pourquoi Flowxtra est la meilleure plateforme d'offres d'emploi gratuites",
             "imageTitle": "Offres d'Emploi Gratuites",
@@ -101,7 +101,7 @@
         },
         "freeJobPosting": {
             "title": "Offres d'Emploi Gratuites pour un Recrutement Intelligent",
-            "description1": "Publiez jusqu'à 5 offres d'emploi gratuitement chaque mois — sans frais cachés, sans carte de crédit requise.",
+            "description1": "Publiez des offres d'emploi illimitées gratuitement — sans frais cachés, sans carte de crédit requise.",
             "description2": "Flowxtra vous aide à publier des offres d'emploi sur LinkedIn, Google Jobs et plus encore — le tout depuis un tableau de bord puissant."
         },
         "socialMediaManager": {
@@ -494,10 +494,39 @@
                 "35": "35 offres d'emploi",
                 "unlimited": "Offres d'emploi illimitées"
             },
+            "socialMediaAccounts": "4× Comptes de Réseaux Sociaux",
             "socialMediaPosts": "Publications sur les Réseaux Sociaux",
+            "gdprCcpa": "Conformité RGPD & CCPA",
+            "googleJobs": "Liste d'emplois Google",
+            "kanbanBoard": "Tableau Kanban",
+            "careerPage": "Page de carrière",
+            "jobWidget": "Widget d'emploi",
+            "smtp": "Intégration SMTP e-mail personnalisée",
+            "customFields": "Champs personnalisés sur les emplois",
+            "rolesPermissions": "Rôles et permissions",
+            "hiringStages": "Étapes d'embauche",
+            "appStoreIntegrations": "Intégrations App Store",
+            "accessibilityWcag": "Accessibilité WCAG",
+            "policyGenerator": "Générateur de politique de confidentialité",
+            "skillsReservoir": "Réservoir de compétences",
+            "unlimitedStorage": "Stockage de données illimité",
+            "removeBranding": "Supprimer la marque Flowxtra",
+            "journeyFlow": "Flux de parcours",
+            "clientProfiles": "Profils clients",
+            "aiJobAdBuilder": "Créateur d'offres d'emploi IA",
+            "candidateExport": "Exportation de candidats",
+            "candidateImport": "Importation de candidats",
+            "employeeOnboarding": "Intégration des employés",
+            "candidatePresentation": "Présentation de candidats",
+            "socialMediaPipeline": "Social Media Pipeline",
+            "multiOfficeLocation": "Emplacement de plusieurs bureaux",
+            "newsletter": "Newsletter",
+            "talentPool": "Réservoir de talents",
+            "reportsAnalytics": "Rapports et analyses",
             "databaseMigration": "Migration de base de données",
             "customerSupport": "Support client 24/7",
-            "crmIntegration": "Intégration avec vos systèmes CRM"
+            "crmIntegration": "Intégration avec vos systèmes CRM",
+            "customizedNeeds": "Besoins personnalisés"
         },
         "enterprise": {
             "title": "Plans Entreprise"
@@ -706,6 +735,10 @@
                 "name": "Intégration de LLM personnalisés",
                 "description": "Intégrez vos propres LLM hébergés sur votre infrastructure. Nous fournissons les outils d'intégration (API & MCP) afin que vos modèles IA puissent fonctionner de manière transparente dans Flowxtra tout en restant dans votre environnement."
             },
+            "sslCertificate": {
+                "name": "Certificat SSL",
+                "description": "Certificat SSL gratuit pour votre sous-domaine. Chaque entreprise obtient un sous-domaine gratuit de Flowxtra, et chaque sous-domaine reçoit un certificat SSL gratuit de notre part pour garantir des connexions sécurisées."
+            },
             "privacyGenerator": {
                 "name": "Générateur de politique de confidentialité",
                 "description": "Créez des politiques de confidentialité personnalisées adaptées à vos besoins. Choisissez parmi des modèles prédéfinis pour différentes réglementations sur la vie privée (RGPD, CCPA, etc.) et personnalisez le texte pour qu'il corresponde aux exigences de votre entreprise. Générez des politiques de confidentialité professionnelles et conformes légalement sans expertise juridique."
@@ -729,6 +762,10 @@
             "appStoreIntegrations": {
                 "name": "Intégrations App Store",
                 "description": "Intégrations plug-and-play avec des outils RH, de communication et d'analyse populaires."
+            },
+            "accessibilityWcag": {
+                "name": "Accessibilité WCAG",
+                "description": "Conformité complète aux normes Web Content Accessibility Guidelines (WCAG) 2.1 Niveau AA. Garantit que vos pages de carrière et formulaires de candidature sont accessibles à tous les utilisateurs, y compris ceux ayant des handicaps. Inclut le support des lecteurs d'écran, la navigation au clavier, un contraste de couleurs approprié et une structure HTML sémantique."
             },
             "ratingSheets": {
                 "name": "Grilles d'évaluation",
