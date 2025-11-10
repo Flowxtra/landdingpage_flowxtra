@@ -40,7 +40,7 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
   const isRTL = locale === 'ar';
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const [expandedRow, setExpandedRow] = useState<string | null>(null);
-  const [selectedPlan, setSelectedPlan] = useState<PlanKey>('professional'); // Default to Professional
+  const [selectedPlan, setSelectedPlan] = useState<PlanKey>('free'); // Default to Free
   const touchStartX = useRef<number>(0);
   const touchEndX = useRef<number>(0);
 
@@ -92,6 +92,23 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
       }
     }
   };
+
+  // Scroll to Free plan tab on mobile when component mounts
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const isMobile = window.innerWidth < 1024; // lg breakpoint
+      if (isMobile) {
+        // Small delay to ensure DOM is ready
+        setTimeout(() => {
+          const tabsContainer = document.querySelector('.overflow-x-auto.scrollbar-hide');
+          const freeTab = tabsContainer?.querySelector('[data-plan-key="free"]') as HTMLElement;
+          if (freeTab && tabsContainer) {
+            freeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+          }
+        }, 100);
+      }
+    }
+  }, []);
 
   const Unlimited = () => <span className="oi">{tCompare("unlimited")}</span>;
 
@@ -834,6 +851,7 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
                 {plans.map((plan) => (
                   <button
                     key={plan.key}
+                    data-plan-key={plan.key}
                     onClick={() => setSelectedPlan(plan.key)}
                     className={`px-4 py-2 rounded-lg font-semibold text-sm whitespace-nowrap transition-all ${
                       selectedPlan === plan.key
@@ -1166,22 +1184,20 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
                             <div className="flex items-center gap-2">
                               {typeof value === 'string' ? (
                                 <span
-                                  className="font-bold text-sm"
-                                  style={{ color: currentPlan.color }}
+                                  className="font-bold text-sm text-primary dark:text-[#00A8CD]"
                                 >
                                   {value}
                                 </span>
                               ) : (
                                 <span
-                                  className="font-bold text-sm"
-                                  style={{ color: currentPlan.color }}
+                                  className="font-bold text-sm text-primary dark:text-[#00A8CD]"
                                 >
                                   {value}
                                 </span>
                               )}
                             </div>
                           ) : (
-                            <span className="text-gray-400 dark:text-gray-600 font-medium text-sm">
+                            <span className="text-gray-400 dark:text-gray-500 font-medium text-sm">
                               {tCompare("notAvailable")}
                             </span>
                           )}
