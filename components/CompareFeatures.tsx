@@ -830,13 +830,15 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
       {/* Accordion Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-label={isOpen ? `${t("compareFeatures")} - Click to collapse` : `${t("compareFeatures")} - Click to expand`}
+        aria-expanded={isOpen}
         className="w-full flex items-center justify-center gap-3 bg-primary hover:bg-button-hover text-white py-4 px-6 rounded-lg transition-colors font-semibold text-lg shadow-md"
       >
         <span>{t("compareFeatures")}</span>
         {isOpen ? (
-          <ChevronUp className="w-6 h-6" />
+          <ChevronUp className="w-6 h-6" aria-hidden="true" />
         ) : (
-          <ChevronDown className="w-6 h-6" />
+          <ChevronDown className="w-6 h-6" aria-hidden="true" />
         )}
       </button>
 
@@ -847,12 +849,15 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
           <div className="lg:hidden sticky top-0 z-10 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
             {/* Horizontal Scrollable Tabs */}
             <div className="overflow-x-auto scrollbar-hide">
-              <div className="flex gap-2 p-4 min-w-max">
+              <div className="flex gap-2 p-4 min-w-max" role="tablist" aria-label="Select pricing plan">
                 {plans.map((plan) => (
                   <button
                     key={plan.key}
                     data-plan-key={plan.key}
                     onClick={() => setSelectedPlan(plan.key)}
+                    role="tab"
+                    aria-selected={selectedPlan === plan.key}
+                    aria-label={`${plan.name} pricing plan${selectedPlan === plan.key ? ' - Currently selected' : ''}`}
                     className={`px-4 py-2 rounded-lg font-semibold text-sm whitespace-nowrap transition-all ${
                       selectedPlan === plan.key
                         ? 'text-white shadow-md'
@@ -873,13 +878,14 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
               <button
                 onClick={() => handlePlanChange('prev')}
                 disabled={currentPlanIndex === 0}
+                aria-label={currentPlanIndex === 0 ? `${tCompare("previous")} plan - Disabled` : `${tCompare("previous")} plan - Go to previous pricing plan`}
                 className={`flex items-center gap-2 px-3 py-2 rounded-lg font-medium text-sm ${
                   currentPlanIndex === 0
                     ? 'text-gray-400 dark:text-gray-600 cursor-not-allowed'
                     : 'text-primary dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700'
                 }`}
               >
-                <ChevronLeft className="w-4 h-4" />
+                <ChevronLeft className="w-4 h-4" aria-hidden="true" />
                 <span className="hidden sm:inline">{tCompare("previous")}</span>
               </button>
 
@@ -887,6 +893,7 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
                 <div
                   className="w-3 h-3 rounded-full"
                   style={{ backgroundColor: currentPlan.color }}
+                  aria-hidden="true"
                 />
                 <span className="font-bold text-gray-900 dark:text-white">
                   {currentPlan.name}
@@ -896,6 +903,7 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
               <button
                 onClick={() => handlePlanChange('next')}
                 disabled={currentPlanIndex === plans.length - 1}
+                aria-label={currentPlanIndex === plans.length - 1 ? `${tCompare("next")} plan - Disabled` : `${tCompare("next")} plan - Go to next pricing plan`}
                 className={`flex items-center gap-2 px-3 py-2 rounded-lg font-medium text-sm ${
                   currentPlanIndex === plans.length - 1
                     ? 'text-gray-400 dark:text-gray-600 cursor-not-allowed'
@@ -903,7 +911,7 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
                 }`}
               >
                 <span className="hidden sm:inline">{tCompare("next")}</span>
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-4 h-4" aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -1166,6 +1174,16 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
                     <div
                       className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 cursor-pointer hover:shadow-md transition-shadow"
                       onClick={() => toggleRow(feature.id)}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={expandedRow === feature.id ? `${feature.name} - Click to collapse description` : `${feature.name} - Click to expand description`}
+                      aria-expanded={expandedRow === feature.id}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          toggleRow(feature.id);
+                        }
+                      }}
                     >
                       <div className="flex items-start justify-between gap-3">
                         <div className="flex items-start gap-3 flex-1">
