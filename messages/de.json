@@ -38,7 +38,8 @@
     },
     "navigation": {
         "socialMediaManagement": "Social Media Management",
-        "atsRecruitingSoftware": "ATS Recruiting-Software"
+        "atsRecruitingSoftware": "ATS Recruiting-Software",
+        "freeJobPosting": "Kostenlose Stellenausschreibung"
     },
     "homepage": {
         "title": "Willkommen bei Flowxtra",
@@ -311,7 +312,9 @@
             "successTitle": "Nachricht erfolgreich gesendet!",
             "successMessage": "Wir antworten innerhalb von 24 Stunden.",
             "errorTitle": "Fehler beim Senden der Nachricht",
-            "errorMessage": "Bitte versuchen Sie es später erneut."
+            "errorMessage": "Bitte versuchen Sie es später erneut.",
+            "recaptchaRequired": "Bitte vervollständigen Sie die reCAPTCHA-Überprüfung",
+            "networkError": "Netzwerkfehler. Bitte überprüfen Sie Ihre Verbindung und versuchen Sie es erneut."
         },
         "info": {
             "email": "E-Mail",
@@ -322,6 +325,204 @@
         "imageAlt": "KI-gestützte Recruiting- und HR-Plattform für intelligente Einstellung",
         "imageTitle": "Flowxtra – All-in-One KI-Recruiting & HR-Plattform",
         "figcaption": "Verwalten Sie Stellenanzeigen, Kandidaten und Verträge mit KI — alles an einem Ort, 100% kostenlos."
+    },
+    "freeJobPosting": {
+        "badge": "Kostenlose Stellenausschreibung",
+        "title": "Stellen kostenlos mit Flowxtra veröffentlichen",
+        "description": "Beginnen Sie noch heute mit der Einstellung mit unbegrenzten kostenlosen Stellenanzeigen. Erreichen Sie qualifizierte Kandidaten auf mehreren Jobbörsen mit unserer leistungsstarken, benutzerfreundlichen Plattform. Keine Kreditkarte erforderlich—starten Sie in wenigen Minuten.",
+        "hero": {
+            "title": "Kostenlose Stellenausschreibung",
+            "subtitle": "Intelligenter, schneller und mit Vertrauen einstellen",
+            "description": "Verschwenden Sie keine Zeit mehr mit endlosen Lebensläufen und manuellen Prozessen. Mit unserer Rekrutierungsplattform können Sie Stellen veröffentlichen, Bewerber verfolgen und Interviews an einem Ort verwalten. Bauen Sie das richtige Team schnell und effizient auf."
+        },
+        "cta": "Kostenlos starten",
+        "viewPricing": "Preise ansehen",
+        "imageAlt": "Kostenlose Stellenausschreibungsplattform - Unbegrenzt Stellen kostenlos veröffentlichen",
+        "imageTitle": "Flowxtra Kostenlose Stellenausschreibungsplattform",
+        "figcaption": "Veröffentlichen und verwalten Sie unbegrenzte Stellenangebote kostenlos mit Flowxtras leistungsstarker Rekrutierungsplattform.",
+        "features": {
+            "freeForever": "100% kostenlos",
+            "noCreditCard": "Keine Kreditkarte erforderlich",
+            "cancelAnytime": "Jederzeit kündbar",
+            "feature1": {
+                "title": "Unbegrenzte kostenlose Veröffentlichungen",
+                "description": "Veröffentlichen Sie so viele Stellenangebote wie Sie benötigen, völlig kostenlos. Keine versteckten Gebühren, keine Limits."
+            },
+            "feature2": {
+                "title": "Multi-Board-Verteilung",
+                "description": "Erreichen Sie Kandidaten auf mehreren Jobbörsen gleichzeitig mit einem Klick."
+            },
+            "feature3": {
+                "title": "KI-gestützt",
+                "description": "Nutzen Sie die Kraft der KI, um Ihren Rekrutierungsprozess zu optimieren."
+            },
+            "feature4": {
+                "title": "Einfache Verwaltung",
+                "description": "Verwalten Sie alle Ihre Stellenanzeigen von einem intuitiven Dashboard aus."
+            },
+            "feature5": {
+                "title": "Echtzeit-Analysen",
+                "description": "Verfolgen Sie Aufrufe, Bewerbungen und Leistungsmetriken für jede Veröffentlichung."
+            },
+            "feature6": {
+                "title": "Keine Kreditkarte erforderlich",
+                "description": "Beginnen Sie sofort mit der Veröffentlichung von Stellen—keine Zahlungsinformationen erforderlich."
+            }
+        },
+        "benefits": {
+            "title": "Warum kostenlose Stellenausschreibung wählen?",
+            "benefit1": {
+                "title": "Geld sparen",
+                "description": "Eliminieren Sie teure Jobbörsen-Gebühren und veröffentlichen Sie unbegrenzte Stellen kostenlos."
+            },
+            "benefit2": {
+                "title": "Mehr Kandidaten erreichen",
+                "description": "Verteilen Sie Ihre Stellenanzeigen auf mehrere Plattformen, um die Sichtbarkeit zu maximieren."
+            },
+            "benefit3": {
+                "title": "Schnellere Einstellung",
+                "description": "Lassen Sie Ihre Stellenanzeigen in wenigen Minuten live gehen und erhalten Sie sofort Bewerbungen."
+            },
+            "benefit4": {
+                "title": "Vollständige Kontrolle",
+                "description": "Verwalten, bearbeiten und optimieren Sie Ihre Anzeigen jederzeit von Ihrem Dashboard aus."
+            }
+        },
+        "howItWorks": {
+            "title": "So funktioniert's",
+            "step1": {
+                "title": "Kostenlos registrieren",
+                "description": "Erstellen Sie Ihr kostenloses Konto in Sekunden—keine Kreditkarte erforderlich."
+            },
+            "step2": {
+                "title": "Ihre Stelle veröffentlichen",
+                "description": "Füllen Sie Ihre Stellendetails aus und veröffentlichen Sie sofort auf mehreren Jobbörsen."
+            },
+            "step3": {
+                "title": "Talente finden",
+                "description": "Erhalten Sie Bewerbungen von qualifizierten Kandidaten und verwalten Sie sie alle an einem Ort."
+            }
+        },
+        "finalCta": {
+            "title": "Bereit, mit der Einstellung zu beginnen?",
+            "description": "Schließen Sie sich Tausenden von Unternehmen an, die Flowxtra bereits nutzen, um kostenlos Stellen zu veröffentlichen und die besten Talente zu finden.",
+            "button": "Kostenlos Stellen veröffentlichen"
+        },
+        "candidateFiltering": {
+            "title": "Intelligente Kandidatenfilterung & Visualisierung",
+            "description": "Flowxtra bietet eine flexible und moderne Möglichkeit, jede Phase der Rekrutierung zu verwalten.",
+            "description2": "Navigieren Sie einfach zwischen verschiedenen Kandidatenansichten, um Ihren Workflow und die Teampräferenzen zu erfüllen.",
+            "description3": "Mit Flowxtras intelligentem Bewerberverwaltungssystem (ATS) können Sie Kandidaten einfach organisieren, filtern und durch jede Phase bewegen—von der Bewerbung über das Vorstellungsgespräch bis zur Einstellung—alles in einem intelligenten, einheitlichen Arbeitsbereich.",
+            "description4": "Kommunizieren Sie sofort, planen Sie Online-Interviews und arbeiten Sie in Echtzeit mit Ihrem Team zusammen—ohne die Seite zu verlassen oder den Fokus zu verlieren.",
+            "features": {
+                "listView": {
+                    "title": "Listenansicht",
+                    "description": "Einfache, detaillierte Datenansicht."
+                },
+                "cardView": {
+                    "title": "Kartenansicht",
+                    "description": "Visuelle Kandidatenschnappschüsse."
+                },
+                "boardView": {
+                    "title": "Board-Ansicht",
+                    "description": "Drag-and-Drop-Einstellungsablauf."
+                }
+            },
+            "imageAlt": "Intelligente Kandidatenfilterung & Visualisierung - Flowxtra ATS",
+            "imageTitle": "Flowxtra – Intelligente Kandidatenfilterung & Visualisierung",
+            "figcaption": "Verwalten Sie Kandidaten mit flexiblen Ansichten: Listen-, Karten- und Board-Ansichten für effizienten Rekrutierungs-Workflow."
+        },
+        "applicantOverview": {
+            "title": "Bewerberübersicht — All-in-One Rekrutierungszentrale",
+            "description": "Flowxtras Bewerberübersicht gibt Recruitern ein vollständiges, Echtzeit-Bild jedes Kandidaten—von Lebenslauf und Anschreiben bis hin zur Kommunikationshistorie, Interviewphase und persönlichen Details.",
+            "description2": "Senden Sie einfach Nachrichten, planen Sie Online-Meetings oder verschieben Sie Bewerber zwischen Einstellungsphasen—alles von einem intuitiven Bildschirm aus, ohne Tabs zu wechseln oder den Fokus zu verlieren.",
+            "description3": "Entworfen für moderne Einstellungsteams, vereinfacht Flowxtra das Rekrutierungsmanagement, reduziert repetitive Aufgaben und zentralisiert jede Aktion in einem intelligenten Arbeitsbereich.",
+            "description4": "Es ist die effizienteste Lösung für Rekrutierungsagenturen und Unternehmen jeder Größe—hilft Ihnen Zeit zu sparen, organisiert zu bleiben und schnellere Einstellungsentscheidungen zu treffen.",
+            "imageAlt": "Bewerberübersicht - All-in-One Rekrutierungszentrale - Flowxtra",
+            "imageTitle": "Flowxtra – Bewerberübersicht Rekrutierungszentrale",
+            "figcaption": "Vollständige Kandidatenübersicht mit Lebenslauf, Kommunikationshistorie, Interviewphase und persönlichen Details auf einem Bildschirm."
+        },
+        "ratingSheets": {
+            "title": "Verwenden Sie Bewertungsbögen in Ihren Interviews",
+            "description": "Bewerten Sie Kandidaten genauer und treffen Sie datengestützte Einstellungsentscheidungen mit Flowxtras anpassbaren Bewertungsbögen.",
+            "description2": "Standardisieren Sie Ihren Interviewprozess und stellen Sie sicher, dass jeder Kandidat fair und konsistent bewertet wird.",
+            "description3": "Vereinfachen Sie Ihren Bewertungsworkflow und verbessern Sie die Einstellungsgenauigkeit.",
+            "description4": "Mit Flowxtra wird Interview-Feedback klar, organisiert und messbar—hilft Ihrem Team, die besten Talente schneller zu identifizieren.",
+            "features": {
+                "feature1": "Erstellen Sie strukturierte Interviewvorlagen.",
+                "feature2": "Bewerten Sie Kandidaten objektiv.",
+                "feature3": "Vergleichen Sie Ergebnisse über Interviewer hinweg."
+            },
+            "imageAlt": "Bewertungsbögen für Interviews - Flowxtra ATS",
+            "imageTitle": "Flowxtra – Interview-Bewertungsbögen",
+            "figcaption": "Verwenden Sie anpassbare Bewertungsbögen, um Kandidaten zu bewerten und datengestützte Einstellungsentscheidungen zu treffen."
+        },
+        "emailTemplates": {
+            "title": "Anpassbare E-Mail-Vorlagen",
+            "description": "Flowxtra ermöglicht es Ihnen, professionelle E-Mail-Vorlagen für jede Phase der Rekrutierung zu erstellen und zu personalisieren.",
+            "description2": "Von Interview-Einladungen bis hin zu Follow-ups und Feedback—alles kann schneller, intelligenter und konsistenter erledigt werden.",
+            "description3": "Sparen Sie Zeit, bleiben Sie konsistent und halten Sie Ihre Kommunikation professionell in Ihrem gesamten Einstellungsteam.",
+            "description4": "Mit Flowxtra können Sie markenbezogene, personalisierte Nachrichten direkt von der Plattform aus senden—immer effizient, immer auf den Punkt.",
+            "features": {
+                "feature1": "Einmal erstellen, jederzeit wiederverwenden.",
+                "feature2": "Senden Sie Interview-Einladungen sofort.",
+                "feature3": "Folgen Sie nach oder lehnen Sie mit einem Klick ab."
+            },
+            "imageAlt": "Anpassbare E-Mail-Vorlagen - Flowxtra ATS",
+            "imageTitle": "Flowxtra – Anpassbare E-Mail-Vorlagen",
+            "figcaption": "Erstellen und personalisieren Sie professionelle E-Mail-Vorlagen für jede Phase der Rekrutierung."
+        },
+        "multiposting": {
+            "title": "Intelligentes Multiposting für maximale Reichweite",
+            "description": "Flowxtra ermöglicht es Ihnen, Ihre Stellenangebote auf mehreren globalen Jobbörsen und Social-Media-Plattformen zu veröffentlichen—alles von einem intuitiven Dashboard aus.",
+            "description2": "Erreichen Sie Top-Talente schneller, ohne sich mit der separaten Verwaltung jeder Website beschäftigen zu müssen.",
+            "description3": "Sparen Sie Zeit und steigern Sie die Sichtbarkeit Ihrer Stellen.",
+            "description4": "Mit Flowxtras intelligenter Multiposting-Funktion erscheinen Ihre Anzeigen auf LinkedIn, Google Jobs, StepStone und mehr—hilft Ihrem Unternehmen, qualifizierte Kandidaten schneller und intelligenter anzuziehen.",
+            "features": {
+                "feature1": "Einmal veröffentlichen, überall publizieren.",
+                "feature2": "Verteilen Sie auf globale Jobbörsen.",
+                "feature3": "Teilen Sie automatisch in sozialen Medien."
+            },
+            "imageAlt": "Intelligentes Multiposting für maximale Reichweite - Flowxtra ATS",
+            "imageTitle": "Flowxtra – Intelligente Multiposting-Funktion",
+            "figcaption": "Veröffentlichen Sie Stellenangebote auf mehreren globalen Jobbörsen und Social-Media-Plattformen von einem Dashboard aus."
+        },
+        "jobWidget": {
+            "title": "Stellenanzeigen zu jeder Website hinzufügen — Kein Code erforderlich",
+            "description": "Mit Flowxtras Job-Widget können Sie die offenen Stellen Ihres Unternehmens sofort auf Ihrer Website anzeigen—ohne technische Einrichtung oder API-Integration.",
+            "description2": "Egal, ob Sie WordPress, Wix, Shopify oder eine andere Plattform verwenden, kopieren Sie einfach den Embed-Code und Ihr Jobboard geht automatisch live.",
+            "description3": "Fügen Sie Stellenangebote direkt von Flowxtra hinzu, bearbeiten oder entfernen Sie sie und sehen Sie, wie sich die Änderungen sofort auf Ihrer Website widerspiegeln—intelligent, einfach und nahtlos.",
+            "features": {
+                "feature1": "Kein Code oder Plugins erforderlich.",
+                "feature2": "Zentralisierte Bewerberverfolgung mit intelligenten Filtern",
+                "feature3": "Automatische Updates und Live-Synchronisierung."
+            },
+            "imageAlt1": "Job-Widget Embed-Code-Beispiel 1 - Flowxtra",
+            "imageTitle1": "Flowxtra – Job-Widget Embed-Code",
+            "figcaption1": "Stellenanzeigen mit Flowxtras Job-Widget auf jeder Website einbetten.",
+            "imageAlt2": "Job-Widget Embed-Code-Beispiel 2 - Flowxtra",
+            "imageTitle2": "Flowxtra – Job-Widget Embed-Code",
+            "figcaption2": "Job-Widget Embed-Code-Beispiel für Website-Integration."
+        },
+        "talentOverview": {
+            "title": "Intelligente Talentübersicht",
+            "description": "Visualisieren, vergleichen und organisieren Sie Kandidaten einfach mit Flowxtras interaktivem Rekrutierungsboard. Überwachen Sie jede Phase des Einstellungsprozesses, decken Sie wichtige Erkenntnisse auf und treffen Sie selbstbewusste Entscheidungen—alles in einem intuitiven Arbeitsbereich.",
+            "imageAlt": "Intelligente Talentübersicht - Interaktives Rekrutierungsboard - Flowxtra",
+            "imageTitle": "Flowxtra – Intelligente Talentübersicht",
+            "figcaption": "Visualisieren, vergleichen und organisieren Sie Kandidaten mit Flowxtras interaktivem Rekrutierungsboard."
+        },
+        "hiringDashboard": {
+            "title": "Detailliertes Einstellungs-Dashboard",
+            "description": "Sehen Sie Live-Metriken für offene Rollen, neue Kandidaten, Pipeline-Phasen, Interview-Termine und Kanalleistung—alles an einem Ort. Handeln Sie basierend auf Echtzeit-Erkenntnissen, um die Einstellungszeit zu verkürzen, Konversionen zu steigern und Ihr Team auf das Wesentliche zu konzentrieren.",
+            "imageAlt": "Detailliertes Einstellungs-Dashboard - Flowxtra ATS",
+            "imageTitle": "Flowxtra – Detailliertes Einstellungs-Dashboard",
+            "figcaption": "Sehen Sie Live-Metriken für offene Rollen, neue Kandidaten, Pipeline-Phasen und Interview-Termine in einem Dashboard."
+        },
+        "ctaSection": {
+            "title": "Bereit, intelligenter und schneller einzustellen?",
+            "description": "Verschwenden Sie keine Zeit mehr mit dem Wechseln zwischen Jobbörsen. Veröffentlichen Sie Stellen, verfolgen Sie Bewerber und stellen Sie Top-Talente ein—alles von einer intelligenten Rekrutierungsplattform.",
+            "cta": "Starten Sie Ihren kostenlosen Plan"
+        }
     },
     "about": {
         "badge": "Über uns",

@@ -38,7 +38,8 @@
     },
     "navigation": {
         "socialMediaManagement": "Gestión de Redes Sociales",
-        "atsRecruitingSoftware": "Software ATS de Reclutamiento"
+        "atsRecruitingSoftware": "Software ATS de Reclutamiento",
+        "freeJobPosting": "Publicación de Empleos Gratuita"
     },
     "homepage": {
         "title": "Bienvenido a Flowxtra",
@@ -311,7 +312,9 @@
             "successTitle": "¡Mensaje enviado con éxito!",
             "successMessage": "Responderemos en 24 horas.",
             "errorTitle": "Error al enviar mensaje",
-            "errorMessage": "Por favor, inténtalo de nuevo más tarde."
+            "errorMessage": "Por favor, inténtalo de nuevo más tarde.",
+            "recaptchaRequired": "Por favor, completa la verificación de reCAPTCHA",
+            "networkError": "Error de red. Por favor, verifica tu conexión e inténtalo de nuevo."
         },
         "info": {
             "email": "Email",
@@ -322,6 +325,204 @@
         "imageAlt": "Plataforma de reclutamiento y RRHH con IA para contratación más inteligente",
         "imageTitle": "Flowxtra – Plataforma Todo-en-Uno de Reclutamiento y RRHH con IA",
         "figcaption": "Gestiona publicaciones de empleos, candidatos y contratos con IA — todo en un solo lugar, Gratis."
+    },
+    "freeJobPosting": {
+        "badge": "Publicación de Empleos Gratuita",
+        "title": "Publica Empleos Gratis con Flowxtra",
+        "description": "Comienza a contratar hoy con publicaciones de empleos gratuitas ilimitadas. Alcanza candidatos calificados en múltiples sitios de empleo con nuestra plataforma potente y fácil de usar. No se requiere tarjeta de crédito—comienza en minutos.",
+        "hero": {
+            "title": "Publicación de empleos gratuita",
+            "subtitle": "Contrata Más Inteligente, Más Rápido y Con Confianza",
+            "description": "Deja de perder tiempo en CVs interminables y procesos manuales. Con nuestra plataforma de reclutamiento, puedes publicar empleos, rastrear candidatos y gestionar entrevistas en un solo lugar. Construye el equipo adecuado de manera rápida y eficiente."
+        },
+        "cta": "Comenzar Gratis",
+        "viewPricing": "Ver Precios",
+        "imageAlt": "Plataforma de publicación de empleos gratuita - Publica empleos ilimitados gratis",
+        "imageTitle": "Plataforma de Publicación de Empleos Gratuita Flowxtra",
+        "figcaption": "Publica y gestiona ofertas de empleo ilimitadas gratis con la potente plataforma de reclutamiento de Flowxtra.",
+        "features": {
+            "freeForever": "100% Gratis",
+            "noCreditCard": "No se requiere tarjeta de crédito",
+            "cancelAnytime": "Cancela en cualquier momento",
+            "feature1": {
+                "title": "Publicaciones Gratuitas Ilimitadas",
+                "description": "Publica tantas ofertas de empleo como necesites, completamente gratis. Sin tarifas ocultas, sin límites."
+            },
+            "feature2": {
+                "title": "Distribución Multi-Plataforma",
+                "description": "Alcanza candidatos en múltiples sitios de empleo simultáneamente con un clic."
+            },
+            "feature3": {
+                "title": "Impulsado por IA",
+                "description": "Aprovecha el poder de la IA para optimizar tu proceso de reclutamiento."
+            },
+            "feature4": {
+                "title": "Gestión Fácil",
+                "description": "Gestiona todas tus publicaciones de empleo desde un panel intuitivo."
+            },
+            "feature5": {
+                "title": "Análisis en Tiempo Real",
+                "description": "Rastrea vistas, solicitudes y métricas de rendimiento para cada publicación."
+            },
+            "feature6": {
+                "title": "No se Requiere Tarjeta de Crédito",
+                "description": "Comienza a publicar empleos inmediatamente—no se necesita información de pago."
+            }
+        },
+        "benefits": {
+            "title": "¿Por Qué Elegir Publicación de Empleos Gratuita?",
+            "benefit1": {
+                "title": "Ahorra Dinero",
+                "description": "Elimina las costosas tarifas de sitios de empleo y publica posiciones ilimitadas sin costo."
+            },
+            "benefit2": {
+                "title": "Alcanza Más Candidatos",
+                "description": "Distribuye tus publicaciones de empleo en múltiples plataformas para maximizar la visibilidad."
+            },
+            "benefit3": {
+                "title": "Contratación Más Rápida",
+                "description": "Pon tus publicaciones de empleo en vivo en minutos y comienza a recibir solicitudes inmediatamente."
+            },
+            "benefit4": {
+                "title": "Control Total",
+                "description": "Gestiona, edita y optimiza tus publicaciones en cualquier momento desde tu panel."
+            }
+        },
+        "howItWorks": {
+            "title": "Cómo Funciona",
+            "step1": {
+                "title": "Regístrate Gratis",
+                "description": "Crea tu cuenta gratuita en segundos—no se requiere tarjeta de crédito."
+            },
+            "step2": {
+                "title": "Publica Tu Empleo",
+                "description": "Completa los detalles de tu empleo y publica en múltiples sitios de empleo instantáneamente."
+            },
+            "step3": {
+                "title": "Encuentra Talento",
+                "description": "Recibe solicitudes de candidatos calificados y gestiona todo en un solo lugar."
+            }
+        },
+        "finalCta": {
+            "title": "¿Listo para Comenzar a Contratar?",
+            "description": "Únete a miles de empresas que ya usan Flowxtra para publicar empleos gratis y encontrar el mejor talento.",
+            "button": "Comenzar a Publicar Empleos Gratis"
+        },
+        "candidateFiltering": {
+            "title": "Filtrado y Visualización Inteligente de Candidatos",
+            "description": "Flowxtra ofrece una forma flexible y moderna de gestionar cada etapa del reclutamiento.",
+            "description2": "Navega fácilmente entre diferentes vistas de candidatos para coincidir con tu flujo de trabajo y las preferencias de tu equipo.",
+            "description3": "Con el sistema de seguimiento de candidatos (ATS) inteligente de Flowxtra, puedes organizar, filtrar y mover candidatos fácilmente a través de cada etapa—desde la solicitud hasta la entrevista y la contratación—todo en un espacio de trabajo inteligente y unificado.",
+            "description4": "Comunica instantáneamente, programa entrevistas en línea y colabora con tu equipo en tiempo real—sin dejar la página o perder el enfoque.",
+            "features": {
+                "listView": {
+                    "title": "Vista de Lista",
+                    "description": "Vista de datos simple y detallada."
+                },
+                "cardView": {
+                    "title": "Vista de Tarjeta",
+                    "description": "Instantáneas visuales de candidatos."
+                },
+                "boardView": {
+                    "title": "Vista de Tablero",
+                    "description": "Flujo de contratación de arrastrar y soltar."
+                }
+            },
+            "imageAlt": "Filtrado y Visualización Inteligente de Candidatos - Flowxtra ATS",
+            "imageTitle": "Flowxtra – Filtrado y Visualización Inteligente de Candidatos",
+            "figcaption": "Gestiona candidatos con vistas flexibles: vistas de Lista, Tarjeta y Tablero para un flujo de trabajo de reclutamiento eficiente."
+        },
+        "applicantOverview": {
+            "title": "Resumen de Candidatos — Centro de Reclutamiento Todo-en-Uno",
+            "description": "El resumen de candidatos de Flowxtra da a los reclutadores una imagen completa y en tiempo real de cada candidato—desde el currículum y la carta de presentación hasta el historial de comunicación, la etapa de entrevista y los detalles personales.",
+            "description2": "Envía mensajes fácilmente, programa reuniones en línea o mueve candidatos entre etapas de contratación—todo desde una pantalla intuitiva, sin cambiar pestañas o perder el enfoque.",
+            "description3": "Diseñado para equipos de contratación modernos, Flowxtra simplifica la gestión de reclutamiento, reduce tareas repetitivas y centraliza cada acción en un espacio de trabajo inteligente.",
+            "description4": "Es la solución más eficiente para agencias de reclutamiento y empresas de todos los tamaños—ayudándote a ahorrar tiempo, mantenerte organizado y tomar decisiones de contratación más rápidas.",
+            "imageAlt": "Resumen de Candidatos - Centro de Reclutamiento Todo-en-Uno - Flowxtra",
+            "imageTitle": "Flowxtra – Centro de Reclutamiento Resumen de Candidatos",
+            "figcaption": "Resumen completo de candidatos con currículum, historial de comunicación, etapa de entrevista y detalles personales en una pantalla."
+        },
+        "ratingSheets": {
+            "title": "Usa hojas de evaluación en tus entrevistas",
+            "description": "Evalúa candidatos con mayor precisión y toma decisiones de contratación basadas en datos con las hojas de evaluación personalizables de Flowxtra.",
+            "description2": "Estandariza tu proceso de entrevista y asegúrate de que cada candidato sea evaluado de manera justa y consistente.",
+            "description3": "Simplifica tu flujo de trabajo de evaluación y mejora la precisión de contratación.",
+            "description4": "Con Flowxtra, los comentarios de entrevista se vuelven claros, organizados y medibles—ayudando a tu equipo a identificar el mejor talento más rápido.",
+            "features": {
+                "feature1": "Crea plantillas de entrevista estructuradas.",
+                "feature2": "Califica candidatos objetivamente.",
+                "feature3": "Compara resultados entre entrevistadores."
+            },
+            "imageAlt": "Hojas de Evaluación para Entrevistas - Flowxtra ATS",
+            "imageTitle": "Flowxtra – Hojas de Evaluación de Entrevista",
+            "figcaption": "Usa hojas de evaluación personalizables para evaluar candidatos y tomar decisiones de contratación basadas en datos."
+        },
+        "emailTemplates": {
+            "title": "Plantillas de Email Personalizables",
+            "description": "Flowxtra te permite crear y personalizar plantillas de email profesionales para cada etapa del reclutamiento.",
+            "description2": "Desde invitaciones de entrevista hasta seguimientos y comentarios—todo se puede hacer más rápido, más inteligente y más consistente.",
+            "description3": "Ahorra tiempo, mantén la consistencia y mantén tu comunicación profesional en todo tu equipo de contratación.",
+            "description4": "Con Flowxtra, puedes enviar mensajes personalizados y de marca directamente desde la plataforma—siempre eficiente, siempre al punto.",
+            "features": {
+                "feature1": "Crea una vez, reutiliza en cualquier momento.",
+                "feature2": "Envía invitaciones de entrevista instantáneamente.",
+                "feature3": "Haz seguimiento o rechaza con un clic."
+            },
+            "imageAlt": "Plantillas de Email Personalizables - Flowxtra ATS",
+            "imageTitle": "Flowxtra – Plantillas de Email Personalizables",
+            "figcaption": "Crea y personaliza plantillas de email profesionales para cada etapa del reclutamiento."
+        },
+        "multiposting": {
+            "title": "Multipublicación Inteligente para Alcance Máximo",
+            "description": "Flowxtra te permite publicar tus ofertas de empleo en múltiples sitios de empleo globales y plataformas de redes sociales—todo desde un panel intuitivo.",
+            "description2": "Alcanza los mejores talentos más rápido sin la molestia de gestionar cada sitio por separado.",
+            "description3": "Ahorra tiempo y aumenta la visibilidad de tus empleos.",
+            "description4": "Con la función de multipublicación inteligente de Flowxtra, tus listados aparecen en LinkedIn, Google Jobs, StepStone y más—ayudando a tu empresa a atraer candidatos calificados más rápido e inteligentemente.",
+            "features": {
+                "feature1": "Publica una vez, publica en todas partes.",
+                "feature2": "Distribuye en sitios de empleo globales.",
+                "feature3": "Comparte automáticamente en redes sociales."
+            },
+            "imageAlt": "Multipublicación Inteligente para Alcance Máximo - Flowxtra ATS",
+            "imageTitle": "Flowxtra – Función de Multipublicación Inteligente",
+            "figcaption": "Publica ofertas de empleo en múltiples sitios de empleo globales y plataformas de redes sociales desde un panel."
+        },
+        "jobWidget": {
+            "title": "Agrega Listados de Empleos a Cualquier Sitio Web — No se Requiere Código",
+            "description": "Con el Widget de Empleo de Flowxtra, puedes mostrar instantáneamente las posiciones abiertas de tu empresa en tu sitio web—sin configuración técnica o integración API.",
+            "description2": "Ya sea que uses WordPress, Wix, Shopify o cualquier otra plataforma, simplemente copia el código de inserción y tu tablero de empleos se activa automáticamente.",
+            "description3": "Agrega, edita o elimina ofertas de empleo directamente desde Flowxtra, y ve los cambios aparecer instantáneamente en tu sitio web—inteligente, simple y sin problemas.",
+            "features": {
+                "feature1": "No se requiere código o complementos.",
+                "feature2": "Seguimiento centralizado de candidatos con filtros inteligentes",
+                "feature3": "Actualizaciones automáticas y sincronización en vivo."
+            },
+            "imageAlt1": "Ejemplo de Código de Inserción Widget de Empleo 1 - Flowxtra",
+            "imageTitle1": "Flowxtra – Código de Inserción Widget de Empleo",
+            "figcaption1": "Inserta listados de empleos en cualquier sitio web con el Widget de Empleo de Flowxtra.",
+            "imageAlt2": "Ejemplo de Código de Inserción Widget de Empleo 2 - Flowxtra",
+            "imageTitle2": "Flowxtra – Código de Inserción Widget de Empleo",
+            "figcaption2": "Ejemplo de código de inserción Widget de Empleo para integración de sitio web."
+        },
+        "talentOverview": {
+            "title": "Resumen Inteligente de Talento",
+            "description": "Visualiza, compara y organiza candidatos fácilmente usando el tablero de reclutamiento interactivo de Flowxtra. Monitorea cada etapa del proceso de contratación, descubre información clave y toma decisiones confiadas—todo en un espacio de trabajo intuitivo.",
+            "imageAlt": "Resumen Inteligente de Talento - Tablero de Reclutamiento Interactivo - Flowxtra",
+            "imageTitle": "Flowxtra – Resumen Inteligente de Talento",
+            "figcaption": "Visualiza, compara y organiza candidatos usando el tablero de reclutamiento interactivo de Flowxtra."
+        },
+        "hiringDashboard": {
+            "title": "Panel de Contratación Detallado",
+            "description": "Ve métricas en vivo para roles abiertos, nuevos candidatos, etapas del pipeline, horarios de entrevista y rendimiento del canal—todo en un solo lugar. Actúa sobre información en tiempo real para reducir el tiempo de contratación, aumentar conversiones y mantener a tu equipo enfocado en lo que importa.",
+            "imageAlt": "Panel de Contratación Detallado - Flowxtra ATS",
+            "imageTitle": "Flowxtra – Panel de Contratación Detallado",
+            "figcaption": "Ve métricas en vivo para roles abiertos, nuevos candidatos, etapas del pipeline y horarios de entrevista en un panel."
+        },
+        "ctaSection": {
+            "title": "¿Listo para Contratar Más Inteligente y Más Rápido?",
+            "description": "Deja de perder tiempo cambiando entre sitios de empleo. Publica empleos, rastrea candidatos y contrata los mejores talentos—todo desde una plataforma de reclutamiento inteligente.",
+            "cta": "Comienza tu plan gratis"
+        }
     },
     "about": {
         "badge": "Sobre Nosotros",

@@ -316,7 +316,9 @@
             "successTitle": "Message sent successfully!",
             "successMessage": "We'll respond within 24 hours.",
             "errorTitle": "Failed to send message",
-            "errorMessage": "Please try again later."
+            "errorMessage": "Please try again later.",
+            "recaptchaRequired": "Please complete the reCAPTCHA verification",
+            "networkError": "Network error. Please check your connection and try again."
         },
         "info": {
             "email": "Email",
@@ -332,6 +334,11 @@
         "badge": "Free Job Posting",
         "title": "Post Jobs for Free with Flowxtra",
         "description": "Start hiring today with unlimited free job postings. Reach qualified candidates across multiple job boards with our powerful, easy-to-use platform. No credit card required—get started in minutes.",
+        "hero": {
+            "title": "Free job posting",
+            "subtitle": "Hire Smarter, Faster, and With Confidence",
+            "description": "Stop wasting time on endless CVs and manual processes. With our recruitment platform, you can post jobs, track applicants, and manage interviews all in one place. Build the right team quickly and efficiently."
+        },
         "cta": "Get Started Free",
         "viewPricing": "View Pricing",
         "imageAlt": "Free job posting platform - Post unlimited jobs for free",

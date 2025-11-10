@@ -38,7 +38,8 @@
     },
     "navigation": {
         "socialMediaManagement": "Social Media Beheer",
-        "atsRecruitingSoftware": "ATS Wervingssoftware"
+        "atsRecruitingSoftware": "ATS Wervingssoftware",
+        "freeJobPosting": "Gratis Vacatureplaatsing"
     },
     "homepage": {
         "title": "Welkom bij Flowxtra",
@@ -311,7 +312,9 @@
             "successTitle": "Bericht succesvol verzonden!",
             "successMessage": "We reageren binnen 24 uur.",
             "errorTitle": "Bericht verzenden mislukt",
-            "errorMessage": "Probeer het later opnieuw."
+            "errorMessage": "Probeer het later opnieuw.",
+            "recaptchaRequired": "Voltooi de reCAPTCHA-verificatie",
+            "networkError": "Netwerkfout. Controleer uw verbinding en probeer het opnieuw."
         },
         "info": {
             "email": "E-mail",
@@ -322,6 +325,204 @@
         "imageAlt": "AI-aangedreven werving- en HR-platform voor slimmer werven",
         "imageTitle": "Flowxtra – Alles-in-één AI Werving & HR Platform",
         "figcaption": "Beheer vacatures, kandidaten en contracten met AI — allemaal op één plek, Gratis."
+    },
+    "freeJobPosting": {
+        "badge": "Gratis Vacatureplaatsing",
+        "title": "Plaats Vacatures Gratis met Flowxtra",
+        "description": "Begin vandaag met werven met onbeperkte gratis vacatureplaatsingen. Bereik gekwalificeerde kandidaten op meerdere vacaturesites met ons krachtige, gebruiksvriendelijke platform. Geen creditcard vereist—begin binnen enkele minuten.",
+        "hero": {
+            "title": "Gratis vacatureplaatsing",
+            "subtitle": "Werv Slimmer, Sneller en Met Vertrouwen",
+            "description": "Stop met tijd verspillen aan eindeloze CV's en handmatige processen. Met ons wervingsplatform kun je vacatures plaatsen, kandidaten volgen en interviews beheren op één plek. Bouw het juiste team snel en efficiënt op."
+        },
+        "cta": "Begin Gratis",
+        "viewPricing": "Bekijk Prijzen",
+        "imageAlt": "Gratis vacatureplaatsingsplatform - Plaats onbeperkte vacatures gratis",
+        "imageTitle": "Flowxtra Gratis Vacatureplaatsingsplatform",
+        "figcaption": "Plaats en beheer onbeperkte vacatures gratis met het krachtige wervingsplatform van Flowxtra.",
+        "features": {
+            "freeForever": "100% Gratis",
+            "noCreditCard": "Geen creditcard vereist",
+            "cancelAnytime": "Annuleer op elk moment",
+            "feature1": {
+                "title": "Onbeperkte Gratis Plaatsingen",
+                "description": "Plaats zoveel vacatures als je nodig hebt, volledig gratis. Geen verborgen kosten, geen limieten."
+            },
+            "feature2": {
+                "title": "Multi-Board Distributie",
+                "description": "Bereik kandidaten op meerdere vacaturesites tegelijkertijd met één klik."
+            },
+            "feature3": {
+                "title": "Aangedreven door AI",
+                "description": "Benut de kracht van AI om je wervingsproces te optimaliseren."
+            },
+            "feature4": {
+                "title": "Eenvoudig Beheer",
+                "description": "Beheer al je vacatureplaatsingen vanuit één intuïtief dashboard."
+            },
+            "feature5": {
+                "title": "Real-Time Analytics",
+                "description": "Volg weergaven, sollicitaties en prestatiemetingen voor elke plaatsing."
+            },
+            "feature6": {
+                "title": "Geen Creditcard Vereist",
+                "description": "Begin direct met het plaatsen van vacatures—geen betalingsgegevens nodig."
+            }
+        },
+        "benefits": {
+            "title": "Waarom Gratis Vacatureplaatsing Kiezen?",
+            "benefit1": {
+                "title": "Bespaar Geld",
+                "description": "Elimineer dure vacaturesite-kosten en plaats onbeperkte posities zonder kosten."
+            },
+            "benefit2": {
+                "title": "Bereik Meer Kandidaten",
+                "description": "Verspreid je vacatureplaatsingen over meerdere platforms om de zichtbaarheid te maximaliseren."
+            },
+            "benefit3": {
+                "title": "Snellere Werving",
+                "description": "Zet je vacatureplaatsingen binnen enkele minuten live en begin direct sollicitaties te ontvangen."
+            },
+            "benefit4": {
+                "title": "Volledige Controle",
+                "description": "Beheer, bewerk en optimaliseer je plaatsingen op elk moment vanuit je dashboard."
+            }
+        },
+        "howItWorks": {
+            "title": "Hoe Het Werkt",
+            "step1": {
+                "title": "Gratis Registreren",
+                "description": "Maak je gratis account aan in seconden—geen creditcard vereist."
+            },
+            "step2": {
+                "title": "Plaats Je Vacature",
+                "description": "Vul je vacaturegegevens in en publiceer direct op meerdere vacaturesites."
+            },
+            "step3": {
+                "title": "Vind Talent",
+                "description": "Ontvang sollicitaties van gekwalificeerde kandidaten en beheer ze allemaal op één plek."
+            }
+        },
+        "finalCta": {
+            "title": "Klaar om te Beginnen met Werven?",
+            "description": "Sluit je aan bij duizenden bedrijven die Flowxtra al gebruiken om gratis vacatures te plaatsen en het beste talent te vinden.",
+            "button": "Begin met Gratis Vacatures Plaatsen"
+        },
+        "candidateFiltering": {
+            "title": "Slimmere Kandidaatfiltering & Visualisatie",
+            "description": "Flowxtra biedt een flexibele en moderne manier om elke fase van werving te beheren.",
+            "description2": "Navigeer eenvoudig tussen verschillende kandidaatweergaven om aan te sluiten bij je workflow en teamvoorkeuren.",
+            "description3": "Met het intelligente Applicant Tracking System (ATS) van Flowxtra kun je kandidaten eenvoudig organiseren, filteren en door elke fase verplaatsen—van sollicitatie tot interview tot aanwerving—alles in één slimme, verenigde werkruimte.",
+            "description4": "Communiceer direct, plan online interviews en werk in real-time samen met je team—zonder de pagina te verlaten of focus te verliezen.",
+            "features": {
+                "listView": {
+                    "title": "Lijstweergave",
+                    "description": "Eenvoudige, gedetailleerde dataweergave."
+                },
+                "cardView": {
+                    "title": "Kaartweergave",
+                    "description": "Visuele kandidaatsnapshots."
+                },
+                "boardView": {
+                    "title": "Bordweergave",
+                    "description": "Drag-and-drop wervingsflow."
+                }
+            },
+            "imageAlt": "Slimmere Kandidaatfiltering & Visualisatie - Flowxtra ATS",
+            "imageTitle": "Flowxtra – Slimmere Kandidaatfiltering & Visualisatie",
+            "figcaption": "Beheer kandidaten met flexibele weergaven: Lijst-, Kaart- en Bordweergaven voor efficiënte wervingsworkflow."
+        },
+        "applicantOverview": {
+            "title": "Sollicitantoverzicht — Alles-in-één Wervingshub",
+            "description": "Het sollicitantoverzicht van Flowxtra geeft recruiters een compleet, real-time beeld van elke kandidaat—van cv en motivatiebrief tot communicatiegeschiedenis, interviewfase en persoonlijke details.",
+            "description2": "Stuur eenvoudig berichten, plan online meetings of verplaats sollicitanten tussen wervingsfasen—alles vanaf één intuïtief scherm, zonder tabbladen te wisselen of focus te verliezen.",
+            "description3": "Ontworpen voor moderne wervingsteams, vereenvoudigt Flowxtra wervingsbeheer, vermindert repetitieve taken en centraliseert elke actie in één slimme werkruimte.",
+            "description4": "Het is de meest efficiënte oplossing voor wervingsbureaus en bedrijven van alle groottes—helpt je tijd te besparen, georganiseerd te blijven en snellere wervingsbeslissingen te nemen.",
+            "imageAlt": "Sollicitantoverzicht - Alles-in-één Wervingshub - Flowxtra",
+            "imageTitle": "Flowxtra – Sollicitantoverzicht Wervingshub",
+            "figcaption": "Volledig kandidaatoverzicht met cv, communicatiegeschiedenis, interviewfase en persoonlijke details op één scherm."
+        },
+        "ratingSheets": {
+            "title": "Gebruik beoordelingsformulieren in je interviews",
+            "description": "Evalueer kandidaten nauwkeuriger en neem datagestuurde wervingsbeslissingen met de aanpasbare beoordelingsformulieren van Flowxtra.",
+            "description2": "Standaardiseer je interviewproces en zorg ervoor dat elke kandidaat eerlijk en consistent wordt beoordeeld.",
+            "description3": "Vereenvoudig je evaluatieworkflow en verbeter de wervingsnauwkeurigheid.",
+            "description4": "Met Flowxtra wordt interviewfeedback duidelijk, georganiseerd en meetbaar—helpt je team om het beste talent sneller te identificeren.",
+            "features": {
+                "feature1": "Maak gestructureerde interviewtemplates.",
+                "feature2": "Beoordeel kandidaten objectief.",
+                "feature3": "Vergelijk resultaten tussen interviewers."
+            },
+            "imageAlt": "Beoordelingsformulieren voor Interviews - Flowxtra ATS",
+            "imageTitle": "Flowxtra – Interview Beoordelingsformulieren",
+            "figcaption": "Gebruik aanpasbare beoordelingsformulieren om kandidaten te evalueren en datagestuurde wervingsbeslissingen te nemen."
+        },
+        "emailTemplates": {
+            "title": "Aanpasbare E-mailtemplates",
+            "description": "Flowxtra stelt je in staat om professionele e-mailtemplates te maken en te personaliseren voor elke fase van werving.",
+            "description2": "Van interviewuitnodigingen tot follow-ups en feedback—alles kan sneller, slimmer en consistenter worden gedaan.",
+            "description3": "Bespaar tijd, blijf consistent en houd je communicatie professioneel in je hele wervingsteam.",
+            "description4": "Met Flowxtra kun je merkgebonden, gepersonaliseerde berichten direct vanuit het platform verzenden—altijd efficiënt, altijd op het punt.",
+            "features": {
+                "feature1": "Maak eenmaal, hergebruik altijd.",
+                "feature2": "Verstuur interviewuitnodigingen direct.",
+                "feature3": "Volg op of wijs af met één klik."
+            },
+            "imageAlt": "Aanpasbare E-mailtemplates - Flowxtra ATS",
+            "imageTitle": "Flowxtra – Aanpasbare E-mailtemplates",
+            "figcaption": "Maak en personaliseer professionele e-mailtemplates voor elke fase van werving."
+        },
+        "multiposting": {
+            "title": "Slimme Multiposting voor Maximale Bereik",
+            "description": "Flowxtra stelt je in staat om je vacatures te publiceren op meerdere wereldwijde vacaturesites en social media-platforms—alles vanuit één intuïtief dashboard.",
+            "description2": "Bereik top talent sneller zonder de moeite van het afzonderlijk beheren van elke site.",
+            "description3": "Bespaar tijd en verhoog de zichtbaarheid van je vacatures.",
+            "description4": "Met de slimme multiposting-functie van Flowxtra verschijnen je advertenties op LinkedIn, Google Jobs, StepStone en meer—helpt je bedrijf om gekwalificeerde kandidaten sneller en slimmer aan te trekken.",
+            "features": {
+                "feature1": "Plaats eenmaal, publiceer overal.",
+                "feature2": "Verspreid over wereldwijde vacaturesites.",
+                "feature3": "Deel automatisch op social media."
+            },
+            "imageAlt": "Slimme Multiposting voor Maximale Bereik - Flowxtra ATS",
+            "imageTitle": "Flowxtra – Slimme Multiposting Functie",
+            "figcaption": "Publiceer vacatures op meerdere wereldwijde vacaturesites en social media-platforms vanuit één dashboard."
+        },
+        "jobWidget": {
+            "title": "Voeg Vacatures toe aan Elke Website — Geen Code Vereist",
+            "description": "Met de Vacature Widget van Flowxtra kun je direct de open posities van je bedrijf op je website weergeven—zonder technische setup of API-integratie.",
+            "description2": "Of je nu WordPress, Wix, Shopify of een ander platform gebruikt, kopieer gewoon de embedcode en je vacaturebord wordt automatisch actief.",
+            "description3": "Voeg, bewerk of verwijder vacatures direct vanuit Flowxtra, en zie de wijzigingen direct op je website verschijnen—slim, eenvoudig en naadloos.",
+            "features": {
+                "feature1": "Geen code of plugins vereist.",
+                "feature2": "Gecentraliseerde sollicitanttracking met slimme filters",
+                "feature3": "Automatische updates en live synchronisatie."
+            },
+            "imageAlt1": "Voorbeeld Embedcode Vacature Widget 1 - Flowxtra",
+            "imageTitle1": "Flowxtra – Vacature Widget Embedcode",
+            "figcaption1": "Voeg vacatures in op elke website met de Vacature Widget van Flowxtra.",
+            "imageAlt2": "Voorbeeld Embedcode Vacature Widget 2 - Flowxtra",
+            "imageTitle2": "Flowxtra – Vacature Widget Embedcode",
+            "figcaption2": "Voorbeeld embedcode Vacature Widget voor website-integratie."
+        },
+        "talentOverview": {
+            "title": "Intelligente Talentoverzicht",
+            "description": "Visualiseer, vergelijk en organiseer eenvoudig kandidaten met het interactieve wervingsbord van Flowxtra. Monitor elke fase van het wervingsproces, ontdek belangrijke inzichten en neem zelfverzekerde beslissingen—alles in één intuïtieve werkruimte.",
+            "imageAlt": "Intelligente Talentoverzicht - Interactief Wervingsbord - Flowxtra",
+            "imageTitle": "Flowxtra – Intelligente Talentoverzicht",
+            "figcaption": "Visualiseer, vergelijk en organiseer kandidaten met het interactieve wervingsbord van Flowxtra."
+        },
+        "hiringDashboard": {
+            "title": "Gedetailleerd Wervingsdashboard",
+            "description": "Zie live metrics voor open rollen, nieuwe kandidaten, pipelinefasen, interviewroosters en kanaalprestaties—alles op één plek. Handel op basis van real-time inzichten om wervingstijd te verkorten, conversies te verhogen en je team gefocust te houden op wat belangrijk is.",
+            "imageAlt": "Gedetailleerd Wervingsdashboard - Flowxtra ATS",
+            "imageTitle": "Flowxtra – Gedetailleerd Wervingsdashboard",
+            "figcaption": "Zie live metrics voor open rollen, nieuwe kandidaten, pipelinefasen en interviewroosters in één dashboard."
+        },
+        "ctaSection": {
+            "title": "Klaar om Slimmer en Sneller te Werven?",
+            "description": "Stop met tijd verspillen door te schakelen tussen vacaturesites. Plaats vacatures, volg sollicitanten en werf top talent—alles vanuit één intelligente wervingsplatform.",
+            "cta": "Begin je gratis plan"
+        }
     },
     "about": {
         "badge": "Over Ons",
