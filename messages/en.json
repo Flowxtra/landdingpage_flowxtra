@@ -19,6 +19,10 @@
         "features": {
             "title": "Features – AI-Powered Recruiting & ATS Software | Flowxtra",
             "description": "Discover Flowxtra's powerful features: free job posting, AI candidate filtering, multiposting, email templates, and more."
+        },
+        "freeJobPosting": {
+            "title": "Free Job Posting – Post Jobs for Free | Flowxtra",
+            "description": "Post unlimited job openings for free with Flowxtra. Reach top talent across multiple job boards with our free job posting platform. No credit card required."
         }
     },
     "common": {
@@ -38,7 +42,8 @@
     },
     "navigation": {
         "socialMediaManagement": "Social Media Management",
-        "atsRecruitingSoftware": "ATS Recruiting Software"
+        "atsRecruitingSoftware": "ATS Recruiting Software",
+        "freeJobPosting": "Free Job Posting"
     },
     "homepage": {
         "title": "Welcome to Flowxtra",
@@ -322,6 +327,199 @@
         "imageAlt": "AI-powered recruiting and HR platform for smarter hiring",
         "imageTitle": "Flowxtra – All-in-One AI Recruiting & HR Platform",
         "figcaption": "Manage job posts, candidates, and contracts with AI — all in one place, Free."
+    },
+    "freeJobPosting": {
+        "badge": "Free Job Posting",
+        "title": "Post Jobs for Free with Flowxtra",
+        "description": "Start hiring today with unlimited free job postings. Reach qualified candidates across multiple job boards with our powerful, easy-to-use platform. No credit card required—get started in minutes.",
+        "cta": "Get Started Free",
+        "viewPricing": "View Pricing",
+        "imageAlt": "Free job posting platform - Post unlimited jobs for free",
+        "imageTitle": "Flowxtra Free Job Posting Platform",
+        "figcaption": "Post and manage unlimited job openings for free with Flowxtra's powerful recruitment platform.",
+        "features": {
+            "freeForever": "100% Free",
+            "noCreditCard": "No credit card required",
+            "cancelAnytime": "Cancel anytime",
+            "feature1": {
+                "title": "Unlimited Free Postings",
+                "description": "Post as many job openings as you need, completely free. No hidden fees, no limits."
+            },
+            "feature2": {
+                "title": "Multi-Board Distribution",
+                "description": "Reach candidates on multiple job boards simultaneously with one click."
+            },
+            "feature3": {
+                "title": "AI Powered",
+                "description": "Leverage the power of AI to streamline your recruitment process."
+            },
+            "feature4": {
+                "title": "Easy Management",
+                "description": "Manage all your job postings from one intuitive dashboard."
+            },
+            "feature5": {
+                "title": "Real-Time Analytics",
+                "description": "Track views, applications, and performance metrics for each posting."
+            },
+            "feature6": {
+                "title": "No Credit Card Required",
+                "description": "Start posting jobs immediately—no payment information needed."
+            }
+        },
+        "benefits": {
+            "title": "Why Choose Free Job Posting?",
+            "benefit1": {
+                "title": "Save Money",
+                "description": "Eliminate expensive job board fees and post unlimited positions at no cost."
+            },
+            "benefit2": {
+                "title": "Reach More Candidates",
+                "description": "Distribute your job postings across multiple platforms to maximize visibility."
+            },
+            "benefit3": {
+                "title": "Faster Hiring",
+                "description": "Get your job postings live in minutes and start receiving applications immediately."
+            },
+            "benefit4": {
+                "title": "Full Control",
+                "description": "Manage, edit, and optimize your postings anytime from your dashboard."
+            }
+        },
+        "howItWorks": {
+            "title": "How It Works",
+            "step1": {
+                "title": "Sign Up Free",
+                "description": "Create your free account in seconds—no credit card required."
+            },
+            "step2": {
+                "title": "Post Your Job",
+                "description": "Fill in your job details and publish to multiple job boards instantly."
+            },
+            "step3": {
+                "title": "Find Talent",
+                "description": "Receive applications from qualified candidates and manage them all in one place."
+            }
+        },
+        "finalCta": {
+            "title": "Ready to Start Hiring?",
+            "description": "Join thousands of companies already using Flowxtra to post jobs for free and find the best talent.",
+            "button": "Start Posting Jobs Free"
+        },
+        "candidateFiltering": {
+            "title": "Smarter Candidate Filtering & Visualization",
+            "description": "Flowxtra offers a flexible and modern way to manage every stage of recruitment.",
+            "description2": "Easily navigate between different candidate views to match your workflow and team preferences.",
+            "description3": "With Flowxtra's intelligent Applicant Tracking System (ATS), you can easily organize, filter, and move candidates through every stage — from application to interview to hire — all in one smart, unified workspace.",
+            "description4": "Communicate instantly, schedule online interviews, and collaborate with your team in real time — without leaving the page or losing focus.",
+            "features": {
+                "listView": {
+                    "title": "List View",
+                    "description": "Simple, detailed data view."
+                },
+                "cardView": {
+                    "title": "Card View",
+                    "description": "Visual candidate snapshots."
+                },
+                "boardView": {
+                    "title": "Board View",
+                    "description": "Drag-and-drop hiring flow."
+                }
+            },
+            "imageAlt": "Smarter Candidate Filtering & Visualization - Flowxtra ATS",
+            "imageTitle": "Flowxtra – Smarter Candidate Filtering & Visualization",
+            "figcaption": "Manage candidates with flexible views: List, Card, and Board views for efficient recruitment workflow."
+        },
+        "applicantOverview": {
+            "title": "Applicant Overview —All-in-One Recruitment Hub",
+            "description": "Flowxtra's Applicant Overview gives recruiters a complete, real-time picture of every candidate — from resume and cover letter to communication history, interview stage, and personal details.",
+            "description2": "Easily send messages, schedule online meetings, or move applicants between hiring stages — all from one intuitive screen, without switching tabs or losing focus.",
+            "description3": "Designed for modern hiring teams, Flowxtra simplifies recruitment management, reduces repetitive tasks, and centralizes every action in one smart workspace.",
+            "description4": "It's the most efficient solution for recruitment agencies and companies of all sizes — helping you save time, stay organized, and make faster hiring decisions.",
+            "imageAlt": "Applicant Overview - All-in-One Recruitment Hub - Flowxtra",
+            "imageTitle": "Flowxtra – Applicant Overview Recruitment Hub",
+            "figcaption": "Complete candidate overview with resume, communication history, interview stage, and personal details in one screen."
+        },
+        "ratingSheets": {
+            "title": "Use rating sheets in your interviews",
+            "description": "Evaluate candidates more accurately and make data-driven hiring decisions with Flowxtra's customizable rating sheets.",
+            "description2": "Standardize your interview process and ensure every candidate is assessed fairly and consistently.",
+            "description3": "Simplify your evaluation workflow and improve hiring accuracy.",
+            "description4": "With Flowxtra, interview feedback becomes clear, organized, and measurable — helping your team identify the best talent faster.",
+            "features": {
+                "feature1": "Create structured interview templates.",
+                "feature2": "Score candidates objectively.",
+                "feature3": "Compare results across interviewers."
+            },
+            "imageAlt": "Rating Sheets for Interviews - Flowxtra ATS",
+            "imageTitle": "Flowxtra – Interview Rating Sheets",
+            "figcaption": "Use customizable rating sheets to evaluate candidates and make data-driven hiring decisions."
+        },
+        "emailTemplates": {
+            "title": "Customizable Email Templates",
+            "description": "Flowxtra lets you create and personalize professional email templates for every stage of recruitment.",
+            "description2": "From interview invitations to follow-ups and feedback — everything can be done faster, smarter, and more consistently.",
+            "description3": "Save time, stay consistent, and keep your communication professional across your entire hiring team.",
+            "description4": "With Flowxtra, you can send branded, personalized messages directly from the platform — always efficient, always on point.",
+            "features": {
+                "feature1": "Create once, reuse anytime.",
+                "feature2": "Send interview invites instantly.",
+                "feature3": "Follow up or reject with one click."
+            },
+            "imageAlt": "Customizable Email Templates - Flowxtra ATS",
+            "imageTitle": "Flowxtra – Customizable Email Templates",
+            "figcaption": "Create and personalize professional email templates for every stage of recruitment."
+        },
+        "multiposting": {
+            "title": "Smart Multiposting for Maximum Reach",
+            "description": "Flowxtra lets you publish your job openings across multiple global job boards and social media platforms — all from one intuitive dashboard.",
+            "description2": "Reach top talent faster without the hassle of managing each site separately.",
+            "description3": "Save time and boost your job visibility.",
+            "description4": "With Flowxtra's smart multiposting feature, your listings appear on LinkedIn, Google Jobs, StepStone, and more — helping your company attract qualified candidates faster and smarter.",
+            "features": {
+                "feature1": "Post once, publish everywhere.",
+                "feature2": "Distribute across global job boards.",
+                "feature3": "Share automatically on social media."
+            },
+            "imageAlt": "Smart Multiposting for Maximum Reach - Flowxtra ATS",
+            "imageTitle": "Flowxtra – Smart Multiposting Feature",
+            "figcaption": "Publish job openings across multiple global job boards and social media platforms from one dashboard."
+        },
+        "jobWidget": {
+            "title": "Add Job Listings to Any Website — No Code Needed",
+            "description": "With Flowxtra's Job Widget, you can instantly display your company's open positions on your website — without any technical setup or API integration.",
+            "description2": "Whether you're using WordPress, Wix, Shopify, or any other platform, simply copy the embed code and your job board goes live automatically.",
+            "description3": "Add, edit, or remove job openings directly from Flowxtra, and see the changes appear instantly on your website — smart, simple, and seamless.",
+            "features": {
+                "feature1": "No coding or plugins required.",
+                "feature2": "Centralized applicant tracking with smart filters",
+                "feature3": "Automatic updates and live synchronization."
+            },
+            "imageAlt1": "Job Widget Embed Code Example 1 - Flowxtra",
+            "imageTitle1": "Flowxtra – Job Widget Embed Code",
+            "figcaption1": "Embed job listings on any website with Flowxtra's Job Widget.",
+            "imageAlt2": "Job Widget Embed Code Example 2 - Flowxtra",
+            "imageTitle2": "Flowxtra – Job Widget Embed Code",
+            "figcaption2": "Job Widget embed code example for website integration."
+        },
+        "talentOverview": {
+            "title": "Intelligent Talent Overview",
+            "description": "Easily visualize, compare, and organize candidates using Flowxtra's interactive recruitment board. Monitor every stage of the hiring process, uncover key insights, and make confident decisions — all in one intuitive workspace.",
+            "imageAlt": "Intelligent Talent Overview - Interactive Recruitment Board - Flowxtra",
+            "imageTitle": "Flowxtra – Intelligent Talent Overview",
+            "figcaption": "Visualize, compare, and organize candidates using Flowxtra's interactive recruitment board."
+        },
+        "hiringDashboard": {
+            "title": "Detailed Hiring Dashboard",
+            "description": "See live metrics for open roles, new candidates, pipeline stages, interview schedules, and channel performance — all in one place. Act on real-time insights to cut time-to-hire, boost conversions, and keep your team focused on what matters.",
+            "imageAlt": "Detailed Hiring Dashboard - Flowxtra ATS",
+            "imageTitle": "Flowxtra – Detailed Hiring Dashboard",
+            "figcaption": "See live metrics for open roles, new candidates, pipeline stages, and interview schedules in one dashboard."
+        },
+        "ctaSection": {
+            "title": "Ready to Hire Smarter and Faster?",
+            "description": "Stop wasting time switching between job boards. Post jobs, track applicants, and hire top talent—all from one intelligent recruiting platform.",
+            "cta": "Start your free plan"
+        }
     },
     "about": {
         "badge": "About Us",

@@ -263,7 +263,7 @@ function Header() {
                         {tNav("socialMediaManagement")}
                       </Link>
                       <Link
-                        href={`/${currentLocale}/ats-recruiting-software`}
+                        href={`/${currentLocale}/free-job-posting`}
                         className={cn(
                           "block px-3 py-2 text-sm rounded-sm",
                           "text-gray-700 dark:text-gray-300",
@@ -272,7 +272,7 @@ function Header() {
                           "transition-colors"
                         )}
                       >
-                        {tNav("atsRecruitingSoftware")}
+                        {tNav("freeJobPosting")}
                       </Link>
                     </div>
                   </div>
@@ -569,6 +569,13 @@ function Header() {
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {tNav("atsRecruitingSoftware")}
+                    </Link>
+                    <Link
+                      href={`/${currentLocale}/free-job-posting`}
+                      className="block text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-secondary-light transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {tNav("freeJobPosting")}
                     </Link>
                   </div>
                 )}
