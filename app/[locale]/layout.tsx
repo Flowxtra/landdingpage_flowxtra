@@ -61,7 +61,7 @@ export async function generateMetadata({
       canonicalUrl = `${baseUrl}${pathname}`;
       
       // Build hreflang URLs for the same page in all languages
-      const supportedLocales = ['en', 'de', 'fr', 'es', 'it', 'nl'];
+      const supportedLocales = ['en', 'de', 'fr', 'es', 'it', 'nl', 'ar'];
       supportedLocales.forEach(lang => {
         hreflangUrls[lang] = `${baseUrl}/${lang}${pathAfterLocale}`;
       });
@@ -70,7 +70,7 @@ export async function generateMetadata({
   } else {
     // Fallback to homepage if pathname is not available
     canonicalUrl = `${baseUrl}/${locale}`;
-    const supportedLocales = ['en', 'de', 'fr', 'es', 'it', 'nl'];
+    const supportedLocales = ['en', 'de', 'fr', 'es', 'it', 'nl', 'ar'];
     supportedLocales.forEach(lang => {
       hreflangUrls[lang] = `${baseUrl}/${lang}`;
     });
@@ -107,7 +107,7 @@ export async function generateMetadata({
           'es': `${baseUrl}/es`,
           'it': `${baseUrl}/it`,
           'nl': `${baseUrl}/nl`,
-          // 'ar': `${baseUrl}/ar`, // Temporarily disabled
+          'ar': `${baseUrl}/ar`,
         },
       },
       robots: {
@@ -152,7 +152,7 @@ export async function generateMetadata({
           'es': `${baseUrl}/es`,
           'it': `${baseUrl}/it`,
           'nl': `${baseUrl}/nl`,
-          // 'ar': `${baseUrl}/ar`, // Temporarily disabled
+          'ar': `${baseUrl}/ar`,
         },
       },
       robots: {
@@ -197,7 +197,7 @@ export async function generateMetadata({
           'es': `${baseUrl}/es`,
           'it': `${baseUrl}/it`,
           'nl': `${baseUrl}/nl`,
-          // 'ar': `${baseUrl}/ar`, // Temporarily disabled
+          'ar': `${baseUrl}/ar`,
         },
       },
       robots: {
@@ -242,7 +242,7 @@ export async function generateMetadata({
           'es': `${baseUrl}/es`,
           'it': `${baseUrl}/it`,
           'nl': `${baseUrl}/nl`,
-          // 'ar': `${baseUrl}/ar`, // Temporarily disabled
+          'ar': `${baseUrl}/ar`,
         },
       },
       robots: {
@@ -287,7 +287,7 @@ export async function generateMetadata({
           'es': `${baseUrl}/es`,
           'it': `${baseUrl}/it`,
           'nl': `${baseUrl}/nl`,
-          // 'ar': `${baseUrl}/ar`, // Temporarily disabled
+          'ar': `${baseUrl}/ar`,
         },
       },
       robots: {
@@ -332,7 +332,7 @@ export async function generateMetadata({
           'es': `${baseUrl}/es`,
           'it': `${baseUrl}/it`,
           'nl': `${baseUrl}/nl`,
-          // 'ar': `${baseUrl}/ar`, // Temporarily disabled
+          'ar': `${baseUrl}/ar`,
         },
       },
       robots: {
@@ -347,52 +347,51 @@ export async function generateMetadata({
         },
       },
     },
-    // Arabic temporarily disabled
-    // ar: {
-    //   title: {
-    //     default: "Flowxtra – برنامج التوظيف & أداة التوظيف الذكية | نشر الوظائف مجاناً",
-    //     template: "%s | Flowxtra",
-    //   },
-    //   description: "وظّف بذكاء أكبر مع الذكاء الاصطناعي — انشر الوظائف مجاناً وأدر المرشحين في منصة واحدة بسيطة وقوية.",
-    //   keywords: ["توظيف", "برنامج توظيف", "ATS", "توظيف بالذكاء الاصطناعي", "أداة توظيف ذكية", "نشر وظائف مجاني", "إدارة المرشحين", "منصة توظيف"],
-    //   metadataBase: new URL(baseUrl),
-    //   openGraph: {
-    //     title: "Flowxtra – برنامج التوظيف & أداة التوظيف الذكية | نشر الوظائف مجاناً",
-    //     description: "وظّف بذكاء أكبر مع الذكاء الاصطناعي — انشر الوظائف مجاناً وأدر المرشحين في منصة واحدة بسيطة وقوية.",
-    //     type: "website",
-    //     locale: "ar_SA",
-    //     url: `${baseUrl}/ar`,
-    //     siteName: "Flowxtra",
-    //   },
-    //   twitter: {
-    //     card: "summary_large_image",
-    //     title: "Flowxtra – برنامج التوظيف & أداة التوظيف الذكية | نشر الوظائف مجاناً",
-    //     description: "وظّف بذكاء أكبر مع الذكاء الاصطناعي — انشر الوظائف مجاناً وأدر المرشحين في منصة واحدة بسيطة وقوية.",
-    //   },
-    //   alternates: {
-    //     canonical: canonicalUrl,
-    //     languages: {
-    //       'en': `${baseUrl}/en`,
-    //       'de': `${baseUrl}/de`,
-    //       'fr': `${baseUrl}/fr`,
-    //       'es': `${baseUrl}/es`,
-    //       'it': `${baseUrl}/it`,
-    //       'nl': `${baseUrl}/nl`,
-    //       // 'ar': `${baseUrl}/ar`, // Temporarily disabled
-    //     },
-    //   },
-    //   robots: {
-    //     index: true,
-    //     follow: true,
-    //     googleBot: {
-    //       index: true,
-    //       follow: true,
-    //       'max-video-preview': -1,
-    //       'max-image-preview': 'large' as const,
-    //       'max-snippet': -1,
-    //     },
-    //   },
-    // },
+    ar: {
+      title: {
+        default: "Flowxtra – برنامج التوظيف & أداة التوظيف الذكية | نشر الوظائف مجاناً",
+        template: "%s | Flowxtra",
+      },
+      description: "وظّف بذكاء أكبر مع الذكاء الاصطناعي — انشر الوظائف مجاناً وأدر المرشحين في منصة واحدة بسيطة وقوية.",
+      keywords: ["توظيف", "برنامج توظيف", "ATS", "توظيف بالذكاء الاصطناعي", "أداة توظيف ذكية", "نشر وظائف مجاني", "إدارة المرشحين", "منصة توظيف"],
+      metadataBase: new URL(baseUrl),
+      openGraph: {
+        title: "Flowxtra – برنامج التوظيف & أداة التوظيف الذكية | نشر الوظائف مجاناً",
+        description: "وظّف بذكاء أكبر مع الذكاء الاصطناعي — انشر الوظائف مجاناً وأدر المرشحين في منصة واحدة بسيطة وقوية.",
+        type: "website",
+        locale: "ar_SA",
+        url: `${baseUrl}/ar`,
+        siteName: "Flowxtra",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Flowxtra – برنامج التوظيف & أداة التوظيف الذكية | نشر الوظائف مجاناً",
+        description: "وظّف بذكاء أكبر مع الذكاء الاصطناعي — انشر الوظائف مجاناً وأدر المرشحين في منصة واحدة بسيطة وقوية.",
+      },
+      alternates: {
+        ...(canonicalUrl && { canonical: canonicalUrl }),
+        languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
+          'en': `${baseUrl}/en`,
+          'de': `${baseUrl}/de`,
+          'fr': `${baseUrl}/fr`,
+          'es': `${baseUrl}/es`,
+          'it': `${baseUrl}/it`,
+          'nl': `${baseUrl}/nl`,
+          'ar': `${baseUrl}/ar`,
+        },
+      },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large' as const,
+          'max-snippet': -1,
+        },
+      },
+    },
   };
 
   return metadata[locale as keyof typeof metadata] || metadata.en;
@@ -533,7 +532,7 @@ export default async function LocaleLayout({
                   "telephone": "+43-676-905-4441",
                   "contactType": "Customer Support",
                   "email": "support@flowxtra.com",
-                  "availableLanguage": ["en", "de"],
+                  "availableLanguage": ["en", "de", "fr", "es", "it", "nl", "ar"],
                   "areaServed": "Worldwide"
                 }
               ],
@@ -732,7 +731,7 @@ export default async function LocaleLayout({
               },
               "contentUrl": `https://www.youtube.com/watch?v=${locale === 'de' ? 'r5sBu2-NOqs' : 'CGa2grClFsw'}`,
               "embedUrl": `https://www.youtube.com/embed/${locale === 'de' ? 'r5sBu2-NOqs' : 'CGa2grClFsw'}`,
-              "inLanguage": locale === 'de' ? 'de' : 'en'
+              "inLanguage": locale === 'de' ? 'de' : locale === 'ar' ? 'ar' : 'en'
             })
           }}
         />
