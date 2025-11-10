@@ -189,7 +189,7 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
       starter: tCompare('values.chat'),
       basic: tCompare('values.chat'),
       professional: tCompare('values.chat'),
-      advanced: tCompare('values.chat'),
+      advanced: tCompare('values.chatOnlineMeetings'),
       premium: tCompare('values.chatOnlineMeetings'),
       enterprise: tCompare('values.chatOnlineMeetings'),
       description: tCompare('features.support247.description'),
