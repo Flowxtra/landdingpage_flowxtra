@@ -564,13 +564,6 @@ function Header() {
                       {tNav("socialMediaManagement")}
                     </Link>
                     <Link
-                      href={`/${currentLocale}/ats-recruiting-software`}
-                      className="block text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-secondary-light transition-colors"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {tNav("atsRecruitingSoftware")}
-                    </Link>
-                    <Link
                       href={`/${currentLocale}/free-job-posting`}
                       className="block text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-secondary-light transition-colors"
                       onClick={() => setIsMenuOpen(false)}
