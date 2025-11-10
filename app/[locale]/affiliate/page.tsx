@@ -99,7 +99,6 @@ export default function AffiliatePage() {
     { plan: "basic", price: 99, commission: 49.5, monthly: 49.5, total: 594 },
     { plan: "professional", price: 249, commission: 124.5, monthly: 124.5, total: 1494 },
     { plan: "advanced", price: 399, commission: 199.5, monthly: 199.5, total: 2394 },
-    { plan: "enterprise", price: 799, commission: 399.5, monthly: 399.5, total: 4794 },
   ];
 
   return (
