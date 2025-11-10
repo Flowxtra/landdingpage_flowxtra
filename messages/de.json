@@ -659,6 +659,22 @@
                 "name": "Stellenanzeigen / Monat",
                 "description": "Anzahl der aktiven Stellenplätze, die Sie gleichzeitig pro Monat veröffentlichen können."
             },
+            "socialMediaScheduling": {
+                "name": "Social Media Planung",
+                "description": "Planen und verwalten Sie Ihre Social-Media-Beiträge auf allen Plattformen. Planen Sie Ihre Inhalte im Voraus und halten Sie einen konsistenten Veröffentlichungsplan ein."
+            },
+            "socialMediaAccounts": {
+                "name": "Social Media Konten",
+                "description": "Anzahl der Social-Media-Konten, die Sie über die Plattform verbinden und verwalten können."
+            },
+            "socialMediaPosting": {
+                "name": "Social Media Veröffentlichungen",
+                "description": "Unbegrenzte Social-Media-Beiträge für alle verbundenen Konten. Planen und veröffentlichen Sie so viele Beiträge wie Sie benötigen, ohne Einschränkungen."
+            },
+            "socialMediaPipeline": {
+                "name": "Social Media Pipeline",
+                "description": "Erstellen Sie automatisierte Phasen zur Verteilung von Inhalten über mehrere Kanäle, verfolgen Sie den Fortschritt und koordinieren Sie Übergaben zwischen Marketing- und Recruiting-Teams."
+            },
             "userSeats": {
                 "name": "Benutzerplätze",
                 "description": "Gesamtzahl der Teammitglieder, die innerhalb Ihres Kontos zusammenarbeiten können."

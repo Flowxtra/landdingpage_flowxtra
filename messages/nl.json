@@ -659,6 +659,22 @@
                 "name": "Vacatureplaatsingen / maand",
                 "description": "Aantal actieve vacatureslots dat u gelijktijdig per maand kunt publiceren."
             },
+            "socialMediaScheduling": {
+                "name": "Social Media Planning",
+                "description": "Plan en beheer uw social media berichten op alle platforms. Plan uw content vooraf en houd een consistente publicatieschema aan."
+            },
+            "socialMediaAccounts": {
+                "name": "Social Media Accounts",
+                "description": "Aantal social media accounts dat u via het platform kunt verbinden en beheren."
+            },
+            "socialMediaPosting": {
+                "name": "Social Media Publicaties",
+                "description": "Onbeperkte social media berichten voor alle verbonden accounts. Plan en publiceer zoveel berichten als u nodig heeft zonder beperkingen."
+            },
+            "socialMediaPipeline": {
+                "name": "Social Media Pipeline",
+                "description": "Bouw geautomatiseerde fasen om content via meerdere kanalen te promoten, volg de voortgang en coördineer de overdracht tussen marketing- en recruitmentteams."
+            },
             "userSeats": {
                 "name": "Gebruikersplaatsen",
                 "description": "Totaal aantal teamleden dat kan samenwerken binnen uw account."

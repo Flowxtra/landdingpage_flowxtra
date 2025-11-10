@@ -659,6 +659,22 @@
                 "name": "Pubblicazioni / mese",
                 "description": "Numero di slot lavoro attivi che puoi pubblicare simultaneamente al mese."
             },
+            "socialMediaScheduling": {
+                "name": "Pianificazione Social Media",
+                "description": "Pianifica e gestisci i tuoi post sui social media su tutte le piattaforme. Pianifica i tuoi contenuti in anticipo e mantieni un calendario di pubblicazione coerente."
+            },
+            "socialMediaAccounts": {
+                "name": "Account Social Media",
+                "description": "Numero di account social media che puoi collegare e gestire tramite la piattaforma."
+            },
+            "socialMediaPosting": {
+                "name": "Pubblicazione Social Media",
+                "description": "Post illimitati sui social media per tutti gli account collegati. Pianifica e pubblica tutti i post di cui hai bisogno senza restrizioni."
+            },
+            "socialMediaPipeline": {
+                "name": "Social Media Pipeline",
+                "description": "Crea fasi automatizzate per promuovere i contenuti su più canali, monitora l'avanzamento e coordina i passaggi tra i team marketing e recruiting."
+            },
             "userSeats": {
                 "name": "Posti utente",
                 "description": "Membri del team totali che possono collaborare nel tuo account."

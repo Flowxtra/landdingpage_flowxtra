@@ -659,6 +659,22 @@
                 "name": "Publicaciones de empleos / mes",
                 "description": "Número de vacantes activas que puedes publicar simultáneamente por mes."
             },
+            "socialMediaScheduling": {
+                "name": "Programación de Redes Sociales",
+                "description": "Programa y gestiona tus publicaciones en redes sociales en todas las plataformas. Planifica tu contenido con anticipación y mantén un calendario de publicaciones consistente."
+            },
+            "socialMediaAccounts": {
+                "name": "Cuentas de Redes Sociales",
+                "description": "Número de cuentas de redes sociales que puedes conectar y gestionar a través de la plataforma."
+            },
+            "socialMediaPosting": {
+                "name": "Publicación en Redes Sociales",
+                "description": "Publicaciones ilimitadas en redes sociales para todas las cuentas conectadas. Programa y publica tantas publicaciones como necesites sin restricciones."
+            },
+            "socialMediaPipeline": {
+                "name": "Social Media Pipeline",
+                "description": "Crea etapas automatizadas para promocionar contenido en múltiples canales, realiza seguimiento del progreso y coordina las entregas entre los equipos de marketing y reclutamiento."
+            },
             "userSeats": {
                 "name": "Asientos de usuario",
                 "description": "Total de miembros del equipo que pueden colaborar dentro de tu cuenta."

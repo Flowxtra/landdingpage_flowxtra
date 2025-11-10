@@ -164,60 +164,6 @@ export default function PricingSection({ defaultCompareOpen = true }: PricingSec
           </div>
 
           {/* Basic Plan */}
-          <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{t("plans.basic")}</h3>
-            
-            <div className="mb-6">
-              <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-gray-900 dark:text-white">{formatFromEur(99)}</span>
-                <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">{t("plans.monthly")}</span>
-              </div>
-            </div>
-
-            <p className="text-sm text-gray-600 dark:text-white mb-4">{t("plans.forGrowingBusinesses")}</p>
-            
-            <ul className="space-y-3 mb-8 flex-grow">
-              <li className="flex items-start gap-2 group cursor-pointer">
-                <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.skillsReservoir")}</span>
-              </li>
-              <li className="flex items-start gap-2 group cursor-pointer">
-                <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.unlimitedStorage")}</span>
-              </li>
-              <li className="flex items-start gap-2 group cursor-pointer">
-                <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.removeBranding")}</span>
-              </li>
-              <li className="flex items-start gap-2 group cursor-pointer">
-                <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.journeyFlow")}</span>
-              </li>
-              <li className="flex items-start gap-2 group cursor-pointer">
-                <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.clientProfiles")}</span>
-              </li>
-            </ul>
-
-            <a
-              href="https://my.flowxtra.com/registration"
-              className="block text-center border-2 border-primary text-primary dark:border-white dark:text-white px-6 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
-            >
-              {t("plans.getStarted")}
-            </a>
-          </div>
-
-          {/* Professional Plan */}
           <div className="border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col relative overflow-hidden shadow-2xl"
             style={{
               backgroundImage: 'url(/img/1bg.svg)',
@@ -226,48 +172,48 @@ export default function PricingSection({ defaultCompareOpen = true }: PricingSec
               backgroundRepeat: 'no-repeat'
             }}
           >
-            <h3 className="text-xl font-bold text-white mb-6 relative z-10">{t("plans.professional")}</h3>
+            <h3 className="text-xl font-bold text-white mb-6 relative z-10">{t("plans.basic")}</h3>
             
             <div className="mb-6 relative z-10">
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-white">{formatFromEur(249)}</span>
+                <span className="text-4xl font-bold text-white">{formatFromEur(99)}</span>
                 <span className="text-sm text-white/80 font-medium">{t("plans.monthly")}</span>
               </div>
             </div>
 
-            <p className="text-sm text-white/90 mb-4 relative z-10">{t("plans.forCustomNeeds")}</p>
+            <p className="text-sm text-white/90 mb-4 relative z-10">{t("plans.forGrowingBusinesses")}</p>
             
             <ul className="space-y-3 mb-8 flex-grow relative z-10">
-            <li className="flex items-start gap-2 group cursor-pointer">
-              <svg className="w-5 h-5 text-white group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              <span className="text-sm text-white/90 group-hover:text-button-hover transition-colors">{t("features.multiOfficeLocation")}</span>
-            </li>
-            <li className="flex items-start gap-2 group cursor-pointer">
-              <svg className="w-5 h-5 text-white group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              <span className="text-sm text-white/90 group-hover:text-button-hover transition-colors">{t("features.newsletter")}</span>
-            </li>
-            <li className="flex items-start gap-2 group cursor-pointer">
-              <svg className="w-5 h-5 text-white group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              <span className="text-sm text-white/90 group-hover:text-button-hover transition-colors">{t("features.candidatePresentation")}</span>
-            </li>
-            <li className="flex items-start gap-2 group cursor-pointer">
-              <svg className="w-5 h-5 text-white group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              <span className="text-sm text-white/90 group-hover:text-button-hover transition-colors">{t("features.employeeOnboarding")}</span>
-            </li>
-            <li className="flex items-start gap-2 group cursor-pointer">
-              <svg className="w-5 h-5 text-white group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              <span className="text-sm text-white/90 group-hover:text-button-hover transition-colors">{t("features.socialMediaPipeline")}</span>
-            </li>
+              <li className="flex items-start gap-2 group cursor-pointer">
+                <svg className="w-5 h-5 text-white group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span className="text-sm text-white/90 group-hover:text-button-hover transition-colors">{t("features.skillsReservoir")}</span>
+              </li>
+              <li className="flex items-start gap-2 group cursor-pointer">
+                <svg className="w-5 h-5 text-white group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span className="text-sm text-white/90 group-hover:text-button-hover transition-colors">{t("features.unlimitedStorage")}</span>
+              </li>
+              <li className="flex items-start gap-2 group cursor-pointer">
+                <svg className="w-5 h-5 text-white group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span className="text-sm text-white/90 group-hover:text-button-hover transition-colors">{t("features.removeBranding")}</span>
+              </li>
+              <li className="flex items-start gap-2 group cursor-pointer">
+                <svg className="w-5 h-5 text-white group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span className="text-sm text-white/90 group-hover:text-button-hover transition-colors">{t("features.journeyFlow")}</span>
+              </li>
+              <li className="flex items-start gap-2 group cursor-pointer">
+                <svg className="w-5 h-5 text-white group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span className="text-sm text-white/90 group-hover:text-button-hover transition-colors">{t("features.clientProfiles")}</span>
+              </li>
             </ul>
 
             <a
@@ -277,6 +223,60 @@ export default function PricingSection({ defaultCompareOpen = true }: PricingSec
               {t("plans.getStarted")}
             </a>
           </div>
+
+        {/* Professional Plan */}
+        <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl p-6 flex flex-col">
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">{t("plans.professional")}</h3>
+          
+          <div className="mb-6">
+            <div className="flex items-baseline gap-2">
+              <span className="text-4xl font-bold text-gray-900 dark:text-white">{formatFromEur(249)}</span>
+              <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">{t("plans.monthly")}</span>
+            </div>
+          </div>
+
+          <p className="text-sm text-gray-600 dark:text-white mb-4">{t("plans.forCustomNeeds")}</p>
+          
+          <ul className="space-y-3 mb-8 flex-grow">
+            <li className="flex items-start gap-2 group cursor-pointer">
+              <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.multiOfficeLocation")}</span>
+            </li>
+            <li className="flex items-start gap-2 group cursor-pointer">
+              <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.newsletter")}</span>
+            </li>
+            <li className="flex items-start gap-2 group cursor-pointer">
+              <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.candidatePresentation")}</span>
+            </li>
+            <li className="flex items-start gap-2 group cursor-pointer">
+              <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.employeeOnboarding")}</span>
+            </li>
+            <li className="flex items-start gap-2 group cursor-pointer">
+              <svg className="w-5 h-5 text-primary dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover flex-shrink-0 mt-0.5 transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              <span className="text-sm text-gray-600 dark:text-white group-hover:text-button-hover dark:group-hover:text-button-hover transition-colors">{t("features.socialMediaPipeline")}</span>
+            </li>
+          </ul>
+
+          <a
+            href="https://my.flowxtra.com/registration"
+            className="block text-center border-2 border-primary text-primary dark:border-white dark:text-white px-6 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium"
+          >
+            {t("plans.getStarted")}
+          </a>
+        </div>
         </div>
 
         {/* Enterprise Plans */}

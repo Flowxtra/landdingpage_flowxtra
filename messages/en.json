@@ -659,6 +659,22 @@
                 "name": "Job postings / month",
                 "description": "Number of active job slots you can publish simultaneously per month."
             },
+            "socialMediaScheduling": {
+                "name": "Social Media Scheduling",
+                "description": "Schedule and manage your social media posts across all platforms. Plan your content in advance and maintain a consistent posting schedule."
+            },
+            "socialMediaAccounts": {
+                "name": "Social Media Accounts",
+                "description": "Number of social media accounts you can connect and manage through the platform."
+            },
+            "socialMediaPosting": {
+                "name": "Social Media Posting",
+                "description": "Unlimited social media posts across all connected accounts. Schedule and publish as many posts as you need without restrictions."
+            },
+            "socialMediaPipeline": {
+                "name": "Social Media Pipeline",
+                "description": "Build automated stages for promoting content across multiple channels, track progress, and coordinate hand-offs between marketing and recruitment teams."
+            },
             "userSeats": {
                 "name": "User seats",
                 "description": "Total team members who can collaborate inside your account."

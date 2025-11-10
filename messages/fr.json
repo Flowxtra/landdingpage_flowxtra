@@ -659,6 +659,22 @@
                 "name": "Offres d'emploi / mois",
                 "description": "Nombre d'emplacements d'emploi actifs que vous pouvez publier simultanément par mois."
             },
+            "socialMediaScheduling": {
+                "name": "Planification des Réseaux Sociaux",
+                "description": "Planifiez et gérez vos publications sur les réseaux sociaux sur toutes les plateformes. Planifiez votre contenu à l'avance et maintenez un calendrier de publication cohérent."
+            },
+            "socialMediaAccounts": {
+                "name": "Comptes de Réseaux Sociaux",
+                "description": "Nombre de comptes de réseaux sociaux que vous pouvez connecter et gérer via la plateforme."
+            },
+            "socialMediaPosting": {
+                "name": "Publication sur les Réseaux Sociaux",
+                "description": "Publications illimitées sur les réseaux sociaux pour tous les comptes connectés. Planifiez et publiez autant de publications que nécessaire sans restrictions."
+            },
+            "socialMediaPipeline": {
+                "name": "Social Media Pipeline",
+                "description": "Créez des étapes automatisées pour promouvoir le contenu sur plusieurs canaux, suivez la progression et coordonnez les relais entre les équipes marketing et recrutement."
+            },
             "userSeats": {
                 "name": "Places utilisateur",
                 "description": "Nombre total de membres d'équipe qui peuvent collaborer dans votre compte."
