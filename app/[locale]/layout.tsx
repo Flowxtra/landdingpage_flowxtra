@@ -48,13 +48,19 @@ export async function generateMetadata({
   if (pathname && pathname.startsWith(`/${locale}`)) {
     // Extract the path after locale (e.g., "/blog", "/pricing", etc.)
     const pathAfterLocale = pathname.replace(`/${locale}`, '') || '/';
-    
+
+    // List of pages that have nested layouts and define their own canonical URLs
+    const pagesWithNestedLayouts = [
+      '/social-media-management',
+      '/free-job-posting',
+      '/kostenlose-stellenausschreibung',
+    ];
+
     // Check if this is a page that should have canonical in root layout
     // Skip pages with nested layouts (blog posts, app store items, etc.)
-    // But allow blog listing page (/en/blog) and app store listing page (/en/app-store)
     const hasNestedLayout = (pathname.match(/\/blog\/[^\/]+/) || // Blog post: /en/blog/slug
                              pathname.match(/\/app-store\/[^\/]+/) || // App store item: /en/app-store/slug
-                             pathname.match(/\/[^\/]+\/[^\/]+\/[^\/]+/)); // Pattern like /locale/section/subsection/page
+                             pagesWithNestedLayouts.some(page => pathAfterLocale === page)); // Pages with their own layouts
     
     if (!hasNestedLayout) {
       // This is a simple page (homepage, pricing, contact, etc.)
@@ -98,18 +104,21 @@ export async function generateMetadata({
         title: "Flowxtra – Recruiting Software & Smart Hiring Tool | Free Job Posting",
         description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform.",
       },
-      alternates: {
-        ...(canonicalUrl && { canonical: canonicalUrl }),
-        languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
-          'en': `${baseUrl}/en`,
-          'de': `${baseUrl}/de`,
-          'fr': `${baseUrl}/fr`,
-          'es': `${baseUrl}/es`,
-          'it': `${baseUrl}/it`,
-          'nl': `${baseUrl}/nl`,
-          'ar': `${baseUrl}/ar`,
+      // Only add alternates if canonicalUrl is defined (i.e., no nested layout)
+      ...(canonicalUrl && {
+        alternates: {
+          canonical: canonicalUrl,
+          languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
+            'en': `${baseUrl}/en`,
+            'de': `${baseUrl}/de`,
+            'fr': `${baseUrl}/fr`,
+            'es': `${baseUrl}/es`,
+            'it': `${baseUrl}/it`,
+            'nl': `${baseUrl}/nl`,
+            'ar': `${baseUrl}/ar`,
+          },
         },
-      },
+      }),
       robots: {
         index: true,
         follow: true,
@@ -143,18 +152,21 @@ export async function generateMetadata({
         title: "Flowxtra – Recruiting-Software & Intelligentes Einstellungstool | Kostenlose Stellenanzeigen",
         description: "Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform.",
       },
-      alternates: {
-        ...(canonicalUrl && { canonical: canonicalUrl }),
-        languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
-          'en': `${baseUrl}/en`,
-          'de': `${baseUrl}/de`,
-          'fr': `${baseUrl}/fr`,
-          'es': `${baseUrl}/es`,
-          'it': `${baseUrl}/it`,
-          'nl': `${baseUrl}/nl`,
-          'ar': `${baseUrl}/ar`,
+      // Only add alternates if canonicalUrl is defined (i.e., no nested layout)
+      ...(canonicalUrl && {
+        alternates: {
+          canonical: canonicalUrl,
+          languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
+            'en': `${baseUrl}/en`,
+            'de': `${baseUrl}/de`,
+            'fr': `${baseUrl}/fr`,
+            'es': `${baseUrl}/es`,
+            'it': `${baseUrl}/it`,
+            'nl': `${baseUrl}/nl`,
+            'ar': `${baseUrl}/ar`,
+          },
         },
-      },
+      }),
       robots: {
         index: true,
         follow: true,
@@ -188,18 +200,21 @@ export async function generateMetadata({
         title: "Flowxtra – Logiciel de Recrutement & Outil d'Embauche Intelligent | Publication d'Emplois Gratuite",
         description: "Embauchez plus intelligemment avec l'IA — publiez des offres d'emploi gratuitement et gérez les candidats sur une plateforme simple et puissante.",
       },
-      alternates: {
-        ...(canonicalUrl && { canonical: canonicalUrl }),
-        languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
-          'en': `${baseUrl}/en`,
-          'de': `${baseUrl}/de`,
-          'fr': `${baseUrl}/fr`,
-          'es': `${baseUrl}/es`,
-          'it': `${baseUrl}/it`,
-          'nl': `${baseUrl}/nl`,
-          'ar': `${baseUrl}/ar`,
+      // Only add alternates if canonicalUrl is defined (i.e., no nested layout)
+      ...(canonicalUrl && {
+        alternates: {
+          canonical: canonicalUrl,
+          languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
+            'en': `${baseUrl}/en`,
+            'de': `${baseUrl}/de`,
+            'fr': `${baseUrl}/fr`,
+            'es': `${baseUrl}/es`,
+            'it': `${baseUrl}/it`,
+            'nl': `${baseUrl}/nl`,
+            'ar': `${baseUrl}/ar`,
+          },
         },
-      },
+      }),
       robots: {
         index: true,
         follow: true,
@@ -233,18 +248,21 @@ export async function generateMetadata({
         title: "Flowxtra – Software de Reclutamiento & Herramienta de Contratación Inteligente | Publicación de Empleos Gratuita",
         description: "Contrata de forma más inteligente con IA — publica empleos gratis y gestiona candidatos en una plataforma simple y potente.",
       },
-      alternates: {
-        ...(canonicalUrl && { canonical: canonicalUrl }),
-        languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
-          'en': `${baseUrl}/en`,
-          'de': `${baseUrl}/de`,
-          'fr': `${baseUrl}/fr`,
-          'es': `${baseUrl}/es`,
-          'it': `${baseUrl}/it`,
-          'nl': `${baseUrl}/nl`,
-          'ar': `${baseUrl}/ar`,
+      // Only add alternates if canonicalUrl is defined (i.e., no nested layout)
+      ...(canonicalUrl && {
+        alternates: {
+          canonical: canonicalUrl,
+          languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
+            'en': `${baseUrl}/en`,
+            'de': `${baseUrl}/de`,
+            'fr': `${baseUrl}/fr`,
+            'es': `${baseUrl}/es`,
+            'it': `${baseUrl}/it`,
+            'nl': `${baseUrl}/nl`,
+            'ar': `${baseUrl}/ar`,
+          },
         },
-      },
+      }),
       robots: {
         index: true,
         follow: true,
@@ -278,18 +296,21 @@ export async function generateMetadata({
         title: "Flowxtra – Software di Reclutamento & Strumento di Assunzione Intelligente | Pubblicazione Lavori Gratuita",
         description: "Assumi in modo più intelligente con l'IA — pubblica offerte di lavoro gratuitamente e gestisci i candidati su una piattaforma semplice e potente.",
       },
-      alternates: {
-        ...(canonicalUrl && { canonical: canonicalUrl }),
-        languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
-          'en': `${baseUrl}/en`,
-          'de': `${baseUrl}/de`,
-          'fr': `${baseUrl}/fr`,
-          'es': `${baseUrl}/es`,
-          'it': `${baseUrl}/it`,
-          'nl': `${baseUrl}/nl`,
-          'ar': `${baseUrl}/ar`,
+      // Only add alternates if canonicalUrl is defined (i.e., no nested layout)
+      ...(canonicalUrl && {
+        alternates: {
+          canonical: canonicalUrl,
+          languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
+            'en': `${baseUrl}/en`,
+            'de': `${baseUrl}/de`,
+            'fr': `${baseUrl}/fr`,
+            'es': `${baseUrl}/es`,
+            'it': `${baseUrl}/it`,
+            'nl': `${baseUrl}/nl`,
+            'ar': `${baseUrl}/ar`,
+          },
         },
-      },
+      }),
       robots: {
         index: true,
         follow: true,
@@ -323,18 +344,21 @@ export async function generateMetadata({
         title: "Flowxtra – Wervingssoftware & Slimme Wervings Tool | Gratis Vacatures Plaatsen",
         description: "Werve slimmer met AI — plaats vacatures gratis en beheer kandidaten op één eenvoudig, krachtig platform.",
       },
-      alternates: {
-        ...(canonicalUrl && { canonical: canonicalUrl }),
-        languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
-          'en': `${baseUrl}/en`,
-          'de': `${baseUrl}/de`,
-          'fr': `${baseUrl}/fr`,
-          'es': `${baseUrl}/es`,
-          'it': `${baseUrl}/it`,
-          'nl': `${baseUrl}/nl`,
-          'ar': `${baseUrl}/ar`,
+      // Only add alternates if canonicalUrl is defined (i.e., no nested layout)
+      ...(canonicalUrl && {
+        alternates: {
+          canonical: canonicalUrl,
+          languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
+            'en': `${baseUrl}/en`,
+            'de': `${baseUrl}/de`,
+            'fr': `${baseUrl}/fr`,
+            'es': `${baseUrl}/es`,
+            'it': `${baseUrl}/it`,
+            'nl': `${baseUrl}/nl`,
+            'ar': `${baseUrl}/ar`,
+          },
         },
-      },
+      }),
       robots: {
         index: true,
         follow: true,
@@ -368,18 +392,21 @@ export async function generateMetadata({
         title: "Flowxtra – برنامج التوظيف & أداة التوظيف الذكية | نشر الوظائف مجاناً",
         description: "وظّف بذكاء أكبر مع الذكاء الاصطناعي — انشر الوظائف مجاناً وأدر المرشحين في منصة واحدة بسيطة وقوية.",
       },
-      alternates: {
-        ...(canonicalUrl && { canonical: canonicalUrl }),
-        languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
-          'en': `${baseUrl}/en`,
-          'de': `${baseUrl}/de`,
-          'fr': `${baseUrl}/fr`,
-          'es': `${baseUrl}/es`,
-          'it': `${baseUrl}/it`,
-          'nl': `${baseUrl}/nl`,
-          'ar': `${baseUrl}/ar`,
+      // Only add alternates if canonicalUrl is defined (i.e., no nested layout)
+      ...(canonicalUrl && {
+        alternates: {
+          canonical: canonicalUrl,
+          languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
+            'en': `${baseUrl}/en`,
+            'de': `${baseUrl}/de`,
+            'fr': `${baseUrl}/fr`,
+            'es': `${baseUrl}/es`,
+            'it': `${baseUrl}/it`,
+            'nl': `${baseUrl}/nl`,
+            'ar': `${baseUrl}/ar`,
+          },
         },
-      },
+      }),
       robots: {
         index: true,
         follow: true,

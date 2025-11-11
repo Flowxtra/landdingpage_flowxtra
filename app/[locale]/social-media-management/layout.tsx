@@ -10,6 +10,18 @@ export async function generateMetadata({
   
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
   
+  // Build canonical URL dynamically based on current locale
+  const canonicalUrl = `${baseUrl}/${locale}/social-media-management`;
+  
+  // Build hreflang URLs for all supported languages
+  const supportedLocales = ['en', 'de', 'fr', 'es', 'it', 'nl', 'ar'];
+  const hreflangUrls: Record<string, string> = {};
+  supportedLocales.forEach(lang => {
+    hreflangUrls[lang] = `${baseUrl}/${lang}/social-media-management`;
+  });
+  // Add x-default to indicate the default language version
+  hreflangUrls['x-default'] = `${baseUrl}/en/social-media-management`;
+  
   const metadata = {
     en: {
       title: "Social Media Management – Flowxtra | All-in-One Social Media Manager",
@@ -23,11 +35,8 @@ export async function generateMetadata({
         type: "website",
       },
       alternates: {
-        canonical: `${baseUrl}/en/social-media-management`,
-        languages: {
-          'en': `${baseUrl}/en/social-media-management`,
-          'de': `${baseUrl}/de/social-media-management`,
-        },
+        canonical: canonicalUrl,
+        languages: hreflangUrls,
       },
     },
     de: {
@@ -42,16 +51,31 @@ export async function generateMetadata({
         type: "website",
       },
       alternates: {
-        canonical: `${baseUrl}/de/social-media-management`,
-        languages: {
-          'en': `${baseUrl}/en/social-media-management`,
-          'de': `${baseUrl}/de/social-media-management`,
-        },
+        canonical: canonicalUrl,
+        languages: hreflangUrls,
       },
     },
   };
 
-  return metadata[locale as keyof typeof metadata] || metadata.en;
+  // Get base metadata for current locale, or fallback to English
+  const baseMetadata = metadata[locale as keyof typeof metadata] || metadata.en;
+  
+  // Return metadata with canonical and languages explicitly set (not merged)
+  // This ensures nested layout's alternates take precedence over root layout
+  return {
+    ...baseMetadata,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: hreflangUrls,
+    },
+    // Explicitly exclude any alternates from parent layout
+    ...(baseMetadata.openGraph && {
+      openGraph: {
+        ...baseMetadata.openGraph,
+        url: canonicalUrl, // Update OpenGraph URL to match canonical
+      },
+    }),
+  };
 }
 
 export default function SocialMediaManagementLayout({

@@ -1215,7 +1215,7 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
                               )}
                             </div>
                           ) : (
-                            <span className="text-gray-400 dark:text-gray-500 font-medium text-sm">
+                            <span className="text-gray-600 dark:text-gray-400 font-medium text-sm">
                               {tCompare("notAvailable")}
                             </span>
                           )}

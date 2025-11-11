@@ -229,8 +229,8 @@ allowfullscreen>
                     <Image
                       src={slide.image}
                       alt={slide.imageAlt}
-                      width={1200}
-                      height={900}
+                      width={slide.image.includes('candidate-fiter') ? 834 : slide.image.includes('Job-board-workflow') ? 1920 : 1200}
+                      height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 1080 : 900}
                       quality={100}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1200px"
                       className="w-full h-auto rounded-xl"
@@ -258,8 +258,8 @@ allowfullscreen>
                   <Image
                     src={slide.image}
                     alt={slide.imageAlt}
-                    width={1200}
-                    height={900}
+                    width={slide.image.includes('candidate-fiter') ? 834 : slide.image.includes('Job-board-workflow') ? 1920 : 1200}
+                    height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 1080 : 900}
                     quality={100}
                     sizes={slide.image.includes('hiring-email-template') ? "(max-width: 1200px) 50vw, 600px" : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1200px"}
                     className={slide.image.includes('hiring-email-template') ? "w-1/2 h-auto mx-auto" : "w-full h-auto"}

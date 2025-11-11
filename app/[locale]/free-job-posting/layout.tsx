@@ -10,6 +10,31 @@ export async function generateMetadata({
   
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
   
+  // Map locale to page path (some locales have translated URLs)
+  const pagePaths: Record<string, string> = {
+    'en': 'free-job-posting',
+    'de': 'kostenlose-stellenausschreibung',
+    'fr': 'free-job-posting',
+    'es': 'free-job-posting',
+    'it': 'free-job-posting',
+    'nl': 'free-job-posting',
+    'ar': 'free-job-posting',
+  };
+  
+  // Build canonical URL dynamically based on current locale
+  const pagePath = pagePaths[locale] || pagePaths['en'];
+  const canonicalUrl = `${baseUrl}/${locale}/${pagePath}`;
+  
+  // Build hreflang URLs for all supported languages
+  const supportedLocales = ['en', 'de', 'fr', 'es', 'it', 'nl', 'ar'];
+  const hreflangUrls: Record<string, string> = {};
+  supportedLocales.forEach(lang => {
+    const langPath = pagePaths[lang] || pagePaths['en'];
+    hreflangUrls[lang] = `${baseUrl}/${lang}/${langPath}`;
+  });
+  // Add x-default to indicate the default language version
+  hreflangUrls['x-default'] = `${baseUrl}/en/free-job-posting`;
+  
   const metadata = {
     en: {
       title: "Free Job Posting – Post Jobs for Free | Flowxtra",
@@ -23,11 +48,8 @@ export async function generateMetadata({
         type: "website",
       },
       alternates: {
-        canonical: `${baseUrl}/en/free-job-posting`,
-        languages: {
-          'en': `${baseUrl}/en/free-job-posting`,
-          'de': `${baseUrl}/de/kostenlose-stellenausschreibung`,
-        },
+        canonical: canonicalUrl,
+        languages: hreflangUrls,
       },
     },
     de: {
@@ -42,16 +64,31 @@ export async function generateMetadata({
         type: "website",
       },
       alternates: {
-        canonical: `${baseUrl}/de/kostenlose-stellenausschreibung`,
-        languages: {
-          'en': `${baseUrl}/en/free-job-posting`,
-          'de': `${baseUrl}/de/kostenlose-stellenausschreibung`,
-        },
+        canonical: canonicalUrl,
+        languages: hreflangUrls,
       },
     },
   };
 
-  return metadata[locale as keyof typeof metadata] || metadata.en;
+  // Get base metadata for current locale, or fallback to English
+  const baseMetadata = metadata[locale as keyof typeof metadata] || metadata.en;
+  
+  // Return metadata with canonical and languages explicitly set (not merged)
+  // This ensures nested layout's alternates take precedence over root layout
+  return {
+    ...baseMetadata,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: hreflangUrls,
+    },
+    // Explicitly exclude any alternates from parent layout
+    ...(baseMetadata.openGraph && {
+      openGraph: {
+        ...baseMetadata.openGraph,
+        url: canonicalUrl, // Update OpenGraph URL to match canonical
+      },
+    }),
+  };
 }
 
 export default function FreeJobPostingLayout({

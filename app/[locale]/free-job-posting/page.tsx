@@ -82,8 +82,8 @@ export default function FreeJobPosting() {
                     src="/img/candidate-fiter.png"
                     alt={t("imageAlt")}
                     title={t("imageTitle")}
-                    width={800}
-                    height={600}
+                    width={834}
+                    height={489}
                     quality={100}
                     className="w-full h-auto rounded-lg"
                     unoptimized
@@ -672,8 +672,8 @@ export default function FreeJobPosting() {
                       src="/img/Job-board-workflow.gif"
                       alt={t("talentOverview.imageAlt")}
                       title={t("talentOverview.imageTitle")}
-                      width={800}
-                      height={600}
+                      width={1920}
+                      height={1080}
                       quality={100}
                       className="w-full h-auto rounded-lg"
                       unoptimized
