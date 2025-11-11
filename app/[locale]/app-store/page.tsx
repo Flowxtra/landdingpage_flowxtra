@@ -75,9 +75,19 @@ function AppStoreContent() {
         
         let apiParams: any = {
           page: currentPage,
-          limit: appsPerPage,
           locale: currentLocale,
         };
+
+        // When "all" is selected on first page, use a higher limit to show all apps
+        // Otherwise, use pagination with normal limit
+        if (isAllSelected && currentPage === 1 && !searchQuery.trim()) {
+          // Show all apps on first page when "all" is selected
+          // Use a very high limit to ensure we get all apps
+          apiParams.limit = 1000; // High limit to get all apps
+        } else {
+          // Use normal pagination limit
+          apiParams.limit = appsPerPage;
+        }
 
         // Add category filter if not 'all'
         const selectedCategory = selectedCategories.find(cat => cat !== 'all');

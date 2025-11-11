@@ -193,7 +193,7 @@ function AppDetailContent() {
                   href={app.websiteUrl}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  className="border-2 border-primary text-primary px-8 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium text-center"
+                  className="border-2 border-primary text-primary dark:border-gray-300 dark:text-gray-300 px-8 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white dark:hover:bg-button-hover dark:hover:border-button-hover dark:hover:text-white transition-all font-medium text-center"
                 >
                   {t('visitWebsite')}
                 </a>
