@@ -10,50 +10,36 @@
  * @throws Error if API URL is not configured
  */
 function getApiBaseUrl(): string {
-  // First, check if NEXT_PUBLIC_API_URL is set (highest priority)
-  if (process.env.NEXT_PUBLIC_API_URL) {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    // Add /api if not already included
-    return apiUrl.endsWith("/api") ? apiUrl : `${apiUrl}/api`;
-  }
+  // Check if we're in development mode (client-side or server-side)
+  const isDevelopment =
+    process.env.NODE_ENV === "development" ||
+    (typeof window !== "undefined" &&
+      (window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1"));
 
-  // Check if we're in development mode
-  const isDevelopment = process.env.NODE_ENV === "development";
-
+  // In development, ALWAYS use Next.js API route as proxy to avoid CORS
+  // This works for both client-side and server-side (Next.js API routes handle both)
   if (isDevelopment) {
-    // Development: Use local backend URL from .env.local
-    const devUrl = process.env.NEXT_PUBLIC_developemant_BACKEND_URL;
-
-    if (!devUrl) {
-      const error =
-        "NEXT_PUBLIC_developemant_BACKEND_URL is not configured in .env.local. Please add it.";
-      console.error("❌", error);
-      throw new Error(error);
-    }
-
-    // Add /api if not already included
-    return devUrl.endsWith("/api") ? devUrl : `${devUrl}/api`;
-  } else {
-    // Production: Use production backend URL from environment
-    const prodUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-
-    if (!prodUrl) {
-      // Fallback to API_URL or default production URL
-      const fallbackUrl =
-        process.env.NEXT_PUBLIC_API_URL || "https://flowxtra.com/api";
-      console.warn(
-        "⚠️ NEXT_PUBLIC_BACKEND_URL is not configured. Using fallback:",
-        fallbackUrl
-      );
-      return fallbackUrl.endsWith("/api") ? fallbackUrl : `${fallbackUrl}/api`;
-    }
-
-    // Add /api if not already included
-    return prodUrl.endsWith("/api") ? prodUrl : `${prodUrl}/api`;
+    console.log("[getApiBaseUrl] Using proxy /api/blog (development mode)");
+    return "/api/blog";
   }
-}
 
-const API_BASE_URL = getApiBaseUrl();
+  // Production: Use NEXT_PUBLIC_BACKEND_URL (production backend)
+  if (process.env.NEXT_PUBLIC_BACKEND_URL) {
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+    // Add /api if not already included
+    const finalUrl = backendUrl.endsWith("/api")
+      ? backendUrl
+      : `${backendUrl}/api`;
+    console.log("[getApiBaseUrl] Using NEXT_PUBLIC_BACKEND_URL:", finalUrl);
+    return finalUrl;
+  }
+
+  // Fallback to default production URL
+  const fallbackUrl = "https://api.flowxtra.com/api";
+  console.log("[getApiBaseUrl] Using fallback URL:", fallbackUrl);
+  return fallbackUrl;
+}
 
 // TypeScript Interfaces
 export interface Tag {
@@ -201,9 +187,26 @@ export async function getBlogPosts(params: {
   if (params.minimal) queryParams.append("minimal", "true");
   if (params.fields) queryParams.append("fields", params.fields);
 
-  const url = `${API_BASE_URL}/blog?${queryParams.toString()}`;
+  // Get API base URL (may be proxy path in development)
+  const apiBaseUrl = getApiBaseUrl();
+
+  // Build URL - if using proxy (/api/blog), use absolute URL to avoid locale prefix
+  // In client-side, relative paths get locale prefix added by Next.js
+  let url: string;
+  if (apiBaseUrl === "/api/blog") {
+    // Client-side: use absolute URL to avoid locale prefix
+    if (typeof window !== "undefined") {
+      url = `${window.location.origin}${apiBaseUrl}?${queryParams.toString()}`;
+    } else {
+      // Server-side: relative path is fine
+      url = `${apiBaseUrl}?${queryParams.toString()}`;
+    }
+  } else {
+    url = `${apiBaseUrl}/blog?${queryParams.toString()}`;
+  }
 
   // Debug logging
+  console.log("[Blog API] getBlogPosts - API Base URL:", apiBaseUrl);
   console.log("[Blog API] getBlogPosts - Request URL:", url);
   console.log("[Blog API] getBlogPosts - Params:", {
     page: params.page,
@@ -288,7 +291,23 @@ export async function getBlogPost(
   // Always add timestamp to ensure fresh data - use both timestamp and random to completely bypass cache
   const timestamp = Date.now();
   const random = Math.random().toString(36).substring(7);
-  const url = `${API_BASE_URL}/blog/${slug}?locale=${locale}&_t=${timestamp}&_r=${random}`;
+  // Get API base URL (may be proxy path in development)
+  const apiBaseUrl = getApiBaseUrl();
+
+  // Build URL - if using proxy (/api/blog), use absolute URL to avoid locale prefix
+  // In client-side, relative paths get locale prefix added by Next.js
+  let url: string;
+  if (apiBaseUrl === "/api/blog") {
+    // Client-side: use absolute URL to avoid locale prefix
+    if (typeof window !== "undefined") {
+      url = `${window.location.origin}${apiBaseUrl}/${slug}?locale=${locale}&_t=${timestamp}&_r=${random}`;
+    } else {
+      // Server-side: relative path is fine
+      url = `${apiBaseUrl}/${slug}?locale=${locale}&_t=${timestamp}&_r=${random}`;
+    }
+  } else {
+    url = `${apiBaseUrl}/blog/${slug}?locale=${locale}&_t=${timestamp}&_r=${random}`;
+  }
 
   // Debug logging (always log in development, or when error occurs)
   if (process.env.NODE_ENV === "development") {
@@ -296,7 +315,7 @@ export async function getBlogPost(
       url,
       slug,
       locale,
-      apiBaseUrl: API_BASE_URL,
+      apiBaseUrl: apiBaseUrl,
       fullUrl: url,
     });
   }
@@ -387,7 +406,23 @@ export async function getBlogPost(
 export async function getBlogCategories(
   locale: string = "en"
 ): Promise<CategoriesResponse> {
-  const url = `${API_BASE_URL}/blog/categories?locale=${locale}`;
+  // Get API base URL (may be proxy path in development)
+  const apiBaseUrl = getApiBaseUrl();
+
+  // Build URL - if using proxy (/api/blog), use absolute URL to avoid locale prefix
+  // In client-side, relative paths get locale prefix added by Next.js
+  let url: string;
+  if (apiBaseUrl === "/api/blog") {
+    // Client-side: use absolute URL to avoid locale prefix
+    if (typeof window !== "undefined") {
+      url = `${window.location.origin}${apiBaseUrl}/categories?locale=${locale}`;
+    } else {
+      // Server-side: relative path is fine
+      url = `${apiBaseUrl}/categories?locale=${locale}`;
+    }
+  } else {
+    url = `${apiBaseUrl}/blog/categories?locale=${locale}`;
+  }
 
   // Build fetch options
   const fetchOptions: RequestInit = {

@@ -39,6 +39,11 @@ const intlMiddleware = createMiddleware({
 export default function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
+  // Skip middleware for API routes - they should not have locale prefix
+  if (pathname.startsWith("/api")) {
+    return NextResponse.next();
+  }
+
   // Store original pathname for canonical URL (before any rewrites)
   const originalPathname = pathname;
 
@@ -86,6 +91,6 @@ export const config = {
   matcher: [
     "/",
     "/(de|en|fr|es|it|nl)/:path*",
-    "/((?!_next|_vercel|.*\\..*).*)",
+    "/((?!_next|_vercel|api|.*\\..*).*)",
   ],
 };
