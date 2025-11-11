@@ -268,19 +268,19 @@ export default function AffiliatePage() {
                 {/* Card Content */}
                 <div className="p-4 space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600 dark:text-gray-400">{t("commission.table.monthlyPrice")}</span>
+                    <span className="text-sm text-gray-700 dark:text-gray-300">{t("commission.table.monthlyPrice")}</span>
                     <span className="font-semibold text-gray-900 dark:text-white">
                       {item.price === 0 ? t("commission.free") : `€${item.price}${t("commission.perMonth")}`}
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600 dark:text-gray-400">{t("commission.table.yourCommission")}</span>
+                    <span className="text-sm text-gray-700 dark:text-gray-300">{t("commission.table.yourCommission")}</span>
                     <span className="font-semibold text-gray-900 dark:text-white">
                       {item.commission === 0 ? "—" : "50%"}
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600 dark:text-gray-400">{t("commission.table.monthlyEarning")}</span>
+                    <span className="text-sm text-gray-700 dark:text-gray-300">{t("commission.table.monthlyEarning")}</span>
                     <span className="font-semibold text-primary dark:text-secondary">
                       {item.monthly === 0 ? "—" : `€${item.monthly.toFixed(2)}`}
                     </span>
@@ -301,10 +301,10 @@ export default function AffiliatePage() {
             <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
               {t("commission.example.title")}
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-3">
+            <p className="text-gray-700 dark:text-gray-200 mb-3">
               {t("commission.example.description")}
             </p>
-            <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+            <p className="text-sm text-gray-700 dark:text-gray-300 italic">
               {t("commission.example.note")}
             </p>
           </div>
