@@ -67,6 +67,16 @@ export async function generateMetadata({
       '/kontakt',
       '/pricing',
       '/preise',
+      '/dpa',
+      '/imprint',
+      '/impressum',
+      '/disclaimer',
+      '/privacy-policy',
+      '/datenschutz',
+      '/cookie-policy',
+      '/cookie-richtlinie',
+      '/terms-of-use',
+      '/nutzungsbedingungen',
     ];
 
     // Check if this is a page that should have canonical in root layout

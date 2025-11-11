@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 
 export async function generateMetadata({ 
   params 
@@ -8,6 +9,46 @@ export async function generateMetadata({
   const {locale} = await params;
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
   
+  // Get current pathname and host from headers to build canonical URL
+  // This ensures the canonical URL matches the actual current page URL (including localhost in dev)
+  const headersList = await headers();
+  const pathname = headersList.get('x-pathname') || '';
+  const host = headersList.get('host') || '';
+  
+  // Determine the base URL to use: prefer current request host in dev, otherwise use configured baseUrl
+  // This ensures canonical works correctly in both development and production
+  const protocol = host.includes('localhost') || host.includes('127.0.0.1') ? 'http' : 'https';
+  const currentBaseUrl = host && (host.includes('localhost') || host.includes('127.0.0.1'))
+    ? `${protocol}://${host}`
+    : baseUrl;
+  
+  // Map locale to page path (some locales have translated URLs)
+  const pagePaths: Record<string, string> = {
+    'en': 'cookie-policy',
+    'de': 'cookie-richtlinie',
+    'fr': 'cookie-policy',
+    'es': 'cookie-policy',
+    'it': 'cookie-policy',
+    'nl': 'cookie-policy',
+    'ar': 'cookie-policy',
+  };
+  
+  // Build canonical URL using actual pathname and current host to ensure it matches current page
+  // Fallback to constructed URL if pathname is not available
+  const pagePath = pagePaths[locale] || pagePaths['en'];
+  const canonicalUrl = pathname 
+    ? `${currentBaseUrl}${pathname}`
+    : `${currentBaseUrl}/${locale}/${pagePath}`;
+  
+  // Build hreflang URLs for all supported languages
+  // Use the same base URL as canonical to ensure consistency
+  const supportedLocales = ['en', 'de', 'fr', 'es', 'it', 'nl', 'ar'];
+  const hreflangUrls: Record<string, string> = {};
+  supportedLocales.forEach(lang => {
+    const langPath = pagePaths[lang] || pagePaths['en'];
+    hreflangUrls[lang] = `${currentBaseUrl}/${lang}/${langPath}`;
+  });
+  
   const metadata = {
     en: {
       title: "Cookie Policy – Flowxtra",
@@ -16,15 +57,12 @@ export async function generateMetadata({
       openGraph: {
         title: "Cookie Policy – Flowxtra",
         description: "Learn about how Flowxtra uses cookies and similar technologies to enhance your browsing experience.",
-        url: `${baseUrl}/en/cookie-policy`,
+        url: canonicalUrl,
         type: "website",
       },
       alternates: {
-        canonical: `${baseUrl}/en/cookie-policy`,
-        languages: {
-          'en': `${baseUrl}/en/cookie-policy`,
-          'de': `${baseUrl}/de/cookie-richtlinie`,
-        },
+        canonical: canonicalUrl,
+        languages: hreflangUrls,
       },
     },
     de: {
@@ -34,20 +72,35 @@ export async function generateMetadata({
       openGraph: {
         title: "Cookie-Richtlinie – Flowxtra",
         description: "Erfahren Sie, wie Flowxtra Cookies und ähnliche Technologien verwendet, um Ihr Browsing-Erlebnis zu verbessern.",
-        url: `${baseUrl}/de/cookie-richtlinie`,
+        url: canonicalUrl,
         type: "website",
       },
       alternates: {
-        canonical: `${baseUrl}/de/cookie-richtlinie`,
-        languages: {
-          'en': `${baseUrl}/en/cookie-policy`,
-          'de': `${baseUrl}/de/cookie-richtlinie`,
-        },
+        canonical: canonicalUrl,
+        languages: hreflangUrls,
       },
     },
   };
 
-  return metadata[locale as keyof typeof metadata] || metadata.en;
+  // Get base metadata for current locale, or fallback to English
+  const baseMetadata = metadata[locale as keyof typeof metadata] || metadata.en;
+  
+  // Return metadata with canonical and languages explicitly set (not merged)
+  // This ensures nested layout's alternates take precedence over root layout
+  return {
+    ...baseMetadata,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: hreflangUrls,
+    },
+    // Explicitly exclude any alternates from parent layout
+    ...(baseMetadata.openGraph && {
+      openGraph: {
+        ...baseMetadata.openGraph,
+        url: canonicalUrl, // Update OpenGraph URL to match canonical
+      },
+    }),
+  };
 }
 
 export default function CookiePolicyLayout({ children }: { children: React.ReactNode }) {

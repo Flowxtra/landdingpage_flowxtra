@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 
 export async function generateMetadata({ 
   params 
@@ -8,6 +9,46 @@ export async function generateMetadata({
   const {locale} = await params;
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
   
+  // Get current pathname and host from headers to build canonical URL
+  // This ensures the canonical URL matches the actual current page URL (including localhost in dev)
+  const headersList = await headers();
+  const pathname = headersList.get('x-pathname') || '';
+  const host = headersList.get('host') || '';
+  
+  // Determine the base URL to use: prefer current request host in dev, otherwise use configured baseUrl
+  // This ensures canonical works correctly in both development and production
+  const protocol = host.includes('localhost') || host.includes('127.0.0.1') ? 'http' : 'https';
+  const currentBaseUrl = host && (host.includes('localhost') || host.includes('127.0.0.1'))
+    ? `${protocol}://${host}`
+    : baseUrl;
+  
+  // Map locale to page path (some locales have translated URLs)
+  const pagePaths: Record<string, string> = {
+    'en': 'terms-of-use',
+    'de': 'nutzungsbedingungen',
+    'fr': 'terms-of-use',
+    'es': 'terms-of-use',
+    'it': 'terms-of-use',
+    'nl': 'terms-of-use',
+    'ar': 'terms-of-use',
+  };
+  
+  // Build canonical URL using actual pathname and current host to ensure it matches current page
+  // Fallback to constructed URL if pathname is not available
+  const pagePath = pagePaths[locale] || pagePaths['en'];
+  const canonicalUrl = pathname 
+    ? `${currentBaseUrl}${pathname}`
+    : `${currentBaseUrl}/${locale}/${pagePath}`;
+  
+  // Build hreflang URLs for all supported languages
+  // Use the same base URL as canonical to ensure consistency
+  const supportedLocales = ['en', 'de', 'fr', 'es', 'it', 'nl', 'ar'];
+  const hreflangUrls: Record<string, string> = {};
+  supportedLocales.forEach(lang => {
+    const langPath = pagePaths[lang] || pagePaths['en'];
+    hreflangUrls[lang] = `${currentBaseUrl}/${lang}/${langPath}`;
+  });
+  
   const metadata = {
     en: {
       title: "Terms of Use – Flowxtra",
@@ -16,15 +57,12 @@ export async function generateMetadata({
       openGraph: {
         title: "Terms of Use – Flowxtra",
         description: "Read Flowxtra's Terms of Use for companies to understand the terms and conditions for using our services.",
-        url: `${baseUrl}/en/terms-of-use`,
+        url: canonicalUrl,
         type: "website",
       },
       alternates: {
-        canonical: `${baseUrl}/en/terms-of-use`,
-        languages: {
-          'en': `${baseUrl}/en/terms-of-use`,
-          'de': `${baseUrl}/de/nutzungsbedingungen`,
-        },
+        canonical: canonicalUrl,
+        languages: hreflangUrls,
       },
     },
     de: {
@@ -34,20 +72,35 @@ export async function generateMetadata({
       openGraph: {
         title: "Nutzungsbedingungen – Flowxtra",
         description: "Lesen Sie Flowxtras Nutzungsbedingungen für Unternehmen, um die Bedingungen für die Nutzung unserer Dienste zu verstehen.",
-        url: `${baseUrl}/de/nutzungsbedingungen`,
+        url: canonicalUrl,
         type: "website",
       },
       alternates: {
-        canonical: `${baseUrl}/de/nutzungsbedingungen`,
-        languages: {
-          'en': `${baseUrl}/en/terms-of-use`,
-          'de': `${baseUrl}/de/nutzungsbedingungen`,
-        },
+        canonical: canonicalUrl,
+        languages: hreflangUrls,
       },
     },
   };
 
-  return metadata[locale as keyof typeof metadata] || metadata.en;
+  // Get base metadata for current locale, or fallback to English
+  const baseMetadata = metadata[locale as keyof typeof metadata] || metadata.en;
+  
+  // Return metadata with canonical and languages explicitly set (not merged)
+  // This ensures nested layout's alternates take precedence over root layout
+  return {
+    ...baseMetadata,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: hreflangUrls,
+    },
+    // Explicitly exclude any alternates from parent layout
+    ...(baseMetadata.openGraph && {
+      openGraph: {
+        ...baseMetadata.openGraph,
+        url: canonicalUrl, // Update OpenGraph URL to match canonical
+      },
+    }),
+  };
 }
 
 export default function TermsOfUseLayout({ children }: { children: React.ReactNode }) {
