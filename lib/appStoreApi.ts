@@ -3,59 +3,60 @@
 
 /**
  * Get API base URL from environment variables
- * Development: Uses NEXT_PUBLIC_developemant_BACKEND_URL from .env.local
- * Production: Uses NEXT_PUBLIC_BACKEND_URL from production environment
- * Fallback: Uses NEXT_PUBLIC_API_URL if available
+ * Development: Uses proxy route (/api/app-store) to avoid CORS issues
+ * Production: Uses NEXT_PUBLIC_BACKEND_URL or NEXT_PUBLIC_API_URL
  */
 function getApiBaseUrl(): string {
-  // First, check if NEXT_PUBLIC_API_URL is set (highest priority)
-  if (process.env.NEXT_PUBLIC_API_URL) {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    // Add /api if not already included
-    return apiUrl.endsWith("/api") ? apiUrl : `${apiUrl}/api`;
-  }
-
-  // Check if we're in development mode
-  const isDevelopment = process.env.NODE_ENV === "development";
+  // Check if we're in development mode (client-side or server-side)
+  const isDevelopment =
+    process.env.NODE_ENV === "development" ||
+    (typeof window !== "undefined" &&
+      (window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1"));
 
   if (isDevelopment) {
-    // Development: Use local backend URL from .env.local
-    const devUrl = process.env.NEXT_PUBLIC_developemant_BACKEND_URL;
-
-    if (!devUrl) {
-      const error =
-        "NEXT_PUBLIC_developemant_BACKEND_URL is not configured in .env.local. Please add it.";
-      console.error("❌", error);
-      throw new Error(error);
-    }
-
-    // Add /api if not already included
-    return devUrl.endsWith("/api") ? devUrl : `${devUrl}/api`;
-  } else {
-    // Production: Use production backend URL from environment
-    const prodUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-
-    if (!prodUrl) {
-      // Fallback to API_URL or default production URL
-      const fallbackUrl =
-        process.env.NEXT_PUBLIC_API_URL || "https://flowxtra.com/api";
-      console.warn(
-        "⚠️ NEXT_PUBLIC_BACKEND_URL is not configured. Using fallback:",
-        fallbackUrl
-      );
-      return fallbackUrl.endsWith("/api") ? fallbackUrl : `${fallbackUrl}/api`;
-    }
-
-    // Add /api if not already included
-    return prodUrl.endsWith("/api") ? prodUrl : `${prodUrl}/api`;
+    // Development: Use proxy route to avoid CORS issues
+    console.log("[getApiBaseUrl] Using proxy /api/app-store (development mode)");
+    return "/api/app-store";
   }
-}
 
-const API_BASE_URL = getApiBaseUrl();
+  // Production: Use NEXT_PUBLIC_BACKEND_URL first (production backend)
+  if (process.env.NEXT_PUBLIC_BACKEND_URL) {
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+    // Add /api if not already included
+    const finalUrl = backendUrl.endsWith("/api")
+      ? backendUrl
+      : `${backendUrl}/api`;
+    console.log("[getApiBaseUrl] Using NEXT_PUBLIC_BACKEND_URL:", finalUrl);
+    return finalUrl;
+  }
 
-// Log API base URL on initialization (only in development)
-if (process.env.NODE_ENV === "development") {
-  console.log(`[App Store API] Base URL: ${API_BASE_URL}`);
+  // Second, check NEXT_PUBLIC_API_URL only if it's NOT localhost
+  if (process.env.NEXT_PUBLIC_API_URL) {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    // Skip if it's localhost (development local backend)
+    if (
+      !apiUrl.includes("localhost") &&
+      !apiUrl.includes("127.0.0.1") &&
+      !apiUrl.startsWith("http://localhost") &&
+      !apiUrl.startsWith("http://127.0.0.1")
+    ) {
+      // Add /api if not already included
+      const finalUrl = apiUrl.endsWith("/api") ? apiUrl : `${apiUrl}/api`;
+      console.log("[getApiBaseUrl] Using NEXT_PUBLIC_API_URL:", finalUrl);
+      return finalUrl;
+    } else {
+      console.log(
+        "[getApiBaseUrl] Skipping NEXT_PUBLIC_API_URL (localhost detected):",
+        apiUrl
+      );
+    }
+  }
+
+  // Fallback to default production URL
+  const fallbackUrl = "https://api.flowxtra.com/api";
+  console.log("[getApiBaseUrl] Using fallback URL:", fallbackUrl);
+  return fallbackUrl;
 }
 
 // TypeScript Interfaces
@@ -205,7 +206,23 @@ export async function getApps(params: {
   if (params.locale) queryParams.append("locale", params.locale);
   if (params.minimal) queryParams.append("minimal", "true");
 
-  const url = `${API_BASE_URL}/app-store?${queryParams.toString()}`;
+  // Get API base URL (may be proxy path in development)
+  const apiBaseUrl = getApiBaseUrl();
+  
+  // Build URL - if using proxy (/api/app-store), use absolute URL to avoid locale prefix
+  // In client-side, relative paths get locale prefix added by Next.js
+  let url: string;
+  if (apiBaseUrl === "/api/app-store") {
+    // Client-side: use absolute URL to avoid locale prefix
+    if (typeof window !== "undefined") {
+      url = `${window.location.origin}${apiBaseUrl}?${queryParams.toString()}`;
+    } else {
+      // Server-side: relative path is fine
+      url = `${apiBaseUrl}?${queryParams.toString()}`;
+    }
+  } else {
+    url = `${apiBaseUrl}/app-store?${queryParams.toString()}`;
+  }
 
   // Build fetch options
   const fetchOptions: RequestInit = {
@@ -253,7 +270,22 @@ export async function getApp(
   slug: string,
   locale: string = "en"
 ): Promise<AppResponse> {
-  const url = `${API_BASE_URL}/app-store/${slug}?locale=${locale}`;
+  // Get API base URL (may be proxy path in development)
+  const apiBaseUrl = getApiBaseUrl();
+  
+  // Build URL - if using proxy (/api/app-store), use absolute URL to avoid locale prefix
+  let url: string;
+  if (apiBaseUrl === "/api/app-store") {
+    // Client-side: use absolute URL to avoid locale prefix
+    if (typeof window !== "undefined") {
+      url = `${window.location.origin}${apiBaseUrl}/${slug}?locale=${locale}`;
+    } else {
+      // Server-side: relative path is fine
+      url = `${apiBaseUrl}/${slug}?locale=${locale}`;
+    }
+  } else {
+    url = `${apiBaseUrl}/app-store/${slug}?locale=${locale}`;
+  }
 
   const fetchOptions: RequestInit = {
     headers: {
@@ -295,7 +327,22 @@ export async function getAppCategories(locale: string = "en"): Promise<{
     categories: AppCategory[];
   };
 }> {
-  const url = `${API_BASE_URL}/app-store/categories?locale=${locale}`;
+  // Get API base URL (may be proxy path in development)
+  const apiBaseUrl = getApiBaseUrl();
+  
+  // Build URL - if using proxy (/api/app-store), use absolute URL to avoid locale prefix
+  let url: string;
+  if (apiBaseUrl === "/api/app-store") {
+    // Client-side: use absolute URL to avoid locale prefix
+    if (typeof window !== "undefined") {
+      url = `${window.location.origin}${apiBaseUrl}/categories?locale=${locale}`;
+    } else {
+      // Server-side: relative path is fine
+      url = `${apiBaseUrl}/categories?locale=${locale}`;
+    }
+  } else {
+    url = `${apiBaseUrl}/app-store/categories?locale=${locale}`;
+  }
 
   const fetchOptions: RequestInit = {
     headers: {
