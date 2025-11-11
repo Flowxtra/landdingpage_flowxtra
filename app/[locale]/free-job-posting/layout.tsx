@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 
 // Generate SEO metadata for Free Job Posting page
 export async function generateMetadata({ 
@@ -9,6 +10,19 @@ export async function generateMetadata({
   const {locale} = await params;
   
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
+  
+  // Get current pathname and host from headers to build canonical URL
+  // This ensures the canonical URL matches the actual current page URL (including localhost in dev)
+  const headersList = await headers();
+  const pathname = headersList.get('x-pathname') || '';
+  const host = headersList.get('host') || '';
+  
+  // Determine the base URL to use: prefer current request host in dev, otherwise use configured baseUrl
+  // This ensures canonical works correctly in both development and production
+  const protocol = host.includes('localhost') || host.includes('127.0.0.1') ? 'http' : 'https';
+  const currentBaseUrl = host && (host.includes('localhost') || host.includes('127.0.0.1'))
+    ? `${protocol}://${host}`
+    : baseUrl;
   
   // Map locale to page path (some locales have translated URLs)
   const pagePaths: Record<string, string> = {
@@ -21,19 +35,23 @@ export async function generateMetadata({
     'ar': 'free-job-posting',
   };
   
-  // Build canonical URL dynamically based on current locale
+  // Build canonical URL using actual pathname and current host to ensure it matches current page
+  // Fallback to constructed URL if pathname is not available
   const pagePath = pagePaths[locale] || pagePaths['en'];
-  const canonicalUrl = `${baseUrl}/${locale}/${pagePath}`;
+  const canonicalUrl = pathname 
+    ? `${currentBaseUrl}${pathname}`
+    : `${currentBaseUrl}/${locale}/${pagePath}`;
   
   // Build hreflang URLs for all supported languages
+  // Use the same base URL as canonical to ensure consistency
   const supportedLocales = ['en', 'de', 'fr', 'es', 'it', 'nl', 'ar'];
   const hreflangUrls: Record<string, string> = {};
   supportedLocales.forEach(lang => {
     const langPath = pagePaths[lang] || pagePaths['en'];
-    hreflangUrls[lang] = `${baseUrl}/${lang}/${langPath}`;
+    hreflangUrls[lang] = `${currentBaseUrl}/${lang}/${langPath}`;
   });
   // Add x-default to indicate the default language version
-  hreflangUrls['x-default'] = `${baseUrl}/en/free-job-posting`;
+  hreflangUrls['x-default'] = `${currentBaseUrl}/en/free-job-posting`;
   
   const metadata = {
     en: {

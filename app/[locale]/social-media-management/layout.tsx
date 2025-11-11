@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 
 // Generate SEO metadata for Social Media Management page
 export async function generateMetadata({ 
@@ -10,17 +11,34 @@ export async function generateMetadata({
   
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
   
-  // Build canonical URL dynamically based on current locale
-  const canonicalUrl = `${baseUrl}/${locale}/social-media-management`;
+  // Get current pathname and host from headers to build canonical URL
+  // This ensures the canonical URL matches the actual current page URL (including localhost in dev)
+  const headersList = await headers();
+  const pathname = headersList.get('x-pathname') || '';
+  const host = headersList.get('host') || '';
+  
+  // Determine the base URL to use: prefer current request host in dev, otherwise use configured baseUrl
+  // This ensures canonical works correctly in both development and production
+  const protocol = host.includes('localhost') || host.includes('127.0.0.1') ? 'http' : 'https';
+  const currentBaseUrl = host && (host.includes('localhost') || host.includes('127.0.0.1'))
+    ? `${protocol}://${host}`
+    : baseUrl;
+  
+  // Build canonical URL using actual pathname and current host to ensure it matches current page
+  // Fallback to constructed URL if pathname is not available
+  const canonicalUrl = pathname 
+    ? `${currentBaseUrl}${pathname}`
+    : `${currentBaseUrl}/${locale}/social-media-management`;
   
   // Build hreflang URLs for all supported languages
+  // Use the same base URL as canonical to ensure consistency
   const supportedLocales = ['en', 'de', 'fr', 'es', 'it', 'nl', 'ar'];
   const hreflangUrls: Record<string, string> = {};
   supportedLocales.forEach(lang => {
-    hreflangUrls[lang] = `${baseUrl}/${lang}/social-media-management`;
+    hreflangUrls[lang] = `${currentBaseUrl}/${lang}/social-media-management`;
   });
   // Add x-default to indicate the default language version
-  hreflangUrls['x-default'] = `${baseUrl}/en/social-media-management`;
+  hreflangUrls['x-default'] = `${currentBaseUrl}/en/social-media-management`;
   
   const metadata = {
     en: {
