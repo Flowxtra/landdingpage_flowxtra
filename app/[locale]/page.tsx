@@ -1005,7 +1005,7 @@ function ReviewsSection() {
             {t("title")}
           </h2>
           <div className="flex items-center justify-center gap-3 mt-6">
-            <div className="text-yellow-400 text-2xl flex gap-1">
+            <div className="text-yellow-500 dark:text-yellow-300 text-2xl flex gap-1">
               {renderStars(5)}
             </div>
             <span className="text-base md:text-lg text-gray-600 dark:text-gray-300 font-semibold">{t("rating")}</span>
@@ -1042,7 +1042,7 @@ function ReviewsSection() {
                 </div>
 
                 {/* Stars */}
-                <div className="text-yellow-400 text-base flex gap-1 mb-4">
+                <div className="text-yellow-500 dark:text-yellow-300 text-base flex gap-1 mb-4">
                   {renderStars(review.rating)}
                 </div>
 

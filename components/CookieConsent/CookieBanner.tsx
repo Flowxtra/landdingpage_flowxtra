@@ -93,7 +93,7 @@ export default function CookieBanner() {
                 {' '}
                 <a 
                   href="/cookie-policy" 
-                  className="text-primary dark:text-white dark:underline"
+                  className="text-primary dark:text-white underline hover:text-button-hover dark:hover:text-[#00A8CD] transition-colors font-medium"
                 >
                   {t('cookiePolicy')}
                 </a>

@@ -317,7 +317,7 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
           <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-6">
             {tAbout('intro')}{' '}
             {tAbout('seeCookiePolicy')}{' '}
-            <Link href={`/${locale}/cookie-policy`} className="text-primary dark:text-white dark:underline">
+            <Link href={`/${locale}/cookie-policy`} className="text-primary dark:text-white underline hover:text-button-hover dark:hover:text-[#00A8CD] transition-colors font-medium">
               {tAbout('cookiePolicy')}
             </Link>
           </p>

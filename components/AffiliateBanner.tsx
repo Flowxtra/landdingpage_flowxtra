@@ -68,7 +68,7 @@ export default function AffiliateBanner() {
   if (!isVisible) return null;
 
   return (
-    <div className="w-full bg-primary dark:bg-secondary text-white py-2.5 px-4 relative z-50">
+    <div className="w-full bg-primary dark:bg-gray-900 text-white py-2.5 px-4 relative z-50">
       <div className="container mx-auto">
         <div className="flex items-center justify-center gap-4 relative">
           <p className="text-sm md:text-base text-center flex-1 md:flex-none">
@@ -77,7 +77,7 @@ export default function AffiliateBanner() {
               index === 0 ? (
                 <span key={index}>
                   {part}
-                  <span className="text-lg md:text-xl font-bold text-yellow-400">€594</span>
+                  <span className="text-lg md:text-xl font-bold text-yellow-300 dark:text-yellow-200">€594</span>
                 </span>
               ) : (
                 <span key={index}>{part}</span>
