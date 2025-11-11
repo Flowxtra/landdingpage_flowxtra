@@ -77,6 +77,10 @@ export async function generateMetadata({
       '/cookie-richtlinie',
       '/terms-of-use',
       '/nutzungsbedingungen',
+      '/affiliate',
+      '/about',
+      '/ueber-uns',
+      '/app-store',
     ];
 
     // Check if this is a page that should have canonical in root layout
