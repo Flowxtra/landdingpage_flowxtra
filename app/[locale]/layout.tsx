@@ -35,9 +35,18 @@ export async function generateMetadata({
   
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
   
-  // Get current pathname from headers (set by middleware) to build canonical URL
+  // Get current pathname and host from headers to build canonical URL
+  // This ensures the canonical URL matches the actual current page URL (including localhost in dev)
   const headersList = await headers();
   const pathname = headersList.get('x-pathname') || '';
+  const host = headersList.get('host') || '';
+  
+  // Determine the base URL to use: prefer current request host in dev, otherwise use configured baseUrl
+  // This ensures canonical works correctly in both development and production
+  const protocol = host.includes('localhost') || host.includes('127.0.0.1') ? 'http' : 'https';
+  const currentBaseUrl = host && (host.includes('localhost') || host.includes('127.0.0.1'))
+    ? `${protocol}://${host}`
+    : baseUrl;
   
   // Build canonical URL and hreflang URLs based on current pathname
   // Only set canonical for homepage and pages without nested layouts
@@ -54,6 +63,10 @@ export async function generateMetadata({
       '/social-media-management',
       '/free-job-posting',
       '/kostenlose-stellenausschreibung',
+      '/contact-us',
+      '/kontakt',
+      '/pricing',
+      '/preise',
     ];
 
     // Check if this is a page that should have canonical in root layout
@@ -63,22 +76,23 @@ export async function generateMetadata({
                              pagesWithNestedLayouts.some(page => pathAfterLocale === page)); // Pages with their own layouts
     
     if (!hasNestedLayout) {
-      // This is a simple page (homepage, pricing, contact, etc.)
-      canonicalUrl = `${baseUrl}${pathname}`;
+      // This is a simple page (homepage, pricing, etc.)
+      canonicalUrl = `${currentBaseUrl}${pathname}`;
       
       // Build hreflang URLs for the same page in all languages
+      // Use the same base URL as canonical to ensure consistency
       const supportedLocales = ['en', 'de', 'fr', 'es', 'it', 'nl', 'ar'];
       supportedLocales.forEach(lang => {
-        hreflangUrls[lang] = `${baseUrl}/${lang}${pathAfterLocale}`;
+        hreflangUrls[lang] = `${currentBaseUrl}/${lang}${pathAfterLocale}`;
       });
     }
     // If hasNestedLayout, leave canonicalUrl as undefined - nested layout will handle it
   } else {
     // Fallback to homepage if pathname is not available
-    canonicalUrl = `${baseUrl}/${locale}`;
+    canonicalUrl = `${currentBaseUrl}/${locale}`;
     const supportedLocales = ['en', 'de', 'fr', 'es', 'it', 'nl', 'ar'];
     supportedLocales.forEach(lang => {
-      hreflangUrls[lang] = `${baseUrl}/${lang}`;
+      hreflangUrls[lang] = `${currentBaseUrl}/${lang}`;
     });
   }
   
