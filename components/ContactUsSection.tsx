@@ -1,54 +1,66 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 
 /**
  * Get API base URL from environment variables
- * Development: Uses NEXT_PUBLIC_developemant_BACKEND_URL from .env.local
- * Production: Uses NEXT_PUBLIC_BACKEND_URL from production environment
- * Fallback: Uses NEXT_PUBLIC_API_URL if available
+ * Development: Uses proxy route (/api/contact) to avoid CORS issues
+ * Production: Uses NEXT_PUBLIC_BACKEND_URL or NEXT_PUBLIC_API_URL
  */
 function getApiBaseUrl(): string {
-  // First, check if NEXT_PUBLIC_API_URL is set (highest priority)
-  if (process.env.NEXT_PUBLIC_API_URL) {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    return apiUrl.endsWith("/api") ? apiUrl : `${apiUrl}/api`;
-  }
-
-  // Check if we're in development mode
-  const isDevelopment = process.env.NODE_ENV === "development";
+  // Check if we're in development mode (client-side or server-side)
+  const isDevelopment =
+    process.env.NODE_ENV === "development" ||
+    (typeof window !== "undefined" &&
+      (window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1"));
 
   if (isDevelopment) {
-    // Development: Use local backend URL from .env.local
-    const devUrl = process.env.NEXT_PUBLIC_developemant_BACKEND_URL;
-
-    if (!devUrl) {
-      console.warn(
-        "⚠️ NEXT_PUBLIC_developemant_BACKEND_URL is not configured. Using fallback: http://localhost:8765"
-      );
-      return "http://localhost:8765/api";
-    }
-
-    return devUrl.endsWith("/api") ? devUrl : `${devUrl}/api`;
-  } else {
-    // Production: Use production backend URL from environment
-    const prodUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-
-    if (!prodUrl) {
-      // Fallback to API_URL or default production URL
-      const fallbackUrl =
-        process.env.NEXT_PUBLIC_API_URL || "https://api.flowxtra.com";
-      console.warn(
-        "⚠️ NEXT_PUBLIC_BACKEND_URL is not configured. Using fallback:",
-        fallbackUrl
-      );
-      return fallbackUrl.endsWith("/api") ? fallbackUrl : `${fallbackUrl}/api`;
-    }
-
-    return prodUrl.endsWith("/api") ? prodUrl : `${prodUrl}/api`;
+    // Development: Use proxy route to avoid CORS issues
+    console.log("[Contact API] Using proxy /api/contact (development mode)");
+    return "/api/contact";
   }
+
+  // Production: Use NEXT_PUBLIC_BACKEND_URL first (production backend)
+  if (process.env.NEXT_PUBLIC_BACKEND_URL) {
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+    // Add /api if not already included
+    const finalUrl = backendUrl.endsWith("/api")
+      ? backendUrl
+      : `${backendUrl}/api`;
+    console.log("[Contact API] Using NEXT_PUBLIC_BACKEND_URL:", finalUrl);
+    return finalUrl;
+  }
+
+  // Second, check NEXT_PUBLIC_API_URL only if it's NOT localhost
+  // Skip localhost URLs to avoid connection errors
+  if (process.env.NEXT_PUBLIC_API_URL) {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    // Skip if it's localhost (development local backend)
+    if (
+      !apiUrl.includes("localhost") &&
+      !apiUrl.includes("127.0.0.1") &&
+      !apiUrl.startsWith("http://localhost") &&
+      !apiUrl.startsWith("http://127.0.0.1")
+    ) {
+      // Add /api if not already included
+      const finalUrl = apiUrl.endsWith("/api") ? apiUrl : `${apiUrl}/api`;
+      console.log("[Contact API] Using NEXT_PUBLIC_API_URL:", finalUrl);
+      return finalUrl;
+    } else {
+      console.log(
+        "[Contact API] Skipping NEXT_PUBLIC_API_URL (localhost detected):",
+        apiUrl
+      );
+    }
+  }
+
+  // Fallback to default production URL
+  const fallbackUrl = "https://api.flowxtra.com/api";
+  console.log("[Contact API] Using fallback URL:", fallbackUrl);
+  return fallbackUrl;
 }
 
 export default function ContactUsSection() {
@@ -66,10 +78,28 @@ export default function ContactUsSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState<string>("");
+  const recaptchaRef = useRef<HTMLDivElement>(null);
 
   // Get API base URL and check if we're in local development
   const API_BASE_URL = getApiBaseUrl();
   const isLocal = process.env.NODE_ENV === "development";
+  
+  // Check if reCAPTCHA is enabled from environment variable
+  // In development: enabled by default (uses test key)
+  // In production: must be explicitly enabled via NEXT_PUBLIC_RECAPTCHA_ENABLED=true
+  const isRecaptchaEnabled = isLocal 
+    ? process.env.NEXT_PUBLIC_RECAPTCHA_ENABLED !== "false" // Default: true in development
+    : process.env.NEXT_PUBLIC_RECAPTCHA_ENABLED === "true"; // Default: false in production
+  
+  // Debug logging
+  useEffect(() => {
+    console.log('[reCAPTCHA] Status check:', {
+      isLocal,
+      isRecaptchaEnabled,
+      envValue: process.env.NEXT_PUBLIC_RECAPTCHA_ENABLED,
+      siteKey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ? 'Set' : 'Not set'
+    });
+  }, [isLocal, isRecaptchaEnabled]);
 
   // Clean up browser extension injected elements that cause hydration mismatches
   useEffect(() => {
@@ -101,40 +131,103 @@ export default function ContactUsSection() {
     };
   }, []);
 
-  // Load reCAPTCHA script only in production
+  // Load reCAPTCHA script only if enabled
   useEffect(() => {
-    // Skip loading reCAPTCHA in local development
-    if (isLocal) {
+    console.log('[reCAPTCHA] useEffect triggered, isRecaptchaEnabled:', isRecaptchaEnabled);
+    
+    // Skip if reCAPTCHA is disabled
+    if (!isRecaptchaEnabled) {
+      console.log('[reCAPTCHA] Skipped - reCAPTCHA is disabled');
       return;
     }
+    
+    console.log('[reCAPTCHA] Starting to load reCAPTCHA...');
+
+    // Define callback function globally (must be defined before script loads)
+    (window as any).onRecaptchaSuccess = (token: string) => {
+      console.log('[reCAPTCHA] Token received:', token ? 'Yes' : 'No');
+      setRecaptchaToken(token);
+    };
 
     // Check if script already exists
     if (document.querySelector('script[src*="recaptcha/api.js"]')) {
-      // Script already loaded, just define callback
-      (window as any).onRecaptchaSuccess = (token: string) => {
-        setRecaptchaToken(token);
-      };
+      // Script already loaded, render widget if grecaptcha is available
+      if ((window as any).grecaptcha && (window as any).grecaptcha.render) {
+        setTimeout(() => {
+          const recaptchaElement = recaptchaRef.current || document.querySelector('.g-recaptcha');
+          if (recaptchaElement && !recaptchaElement.querySelector('iframe')) {
+            const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY 
+              ? process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+              : (isLocal ? "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" : null);
+            if (siteKey) {
+              try {
+                (window as any).grecaptcha.render(recaptchaElement, {
+                  sitekey: siteKey,
+                  callback: 'onRecaptchaSuccess'
+                });
+                console.log('[reCAPTCHA] Widget rendered (script already loaded)');
+              } catch (error) {
+                console.error('[reCAPTCHA] Render error:', error);
+              }
+            }
+          }
+        }, 100);
+      }
       return;
     }
 
+    // Load script with onload callback
+    // Use real site key if available, otherwise use test key in development
+    const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY 
+      ? process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+      : (isLocal ? "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" : null);
+
+    if (!siteKey) {
+      console.warn('[reCAPTCHA] Site key not found');
+      return;
+    }
+    
+    console.log('[reCAPTCHA] Using site key:', siteKey.substring(0, 20) + '...');
+
     const script = document.createElement('script');
-    script.src = 'https://www.google.com/recaptcha/api.js';
+    script.src = `https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit`;
     script.async = true;
     script.defer = true;
-    document.body.appendChild(script);
 
-    // Define callback function globally
-    (window as any).onRecaptchaSuccess = (token: string) => {
-      setRecaptchaToken(token);
+    // Define onload callback to render widget after script loads
+    (window as any).onRecaptchaLoad = () => {
+      console.log('[reCAPTCHA] Script loaded, rendering widget...');
+      // Wait a bit to ensure DOM is ready
+      setTimeout(() => {
+        const recaptchaElement = recaptchaRef.current || document.querySelector('.g-recaptcha');
+        console.log('[reCAPTCHA] Element found:', !!recaptchaElement);
+        console.log('[reCAPTCHA] grecaptcha available:', !!(window as any).grecaptcha);
+        if (recaptchaElement && (window as any).grecaptcha && !recaptchaElement.querySelector('iframe')) {
+          try {
+            (window as any).grecaptcha.render(recaptchaElement, {
+              sitekey: siteKey,
+              callback: 'onRecaptchaSuccess'
+            });
+            console.log('[reCAPTCHA] Widget rendered successfully');
+          } catch (error) {
+            console.error('[reCAPTCHA] Render error:', error);
+          }
+        } else {
+          console.warn('[reCAPTCHA] Cannot render - element or grecaptcha not available, or already rendered');
+        }
+      }, 100);
     };
+
+    document.body.appendChild(script);
 
     return () => {
       if (document.body.contains(script)) {
         document.body.removeChild(script);
       }
       delete (window as any).onRecaptchaSuccess;
+      delete (window as any).onRecaptchaLoad;
     };
-  }, [isLocal]);
+  }, [isRecaptchaEnabled, isLocal]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -156,11 +249,9 @@ export default function ContactUsSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // In local development, use a test token
-    // In production, require valid reCAPTCHA token
-    const token = isLocal ? 'local_test_token' : recaptchaToken;
-
-    if (!isLocal && !token) {
+    // Require reCAPTCHA token only if reCAPTCHA is enabled and we're not in development mode
+    // In development mode, we'll send a dummy token if widget doesn't work
+    if (isRecaptchaEnabled && !recaptchaToken && !isLocal) {
       setSubmitStatus('error');
       setErrorMessage(t("form.recaptchaRequired"));
       setTimeout(() => {
@@ -175,20 +266,53 @@ export default function ContactUsSection() {
     setErrorMessage("");
     
     try {
+      // Build URL - if using proxy (/api/contact), use absolute URL to avoid locale prefix
+      // In client-side, relative paths get locale prefix added by Next.js
+      let url: string;
+      if (API_BASE_URL === "/api/contact") {
+        // Client-side: use absolute URL to avoid locale prefix
+        if (typeof window !== "undefined") {
+          url = `${window.location.origin}${API_BASE_URL}`;
+        } else {
+          // Server-side: relative path is fine
+          url = API_BASE_URL;
+        }
+      } else {
+        url = `${API_BASE_URL}/contact`;
+      }
+
+      // Build request body - include recaptcha_token
+      const requestBody: any = {
+        email: formData.email,
+        firstName: formData.firstName,
+        message: formData.review,
+        agreeToPrivacy: formData.agreeToPrivacy,
+      };
+      
+      // Add recaptcha_token
+      // If reCAPTCHA is enabled and we have a token, use it
+      // If in development mode and no token, send dummy token (backend may require it)
+      if (isRecaptchaEnabled && recaptchaToken) {
+        requestBody.recaptcha_token = recaptchaToken;
+        console.log('[reCAPTCHA] Sending real token');
+      } else if (isLocal && !recaptchaToken) {
+        // In development mode, send dummy token if reCAPTCHA widget didn't work
+        // Backend will accept it if RECAPTCHA_ENABLED=false
+        requestBody.recaptcha_token = "test-token-development-mode";
+        console.log('[reCAPTCHA] Sending dummy token (development mode)');
+      } else if (!recaptchaToken) {
+        // If no token and not in development, this shouldn't happen (validation should catch it)
+        console.warn('[reCAPTCHA] No token available!');
+      }
+
       // Send form data to Laravel backend API
-      const response = await fetch(`${API_BASE_URL}/contact`, {
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
         },
-        body: JSON.stringify({
-          email: formData.email,
-          firstName: formData.firstName,
-          message: formData.review,
-          agreeToPrivacy: formData.agreeToPrivacy,
-          recaptcha_token: token || 'local_test_token',
-        }),
+        body: JSON.stringify(requestBody),
       });
 
       const data = await response.json();
@@ -207,8 +331,8 @@ export default function ContactUsSection() {
         setCharCount(0);
         setRecaptchaToken(null);
         
-        // Reset reCAPTCHA only if it exists and we're not in local development
-        if (!isLocal && (window as any).grecaptcha && typeof (window as any).grecaptcha.reset === 'function') {
+        // Reset reCAPTCHA only if it's enabled and exists
+        if (isRecaptchaEnabled && !isLocal && (window as any).grecaptcha && typeof (window as any).grecaptcha.reset === 'function') {
           try {
             (window as any).grecaptcha.reset();
           } catch (error) {
@@ -358,24 +482,9 @@ export default function ContactUsSection() {
                 </label>
               </div>
 
-              {/* Google reCAPTCHA - Show only in production */}
-              {!isLocal && process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
-                <div>
-                  <div 
-                    className="g-recaptcha" 
-                    data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-                    data-callback="onRecaptchaSuccess"
-                  />
-                </div>
-              )}
-
-              {/* Show info in local development */}
-              {isLocal && (
-                <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg mb-4">
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    Development Mode: reCAPTCHA verification is disabled
-                  </p>
-                </div>
+              {/* Google reCAPTCHA - Only show if enabled */}
+              {isRecaptchaEnabled && (
+                <div ref={recaptchaRef} className="g-recaptcha" id="recaptcha-widget"></div>
               )}
 
               {/* Submit Button */}

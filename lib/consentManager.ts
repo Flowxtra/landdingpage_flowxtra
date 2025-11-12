@@ -113,41 +113,41 @@ export class ConsentManager {
   }
 
   /**
-   * Get backend URL from environment variables
-   * Development: Uses NEXT_PUBLIC_developemant_BACKEND_URL from .env.local
-   * Production: Uses NEXT_PUBLIC_BACKEND_URL from production environment
-   *
-   * @throws Error if backend URL is not configured
+   * Get API base URL for consent logging
+   * Development: Uses proxy route (/api/consent) to avoid CORS issues
+   * Production: Uses NEXT_PUBLIC_BACKEND_URL or direct connection to server
    */
-  private static getBackendUrl(): string {
-    // Check if we're in development mode
-    const isDevelopment = process.env.NODE_ENV === "development";
+  private static getApiBaseUrl(): string {
+    // Check if we're in development mode (client-side or server-side)
+    const isDevelopment =
+      process.env.NODE_ENV === "development" ||
+      (typeof window !== "undefined" &&
+        (window.location.hostname === "localhost" ||
+          window.location.hostname === "127.0.0.1"));
 
     if (isDevelopment) {
-      // Development: Use local backend URL from .env.local
-      const devUrl = process.env.NEXT_PUBLIC_developemant_BACKEND_URL;
-
-      if (!devUrl) {
-        const error =
-          "NEXT_PUBLIC_developemant_BACKEND_URL is not configured in .env.local. Please add it.";
-        console.error("❌", error);
-        throw new Error(error);
+      // Development: Use proxy route to avoid CORS issues
+      if (typeof window !== "undefined") {
+        // Client-side: use absolute URL to avoid locale prefix
+        return `${window.location.origin}/api/consent`;
+      } else {
+        // Server-side: relative path is fine
+        return "/api/consent";
       }
-
-      return devUrl;
-    } else {
-      // Production: Use production backend URL from environment
-      const prodUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-
-      if (!prodUrl) {
-        const error =
-          "NEXT_PUBLIC_BACKEND_URL is not configured in production environment.";
-        console.error("❌", error);
-        throw new Error(error);
-      }
-
-      return prodUrl;
     }
+
+    // Production: Use NEXT_PUBLIC_BACKEND_URL first (production backend)
+    if (process.env.NEXT_PUBLIC_BACKEND_URL) {
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+      // Remove trailing /api if present (we'll add it back)
+      const cleanUrl = backendUrl.replace(/\/api\/?$/, "");
+      // Add /api if not already included
+      const finalUrl = cleanUrl.endsWith("/api") ? cleanUrl : `${cleanUrl}/api`;
+      return finalUrl;
+    }
+
+    // Fallback to default production URL
+    return "https://api.flowxtra.com/api";
   }
 
   /**
@@ -165,31 +165,21 @@ export class ConsentManager {
    * This is REQUIRED even for non-registered visitors!
    */
   private static async logConsentToServer(data: ConsentData): Promise<void> {
+    // Get API base URL (may be proxy path in development)
+    const apiBaseUrl = this.getApiBaseUrl();
+
+    // Build URL - if using proxy (/api/consent), use it directly
+    // Otherwise, append /consent/log
+    const apiEndpoint = apiBaseUrl.includes("/api/consent")
+      ? `${apiBaseUrl}/log`
+      : `${apiBaseUrl}/consent/log`;
+
+    // Log which backend we're connecting to (development only)
+    if (process.env.NODE_ENV === "development") {
+      console.log(`[Consent API] Connecting to: ${apiEndpoint}`);
+    }
+
     try {
-      // Get backend URL based on environment (development or production)
-      let backendUrl: string;
-
-      try {
-        backendUrl = this.getBackendUrl();
-      } catch (error) {
-        // If backend URL is not configured, fail gracefully
-        // Consent is still stored in localStorage, so user experience is not affected
-        if (process.env.NODE_ENV === "development") {
-          console.error("❌ Backend URL configuration error:", error);
-          console.error(
-            "💡 Please create .env.local file with NEXT_PUBLIC_developemant_BACKEND_URL"
-          );
-        }
-        return; // Exit silently - consent is saved in localStorage
-      }
-
-      const apiEndpoint = `${backendUrl}/api/consent/log`;
-
-      // Log which backend we're connecting to (development only)
-      if (process.env.NODE_ENV === "development") {
-        console.log(`📡 Connecting to backend: ${apiEndpoint}`);
-      }
-
       // Use fetch with timeout for better cross-browser compatibility
       // AbortController is supported in all modern browsers (Chrome 66+, Firefox 57+, Safari 12.1+)
       let controller: AbortController | null = null;
@@ -242,18 +232,18 @@ export class ConsentManager {
 
       // Log success in development only
       if (process.env.NODE_ENV === "development") {
-        console.log("✅ Consent logged to backend:", result);
+        console.log("[Consent API] Consent logged successfully:", result);
       }
     } catch (error) {
       // Fail silently - consent is still stored in localStorage
       // Only log errors in development
       if (process.env.NODE_ENV === "development") {
-        console.error("❌ Failed to log consent to backend:", error);
-        try {
-          console.error("Backend URL:", this.getBackendUrl());
-        } catch {
-          // Ignore if getBackendUrl also fails
-        }
+        console.error("[Consent API] Failed to log consent:", error);
+        console.error("[Consent API] API Endpoint:", apiEndpoint);
+        console.error("[Consent API] Error details:", {
+          message: error instanceof Error ? error.message : "Unknown error",
+          stack: error instanceof Error ? error.stack : undefined,
+        });
       }
     }
   }

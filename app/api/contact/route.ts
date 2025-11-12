@@ -1,16 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 
 /**
- * API Proxy Route for Consent API
+ * API Proxy Route for Contact API
  * This route proxies POST requests to the backend API to avoid CORS issues in development
  *
- * Usage: POST /api/consent/log -> POST https://api.flowxtra.com/api/consent/log
+ * Usage: POST /api/contact -> POST https://api.flowxtra.com/api/contact
  */
 export async function POST(request: NextRequest) {
   // Log that the route is being called
   console.log("=".repeat(50));
-  console.log("[Consent API Proxy] POST request received");
-  console.log("[Consent API Proxy] Request URL:", request.url);
+  console.log("[Contact API Proxy] POST request received");
+  console.log("[Contact API Proxy] Request URL:", request.url);
+  console.log("[Contact API Proxy] Request method:", request.method);
   console.log("=".repeat(50));
 
   try {
@@ -20,12 +21,11 @@ export async function POST(request: NextRequest) {
       body = await request.json();
     } catch (parseError) {
       console.error(
-        "[Consent API Proxy] Error parsing request body:",
+        "[Contact API Proxy] Error parsing request body:",
         parseError
       );
       return NextResponse.json(
         {
-          success: false,
           error: "Invalid request body",
           message:
             parseError instanceof Error ? parseError.message : "Unknown error",
@@ -38,6 +38,26 @@ export async function POST(request: NextRequest) {
             "Access-Control-Allow-Headers": "Content-Type, Authorization",
           },
         }
+      );
+    }
+
+    // Check if we're in development mode
+    const isDevelopment = process.env.NODE_ENV === "development";
+
+    // Check if reCAPTCHA is enabled from environment variable
+    // Default: false (disabled) - same as backend
+    const isRecaptchaEnabled =
+      process.env.NEXT_PUBLIC_RECAPTCHA_ENABLED === "true";
+
+    // In development mode, if token is missing, add dummy token
+    // Backend will accept it if RECAPTCHA_ENABLED=false
+    if (isDevelopment && !body.recaptcha_token) {
+      body = {
+        ...body,
+        recaptcha_token: "test-token-development-mode",
+      };
+      console.log(
+        "[Contact API Proxy] Development mode: Added dummy recaptcha_token"
       );
     }
 
@@ -56,13 +76,9 @@ export async function POST(request: NextRequest) {
         !backendUrlEnv.startsWith("http://127.0.0.1")
       ) {
         backendUrl = backendUrlEnv;
-        console.log(
-          "[Consent API Proxy] Using NEXT_PUBLIC_BACKEND_URL:",
-          backendUrl
-        );
       } else {
         console.log(
-          "[Consent API Proxy] Skipping NEXT_PUBLIC_BACKEND_URL (localhost detected):",
+          "[Contact API Proxy] Skipping NEXT_PUBLIC_BACKEND_URL (localhost detected):",
           backendUrlEnv
         );
       }
@@ -79,13 +95,9 @@ export async function POST(request: NextRequest) {
         !apiUrl.startsWith("http://127.0.0.1")
       ) {
         backendUrl = apiUrl;
-        console.log(
-          "[Consent API Proxy] Using NEXT_PUBLIC_API_URL:",
-          backendUrl
-        );
       } else {
         console.log(
-          "[Consent API Proxy] Skipping NEXT_PUBLIC_API_URL (localhost detected):",
+          "[Contact API Proxy] Skipping NEXT_PUBLIC_API_URL (localhost detected):",
           apiUrl
         );
       }
@@ -95,7 +107,12 @@ export async function POST(request: NextRequest) {
     if (!backendUrl) {
       backendUrl = "https://api.flowxtra.com";
       console.log(
-        "[Consent API Proxy] Using production server (fallback):",
+        "[Contact API Proxy] Using production server (fallback):",
+        backendUrl
+      );
+    } else {
+      console.log(
+        "[Contact API Proxy] Using backend URL from env:",
         backendUrl
       );
     }
@@ -105,7 +122,7 @@ export async function POST(request: NextRequest) {
     backendUrl = backendUrl.replace(/\/api\/?$/, "");
     if (originalBackendUrl !== backendUrl) {
       console.log(
-        "[Consent API Proxy] Removed /api from backend URL:",
+        "[Contact API Proxy] Removed /api from backend URL:",
         originalBackendUrl,
         "->",
         backendUrl
@@ -116,34 +133,33 @@ export async function POST(request: NextRequest) {
     if (!backendUrl.startsWith("http")) {
       backendUrl = `https://${backendUrl}`;
       console.log(
-        "[Consent API Proxy] Added https:// to backend URL:",
+        "[Contact API Proxy] Added https:// to backend URL:",
         backendUrl
       );
     }
 
     // Build the API URL
-    const apiUrl = `${backendUrl}/api/consent/log`;
+    const apiUrl = `${backendUrl}/api/contact`;
 
     // Debug logging
-    console.log("[Consent API Proxy] Proxying request:", {
+    console.log("[Contact API Proxy] Proxying request:", {
       originalPath: request.nextUrl.pathname,
       backendUrl,
       apiUrl,
       envApiUrl: process.env.NEXT_PUBLIC_API_URL,
       envBackendUrl: process.env.NEXT_PUBLIC_BACKEND_URL,
       bodyKeys: Object.keys(body),
-      hasConsentId: !!body.consentId,
+      hasRecaptchaToken: !!body.recaptcha_token,
     });
 
     // Ensure we're not using localhost
     if (apiUrl.includes("localhost") || apiUrl.includes("127.0.0.1")) {
       console.error(
-        "[Consent API Proxy] ERROR: API URL contains localhost! This should not happen."
+        "[Contact API Proxy] ERROR: API URL contains localhost! This should not happen."
       );
-      console.error("[Consent API Proxy] API URL:", apiUrl);
+      console.error("[Contact API Proxy] API URL:", apiUrl);
       return NextResponse.json(
         {
-          success: false,
           error: "Configuration error",
           message:
             "API URL contains localhost. Please check environment variables.",
@@ -175,12 +191,12 @@ export async function POST(request: NextRequest) {
         cache: "no-store",
       });
       console.log(
-        "[Consent API Proxy] Response status:",
+        "[Contact API Proxy] Response status:",
         response.status,
         response.statusText
       );
     } catch (fetchError) {
-      console.error("[Consent API Proxy] Fetch error:", {
+      console.error("[Contact API Proxy] Fetch error:", {
         error:
           fetchError instanceof Error ? fetchError.message : "Unknown error",
         stack: fetchError instanceof Error ? fetchError.stack : undefined,
@@ -197,7 +213,7 @@ export async function POST(request: NextRequest) {
         errorText = "Failed to read error response";
       }
 
-      console.error("[Consent API Proxy] Error:", {
+      console.error("[Contact API Proxy] Error:", {
         status: response.status,
         statusText: response.statusText,
         url: apiUrl,
@@ -206,7 +222,6 @@ export async function POST(request: NextRequest) {
 
       return NextResponse.json(
         {
-          success: false,
           error: "API request failed",
           status: response.status,
           message: errorText.substring(0, 200), // Limit message length
@@ -228,7 +243,7 @@ export async function POST(request: NextRequest) {
       const text = await response.text();
       data = JSON.parse(text);
     } catch (parseError) {
-      console.error("[Consent API Proxy] JSON Parse Error:", {
+      console.error("[Contact API Proxy] JSON Parse Error:", {
         error:
           parseError instanceof Error
             ? parseError.message
@@ -237,7 +252,6 @@ export async function POST(request: NextRequest) {
       });
       return NextResponse.json(
         {
-          success: false,
           error: "Invalid JSON response from API",
           message:
             parseError instanceof Error ? parseError.message : "Unknown error",
@@ -266,7 +280,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     // Log error to console (will appear in terminal where Next.js dev server runs)
     console.error("=".repeat(50));
-    console.error("[Consent API Proxy] UNEXPECTED ERROR:");
+    console.error("[Contact API Proxy] UNEXPECTED ERROR:");
     console.error(
       "Error message:",
       error instanceof Error ? error.message : "Unknown error"
@@ -282,7 +296,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       {
-        success: false,
         error: "Internal server error",
         message: error instanceof Error ? error.message : "Unknown error",
         details:
