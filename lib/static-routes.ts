@@ -105,6 +105,21 @@ export const staticRoutes: StaticRoute[] = [
       de: "/barrierefreiheit",
     },
   },
+  {
+    routeKey: "appStore",
+    priority: 0.8,
+    changeFrequency: "weekly",
+    includeInSitemap: true,
+    paths: {
+      en: "/app-store",
+      de: "/app-store",
+      fr: "/app-store",
+      es: "/app-store",
+      it: "/app-store",
+      nl: "/app-store",
+      ar: "/app-store",
+    },
+  },
 ];
 
 /**

@@ -57,6 +57,15 @@ export async function GET(
     <priority>0.8</priority>
   </url>`;
 
+  // Add app-store listing page for this locale
+  xml += `
+  <url>
+    <loc>${baseUrl}/${locale}/app-store</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`;
+
   xml += `
 </urlset>`;
 

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { supportedLocales } from "@/lib/locales";
 import { getBlogPosts } from "@/lib/blogApi";
+import { getApps } from "@/lib/appStoreApi";
 
 /**
  * Sitemap Index for SEO
@@ -8,15 +9,125 @@ import { getBlogPosts } from "@/lib/blogApi";
  * This generates a sitemap index XML that references:
  * 1. Static pages sitemap (split by locale)
  * 2. Blog posts sitemaps (split by language, 100 posts per file)
+ * 3. App Store apps sitemaps (split by language, 100 apps per file)
  *
  * Format:
  * - /sitemap-static-en.xml, /sitemap-static-de.xml, etc. (static pages per locale)
  * - /sitemap-en-blog-0.xml, /sitemap-en-blog-1.xml, etc. (English blog posts)
  * - /sitemap-de-blog-0.xml, /sitemap-de-blog-1.xml, etc. (German blog posts)
+ * - /sitemap-en-app-store-0.xml, /sitemap-en-app-store-1.xml, etc. (English apps)
+ * - /sitemap-de-app-store-0.xml, /sitemap-de-app-store-1.xml, etc. (German apps)
  *
  * Languages are dynamically loaded from lib/locales.ts - no manual updates needed!
- * Uses getBlogPosts from lib/blogApi.ts to fetch real data from API
+ * Uses getBlogPosts and getApps from API to fetch real data
  */
+
+async function getAppsCount(locale: string): Promise<number> {
+  try {
+    // Use getApps from lib/appStoreApi.ts to fetch real data
+    // Fetch first page to get total count
+    const response = await getApps({
+      page: 1,
+      limit: 1,
+      locale,
+      minimal: true, // Only fetch minimal data needed for count
+    });
+
+    if (response.success && response.data && response.data.pagination) {
+      // Get actual apps to filter by translation
+      const apps = response.data.apps || [];
+      
+      // Filter apps: only count apps that have translation for this locale
+      const filteredApps = apps.filter((app: any) => {
+        // If app has translations object, check if this locale is available
+        if (app.translations && typeof app.translations === 'object') {
+          // Check if translation exists for this locale
+          const hasTranslation = app.translations[locale as keyof typeof app.translations] !== undefined;
+          // If locale is 'en', always include (default language)
+          if (locale === 'en') return true;
+          // For other locales, only include if translation exists
+          return hasTranslation;
+        }
+        // If no translations object, include all apps (backward compatibility)
+        return true;
+      });
+      
+      const totalApps = filteredApps.length;
+      if (totalApps > 0) {
+        console.log(`✅ Found ${totalApps} apps (with translation) for locale "${locale}"`);
+      }
+      return totalApps;
+    }
+
+    // Fallback: try to count all apps
+    let totalCount = 0;
+    let currentPage = 1;
+    let hasMorePages = true;
+    const limit = 100;
+
+    while (hasMorePages) {
+      try {
+        const pageResponse = await getApps({
+          page: currentPage,
+          limit,
+          locale,
+          minimal: true,
+        });
+
+        if (
+          pageResponse.success &&
+          pageResponse.data &&
+          pageResponse.data.apps
+        ) {
+          // Filter apps: only count apps that have translation for this locale
+          const filteredApps = pageResponse.data.apps.filter((app: any) => {
+            // If app has translations object, check if this locale is available
+            if (app.translations && typeof app.translations === 'object') {
+              // Check if translation exists for this locale
+              const hasTranslation = app.translations[locale as keyof typeof app.translations] !== undefined;
+              // If locale is 'en', always include (default language)
+              if (locale === 'en') return true;
+              // For other locales, only include if translation exists
+              return hasTranslation;
+            }
+            // If no translations object, include all apps (backward compatibility)
+            return true;
+          });
+          
+          totalCount += filteredApps.length;
+
+          if (pageResponse.data.pagination) {
+            hasMorePages = pageResponse.data.pagination.hasNextPage || false;
+            currentPage++;
+          } else {
+            hasMorePages = pageResponse.data.apps.length === limit;
+            currentPage++;
+          }
+        } else {
+          hasMorePages = false;
+        }
+      } catch (pageError) {
+        console.warn(
+          `⚠️ Error fetching apps page ${currentPage} for locale "${locale}":`,
+          pageError
+        );
+        hasMorePages = false;
+      }
+
+      // Safety limit
+      if (currentPage > 100) break;
+    }
+
+    return totalCount;
+  } catch (error) {
+    // Network errors or API unavailable - log but don't break sitemap
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.warn(
+      `⚠️ Error fetching apps count for sitemap (locale: ${locale}): ${errorMessage}`
+    );
+    return 0;
+  }
+}
 
 async function getBlogPostsCount(locale: string): Promise<number> {
   try {
@@ -152,6 +263,36 @@ export async function GET() {
     } else {
       console.log(
         `📝 Adding ${totalFiles} blog sitemap file(s) for locale "${locale}" (${totalPosts} posts total)`
+      );
+    }
+  }
+
+  // Add app-store sitemaps for each locale
+  for (const locale of locales) {
+    const totalApps = await getAppsCount(locale);
+    const totalFiles = Math.ceil(totalApps / postsPerFile);
+
+    // Only add app-store sitemaps if there are apps
+    if (totalApps > 0 && totalFiles > 0) {
+      for (let fileIndex = 0; fileIndex < totalFiles; fileIndex++) {
+        xml += `
+  <sitemap>
+    <loc>${baseUrl}/sitemap-${locale}-app-store-${fileIndex}.xml</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+  </sitemap>`;
+      }
+    }
+    // If no apps found, log info (but don't break sitemap generation)
+    if (totalApps === 0) {
+      console.info(
+        `ℹ️ No apps found for locale "${locale}" - app-store sitemaps will not be included`
+      );
+      console.info(
+        `   This is normal if the API is not ready yet or has no apps.`
+      );
+    } else {
+      console.log(
+        `📱 Adding ${totalFiles} app-store sitemap file(s) for locale "${locale}" (${totalApps} apps total)`
       );
     }
   }

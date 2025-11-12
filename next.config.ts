@@ -49,6 +49,12 @@ const nextConfig: NextConfig = {
         source: "/sitemap-:locale-blog-:index.xml",
         destination: "/sitemap/:locale/blog/:index",
       },
+      // Rewrite sitemap app-store URLs to match desired format
+      // /sitemap-en-app-store-0.xml -> /sitemap/en/app-store/0
+      {
+        source: "/sitemap-:locale-app-store-:index.xml",
+        destination: "/sitemap/:locale/app-store/:index",
+      },
       // Rewrite sitemap static URLs to match desired format
       // /sitemap-static-en.xml -> /sitemap-static/en
       {
