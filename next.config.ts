@@ -61,6 +61,12 @@ const nextConfig: NextConfig = {
         source: "/sitemap-static-:locale.xml",
         destination: "/sitemap-static/:locale",
       },
+      // Rewrite locale-specific sitemap index URLs
+      // /sitemap-en.xml -> /sitemap/en
+      {
+        source: "/sitemap-:locale.xml",
+        destination: "/sitemap/:locale",
+      },
     ];
   },
   async headers() {

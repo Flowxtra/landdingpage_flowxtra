@@ -228,74 +228,18 @@ export async function GET() {
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
 
-  // Add static pages sitemaps for each locale
+  // Add locale-specific sitemap indexes
+  // Each locale has its own sitemap index that contains:
+  // - Static pages
+  // - Blog posts (if available)
+  // - App Store apps (if available)
   locales.forEach((locale) => {
     xml += `
   <sitemap>
-    <loc>${baseUrl}/sitemap-static-${locale}.xml</loc>
+    <loc>${baseUrl}/sitemap-${locale}.xml</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
   </sitemap>`;
   });
-
-  // Add blog sitemaps for each locale
-  for (const locale of locales) {
-    const totalPosts = await getBlogPostsCount(locale);
-    const totalFiles = Math.ceil(totalPosts / postsPerFile);
-
-    // Only add blog sitemaps if there are posts
-    if (totalPosts > 0 && totalFiles > 0) {
-      for (let fileIndex = 0; fileIndex < totalFiles; fileIndex++) {
-        xml += `
-  <sitemap>
-    <loc>${baseUrl}/sitemap-${locale}-blog-${fileIndex}.xml</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
-  </sitemap>`;
-      }
-    }
-    // If no posts found, log info (but don't break sitemap generation)
-    if (totalPosts === 0) {
-      console.info(
-        `ℹ️ No blog posts found for locale "${locale}" - blog sitemaps will not be included`
-      );
-      console.info(
-        `   This is normal if the API is not ready yet or has no blog posts.`
-      );
-    } else {
-      console.log(
-        `📝 Adding ${totalFiles} blog sitemap file(s) for locale "${locale}" (${totalPosts} posts total)`
-      );
-    }
-  }
-
-  // Add app-store sitemaps for each locale
-  for (const locale of locales) {
-    const totalApps = await getAppsCount(locale);
-    const totalFiles = Math.ceil(totalApps / postsPerFile);
-
-    // Only add app-store sitemaps if there are apps
-    if (totalApps > 0 && totalFiles > 0) {
-      for (let fileIndex = 0; fileIndex < totalFiles; fileIndex++) {
-        xml += `
-  <sitemap>
-    <loc>${baseUrl}/sitemap-${locale}-app-store-${fileIndex}.xml</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
-  </sitemap>`;
-      }
-    }
-    // If no apps found, log info (but don't break sitemap generation)
-    if (totalApps === 0) {
-      console.info(
-        `ℹ️ No apps found for locale "${locale}" - app-store sitemaps will not be included`
-      );
-      console.info(
-        `   This is normal if the API is not ready yet or has no apps.`
-      );
-    } else {
-      console.log(
-        `📱 Adding ${totalFiles} app-store sitemap file(s) for locale "${locale}" (${totalApps} apps total)`
-      );
-    }
-  }
 
   xml += `
 </sitemapindex>`;

@@ -32,6 +32,7 @@ async function getBlogPostsBatch(
     const limit = batchSize;
 
     // Use getBlogPosts from lib/blogApi.ts to fetch real data
+    // Blog posts update frequently, so we fetch fresh data for sitemap
     const response = await getBlogPosts({
       page,
       limit,
@@ -83,7 +84,9 @@ export async function GET(
       {
         headers: {
           "Content-Type": "application/xml",
-          "Cache-Control": "public, max-age=3600, s-maxage=3600",
+          // Blog sitemaps update frequently - cache for 1 hour (3600 seconds)
+          "Cache-Control":
+            "public, max-age=3600, s-maxage=3600, must-revalidate",
         },
       }
     );
@@ -114,7 +117,9 @@ export async function GET(
   return new NextResponse(xml, {
     headers: {
       "Content-Type": "application/xml",
-      "Cache-Control": "public, max-age=3600, s-maxage=3600",
+      // Blog sitemaps update frequently - cache for 1 hour (3600 seconds)
+      // must-revalidate ensures fresh content when cache expires
+      "Cache-Control": "public, max-age=3600, s-maxage=3600, must-revalidate",
     },
   });
 }
