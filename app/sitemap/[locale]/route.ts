@@ -54,6 +54,7 @@ async function getAppsCount(locale: string): Promise<number> {
 
 async function getBlogPostsCount(locale: string): Promise<number> {
   try {
+    // Try to get blog posts for the requested locale
     const response = await getBlogPosts({
       page: 1,
       limit: 1,
@@ -62,7 +63,42 @@ async function getBlogPostsCount(locale: string): Promise<number> {
     });
 
     if (response.success && response.data && response.data.pagination) {
-      return response.data.pagination.totalPosts || 0;
+      const totalPosts = response.data.pagination.totalPosts || 0;
+
+      // If we have posts for this locale, return the count
+      if (totalPosts > 0) {
+        return totalPosts;
+      }
+
+      // If no posts for this locale and it's not English, try English as fallback
+      // This ensures all languages show blog posts (using English content)
+      if (locale !== "en") {
+        console.log(
+          `📝 No blog posts found for locale "${locale}", trying English as fallback...`
+        );
+        const enResponse = await getBlogPosts({
+          page: 1,
+          limit: 1,
+          locale: "en",
+          minimal: true,
+        });
+
+        if (
+          enResponse.success &&
+          enResponse.data &&
+          enResponse.data.pagination
+        ) {
+          const enTotalPosts = enResponse.data.pagination.totalPosts || 0;
+          if (enTotalPosts > 0) {
+            console.log(
+              `📝 Using English blog posts (${enTotalPosts}) for locale "${locale}"`
+            );
+            return enTotalPosts;
+          }
+        }
+      }
+
+      return totalPosts;
     }
 
     return 0;

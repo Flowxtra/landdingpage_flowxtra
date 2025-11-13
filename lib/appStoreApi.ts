@@ -163,17 +163,24 @@ export async function getApps(params: {
 
   // Get API base URL (may be proxy path in development)
   const apiBaseUrl = getApiBaseUrl();
-  
+
   // Build URL - if using proxy (/api/app-store), use absolute URL to avoid locale prefix
   // In client-side, relative paths get locale prefix added by Next.js
+  // In server-side, fetch() requires absolute URL
   let url: string;
   if (apiBaseUrl === "/api/app-store") {
-    // Client-side: use absolute URL to avoid locale prefix
     if (typeof window !== "undefined") {
+      // Client-side: use absolute URL to avoid locale prefix
       url = `${window.location.origin}${apiBaseUrl}?${queryParams.toString()}`;
     } else {
-      // Server-side: relative path is fine
-      url = `${apiBaseUrl}?${queryParams.toString()}`;
+      // Server-side: fetch() requires absolute URL
+      const baseUrl =
+        process.env.NEXT_PUBLIC_SITE_URL ||
+        process.env.NEXT_PUBLIC_BASE_URL ||
+        (process.env.NODE_ENV === "development"
+          ? "http://localhost:3000"
+          : "https://flowxtra.com");
+      url = `${baseUrl}${apiBaseUrl}?${queryParams.toString()}`;
     }
   } else {
     url = `${apiBaseUrl}/app-store?${queryParams.toString()}`;
@@ -227,7 +234,7 @@ export async function getApp(
 ): Promise<AppResponse> {
   // Get API base URL (may be proxy path in development)
   const apiBaseUrl = getApiBaseUrl();
-  
+
   // Build URL - if using proxy (/api/app-store), use absolute URL to avoid locale prefix
   let url: string;
   if (apiBaseUrl === "/api/app-store") {
@@ -284,7 +291,7 @@ export async function getAppCategories(locale: string = "en"): Promise<{
 }> {
   // Get API base URL (may be proxy path in development)
   const apiBaseUrl = getApiBaseUrl();
-  
+
   // Build URL - if using proxy (/api/app-store), use absolute URL to avoid locale prefix
   let url: string;
   if (apiBaseUrl === "/api/app-store") {

@@ -33,12 +33,32 @@ async function getBlogPostsBatch(
 
     // Use getBlogPosts from lib/blogApi.ts to fetch real data
     // Blog posts update frequently, so we fetch fresh data for sitemap
-    const response = await getBlogPosts({
+    let response = await getBlogPosts({
       page,
       limit,
       locale,
       minimal: true, // Only fetch minimal data needed for sitemap
     });
+
+    // If no posts for this locale and it's not English, try English as fallback
+    // This ensures all languages show blog posts (using English content)
+    if (
+      (!response.success ||
+        !response.data ||
+        !response.data.posts ||
+        response.data.posts.length === 0) &&
+      locale !== "en"
+    ) {
+      console.log(
+        `📝 No blog posts found for locale "${locale}" in batch ${batchIndex}, trying English as fallback...`
+      );
+      response = await getBlogPosts({
+        page,
+        limit,
+        locale: "en",
+        minimal: true,
+      });
+    }
 
     if (response.success && response.data && response.data.posts) {
       return response.data.posts.map((post) => ({

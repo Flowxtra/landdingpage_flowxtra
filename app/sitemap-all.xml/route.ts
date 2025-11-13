@@ -20,13 +20,37 @@ async function getAllBlogPosts(locale: string): Promise<any[]> {
     let currentPage = 1;
     let hasMorePages = true;
     const limit = 100;
+    let actualLocale = locale; // Use this locale for fetching
+
+    // Check if we have posts for the requested locale
+    // If not and it's not English, use English as fallback
+    if (locale !== "en") {
+      const testResponse = await getBlogPosts({
+        page: 1,
+        limit: 1,
+        locale,
+        minimal: true,
+      });
+
+      if (
+        !testResponse.success ||
+        !testResponse.data ||
+        !testResponse.data.posts ||
+        testResponse.data.posts.length === 0
+      ) {
+        console.log(
+          `📝 No blog posts found for locale "${locale}", using English as fallback...`
+        );
+        actualLocale = "en";
+      }
+    }
 
     while (hasMorePages) {
       try {
         const response = await getBlogPosts({
           page: currentPage,
           limit,
-          locale,
+          locale: actualLocale,
           minimal: true,
         });
 
@@ -45,7 +69,7 @@ async function getAllBlogPosts(locale: string): Promise<any[]> {
         }
       } catch (error) {
         console.warn(
-          `⚠️ Error fetching blog posts page ${currentPage} for locale "${locale}":`,
+          `⚠️ Error fetching blog posts page ${currentPage} for locale "${actualLocale}":`,
           error
         );
         hasMorePages = false;

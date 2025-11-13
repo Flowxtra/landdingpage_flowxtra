@@ -36,25 +36,29 @@ async function getAppsCount(locale: string): Promise<number> {
     if (response.success && response.data && response.data.pagination) {
       // Get actual apps to filter by translation
       const apps = response.data.apps || [];
-      
+
       // Filter apps: only count apps that have translation for this locale
       const filteredApps = apps.filter((app: any) => {
         // If app has translations object, check if this locale is available
-        if (app.translations && typeof app.translations === 'object') {
+        if (app.translations && typeof app.translations === "object") {
           // Check if translation exists for this locale
-          const hasTranslation = app.translations[locale as keyof typeof app.translations] !== undefined;
+          const hasTranslation =
+            app.translations[locale as keyof typeof app.translations] !==
+            undefined;
           // If locale is 'en', always include (default language)
-          if (locale === 'en') return true;
+          if (locale === "en") return true;
           // For other locales, only include if translation exists
           return hasTranslation;
         }
         // If no translations object, include all apps (backward compatibility)
         return true;
       });
-      
+
       const totalApps = filteredApps.length;
       if (totalApps > 0) {
-        console.log(`✅ Found ${totalApps} apps (with translation) for locale "${locale}"`);
+        console.log(
+          `✅ Found ${totalApps} apps (with translation) for locale "${locale}"`
+        );
       }
       return totalApps;
     }
@@ -82,18 +86,20 @@ async function getAppsCount(locale: string): Promise<number> {
           // Filter apps: only count apps that have translation for this locale
           const filteredApps = pageResponse.data.apps.filter((app: any) => {
             // If app has translations object, check if this locale is available
-            if (app.translations && typeof app.translations === 'object') {
+            if (app.translations && typeof app.translations === "object") {
               // Check if translation exists for this locale
-              const hasTranslation = app.translations[locale as keyof typeof app.translations] !== undefined;
+              const hasTranslation =
+                app.translations[locale as keyof typeof app.translations] !==
+                undefined;
               // If locale is 'en', always include (default language)
-              if (locale === 'en') return true;
+              if (locale === "en") return true;
               // For other locales, only include if translation exists
               return hasTranslation;
             }
             // If no translations object, include all apps (backward compatibility)
             return true;
           });
-          
+
           totalCount += filteredApps.length;
 
           if (pageResponse.data.pagination) {
@@ -144,7 +150,37 @@ async function getBlogPostsCount(locale: string): Promise<number> {
       const totalPosts = response.data.pagination.totalPosts || 0;
       if (totalPosts > 0) {
         console.log(`✅ Found ${totalPosts} blog posts for locale "${locale}"`);
+        return totalPosts;
       }
+
+      // If no posts for this locale and it's not English, try English as fallback
+      // This ensures all languages show blog posts (using English content)
+      if (locale !== "en") {
+        console.log(
+          `📝 No blog posts found for locale "${locale}", trying English as fallback...`
+        );
+        const enResponse = await getBlogPosts({
+          page: 1,
+          limit: 1,
+          locale: "en",
+          minimal: true,
+        });
+
+        if (
+          enResponse.success &&
+          enResponse.data &&
+          enResponse.data.pagination
+        ) {
+          const enTotalPosts = enResponse.data.pagination.totalPosts || 0;
+          if (enTotalPosts > 0) {
+            console.log(
+              `📝 Using English blog posts (${enTotalPosts}) for locale "${locale}"`
+            );
+            return enTotalPosts;
+          }
+        }
+      }
+
       return totalPosts;
     }
 
