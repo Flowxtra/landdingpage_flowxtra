@@ -10,35 +10,11 @@
  * @throws Error if API URL is not configured
  */
 function getApiBaseUrl(): string {
-  // Check if we're in development mode (client-side or server-side)
-  const isDevelopment =
-    process.env.NODE_ENV === "development" ||
-    (typeof window !== "undefined" &&
-      (window.location.hostname === "localhost" ||
-        window.location.hostname === "127.0.0.1"));
-
-  // In development, ALWAYS use Next.js API route as proxy to avoid CORS
+  // ALWAYS use Next.js API route as proxy to avoid CORS issues
   // This works for both client-side and server-side (Next.js API routes handle both)
-  if (isDevelopment) {
-    console.log("[getApiBaseUrl] Using proxy /api/blog (development mode)");
-    return "/api/blog";
-  }
-
-  // Production: Use NEXT_PUBLIC_BACKEND_URL (production backend)
-  if (process.env.NEXT_PUBLIC_BACKEND_URL) {
-    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-    // Add /api if not already included
-    const finalUrl = backendUrl.endsWith("/api")
-      ? backendUrl
-      : `${backendUrl}/api`;
-    console.log("[getApiBaseUrl] Using NEXT_PUBLIC_BACKEND_URL:", finalUrl);
-    return finalUrl;
-  }
-
-  // Fallback to default production URL
-  const fallbackUrl = "https://api.flowxtra.com/api";
-  console.log("[getApiBaseUrl] Using fallback URL:", fallbackUrl);
-  return fallbackUrl;
+  // The proxy route at /api/blog will forward requests to the actual backend API
+  console.log("[getApiBaseUrl] Using proxy /api/blog (avoids CORS)");
+  return "/api/blog";
 }
 
 // TypeScript Interfaces

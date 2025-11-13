@@ -7,56 +7,11 @@
  * Production: Uses NEXT_PUBLIC_BACKEND_URL or NEXT_PUBLIC_API_URL
  */
 function getApiBaseUrl(): string {
-  // Check if we're in development mode (client-side or server-side)
-  const isDevelopment =
-    process.env.NODE_ENV === "development" ||
-    (typeof window !== "undefined" &&
-      (window.location.hostname === "localhost" ||
-        window.location.hostname === "127.0.0.1"));
-
-  if (isDevelopment) {
-    // Development: Use proxy route to avoid CORS issues
-    console.log("[getApiBaseUrl] Using proxy /api/app-store (development mode)");
-    return "/api/app-store";
-  }
-
-  // Production: Use NEXT_PUBLIC_BACKEND_URL first (production backend)
-  if (process.env.NEXT_PUBLIC_BACKEND_URL) {
-    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-    // Add /api if not already included
-    const finalUrl = backendUrl.endsWith("/api")
-      ? backendUrl
-      : `${backendUrl}/api`;
-    console.log("[getApiBaseUrl] Using NEXT_PUBLIC_BACKEND_URL:", finalUrl);
-    return finalUrl;
-  }
-
-  // Second, check NEXT_PUBLIC_API_URL only if it's NOT localhost
-  if (process.env.NEXT_PUBLIC_API_URL) {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    // Skip if it's localhost (development local backend)
-    if (
-      !apiUrl.includes("localhost") &&
-      !apiUrl.includes("127.0.0.1") &&
-      !apiUrl.startsWith("http://localhost") &&
-      !apiUrl.startsWith("http://127.0.0.1")
-    ) {
-      // Add /api if not already included
-      const finalUrl = apiUrl.endsWith("/api") ? apiUrl : `${apiUrl}/api`;
-      console.log("[getApiBaseUrl] Using NEXT_PUBLIC_API_URL:", finalUrl);
-      return finalUrl;
-    } else {
-      console.log(
-        "[getApiBaseUrl] Skipping NEXT_PUBLIC_API_URL (localhost detected):",
-        apiUrl
-      );
-    }
-  }
-
-  // Fallback to default production URL
-  const fallbackUrl = "https://api.flowxtra.com/api";
-  console.log("[getApiBaseUrl] Using fallback URL:", fallbackUrl);
-  return fallbackUrl;
+  // ALWAYS use Next.js API route as proxy to avoid CORS issues
+  // This works for both client-side and server-side (Next.js API routes handle both)
+  // The proxy route at /api/app-store will forward requests to the actual backend API
+  console.log("[getApiBaseUrl] Using proxy /api/app-store (avoids CORS)");
+  return "/api/app-store";
 }
 
 // TypeScript Interfaces

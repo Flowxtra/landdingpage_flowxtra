@@ -114,40 +114,18 @@ export class ConsentManager {
 
   /**
    * Get API base URL for consent logging
-   * Development: Uses proxy route (/api/consent) to avoid CORS issues
-   * Production: Uses NEXT_PUBLIC_BACKEND_URL or direct connection to server
+   * ALWAYS uses Next.js API route as proxy to avoid CORS issues
+   * The proxy route (/api/consent) will forward requests to the actual backend API
    */
   private static getApiBaseUrl(): string {
-    // Check if we're in development mode (client-side or server-side)
-    const isDevelopment =
-      process.env.NODE_ENV === "development" ||
-      (typeof window !== "undefined" &&
-        (window.location.hostname === "localhost" ||
-          window.location.hostname === "127.0.0.1"));
-
-    if (isDevelopment) {
-      // Development: Use proxy route to avoid CORS issues
-      if (typeof window !== "undefined") {
-        // Client-side: use absolute URL to avoid locale prefix
-        return `${window.location.origin}/api/consent`;
-      } else {
-        // Server-side: relative path is fine
-        return "/api/consent";
-      }
+    // ALWAYS use Next.js API route as proxy to avoid CORS issues
+    if (typeof window !== "undefined") {
+      // Client-side: use absolute URL to avoid locale prefix
+      return `${window.location.origin}/api/consent`;
+    } else {
+      // Server-side: relative path is fine
+      return "/api/consent";
     }
-
-    // Production: Use NEXT_PUBLIC_BACKEND_URL first (production backend)
-    if (process.env.NEXT_PUBLIC_BACKEND_URL) {
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-      // Remove trailing /api if present (we'll add it back)
-      const cleanUrl = backendUrl.replace(/\/api\/?$/, "");
-      // Add /api if not already included
-      const finalUrl = cleanUrl.endsWith("/api") ? cleanUrl : `${cleanUrl}/api`;
-      return finalUrl;
-    }
-
-    // Fallback to default production URL
-    return "https://api.flowxtra.com/api";
   }
 
   /**
