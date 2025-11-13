@@ -23,7 +23,10 @@ async function getAllBlogPosts(locale: string): Promise<any[]> {
     let actualLocale = locale; // Use this locale for fetching
 
     // Check if we have posts for the requested locale
-    // If not and it's not English, use English as fallback
+    // Fallback chain:
+    // DACH locales: de-at/de-ch → de → en
+    // English locales: en-us/en-gb/en-au/en-ca → en
+    // Other locales: locale → en
     if (locale !== "en") {
       const testResponse = await getBlogPosts({
         page: 1,
@@ -38,10 +41,51 @@ async function getAllBlogPosts(locale: string): Promise<any[]> {
         !testResponse.data.posts ||
         testResponse.data.posts.length === 0
       ) {
-        console.log(
-          `📝 No blog posts found for locale "${locale}", using English as fallback...`
-        );
-        actualLocale = "en";
+        // For English locales, fallback to base English
+        if (
+          locale === "en-us" ||
+          locale === "en-gb" ||
+          locale === "en-au" ||
+          locale === "en-ca"
+        ) {
+          console.log(
+            `📝 No blog posts found for locale "${locale}", using English (en) as fallback...`
+          );
+          actualLocale = "en";
+        }
+        // For DACH locales, try German first, then English
+        else if (locale === "de-at" || locale === "de-ch") {
+          console.log(
+            `📝 No blog posts found for locale "${locale}", trying German (de) as fallback...`
+          );
+          const deTestResponse = await getBlogPosts({
+            page: 1,
+            limit: 1,
+            locale: "de",
+            minimal: true,
+          });
+
+          if (
+            deTestResponse.success &&
+            deTestResponse.data &&
+            deTestResponse.data.posts &&
+            deTestResponse.data.posts.length > 0
+          ) {
+            actualLocale = "de";
+          } else {
+            console.log(
+              `📝 No blog posts found for locale "${locale}", using English as fallback...`
+            );
+            actualLocale = "en";
+          }
+        }
+        // For other locales, fallback directly to English
+        else {
+          console.log(
+            `📝 No blog posts found for locale "${locale}", using English as fallback...`
+          );
+          actualLocale = "en";
+        }
       }
     }
 

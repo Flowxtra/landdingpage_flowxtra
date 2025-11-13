@@ -440,7 +440,7 @@ export default function AccessibilityPanel({ onClose }: AccessibilityPanelProps)
             </Link>
             <span className="text-gray-300 dark:text-gray-600">|</span>
             <Link 
-              href={`/${locale}/sitemap.xml`}
+              href="https://flowxtra.com/sitemap_index.xml"
               className="flex items-center gap-1 hover:text-primary dark:hover:text-secondary transition-colors"
               onClick={onClose}
             >

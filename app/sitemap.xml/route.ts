@@ -153,30 +153,117 @@ async function getBlogPostsCount(locale: string): Promise<number> {
         return totalPosts;
       }
 
-      // If no posts for this locale and it's not English, try English as fallback
-      // This ensures all languages show blog posts (using English content)
+      // If no posts for this locale and it's not English, try fallback chain
+      // DACH locales: de-at/de-ch → de → en
+      // English locales: en-us/en-gb/en-au/en-ca → en
+      // Other locales: locale → en
       if (locale !== "en") {
-        console.log(
-          `📝 No blog posts found for locale "${locale}", trying English as fallback...`
-        );
-        const enResponse = await getBlogPosts({
-          page: 1,
-          limit: 1,
-          locale: "en",
-          minimal: true,
-        });
-
+        // For English locales, fallback to base English
         if (
-          enResponse.success &&
-          enResponse.data &&
-          enResponse.data.pagination
+          locale === "en-us" ||
+          locale === "en-gb" ||
+          locale === "en-au" ||
+          locale === "en-ca"
         ) {
-          const enTotalPosts = enResponse.data.pagination.totalPosts || 0;
-          if (enTotalPosts > 0) {
-            console.log(
-              `📝 Using English blog posts (${enTotalPosts}) for locale "${locale}"`
-            );
-            return enTotalPosts;
+          console.log(
+            `📝 No blog posts found for locale "${locale}", trying English (en) as fallback...`
+          );
+          const enResponse = await getBlogPosts({
+            page: 1,
+            limit: 1,
+            locale: "en",
+            minimal: true,
+          });
+
+          if (
+            enResponse.success &&
+            enResponse.data &&
+            enResponse.data.pagination
+          ) {
+            const enTotalPosts = enResponse.data.pagination.totalPosts || 0;
+            if (enTotalPosts > 0) {
+              console.log(
+                `📝 Using English blog posts (${enTotalPosts}) for locale "${locale}"`
+              );
+              return enTotalPosts;
+            }
+          }
+        }
+        // For DACH locales, try German first, then English
+        else if (locale === "de-at" || locale === "de-ch") {
+          console.log(
+            `📝 No blog posts found for locale "${locale}", trying German (de) as fallback...`
+          );
+          const deResponse = await getBlogPosts({
+            page: 1,
+            limit: 1,
+            locale: "de",
+            minimal: true,
+          });
+
+          if (
+            deResponse.success &&
+            deResponse.data &&
+            deResponse.data.pagination
+          ) {
+            const deTotalPosts = deResponse.data.pagination.totalPosts || 0;
+            if (deTotalPosts > 0) {
+              console.log(
+                `📝 Using German blog posts (${deTotalPosts}) for locale "${locale}"`
+              );
+              return deTotalPosts;
+            }
+          }
+
+          // If German also has no posts, fallback to English
+          console.log(
+            `📝 No blog posts found for locale "${locale}", trying English as fallback...`
+          );
+          const enResponse = await getBlogPosts({
+            page: 1,
+            limit: 1,
+            locale: "en",
+            minimal: true,
+          });
+
+          if (
+            enResponse.success &&
+            enResponse.data &&
+            enResponse.data.pagination
+          ) {
+            const enTotalPosts = enResponse.data.pagination.totalPosts || 0;
+            if (enTotalPosts > 0) {
+              console.log(
+                `📝 Using English blog posts (${enTotalPosts}) for locale "${locale}"`
+              );
+              return enTotalPosts;
+            }
+          }
+        }
+        // For other locales, fallback directly to English
+        else {
+          console.log(
+            `📝 No blog posts found for locale "${locale}", trying English as fallback...`
+          );
+          const enResponse = await getBlogPosts({
+            page: 1,
+            limit: 1,
+            locale: "en",
+            minimal: true,
+          });
+
+          if (
+            enResponse.success &&
+            enResponse.data &&
+            enResponse.data.pagination
+          ) {
+            const enTotalPosts = enResponse.data.pagination.totalPosts || 0;
+            if (enTotalPosts > 0) {
+              console.log(
+                `📝 Using English blog posts (${enTotalPosts}) for locale "${locale}"`
+              );
+              return enTotalPosts;
+            }
           }
         }
       }

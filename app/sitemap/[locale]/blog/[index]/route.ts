@@ -40,8 +40,10 @@ async function getBlogPostsBatch(
       minimal: true, // Only fetch minimal data needed for sitemap
     });
 
-    // If no posts for this locale and it's not English, try English as fallback
-    // This ensures all languages show blog posts (using English content)
+    // If no posts for this locale and it's not English, try fallback chain
+    // DACH locales: de-at/de-ch → de → en
+    // English locales: en-us/en-gb/en-au/en-ca → en
+    // Other locales: locale → en
     if (
       (!response.success ||
         !response.data ||
@@ -49,15 +51,64 @@ async function getBlogPostsBatch(
         response.data.posts.length === 0) &&
       locale !== "en"
     ) {
-      console.log(
-        `📝 No blog posts found for locale "${locale}" in batch ${batchIndex}, trying English as fallback...`
-      );
-      response = await getBlogPosts({
-        page,
-        limit,
-        locale: "en",
-        minimal: true,
-      });
+      // For English locales, fallback to base English
+      if (
+        locale === "en-us" ||
+        locale === "en-gb" ||
+        locale === "en-au" ||
+        locale === "en-ca"
+      ) {
+        console.log(
+          `📝 No blog posts found for locale "${locale}" in batch ${batchIndex}, trying English (en) as fallback...`
+        );
+        response = await getBlogPosts({
+          page,
+          limit,
+          locale: "en",
+          minimal: true,
+        });
+      }
+      // For DACH locales, try German first, then English
+      else if (locale === "de-at" || locale === "de-ch") {
+        console.log(
+          `📝 No blog posts found for locale "${locale}" in batch ${batchIndex}, trying German (de) as fallback...`
+        );
+        response = await getBlogPosts({
+          page,
+          limit,
+          locale: "de",
+          minimal: true,
+        });
+
+        // If German also has no posts, fallback to English
+        if (
+          !response.success ||
+          !response.data ||
+          !response.data.posts ||
+          response.data.posts.length === 0
+        ) {
+          console.log(
+            `📝 No blog posts found for locale "${locale}" in batch ${batchIndex}, trying English as fallback...`
+          );
+          response = await getBlogPosts({
+            page,
+            limit,
+            locale: "en",
+            minimal: true,
+          });
+        }
+      } else {
+        // For other locales, fallback directly to English
+        console.log(
+          `📝 No blog posts found for locale "${locale}" in batch ${batchIndex}, trying English as fallback...`
+        );
+        response = await getBlogPosts({
+          page,
+          limit,
+          locale: "en",
+          minimal: true,
+        });
+      }
     }
 
     if (response.success && response.data && response.data.posts) {

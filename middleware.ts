@@ -88,9 +88,10 @@ export default function middleware(request: NextRequest) {
 
 export const config = {
   // Match all paths except static files and API routes
+  // Updated to support DACH locales (de-at, de-ch) and English locales (en-us, en-gb, en-au, en-ca)
   matcher: [
     "/",
-    "/(de|en|fr|es|it|nl)/:path*",
+    "/(de|de-at|de-ch|en|en-us|en-gb|en-au|en-ca|fr|es|it|nl|ar)/:path*",
     "/((?!_next|_vercel|api|.*\\..*).*)",
   ],
 };

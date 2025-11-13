@@ -95,18 +95,40 @@ export async function generateMetadata({
       
       // Build hreflang URLs for the same page in all languages
       // Use the same base URL as canonical to ensure consistency
-      const supportedLocales = ['en', 'de', 'fr', 'es', 'it', 'nl', 'ar'];
+      // Include DACH locales (de-at, de-ch) and English locales (en-us, en-gb, en-au, en-ca) with proper hreflang codes
+      // Map locale codes to hreflang codes (de → de-DE, de-at → de-AT, de-ch → de-CH, en → en-US, en-us → en-US, en-gb → en-GB, en-au → en-AU, en-ca → en-CA)
+      const supportedLocales = ['en', 'en-us', 'en-gb', 'en-au', 'en-ca', 'de', 'de-at', 'de-ch', 'fr', 'es', 'it', 'nl', 'ar'];
       supportedLocales.forEach(lang => {
-        hreflangUrls[lang] = `${currentBaseUrl}/${lang}${pathAfterLocale}`;
+        // Convert locale to hreflang code
+        let hreflangCode = lang;
+        if (lang === 'de') hreflangCode = 'de-DE';
+        else if (lang === 'de-at') hreflangCode = 'de-AT';
+        else if (lang === 'de-ch') hreflangCode = 'de-CH';
+        else if (lang === 'en') hreflangCode = 'en-US'; // Default English is US
+        else if (lang === 'en-us') hreflangCode = 'en-US';
+        else if (lang === 'en-gb') hreflangCode = 'en-GB';
+        else if (lang === 'en-au') hreflangCode = 'en-AU';
+        else if (lang === 'en-ca') hreflangCode = 'en-CA';
+        hreflangUrls[hreflangCode] = `${currentBaseUrl}/${lang}${pathAfterLocale}`;
       });
     }
     // If hasNestedLayout, leave canonicalUrl as undefined - nested layout will handle it
   } else {
     // Fallback to homepage if pathname is not available
     canonicalUrl = `${currentBaseUrl}/${locale}`;
-    const supportedLocales = ['en', 'de', 'fr', 'es', 'it', 'nl', 'ar'];
+    const supportedLocales = ['en', 'en-us', 'en-gb', 'en-au', 'en-ca', 'de', 'de-at', 'de-ch', 'fr', 'es', 'it', 'nl', 'ar'];
     supportedLocales.forEach(lang => {
-      hreflangUrls[lang] = `${currentBaseUrl}/${lang}`;
+      // Convert locale to hreflang code
+      let hreflangCode = lang;
+      if (lang === 'de') hreflangCode = 'de-DE';
+      else if (lang === 'de-at') hreflangCode = 'de-AT';
+      else if (lang === 'de-ch') hreflangCode = 'de-CH';
+      else if (lang === 'en') hreflangCode = 'en-US'; // Default English is US
+      else if (lang === 'en-us') hreflangCode = 'en-US';
+      else if (lang === 'en-gb') hreflangCode = 'en-GB';
+      else if (lang === 'en-au') hreflangCode = 'en-AU';
+      else if (lang === 'en-ca') hreflangCode = 'en-CA';
+      hreflangUrls[hreflangCode] = `${currentBaseUrl}/${lang}`;
     });
   }
   
@@ -138,12 +160,235 @@ export async function generateMetadata({
           canonical: canonicalUrl,
           languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
             'en': `${baseUrl}/en`,
-            'de': `${baseUrl}/de`,
+            'en-US': `${baseUrl}/en-us`,
+            'en-GB': `${baseUrl}/en-gb`,
+            'en-AU': `${baseUrl}/en-au`,
+            'en-CA': `${baseUrl}/en-ca`,
+            'de-DE': `${baseUrl}/de`,
+            'de-AT': `${baseUrl}/de-at`,
+            'de-CH': `${baseUrl}/de-ch`,
             'fr': `${baseUrl}/fr`,
             'es': `${baseUrl}/es`,
             'it': `${baseUrl}/it`,
             'nl': `${baseUrl}/nl`,
             'ar': `${baseUrl}/ar`,
+            'x-default': `${baseUrl}/`,
+          },
+        },
+      }),
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large' as const,
+          'max-snippet': -1,
+        },
+      },
+    },
+    "en-us": {
+      title: {
+        default: "Flowxtra – Recruiting Software & Smart Hiring Tool for the United States | Free Job Posting",
+        template: "%s | Flowxtra",
+      },
+      description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in the United States.",
+      keywords: ["recruitment", "recruiting software", "ATS", "AI-powered hiring", "smart hiring tool", "free job posting", "candidate management", "hiring platform", "United States"],
+      metadataBase: new URL(baseUrl),
+      openGraph: {
+        title: "Flowxtra – Recruiting Software & Smart Hiring Tool for the United States | Free Job Posting",
+        description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in the United States.",
+        type: "website",
+        locale: "en_US",
+        url: `${baseUrl}/en-us`,
+        siteName: "Flowxtra",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Flowxtra – Recruiting Software & Smart Hiring Tool for the United States | Free Job Posting",
+        description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in the United States.",
+      },
+      ...(canonicalUrl && {
+        alternates: {
+          canonical: canonicalUrl,
+          languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
+            'en': `${baseUrl}/en`,
+            'en-US': `${baseUrl}/en-us`,
+            'en-GB': `${baseUrl}/en-gb`,
+            'en-AU': `${baseUrl}/en-au`,
+            'en-CA': `${baseUrl}/en-ca`,
+            'de-DE': `${baseUrl}/de`,
+            'de-AT': `${baseUrl}/de-at`,
+            'de-CH': `${baseUrl}/de-ch`,
+            'fr': `${baseUrl}/fr`,
+            'es': `${baseUrl}/es`,
+            'it': `${baseUrl}/it`,
+            'nl': `${baseUrl}/nl`,
+            'ar': `${baseUrl}/ar`,
+            'x-default': `${baseUrl}/`,
+          },
+        },
+      }),
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large' as const,
+          'max-snippet': -1,
+        },
+      },
+    },
+    "en-gb": {
+      title: {
+        default: "Flowxtra – Recruiting Software & Smart Hiring Tool for the United Kingdom | Free Job Posting",
+        template: "%s | Flowxtra",
+      },
+      description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in the United Kingdom.",
+      keywords: ["recruitment", "recruiting software", "ATS", "AI-powered hiring", "smart hiring tool", "free job posting", "candidate management", "hiring platform", "United Kingdom"],
+      metadataBase: new URL(baseUrl),
+      openGraph: {
+        title: "Flowxtra – Recruiting Software & Smart Hiring Tool for the United Kingdom | Free Job Posting",
+        description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in the United Kingdom.",
+        type: "website",
+        locale: "en_GB",
+        url: `${baseUrl}/en-gb`,
+        siteName: "Flowxtra",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Flowxtra – Recruiting Software & Smart Hiring Tool for the United Kingdom | Free Job Posting",
+        description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in the United Kingdom.",
+      },
+      ...(canonicalUrl && {
+        alternates: {
+          canonical: canonicalUrl,
+          languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
+            'en': `${baseUrl}/en`,
+            'en-US': `${baseUrl}/en-us`,
+            'en-GB': `${baseUrl}/en-gb`,
+            'en-AU': `${baseUrl}/en-au`,
+            'en-CA': `${baseUrl}/en-ca`,
+            'de-DE': `${baseUrl}/de`,
+            'de-AT': `${baseUrl}/de-at`,
+            'de-CH': `${baseUrl}/de-ch`,
+            'fr': `${baseUrl}/fr`,
+            'es': `${baseUrl}/es`,
+            'it': `${baseUrl}/it`,
+            'nl': `${baseUrl}/nl`,
+            'ar': `${baseUrl}/ar`,
+            'x-default': `${baseUrl}/`,
+          },
+        },
+      }),
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large' as const,
+          'max-snippet': -1,
+        },
+      },
+    },
+    "en-au": {
+      title: {
+        default: "Flowxtra – Recruiting Software & Smart Hiring Tool for Australia | Free Job Posting",
+        template: "%s | Flowxtra",
+      },
+      description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in Australia.",
+      keywords: ["recruitment", "recruiting software", "ATS", "AI-powered hiring", "smart hiring tool", "free job posting", "candidate management", "hiring platform", "Australia"],
+      metadataBase: new URL(baseUrl),
+      openGraph: {
+        title: "Flowxtra – Recruiting Software & Smart Hiring Tool for Australia | Free Job Posting",
+        description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in Australia.",
+        type: "website",
+        locale: "en_AU",
+        url: `${baseUrl}/en-au`,
+        siteName: "Flowxtra",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Flowxtra – Recruiting Software & Smart Hiring Tool for Australia | Free Job Posting",
+        description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in Australia.",
+      },
+      ...(canonicalUrl && {
+        alternates: {
+          canonical: canonicalUrl,
+          languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
+            'en': `${baseUrl}/en`,
+            'en-US': `${baseUrl}/en-us`,
+            'en-GB': `${baseUrl}/en-gb`,
+            'en-AU': `${baseUrl}/en-au`,
+            'en-CA': `${baseUrl}/en-ca`,
+            'de-DE': `${baseUrl}/de`,
+            'de-AT': `${baseUrl}/de-at`,
+            'de-CH': `${baseUrl}/de-ch`,
+            'fr': `${baseUrl}/fr`,
+            'es': `${baseUrl}/es`,
+            'it': `${baseUrl}/it`,
+            'nl': `${baseUrl}/nl`,
+            'ar': `${baseUrl}/ar`,
+            'x-default': `${baseUrl}/`,
+          },
+        },
+      }),
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large' as const,
+          'max-snippet': -1,
+        },
+      },
+    },
+    "en-ca": {
+      title: {
+        default: "Flowxtra – Recruiting Software & Smart Hiring Tool for Canada | Free Job Posting",
+        template: "%s | Flowxtra",
+      },
+      description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in Canada.",
+      keywords: ["recruitment", "recruiting software", "ATS", "AI-powered hiring", "smart hiring tool", "free job posting", "candidate management", "hiring platform", "Canada"],
+      metadataBase: new URL(baseUrl),
+      openGraph: {
+        title: "Flowxtra – Recruiting Software & Smart Hiring Tool for Canada | Free Job Posting",
+        description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in Canada.",
+        type: "website",
+        locale: "en_CA",
+        url: `${baseUrl}/en-ca`,
+        siteName: "Flowxtra",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Flowxtra – Recruiting Software & Smart Hiring Tool for Canada | Free Job Posting",
+        description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in Canada.",
+      },
+      ...(canonicalUrl && {
+        alternates: {
+          canonical: canonicalUrl,
+          languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
+            'en': `${baseUrl}/en`,
+            'en-US': `${baseUrl}/en-us`,
+            'en-GB': `${baseUrl}/en-gb`,
+            'en-AU': `${baseUrl}/en-au`,
+            'en-CA': `${baseUrl}/en-ca`,
+            'de-DE': `${baseUrl}/de`,
+            'de-AT': `${baseUrl}/de-at`,
+            'de-CH': `${baseUrl}/de-ch`,
+            'fr': `${baseUrl}/fr`,
+            'es': `${baseUrl}/es`,
+            'it': `${baseUrl}/it`,
+            'nl': `${baseUrl}/nl`,
+            'ar': `${baseUrl}/ar`,
+            'x-default': `${baseUrl}/`,
           },
         },
       }),
@@ -186,12 +431,129 @@ export async function generateMetadata({
           canonical: canonicalUrl,
           languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
             'en': `${baseUrl}/en`,
-            'de': `${baseUrl}/de`,
+            'en-US': `${baseUrl}/en-us`,
+            'en-GB': `${baseUrl}/en-gb`,
+            'en-AU': `${baseUrl}/en-au`,
+            'en-CA': `${baseUrl}/en-ca`,
+            'de-DE': `${baseUrl}/de`,
+            'de-AT': `${baseUrl}/de-at`,
+            'de-CH': `${baseUrl}/de-ch`,
             'fr': `${baseUrl}/fr`,
             'es': `${baseUrl}/es`,
             'it': `${baseUrl}/it`,
             'nl': `${baseUrl}/nl`,
             'ar': `${baseUrl}/ar`,
+            'x-default': `${baseUrl}/`,
+          },
+        },
+      }),
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large' as const,
+          'max-snippet': -1,
+        },
+      },
+    },
+    "de-at": {
+      title: {
+        default: "Flowxtra – Recruiting-Software & Intelligentes Einstellungstool für Österreich | Kostenlose Stellenanzeigen",
+        template: "%s | Flowxtra",
+      },
+      description: "Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform. Speziell für Unternehmen in Österreich optimiert.",
+      keywords: ["Rekrutierung", "Recruiting-Software", "ATS", "KI-gestützte Einstellung", "intelligentes Einstellungstool", "kostenlose Stellenausschreibung", "Kandidatenverwaltung", "Einstellungsplattform", "Österreich"],
+      metadataBase: new URL(baseUrl),
+      openGraph: {
+        title: "Flowxtra – Recruiting-Software & Intelligentes Einstellungstool für Österreich | Kostenlose Stellenanzeigen",
+        description: "Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform. Speziell für Unternehmen in Österreich optimiert.",
+        type: "website",
+        locale: "de_AT",
+        url: `${baseUrl}/de-at`,
+        siteName: "Flowxtra",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Flowxtra – Recruiting-Software & Intelligentes Einstellungstool für Österreich | Kostenlose Stellenanzeigen",
+        description: "Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform. Speziell für Unternehmen in Österreich optimiert.",
+      },
+      // Only add alternates if canonicalUrl is defined (i.e., no nested layout)
+      ...(canonicalUrl && {
+        alternates: {
+          canonical: canonicalUrl,
+          languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
+            'en': `${baseUrl}/en`,
+            'en-US': `${baseUrl}/en-us`,
+            'en-GB': `${baseUrl}/en-gb`,
+            'en-AU': `${baseUrl}/en-au`,
+            'en-CA': `${baseUrl}/en-ca`,
+            'de-DE': `${baseUrl}/de`,
+            'de-AT': `${baseUrl}/de-at`,
+            'de-CH': `${baseUrl}/de-ch`,
+            'fr': `${baseUrl}/fr`,
+            'es': `${baseUrl}/es`,
+            'it': `${baseUrl}/it`,
+            'nl': `${baseUrl}/nl`,
+            'ar': `${baseUrl}/ar`,
+            'x-default': `${baseUrl}/`,
+          },
+        },
+      }),
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large' as const,
+          'max-snippet': -1,
+        },
+      },
+    },
+    "de-ch": {
+      title: {
+        default: "Flowxtra – Recruiting-Software & Intelligentes Einstellungstool für die Schweiz | Kostenlose Stellenanzeigen",
+        template: "%s | Flowxtra",
+      },
+      description: "Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform. Speziell für Unternehmen in der Schweiz optimiert.",
+      keywords: ["Rekrutierung", "Recruiting-Software", "ATS", "KI-gestützte Einstellung", "intelligentes Einstellungstool", "kostenlose Stellenausschreibung", "Kandidatenverwaltung", "Einstellungsplattform", "Schweiz"],
+      metadataBase: new URL(baseUrl),
+      openGraph: {
+        title: "Flowxtra – Recruiting-Software & Intelligentes Einstellungstool für die Schweiz | Kostenlose Stellenanzeigen",
+        description: "Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform. Speziell für Unternehmen in der Schweiz optimiert.",
+        type: "website",
+        locale: "de_CH",
+        url: `${baseUrl}/de-ch`,
+        siteName: "Flowxtra",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Flowxtra – Recruiting-Software & Intelligentes Einstellungstool für die Schweiz | Kostenlose Stellenanzeigen",
+        description: "Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform. Speziell für Unternehmen in der Schweiz optimiert.",
+      },
+      // Only add alternates if canonicalUrl is defined (i.e., no nested layout)
+      ...(canonicalUrl && {
+        alternates: {
+          canonical: canonicalUrl,
+          languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
+            'en': `${baseUrl}/en`,
+            'en-US': `${baseUrl}/en-us`,
+            'en-GB': `${baseUrl}/en-gb`,
+            'en-AU': `${baseUrl}/en-au`,
+            'en-CA': `${baseUrl}/en-ca`,
+            'de-DE': `${baseUrl}/de`,
+            'de-AT': `${baseUrl}/de-at`,
+            'de-CH': `${baseUrl}/de-ch`,
+            'fr': `${baseUrl}/fr`,
+            'es': `${baseUrl}/es`,
+            'it': `${baseUrl}/it`,
+            'nl': `${baseUrl}/nl`,
+            'ar': `${baseUrl}/ar`,
+            'x-default': `${baseUrl}/`,
           },
         },
       }),
@@ -234,12 +596,19 @@ export async function generateMetadata({
           canonical: canonicalUrl,
           languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
             'en': `${baseUrl}/en`,
-            'de': `${baseUrl}/de`,
+            'en-US': `${baseUrl}/en-us`,
+            'en-GB': `${baseUrl}/en-gb`,
+            'en-AU': `${baseUrl}/en-au`,
+            'en-CA': `${baseUrl}/en-ca`,
+            'de-DE': `${baseUrl}/de`,
+            'de-AT': `${baseUrl}/de-at`,
+            'de-CH': `${baseUrl}/de-ch`,
             'fr': `${baseUrl}/fr`,
             'es': `${baseUrl}/es`,
             'it': `${baseUrl}/it`,
             'nl': `${baseUrl}/nl`,
             'ar': `${baseUrl}/ar`,
+            'x-default': `${baseUrl}/`,
           },
         },
       }),
@@ -282,12 +651,19 @@ export async function generateMetadata({
           canonical: canonicalUrl,
           languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
             'en': `${baseUrl}/en`,
-            'de': `${baseUrl}/de`,
+            'en-US': `${baseUrl}/en-us`,
+            'en-GB': `${baseUrl}/en-gb`,
+            'en-AU': `${baseUrl}/en-au`,
+            'en-CA': `${baseUrl}/en-ca`,
+            'de-DE': `${baseUrl}/de`,
+            'de-AT': `${baseUrl}/de-at`,
+            'de-CH': `${baseUrl}/de-ch`,
             'fr': `${baseUrl}/fr`,
             'es': `${baseUrl}/es`,
             'it': `${baseUrl}/it`,
             'nl': `${baseUrl}/nl`,
             'ar': `${baseUrl}/ar`,
+            'x-default': `${baseUrl}/`,
           },
         },
       }),
@@ -330,12 +706,19 @@ export async function generateMetadata({
           canonical: canonicalUrl,
           languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
             'en': `${baseUrl}/en`,
-            'de': `${baseUrl}/de`,
+            'en-US': `${baseUrl}/en-us`,
+            'en-GB': `${baseUrl}/en-gb`,
+            'en-AU': `${baseUrl}/en-au`,
+            'en-CA': `${baseUrl}/en-ca`,
+            'de-DE': `${baseUrl}/de`,
+            'de-AT': `${baseUrl}/de-at`,
+            'de-CH': `${baseUrl}/de-ch`,
             'fr': `${baseUrl}/fr`,
             'es': `${baseUrl}/es`,
             'it': `${baseUrl}/it`,
             'nl': `${baseUrl}/nl`,
             'ar': `${baseUrl}/ar`,
+            'x-default': `${baseUrl}/`,
           },
         },
       }),
@@ -378,12 +761,19 @@ export async function generateMetadata({
           canonical: canonicalUrl,
           languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
             'en': `${baseUrl}/en`,
-            'de': `${baseUrl}/de`,
+            'en-US': `${baseUrl}/en-us`,
+            'en-GB': `${baseUrl}/en-gb`,
+            'en-AU': `${baseUrl}/en-au`,
+            'en-CA': `${baseUrl}/en-ca`,
+            'de-DE': `${baseUrl}/de`,
+            'de-AT': `${baseUrl}/de-at`,
+            'de-CH': `${baseUrl}/de-ch`,
             'fr': `${baseUrl}/fr`,
             'es': `${baseUrl}/es`,
             'it': `${baseUrl}/it`,
             'nl': `${baseUrl}/nl`,
             'ar': `${baseUrl}/ar`,
+            'x-default': `${baseUrl}/`,
           },
         },
       }),
@@ -426,12 +816,19 @@ export async function generateMetadata({
           canonical: canonicalUrl,
           languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
             'en': `${baseUrl}/en`,
-            'de': `${baseUrl}/de`,
+            'en-US': `${baseUrl}/en-us`,
+            'en-GB': `${baseUrl}/en-gb`,
+            'en-AU': `${baseUrl}/en-au`,
+            'en-CA': `${baseUrl}/en-ca`,
+            'de-DE': `${baseUrl}/de`,
+            'de-AT': `${baseUrl}/de-at`,
+            'de-CH': `${baseUrl}/de-ch`,
             'fr': `${baseUrl}/fr`,
             'es': `${baseUrl}/es`,
             'it': `${baseUrl}/it`,
             'nl': `${baseUrl}/nl`,
             'ar': `${baseUrl}/ar`,
+            'x-default': `${baseUrl}/`,
           },
         },
       }),

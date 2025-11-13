@@ -14,7 +14,13 @@
  */
 export const supportedLocales = [
   "en",
+  "en-us", // United States (English)
+  "en-gb", // United Kingdom (English)
+  "en-au", // Australia (English)
+  "en-ca", // Canada (English)
   "de",
+  "de-at", // Austria (German)
+  "de-ch", // Switzerland (German)
   "fr",
   "es",
   "it",
