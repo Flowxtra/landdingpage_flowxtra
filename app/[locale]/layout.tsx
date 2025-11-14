@@ -135,15 +135,15 @@ export async function generateMetadata({
   const metadata = {
     en: {
       title: {
-        default: "Flowxtra – Recruiting Software & Smart Hiring Tool | Free Job Posting",
+        default: "Flowxtra – Best Recruiting Software | Smart Hiring Tool | Free Job Posting",
         template: "%s | Flowxtra",
       },
-      description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform.",
+      description: "The best recruiting software. Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform.",
       keywords: ["recruitment", "recruiting software", "ATS", "AI-powered hiring", "smart hiring tool", "free job posting", "candidate management", "hiring platform"],
       metadataBase: new URL(baseUrl),
       openGraph: {
-        title: "Flowxtra – Recruiting Software & Smart Hiring Tool | Free Job Posting",
-        description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform.",
+        title: "Flowxtra – Best Recruiting Software | Smart Hiring Tool | Free Job Posting",
+        description: "The best recruiting software. Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform.",
         type: "website",
         locale: "en_US",
         url: `${baseUrl}/en`,
@@ -151,8 +151,8 @@ export async function generateMetadata({
       },
       twitter: {
         card: "summary_large_image",
-        title: "Flowxtra – Recruiting Software & Smart Hiring Tool | Free Job Posting",
-        description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform.",
+        title: "Flowxtra – Best Recruiting Software | Smart Hiring Tool | Free Job Posting",
+        description: "The best recruiting software. Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform.",
       },
       // Only add alternates if canonicalUrl is defined (i.e., no nested layout)
       ...(canonicalUrl && {
@@ -190,15 +190,15 @@ export async function generateMetadata({
     },
     "en-us": {
       title: {
-        default: "Flowxtra – Recruiting Software & Smart Hiring Tool for the United States | Free Job Posting",
+        default: "Flowxtra – Best Recruiting Software in the United States | Smart Hiring Tool | Free Job Posting",
         template: "%s | Flowxtra",
       },
-      description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in the United States.",
+      description: "The best recruiting software in the United States. Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in the United States.",
       keywords: ["recruitment", "recruiting software", "ATS", "AI-powered hiring", "smart hiring tool", "free job posting", "candidate management", "hiring platform", "United States"],
       metadataBase: new URL(baseUrl),
       openGraph: {
-        title: "Flowxtra – Recruiting Software & Smart Hiring Tool for the United States | Free Job Posting",
-        description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in the United States.",
+        title: "Flowxtra – Best Recruiting Software in the United States | Smart Hiring Tool | Free Job Posting",
+        description: "The best recruiting software in the United States. Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in the United States.",
         type: "website",
         locale: "en_US",
         url: `${baseUrl}/en-us`,
@@ -206,8 +206,8 @@ export async function generateMetadata({
       },
       twitter: {
         card: "summary_large_image",
-        title: "Flowxtra – Recruiting Software & Smart Hiring Tool for the United States | Free Job Posting",
-        description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in the United States.",
+        title: "Flowxtra – Best Recruiting Software in the United States | Smart Hiring Tool | Free Job Posting",
+        description: "The best recruiting software in the United States. Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in the United States.",
       },
       ...(canonicalUrl && {
         alternates: {
@@ -244,15 +244,15 @@ export async function generateMetadata({
     },
     "en-gb": {
       title: {
-        default: "Flowxtra – Recruiting Software & Smart Hiring Tool for the United Kingdom | Free Job Posting",
+        default: "Flowxtra – Best Recruiting Software in the United Kingdom | Smart Hiring Tool | Free Job Posting",
         template: "%s | Flowxtra",
       },
-      description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in the United Kingdom.",
+      description: "The best recruiting software in the United Kingdom. Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in the United Kingdom.",
       keywords: ["recruitment", "recruiting software", "ATS", "AI-powered hiring", "smart hiring tool", "free job posting", "candidate management", "hiring platform", "United Kingdom"],
       metadataBase: new URL(baseUrl),
       openGraph: {
-        title: "Flowxtra – Recruiting Software & Smart Hiring Tool for the United Kingdom | Free Job Posting",
-        description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in the United Kingdom.",
+        title: "Flowxtra – Best Recruiting Software in the United Kingdom | Smart Hiring Tool | Free Job Posting",
+        description: "The best recruiting software in the United Kingdom. Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in the United Kingdom.",
         type: "website",
         locale: "en_GB",
         url: `${baseUrl}/en-gb`,
@@ -260,8 +260,8 @@ export async function generateMetadata({
       },
       twitter: {
         card: "summary_large_image",
-        title: "Flowxtra – Recruiting Software & Smart Hiring Tool for the United Kingdom | Free Job Posting",
-        description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in the United Kingdom.",
+        title: "Flowxtra – Best Recruiting Software in the United Kingdom | Smart Hiring Tool | Free Job Posting",
+        description: "The best recruiting software in the United Kingdom. Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in the United Kingdom.",
       },
       ...(canonicalUrl && {
         alternates: {
@@ -298,15 +298,15 @@ export async function generateMetadata({
     },
     "en-au": {
       title: {
-        default: "Flowxtra – Recruiting Software & Smart Hiring Tool for Australia | Free Job Posting",
+        default: "Flowxtra – Best Recruiting Software in Australia | Smart Hiring Tool | Free Job Posting",
         template: "%s | Flowxtra",
       },
-      description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in Australia.",
+      description: "The best recruiting software in Australia. Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in Australia.",
       keywords: ["recruitment", "recruiting software", "ATS", "AI-powered hiring", "smart hiring tool", "free job posting", "candidate management", "hiring platform", "Australia"],
       metadataBase: new URL(baseUrl),
       openGraph: {
-        title: "Flowxtra – Recruiting Software & Smart Hiring Tool for Australia | Free Job Posting",
-        description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in Australia.",
+        title: "Flowxtra – Best Recruiting Software in Australia | Smart Hiring Tool | Free Job Posting",
+        description: "The best recruiting software in Australia. Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in Australia.",
         type: "website",
         locale: "en_AU",
         url: `${baseUrl}/en-au`,
@@ -314,8 +314,8 @@ export async function generateMetadata({
       },
       twitter: {
         card: "summary_large_image",
-        title: "Flowxtra – Recruiting Software & Smart Hiring Tool for Australia | Free Job Posting",
-        description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in Australia.",
+        title: "Flowxtra – Best Recruiting Software in Australia | Smart Hiring Tool | Free Job Posting",
+        description: "The best recruiting software in Australia. Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in Australia.",
       },
       ...(canonicalUrl && {
         alternates: {
@@ -352,15 +352,15 @@ export async function generateMetadata({
     },
     "en-ca": {
       title: {
-        default: "Flowxtra – Recruiting Software & Smart Hiring Tool for Canada | Free Job Posting",
+        default: "Flowxtra – Best Recruiting Software in Canada | Smart Hiring Tool | Free Job Posting",
         template: "%s | Flowxtra",
       },
-      description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in Canada.",
+      description: "The best recruiting software in Canada. Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in Canada.",
       keywords: ["recruitment", "recruiting software", "ATS", "AI-powered hiring", "smart hiring tool", "free job posting", "candidate management", "hiring platform", "Canada"],
       metadataBase: new URL(baseUrl),
       openGraph: {
-        title: "Flowxtra – Recruiting Software & Smart Hiring Tool for Canada | Free Job Posting",
-        description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in Canada.",
+        title: "Flowxtra – Best Recruiting Software in Canada | Smart Hiring Tool | Free Job Posting",
+        description: "The best recruiting software in Canada. Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in Canada.",
         type: "website",
         locale: "en_CA",
         url: `${baseUrl}/en-ca`,
@@ -368,8 +368,8 @@ export async function generateMetadata({
       },
       twitter: {
         card: "summary_large_image",
-        title: "Flowxtra – Recruiting Software & Smart Hiring Tool for Canada | Free Job Posting",
-        description: "Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in Canada.",
+        title: "Flowxtra – Best Recruiting Software in Canada | Smart Hiring Tool | Free Job Posting",
+        description: "The best recruiting software in Canada. Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform. Optimized for businesses in Canada.",
       },
       ...(canonicalUrl && {
         alternates: {
@@ -406,15 +406,15 @@ export async function generateMetadata({
     },
     de: {
       title: {
-        default: "Flowxtra – Recruiting-Software & Intelligentes Einstellungstool | Kostenlose Stellenanzeigen",
+        default: "Flowxtra – Bestes Recruiting-Software in Deutschland | Intelligentes Einstellungstool | Kostenlose Stellenanzeigen",
         template: "%s | Flowxtra",
       },
-      description: "Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform.",
+      description: "Das beste Recruiting-Software in Deutschland. Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform.",
       keywords: ["Rekrutierung", "Recruiting-Software", "ATS", "KI-gestützte Einstellung", "intelligentes Einstellungstool", "kostenlose Stellenausschreibung", "Kandidatenverwaltung", "Einstellungsplattform"],
       metadataBase: new URL(baseUrl),
       openGraph: {
-        title: "Flowxtra – Recruiting-Software & Intelligentes Einstellungstool | Kostenlose Stellenanzeigen",
-        description: "Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform.",
+        title: "Flowxtra – Bestes Recruiting-Software in Deutschland | Intelligentes Einstellungstool | Kostenlose Stellenanzeigen",
+        description: "Das beste Recruiting-Software in Deutschland. Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform.",
         type: "website",
         locale: "de_DE",
         url: `${baseUrl}/de`,
@@ -422,8 +422,8 @@ export async function generateMetadata({
       },
       twitter: {
         card: "summary_large_image",
-        title: "Flowxtra – Recruiting-Software & Intelligentes Einstellungstool | Kostenlose Stellenanzeigen",
-        description: "Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform.",
+        title: "Flowxtra – Bestes Recruiting-Software in Deutschland | Intelligentes Einstellungstool | Kostenlose Stellenanzeigen",
+        description: "Das beste Recruiting-Software in Deutschland. Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform.",
       },
       // Only add alternates if canonicalUrl is defined (i.e., no nested layout)
       ...(canonicalUrl && {
@@ -461,15 +461,15 @@ export async function generateMetadata({
     },
     "de-at": {
       title: {
-        default: "Flowxtra – Recruiting-Software & Intelligentes Einstellungstool für Österreich | Kostenlose Stellenanzeigen",
+        default: "Flowxtra – Bestes Recruiting-Software in Österreich | Intelligentes Einstellungstool | Kostenlose Stellenanzeigen",
         template: "%s | Flowxtra",
       },
-      description: "Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform. Speziell für Unternehmen in Österreich optimiert.",
+      description: "Das beste Recruiting-Software in Österreich. Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform. Speziell für Unternehmen in Österreich optimiert.",
       keywords: ["Rekrutierung", "Recruiting-Software", "ATS", "KI-gestützte Einstellung", "intelligentes Einstellungstool", "kostenlose Stellenausschreibung", "Kandidatenverwaltung", "Einstellungsplattform", "Österreich"],
       metadataBase: new URL(baseUrl),
       openGraph: {
-        title: "Flowxtra – Recruiting-Software & Intelligentes Einstellungstool für Österreich | Kostenlose Stellenanzeigen",
-        description: "Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform. Speziell für Unternehmen in Österreich optimiert.",
+        title: "Flowxtra – Bestes Recruiting-Software in Österreich | Intelligentes Einstellungstool | Kostenlose Stellenanzeigen",
+        description: "Das beste Recruiting-Software in Österreich. Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform. Speziell für Unternehmen in Österreich optimiert.",
         type: "website",
         locale: "de_AT",
         url: `${baseUrl}/de-at`,
@@ -477,8 +477,8 @@ export async function generateMetadata({
       },
       twitter: {
         card: "summary_large_image",
-        title: "Flowxtra – Recruiting-Software & Intelligentes Einstellungstool für Österreich | Kostenlose Stellenanzeigen",
-        description: "Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform. Speziell für Unternehmen in Österreich optimiert.",
+        title: "Flowxtra – Bestes Recruiting-Software in Österreich | Intelligentes Einstellungstool | Kostenlose Stellenanzeigen",
+        description: "Das beste Recruiting-Software in Österreich. Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform. Speziell für Unternehmen in Österreich optimiert.",
       },
       // Only add alternates if canonicalUrl is defined (i.e., no nested layout)
       ...(canonicalUrl && {
@@ -516,15 +516,15 @@ export async function generateMetadata({
     },
     "de-ch": {
       title: {
-        default: "Flowxtra – Recruiting-Software & Intelligentes Einstellungstool für die Schweiz | Kostenlose Stellenanzeigen",
+        default: "Flowxtra – Bestes Recruiting-Software in der Schweiz | Intelligentes Einstellungstool | Kostenlose Stellenanzeigen",
         template: "%s | Flowxtra",
       },
-      description: "Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform. Speziell für Unternehmen in der Schweiz optimiert.",
+      description: "Das beste Recruiting-Software in der Schweiz. Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform. Speziell für Unternehmen in der Schweiz optimiert.",
       keywords: ["Rekrutierung", "Recruiting-Software", "ATS", "KI-gestützte Einstellung", "intelligentes Einstellungstool", "kostenlose Stellenausschreibung", "Kandidatenverwaltung", "Einstellungsplattform", "Schweiz"],
       metadataBase: new URL(baseUrl),
       openGraph: {
-        title: "Flowxtra – Recruiting-Software & Intelligentes Einstellungstool für die Schweiz | Kostenlose Stellenanzeigen",
-        description: "Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform. Speziell für Unternehmen in der Schweiz optimiert.",
+        title: "Flowxtra – Bestes Recruiting-Software in der Schweiz | Intelligentes Einstellungstool | Kostenlose Stellenanzeigen",
+        description: "Das beste Recruiting-Software in der Schweiz. Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform. Speziell für Unternehmen in der Schweiz optimiert.",
         type: "website",
         locale: "de_CH",
         url: `${baseUrl}/de-ch`,
@@ -532,8 +532,8 @@ export async function generateMetadata({
       },
       twitter: {
         card: "summary_large_image",
-        title: "Flowxtra – Recruiting-Software & Intelligentes Einstellungstool für die Schweiz | Kostenlose Stellenanzeigen",
-        description: "Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform. Speziell für Unternehmen in der Schweiz optimiert.",
+        title: "Flowxtra – Bestes Recruiting-Software in der Schweiz | Intelligentes Einstellungstool | Kostenlose Stellenanzeigen",
+        description: "Das beste Recruiting-Software in der Schweiz. Stellen Sie intelligenter mit KI ein – veröffentlichen Sie kostenlos Stellenanzeigen und verwalten Sie Kandidaten auf einer einfachen, leistungsstarken Plattform. Speziell für Unternehmen in der Schweiz optimiert.",
       },
       // Only add alternates if canonicalUrl is defined (i.e., no nested layout)
       ...(canonicalUrl && {
@@ -571,15 +571,15 @@ export async function generateMetadata({
     },
     fr: {
       title: {
-        default: "Flowxtra – Logiciel de Recrutement & Outil d'Embauche Intelligent | Publication d'Emplois Gratuite",
+        default: "Flowxtra – Meilleur Logiciel de Recrutement en France | Outil d'Embauche Intelligent | Publication d'Emplois Gratuite",
         template: "%s | Flowxtra",
       },
-      description: "Embauchez plus intelligemment avec l'IA — publiez des offres d'emploi gratuitement et gérez les candidats sur une plateforme simple et puissante.",
+      description: "Le meilleur logiciel de recrutement en France. Embauchez plus intelligemment avec l'IA — publiez des offres d'emploi gratuitement et gérez les candidats sur une plateforme simple et puissante.",
       keywords: ["recrutement", "logiciel de recrutement", "ATS", "embauche alimentée par l'IA", "outil d'embauche intelligent", "publication d'emplois gratuite", "gestion des candidats", "plateforme d'embauche"],
       metadataBase: new URL(baseUrl),
       openGraph: {
-        title: "Flowxtra – Logiciel de Recrutement & Outil d'Embauche Intelligent | Publication d'Emplois Gratuite",
-        description: "Embauchez plus intelligemment avec l'IA — publiez des offres d'emploi gratuitement et gérez les candidats sur une plateforme simple et puissante.",
+        title: "Flowxtra – Meilleur Logiciel de Recrutement en France | Outil d'Embauche Intelligent | Publication d'Emplois Gratuite",
+        description: "Le meilleur logiciel de recrutement en France. Embauchez plus intelligemment avec l'IA — publiez des offres d'emploi gratuitement et gérez les candidats sur une plateforme simple et puissante.",
         type: "website",
         locale: "fr_FR",
         url: `${baseUrl}/fr`,
@@ -587,8 +587,8 @@ export async function generateMetadata({
       },
       twitter: {
         card: "summary_large_image",
-        title: "Flowxtra – Logiciel de Recrutement & Outil d'Embauche Intelligent | Publication d'Emplois Gratuite",
-        description: "Embauchez plus intelligemment avec l'IA — publiez des offres d'emploi gratuitement et gérez les candidats sur une plateforme simple et puissante.",
+        title: "Flowxtra – Meilleur Logiciel de Recrutement en France | Outil d'Embauche Intelligent | Publication d'Emplois Gratuite",
+        description: "Le meilleur logiciel de recrutement en France. Embauchez plus intelligemment avec l'IA — publiez des offres d'emploi gratuitement et gérez les candidats sur une plateforme simple et puissante.",
       },
       // Only add alternates if canonicalUrl is defined (i.e., no nested layout)
       ...(canonicalUrl && {
@@ -626,15 +626,15 @@ export async function generateMetadata({
     },
     es: {
       title: {
-        default: "Flowxtra – Software de Reclutamiento & Herramienta de Contratación Inteligente | Publicación de Empleos Gratuita",
+        default: "Flowxtra – Mejor Software de Reclutamiento en España | Herramienta de Contratación Inteligente | Publicación de Empleos Gratuita",
         template: "%s | Flowxtra",
       },
-      description: "Contrata de forma más inteligente con IA — publica empleos gratis y gestiona candidatos en una plataforma simple y potente.",
+      description: "El mejor software de reclutamiento en España. Contrata de forma más inteligente con IA — publica empleos gratis y gestiona candidatos en una plataforma simple y potente.",
       keywords: ["reclutamiento", "software de reclutamiento", "ATS", "contratación con IA", "herramienta de contratación inteligente", "publicación de empleos gratuita", "gestión de candidatos", "plataforma de contratación"],
       metadataBase: new URL(baseUrl),
       openGraph: {
-        title: "Flowxtra – Software de Reclutamiento & Herramienta de Contratación Inteligente | Publicación de Empleos Gratuita",
-        description: "Contrata de forma más inteligente con IA — publica empleos gratis y gestiona candidatos en una plataforma simple y potente.",
+        title: "Flowxtra – Mejor Software de Reclutamiento en España | Herramienta de Contratación Inteligente | Publicación de Empleos Gratuita",
+        description: "El mejor software de reclutamiento en España. Contrata de forma más inteligente con IA — publica empleos gratis y gestiona candidatos en una plataforma simple y potente.",
         type: "website",
         locale: "es_ES",
         url: `${baseUrl}/es`,
@@ -642,8 +642,8 @@ export async function generateMetadata({
       },
       twitter: {
         card: "summary_large_image",
-        title: "Flowxtra – Software de Reclutamiento & Herramienta de Contratación Inteligente | Publicación de Empleos Gratuita",
-        description: "Contrata de forma más inteligente con IA — publica empleos gratis y gestiona candidatos en una plataforma simple y potente.",
+        title: "Flowxtra – Mejor Software de Reclutamiento en España | Herramienta de Contratación Inteligente | Publicación de Empleos Gratuita",
+        description: "El mejor software de reclutamiento en España. Contrata de forma más inteligente con IA — publica empleos gratis y gestiona candidatos en una plataforma simple y potente.",
       },
       // Only add alternates if canonicalUrl is defined (i.e., no nested layout)
       ...(canonicalUrl && {
@@ -681,15 +681,15 @@ export async function generateMetadata({
     },
     it: {
       title: {
-        default: "Flowxtra – Software di Reclutamento & Strumento di Assunzione Intelligente | Pubblicazione Lavori Gratuita",
+        default: "Flowxtra – Miglior Software di Reclutamento in Italia | Strumento di Assunzione Intelligente | Pubblicazione Lavori Gratuita",
         template: "%s | Flowxtra",
       },
-      description: "Assumi in modo più intelligente con l'IA — pubblica offerte di lavoro gratuitamente e gestisci i candidati su una piattaforma semplice e potente.",
+      description: "Il miglior software di reclutamento in Italia. Assumi in modo più intelligente con l'IA — pubblica offerte di lavoro gratuitamente e gestisci i candidati su una piattaforma semplice e potente.",
       keywords: ["reclutamento", "software di reclutamento", "ATS", "assunzione con IA", "strumento di assunzione intelligente", "pubblicazione lavori gratuita", "gestione candidati", "piattaforma di assunzione"],
       metadataBase: new URL(baseUrl),
       openGraph: {
-        title: "Flowxtra – Software di Reclutamento & Strumento di Assunzione Intelligente | Pubblicazione Lavori Gratuita",
-        description: "Assumi in modo più intelligente con l'IA — pubblica offerte di lavoro gratuitamente e gestisci i candidati su una piattaforma semplice e potente.",
+        title: "Flowxtra – Miglior Software di Reclutamento in Italia | Strumento di Assunzione Intelligente | Pubblicazione Lavori Gratuita",
+        description: "Il miglior software di reclutamento in Italia. Assumi in modo più intelligente con l'IA — pubblica offerte di lavoro gratuitamente e gestisci i candidati su una piattaforma semplice e potente.",
         type: "website",
         locale: "it_IT",
         url: `${baseUrl}/it`,
@@ -697,8 +697,8 @@ export async function generateMetadata({
       },
       twitter: {
         card: "summary_large_image",
-        title: "Flowxtra – Software di Reclutamento & Strumento di Assunzione Intelligente | Pubblicazione Lavori Gratuita",
-        description: "Assumi in modo più intelligente con l'IA — pubblica offerte di lavoro gratuitamente e gestisci i candidati su una piattaforma semplice e potente.",
+        title: "Flowxtra – Miglior Software di Reclutamento in Italia | Strumento di Assunzione Intelligente | Pubblicazione Lavori Gratuita",
+        description: "Il miglior software di reclutamento in Italia. Assumi in modo più intelligente con l'IA — pubblica offerte di lavoro gratuitamente e gestisci i candidati su una piattaforma semplice e potente.",
       },
       // Only add alternates if canonicalUrl is defined (i.e., no nested layout)
       ...(canonicalUrl && {
@@ -736,15 +736,15 @@ export async function generateMetadata({
     },
     nl: {
       title: {
-        default: "Flowxtra – Wervingssoftware & Slimme Wervings Tool | Gratis Vacatures Plaatsen",
+        default: "Flowxtra – Beste Wervingssoftware in Nederland | Slimme Wervings Tool | Gratis Vacatures Plaatsen",
         template: "%s | Flowxtra",
       },
-      description: "Werve slimmer met AI — plaats vacatures gratis en beheer kandidaten op één eenvoudig, krachtig platform.",
+      description: "De beste wervingssoftware in Nederland. Werve slimmer met AI — plaats vacatures gratis en beheer kandidaten op één eenvoudig, krachtig platform.",
       keywords: ["werving", "wervingssoftware", "ATS", "AI-aangedreven werving", "slimme wervings tool", "gratis vacatures plaatsen", "kandidaatbeheer", "wervingsplatform"],
       metadataBase: new URL(baseUrl),
       openGraph: {
-        title: "Flowxtra – Wervingssoftware & Slimme Wervings Tool | Gratis Vacatures Plaatsen",
-        description: "Werve slimmer met AI — plaats vacatures gratis en beheer kandidaten op één eenvoudig, krachtig platform.",
+        title: "Flowxtra – Beste Wervingssoftware in Nederland | Slimme Wervings Tool | Gratis Vacatures Plaatsen",
+        description: "De beste wervingssoftware in Nederland. Werve slimmer met AI — plaats vacatures gratis en beheer kandidaten op één eenvoudig, krachtig platform.",
         type: "website",
         locale: "nl_NL",
         url: `${baseUrl}/nl`,
@@ -752,8 +752,8 @@ export async function generateMetadata({
       },
       twitter: {
         card: "summary_large_image",
-        title: "Flowxtra – Wervingssoftware & Slimme Wervings Tool | Gratis Vacatures Plaatsen",
-        description: "Werve slimmer met AI — plaats vacatures gratis en beheer kandidaten op één eenvoudig, krachtig platform.",
+        title: "Flowxtra – Beste Wervingssoftware in Nederland | Slimme Wervings Tool | Gratis Vacatures Plaatsen",
+        description: "De beste wervingssoftware in Nederland. Werve slimmer met AI — plaats vacatures gratis en beheer kandidaten op één eenvoudig, krachtig platform.",
       },
       // Only add alternates if canonicalUrl is defined (i.e., no nested layout)
       ...(canonicalUrl && {
@@ -791,15 +791,15 @@ export async function generateMetadata({
     },
     ar: {
       title: {
-        default: "Flowxtra – برنامج التوظيف & أداة التوظيف الذكية | نشر الوظائف مجاناً",
+        default: "Flowxtra – أفضل برنامج توظيف | أداة التوظيف الذكية | نشر الوظائف مجاناً",
         template: "%s | Flowxtra",
       },
-      description: "وظّف بذكاء أكبر مع الذكاء الاصطناعي — انشر الوظائف مجاناً وأدر المرشحين في منصة واحدة بسيطة وقوية.",
+      description: "أفضل برنامج توظيف. وظّف بذكاء أكبر مع الذكاء الاصطناعي — انشر الوظائف مجاناً وأدر المرشحين في منصة واحدة بسيطة وقوية.",
       keywords: ["توظيف", "برنامج توظيف", "ATS", "توظيف بالذكاء الاصطناعي", "أداة توظيف ذكية", "نشر وظائف مجاني", "إدارة المرشحين", "منصة توظيف"],
       metadataBase: new URL(baseUrl),
       openGraph: {
-        title: "Flowxtra – برنامج التوظيف & أداة التوظيف الذكية | نشر الوظائف مجاناً",
-        description: "وظّف بذكاء أكبر مع الذكاء الاصطناعي — انشر الوظائف مجاناً وأدر المرشحين في منصة واحدة بسيطة وقوية.",
+        title: "Flowxtra – أفضل برنامج توظيف | أداة التوظيف الذكية | نشر الوظائف مجاناً",
+        description: "أفضل برنامج توظيف. وظّف بذكاء أكبر مع الذكاء الاصطناعي — انشر الوظائف مجاناً وأدر المرشحين في منصة واحدة بسيطة وقوية.",
         type: "website",
         locale: "ar_SA",
         url: `${baseUrl}/ar`,
@@ -807,8 +807,8 @@ export async function generateMetadata({
       },
       twitter: {
         card: "summary_large_image",
-        title: "Flowxtra – برنامج التوظيف & أداة التوظيف الذكية | نشر الوظائف مجاناً",
-        description: "وظّف بذكاء أكبر مع الذكاء الاصطناعي — انشر الوظائف مجاناً وأدر المرشحين في منصة واحدة بسيطة وقوية.",
+        title: "Flowxtra – أفضل برنامج توظيف | أداة التوظيف الذكية | نشر الوظائف مجاناً",
+        description: "أفضل برنامج توظيف. وظّف بذكاء أكبر مع الذكاء الاصطناعي — انشر الوظائف مجاناً وأدر المرشحين في منصة واحدة بسيطة وقوية.",
       },
       // Only add alternates if canonicalUrl is defined (i.e., no nested layout)
       ...(canonicalUrl && {

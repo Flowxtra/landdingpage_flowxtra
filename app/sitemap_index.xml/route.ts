@@ -169,16 +169,60 @@ export async function GET() {
     You can find more information about XML sitemaps on <a href="https://www.sitemaps.org/" target="_blank">sitemaps.org</a>.
   </div>`;
 
-  // Collect only main locale sitemap indexes (not individual sitemaps)
-  const sitemaps: Array<{ url: string; lastmod: string; type: string }> = [];
+  // Collect all sitemaps organized by type
+  const sitemaps: Array<{
+    url: string;
+    lastmod: string;
+    type: string;
+    locale?: string;
+  }> = [];
 
-  // Add only locale-specific sitemap indexes (main indexes)
+  // Add locale-specific sitemap indexes (main indexes)
   for (const locale of locales) {
     sitemaps.push({
       url: `${baseUrl}/sitemap-${locale}.xml`,
       lastmod: new Date().toISOString(),
-      type: `Locale Index (${locale.toUpperCase()})`,
+      type: "Locale Index",
+      locale: locale.toUpperCase(),
     });
+
+    // Add static pages sitemap for this locale
+    sitemaps.push({
+      url: `${baseUrl}/sitemap-static-${locale}.xml`,
+      lastmod: new Date().toISOString(),
+      type: "Static Pages",
+      locale: locale.toUpperCase(),
+    });
+
+    // Add blog sitemaps for this locale (if available)
+    const totalPosts = await getBlogPostsCount(locale);
+    const totalBlogFiles = Math.ceil(totalPosts / postsPerFile);
+
+    if (totalPosts > 0 && totalBlogFiles > 0) {
+      for (let fileIndex = 0; fileIndex < totalBlogFiles; fileIndex++) {
+        sitemaps.push({
+          url: `${baseUrl}/sitemap-${locale}-blog-${fileIndex}.xml`,
+          lastmod: new Date().toISOString(),
+          type: "Blog Posts",
+          locale: locale.toUpperCase(),
+        });
+      }
+    }
+
+    // Add app-store sitemaps for this locale (if available)
+    const totalApps = await getAppsCount(locale);
+    const totalAppFiles = Math.ceil(totalApps / postsPerFile);
+
+    if (totalApps > 0 && totalAppFiles > 0) {
+      for (let fileIndex = 0; fileIndex < totalAppFiles; fileIndex++) {
+        sitemaps.push({
+          url: `${baseUrl}/sitemap-${locale}-app-store-${fileIndex}.xml`,
+          lastmod: new Date().toISOString(),
+          type: "App Store",
+          locale: locale.toUpperCase(),
+        });
+      }
+    }
   }
 
   // Add complete sitemap
@@ -196,7 +240,34 @@ export async function GET() {
     }</strong> sitemap${sitemaps.length !== 1 ? "s" : ""}.
   </div>`;
 
-  // Display table
+  // Group sitemaps by locale for better organization
+  const groupedByLocale: Record<
+    string,
+    Array<{ url: string; lastmod: string; type: string }>
+  > = {};
+  const otherSitemaps: Array<{ url: string; lastmod: string; type: string }> =
+    [];
+
+  sitemaps.forEach((sitemap) => {
+    if (sitemap.locale) {
+      if (!groupedByLocale[sitemap.locale]) {
+        groupedByLocale[sitemap.locale] = [];
+      }
+      groupedByLocale[sitemap.locale].push({
+        url: sitemap.url,
+        lastmod: sitemap.lastmod,
+        type: sitemap.type,
+      });
+    } else {
+      otherSitemaps.push({
+        url: sitemap.url,
+        lastmod: sitemap.lastmod,
+        type: sitemap.type,
+      });
+    }
+  });
+
+  // Display table organized by locale
   html += `
   <table>
     <thead>
@@ -208,18 +279,56 @@ export async function GET() {
     </thead>
     <tbody>`;
 
-  sitemaps.forEach((sitemap) => {
-    const lastModDate = new Date(sitemap.lastmod);
-    const formattedDate =
-      lastModDate.toISOString().replace("T", " ").substring(0, 19) + " +00:00";
-
+  // Display sitemaps grouped by locale
+  const sortedLocales = Object.keys(groupedByLocale).sort();
+  sortedLocales.forEach((locale) => {
     html += `
+      <tr style="background-color: #f0f0f0;">
+        <td colspan="3" style="font-weight: 600; padding: 20px 15px; border-bottom: 2px solid #ddd;">
+          ${locale} - ${groupedByLocale[locale].length} sitemap${
+      groupedByLocale[locale].length !== 1 ? "s" : ""
+    }
+        </td>
+      </tr>`;
+
+    groupedByLocale[locale].forEach((sitemap) => {
+      const lastModDate = new Date(sitemap.lastmod);
+      const formattedDate =
+        lastModDate.toISOString().replace("T", " ").substring(0, 19) +
+        " +00:00";
+
+      html += `
       <tr>
         <td><a href="${sitemap.url}" target="_blank">${sitemap.url}</a></td>
         <td>${sitemap.type}</td>
         <td class="lastmod">${formattedDate}</td>
       </tr>`;
+    });
   });
+
+  // Display other sitemaps (like complete sitemap)
+  if (otherSitemaps.length > 0) {
+    html += `
+      <tr style="background-color: #f0f0f0;">
+        <td colspan="3" style="font-weight: 600; padding: 20px 15px; border-bottom: 2px solid #ddd; border-top: 2px solid #ddd;">
+          Other Sitemaps
+        </td>
+      </tr>`;
+
+    otherSitemaps.forEach((sitemap) => {
+      const lastModDate = new Date(sitemap.lastmod);
+      const formattedDate =
+        lastModDate.toISOString().replace("T", " ").substring(0, 19) +
+        " +00:00";
+
+      html += `
+      <tr>
+        <td><a href="${sitemap.url}" target="_blank">${sitemap.url}</a></td>
+        <td>${sitemap.type}</td>
+        <td class="lastmod">${formattedDate}</td>
+      </tr>`;
+    });
+  }
 
   html += `
     </tbody>
