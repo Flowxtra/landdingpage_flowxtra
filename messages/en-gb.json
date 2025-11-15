@@ -1438,6 +1438,36 @@
         "linkText": "Join Affiliate Program",
         "closeLabel": "Close banner"
     },
+    "dataRequest": {
+        "title": "Request Your Personal Data",
+        "description": "Under GDPR and privacy regulations, you have the right to access, update, or delete your personal data. Use this form to submit a data request.",
+        "emailLabel": "Email Address",
+        "emailPlaceholder": "your.email@example.com",
+        "fullNameLabel": "Full Name",
+        "fullNamePlaceholder": "John Doe",
+        "requestTypeLabel": "Request Type",
+        "requestTypeOptions": {
+            "requestData": "Request My Data (Download)",
+            "deleteData": "Delete My Data",
+            "updateData": "Update My Data"
+        },
+        "messageLabel": "Additional Information",
+        "messagePlaceholder": "Please provide any additional details about your request (optional)...",
+        "messageHint": "You can provide additional context or specify which data you'd like to access, update, or delete.",
+        "privacyAgreement": "I agree to the",
+        "privacyPolicy": "Privacy Policy",
+        "submitButton": "Submit Request",
+        "submitting": "Submitting...",
+        "successMessage": "Your data request has been submitted successfully! We will process your request and contact you within 30 days as required by GDPR regulations.",
+        "errorMessage": "An error occurred while submitting your request. Please try again or contact support.",
+        "submitError": "Failed to submit request. Please try again.",
+        "infoTitle": "About Data Requests",
+        "infoDescription": "We take your privacy seriously. Here's what you need to know about data requests:",
+        "infoPoint1": "Request My Data: Receive a copy of all personal data we have stored about you in a machine-readable format.",
+        "infoPoint2": "Delete My Data: Request permanent deletion of your personal data from our systems (subject to legal retention requirements).",
+        "infoPoint3": "Update My Data: Request corrections or updates to inaccurate or incomplete personal data.",
+        "infoNote": "We will process your request within 30 days as required by GDPR. You will receive a confirmation email once your request is received."
+    },
     "notFound": {
         "title": "404 - Page Not Found",
         "heading": "Oops! Page Not Found",

@@ -1434,6 +1434,36 @@
         "linkText": "Rejoindre le Programme d'Affiliation",
         "closeLabel": "Fermer la bannière"
     },
+    "dataRequest": {
+        "title": "Demander vos données personnelles",
+        "description": "Conformément au RGPD et aux réglementations sur la confidentialité, vous avez le droit d'accéder, de mettre à jour ou de supprimer vos données personnelles. Utilisez ce formulaire pour soumettre une demande de données.",
+        "emailLabel": "Adresse e-mail",
+        "emailPlaceholder": "votre.email@exemple.com",
+        "fullNameLabel": "Nom complet",
+        "fullNamePlaceholder": "Jean Dupont",
+        "requestTypeLabel": "Type de demande",
+        "requestTypeOptions": {
+            "requestData": "Demander mes données (Télécharger)",
+            "deleteData": "Supprimer mes données",
+            "updateData": "Mettre à jour mes données"
+        },
+        "messageLabel": "Informations supplémentaires",
+        "messagePlaceholder": "Veuillez fournir des détails supplémentaires sur votre demande (optionnel)...",
+        "messageHint": "Vous pouvez fournir des informations supplémentaires ou spécifier les données que vous souhaitez consulter, mettre à jour ou supprimer.",
+        "privacyAgreement": "J'accepte la",
+        "privacyPolicy": "Politique de confidentialité",
+        "submitButton": "Soumettre la demande",
+        "submitting": "Envoi en cours...",
+        "successMessage": "Votre demande de données a été soumise avec succès ! Nous traiterons votre demande et vous contacterons dans les 30 jours conformément aux réglementations RGPD.",
+        "errorMessage": "Une erreur s'est produite lors de l'envoi de votre demande. Veuillez réessayer ou contacter le support.",
+        "submitError": "Échec de l'envoi de la demande. Veuillez réessayer.",
+        "infoTitle": "À propos des demandes de données",
+        "infoDescription": "Nous prenons votre confidentialité au sérieux. Voici ce que vous devez savoir sur les demandes de données :",
+        "infoPoint1": "Demander mes données : Recevez une copie de toutes les données personnelles que nous avons stockées sur vous dans un format lisible par machine.",
+        "infoPoint2": "Supprimer mes données : Demandez la suppression permanente de vos données personnelles de nos systèmes (sous réserve des exigences légales de conservation).",
+        "infoPoint3": "Mettre à jour mes données : Demandez des corrections ou des mises à jour des données personnelles inexactes ou incomplètes.",
+        "infoNote": "Nous traiterons votre demande dans les 30 jours conformément au RGPD. Vous recevrez un e-mail de confirmation une fois votre demande reçue."
+    },
     "notFound": {
         "title": "404 - Page non trouvée",
         "heading": "Oups ! Page non trouvée",

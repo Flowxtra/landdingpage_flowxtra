@@ -1434,6 +1434,36 @@
         "linkText": "Unisciti al Programma di Affiliazione",
         "closeLabel": "Chiudi banner"
     },
+    "dataRequest": {
+        "title": "Richiedi i tuoi dati personali",
+        "description": "Secondo il GDPR e le normative sulla privacy, hai il diritto di accedere, aggiornare o eliminare i tuoi dati personali. Usa questo modulo per inviare una richiesta di dati.",
+        "emailLabel": "Indirizzo email",
+        "emailPlaceholder": "tua.email@esempio.com",
+        "fullNameLabel": "Nome completo",
+        "fullNamePlaceholder": "Mario Rossi",
+        "requestTypeLabel": "Tipo di richiesta",
+        "requestTypeOptions": {
+            "requestData": "Richiedi i miei dati (Scarica)",
+            "deleteData": "Elimina i miei dati",
+            "updateData": "Aggiorna i miei dati"
+        },
+        "messageLabel": "Informazioni aggiuntive",
+        "messagePlaceholder": "Fornisci dettagli aggiuntivi sulla tua richiesta (opzionale)...",
+        "messageHint": "Puoi fornire informazioni aggiuntive o specificare quali dati desideri accedere, aggiornare o eliminare.",
+        "privacyAgreement": "Accetto l'",
+        "privacyPolicy": "Informativa sulla privacy",
+        "submitButton": "Invia richiesta",
+        "submitting": "Invio in corso...",
+        "successMessage": "La tua richiesta di dati è stata inviata con successo! Elaboreremo la tua richiesta e ti contatteremo entro 30 giorni come richiesto dalle normative GDPR.",
+        "errorMessage": "Si è verificato un errore durante l'invio della richiesta. Riprova o contatta il supporto.",
+        "submitError": "Invio della richiesta non riuscito. Riprova.",
+        "infoTitle": "Informazioni sulle richieste di dati",
+        "infoDescription": "Prendiamo sul serio la tua privacy. Ecco cosa devi sapere sulle richieste di dati:",
+        "infoPoint1": "Richiedi i miei dati: Ricevi una copia di tutti i dati personali che abbiamo memorizzato su di te in un formato leggibile da macchina.",
+        "infoPoint2": "Elimina i miei dati: Richiedi l'eliminazione permanente dei tuoi dati personali dai nostri sistemi (soggetto ai requisiti legali di conservazione).",
+        "infoPoint3": "Aggiorna i miei dati: Richiedi correzioni o aggiornamenti di dati personali imprecisi o incompleti.",
+        "infoNote": "Elaboreremo la tua richiesta entro 30 giorni come richiesto dal GDPR. Riceverai un'email di conferma una volta ricevuta la tua richiesta."
+    },
     "notFound": {
         "title": "404 - Pagina non trovata",
         "heading": "Ops! Pagina non trovata",

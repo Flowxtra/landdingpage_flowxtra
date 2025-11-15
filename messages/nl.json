@@ -1434,6 +1434,36 @@
         "linkText": "Word Lid van Partnerprogramma",
         "closeLabel": "Banner sluiten"
     },
+    "dataRequest": {
+        "title": "Vraag uw persoonlijke gegevens aan",
+        "description": "Volgens de AVG en privacyregelgeving heeft u het recht om toegang te krijgen tot, bij te werken of uw persoonlijke gegevens te verwijderen. Gebruik dit formulier om een gegevensverzoek in te dienen.",
+        "emailLabel": "E-mailadres",
+        "emailPlaceholder": "uw.email@voorbeeld.com",
+        "fullNameLabel": "Volledige naam",
+        "fullNamePlaceholder": "Jan Jansen",
+        "requestTypeLabel": "Type verzoek",
+        "requestTypeOptions": {
+            "requestData": "Mijn gegevens aanvragen (Downloaden)",
+            "deleteData": "Mijn gegevens verwijderen",
+            "updateData": "Mijn gegevens bijwerken"
+        },
+        "messageLabel": "Aanvullende informatie",
+        "messagePlaceholder": "Geef aanvullende details over uw verzoek (optioneel)...",
+        "messageHint": "U kunt aanvullende informatie verstrekken of specificeren welke gegevens u wilt openen, bijwerken of verwijderen.",
+        "privacyAgreement": "Ik ga akkoord met het",
+        "privacyPolicy": "Privacybeleid",
+        "submitButton": "Verzoek indienen",
+        "submitting": "Verzenden...",
+        "successMessage": "Uw gegevensverzoek is succesvol ingediend! We zullen uw verzoek verwerken en u binnen 30 dagen contacteren zoals vereist door de AVG-regelgeving.",
+        "errorMessage": "Er is een fout opgetreden bij het indienen van uw verzoek. Probeer het opnieuw of neem contact op met de ondersteuning.",
+        "submitError": "Verzoek indienen mislukt. Probeer het opnieuw.",
+        "infoTitle": "Over gegevensverzoeken",
+        "infoDescription": "We nemen uw privacy serieus. Dit is wat u moet weten over gegevensverzoeken:",
+        "infoPoint1": "Mijn gegevens aanvragen: Ontvang een kopie van alle persoonlijke gegevens die we over u hebben opgeslagen in een machineleesbaar formaat.",
+        "infoPoint2": "Mijn gegevens verwijderen: Vraag permanente verwijdering van uw persoonlijke gegevens uit onze systemen (onder voorbehoud van wettelijke bewaarvereisten).",
+        "infoPoint3": "Mijn gegevens bijwerken: Vraag correcties of updates aan van onjuiste of onvolledige persoonlijke gegevens.",
+        "infoNote": "We zullen uw verzoek binnen 30 dagen verwerken zoals vereist door de AVG. U ontvangt een bevestigings-e-mail zodra uw verzoek is ontvangen."
+    },
     "notFound": {
         "title": "404 - Pagina niet gevonden",
         "heading": "Oeps! Pagina niet gevonden",

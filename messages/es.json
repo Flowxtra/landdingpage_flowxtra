@@ -1434,6 +1434,36 @@
         "linkText": "Únete al Programa de Afiliados",
         "closeLabel": "Cerrar banner"
     },
+    "dataRequest": {
+        "title": "Solicitar sus datos personales",
+        "description": "Según el RGPD y las regulaciones de privacidad, tiene derecho a acceder, actualizar o eliminar sus datos personales. Use este formulario para enviar una solicitud de datos.",
+        "emailLabel": "Dirección de correo electrónico",
+        "emailPlaceholder": "su.correo@ejemplo.com",
+        "fullNameLabel": "Nombre completo",
+        "fullNamePlaceholder": "Juan Pérez",
+        "requestTypeLabel": "Tipo de solicitud",
+        "requestTypeOptions": {
+            "requestData": "Solicitar mis datos (Descargar)",
+            "deleteData": "Eliminar mis datos",
+            "updateData": "Actualizar mis datos"
+        },
+        "messageLabel": "Información adicional",
+        "messagePlaceholder": "Proporcione detalles adicionales sobre su solicitud (opcional)...",
+        "messageHint": "Puede proporcionar información adicional o especificar qué datos desea acceder, actualizar o eliminar.",
+        "privacyAgreement": "Acepto la",
+        "privacyPolicy": "Política de privacidad",
+        "submitButton": "Enviar solicitud",
+        "submitting": "Enviando...",
+        "successMessage": "¡Su solicitud de datos se ha enviado correctamente! Procesaremos su solicitud y nos pondremos en contacto con usted en un plazo de 30 días según lo exigen las regulaciones del RGPD.",
+        "errorMessage": "Ocurrió un error al enviar su solicitud. Por favor, inténtelo de nuevo o contacte con soporte.",
+        "submitError": "Error al enviar la solicitud. Por favor, inténtelo de nuevo.",
+        "infoTitle": "Acerca de las solicitudes de datos",
+        "infoDescription": "Nos tomamos en serio su privacidad. Esto es lo que necesita saber sobre las solicitudes de datos:",
+        "infoPoint1": "Solicitar mis datos: Reciba una copia de todos los datos personales que tenemos almacenados sobre usted en un formato legible por máquina.",
+        "infoPoint2": "Eliminar mis datos: Solicite la eliminación permanente de sus datos personales de nuestros sistemas (sujeto a los requisitos legales de retención).",
+        "infoPoint3": "Actualizar mis datos: Solicite correcciones o actualizaciones de datos personales inexactos o incompletos.",
+        "infoNote": "Procesaremos su solicitud en un plazo de 30 días según lo exige el RGPD. Recibirá un correo electrónico de confirmación una vez que se reciba su solicitud."
+    },
     "notFound": {
         "title": "404 - Página no encontrada",
         "heading": "¡Ups! Página no encontrada",

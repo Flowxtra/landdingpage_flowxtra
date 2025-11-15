@@ -1434,6 +1434,36 @@
         "linkText": "Partnerprogramm beitreten",
         "closeLabel": "Banner schließen"
     },
+    "dataRequest": {
+        "title": "Ihre persönlichen Daten anfordern",
+        "description": "Gemäß DSGVO und Datenschutzbestimmungen haben Sie das Recht, auf Ihre persönlichen Daten zuzugreifen, sie zu aktualisieren oder zu löschen. Verwenden Sie dieses Formular, um eine Datenanfrage zu stellen.",
+        "emailLabel": "E-Mail-Adresse",
+        "emailPlaceholder": "ihre.email@beispiel.com",
+        "fullNameLabel": "Vollständiger Name",
+        "fullNamePlaceholder": "Max Mustermann",
+        "requestTypeLabel": "Anfragetyp",
+        "requestTypeOptions": {
+            "requestData": "Meine Daten anfordern (Herunterladen)",
+            "deleteData": "Meine Daten löschen",
+            "updateData": "Meine Daten aktualisieren"
+        },
+        "messageLabel": "Zusätzliche Informationen",
+        "messagePlaceholder": "Bitte geben Sie zusätzliche Details zu Ihrer Anfrage an (optional)...",
+        "messageHint": "Sie können zusätzliche Informationen angeben oder spezifizieren, welche Daten Sie zugreifen, aktualisieren oder löschen möchten.",
+        "privacyAgreement": "Ich stimme der",
+        "privacyPolicy": "Datenschutzerklärung",
+        "submitButton": "Anfrage absenden",
+        "submitting": "Wird gesendet...",
+        "successMessage": "Ihre Datenanfrage wurde erfolgreich übermittelt! Wir werden Ihre Anfrage bearbeiten und Sie innerhalb von 30 Tagen kontaktieren, wie es die DSGVO-Bestimmungen erfordern.",
+        "errorMessage": "Beim Senden Ihrer Anfrage ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie den Support.",
+        "submitError": "Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
+        "infoTitle": "Über Datenanfragen",
+        "infoDescription": "Wir nehmen Ihren Datenschutz ernst. Hier ist, was Sie über Datenanfragen wissen müssen:",
+        "infoPoint1": "Meine Daten anfordern: Erhalten Sie eine Kopie aller persönlichen Daten, die wir über Sie gespeichert haben, in einem maschinenlesbaren Format.",
+        "infoPoint2": "Meine Daten löschen: Beantragen Sie die dauerhafte Löschung Ihrer persönlichen Daten aus unseren Systemen (vorbehaltlich gesetzlicher Aufbewahrungsanforderungen).",
+        "infoPoint3": "Meine Daten aktualisieren: Beantragen Sie Korrekturen oder Aktualisierungen ungenauer oder unvollständiger persönlicher Daten.",
+        "infoNote": "Wir werden Ihre Anfrage innerhalb von 30 Tagen bearbeiten, wie es die DSGVO erfordert. Sie erhalten eine Bestätigungs-E-Mail, sobald Ihre Anfrage eingegangen ist."
+    },
     "notFound": {
         "title": "404 - Seite nicht gefunden",
         "heading": "Ups! Seite nicht gefunden",
