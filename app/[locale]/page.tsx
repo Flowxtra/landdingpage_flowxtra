@@ -234,7 +234,7 @@ allowfullscreen>
                       quality={100}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1200px"
                       className="w-full h-auto rounded-xl"
-                      unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.png')}
+                      unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.svg')}
                       loading={index === 0 ? "eager" : "lazy"}
                     />
                   </div>
@@ -260,11 +260,11 @@ allowfullscreen>
                     alt={slide.imageAlt}
                     width={slide.image.includes('candidate-fiter') ? 834 : slide.image.includes('Job-board-workflow') ? 1920 : 1200}
                     height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 1080 : 900}
-                    quality={100}
-                    sizes={slide.image.includes('hiring-email-template') ? "(max-width: 1200px) 50vw, 600px" : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1200px"}
-                    className={slide.image.includes('hiring-email-template') ? "w-1/2 h-auto mx-auto" : "w-full h-auto"}
-                    unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.png')}
-                    loading={index === 0 ? "eager" : "lazy"}
+                      quality={100}
+                      sizes={slide.image.includes('hiring-email-template') ? "(max-width: 1200px) 50vw, 600px" : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1200px"}
+                      className={slide.image.includes('hiring-email-template') ? "w-1/2 h-auto mx-auto" : "w-full h-auto"}
+                      unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.svg')}
+                      loading={index === 0 ? "eager" : "lazy"}
                   />
                 </div>
               </div>
@@ -441,20 +441,20 @@ export default function Homepage() {
                 <div className="flex gap-3 animate-scroll-right whitespace-nowrap">
                   <Image src="/img/icon/Frame-2095584493.png" alt="Review us on Trustpilot" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
                   <Image src="/img/icon/Frame-1984078831-1.png" alt="Made in Austria" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
-                  <Image src="/img/icon/dsvgo-icon.svg" alt="DSGVO Compliant" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
+                  <Image src="/img/icon/dsvgo-icon.svg" alt="DSGVO Compliant" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" unoptimized loading="lazy" />
                   <Image src="/img/icon/Frame-2095584493.png" alt="Review us on Trustpilot" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
                   <Image src="/img/icon/Frame-1984078831-1.png" alt="Made in Austria" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
-                  <Image src="/img/icon/dsvgo-icon.svg" alt="DSGVO Compliant" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
+                  <Image src="/img/icon/dsvgo-icon.svg" alt="DSGVO Compliant" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" unoptimized loading="lazy" />
                 </div>
               </div>
               <div className="overflow-hidden flex">
                 <div className="flex gap-3 animate-scroll-left whitespace-nowrap">
-                  <Image src="/img/icon/trust.svg" alt="Trustpilot Reviews" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
-                  <Image src="/img/icon/at.svg" alt="Made in Austria" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
-                  <Image src="/img/icon/de.svg" alt="Made in Germany" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
-                  <Image src="/img/icon/trust.svg" alt="Trustpilot Reviews" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
-                  <Image src="/img/icon/at.svg" alt="Made in Austria" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
-                  <Image src="/img/icon/de.svg" alt="Made in Germany" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" loading="lazy" />
+                  <Image src="/img/icon/trust.svg" alt="Trustpilot Reviews" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" unoptimized loading="lazy" />
+                  <Image src="/img/icon/at.svg" alt="Made in Austria" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" unoptimized loading="lazy" />
+                  <Image src="/img/icon/de.svg" alt="Made in Germany" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" unoptimized loading="lazy" />
+                  <Image src="/img/icon/trust.svg" alt="Trustpilot Reviews" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" unoptimized loading="lazy" />
+                  <Image src="/img/icon/at.svg" alt="Made in Austria" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" unoptimized loading="lazy" />
+                  <Image src="/img/icon/de.svg" alt="Made in Germany" width={120} height={60} quality={100} className="flex-shrink-0 h-12 w-auto inline-block" unoptimized loading="lazy" />
                 </div>
               </div>
               <div className="overflow-hidden flex">
@@ -649,6 +649,7 @@ export default function Homepage() {
                 quality={100}
                 className="w-full h-auto"
                 unoptimized
+                loading="lazy"
               />
           
             </div>
@@ -802,8 +803,8 @@ export default function Homepage() {
                   width={600}
                   height={450}
                   quality={100}
-                  unoptimized
                   className="w-full h-auto"
+                  unoptimized
                   loading="lazy"
                 />
                 <figcaption className="sr-only">

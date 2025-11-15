@@ -52,7 +52,6 @@ export default function About() {
                   width={800}
                   height={600}
                   quality={100}
-                  unoptimized
                   className="w-full h-auto rounded-lg"
                 />
                 <figcaption className="sr-only">

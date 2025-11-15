@@ -398,7 +398,6 @@ function BlogPostContent() {
                           height={64}
                           className="rounded-full"
                           quality={100}
-                          unoptimized
                         />
                       ) : (
                         <svg className="w-8 h-8 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -505,7 +504,6 @@ function BlogPostContent() {
                           fill
                           className="object-cover transition-transform hover:scale-105"
                           quality={100}
-                          unoptimized
                           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;

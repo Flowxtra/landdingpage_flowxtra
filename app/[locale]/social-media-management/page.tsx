@@ -92,7 +92,6 @@ export default function SocialMediaManagement() {
                     height={600}
                     quality={100}
                     className="w-full h-auto rounded-lg"
-                    unoptimized
                     priority
                   />
                   <figcaption className="sr-only">
@@ -133,7 +132,6 @@ export default function SocialMediaManagement() {
                 height={600}
                 quality={100}
                 className="w-full h-auto rounded-lg"
-                unoptimized
                 priority
               />
             </div>
@@ -189,7 +187,6 @@ export default function SocialMediaManagement() {
                 height={600}
                 quality={100}
                 className="w-full h-auto rounded-lg"
-                unoptimized
                 priority
               />
             </div>
@@ -209,7 +206,6 @@ export default function SocialMediaManagement() {
                 height={600}
                 quality={100}
                 className="w-full h-auto rounded-lg"
-                unoptimized
                 priority
               />
             </div>
@@ -301,7 +297,6 @@ export default function SocialMediaManagement() {
                 height={600}
                 quality={100}
                 className="w-full h-auto rounded-lg"
-                unoptimized
                 priority
               />
             </div>

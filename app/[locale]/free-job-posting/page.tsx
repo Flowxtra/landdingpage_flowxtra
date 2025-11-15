@@ -86,7 +86,6 @@ export default function FreeJobPosting() {
                     height={489}
                     quality={100}
                     className="w-full h-auto rounded-lg"
-                    unoptimized
                     priority
                   />
                   <figcaption className="sr-only">
@@ -208,7 +207,6 @@ export default function FreeJobPosting() {
                       height={600}
                       quality={100}
                       className="w-full h-auto rounded-lg"
-                      unoptimized
                       loading="lazy"
                     />
                     <figcaption className="sr-only">
@@ -309,7 +307,6 @@ export default function FreeJobPosting() {
                       height={600}
                       quality={100}
                       className="w-full h-auto rounded-lg"
-                      unoptimized
                       loading="lazy"
                     />
                     <figcaption className="sr-only">
@@ -336,7 +333,6 @@ export default function FreeJobPosting() {
                       height={600}
                       quality={100}
                       className="w-full h-auto rounded-lg"
-                      unoptimized
                       loading="lazy"
                     />
                     <figcaption className="sr-only">
@@ -465,7 +461,6 @@ export default function FreeJobPosting() {
                       height={600}
                       quality={100}
                       className="w-full h-auto rounded-lg"
-                      unoptimized
                       loading="lazy"
                     />
                     <figcaption className="sr-only">
@@ -543,7 +538,6 @@ export default function FreeJobPosting() {
                       height={600}
                       quality={100}
                       className="w-full h-auto rounded-lg"
-                      unoptimized
                       loading="lazy"
                     />
                     <figcaption className="sr-only">
@@ -619,7 +613,6 @@ export default function FreeJobPosting() {
                         height={600}
                         quality={100}
                         className="w-full h-auto rounded-lg"
-                        unoptimized
                         loading="lazy"
                       />
                       <figcaption className="sr-only">
@@ -637,7 +630,6 @@ export default function FreeJobPosting() {
                         height={600}
                         quality={100}
                         className="w-full h-auto rounded-lg"
-                        unoptimized
                         loading="lazy"
                       />
                       <figcaption className="sr-only">
@@ -676,7 +668,6 @@ export default function FreeJobPosting() {
                       height={1080}
                       quality={100}
                       className="w-full h-auto rounded-lg"
-                      unoptimized
                       loading="lazy"
                     />
                     <figcaption className="sr-only">
@@ -703,7 +694,6 @@ export default function FreeJobPosting() {
                       height={600}
                       quality={100}
                       className="w-full h-auto rounded-lg"
-                      unoptimized
                       loading="lazy"
                     />
                     <figcaption className="sr-only">

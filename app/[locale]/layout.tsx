@@ -3,6 +3,7 @@ import {getMessages} from 'next-intl/server';
 import type { Metadata, Viewport } from "next";
 import dynamic from "next/dynamic";
 import { headers } from 'next/headers';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "../globals.css";
 import ClientScripts from "@/components/ClientScripts";
 import AccessibilityWidgetLoader from "@/components/Accessibility/AccessibilityWidgetLoader";
@@ -1217,6 +1218,8 @@ export default async function LocaleLayout({
           </main>
           <Footer />
           <AccessibilityWidgetLoader />
+          {/* Vercel Speed Insights - Performance monitoring */}
+          <SpeedInsights />
         </NextIntlClientProvider>
       </body>
     </html>
