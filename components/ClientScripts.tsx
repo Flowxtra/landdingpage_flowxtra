@@ -12,10 +12,7 @@ const CookieBanner = dynamic(() => import("@/components/CookieConsent/CookieBann
   ssr: false,
 });
 
-// Load Font Awesome for icons (used in CompareFeatures, etc.)
-const FontAwesomeLoader = dynamic(() => import("@/components/FontAwesomeLoader"), {
-  ssr: false,
-});
+// FontAwesomeLoader is no longer needed - Font Awesome is loaded from local files in layout.tsx
 
 export default function ClientScripts() {
   // Prevent scroll restoration and ensure page starts at top
@@ -177,8 +174,7 @@ export default function ClientScripts() {
 
   return (
     <>
-      {/* Load Font Awesome for icons (used in CompareFeatures, etc.) */}
-      <FontAwesomeLoader />
+      {/* Font Awesome is loaded from /fonts/fontawesome.min.css in layout.tsx - no need for CDN loader */}
       {/* Load tracking scripts only if consent is given */}
       <CookieScriptLoader />
       {/* Cookie Consent Banner - Shows only if no consent exists */}

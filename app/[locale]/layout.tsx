@@ -952,13 +952,35 @@ export default async function LocaleLayout({
           crossOrigin="anonymous"
         />
 
-        {/* Font Awesome CSS - Self-hosted for optimal performance */}
+        {/* Font Awesome CSS - Custom build with only used icons (15.03 KiB vs 96.98 KiB - 84.5% reduction) */}
         {/* @font-face rules with font-display: swap are defined in globals.css using local fonts */}
-        {/* Load Font Awesome CSS - non-blocking (fonts are preloaded above) */}
+        {/* Load Font Awesome CSS asynchronously to prevent render blocking */}
+        <link
+          rel="preload"
+          href="/fonts/fontawesome-custom.min.css"
+          as="style"
+        />
         <link
           rel="stylesheet"
-          href="/fonts/fontawesome.min.css"
+          href="/fonts/fontawesome-custom.min.css"
+          media="print"
+          suppressHydrationWarning
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var link = document.querySelector('link[href="/fonts/fontawesome-custom.min.css"][media="print"]');
+                if (link) {
+                  link.media = 'all';
+                }
+              })();
+            `,
+          }}
+        />
+        <noscript>
+          <link rel="stylesheet" href="/fonts/fontawesome-custom.min.css" />
+        </noscript>
         
         {/* DNS prefetch removed - scripts are lazy loaded after user interaction, prefetch is unnecessary and triggers "unused preconnect" warnings */}
         
