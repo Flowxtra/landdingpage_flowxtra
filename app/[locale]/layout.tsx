@@ -28,6 +28,12 @@ export const viewport: Viewport = {
   themeColor: "#003f4d",
 };
 
+// Route segment config to enable bfcache
+// Use static rendering with revalidation to allow bfcache
+// Pages will be statically generated but can be revalidated
+// Note: We don't use 'export const dynamic' to avoid conflict with 'dynamic' import from next/dynamic
+export const revalidate = 3600; // Revalidate every hour - enables static generation for bfcache compatibility
+
 // SEO Metadata per locale
 export async function generateMetadata({ 
   params 

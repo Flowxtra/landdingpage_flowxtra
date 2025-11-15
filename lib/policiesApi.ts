@@ -120,7 +120,8 @@ export async function getPolicies(params: {
   if (typeof window === "undefined") {
     (fetchOptions as any).next = { revalidate: 3600 };
   } else {
-    fetchOptions.cache = "no-store";
+    // Client-side: use default cache to allow bfcache (back/forward cache)
+    fetchOptions.cache = "default";
   }
 
   const response = await fetch(url, fetchOptions);
@@ -152,7 +153,8 @@ export async function getPolicy(id: number): Promise<PolicyResponse> {
   if (typeof window === "undefined") {
     (fetchOptions as any).next = { revalidate: 3600 };
   } else {
-    fetchOptions.cache = "no-store";
+    // Client-side: use default cache to allow bfcache (back/forward cache)
+    fetchOptions.cache = "default";
   }
 
   const response = await fetch(url, fetchOptions);

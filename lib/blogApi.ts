@@ -212,8 +212,10 @@ export async function getBlogPosts(params: {
     // Server-side: can use next.revalidate
     (fetchOptions as any).next = { revalidate: 900 };
   } else {
-    // Client-side: use no-store to always fetch fresh data
-    fetchOptions.cache = "no-store";
+    // Client-side: use default cache to allow bfcache (back/forward cache)
+    // This allows browsers to cache responses and use bfcache for better performance
+    // Data will still be fresh due to server-side revalidation (900 seconds)
+    fetchOptions.cache = "default";
   }
 
   const response = await fetch(url, fetchOptions);
@@ -330,8 +332,8 @@ export async function getBlogPost(
       // Use revalidate from options or default to 0 for fresh data
       (fetchOptions as any).next = { revalidate: options?.revalidate ?? 0 };
     } else {
-      // Force no cache for client-side to always get fresh data
-      fetchOptions.cache = "no-store";
+      // Client-side: use default cache to allow bfcache (back/forward cache)
+      fetchOptions.cache = "default";
     }
   }
 
@@ -419,8 +421,8 @@ export async function getBlogCategories(
     // Server-side: can use next.revalidate
     (fetchOptions as any).next = { revalidate: 3600 };
   } else {
-    // Client-side: use no-store to always fetch fresh data
-    fetchOptions.cache = "no-store";
+    // Client-side: use default cache to allow bfcache (back/forward cache)
+    fetchOptions.cache = "default";
   }
 
   const response = await fetch(url, fetchOptions);
