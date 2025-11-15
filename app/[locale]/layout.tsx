@@ -976,7 +976,8 @@ export default async function LocaleLayout({
             `,
           }}
         />
-        {/* Prevent scroll restoration - Always start at top of page */}
+        {/* Prevent scroll restoration - Disable browser scroll restoration */}
+        {/* Note: Actual scroll to top is handled by ClientScripts to avoid conflicts */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -984,21 +985,6 @@ export default async function LocaleLayout({
                 // Disable browser scroll restoration
                 if ('scrollRestoration' in history) {
                   history.scrollRestoration = 'manual';
-                }
-                // Ensure page starts at top on load
-                if (typeof window !== 'undefined') {
-                  window.addEventListener('load', function() {
-                    // Only scroll to top if there's no hash in URL
-                    if (!window.location.hash) {
-                      window.scrollTo(0, 0);
-                    }
-                  });
-                  // Also scroll to top immediately if page is already loaded
-                  if (document.readyState === 'complete') {
-                    if (!window.location.hash) {
-                      window.scrollTo(0, 0);
-                    }
-                  }
                 }
               })();
             `,

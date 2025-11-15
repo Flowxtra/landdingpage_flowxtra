@@ -28,72 +28,45 @@ export default function ClientScripts() {
     }
 
     // Function to scroll to top (only if no hash)
+    // Use a flag to prevent multiple scrolls
+    let hasScrolled = false;
     const scrollToTop = () => {
-      if (!window.location.hash) {
-        // Use multiple methods to ensure scroll works
-        // First, try immediate scroll
+      if (hasScrolled || window.location.hash) return;
+      
+      hasScrolled = true;
+      
+      // Use requestAnimationFrame to ensure DOM is ready
+      requestAnimationFrame(() => {
         window.scrollTo(0, 0);
-        
-        // Also set scrollTop directly on document elements
         if (document.documentElement) {
           document.documentElement.scrollTop = 0;
         }
         if (document.body) {
           document.body.scrollTop = 0;
         }
-        
-        // Use requestAnimationFrame for next frame (in case DOM is still updating)
-        requestAnimationFrame(() => {
-          window.scrollTo(0, 0);
-          if (document.documentElement) {
-            document.documentElement.scrollTop = 0;
-          }
-          if (document.body) {
-            document.body.scrollTop = 0;
-          }
-        });
-        
-        // Also try after a small delay to catch any late DOM updates
-        setTimeout(() => {
-          window.scrollTo(0, 0);
-          if (document.documentElement) {
-            document.documentElement.scrollTop = 0;
-          }
-          if (document.body) {
-            document.body.scrollTop = 0;
-          }
-        }, 100);
-      }
+      });
     };
 
-    // Scroll to top immediately
-    scrollToTop();
-
-    // Also scroll to top when page loads (in case script runs before load)
+    // Only scroll once - when DOM is ready
     if (document.readyState === 'loading') {
-      window.addEventListener('load', scrollToTop, { once: true });
+      // Wait for DOMContentLoaded
+      document.addEventListener('DOMContentLoaded', scrollToTop, { once: true });
     } else {
-      // Page already loaded, scroll immediately and after a delay
+      // DOM already ready, scroll immediately
       scrollToTop();
     }
 
-    // Handle DOMContentLoaded as well
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', scrollToTop, { once: true });
-    }
-
-    // Handle route changes (Next.js navigation)
+    // Handle route changes (Next.js navigation) - reset flag on navigation
     const handleRouteChange = () => {
+      hasScrolled = false;
       // Small delay to ensure new page content is rendered
-      setTimeout(scrollToTop, 0);
-      setTimeout(scrollToTop, 100);
+      setTimeout(scrollToTop, 50);
     };
 
     // Listen for popstate (back/forward button)
     window.addEventListener('popstate', handleRouteChange);
 
     return () => {
-      window.removeEventListener('load', scrollToTop);
       document.removeEventListener('DOMContentLoaded', scrollToTop);
       window.removeEventListener('popstate', handleRouteChange);
     };

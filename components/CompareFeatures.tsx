@@ -93,21 +93,63 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
     }
   };
 
-  // Scroll to Free plan tab on mobile when component mounts
+  // Scroll to Free plan tab on mobile when component becomes visible
+  // Use horizontal scroll only (scrollLeft) to prevent vertical page scroll
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const isMobile = window.innerWidth < 1024; // lg breakpoint
-      if (isMobile) {
-        // Small delay to ensure DOM is ready
-        setTimeout(() => {
-          const tabsContainer = document.querySelector('.overflow-x-auto.scrollbar-hide');
-          const freeTab = tabsContainer?.querySelector('[data-plan-key="free"]') as HTMLElement;
-          if (freeTab && tabsContainer) {
-            freeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-          }
-        }, 100);
-      }
+    if (typeof window === 'undefined') return;
+    
+    const isMobile = window.innerWidth < 1024; // lg breakpoint
+    if (!isMobile) return; // Only on mobile
+    
+    // Check if component is visible before scrolling
+    const checkAndScroll = () => {
+      const tabsContainer = document.querySelector('.overflow-x-auto.scrollbar-hide') as HTMLElement;
+      if (!tabsContainer) return;
+      
+      const freeTab = tabsContainer.querySelector('[data-plan-key="free"]') as HTMLElement;
+      if (!freeTab) return;
+      
+      // Only scroll horizontally within the container, not the page
+      // Calculate position relative to container
+      const containerRect = tabsContainer.getBoundingClientRect();
+      const tabRect = freeTab.getBoundingClientRect();
+      const scrollLeft = freeTab.offsetLeft - tabsContainer.offsetLeft;
+      
+      // Scroll only the container horizontally, not the page
+      tabsContainer.scrollTo({
+        left: scrollLeft,
+        behavior: 'smooth'
+      });
+    };
+    
+    // Wait for component to be visible before scrolling
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          // Small delay to ensure DOM is ready
+          setTimeout(checkAndScroll, 200);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' }
+    );
+    
+    const component = document.querySelector('[data-compare-features]');
+    if (component) {
+      observer.observe(component);
+    } else {
+      // Fallback: try after a delay if component not found
+      setTimeout(() => {
+        const component = document.querySelector('[data-compare-features]');
+        if (component) {
+          observer.observe(component);
+        }
+      }, 500);
     }
+    
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   const Unlimited = () => <span className="oi">{tCompare("unlimited")}</span>;
@@ -826,7 +868,7 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
    */
 
   return (
-    <div className="w-full max-w-7xl mx-auto mt-12 mb-16">
+    <div className="w-full max-w-7xl mx-auto mt-12 mb-16" data-compare-features>
       {/* Accordion Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
