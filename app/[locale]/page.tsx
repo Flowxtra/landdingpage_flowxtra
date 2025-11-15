@@ -231,10 +231,10 @@ allowfullscreen>
                       alt={slide.imageAlt}
                       width={slide.image.includes('candidate-fiter') ? 834 : slide.image.includes('Job-board-workflow') ? 1920 : 1200}
                       height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 1080 : 900}
-                      quality={75}
+                      quality={index === 0 ? 100 : 75}
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
                       className="w-full h-auto rounded-xl"
-                      unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.svg')}
+                      unoptimized={index === 0 || slide.image.endsWith('.gif') || slide.image.endsWith('.svg')}
                       loading={index === 0 ? "eager" : "lazy"}
                       priority={index === 0 && !slide.image.endsWith('.gif')}
                       fetchPriority={index === 0 && !slide.image.endsWith('.gif') ? "high" : slide.image.endsWith('.gif') ? "low" : "auto"}
@@ -262,15 +262,15 @@ allowfullscreen>
                     src={slide.image}
                     alt={slide.imageAlt}
                     width={slide.image.includes('candidate-fiter') ? 834 : slide.image.includes('Job-board-workflow') ? 1920 : 1200}
-                      height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 1080 : 900}
-                      quality={75}
-                      sizes={slide.image.includes('hiring-email-template') ? "(max-width: 1024px) 50vw, 300px" : "(max-width: 1024px) 33vw, 400px"}
-                      className={slide.image.includes('hiring-email-template') ? "w-1/2 h-auto mx-auto" : "w-full h-auto"}
-                      unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.svg')}
-                      loading={index === 0 ? "eager" : "lazy"}
-                      priority={index === 0 && !slide.image.endsWith('.gif')}
-                      fetchPriority={index === 0 && !slide.image.endsWith('.gif') ? "high" : slide.image.endsWith('.gif') ? "low" : "auto"}
-                      suppressHydrationWarning
+                    height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 1080 : 900}
+                    quality={index === 0 ? 100 : 75}
+                    sizes={slide.image.includes('hiring-email-template') ? "(max-width: 1024px) 50vw, 300px" : "(max-width: 1024px) 33vw, 400px"}
+                    className={slide.image.includes('hiring-email-template') ? "w-1/2 h-auto mx-auto" : "w-full h-auto"}
+                    unoptimized={index === 0 || slide.image.endsWith('.gif') || slide.image.endsWith('.svg')}d
+                    loading={index === 0 ? "eager" : "lazy"}
+                    priority={index === 0 && !slide.image.endsWith('.gif')}
+                    fetchPriority={index === 0 && !slide.image.endsWith('.gif') ? "high" : slide.image.endsWith('.gif') ? "low" : "auto"}
+                    suppressHydrationWarning
                   />
                 </div>
               </div>
@@ -337,7 +337,8 @@ export default function Homepage() {
                 title={t("hero.imageTitle")}
                 width={372}
                 height={271}
-                quality={75}
+                quality={100}
+                unoptimized={true}
                 priority
                 fetchPriority="high"
                 sizes="(max-width: 768px) 100vw, 372px"
@@ -361,7 +362,8 @@ export default function Homepage() {
                 title={t("hero.imageTitle")}
                 width={1200}
                 height={675}
-                quality={75}
+                quality={100}
+                unoptimized={true}
                 priority
                 fetchPriority="high"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 1200px"
