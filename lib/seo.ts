@@ -92,7 +92,7 @@ export function generateBlogPostSchema({
       url: baseUrl,
       logo: {
         "@type": "ImageObject",
-        url: `${baseUrl}/wp-content/uploads/2025/02/Signature@2x.png`,
+        url: `${baseUrl}/Main-flowxtra-Logo.png`,
       },
     },
     description: post.excerpt,
@@ -169,7 +169,7 @@ export function generateBlogListingSchema({
       url: baseUrl,
       logo: {
         "@type": "ImageObject",
-        url: `${baseUrl}/wp-content/uploads/2025/02/Signature@2x.png`,
+        url: `${baseUrl}/Main-flowxtra-Logo.png`,
       },
     },
     blogPost: blogPosts,

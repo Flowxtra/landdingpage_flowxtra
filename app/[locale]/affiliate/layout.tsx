@@ -118,7 +118,7 @@ export default async function AffiliateLayout({
       "@type": "Organization",
       "name": "Flowxtra GmbH",
       "url": baseUrl,
-      "logo": `${baseUrl}/wp-content/uploads/2025/02/Signature@2x.png`,
+      "logo": `${baseUrl}/Main-flowxtra-Logo.png`,
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Wipplingerstraße 20/18",

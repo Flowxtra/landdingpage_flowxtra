@@ -27,30 +27,9 @@
        url('/fonts/Roboto-Bold.woff') format('woff');
 }
 
-/* Font Awesome - Self-hosted for better performance with font-display: swap */
-@font-face {
-  font-family: 'Font Awesome 6 Brands';
-  font-display: swap;
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/fa-brands-400.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Font Awesome 6 Free';
-  font-display: swap;
-  font-style: normal;
-  font-weight: 400;
-  src: url('/fonts/fa-regular-400.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Font Awesome 6 Free';
-  font-display: swap;
-  font-style: normal;
-  font-weight: 900;
-  src: url('/fonts/fa-solid-900.woff2') format('woff2');
-}
+/* Font Awesome - @font-face rules are defined in /fonts/fontawesome-custom.min.css */
+/* The custom CSS file includes only the necessary @font-face rules for used icons */
+/* This reduces font file loading from 252.6 KB (fa-solid-900.woff2 + fa-brands-400.woff2) to only what's needed */
 
 @tailwind base;
 @tailwind components;

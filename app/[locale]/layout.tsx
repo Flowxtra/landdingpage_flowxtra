@@ -866,6 +866,7 @@ export default async function LocaleLayout({
   params: Promise<{locale: string}>;
 }) {
   const {locale} = await params;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
   
   // CRITICAL: Pass locale explicitly to getMessages
   const messages = await getMessages({ locale });
@@ -910,27 +911,27 @@ export default async function LocaleLayout({
         {/* Preload LCP image (mobile) - Critical for performance */}
         <link
           rel="preload"
-          href="/img/ATS-Software-for-Recruitment2.svg"
+          href="/img/ATS-Software-for-Recruitment2.webp"
           as="image"
-          type="image/svg+xml"
+          type="image/webp"
           media="(max-width: 768px)"
           fetchPriority="high"
         />
-        {/* Preload LCP image (desktop) - Critical for performance */}
+        {/* Preload LCP image (desktop) - Critical for performance - Using WebP (70 KB) instead of SVG (4.5 MB) */}
         <link
           rel="preload"
-          href="/img/ATS-Software-for-Recruitment.svg"
+          href="/img/ATS-Software-for-Recruitment.webp"
           as="image"
-          type="image/svg+xml"
+          type="image/webp"
           media="(min-width: 769px)"
           fetchPriority="high"
         />
-        {/* Preload first slider image - Critical for features section */}
+        {/* Preload first slider image - Critical for features section - Using PNG (98 KB) instead of SVG (53.6 MB) */}
         <link
           rel="preload"
-          href="/img/Smarter-Candidate-Filtering.svg"
+          href="/img/Smarter-Candidate-Filtering.png"
           as="image"
-          type="image/svg+xml"
+          type="image/png"
           fetchPriority="high"
         />
         {/* Preload second slider image - Important for features section */}
@@ -942,23 +943,8 @@ export default async function LocaleLayout({
           fetchPriority="high"
         />
 
-        {/* Preload Font Awesome fonts - Self-hosted for better performance */}
-        <link
-          rel="preload"
-          href="/fonts/fa-solid-900.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/fa-brands-400.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-
         {/* Font Awesome CSS - Custom build with only used icons (15.03 KiB vs 96.98 KiB - 84.5% reduction) */}
+        {/* Note: Font Awesome fonts are loaded via @font-face in fontawesome-custom.min.css - no need to preload separately */}
         {/* @font-face rules with font-display: swap are defined in globals.css using local fonts */}
         {/* Load Font Awesome CSS asynchronously to prevent render blocking */}
         <link
@@ -1030,7 +1016,7 @@ export default async function LocaleLayout({
               "name": "Flowxtra GmbH",
               "legalName": "Flowxtra GmbH",
               "url": "https://flowxtra.com",
-              "logo": "https://flowxtra.com/wp-content/uploads/2025/02/Signature@2x.png",
+              "logo": `${baseUrl}/Main-flowxtra-Logo.png`,
               "description": "Flowxtra GmbH provides an AI-powered platform that unites recruitment, social media management, and e-signature tools — scalable for startups, SMEs, and large enterprises. The only system worldwide offering 10 free job postings monthly, fully compliant with EU AI Act, GDPR, CCPA, and CPRA.",
               "foundingDate": "2025",
               "address": {
@@ -1237,7 +1223,7 @@ export default async function LocaleLayout({
               "@type": "VideoObject",
               "name": "Flowxtra – Hire Smarter with AI Recruiting & Social Media Tools",
               "description": "See how Flowxtra helps you post jobs for free, automate recruitment, manage social media, and sign contracts online — all in one AI-powered platform.",
-              "thumbnailUrl": "https://flowxtra.com/wp-content/uploads/2025/02/Signature@2x.png",
+              "thumbnailUrl": `${baseUrl}/Main-flowxtra-Logo.png`,
               "uploadDate": "2025-10-27T20:00:00+01:00",
               "publisher": {
                 "@type": "Organization",

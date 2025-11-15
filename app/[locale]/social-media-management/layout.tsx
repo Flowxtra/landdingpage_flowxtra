@@ -101,6 +101,7 @@ export default function SocialMediaManagementLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -110,7 +111,7 @@ export default function SocialMediaManagementLayout({
     "applicationSubCategory": "Social Media Management Software",
     "softwareVersion": "1.0",
     "url": "https://flowxtra.com/social-media-manager/",
-    "image": "https://flowxtra.com/wp-content/uploads/2025/02/Signature@2x.png",
+    "image": `${baseUrl}/Main-flowxtra-Logo.png`,
     "description": "Flowxtra Social Media Manager is your AI-powered hub for scheduling, publishing, and automating content across multiple platforms. Supports integrations with tools like n8n, MCP, LLMS, Canva, and AI agents such as ChatGPT and Gemini. GDPR, CCPA, and EU AI Act compliant.",
     "isCompatibleWith": [
       "https://n8n.io/",

@@ -113,7 +113,7 @@ function FeaturesSlider() {
       description: t("slide1.description"),
       buttonText: t("slide1.buttonText"),
       buttonLink: "https://my.flowxtra.com/registration",
-      image: "/img/Smarter-Candidate-Filtering.svg",
+      image: "/img/Smarter-Candidate-Filtering.png", // Using PNG (98 KB) instead of SVG (53.6 MB) for better performance
       imageAlt: t("slide1.imageAlt"),
       imageOnRight: true,
     },
@@ -232,7 +232,7 @@ allowfullscreen>
                       width={slide.image.includes('candidate-fiter') ? 834 : slide.image.includes('Job-board-workflow') ? 1920 : 1200}
                       height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 1080 : 900}
                       quality={100}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1200px"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
                       className="w-full h-auto rounded-xl"
                       unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.svg')}
                       loading={index === 0 ? "eager" : "lazy"}
@@ -263,7 +263,7 @@ allowfullscreen>
                     width={slide.image.includes('candidate-fiter') ? 834 : slide.image.includes('Job-board-workflow') ? 1920 : 1200}
                       height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 1080 : 900}
                       quality={100}
-                      sizes={slide.image.includes('hiring-email-template') ? "(max-width: 1200px) 50vw, 600px" : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1200px"}
+                      sizes={slide.image.includes('hiring-email-template') ? "(max-width: 1024px) 50vw, 300px" : "(max-width: 1024px) 33vw, 400px"}
                       className={slide.image.includes('hiring-email-template') ? "w-1/2 h-auto mx-auto" : "w-full h-auto"}
                       unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.svg')}
                       loading={index === 0 ? "eager" : "lazy"}
@@ -330,7 +330,7 @@ export default function Homepage() {
           <div className="w-full mt-0 md:hidden flex justify-center">
             <figure className="m-0 flex justify-center">
               <Image
-                src="/img/ATS-Software-for-Recruitment2.svg"
+                src="/img/ATS-Software-for-Recruitment2.webp" // Using WebP (15 KB) instead of SVG (518 KB) for better performance
                 alt={t("hero.imageAlt")}
                 title={t("hero.imageTitle")}
                 width={750}
@@ -338,8 +338,7 @@ export default function Homepage() {
                 quality={100}
                 priority
                 fetchPriority="high"
-                unoptimized
-                sizes="(max-width: 768px) 100vw, 750px"
+                sizes="(max-width: 768px) 100vw, 372px"
                 className="max-w-full h-auto"
                 decoding="sync"
                 loading="eager"
@@ -354,7 +353,7 @@ export default function Homepage() {
           <div className="w-full mt-0 hidden md:block overflow-hidden">
             <figure className="m-0 w-full">
               <Image
-                src="/img/ATS-Software-for-Recruitment.svg"
+                src="/img/ATS-Software-for-Recruitment.webp" // Using WebP (70 KB) instead of SVG (4.5 MB) for better performance
                 alt={t("hero.imageAlt")}
                 title={t("hero.imageTitle")}
                 width={1920}
@@ -362,8 +361,7 @@ export default function Homepage() {
                 quality={100}
                 priority
                 fetchPriority="high"
-                unoptimized
-                sizes="100vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 1200px"
                 className="w-full h-auto"
                 decoding="sync"
                 loading="eager"
@@ -569,6 +567,7 @@ export default function Homepage() {
                 unoptimized
                 loading="lazy"
                 fetchPriority="low"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
               />
             </div>
 

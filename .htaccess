@@ -9,7 +9,7 @@
   # Proxy all other requests to Node.js app
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^(.*)$ http://localhost:3100/$1 [P,L]
+  RewriteRule ^(.*)$ http://localhost:3000/$1 [P,L]
 </IfModule>
 
 # Security headers
