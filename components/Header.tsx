@@ -20,6 +20,7 @@ function Header() {
   const [currency, setCurrency] = useState<string>("EUR");
   const [isCurrencyOpen, setIsCurrencyOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
 
   // Initialize dark mode from localStorage or browser preferences
   useEffect(() => {
@@ -164,19 +165,35 @@ function Header() {
 
   // Close mobile menu when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (isMenuOpen && mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as Node;
+      
+      // Don't close if clicking on the hamburger button (it handles its own toggle)
+      if (hamburgerButtonRef.current?.contains(target)) {
+        return;
+      }
+      
+      // Close if clicking outside the menu
+      if (
+        isMenuOpen && 
+        mobileMenuRef.current && 
+        !mobileMenuRef.current.contains(target)
+      ) {
         setIsMenuOpen(false);
       }
     };
 
     if (isMenuOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
+      // Use click event (fires after mousedown) to ensure button onClick fires first
+      // Use capture: false so button's onClick handler executes before this
+      document.addEventListener('click', handleClickOutside, false);
+      document.addEventListener('touchstart', handleClickOutside, false);
 
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+      return () => {
+        document.removeEventListener('click', handleClickOutside, false);
+        document.removeEventListener('touchstart', handleClickOutside, false);
+      };
+    }
   }, [isMenuOpen]);
 
   // Load currency on mount
@@ -483,9 +500,16 @@ function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-gray-700 dark:text-gray-300 focus:outline-none"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
+            ref={hamburgerButtonRef}
+            className="lg:hidden text-gray-700 dark:text-gray-300 focus:outline-none z-50 relative"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setIsMenuOpen((prev) => !prev);
+            }}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
+            type="button"
           >
             {isMenuOpen ? (
               <svg
