@@ -229,12 +229,12 @@ allowfullscreen>
                     <Image
                       src={slide.image}
                       alt={slide.imageAlt}
-                      width={slide.image.includes('candidate-fiter') ? 834 : slide.image.includes('Job-board-workflow') ? 1920 : 1200}
-                      height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 1080 : 900}
+                      width={slide.image.includes('candidate-fiter') ? 834 : slide.image.includes('Job-board-workflow') ? 1920 : slide.image.includes('Smarter-Candidate-Filtering') ? 708 : 1200}
+                      height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 1080 : slide.image.includes('Smarter-Candidate-Filtering') ? 490 : 900}
                       quality={index === 0 ? 100 : 75}
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
                       className="w-full h-auto rounded-xl"
-                      unoptimized={index === 0 || slide.image.endsWith('.gif') || slide.image.endsWith('.svg')}
+                      unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.svg')}
                       loading={index === 0 ? "eager" : "lazy"}
                       priority={index === 0 && !slide.image.endsWith('.gif')}
                       fetchPriority={index === 0 && !slide.image.endsWith('.gif') ? "high" : slide.image.endsWith('.gif') ? "low" : "auto"}
@@ -261,12 +261,12 @@ allowfullscreen>
                   <Image
                     src={slide.image}
                     alt={slide.imageAlt}
-                    width={slide.image.includes('candidate-fiter') ? 834 : slide.image.includes('Job-board-workflow') ? 1920 : 1200}
-                    height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 1080 : 900}
+                    width={slide.image.includes('candidate-fiter') ? 834 : slide.image.includes('Job-board-workflow') ? 1920 : slide.image.includes('Smarter-Candidate-Filtering') ? 708 : 1200}
+                    height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 1080 : slide.image.includes('Smarter-Candidate-Filtering') ? 490 : 900}
                     quality={index === 0 ? 100 : 75}
                     sizes={slide.image.includes('hiring-email-template') ? "(max-width: 1024px) 50vw, 300px" : "(max-width: 1024px) 33vw, 400px"}
                     className={slide.image.includes('hiring-email-template') ? "w-1/2 h-auto mx-auto" : "w-full h-auto"}
-                    unoptimized={index === 0 || slide.image.endsWith('.gif') || slide.image.endsWith('.svg')}
+                    unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.svg')}
                     loading={index === 0 ? "eager" : "lazy"}
                     priority={index === 0 && !slide.image.endsWith('.gif')}
                     fetchPriority={index === 0 && !slide.image.endsWith('.gif') ? "high" : slide.image.endsWith('.gif') ? "low" : "auto"}
@@ -338,7 +338,6 @@ export default function Homepage() {
                 width={372}
                 height={271}
                 quality={100}
-                unoptimized={true}
                 priority
                 fetchPriority="high"
                 sizes="(max-width: 768px) 100vw, 372px"
@@ -360,13 +359,12 @@ export default function Homepage() {
                 src="/img/ATS-Software-for-Recruitment.webp" // Using WebP (70 KB) instead of SVG (4.5 MB) for better performance
                 alt={t("hero.imageAlt")}
                 title={t("hero.imageTitle")}
-                width={1200}
-                height={675}
+                width={1872}
+                height={461}
                 quality={100}
-                unoptimized={true}
                 priority
                 fetchPriority="high"
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 1200px"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 1872px"
                 className="w-full h-auto"
                 decoding="sync"
                 loading="eager"
@@ -566,14 +564,14 @@ export default function Homepage() {
               <Image
                 src="/img/multi-job-post.gif"
                 alt="Flowxtra Multi Job Post"
-                width={1200}
-                height={900}
+                width={340}
+                height={191}
                 quality={100}
                 className="w-full h-auto"
                 unoptimized
                 loading="lazy"
                 fetchPriority="low"
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 340px"
               />
             </div>
 
