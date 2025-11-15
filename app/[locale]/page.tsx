@@ -266,7 +266,7 @@ allowfullscreen>
                     quality={index === 0 ? 100 : 75}
                     sizes={slide.image.includes('hiring-email-template') ? "(max-width: 1024px) 50vw, 300px" : "(max-width: 1024px) 33vw, 400px"}
                     className={slide.image.includes('hiring-email-template') ? "w-1/2 h-auto mx-auto" : "w-full h-auto"}
-                    unoptimized={index === 0 || slide.image.endsWith('.gif') || slide.image.endsWith('.svg')}d
+                    unoptimized={index === 0 || slide.image.endsWith('.gif') || slide.image.endsWith('.svg')}
                     loading={index === 0 ? "eager" : "lazy"}
                     priority={index === 0 && !slide.image.endsWith('.gif')}
                     fetchPriority={index === 0 && !slide.image.endsWith('.gif') ? "high" : slide.image.endsWith('.gif') ? "low" : "auto"}
