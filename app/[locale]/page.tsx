@@ -113,7 +113,7 @@ function FeaturesSlider() {
       description: t("slide1.description"),
       buttonText: t("slide1.buttonText"),
       buttonLink: "https://my.flowxtra.com/registration",
-      image: "/img/Smarter-Candidate-Filtering.png", // Using PNG (98 KB) instead of SVG (53.6 MB) for better performance
+      image: "/img/Smarter-Candidate-Filtering.svg", // Using PNG (98 KB) instead of SVG (53.6 MB) for better performance
       imageAlt: t("slide1.imageAlt"),
       imageOnRight: true,
     },
