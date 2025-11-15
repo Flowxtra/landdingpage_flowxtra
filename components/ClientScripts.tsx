@@ -18,6 +18,58 @@ const FontAwesomeLoader = dynamic(() => import("@/components/FontAwesomeLoader")
 });
 
 export default function ClientScripts() {
+  // Prevent scroll restoration and ensure page starts at top
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    // Disable browser scroll restoration immediately
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    // Function to scroll to top (only if no hash)
+    const scrollToTop = () => {
+      if (!window.location.hash) {
+        // Use requestAnimationFrame to ensure DOM is ready
+        requestAnimationFrame(() => {
+          window.scrollTo(0, 0);
+          // Also try document.documentElement.scrollTop for compatibility
+          if (document.documentElement) {
+            document.documentElement.scrollTop = 0;
+          }
+          if (document.body) {
+            document.body.scrollTop = 0;
+          }
+        });
+      }
+    };
+
+    // Scroll to top immediately
+    scrollToTop();
+
+    // Also scroll to top when page loads (in case script runs before load)
+    if (document.readyState === 'loading') {
+      window.addEventListener('load', scrollToTop, { once: true });
+    } else {
+      // Page already loaded, scroll immediately
+      scrollToTop();
+    }
+
+    // Handle route changes (Next.js navigation)
+    const handleRouteChange = () => {
+      // Small delay to ensure new page content is rendered
+      setTimeout(scrollToTop, 0);
+    };
+
+    // Listen for popstate (back/forward button)
+    window.addEventListener('popstate', handleRouteChange);
+
+    return () => {
+      window.removeEventListener('load', scrollToTop);
+      window.removeEventListener('popstate', handleRouteChange);
+    };
+  }, []);
+
   // Clean up browser extension injected attributes that cause hydration mismatches
   useEffect(() => {
     const cleanupBrowserExtensions = () => {

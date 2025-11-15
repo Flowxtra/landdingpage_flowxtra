@@ -957,6 +957,34 @@ export default async function LocaleLayout({
             `,
           }}
         />
+        {/* Prevent scroll restoration - Always start at top of page */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                // Disable browser scroll restoration
+                if ('scrollRestoration' in history) {
+                  history.scrollRestoration = 'manual';
+                }
+                // Ensure page starts at top on load
+                if (typeof window !== 'undefined') {
+                  window.addEventListener('load', function() {
+                    // Only scroll to top if there's no hash in URL
+                    if (!window.location.hash) {
+                      window.scrollTo(0, 0);
+                    }
+                  });
+                  // Also scroll to top immediately if page is already loaded
+                  if (document.readyState === 'complete') {
+                    if (!window.location.hash) {
+                      window.scrollTo(0, 0);
+                    }
+                  }
+                }
+              })();
+            `,
+          }}
+        />
         {/* Tracking scripts will be loaded by CookieScriptLoader only after consent */}
         
         {/* Homepage Schema Markup */}
