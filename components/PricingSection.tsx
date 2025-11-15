@@ -1,9 +1,17 @@
 "use client";
 
-import CompareFeatures from "@/components/CompareFeatures";
+import dynamic from "next/dynamic";
 import { useTranslations, useLocale } from "next-intl";
 import { useCurrency } from "@/lib/currency";
 import { cn } from "@/lib/utils";
+
+// Lazy load CompareFeatures - it's a large component (1300+ lines)
+const CompareFeatures = dynamic(() => import("@/components/CompareFeatures"), {
+  loading: () => (
+    <div className="w-full h-96 bg-gray-100 dark:bg-gray-800 animate-pulse rounded-lg" />
+  ),
+  ssr: false, // Disable SSR for better performance
+});
 
 interface PricingSectionProps {
   defaultCompareOpen?: boolean;

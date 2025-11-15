@@ -140,11 +140,10 @@ export default function ClientScripts() {
       removeAttributes();
 
       // Clean up after React hydration (extensions inject at different times)
+      // Reduced timers for better performance
       const timers = [
         setTimeout(removeAttributes, 0),
-        setTimeout(removeAttributes, 100),
         setTimeout(removeAttributes, 500),
-        setTimeout(removeAttributes, 1000),
       ];
 
       // Use MutationObserver to catch new injections
@@ -182,10 +181,11 @@ export default function ClientScripts() {
       });
 
       // Observe document for attribute and node changes
+      // Use passive observation for better performance
       observer.observe(document.body, {
         attributes: true,
         childList: true,
-        subtree: true,
+        subtree: false, // Changed from true to false - only observe direct children for better performance
         attributeFilter: extensionAttributes,
       });
 

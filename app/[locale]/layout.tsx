@@ -13,10 +13,12 @@ import AffiliateBanner from "@/components/AffiliateBanner";
 // Header and Footer are loaded after initial render to reduce main-thread work
 const Header = dynamic(() => import("@/components/Header"), {
   ssr: true, // Keep SSR for SEO, but load JS asynchronously
+  loading: () => <div className="h-20 bg-white dark:bg-gray-900" />, // Reserve space to prevent layout shift
 });
 
 const Footer = dynamic(() => import("@/components/Footer"), {
   ssr: true,
+  loading: () => <div className="h-64 bg-white dark:bg-gray-900" />, // Reserve space to prevent layout shift
 });
 
 // Viewport configuration
@@ -952,6 +954,7 @@ export default async function LocaleLayout({
 
         {/* Font Awesome CSS - Self-hosted for optimal performance */}
         {/* @font-face rules with font-display: swap are defined in globals.css using local fonts */}
+        {/* Load Font Awesome CSS - non-blocking (fonts are preloaded above) */}
         <link
           rel="stylesheet"
           href="/fonts/fontawesome.min.css"

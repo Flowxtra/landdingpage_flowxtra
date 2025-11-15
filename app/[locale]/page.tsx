@@ -83,7 +83,7 @@ function LazySection({ Component }: { Component: React.ComponentType }) {
           observer.disconnect();
         }
       },
-      { rootMargin: "400px" } // Start loading 400px before it comes into view
+      { rootMargin: "200px" } // Reduced from 400px to 200px for faster initial load
     );
 
     observer.observe(ref);
@@ -533,6 +533,7 @@ export default function Homepage() {
                     quality={100}
                     className="object-cover"
                     loading="lazy"
+                    priority={false}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
                   />
                   {/* Play Button Overlay */}
@@ -568,6 +569,7 @@ export default function Homepage() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                   className="absolute inset-0 w-full h-full"
+                  loading="lazy"
                 ></iframe>
               )}
             </div>
@@ -591,6 +593,7 @@ export default function Homepage() {
                 className="w-full h-auto"
                 unoptimized
                 loading="lazy"
+                fetchPriority="low"
               />
             </div>
 
@@ -924,6 +927,8 @@ export default function Homepage() {
                 quality={100}
                 className="w-full h-auto"
                 unoptimized
+                loading="lazy"
+                fetchPriority="low"
               />
             </div>
             </div>
@@ -1004,16 +1009,50 @@ function ReviewsSection() {
     return () => window.removeEventListener('resize', updateCardsPerView);
   }, []);
 
-  // Auto slide
+  // Auto slide - Only start when component is visible (performance optimization)
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => {
-        const maxIndex = reviews.length - cardsPerView;
-        return prev >= maxIndex ? 0 : prev + 1;
-      });
-    }, 5000);
+    if (typeof window === 'undefined') return;
+    
+    let interval: NodeJS.Timeout | null = null;
+    
+    // Check if element is in viewport
+    const checkVisibility = () => {
+      const element = document.querySelector('[data-reviews-section]');
+      if (!element) return false;
+      
+      const rect = element.getBoundingClientRect();
+      return (
+        rect.top < window.innerHeight + 200 && // 200px before viewport
+        rect.bottom > -200 // 200px after viewport
+      );
+    };
 
-    return () => clearInterval(interval);
+    // Start auto-slide if visible, otherwise wait
+    const startAutoSlide = () => {
+      if (checkVisibility() && !interval) {
+        interval = setInterval(() => {
+          setCurrentIndex((prev) => {
+            const maxIndex = reviews.length - cardsPerView;
+            return prev >= maxIndex ? 0 : prev + 1;
+          });
+        }, 5000);
+      }
+    };
+
+    // Initial check
+    startAutoSlide();
+
+    // Check periodically if component becomes visible (only if not already started)
+    const visibilityCheck = setInterval(() => {
+      if (!interval) {
+        startAutoSlide();
+      }
+    }, 2000); // Check every 2 seconds
+
+    return () => {
+      if (interval) clearInterval(interval);
+      clearInterval(visibilityCheck);
+    };
   }, [cardsPerView, reviews.length]);
 
   const renderStars = (rating: number) => {
@@ -1030,7 +1069,7 @@ function ReviewsSection() {
   };
 
   return (
-    <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
+    <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors" data-reviews-section>
       <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
         {/* Header */}
         <div className="text-center mb-12">
