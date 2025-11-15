@@ -68,7 +68,9 @@ export default function AffiliateBanner() {
   if (!isVisible) return null;
 
   return (
-    <div className="w-full bg-primary dark:bg-gray-900 text-white py-2.5 px-4 relative z-50">
+    <div 
+      className="w-full text-white py-2.5 px-4 relative z-50 animated-gradient"
+    >
       <div className="container mx-auto">
         <div className="flex items-center justify-center gap-4 relative">
           <p className="text-sm md:text-base text-center flex-1 md:flex-none">

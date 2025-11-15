@@ -790,11 +790,11 @@
             "terms": [
                 {
                     "title": "Période de Commission",
-                    "description": "La commission est payée chaque mois jusqu'à 12 mois tant que vos utilisateurs parrainés restent abonnés. La période de commission maximale est de 12 mois par parrainage."
+                    "description": "La commission est payée 1 mois après qu'un utilisateur paie son abonnement. Vous recevez des commissions jusqu'à 12 mois tant que vos utilisateurs parrainés restent abonnés. La période de commission maximale est de 12 mois par parrainage."
                 },
                 {
                     "title": "Crédit Mensuel",
-                    "description": "Chaque mois qu'un utilisateur paie son abonnement, 50% du paiement est automatiquement crédité sur votre compte d'affiliation."
+                    "description": "Un mois après qu'un utilisateur paie son abonnement, 50% du paiement est automatiquement crédité sur votre compte d'affiliation. Ce processus se répète mensuellement jusqu'à 12 mois."
                 },
                 {
                     "title": "Retrait Minimum",
@@ -802,7 +802,7 @@
                 },
                 {
                     "title": "Processus de Retrait",
-                    "description": "Une fois que vous atteignez 180 € ou plus, vous pouvez demander un retrait. Les paiements sont traités mensuellement par virement bancaire ou PayPal."
+                    "description": "Une fois que vous atteignez 180 € ou plus, vous pouvez demander un retrait. Les paiements sont traités mensuellement par virement bancaire ou PayPal. Après le paiement de toutes vos commissions pour un parrainage (maximum 12 mois), cet utilisateur disparaîtra de votre tableau de bord des gains."
                 }
             ]
         },

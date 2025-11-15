@@ -790,11 +790,11 @@
             "terms": [
                 {
                     "title": "Período de Comisión",
-                    "description": "La comisión se paga cada mes por hasta 12 meses siempre que tus usuarios referidos permanezcan suscritos. El período máximo de comisión es de 12 meses por referido."
+                    "description": "La comisión se paga 1 mes después de que un usuario pague su suscripción. Recibes comisiones por hasta 12 meses siempre que tus usuarios referidos permanezcan suscritos. El período máximo de comisión es de 12 meses por referido."
                 },
                 {
                     "title": "Crédito Mensual",
-                    "description": "Cada mes que un usuario paga su suscripción, el 50% del pago se acredita automáticamente en tu cuenta de afiliado."
+                    "description": "Un mes después de que un usuario pague su suscripción, el 50% del pago se acredita automáticamente en tu cuenta de afiliado. Este proceso se repite mensualmente por hasta 12 meses."
                 },
                 {
                     "title": "Retiro Mínimo",
@@ -802,7 +802,7 @@
                 },
                 {
                     "title": "Proceso de Retiro",
-                    "description": "Una vez que alcances €180 o más, puedes solicitar un retiro. Los pagos se procesan mensualmente mediante transferencia bancaria o PayPal."
+                    "description": "Una vez que alcances €180 o más, puedes solicitar un retiro. Los pagos se procesan mensualmente mediante transferencia bancaria o PayPal. Después de que se paguen todas tus comisiones por un referido (máximo 12 meses), ese usuario desaparecerá de tu panel de ganancias."
                 }
             ]
         },

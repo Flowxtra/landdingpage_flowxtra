@@ -790,11 +790,11 @@
             "terms": [
                 {
                     "title": "Commissieperiode",
-                    "description": "Commissie wordt elke maand betaald tot 12 maanden zolang uw verwezen gebruikers geabonneerd blijven. Maximale commissieperiode is 12 maanden per verwijzing."
+                    "description": "Commissie wordt 1 maand na betaling van het abonnement door een gebruiker betaald. U ontvangt commissies tot 12 maanden zolang uw verwezen gebruikers geabonneerd blijven. Maximale commissieperiode is 12 maanden per verwijzing."
                 },
                 {
                     "title": "Maandelijks Tegoed",
-                    "description": "Elke maand dat een gebruiker zijn abonnement betaalt, wordt 50% van de betaling automatisch aan uw partneraccount toegevoegd."
+                    "description": "Een maand na betaling van het abonnement door een gebruiker wordt 50% van de betaling automatisch aan uw partneraccount toegevoegd. Dit proces herhaalt zich maandelijks tot 12 maanden."
                 },
                 {
                     "title": "Minimum Opname",
@@ -802,7 +802,7 @@
                 },
                 {
                     "title": "Opnameproces",
-                    "description": "Zodra u €180 of meer bereikt, kunt u een opname aanvragen. Betalingen worden maandelijks verwerkt via bankoverschrijving of PayPal."
+                    "description": "Zodra u €180 of meer bereikt, kunt u een opname aanvragen. Betalingen worden maandelijks verwerkt via bankoverschrijving of PayPal. Na betaling van al uw commissies voor een verwijzing (maximaal 12 maanden) verdwijnt die gebruiker uit uw verdiensten dashboard."
                 }
             ]
         },

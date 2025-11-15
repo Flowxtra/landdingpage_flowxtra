@@ -35,6 +35,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Animated gradient for affiliate banner */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(90deg, #30C5D2, #471069, #30C5D2, #00ff87 );
+
+  background-size: 200% 200%;
+  animation: gradient-shift 10s ease infinite;
+}
+
 /* Screen reader only - visually hidden but accessible to screen readers */
 .sr-only {
   position: absolute;

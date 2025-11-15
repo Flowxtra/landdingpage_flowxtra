@@ -794,11 +794,11 @@
             "terms": [
                 {
                     "title": "Commission Period",
-                    "description": "Commission is paid every month for up to 12 months as long as your referred users stay subscribed. Maximum commission period is 12 months per referral."
+                    "description": "Commission is paid 1 month after a user pays their subscription. You receive commissions for up to 12 months as long as your referred users stay subscribed. Maximum commission period is 12 months per referral."
                 },
                 {
                     "title": "Monthly Credit",
-                    "description": "Each month a user pays their subscription, 50% of the payment is automatically credited to your affiliate account."
+                    "description": "One month after a user pays their subscription, 50% of the payment is automatically credited to your affiliate account. This process repeats monthly for up to 12 months."
                 },
                 {
                     "title": "Minimum Withdrawal",
@@ -806,7 +806,7 @@
                 },
                 {
                     "title": "Withdrawal Process",
-                    "description": "Once you reach €180 or more, you can request a withdrawal. Payments are processed monthly via bank transfer or PayPal."
+                    "description": "Once you reach €180 or more, you can request a withdrawal. Payments are processed monthly via bank transfer or PayPal. After all your commissions for a referral are paid (maximum 12 months), that user will disappear from your earnings dashboard."
                 }
             ]
         },

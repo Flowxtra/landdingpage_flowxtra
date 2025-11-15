@@ -790,11 +790,11 @@
             "terms": [
                 {
                     "title": "Periodo di Commissione",
-                    "description": "La commissione è pagata ogni mese fino a 12 mesi finché i tuoi utenti referenziati rimangono abbonati. Il periodo di commissione massimo è di 12 mesi per referral."
+                    "description": "La commissione è pagata 1 mese dopo che un utente paga il suo abbonamento. Ricevi commissioni fino a 12 mesi finché i tuoi utenti referenziati rimangono abbonati. Il periodo di commissione massimo è di 12 mesi per referral."
                 },
                 {
                     "title": "Credito Mensile",
-                    "description": "Ogni mese che un utente paga il suo abbonamento, il 50% del pagamento è automaticamente accreditato sul tuo account affiliato."
+                    "description": "Un mese dopo che un utente paga il suo abbonamento, il 50% del pagamento è automaticamente accreditato sul tuo account affiliato. Questo processo si ripete mensilmente fino a 12 mesi."
                 },
                 {
                     "title": "Prelievo Minimo",
@@ -802,7 +802,7 @@
                 },
                 {
                     "title": "Processo di Prelievo",
-                    "description": "Una volta raggiunto €180 o più, puoi richiedere un prelievo. I pagamenti sono elaborati mensilmente tramite bonifico bancario o PayPal."
+                    "description": "Una volta raggiunto €180 o più, puoi richiedere un prelievo. I pagamenti sono elaborati mensilmente tramite bonifico bancario o PayPal. Dopo il pagamento di tutte le tue commissioni per un referral (massimo 12 mesi), quell'utente scomparirà dalla tua dashboard dei guadagni."
                 }
             ]
         },

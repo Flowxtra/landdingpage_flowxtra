@@ -790,11 +790,11 @@
             "terms": [
                 {
                     "title": "Provisionsdauer",
-                    "description": "Provision wird jeden Monat für bis zu 12 Monate gezahlt, solange Ihre geworbenen Benutzer abonniert bleiben. Die maximale Provisionsdauer beträgt 12 Monate pro Empfehlung."
+                    "description": "Provision wird 1 Monat nach Zahlung des Benutzers für sein Abonnement gezahlt. Sie erhalten Provisionen für bis zu 12 Monate, solange Ihre geworbenen Benutzer abonniert bleiben. Die maximale Provisionsdauer beträgt 12 Monate pro Empfehlung."
                 },
                 {
                     "title": "Monatliche Gutschrift",
-                    "description": "Jeden Monat, den ein Benutzer sein Abonnement bezahlt, werden automatisch 50% der Zahlung auf Ihr Partnerkonto gutgeschrieben."
+                    "description": "Einen Monat nach Zahlung des Benutzers für sein Abonnement werden automatisch 50% der Zahlung auf Ihr Partnerkonto gutgeschrieben. Dieser Prozess wiederholt sich monatlich für bis zu 12 Monate."
                 },
                 {
                     "title": "Mindestauszahlung",
@@ -802,7 +802,7 @@
                 },
                 {
                     "title": "Auszahlungsprozess",
-                    "description": "Sobald Sie €180 oder mehr erreichen, können Sie eine Auszahlung beantragen. Zahlungen werden monatlich per Banküberweisung oder PayPal abgewickelt."
+                    "description": "Sobald Sie €180 oder mehr erreichen, können Sie eine Auszahlung beantragen. Zahlungen werden monatlich per Banküberweisung oder PayPal abgewickelt. Nach Zahlung aller Provisionen für eine Empfehlung (maximal 12 Monate) verschwindet dieser Benutzer aus Ihrem Einnahmen-Dashboard."
                 }
             ]
         },
