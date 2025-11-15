@@ -293,6 +293,8 @@ export default function Footer() {
                   quality={100}
                   className="w-full h-auto max-w-[120px] object-contain"
                   unoptimized
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100px, 120px"
                 />
               </div>
 
@@ -306,6 +308,8 @@ export default function Footer() {
                   quality={100}
                   className="w-full h-auto max-w-[120px] object-contain"
                   unoptimized
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100px, 120px"
                 />
               </div>
 
@@ -319,6 +323,8 @@ export default function Footer() {
                   quality={100}
                   className="w-full h-auto max-w-[150px] object-contain"
                   unoptimized
+                  loading="lazy"
+                  sizes="(max-width: 768px) 130px, 150px"
                 />
               </div>
 
@@ -332,6 +338,8 @@ export default function Footer() {
                   quality={100}
                   className="w-full h-auto max-w-[150px] object-contain"
                   unoptimized
+                  loading="lazy"
+                  sizes="(max-width: 768px) 130px, 150px"
                 />
               </div>
 
@@ -345,6 +353,8 @@ export default function Footer() {
                   quality={100}
                   className="w-full h-auto max-w-[150px] object-contain"
                   unoptimized
+                  loading="lazy"
+                  sizes="(max-width: 768px) 130px, 150px"
                 />
               </div>
             </div>
@@ -360,20 +370,22 @@ export default function Footer() {
               <Image
                 src="/Main-flowxtra-Logo.png"
                 alt={t("logoAlt")}
-                width={100}
-                height={30}
+                width={175}
+                height={40}
                 quality={100}
                 className="h-6 w-auto dark:hidden"
                 unoptimized
+                sizes="(max-width: 768px) 175px, 100px"
               />
               <Image
                 src="/flowxtra-logo-white.png"
                 alt={t("logoAlt")}
-                width={100}
-                height={30}
+                width={184}
+                height={42}
                 quality={100}
                 className="h-6 w-auto hidden dark:block"
                 unoptimized
+                sizes="(max-width: 768px) 184px, 100px"
               />
             </div>
 

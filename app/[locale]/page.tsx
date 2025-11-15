@@ -229,10 +229,10 @@ allowfullscreen>
                     <Image
                       src={slide.image}
                       alt={slide.imageAlt}
-                      width={slide.image.includes('candidate-fiter') ? 834 : slide.image.includes('Job-board-workflow') ? 1920 : slide.image.includes('Smarter-Candidate-Filtering') ? 708 : 1200}
-                      height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 1080 : slide.image.includes('Smarter-Candidate-Filtering') ? 490 : 900}
+                      width={slide.image.includes('candidate-fiter') ? 834 : slide.image.includes('Job-board-workflow') ? 595 : slide.image.includes('Smarter-Candidate-Filtering') ? 595 : slide.image.includes('job-platform-dashbourd') ? 595 : slide.image.includes('social-media-management') ? 595 : slide.image.includes('hiring-email-template') ? 595 : slide.image.includes('Candidate-Profile') ? 595 : slide.image.includes('Multiposting-job') ? 595 : 1200}
+                      height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 334 : slide.image.includes('Smarter-Candidate-Filtering') ? 411 : slide.image.includes('job-platform-dashbourd') ? 354 : slide.image.includes('social-media-management') ? 366 : slide.image.includes('hiring-email-template') ? 600 : slide.image.includes('Candidate-Profile') ? 448 : slide.image.includes('Multiposting-job') ? 373 : 900}
                       quality={index === 0 ? 100 : 75}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
+                      sizes="(max-width: 768px) 595px, (max-width: 1024px) 50vw, 400px"
                       className="w-full h-auto rounded-xl"
                       unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.svg')}
                       loading={index === 0 ? "eager" : "lazy"}
@@ -261,8 +261,8 @@ allowfullscreen>
                   <Image
                     src={slide.image}
                     alt={slide.imageAlt}
-                    width={slide.image.includes('candidate-fiter') ? 834 : slide.image.includes('Job-board-workflow') ? 1920 : slide.image.includes('Smarter-Candidate-Filtering') ? 708 : 1200}
-                    height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 1080 : slide.image.includes('Smarter-Candidate-Filtering') ? 490 : 900}
+                    width={slide.image.includes('candidate-fiter') ? 834 : slide.image.includes('Job-board-workflow') ? 1041 : slide.image.includes('Smarter-Candidate-Filtering') ? 595 : slide.image.includes('job-platform-dashbourd') ? 595 : slide.image.includes('social-media-management') ? 595 : slide.image.includes('hiring-email-template') ? 595 : slide.image.includes('Candidate-Profile') ? 595 : slide.image.includes('Multiposting-job') ? 595 : 1200}
+                    height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 585 : slide.image.includes('Smarter-Candidate-Filtering') ? 411 : slide.image.includes('job-platform-dashbourd') ? 354 : slide.image.includes('social-media-management') ? 366 : slide.image.includes('hiring-email-template') ? 600 : slide.image.includes('Candidate-Profile') ? 448 : slide.image.includes('Multiposting-job') ? 373 : 900}
                     quality={index === 0 ? 100 : 75}
                     sizes={slide.image.includes('hiring-email-template') ? "(max-width: 1024px) 50vw, 300px" : "(max-width: 1024px) 33vw, 400px"}
                     className={slide.image.includes('hiring-email-template') ? "w-1/2 h-auto mx-auto" : "w-full h-auto"}
@@ -335,12 +335,12 @@ export default function Homepage() {
                 src="/img/ATS-Software-for-Recruitment2.webp" // Using WebP (15 KB) instead of SVG (518 KB) for better performance
                 alt={t("hero.imageAlt")}
                 title={t("hero.imageTitle")}
-                width={372}
-                height={271}
+                width={651}
+                height={474}
                 quality={100}
                 priority
                 fetchPriority="high"
-                sizes="(max-width: 768px) 100vw, 372px"
+                sizes="(max-width: 768px) 651px, 702px"
                 className="max-w-full h-auto"
                 decoding="sync"
                 loading="eager"
@@ -564,14 +564,15 @@ export default function Homepage() {
               <Image
                 src="/img/multi-job-post.gif"
                 alt="Flowxtra Multi Job Post"
-                width={340}
-                height={191}
+                width={595}
+                height={334}
                 quality={100}
                 className="w-full h-auto"
                 unoptimized
                 loading="lazy"
                 fetchPriority="low"
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 340px"
+                sizes="(max-width: 768px) 595px, (max-width: 1024px) 50vw, 595px"
+                style={{ maxWidth: '595px', maxHeight: '334px' }}
               />
             </div>
 
@@ -657,8 +658,8 @@ export default function Homepage() {
                 src="/img/social-media-management.svg"
                 alt={t("socialMediaManager.imageAlt")}
                 title={t("socialMediaManager.imageTitle")}
-                width={1200}
-                height={900}
+                width={725}
+                height={446}
                 quality={100}
                 className="w-full h-auto"
                 unoptimized
@@ -813,8 +814,8 @@ export default function Homepage() {
                   src="/img/job-platform-dashbourd.svg"
                   alt={t("recruitment.imageAlt")}
                   title={t("recruitment.imageTitle")}
-                  width={600}
-                  height={450}
+                  width={764}
+                  height={453}
                   quality={100}
                   className="w-full h-auto"
                   unoptimized

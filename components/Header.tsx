@@ -211,10 +211,11 @@ function Header() {
             <Image
               src={isDarkMode ? "/flowxtra-logo-white.png" : "/Main-flowxtra-Logo.png"}
               alt="Flowxtra Logo"
-              width={150}
-              height={50}
+              width={750}
+              height={171}
               className="h-8 md:h-10 w-auto"
               priority
+              sizes="(max-width: 768px) 245px, 384px"
             />
           </Link>
 
