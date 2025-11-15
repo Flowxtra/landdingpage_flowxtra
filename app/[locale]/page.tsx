@@ -862,58 +862,6 @@ export default function Homepage() {
       {/* Social Media Manager Section - White Background */}
       {/* Moved above under Recruitment */}
 
-      {/* Multiple Job Posting Section - White Background */}
-      <section className="w-full py-16 md:py-24 px-[10px] bg-white dark:bg-gray-900 transition-colors">
-        <div className="w-full rounded-[10px] px-[10px] py-16 md:py-20 bg-white dark:bg-gray-900">
-          <div className="container mx-auto px-4 md:px-8 lg:px-12">
-            <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
-            {/* Left Side - Content */}
-            <div className="order-1 lg:order-1 space-y-8">
-              <div className="inline-block bg-[#e6f4f7] dark:bg-gray-800 px-4 py-2 rounded-lg">
-                <span className="text-sm md:text-base font-semibold text-primary dark:text-white">
-                  {t("multipleJobPosting.badge")}
-                </span>
-              </div>
-
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
-                {t("multipleJobPosting.title")}
-              </h2>
-
-              <p className="text-base md:text-lg text-gray-600 dark:text-white leading-relaxed">
-                {t("multipleJobPosting.description")}
-              </p>
-
-              {/* CTA Button */}
-              <div className="pt-4">
-                <a
-                  href="https://my.flowxtra.com/registration"
-                  className="inline-block bg-button-primary border-2 border-button-primary text-white px-8 py-4 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-lg shadow-lg"
-                >
-                  {t("multipleJobPosting.cta")}
-                </a>
-              </div>
-            </div>
-
-            {/* Right Side - Image */}
-            <div className="order-2 lg:order-2">
-              <Image
-                src="/img/multiple-job-posting.gif"
-                alt={t("multipleJobPosting.imageAlt")}
-                title={t("multipleJobPosting.imageTitle")}
-                width={1200}
-                height={900}
-                quality={100}
-                className="w-full h-auto"
-                unoptimized
-                loading="lazy"
-                fetchPriority="low"
-              />
-            </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Reviews Section - Lazy loaded when in viewport */}
       <LazySection Component={ReviewsSection} />
 
