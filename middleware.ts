@@ -73,14 +73,10 @@ export default function middleware(request: NextRequest) {
   if (response) {
     response.headers.set("x-pathname", originalPathname);
 
-    // Enable bfcache (back/forward cache) by not setting no-store
-    // Only set cache headers for pages, not for API routes or static files
-    if (!pathname.startsWith("/api") && !pathname.includes(".")) {
-      response.headers.set(
-        "Cache-Control",
-        "public, max-age=0, must-revalidate"
-      );
-    }
+    // Enable bfcache (back/forward cache) by NOT setting Cache-Control header
+    // Next.js will handle page caching automatically, allowing browsers to use bfcache
+    // Only API routes and static files should have explicit cache headers
+    // Pages should not have Cache-Control to allow bfcache restoration
   }
 
   return response;

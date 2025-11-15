@@ -71,15 +71,10 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
-      {
-        source: "/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=0, must-revalidate",
-          },
-        ],
-      },
+      // Note: We don't set Cache-Control for pages (/:path*) to enable bfcache (back/forward cache)
+      // Next.js will handle page caching automatically
+      // Only set cache headers for static assets (CSS, fonts, images, etc.)
+      
       // Optimize CSS delivery - long cache for immutable CSS files
       {
         source: "/_next/static/css/:path*",
@@ -93,6 +88,26 @@ const nextConfig: NextConfig = {
       // Optimize font delivery
       {
         source: "/fonts/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      // Optimize image delivery - long cache for immutable images
+      {
+        source: "/_next/static/media/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      // Optimize JavaScript chunks - long cache for immutable JS files
+      {
+        source: "/_next/static/chunks/:path*",
         headers: [
           {
             key: "Cache-Control",

@@ -174,7 +174,7 @@ export default function ClientScripts() {
 
   return (
     <>
-      {/* Font Awesome is loaded from /fonts/fontawesome.min.css in layout.tsx - no need for CDN loader */}
+      {/* Font Awesome is loaded from /fonts/fontawesome-custom.min.css in layout.tsx (custom build with only used icons - 84.5% size reduction) - no need for CDN loader */}
       {/* Load tracking scripts only if consent is given */}
       <CookieScriptLoader />
       {/* Cookie Consent Banner - Shows only if no consent exists */}
