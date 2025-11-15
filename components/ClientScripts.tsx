@@ -30,10 +30,21 @@ export default function ClientScripts() {
     // Function to scroll to top (only if no hash)
     const scrollToTop = () => {
       if (!window.location.hash) {
-        // Use requestAnimationFrame to ensure DOM is ready
+        // Use multiple methods to ensure scroll works
+        // First, try immediate scroll
+        window.scrollTo(0, 0);
+        
+        // Also set scrollTop directly on document elements
+        if (document.documentElement) {
+          document.documentElement.scrollTop = 0;
+        }
+        if (document.body) {
+          document.body.scrollTop = 0;
+        }
+        
+        // Use requestAnimationFrame for next frame (in case DOM is still updating)
         requestAnimationFrame(() => {
           window.scrollTo(0, 0);
-          // Also try document.documentElement.scrollTop for compatibility
           if (document.documentElement) {
             document.documentElement.scrollTop = 0;
           }
@@ -41,6 +52,17 @@ export default function ClientScripts() {
             document.body.scrollTop = 0;
           }
         });
+        
+        // Also try after a small delay to catch any late DOM updates
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          if (document.documentElement) {
+            document.documentElement.scrollTop = 0;
+          }
+          if (document.body) {
+            document.body.scrollTop = 0;
+          }
+        }, 100);
       }
     };
 
@@ -51,14 +73,20 @@ export default function ClientScripts() {
     if (document.readyState === 'loading') {
       window.addEventListener('load', scrollToTop, { once: true });
     } else {
-      // Page already loaded, scroll immediately
+      // Page already loaded, scroll immediately and after a delay
       scrollToTop();
+    }
+
+    // Handle DOMContentLoaded as well
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', scrollToTop, { once: true });
     }
 
     // Handle route changes (Next.js navigation)
     const handleRouteChange = () => {
       // Small delay to ensure new page content is rendered
       setTimeout(scrollToTop, 0);
+      setTimeout(scrollToTop, 100);
     };
 
     // Listen for popstate (back/forward button)
@@ -66,6 +94,7 @@ export default function ClientScripts() {
 
     return () => {
       window.removeEventListener('load', scrollToTop);
+      document.removeEventListener('DOMContentLoaded', scrollToTop);
       window.removeEventListener('popstate', handleRouteChange);
     };
   }, []);

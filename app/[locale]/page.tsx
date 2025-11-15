@@ -287,6 +287,34 @@ export default function Homepage() {
   const handleVideoPlay = useCallback(() => {
     setIsVideoPlaying(true);
   }, []);
+
+  // Ensure page starts at top on mount (homepage specific)
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
+    // Only scroll to top if there's no hash in URL
+    if (!window.location.hash) {
+      // Immediate scroll
+      window.scrollTo(0, 0);
+      
+      // Also try after DOM is ready
+      const scrollToTop = () => {
+        window.scrollTo(0, 0);
+        if (document.documentElement) {
+          document.documentElement.scrollTop = 0;
+        }
+        if (document.body) {
+          document.body.scrollTop = 0;
+        }
+      };
+      
+      // Try multiple times to ensure it works
+      requestAnimationFrame(scrollToTop);
+      setTimeout(scrollToTop, 0);
+      setTimeout(scrollToTop, 100);
+      setTimeout(scrollToTop, 300);
+    }
+  }, []);
   
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
