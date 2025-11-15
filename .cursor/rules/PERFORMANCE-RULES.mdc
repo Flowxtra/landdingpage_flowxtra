@@ -1,0 +1,462 @@
+---
+alwaysApply: true
+---
+
+# Flowxtra Performance Rules - Maintain 100 Performance Score
+
+## 🚨 CRITICAL RULES - MUST FOLLOW TO MAINTAIN 100 PERFORMANCE SCORE
+
+### 📸 Image Optimization Rules (MANDATORY)
+
+#### 1. Image Format Selection
+- ✅ **Use WebP/AVIF** for photos and complex images (better compression)
+- ✅ **Use PNG** for simple graphics with transparency (if WebP not available)
+- ✅ **Use SVG** ONLY for simple icons and logos (NOT for complex graphics)
+- ❌ **NEVER use large SVG files** (> 100 KB) - convert to WebP/PNG instead
+- ❌ **NEVER use GIF** for large animations (> 1 MB) - convert to WebP/AVIF or video
+- ✅ **Convert large GIF files**:
+  - Example: `multi-job-post.gif` (19.5 MB) → Convert to WebP/AVIF or video (MP4/WebM)
+  - Example: `Job-board-workflow.gif` (15.8 MB) → Convert to WebP/AVIF or video
+- ✅ **For GIF files that must stay GIF**: Use `fetchPriority="low"` and `loading="lazy"`
+- ✅ **Convert large SVG to WebP/PNG**: 
+  - Example: `Smarter-Candidate-Filtering.svg` (53.6MB) → `Smarter-Candidate-Filtering.png` (98KB)
+  - Example: `ATS-Software-for-Recruitment.svg` (4.5MB) → `ATS-Software-for-Recruitment.webp` (70KB)
+
+#### 2. Image Quality Settings
+- ✅ **Use `quality={75}`** for most images (good balance between quality and size)
+- ✅ **Use `quality={100}`** ONLY for critical LCP images or small icons
+- ✅ **Use `quality={50}`** for background images or non-critical images
+- ❌ **NEVER use `quality={100}`** for all images (increases file size significantly)
+- ✅ **Configure qualities in next.config.ts**: `qualities: [50, 75, 85, 100]`
+- ❌ **NEVER use conditional quality** like `quality={index === 0 ? 75 : 75}` - use constant value
+- ✅ **Always use values from next.config.ts** - if you need 85, add it to the array first
+
+#### 3. Image Dimensions
+- ✅ **Always set correct `width` and `height`** matching actual display size
+- ✅ **Optimize dimensions** - don't load 1920x1080 images if displayed at 400x300
+- ✅ **Mobile images**: Use actual display size (e.g., 372x271 instead of 750x512)
+- ✅ **Desktop images**: Use optimized size (e.g., 1200x675 instead of 1920x1080)
+- ❌ **NEVER use oversized images** - always match display dimensions
+
+#### 4. Image Sizes Attribute
+- ✅ **Use `sizes` attribute** for responsive images:
+  ```tsx
+  // Mobile image
+  sizes="(max-width: 768px) 100vw, 372px"
+  
+  // Desktop image
+  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 1200px"
+  
+  // Slider images
+  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
+  ```
+- ✅ **Match sizes to actual display width** - don't use larger sizes than needed
+- ❌ **NEVER use `sizes="100vw"`** for images that don't take full width
+
+#### 5. Image Loading Strategy
+- ✅ **Use `priority={true}`** ONLY for LCP (Largest Contentful Paint) images
+- ✅ **Use `loading="lazy"`** for all images below the fold
+- ✅ **Use `fetchPriority="high"`** ONLY for LCP images
+- ✅ **Use `fetchPriority="low"`** for large GIF files or non-critical images
+- ✅ **Use `suppressHydrationWarning`** for images to prevent hydration mismatch
+- ❌ **NEVER use `priority={true}`** for all images
+- ❌ **NEVER preload** non-critical images (slider images, etc.)
+
+#### 6. Image Optimization Props Example
+```tsx
+// ✅ CORRECT - Optimized LCP image
+<Image
+  src="/img/ATS-Software-for-Recruitment.webp"
+  alt="Description"
+  width={1200}
+  height={675}
+  quality={75}
+  priority
+  fetchPriority="high"
+  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 1200px"
+  className="w-full h-auto"
+  decoding="sync"
+  loading="eager"
+  suppressHydrationWarning
+/>
+
+// ✅ CORRECT - Optimized non-critical image
+<Image
+  src="/img/example.webp"
+  alt="Description"
+  width={400}
+  height={300}
+  quality={75}
+  sizes="(max-width: 768px) 100vw, 400px"
+  loading="lazy"
+  className="w-full h-auto"
+/>
+
+// ❌ WRONG - Not optimized
+<Image
+  src="/img/example.svg" // Large SVG file
+  alt="Description"
+  width={1920}
+  height={1080}
+  quality={100}
+  priority // Unnecessary
+  loading="eager"
+/>
+```
+
+---
+
+### 🎨 Font Optimization Rules
+
+#### 1. Font Awesome Custom Build (CRITICAL)
+- ✅ **Use custom build** (`fontawesome-custom.min.css`) with only used icons
+- ✅ **Custom build size**: 15.03 KB (vs 96.98 KB full version - 84.5% reduction)
+- ✅ **Load Font Awesome CSS asynchronously** to prevent render blocking:
+  ```tsx
+  <link rel="preload" href="/fonts/fontawesome-custom.min.css" as="style" />
+  <link rel="stylesheet" href="/fonts/fontawesome-custom.min.css" media="print" suppressHydrationWarning />
+  <script dangerouslySetInnerHTML={{ __html: `document.querySelector('link[href="/fonts/fontawesome-custom.min.css"][media="print"]').media = 'all';` }} />
+  ```
+- ❌ **NEVER load full Font Awesome** (96.98 KB) - use custom build (15.03 KB)
+- ❌ **NEVER preload Font Awesome fonts** (fa-solid-900.woff2, fa-brands-400.woff2) - they're loaded via CSS
+- ❌ **NEVER define @font-face in globals.css** for Font Awesome - it's in fontawesome-custom.min.css
+
+#### 2. Font Loading
+- ✅ **Preload critical fonts** (Roboto Regular, Medium, Bold)
+- ✅ **Use `font-display: optional`** for non-critical fonts
+- ✅ **Use `font-display: swap`** for critical fonts
+- ❌ **NEVER load unused fonts**
+
+---
+
+### 🚀 Performance Optimization Rules
+
+#### 1. Code Splitting
+- ✅ **Use dynamic imports** for large components:
+  ```tsx
+  const HeavyComponent = dynamic(() => import("@/components/HeavyComponent"), {
+    loading: () => <div className="h-64 bg-gray-100 animate-pulse" />,
+    ssr: false, // If not needed for SEO
+  });
+  ```
+- ✅ **Lazy load** non-critical components
+- ❌ **NEVER import large libraries** in the main bundle
+
+#### 2. CSS Optimization
+- ✅ **Load non-critical CSS asynchronously**:
+  ```tsx
+  <link rel="stylesheet" href="/css/non-critical.css" media="print" />
+  <script>
+    document.querySelector('link[media="print"]').media = 'all';
+  </script>
+  ```
+- ✅ **Use `suppressHydrationWarning`** for CSS that changes on client
+- ❌ **NEVER block render** with non-critical CSS
+
+#### 3. JavaScript Optimization
+- ✅ **Use `loading="lazy"`** for scripts
+- ✅ **Defer non-critical scripts**
+- ✅ **Remove unused code** (tree shaking)
+- ❌ **NEVER load unnecessary polyfills**
+
+---
+
+### 🔄 Cache Optimization Rules
+
+#### 1. Page Caching (bfcache) - CRITICAL
+- ✅ **DO NOT set `Cache-Control: no-store`** for pages in `next.config.ts`
+- ✅ **DO NOT set `Cache-Control`** for pages in `middleware.ts`
+- ✅ **Use `revalidate = 3600`** in layout.tsx for static pages:
+  ```tsx
+  export const revalidate = 3600; // Revalidate every hour - enables static generation for bfcache compatibility
+  ```
+- ✅ **Allow bfcache** by not blocking it
+- ❌ **NEVER use `cache: "no-store"`** in client-side fetch for pages
+- ❌ **NEVER set Cache-Control headers** for pages (/:path*) in next.config.ts headers()
+
+#### 2. Client-Side Fetch Caching (CRITICAL)
+- ✅ **Use `cache: "default"`** for client-side fetch to allow bfcache:
+  ```tsx
+  // ✅ CORRECT - Allows bfcache
+  if (typeof window === "undefined") {
+    (fetchOptions as any).next = { revalidate: 900 };
+  } else {
+    fetchOptions.cache = "default"; // Allows bfcache
+  }
+  ```
+- ❌ **NEVER use `cache: "no-store"`** in client-side fetch (blocks bfcache):
+  ```tsx
+  // ❌ WRONG - Blocks bfcache
+  fetchOptions.cache = "no-store";
+  ```
+- ✅ **Files to update**: `lib/blogApi.ts`, `lib/appStoreApi.ts`, `lib/policiesApi.ts`
+
+#### 3. API Routes Caching
+- ✅ **Use `cache: "no-store"`** ONLY for API routes that need fresh data
+- ✅ **Use `revalidate`** for server-side fetch
+
+#### 4. Static Assets Caching
+- ✅ **Set long cache** for immutable assets:
+  ```typescript
+  {
+    source: "/_next/static/:path*",
+    headers: [{
+      key: "Cache-Control",
+      value: "public, max-age=31536000, immutable"
+    }]
+  }
+  ```
+
+---
+
+### 📊 LCP (Largest Contentful Paint) Optimization
+
+#### 1. LCP Image Rules
+- ✅ **Preload LCP image** with `fetchPriority="high"` in layout.tsx:
+  ```tsx
+  <link
+    rel="preload"
+    href="/img/ATS-Software-for-Recruitment2.webp"
+    as="image"
+    type="image/webp"
+    media="(max-width: 768px)"
+    fetchPriority="high"
+  />
+  ```
+- ✅ **Use `priority={true}`** for LCP images ONLY
+- ✅ **Optimize LCP image** dimensions and quality (use actual display size)
+- ✅ **Use WebP/AVIF** format for LCP images
+- ✅ **Mobile LCP**: Use optimized dimensions (e.g., 372x271 instead of 750x512)
+- ✅ **Desktop LCP**: Use optimized dimensions (e.g., 1200x675 instead of 1920x1080)
+- ❌ **NEVER use large SVG** for LCP images
+- ❌ **NEVER preload** non-critical images (slider images, etc.)
+
+#### 2. LCP Element Rules
+- ✅ **Keep LCP element above the fold**
+- ✅ **Minimize LCP image size** (< 100 KB ideally)
+- ✅ **Use correct `sizes` attribute** for LCP images matching actual display width
+- ✅ **Use `suppressHydrationWarning`** for LCP images to prevent hydration mismatch
+
+---
+
+### 🎯 Bundle Size Optimization
+
+#### 1. Import Rules
+- ✅ **Import only what you need**:
+  ```tsx
+  // ✅ CORRECT
+  import { useState } from 'react';
+  
+  // ❌ WRONG
+  import * as React from 'react';
+  ```
+- ✅ **Use tree shaking** - mark CSS as side effects in package.json
+- ❌ **NEVER import entire libraries** if you only need one function
+
+#### 2. Component Size
+- ✅ **Split large components** into smaller ones
+- ✅ **Use code splitting** for routes
+- ❌ **NEVER create components > 500 lines** without splitting
+
+---
+
+### 🔍 SEO & Performance Balance
+
+#### 1. SSR vs Client-Side
+- ✅ **Use SSR** for SEO-critical content
+- ✅ **Use `ssr: false`** for heavy components not needed for SEO
+- ✅ **Use loading placeholders** to prevent layout shift
+
+#### 2. Metadata
+- ✅ **Generate metadata** server-side
+- ✅ **Use `generateMetadata`** for dynamic metadata
+- ❌ **NEVER block render** for metadata generation
+
+---
+
+### ⚠️ Common Mistakes to Avoid
+
+#### ❌ DON'T DO THIS:
+```tsx
+// ❌ Loading all images with priority
+<Image src="/img/1.jpg" priority />
+<Image src="/img/2.jpg" priority />
+<Image src="/img/3.jpg" priority />
+
+// ❌ Using quality 100 for all images
+<Image src="/img/photo.jpg" quality={100} />
+
+// ❌ Loading large SVG files
+<Image src="/img/complex-graphic.svg" width={1920} height={1080} />
+
+// ❌ Blocking render with CSS
+<link rel="stylesheet" href="/css/non-critical.css" />
+
+// ❌ Using no-store for pages in next.config.ts
+{
+  source: "/:path*",
+  headers: [{
+    key: "Cache-Control",
+    value: "no-store" // ❌ WRONG - blocks bfcache
+  }]
+}
+
+// ❌ Using no-store in client-side fetch
+fetchOptions.cache = "no-store"; // ❌ WRONG - blocks bfcache
+
+// ❌ Conditional quality causing hydration mismatch
+quality={index === 0 ? 75 : 75} // ❌ WRONG - use constant value
+
+// ❌ Preloading non-critical images
+<link rel="preload" href="/img/slider-image.png" /> // ❌ WRONG
+```
+
+#### ✅ DO THIS INSTEAD:
+```tsx
+// ✅ Only priority for LCP image
+<Image src="/img/lcp-image.webp" priority fetchPriority="high" suppressHydrationWarning />
+<Image src="/img/other.jpg" loading="lazy" />
+
+// ✅ Appropriate quality (constant value)
+<Image src="/img/photo.webp" quality={75} />
+
+// ✅ Convert to WebP with correct dimensions
+<Image src="/img/complex-graphic.webp" width={400} height={300} sizes="(max-width: 768px) 100vw, 400px" />
+
+// ✅ Load CSS asynchronously
+<link rel="stylesheet" href="/css/non-critical.css" media="print" suppressHydrationWarning />
+<script dangerouslySetInnerHTML={{ __html: `document.querySelector('link[media="print"]').media = 'all';` }} />
+
+// ✅ Allow caching for pages - DON'T set Cache-Control
+// In next.config.ts - only set Cache-Control for static assets, not pages
+
+// ✅ Use default cache for client-side fetch
+fetchOptions.cache = "default"; // ✅ Allows bfcache
+
+// ✅ Use revalidate in layout.tsx
+export const revalidate = 3600; // ✅ Enables static generation for bfcache
+```
+
+---
+
+### 📋 Performance Checklist
+
+Before deploying, verify:
+
+#### Images
+- [ ] All images use WebP/AVIF (except simple SVG icons)
+- [ ] Large SVG files (> 100 KB) converted to WebP/PNG
+- [ ] Image quality is 75 or lower (except critical LCP images)
+- [ ] Image dimensions match actual display size (not oversized)
+- [ ] `sizes` attribute is correct for responsive images
+- [ ] Only LCP images have `priority={true}` and `fetchPriority="high"`
+- [ ] Non-critical images use `loading="lazy"`
+- [ ] All images have `suppressHydrationWarning` to prevent hydration mismatch
+- [ ] Quality prop uses constant value (not conditional like `quality={index === 0 ? 75 : 75}`)
+
+#### Fonts
+- [ ] Font Awesome uses custom build (`fontawesome-custom.min.css` - 15.03 KB)
+- [ ] Font Awesome CSS loaded asynchronously (media="print" trick)
+- [ ] No preload for Font Awesome fonts (fa-solid-900.woff2, fa-brands-400.woff2)
+- [ ] No @font-face in globals.css for Font Awesome
+
+#### Caching & bfcache
+- [ ] No `Cache-Control: no-store` for pages in `next.config.ts`
+- [ ] No `Cache-Control` headers for pages in `middleware.ts`
+- [ ] `revalidate = 3600` added in layout.tsx
+- [ ] Client-side fetch uses `cache: "default"` (not `no-store`) in:
+  - [ ] `lib/blogApi.ts`
+  - [ ] `lib/appStoreApi.ts`
+  - [ ] `lib/policiesApi.ts`
+
+#### Code & Bundle
+- [ ] Large components are dynamically imported
+- [ ] CSS is loaded asynchronously (if non-critical)
+- [ ] Bundle size is optimized (check with `npm run build`)
+- [ ] No render blocking resources
+
+#### Preload Strategy
+- [ ] Only LCP images are preloaded
+- [ ] Critical fonts (Roboto) are preloaded
+- [ ] Non-critical images (slider images) are NOT preloaded
+
+---
+
+### 🎯 Performance Targets
+
+- **Performance Score**: 100 (MANDATORY)
+- **LCP**: < 2.5s
+- **FCP**: < 1.8s
+- **TBT**: < 200ms
+- **CLS**: < 0.1
+- **Total Bundle Size**: < 500 KB (initial load)
+
+---
+
+### 🔧 Tools for Monitoring
+
+1. **Lighthouse** - Run before every deployment
+2. **Next.js Bundle Analyzer** - Check bundle size
+3. **WebPageTest** - Test from different locations
+4. **Chrome DevTools** - Performance tab
+
+---
+
+### 🔧 Specific Fixes Applied Today (Reference)
+
+#### 1. Font Awesome Optimization
+- Created custom build: `scripts/create-custom-fa.js`
+- Extracted used icons: `scripts/extract-icons.js`
+- Result: 15.03 KB (vs 96.98 KB) - 84.5% reduction
+- Removed preload links for fa-solid-900.woff2 and fa-brands-400.woff2
+- Removed @font-face from globals.css
+- Load Font Awesome CSS asynchronously (media="print" trick)
+
+#### 2. Image Optimization
+- Converted `Smarter-Candidate-Filtering.svg` (53.6MB) → PNG (98KB)
+- Converted `ATS-Software-for-Recruitment.svg` (4.5MB) → WebP (70KB)
+- Converted `ATS-Software-for-Recruitment2.svg` (518KB) → WebP (15KB)
+- Optimized dimensions: Mobile (372x271), Desktop (1200x675)
+- Changed quality from 100 to 75
+- Added `suppressHydrationWarning` to all images
+- Improved `sizes` attribute for responsive images
+- Removed preload for non-critical images (slider images)
+
+#### 3. bfcache Optimization
+- Removed `Cache-Control: no-store` from `next.config.ts` for pages
+- Removed `Cache-Control` from `middleware.ts` for pages
+- Changed `cache: "no-store"` to `cache: "default"` in:
+  - `lib/blogApi.ts`
+  - `lib/appStoreApi.ts`
+  - `lib/policiesApi.ts`
+- Added `revalidate = 3600` in `app/[locale]/layout.tsx`
+
+#### 4. Preload Strategy
+- Removed preload for slider images (Smarter-Candidate-Filtering.png, candidate-fiter.png)
+- Kept preload only for LCP images (ATS-Software-for-Recruitment2.webp, ATS-Software-for-Recruitment.webp)
+
+#### 5. next.config.ts Updates
+- Added `85` to qualities array: `qualities: [50, 75, 85, 100]`
+- Removed Cache-Control headers for pages (/:path*)
+- Added Cache-Control for static assets only (CSS, fonts, images, JS chunks)
+
+#### 6. Hydration Mismatch Fix
+- Added `suppressHydrationWarning` to all Image components
+- Changed conditional quality to constant value: `quality={75}`
+
+---
+
+### 📝 Notes
+
+- These rules are based on achieving and maintaining 100 Performance Score
+- Always test changes with Lighthouse before deploying
+- Monitor performance metrics in production
+- Update rules as Next.js and best practices evolve
+- **Key Achievement**: Performance Score 100 achieved through these optimizations
+
+---
+
+**Last Updated**: Based on Performance Score 100 achievement
+**Version**: 1.0.0
+**Date**: Today's optimizations
+
