@@ -926,22 +926,7 @@ export default async function LocaleLayout({
           media="(min-width: 769px)"
           fetchPriority="high"
         />
-        {/* Preload first slider image - Critical for features section - Using PNG (98 KB) instead of SVG (53.6 MB) */}
-        <link
-          rel="preload"
-          href="/img/Smarter-Candidate-Filtering.png"
-          as="image"
-          type="image/png"
-          fetchPriority="high"
-        />
-        {/* Preload second slider image - Important for features section */}
-        <link
-          rel="preload"
-          href="/img/candidate-fiter.png"
-          as="image"
-          type="image/png"
-          fetchPriority="high"
-        />
+        {/* Note: Slider images are not preloaded to prioritize LCP image - they load lazily when needed */}
 
         {/* Font Awesome CSS - Custom build with only used icons (15.03 KiB vs 96.98 KiB - 84.5% reduction) */}
         {/* Note: Font Awesome fonts are loaded via @font-face in fontawesome-custom.min.css - no need to preload separately */}

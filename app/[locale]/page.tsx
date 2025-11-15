@@ -231,13 +231,14 @@ allowfullscreen>
                       alt={slide.imageAlt}
                       width={slide.image.includes('candidate-fiter') ? 834 : slide.image.includes('Job-board-workflow') ? 1920 : 1200}
                       height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 1080 : 900}
-                      quality={100}
+                      quality={75}
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
                       className="w-full h-auto rounded-xl"
                       unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.svg')}
                       loading={index === 0 ? "eager" : "lazy"}
-                      priority={index === 0}
-                      fetchPriority={index === 0 ? "high" : "auto"}
+                      priority={index === 0 && !slide.image.endsWith('.gif')}
+                      fetchPriority={index === 0 && !slide.image.endsWith('.gif') ? "high" : slide.image.endsWith('.gif') ? "low" : "auto"}
+                      suppressHydrationWarning
                     />
                   </div>
                   
@@ -262,13 +263,14 @@ allowfullscreen>
                     alt={slide.imageAlt}
                     width={slide.image.includes('candidate-fiter') ? 834 : slide.image.includes('Job-board-workflow') ? 1920 : 1200}
                       height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 1080 : 900}
-                      quality={100}
+                      quality={75}
                       sizes={slide.image.includes('hiring-email-template') ? "(max-width: 1024px) 50vw, 300px" : "(max-width: 1024px) 33vw, 400px"}
                       className={slide.image.includes('hiring-email-template') ? "w-1/2 h-auto mx-auto" : "w-full h-auto"}
                       unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.svg')}
                       loading={index === 0 ? "eager" : "lazy"}
-                      priority={index === 0}
-                      fetchPriority={index === 0 ? "high" : "auto"}
+                      priority={index === 0 && !slide.image.endsWith('.gif')}
+                      fetchPriority={index === 0 && !slide.image.endsWith('.gif') ? "high" : slide.image.endsWith('.gif') ? "low" : "auto"}
+                      suppressHydrationWarning
                   />
                 </div>
               </div>
@@ -333,15 +335,16 @@ export default function Homepage() {
                 src="/img/ATS-Software-for-Recruitment2.webp" // Using WebP (15 KB) instead of SVG (518 KB) for better performance
                 alt={t("hero.imageAlt")}
                 title={t("hero.imageTitle")}
-                width={750}
-                height={512}
-                quality={100}
+                width={372}
+                height={271}
+                quality={75}
                 priority
                 fetchPriority="high"
                 sizes="(max-width: 768px) 100vw, 372px"
                 className="max-w-full h-auto"
                 decoding="sync"
                 loading="eager"
+                suppressHydrationWarning
               />
               <figcaption className="sr-only">
                 {t("hero.figcaption")}
@@ -356,15 +359,16 @@ export default function Homepage() {
                 src="/img/ATS-Software-for-Recruitment.webp" // Using WebP (70 KB) instead of SVG (4.5 MB) for better performance
                 alt={t("hero.imageAlt")}
                 title={t("hero.imageTitle")}
-                width={1920}
-                height={1080}
-                quality={100}
+                width={1200}
+                height={675}
+                quality={75}
                 priority
                 fetchPriority="high"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 1200px"
                 className="w-full h-auto"
                 decoding="sync"
                 loading="eager"
+                suppressHydrationWarning
               />
               <figcaption className="sr-only">
                 {t("hero.figcaption")}
