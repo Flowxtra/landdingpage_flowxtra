@@ -236,6 +236,8 @@ allowfullscreen>
                       className="w-full h-auto rounded-xl"
                       unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.svg')}
                       loading={index === 0 ? "eager" : "lazy"}
+                      priority={index === 0}
+                      fetchPriority={index === 0 ? "high" : "auto"}
                     />
                   </div>
                   
@@ -259,12 +261,14 @@ allowfullscreen>
                     src={slide.image}
                     alt={slide.imageAlt}
                     width={slide.image.includes('candidate-fiter') ? 834 : slide.image.includes('Job-board-workflow') ? 1920 : 1200}
-                    height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 1080 : 900}
+                      height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 1080 : 900}
                       quality={100}
                       sizes={slide.image.includes('hiring-email-template') ? "(max-width: 1200px) 50vw, 600px" : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1200px"}
                       className={slide.image.includes('hiring-email-template') ? "w-1/2 h-auto mx-auto" : "w-full h-auto"}
                       unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.svg')}
                       loading={index === 0 ? "eager" : "lazy"}
+                      priority={index === 0}
+                      fetchPriority={index === 0 ? "high" : "auto"}
                   />
                 </div>
               </div>
@@ -866,9 +870,9 @@ export default function Homepage() {
         </div>
       </section>
 
-      {/* Sticky Slider Section - Lazy loaded when in viewport */}
+      {/* Sticky Slider Section - Load immediately (critical content) */}
       <div className="w-full pb-32 md:pb-48">
-        <LazySection Component={FeaturesSlider} />
+        <FeaturesSlider />
       </div>
 
       {/* Pricing Section */}

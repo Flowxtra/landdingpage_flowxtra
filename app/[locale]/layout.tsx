@@ -917,6 +917,22 @@ export default async function LocaleLayout({
           media="(min-width: 769px)"
           fetchPriority="high"
         />
+        {/* Preload first slider image - Critical for features section */}
+        <link
+          rel="preload"
+          href="/img/Smarter-Candidate-Filtering.svg"
+          as="image"
+          type="image/svg+xml"
+          fetchPriority="high"
+        />
+        {/* Preload second slider image - Important for features section */}
+        <link
+          rel="preload"
+          href="/img/candidate-fiter.png"
+          as="image"
+          type="image/png"
+          fetchPriority="high"
+        />
 
         {/* Preload Font Awesome fonts - Self-hosted for better performance */}
         <link
