@@ -1221,10 +1221,6 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
                     >
                       <div className="flex items-start justify-between gap-3">
                         <div className="flex items-start gap-3 flex-1">
-                          <i
-                            className={feature.icon}
-                            style={{ color: currentPlan.color, fontSize: '20px' }}
-                          ></i>
                           <div className="flex-1">
                             <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
                               {feature.name}

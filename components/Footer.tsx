@@ -436,7 +436,7 @@ export default function Footer() {
               {/* Dark Mode Toggle */}
               <button
                 onClick={toggleDarkMode}
-                className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-primary dark:text-gray-200 hover:text-secondary dark:hover:text-[#00A8CD] transition-colors whitespace-nowrap underline decoration-1 underline-offset-2"
+                className="hidden md:flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-primary dark:text-gray-200 hover:text-secondary dark:hover:text-[#00A8CD] transition-colors whitespace-nowrap underline decoration-1 underline-offset-2"
                 aria-label="Toggle dark mode"
               >
                 {isDarkMode ? (

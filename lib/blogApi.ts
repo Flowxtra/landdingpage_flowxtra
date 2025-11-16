@@ -281,14 +281,22 @@ export async function getBlogPost(
 
   // Build URL - if using proxy (/api/blog), use absolute URL to avoid locale prefix
   // In client-side, relative paths get locale prefix added by Next.js
+  // In server-side, fetch() requires absolute URL
   let url: string;
   if (apiBaseUrl === "/api/blog") {
-    // Client-side: use absolute URL to avoid locale prefix
+    // Both client-side and server-side need absolute URL
     if (typeof window !== "undefined") {
+      // Client-side: use window.location.origin
       url = `${window.location.origin}${apiBaseUrl}/${slug}?locale=${locale}&_t=${timestamp}&_r=${random}`;
     } else {
-      // Server-side: relative path is fine
-      url = `${apiBaseUrl}/${slug}?locale=${locale}&_t=${timestamp}&_r=${random}`;
+      // Server-side: fetch() requires absolute URL
+      const baseUrl =
+        process.env.NEXT_PUBLIC_SITE_URL ||
+        process.env.NEXT_PUBLIC_BASE_URL ||
+        (process.env.NODE_ENV === "development"
+          ? "http://localhost:3000"
+          : "https://flowxtra.com");
+      url = `${baseUrl}${apiBaseUrl}/${slug}?locale=${locale}&_t=${timestamp}&_r=${random}`;
     }
   } else {
     url = `${apiBaseUrl}/blog/${slug}?locale=${locale}&_t=${timestamp}&_r=${random}`;

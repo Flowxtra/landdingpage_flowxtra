@@ -174,6 +174,36 @@ export async function GET(
       );
     }
 
+    // Transform author photo fields: convert photo_url_r2 to photo
+    function transformAuthorPhoto(author: any): any {
+      if (!author) return author;
+      if (author.photo_url_r2) {
+        author.photo = author.photo_url_r2;
+      } else if (author.photo_path_db) {
+        // If only photo_path_db exists, build URL from it
+        const baseUrl = author.r2_url || "https://cdn.flowxtra.net";
+        author.photo = `${baseUrl}/${author.photo_path_db}`;
+      }
+      return author;
+    }
+
+    // Transform data structure to match expected format
+    if (data.data) {
+      // Transform post author
+      if (data.data.post?.author) {
+        data.data.post.author = transformAuthorPhoto(data.data.post.author);
+      }
+      // Transform posts authors (for blog listing)
+      if (data.data.posts && Array.isArray(data.data.posts)) {
+        data.data.posts = data.data.posts.map((post: any) => {
+          if (post.author) {
+            post.author = transformAuthorPhoto(post.author);
+          }
+          return post;
+        });
+      }
+    }
+
     // Return the response with CORS headers
     return NextResponse.json(data, {
       status: 200,

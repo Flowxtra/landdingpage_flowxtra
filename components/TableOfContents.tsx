@@ -18,19 +18,19 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
   const [headings, setHeadings] = useState<Heading[]>([]);
   const [activeId, setActiveId] = useState<string>('');
 
-  // Extract H1 headings from HTML content and add IDs
+  // Extract H2 headings from HTML content and add IDs
   useEffect(() => {
     if (!content) return;
 
-    // Parse HTML content directly to extract H1 headings
+    // Parse HTML content directly to extract H2 headings
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = content;
     
-    const h1Elements = tempDiv.querySelectorAll('h1');
+    const h2Elements = tempDiv.querySelectorAll('h2');
     const extractedHeadings: Heading[] = [];
 
-    h1Elements.forEach((h1, index) => {
-      const text = h1.textContent || '';
+    h2Elements.forEach((h2, index) => {
+      const text = h2.textContent || '';
       if (text.trim()) {
         // Generate a unique ID based on text
         const id = `heading-${index}-${text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
@@ -38,7 +38,7 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
         extractedHeadings.push({
           id,
           text: text.trim(),
-          level: 1,
+          level: 2,
         });
       }
     });
@@ -54,10 +54,10 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
         return;
       }
 
-      const renderedH1Elements = contentElement.querySelectorAll('h1');
-      renderedH1Elements.forEach((h1, index) => {
+      const renderedH2Elements = contentElement.querySelectorAll('h2');
+      renderedH2Elements.forEach((h2, index) => {
         if (index < extractedHeadings.length) {
-          h1.id = extractedHeadings[index].id;
+          h2.id = extractedHeadings[index].id;
         }
       });
     };

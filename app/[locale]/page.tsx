@@ -321,7 +321,7 @@ export default function Homepage() {
               </h2>
               
               {/* Social Media & Platform Logos */}
-              <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 pt-4 pb-2">
+              <div className="grid grid-cols-6 md:flex md:flex-wrap items-center justify-items-center justify-center gap-4 md:gap-6 pt-4 pb-2 max-w-2xl mx-auto">
                   {[
                     { 
                       src: "/img/social-logos/facebook.svg", 
@@ -392,6 +392,13 @@ export default function Homepage() {
                       alt: "Post jobs on Telegram - Flowxtra free job posting", 
                       title: "Post jobs on Telegram",
                       description: "Post jobs on Telegram channels to reach active users",
+                      darkInvert: false 
+                    },
+                    { 
+                      src: "/img/social-logos/discord.svg", 
+                      alt: "Post jobs on Discord - Flowxtra free job posting", 
+                      title: "Post jobs on Discord",
+                      description: "Share job openings on Discord servers to reach tech-savvy candidates",
                       darkInvert: false 
                     },
                     { 

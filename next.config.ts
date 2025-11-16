@@ -15,6 +15,10 @@ const nextConfig: NextConfig = {
         hostname: "flowxtra.com",
       },
       {
+        protocol: "https",
+        hostname: "cdn.flowxtra.net",
+      },
+      {
         protocol: "http",
         hostname: "localhost",
       },
