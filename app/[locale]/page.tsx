@@ -399,7 +399,7 @@ export default function Homepage() {
                       alt: "Post jobs on your website - Flowxtra free job posting", 
                       title: "Post jobs on your website",
                       description: "Embed job postings on your website with Flowxtra job widget",
-                      darkInvert: false 
+                      darkInvert: true 
                     },
                   ].map((logo, index) => (
                   <motion.div
