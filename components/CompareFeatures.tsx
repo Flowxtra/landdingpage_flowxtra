@@ -1119,14 +1119,6 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
                       onClick={() => toggleRow(feature.id)}
                     >
                       <td className="fx-feature">
-                        <i
-                          className={feature.icon}
-                          style={{ 
-                            color: '#006980', 
-                            marginRight: isRTL ? '0' : '8px',
-                            marginLeft: isRTL ? '8px' : '0'
-                          }}
-                        ></i>
                         {feature.name}
                       </td>
                       <td data-plan="Free">{feature.free}</td>

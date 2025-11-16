@@ -6,6 +6,7 @@ import Image from "next/image";
 import React, { useState, useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
 import { useTranslations, useLocale } from "next-intl";
+import { motion } from "framer-motion";
 // Dynamic imports for non-critical components to reduce initial bundle size
 // CodeEditor is heavy (includes Shiki syntax highlighter ~600ms), so load only when needed
 // DISABLED - Code editor slide is hidden
@@ -286,8 +287,14 @@ export default function Homepage() {
   const t = useTranslations("homepage");
   const tContact = useTranslations("contact");
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [mountedKey, setMountedKey] = useState(0);
   const locale = useLocale();
   const videoId = locale === 'de' ? 'r5sBu2-NOqs' : 'CGa2grClFsw';
+
+  useEffect(() => {
+    // Increment key on mount to trigger animation every time
+    setMountedKey(prev => prev + 1);
+  }, []);
   
   // Memoize video play handler to prevent re-creating on every render
   const handleVideoPlay = useCallback(() => {
@@ -312,6 +319,115 @@ export default function Homepage() {
               <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-primary dark:text-secondary-light max-w-4xl mx-auto px-2">
                 {t("hero.subtitle")}
               </h2>
+              
+              {/* Social Media & Platform Logos */}
+              <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 pt-4 pb-2">
+                  {[
+                    { 
+                      src: "/img/social-logos/facebook.svg", 
+                      alt: "Post jobs on Facebook - Flowxtra free job posting", 
+                      title: "Post jobs on Facebook",
+                      description: "Share job openings on Facebook to reach millions of potential candidates",
+                      darkInvert: false 
+                    },
+                    { 
+                      src: "/img/social-logos/x.svg", 
+                      alt: "Post jobs on X (Twitter) - Flowxtra free job posting", 
+                      title: "Post jobs on X (Twitter)",
+                      description: "Post job openings on X (Twitter) to reach active job seekers",
+                      darkInvert: true 
+                    },
+                    { 
+                      src: "/img/social-logos/linkedin.svg", 
+                      alt: "Post jobs on LinkedIn - Flowxtra free job posting", 
+                      title: "Post jobs on LinkedIn",
+                      description: "Post jobs on LinkedIn to connect with professional candidates",
+                      darkInvert: false 
+                    },
+                    { 
+                      src: "/img/social-logos/google.svg", 
+                      alt: "Post jobs on Google - Flowxtra free job posting", 
+                      title: "Post jobs on Google",
+                      description: "Post jobs on Google to appear in job search results",
+                      darkInvert: false 
+                    },
+                    { 
+                      src: "/MainLogoIconcolored.png", 
+                      alt: "Flowxtra - Free ATS and job posting platform", 
+                      title: "Flowxtra Platform",
+                      description: "Flowxtra free ATS and job posting platform",
+                      darkInvert: false, 
+                      isLogo: true 
+                    },
+                    { 
+                      src: "/img/social-logos/instagram.svg", 
+                      alt: "Post jobs on Instagram - Flowxtra free job posting", 
+                      title: "Post jobs on Instagram",
+                      description: "Share job openings on Instagram to reach a diverse audience",
+                      darkInvert: false 
+                    },
+                    { 
+                      src: "/img/social-logos/tiktok.svg", 
+                      alt: "Post jobs on TikTok - Flowxtra free job posting", 
+                      title: "Post jobs on TikTok",
+                      description: "Post jobs on TikTok to reach younger job seekers",
+                      darkInvert: true 
+                    },
+                    { 
+                      src: "/img/social-logos/google-ads.svg", 
+                      alt: "Post jobs on Google Ads - Flowxtra free job posting", 
+                      title: "Post jobs on Google Ads",
+                      description: "Promote job openings with Google Ads through Flowxtra",
+                      darkInvert: false 
+                    },
+                    { 
+                      src: "/img/social-logos/whatsapp.svg", 
+                      alt: "Post jobs on WhatsApp - Flowxtra free job posting", 
+                      title: "Post jobs on WhatsApp",
+                      description: "Share job openings on WhatsApp to reach candidates directly",
+                      darkInvert: false 
+                    },
+                    { 
+                      src: "/img/social-logos/telegram.svg", 
+                      alt: "Post jobs on Telegram - Flowxtra free job posting", 
+                      title: "Post jobs on Telegram",
+                      description: "Post jobs on Telegram channels to reach active users",
+                      darkInvert: false 
+                    },
+                    { 
+                      src: "/img/social-logos/website.svg", 
+                      alt: "Post jobs on your website - Flowxtra free job posting", 
+                      title: "Post jobs on your website",
+                      description: "Embed job postings on your website with Flowxtra job widget",
+                      darkInvert: false 
+                    },
+                  ].map((logo, index) => (
+                  <motion.div
+                    key={`${logo.alt}-${mountedKey}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.5,
+                      delay: index * 0.1,
+                      ease: "easeOut",
+                    }}
+                    suppressHydrationWarning
+                  >
+                    <Image
+                      src={logo.src}
+                      alt={logo.alt}
+                      title={logo.title}
+                      width={logo.isLogo ? 100 : 32}
+                      height={logo.isLogo ? 24 : 32}
+                      quality={100}
+                      className={`h-6 md:h-8 w-auto transition-transform duration-300 hover:scale-110 cursor-pointer ${logo.darkInvert ? 'dark:invert dark:brightness-0 dark:contrast-200' : ''}`}
+                      unoptimized={logo.isLogo}
+                      loading="lazy"
+                      suppressHydrationWarning
+                    />
+                  </motion.div>
+                ))}
+              </div>
               
               <p className="text-base md:text-lg lg:text-xl text-gray-600 dark:text-white leading-relaxed max-w-4xl mx-auto px-4">
                 {t("hero.description")}
