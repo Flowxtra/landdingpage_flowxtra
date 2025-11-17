@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { getPolicyByRoute, type Policy } from '@/lib/policiesApi';
+import TableOfContents from '@/components/TableOfContents';
+import PoliciesSidebar from '@/components/PoliciesSidebar';
 
 export default function CookiePolicyPage() {
   const pathname = usePathname();
@@ -71,35 +73,46 @@ export default function CookiePolicyPage() {
             {' / '}
             <span className="text-gray-700 dark:text-gray-300">{policy.title}</span>
           </nav>
+          
+          {/* Policies Navigation - Horizontal */}
+          <div className="mb-6">
+            <PoliciesSidebar />
+          </div>
         </div>
       </section>
 
       <section className="w-full py-12 md:py-16 px-[10px] bg-white dark:bg-gray-900 transition-colors">
         <div className="container mx-auto px-4 md:px-8 lg:px-12">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              {policy.title}
-            </h1>
+          <div className="flex flex-col lg:flex-row gap-8 items-start">
+            {/* Table of Contents Sidebar - On the left */}
+            {policy.content && <TableOfContents content={policy.content} />}
+            
+            {/* Main Content */}
+            <div className="flex-1 min-w-0 max-w-4xl w-full lg:w-auto mx-auto">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                {policy.title}
+              </h1>
 
-            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-300 mb-8">
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <span>Effective: {new Date(policy.effective_at).toLocaleDateString()}</span>
+              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-300 mb-8">
+                <div className="flex items-center gap-2">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <span>Effective: {new Date(policy.effective_at).toLocaleDateString()}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                  </svg>
+                  <span>Version: {policy.version}</span>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
-                </svg>
-                <span>Version: {policy.version}</span>
-              </div>
+
+              <article 
+                className="prose prose-lg max-w-none blog-content dark:prose-invert prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-a:text-primary dark:prose-a:text-secondary"
+                dangerouslySetInnerHTML={{ __html: policy.content || '' }}
+              />
             </div>
-
-            <article 
-              className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-a:text-primary dark:prose-a:text-secondary"
-              dangerouslySetInnerHTML={{ __html: policy.content || '' }}
-            />
           </div>
         </div>
       </section>

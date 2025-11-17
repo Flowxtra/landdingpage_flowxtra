@@ -7,7 +7,7 @@ import { getPolicyByRoute, type Policy } from '@/lib/policiesApi';
 import TableOfContents from '@/components/TableOfContents';
 import PoliciesSidebar from '@/components/PoliciesSidebar';
 
-export default function DisclaimerPage() {
+export default function AdQualityGuidelinesPage() {
   const pathname = usePathname();
   const currentLocale = pathname?.startsWith('/de') ? 'de' : 'en';
   
@@ -21,7 +21,7 @@ export default function DisclaimerPage() {
       setError(null);
       
       try {
-        const response = await getPolicyByRoute('disclaimer', currentLocale);
+        const response = await getPolicyByRoute('ad-quality-guidelines', currentLocale);
         
         if (response && response.success) {
           setPolicy(response.data);
@@ -29,7 +29,7 @@ export default function DisclaimerPage() {
           setError('Policy not found');
         }
       } catch (err) {
-        console.error('Error fetching Disclaimer:', err);
+        console.error('Error fetching Ad Quality Guidelines:', err);
         setError(err instanceof Error ? err.message : 'Failed to load policy');
       } finally {
         setLoading(false);

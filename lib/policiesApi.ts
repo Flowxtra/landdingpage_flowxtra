@@ -2,40 +2,11 @@
 // This file handles all API calls to the policies backend
 
 /**
- * Get API base URL from environment variables
+ * Get API base URL - Always use production API for policies
  */
 function getApiBaseUrl(): string {
-  // First, check if NEXT_PUBLIC_API_URL is set (highest priority)
-  if (process.env.NEXT_PUBLIC_API_URL) {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    return apiUrl.endsWith("/api") ? apiUrl : `${apiUrl}/api`;
-  }
-
-  // Check if we're in development mode
-  const isDevelopment = process.env.NODE_ENV === "development";
-
-  if (isDevelopment) {
-    const devUrl = process.env.NEXT_PUBLIC_developemant_BACKEND_URL;
-    if (!devUrl) {
-      const error =
-        "NEXT_PUBLIC_developemant_BACKEND_URL is not configured in .env.local. Please add it.";
-      console.error("❌", error);
-      throw new Error(error);
-    }
-    return devUrl.endsWith("/api") ? devUrl : `${devUrl}/api`;
-  } else {
-    const prodUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-    if (!prodUrl) {
-      const fallbackUrl =
-        process.env.NEXT_PUBLIC_API_URL || "https://flowxtra.com/api";
-      console.warn(
-        "⚠️ NEXT_PUBLIC_BACKEND_URL is not configured. Using fallback:",
-        fallbackUrl
-      );
-      return fallbackUrl.endsWith("/api") ? fallbackUrl : `${fallbackUrl}/api`;
-    }
-    return prodUrl.endsWith("/api") ? prodUrl : `${prodUrl}/api`;
-  }
+  // Always use production API for policies
+  return "https://api.flowxtra.com/api";
 }
 
 const API_BASE_URL = getApiBaseUrl();
@@ -89,6 +60,9 @@ export const POLICY_TYPE_MAP: Record<string, string> = {
   "privacy-policy": "Privacy Policy",
   "cookie-policy": "Cookie Policy",
   "terms-of-use": "Terms of Use Companies",
+  gdpr: "GDPR",
+  "ad-quality-guidelines": "Ad Quality Guidelines",
+  subprocessors: "Sub processors",
 };
 
 // Get Policies List
@@ -177,7 +151,7 @@ export async function getPolicy(id: number): Promise<PolicyResponse> {
 export async function getLatestPolicyByType(
   type: string,
   language: string = "en",
-  site: string = "Flowxtra"
+  site: string = "flowxtra.com"
 ): Promise<PolicyResponse | null> {
   try {
     const response = await getPolicies({
@@ -205,7 +179,7 @@ export async function getLatestPolicyByType(
 export async function getPolicyByRoute(
   route: string,
   language: string = "en",
-  site: string = "Flowxtra"
+  site: string = "flowxtra.com"
 ): Promise<PolicyResponse | null> {
   const policyType = POLICY_TYPE_MAP[route];
   if (!policyType) {
