@@ -2,10 +2,15 @@
 // This file handles all API calls to the policies backend
 
 /**
- * Get API base URL - Always use production API for policies
+ * Get API base URL - Use Next.js API route as proxy to avoid CORS issues
  */
 function getApiBaseUrl(): string {
-  // Always use production API for policies
+  // Use Next.js API route as proxy when on client-side to avoid CORS
+  if (typeof window !== "undefined") {
+    // Client-side: use Next.js API route
+    return "/api/policies";
+  }
+  // Server-side: use direct API
   return "https://api.flowxtra.com/api";
 }
 
@@ -83,7 +88,11 @@ export async function getPolicies(params: {
   if (params.page) queryParams.append("page", params.page.toString());
   if (params.limit) queryParams.append("limit", params.limit.toString());
 
-  const url = `${API_BASE_URL}/privacy/policies/public?${queryParams.toString()}`;
+  // Use different URL structure based on whether we're on client or server
+  const isClient = typeof window !== "undefined";
+  const url = isClient
+    ? `${API_BASE_URL}?${queryParams.toString()}`
+    : `${API_BASE_URL}/privacy/policies/public?${queryParams.toString()}`;
 
   const fetchOptions: RequestInit = {
     headers: {
@@ -116,7 +125,10 @@ export async function getPolicies(params: {
 
 // Get Single Policy
 export async function getPolicy(id: number): Promise<PolicyResponse> {
-  const url = `${API_BASE_URL}/privacy/policies/public/${id}`;
+  const isClient = typeof window !== "undefined";
+  const url = isClient
+    ? `${API_BASE_URL}?id=${id}`
+    : `${API_BASE_URL}/privacy/policies/public/${id}`;
 
   const fetchOptions: RequestInit = {
     headers: {
