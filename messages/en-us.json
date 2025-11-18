@@ -1468,6 +1468,99 @@
         "infoPoint3": "Update My Data: Request corrections or updates to inaccurate or incomplete personal data.",
         "infoNote": "We will process your request within 30 days as required by GDPR. You will receive a confirmation email once your request is received."
     },
+    "atsRecruitingSoftware": {
+        "title": "ATS Software | Applicant Tracking System Software for US Companies",
+        "subtitle": "Free job posting",
+        "description": "Best ATS software and applicant tracking system software for US hiring teams. Streamline candidate tracking with AI-powered filtering, automate job distribution across US job boards (Indeed, LinkedIn, Glassdoor), and accelerate hiring decisions with our intelligent hiring manager software. Optimized for American businesses—free forever with unlimited job postings.",
+        "cta": "Get Started",
+        "features": {
+            "freeForever": "100% Free",
+            "noCreditCard": "No credit card required",
+            "cancelAnytime": "Cancel anytime"
+        },
+        "imageAlt": "ATS Recruiting Software - Streamline your hiring process with Flowxtra",
+        "imageTitle": "Flowxtra – ATS Recruiting Software",
+        "figcaption": "Streamline your hiring process with Flowxtra's free ATS recruiting software",
+        "sections": {
+            "section1": {
+                "title": "Best Applicant Tracking System Software for US Companies",
+                "description": "Flowxtra ATS software helps US companies and HR teams manage the entire hiring process—from posting job ads on American job boards (Indeed, LinkedIn, Glassdoor) to hiring the right talent. Our applicant tracking system software streamlines recruitment with AI-powered candidate tracking, automated job distribution, and comprehensive hiring management. All in one simple, powerful recruitment platform designed for American businesses.",
+                "cta": "Register For Free"
+            },
+            "section2": {
+                "title": "AI Recruitment Software: Smart Candidate Tracking & Filtering",
+                "paragraph1": "Save time and find the best candidates faster with Flowxtra's AI recruitment software. Our intelligent candidate tracking software automatically ranks and filters candidates based on their qualifications, skills, and experience—perfect for US hiring standards. Experience the power of AI hiring software that transforms your recruitment process.",
+                "features": {
+                    "feature1": "AI-powered candidate ranking and filtering",
+                    "feature2": "Automatic resume analysis and matching",
+                    "feature3": "Smart filters to find the perfect fit"
+                },
+                "cta": "Register For Free"
+            },
+            "section3": {
+                "title": "Multi-Posting to Multiple US Job Boards: Reach More Candidates Faster",
+                "paragraph1": "Post your job openings to multiple US job boards simultaneously with just one click using our recruitment platform. Reach more American candidates faster and save hours of manual posting across platforms like Indeed, LinkedIn, Glassdoor, and more. Our applicant tracking system software automates job distribution across all major US job boards.",
+                "features": {
+                    "feature1": "Post to Google for Jobs, LinkedIn, Indeed, Glassdoor, and more",
+                    "feature2": "Schedule posts in advance",
+                    "feature3": "Track applications from all US job boards in one place"
+                },
+                "cta": "Register For Free"
+            },
+            "section4": {
+                "title": "Candidate Tracking System: Comprehensive Profile Management",
+                "paragraph1": "Manage all candidate information in one place with our candidate tracking system. View resumes, track application status, add notes, and collaborate with your team—all from a single, organized dashboard designed for US hiring workflows. Our applicant tracking software centralizes all candidate data for efficient hiring management.",
+                "features": {
+                    "feature1": "Centralized candidate database",
+                    "feature2": "Application status tracking",
+                    "feature3": "Team collaboration and notes"
+                },
+                "cta": "Register For Free"
+            },
+            "section5": {
+                "title": "Hiring Management Software: Email Templates & Automation",
+                "paragraph1": "Communicate with candidates professionally and efficiently using our hiring management software. Use pre-built email templates for every stage of the hiring process, from initial contact to job offers—tailored for US business communication standards. Our recruitment software automates candidate communication to save time and ensure consistency.",
+                "features": {
+                    "feature1": "Pre-built email templates for all hiring stages",
+                    "feature2": "Automated email sending based on candidate status",
+                    "feature3": "Customizable templates to match your brand"
+                },
+                "cta": "Register For Free"
+            },
+            "ctaSection": {
+                "title": "Ready to Transform Your Hiring Process with the Best ATS Software?",
+                "description": "Join thousands of US companies using Flowxtra's best recruiting software to hire faster, smarter, and more efficiently. Our applicant tracking system software is trusted by American HR teams nationwide. Start your free plan today—no credit card required.",
+                "cta": "Start Your Free Plan"
+            },
+            "faq": {
+                "title": "Frequently Asked Questions",
+                "helpText": "Still need help?",
+                "chatLink": "Chat with us",
+                "questions": {
+                    "q1": {
+                        "question": "Is Flowxtra ATS free to use?",
+                        "answer": "Yes — Flowxtra ATS offers a free plan with unlimited job postings. You can post jobs on US job boards, filter candidates with AI, manage applications, and track your hiring process at no cost. Advanced features like custom fields, API access, and advanced analytics are available in paid plans."
+                    },
+                    "q2": {
+                        "question": "What is an ATS (Applicant Tracking System)?",
+                        "answer": "An Applicant Tracking System (ATS) is software that helps companies manage the entire hiring process, from posting job openings to tracking candidates through the recruitment pipeline. Flowxtra ATS software streamlines this process with AI-powered candidate tracking, multi-posting capabilities to US job boards (Indeed, LinkedIn, Glassdoor), and comprehensive hiring management software tools. Our applicant tracking system software is designed for modern US HR teams."
+                    },
+                    "q3": {
+                        "question": "Can I post jobs to multiple US job boards at once?",
+                        "answer": "Yes! Flowxtra's multi-posting feature allows you to post a single job opening to multiple US job boards simultaneously, including Google for Jobs, LinkedIn, Indeed, Glassdoor, and many others. This saves time and ensures your job postings reach the widest possible audience across America."
+                    },
+                    "q4": {
+                        "question": "How does AI candidate filtering work?",
+                        "answer": "Flowxtra's AI-powered candidate filtering automatically ranks and filters candidates based on their qualifications, skills, and experience. The system analyzes resumes and applications to match candidates with job requirements, helping you identify the best-fit candidates faster and more efficiently for US positions."
+                    },
+                    "q5": {
+                        "question": "Is Flowxtra ATS GDPR and CCPA compliant?",
+                        "answer": "Yes, Flowxtra ATS is fully GDPR, CCPA, and EU AI Act compliant. All candidate data is securely stored in the EU, and we follow strict data protection regulations to ensure your candidates' privacy and your company's compliance with both European and US data protection standards."
+                    }
+                }
+            }
+        }
+    },
     "notFound": {
         "title": "404 - Page Not Found",
         "heading": "Oops! Page Not Found",

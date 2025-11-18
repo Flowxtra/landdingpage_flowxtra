@@ -114,7 +114,7 @@ function FeaturesSlider() {
       description: t("slide1.description"),
       buttonText: t("slide1.buttonText"),
       buttonLink: "https://my.flowxtra.com/registration",
-      image: "/img/Smarter-Candidate-Filtering.svg", // Using PNG (98 KB) instead of SVG (53.6 MB) for better performance
+      image: "/img/Smarter-Candidate-Filtering.png", 
       imageAlt: t("slide1.imageAlt"),
       imageOnRight: true,
     },
@@ -134,7 +134,7 @@ function FeaturesSlider() {
       description: t("slide3.description"),
       buttonText: t("slide3.buttonText"),
       buttonLink: "https://my.flowxtra.com/registration",
-      image: "/img/Candidate-Profile.svg",
+      image: "/img/Candidate-Profile.webp",
       imageAlt: t("slide3.imageAlt"),
       imageOnRight: true,
     },
@@ -144,7 +144,7 @@ function FeaturesSlider() {
       description: t("slide4.description"),
       buttonText: t("slide4.buttonText"),
       buttonLink: "https://my.flowxtra.com/registration",
-      image: "/img/Multiposting-job.svg",
+      image: "/img/Multiposting-job.webp",
       imageAlt: t("slide4.imageAlt"),
       imageOnRight: false,
     },
@@ -154,7 +154,7 @@ function FeaturesSlider() {
       description: t("slide5.description"),
       buttonText: t("slide5.buttonText"),
       buttonLink: "https://my.flowxtra.com/registration",
-      image: "/img/hiring-email-template.svg",
+      image: "/img/hiring-email-template.webp",
       imageAlt: t("slide5.imageAlt"),
       imageOnRight: true,
     },
@@ -164,7 +164,7 @@ function FeaturesSlider() {
       description: t("slide6.description"),
       buttonText: t("slide6.buttonText"),
       buttonLink: "https://my.flowxtra.com/registration",
-      image: "/img/Job-board-workflow.gif",
+      image: "https://cdn.flowxtra.net/landingpage/website_assest/Job-board-workflow.gif",
       imageAlt: t("slide6.imageAlt"),
       imageOnRight: false,
     },
@@ -685,7 +685,7 @@ export default function Homepage() {
             {/* Left Side - Image */}
             <div className="order-2 lg:order-1">
               <Image
-                src="/img/multi-job-post.gif"
+                src="https://cdn.flowxtra.net/landingpage/website_assest/multi-job-post.gif"
                 alt="Flowxtra Multi Job Post"
                 width={595}
                 height={334}
@@ -778,15 +778,16 @@ export default function Homepage() {
             {/* Left Side - Image */}
             <div className="order-2 lg:order-1">
               <Image
-                src="/img/social-media-management.svg"
+                src="/img/social-media-management_pc.webp"
                 alt={t("socialMediaManager.imageAlt")}
                 title={t("socialMediaManager.imageTitle")}
                 width={725}
                 height={446}
-                quality={100}
+                quality={75}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 725px"
                 className="w-full h-auto"
-                unoptimized
                 loading="lazy"
+                suppressHydrationWarning
               />
           
             </div>
@@ -934,15 +935,16 @@ export default function Homepage() {
             <div className="order-2 lg:order-2">
               <figure>
                 <Image
-                  src="/img/job-platform-dashbourd.svg"
+                  src="/img/job-platform-dashbourd.webp"
                   alt={t("recruitment.imageAlt")}
                   title={t("recruitment.imageTitle")}
                   width={764}
                   height={453}
-                  quality={100}
+                  quality={75}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 764px"
                   className="w-full h-auto"
-                  unoptimized
                   loading="lazy"
+                  suppressHydrationWarning
                 />
                 <figcaption className="sr-only">
                   {t("recruitment.figcaption")}

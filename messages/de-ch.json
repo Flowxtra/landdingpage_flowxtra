@@ -1464,6 +1464,99 @@
         "infoPoint3": "Meine Daten aktualisieren: Beantragen Sie Korrekturen oder Aktualisierungen ungenauer oder unvollständiger persönlicher Daten.",
         "infoNote": "Wir werden Ihre Anfrage innerhalb von 30 Tagen bearbeiten, wie es die DSGVO erfordert. Sie erhalten eine Bestätigungs-E-Mail, sobald Ihre Anfrage eingegangen ist."
     },
+    "atsRecruitingSoftware": {
+        "title": "ATS Software | Bewerbermanagementsystem für Schweizer Unternehmen",
+        "subtitle": "Kostenlose Stellenausschreibung",
+        "description": "Beste ATS-Software und Bewerbermanagementsystem für Schweizer Einstellungsteams. Optimieren Sie die Kandidatenverfolgung mit KI-gestützter Filterung, automatisieren Sie die Stellenverteilung auf Schweizer Jobbörsen (Jobs.ch, JobCloud, LinkedIn) und beschleunigen Sie Einstellungsentscheidungen mit unserer intelligenten Einstellungssoftware. Optimiert für Schweizer Unternehmen—kostenlos für immer mit unbegrenzten Stellenausschreibungen.",
+        "cta": "Jetzt Starten",
+        "features": {
+            "freeForever": "100% Kostenlos",
+            "noCreditCard": "Keine Kreditkarte erforderlich",
+            "cancelAnytime": "Jederzeit kündbar"
+        },
+        "imageAlt": "ATS Software - Optimieren Sie Ihren Einstellungsprozess mit Flowxtra",
+        "imageTitle": "Flowxtra – ATS Software",
+        "figcaption": "Optimieren Sie Ihren Einstellungsprozess mit Flowxtras kostenloser ATS-Software",
+        "sections": {
+            "section1": {
+                "title": "Beste Bewerbermanagementsystem-Software für Schweizer Unternehmen",
+                "description": "Flowxtra ATS-Software hilft Schweizer Unternehmen und HR-Teams, den gesamten Einstellungsprozess zu verwalten—von der Stellenausschreibung auf Schweizer Jobbörsen (Jobs.ch, JobCloud, LinkedIn) bis zur Einstellung der richtigen Talente. Unser Bewerbermanagementsystem optimiert die Rekrutierung mit KI-gestützter Kandidatenverfolgung, automatisierter Stellenverteilung und umfassendem Einstellungsmanagement. Alles auf einer einfachen, leistungsstarken Rekrutierungsplattform für Schweizer Unternehmen.",
+                "cta": "Kostenlos Registrieren"
+            },
+            "section2": {
+                "title": "KI-Rekrutierungssoftware: Intelligente Kandidatenverfolgung & Filterung",
+                "paragraph1": "Sparen Sie Zeit und finden Sie die besten Kandidaten schneller mit Flowxtras KI-Rekrutierungssoftware. Unser intelligentes Kandidatenverfolgungssystem sortiert und filtert Kandidaten automatisch basierend auf ihren Qualifikationen, Fähigkeiten und Erfahrungen—perfekt für Schweizer Einstellungsstandards. Erleben Sie die Kraft von KI-Einstellungssoftware, die Ihren Rekrutierungsprozess transformiert.",
+                "features": {
+                    "feature1": "KI-gestützte Kandidatenbewertung und -filterung",
+                    "feature2": "Automatische Lebenslaufanalyse und -zuordnung",
+                    "feature3": "Intelligente Filter zur perfekten Passung"
+                },
+                "cta": "Kostenlos Registrieren"
+            },
+            "section3": {
+                "title": "Multiposting auf mehrere Schweizer Jobbörsen: Erreichen Sie mehr Kandidaten schneller",
+                "paragraph1": "Veröffentlichen Sie Ihre Stellenangebote gleichzeitig auf mehreren Schweizer Jobbörsen mit nur einem Klick über unsere Rekrutierungsplattform. Erreichen Sie mehr Schweizer Kandidaten schneller und sparen Sie Stunden manueller Veröffentlichung auf Plattformen wie Jobs.ch, JobCloud, LinkedIn und mehr. Unser Bewerbermanagementsystem automatisiert die Stellenverteilung auf allen wichtigen Schweizer Jobbörsen.",
+                "features": {
+                    "feature1": "Veröffentlichung auf Google for Jobs, LinkedIn, Jobs.ch, JobCloud und mehr",
+                    "feature2": "Beiträge im Voraus planen",
+                    "feature3": "Bewerbungen von allen Schweizer Jobbörsen an einem Ort verfolgen"
+                },
+                "cta": "Kostenlos Registrieren"
+            },
+            "section4": {
+                "title": "Kandidatenverfolgungssystem: Umfassende Profilverwaltung",
+                "paragraph1": "Verwalten Sie alle Kandidateninformationen an einem Ort mit unserem Kandidatenverfolgungssystem. Lebensläufe ansehen, Bewerbungsstatus verfolgen, Notizen hinzufügen und mit Ihrem Team zusammenarbeiten—alles von einem einzigen, organisierten Dashboard für Schweizer Einstellungsworkflows. Unsere Bewerberverwaltungssoftware zentralisiert alle Kandidatendaten für effizientes Einstellungsmanagement.",
+                "features": {
+                    "feature1": "Zentralisierte Kandidatendatenbank",
+                    "feature2": "Bewerbungsstatus-Tracking",
+                    "feature3": "Teamzusammenarbeit und Notizen"
+                },
+                "cta": "Kostenlos Registrieren"
+            },
+            "section5": {
+                "title": "Einstellungsmanagement-Software: E-Mail-Vorlagen & Automatisierung",
+                "paragraph1": "Kommunizieren Sie professionell und effizient mit Kandidaten mit unserer Einstellungsmanagement-Software. Verwenden Sie vorgefertigte E-Mail-Vorlagen für jede Phase des Einstellungsprozesses, vom ersten Kontakt bis zu Jobangeboten—angepasst an Schweizer Geschäftskommunikationsstandards. Unsere Rekrutierungssoftware automatisiert die Kandidatenkommunikation, um Zeit zu sparen und Konsistenz zu gewährleisten.",
+                "features": {
+                    "feature1": "Vorgefertigte E-Mail-Vorlagen für alle Einstellungsphasen",
+                    "feature2": "Automatisches Versenden von E-Mails basierend auf Kandidatenstatus",
+                    "feature3": "Anpassbare Vorlagen für Ihre Marke"
+                },
+                "cta": "Kostenlos Registrieren"
+            },
+            "ctaSection": {
+                "title": "Bereit, Ihren Einstellungsprozess mit der besten ATS-Software zu transformieren?",
+                "description": "Schließen Sie sich Tausenden von Schweizer Unternehmen an, die Flowxtras beste Rekrutierungssoftware verwenden, um schneller, intelligenter und effizienter einzustellen. Unser Bewerbermanagementsystem wird von Schweizer HR-Teams im ganzen Land vertraut. Starten Sie noch heute Ihren kostenlosen Plan—keine Kreditkarte erforderlich.",
+                "cta": "Starten Sie Ihren kostenlosen Plan"
+            },
+            "faq": {
+                "title": "Häufig gestellte Fragen",
+                "helpText": "Brauchen Sie noch Hilfe?",
+                "chatLink": "Chatten Sie mit uns",
+                "questions": {
+                    "q1": {
+                        "question": "Ist Flowxtra ATS kostenlos nutzbar?",
+                        "answer": "Ja — Flowxtra ATS bietet einen kostenlosen Plan mit unbegrenzten Stellenausschreibungen. Sie können Stellen auf Schweizer Jobbörsen ausschreiben, Kandidaten mit KI filtern, Bewerbungen verwalten und Ihren Einstellungsprozess kostenlos verfolgen. Erweiterte Funktionen wie benutzerdefinierte Felder, API-Zugriff und erweiterte Analysen sind in kostenpflichtigen Plänen verfügbar."
+                    },
+                    "q2": {
+                        "question": "Was ist ein ATS (Bewerbermanagementsystem)?",
+                        "answer": "Ein Bewerbermanagementsystem (ATS) ist eine Software, die Unternehmen hilft, den gesamten Einstellungsprozess zu verwalten, von der Veröffentlichung von Stellenangeboten bis zur Verfolgung von Kandidaten durch den Rekrutierungsprozess. Flowxtra ATS-Software optimiert diesen Prozess mit KI-gestützter Kandidatenverfolgung, Multiposting-Funktionen auf Schweizer Jobbörsen (Jobs.ch, JobCloud, LinkedIn) und umfassenden Einstellungsmanagement-Software-Tools. Unser Bewerbermanagementsystem ist für moderne Schweizer HR-Teams konzipiert."
+                    },
+                    "q3": {
+                        "question": "Kann ich Stellen gleichzeitig auf mehreren Schweizer Jobbörsen veröffentlichen?",
+                        "answer": "Ja! Flowxtras Multiposting-Funktion ermöglicht es Ihnen, eine einzige Stellenausschreibung gleichzeitig auf mehreren Schweizer Jobbörsen zu veröffentlichen, einschließlich Google for Jobs, LinkedIn, Jobs.ch, JobCloud und vielen anderen. Dies spart Zeit und stellt sicher, dass Ihre Stellenausschreibungen die größtmögliche Reichweite in der ganzen Schweiz erzielen."
+                    },
+                    "q4": {
+                        "question": "Wie funktioniert die KI-Kandidatenfilterung?",
+                        "answer": "Flowxtras KI-gestützte Kandidatenfilterung sortiert und filtert Kandidaten automatisch basierend auf ihren Qualifikationen, Fähigkeiten und Erfahrungen. Das System analysiert Lebensläufe und Bewerbungen, um Kandidaten mit Stellenanforderungen abzugleichen, und hilft Ihnen dabei, die am besten passenden Kandidaten schneller und effizienter für Schweizer Positionen zu identifizieren."
+                    },
+                    "q5": {
+                        "question": "Ist Flowxtra ATS DSGVO-konform?",
+                        "answer": "Ja, Flowxtra ATS ist vollständig DSGVO-, CCPA- und EU-KI-Gesetz-konform. Alle Kandidatendaten werden sicher in der EU gespeichert, und wir befolgen strenge Datenschutzbestimmungen, um die Privatsphäre Ihrer Kandidaten und die Compliance Ihres Unternehmens mit sowohl europäischen als auch Schweizer Datenschutzstandards sicherzustellen."
+                    }
+                }
+            }
+        }
+    },
     "notFound": {
         "title": "404 - Seite nicht gefunden",
         "heading": "Ups! Seite nicht gefunden",

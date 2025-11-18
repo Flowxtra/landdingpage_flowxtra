@@ -16,7 +16,7 @@ export default function FreeJobPosting() {
         <div 
           className="w-full rounded-[10px] px-[10px] py-12 md:py-16 relative min-h-[500px] md:min-h-[600px]"
           style={{
-            backgroundImage: 'url(/img/SocialMediaManagement_backrouand.webp)',
+            backgroundImage: 'url(/img/SocialMediaManagement_backrouand.svg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -94,58 +94,6 @@ export default function FreeJobPosting() {
                   </figcaption>
                 </figure>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Multiple Job Posting Section - White Background */}
-      <section className="w-full py-16 md:py-24 px-[10px] bg-white dark:bg-gray-900 transition-colors">
-        <div className="w-full rounded-[10px] px-[10px] py-16 md:py-20 bg-white dark:bg-gray-900">
-          <div className="container mx-auto px-4 md:px-8 lg:px-12">
-            <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
-            {/* Left Side - Content */}
-            <div className="order-1 lg:order-1 space-y-8">
-              <div className="inline-block bg-[#e6f4f7] dark:bg-gray-800 px-4 py-2 rounded-lg">
-                <span className="text-sm md:text-base font-semibold text-primary dark:text-white">
-                  {tHomepage("multipleJobPosting.badge")}
-                </span>
-              </div>
-
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
-                {tHomepage("multipleJobPosting.title")}
-              </h2>
-
-              <p className="text-base md:text-lg text-gray-600 dark:text-white leading-relaxed">
-                {tHomepage("multipleJobPosting.description")}
-              </p>
-
-              {/* CTA Button */}
-              <div className="pt-4">
-                <a
-                  href="https://my.flowxtra.com/registration"
-                  className="inline-block bg-button-primary border-2 border-button-primary text-white px-8 py-4 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-lg shadow-lg"
-                >
-                  {tHomepage("multipleJobPosting.cta")}
-                </a>
-              </div>
-            </div>
-
-            {/* Right Side - Image */}
-            <div className="order-2 lg:order-2">
-              <Image
-                src="/img/multiple-job-posting.gif"
-                alt={tHomepage("multipleJobPosting.imageAlt")}
-                title={tHomepage("multipleJobPosting.imageTitle")}
-                width={1200}
-                height={900}
-                quality={100}
-                className="w-full h-auto"
-                unoptimized
-                loading="lazy"
-                fetchPriority="low"
-              />
-            </div>
             </div>
           </div>
         </div>
@@ -253,7 +201,7 @@ export default function FreeJobPosting() {
                 <div className="order-2 lg:order-1">
                   <figure className="rounded-2xl overflow-hidden">
                     <Image
-                      src="/img/Smarter-Candidate-Filtering.svg"
+                      src="/img/Smarter-Candidate-Filtering.png"
                       alt={t("candidateFiltering.imageAlt")}
                       title={t("candidateFiltering.imageTitle")}
                       width={800}
@@ -353,14 +301,16 @@ export default function FreeJobPosting() {
                 <div className="order-2 lg:order-2">
                   <figure className="rounded-2xl overflow-hidden">
                     <Image
-                      src="/img/Candidate-Profile.svg"
+                      src="/img/Candidate-Profile.webp"
                       alt={t("applicantOverview.imageAlt")}
                       title={t("applicantOverview.imageTitle")}
                       width={800}
                       height={600}
-                      quality={100}
+                      quality={75}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 800px"
                       className="w-full h-auto rounded-lg"
                       loading="lazy"
+                      suppressHydrationWarning
                     />
                     <figcaption className="sr-only">
                       {t("applicantOverview.figcaption")}
@@ -379,14 +329,16 @@ export default function FreeJobPosting() {
                 <div className="order-2 lg:order-1">
                   <figure className="rounded-2xl overflow-hidden">
                     <Image
-                      src="/img/rating_sheets.svg"
+                      src="/img/rating_sheets.webp"
                       alt={t("ratingSheets.imageAlt")}
                       title={t("ratingSheets.imageTitle")}
                       width={800}
                       height={600}
-                      quality={100}
+                      quality={75}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 800px"
                       className="w-full h-auto rounded-lg"
                       loading="lazy"
+                      suppressHydrationWarning
                     />
                     <figcaption className="sr-only">
                       {t("ratingSheets.figcaption")}
@@ -507,14 +459,16 @@ export default function FreeJobPosting() {
                 <div className="order-2 lg:order-2">
                   <figure className="rounded-2xl overflow-hidden">
                     <Image
-                      src="/img/hiring-email-template.svg"
+                      src="/img/hiring-email-template.webp"
                       alt={t("emailTemplates.imageAlt")}
                       title={t("emailTemplates.imageTitle")}
                       width={800}
                       height={600}
-                      quality={100}
+                      quality={75}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 800px"
                       className="w-full h-auto rounded-lg"
                       loading="lazy"
+                      suppressHydrationWarning
                     />
                     <figcaption className="sr-only">
                       {t("emailTemplates.figcaption")}
@@ -529,8 +483,29 @@ export default function FreeJobPosting() {
           <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
             <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
               <div className="grid lg:grid-cols-2 gap-12 items-center">
-                {/* Left Side - Content */}
-                <div className="order-1 lg:order-1 space-y-6">
+                {/* Left Side - Image */}
+                <div className="order-2 lg:order-1">
+                  <figure className="rounded-2xl overflow-hidden">
+                    <Image
+                      src="/img/Multiposting-job.webp"
+                      alt={t("multiposting.imageAlt")}
+                      title={t("multiposting.imageTitle")}
+                      width={800}
+                      height={600}
+                      quality={75}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 800px"
+                      className="w-full h-auto rounded-lg"
+                      loading="lazy"
+                      suppressHydrationWarning
+                    />
+                    <figcaption className="sr-only">
+                      {t("multiposting.figcaption")}
+                    </figcaption>
+                  </figure>
+                </div>
+
+                {/* Right Side - Content */}
+                <div className="order-1 lg:order-2 space-y-6">
                   <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
                     {t("multiposting.title")}
                   </h2>
@@ -578,25 +553,6 @@ export default function FreeJobPosting() {
                   <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                     {t("multiposting.description4")}
                   </p>
-                </div>
-
-                {/* Right Side - Image */}
-                <div className="order-2 lg:order-2">
-                  <figure className="rounded-2xl overflow-hidden">
-                    <Image
-                      src="/img/Multiposting-job.svg"
-                      alt={t("multiposting.imageAlt")}
-                      title={t("multiposting.imageTitle")}
-                      width={800}
-                      height={600}
-                      quality={100}
-                      className="w-full h-auto rounded-lg"
-                      loading="lazy"
-                    />
-                    <figcaption className="sr-only">
-                      {t("multiposting.figcaption")}
-                    </figcaption>
-                  </figure>
                 </div>
               </div>
             </div>
@@ -695,79 +651,6 @@ export default function FreeJobPosting() {
             </div>
           </section>
 
-          {/* Intelligent Talent Overview Section */}
-          <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
-            <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                {/* Left Side - Content */}
-                <div className="order-1 lg:order-1 space-y-6">
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
-                    {t("talentOverview.title")}
-                  </h2>
-
-                  <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                    {t("talentOverview.description")}
-                  </p>
-                </div>
-
-                {/* Right Side - Image */}
-                <div className="order-2 lg:order-2">
-                  <figure className="rounded-2xl overflow-hidden">
-                    <Image
-                      src="/img/Job-board-workflow.gif"
-                      alt={t("talentOverview.imageAlt")}
-                      title={t("talentOverview.imageTitle")}
-                      width={1920}
-                      height={1080}
-                      quality={100}
-                      className="w-full h-auto rounded-lg"
-                      loading="lazy"
-                    />
-                    <figcaption className="sr-only">
-                      {t("talentOverview.figcaption")}
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Detailed Hiring Dashboard Section */}
-          <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
-            <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                {/* Left Side - Image */}
-                <div className="order-2 lg:order-1">
-                  <figure className="rounded-2xl overflow-hidden">
-                    <Image
-                      src="/img/dashboard.gif"
-                      alt={t("hiringDashboard.imageAlt")}
-                      title={t("hiringDashboard.imageTitle")}
-                      width={800}
-                      height={600}
-                      quality={100}
-                      className="w-full h-auto rounded-lg"
-                      loading="lazy"
-                    />
-                    <figcaption className="sr-only">
-                      {t("hiringDashboard.figcaption")}
-                    </figcaption>
-                  </figure>
-                </div>
-
-                {/* Right Side - Content */}
-                <div className="order-1 lg:order-2 space-y-6">
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
-                    {t("hiringDashboard.title")}
-                  </h2>
-
-                  <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                    {t("hiringDashboard.description")}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
         </div>
       </div>
 
@@ -775,7 +658,7 @@ export default function FreeJobPosting() {
       <section 
         className="w-full py-16 md:py-24 bg-cover bg-center bg-no-repeat relative"
         style={{
-          backgroundImage: 'url(/img/free_jobs_posting_bg.svg)',
+          backgroundImage: 'url(/img/free_jobs_posting_bg.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

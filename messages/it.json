@@ -1464,6 +1464,99 @@
         "infoPoint3": "Aggiorna i miei dati: Richiedi correzioni o aggiornamenti di dati personali imprecisi o incompleti.",
         "infoNote": "Elaboreremo la tua richiesta entro 30 giorni come richiesto dal GDPR. Riceverai un'email di conferma una volta ricevuta la tua richiesta."
     },
+    "atsRecruitingSoftware": {
+        "title": "Software ATS | Software sistema di tracciamento candidati – Flowxtra",
+        "subtitle": "Pubblicazione lavori gratuita",
+        "description": "Potente software ATS e software sistema di tracciamento candidati per team di assunzione moderni. Ottimizza il tracciamento dei candidati, automatizza la distribuzione delle offerte di lavoro su portali di lavoro italiani (InfoJobs IT, Indeed IT, LinkedIn) e accelera le decisioni di assunzione con il nostro software intelligente di gestione delle assunzioni. Gratis per sempre con pubblicazioni di lavoro illimitate.",
+        "cta": "Inizia",
+        "features": {
+            "freeForever": "100% Gratis",
+            "noCreditCard": "Nessuna carta di credito richiesta",
+            "cancelAnytime": "Annulla in qualsiasi momento"
+        },
+        "imageAlt": "Software ATS - Ottimizza il tuo processo di assunzione con Flowxtra",
+        "imageTitle": "Flowxtra – Software ATS",
+        "figcaption": "Ottimizza il tuo processo di assunzione con il software ATS gratuito di Flowxtra",
+        "sections": {
+            "section1": {
+                "title": "Miglior software sistema di tracciamento candidati per aziende italiane",
+                "description": "Il software ATS Flowxtra aiuta le aziende italiane e i team HR a gestire l'intero processo di assunzione—dalla pubblicazione di offerte di lavoro su portali di lavoro italiani (InfoJobs IT, Indeed IT, LinkedIn) all'assunzione dei talenti giusti. Il nostro software sistema di tracciamento candidati ottimizza il reclutamento con tracciamento candidati alimentato da IA, distribuzione automatizzata delle offerte di lavoro e gestione completa delle assunzioni. Tutto su una piattaforma di reclutamento semplice e potente progettata per aziende italiane.",
+                "cta": "Registrati gratuitamente"
+            },
+            "section2": {
+                "title": "Software reclutamento IA: Tracciamento e filtraggio intelligente candidati",
+                "paragraph1": "Risparmia tempo e trova i migliori candidati più velocemente con il software reclutamento IA di Flowxtra. Il nostro software intelligente di tracciamento candidati classifica e filtra automaticamente i candidati in base alle loro qualifiche, competenze ed esperienza—perfetto per gli standard di assunzione italiani. Sperimenta la potenza del software assunzione IA che trasforma il tuo processo di reclutamento.",
+                "features": {
+                    "feature1": "Classificazione e filtraggio candidati alimentati da IA",
+                    "feature2": "Analisi e corrispondenza automatica dei curriculum",
+                    "feature3": "Filtri intelligenti per trovare il candidato perfetto"
+                },
+                "cta": "Registrati gratuitamente"
+            },
+            "section3": {
+                "title": "Multiposting su più portali di lavoro italiani: Raggiungi più candidati più velocemente",
+                "paragraph1": "Pubblica le tue offerte di lavoro simultaneamente su più portali di lavoro italiani con un solo clic usando la nostra piattaforma di reclutamento. Raggiungi più candidati italiani più velocemente e risparmia ore di pubblicazione manuale su piattaforme come InfoJobs IT, Indeed IT, LinkedIn e altro ancora. Il nostro software sistema di tracciamento candidati automatizza la distribuzione delle offerte di lavoro su tutti i principali portali di lavoro italiani.",
+                "features": {
+                    "feature1": "Pubblica su Google for Jobs, LinkedIn, InfoJobs IT, Indeed IT e altro",
+                    "feature2": "Programma le pubblicazioni in anticipo",
+                    "feature3": "Traccia le candidature da tutti i portali di lavoro italiani in un unico posto"
+                },
+                "cta": "Registrati gratuitamente"
+            },
+            "section4": {
+                "title": "Sistema tracciamento candidati: Gestione completa profili",
+                "paragraph1": "Gestisci tutte le informazioni dei candidati in un unico posto con il nostro sistema tracciamento candidati. Visualizza curriculum, traccia lo stato delle candidature, aggiungi note e collabora con il tuo team—tutto da una dashboard unica e organizzata progettata per i flussi di lavoro di assunzione italiani. Il nostro software tracciamento candidati centralizza tutti i dati dei candidati per una gestione efficiente delle assunzioni.",
+                "features": {
+                    "feature1": "Database centralizzato candidati",
+                    "feature2": "Tracciamento stato candidature",
+                    "feature3": "Collaborazione team e note"
+                },
+                "cta": "Registrati gratuitamente"
+            },
+            "section5": {
+                "title": "Software gestione assunzioni: Modelli email e automazione",
+                "paragraph1": "Comunica con i candidati in modo professionale ed efficiente usando il nostro software gestione assunzioni. Usa modelli email predefiniti per ogni fase del processo di assunzione, dal contatto iniziale alle offerte di lavoro—adattati agli standard di comunicazione aziendale italiani. Il nostro software reclutamento automatizza la comunicazione con i candidati per risparmiare tempo e garantire coerenza.",
+                "features": {
+                    "feature1": "Modelli email predefiniti per tutte le fasi di assunzione",
+                    "feature2": "Invio automatico email basato sullo stato del candidato",
+                    "feature3": "Modelli personalizzabili per abbinare il tuo brand"
+                },
+                "cta": "Registrati gratuitamente"
+            },
+            "ctaSection": {
+                "title": "Pronto a trasformare il tuo processo di assunzione con il miglior software ATS?",
+                "description": "Unisciti a migliaia di aziende italiane che usano il miglior software reclutamento di Flowxtra per assumere più velocemente, più intelligentemente e più efficientemente. Il nostro software sistema di tracciamento candidati è affidato da team HR italiani in tutto il paese. Inizia il tuo piano gratuito oggi—nessuna carta di credito richiesta.",
+                "cta": "Inizia il tuo piano gratuito"
+            },
+            "faq": {
+                "title": "Domande frequenti",
+                "helpText": "Hai ancora bisogno di aiuto?",
+                "chatLink": "Chatta con noi",
+                "questions": {
+                    "q1": {
+                        "question": "Flowxtra ATS è gratuito?",
+                        "answer": "Sì — Flowxtra ATS offre un piano gratuito con pubblicazioni di lavoro illimitate. Puoi pubblicare offerte di lavoro su portali di lavoro italiani, filtrare candidati con IA, gestire candidature e tracciare il tuo processo di assunzione senza costi. Funzionalità avanzate come campi personalizzati, accesso API e analisi avanzate sono disponibili nei piani a pagamento."
+                    },
+                    "q2": {
+                        "question": "Cos'è un ATS (sistema di tracciamento candidati)?",
+                        "answer": "Un sistema di tracciamento candidati (ATS) è un software che aiuta le aziende a gestire l'intero processo di assunzione, dalla pubblicazione di offerte di lavoro al tracciamento dei candidati attraverso il processo di reclutamento. Il software ATS Flowxtra ottimizza questo processo con tracciamento candidati alimentato da IA, capacità di multiposting su portali di lavoro italiani (InfoJobs IT, Indeed IT, LinkedIn) e strumenti completi di software gestione assunzioni. Il nostro software sistema di tracciamento candidati è progettato per team HR italiani moderni."
+                    },
+                    "q3": {
+                        "question": "Posso pubblicare offerte di lavoro su più portali di lavoro italiani contemporaneamente?",
+                        "answer": "Sì! La funzionalità multiposting di Flowxtra ti consente di pubblicare una singola offerta di lavoro simultaneamente su più portali di lavoro italiani, inclusi Google for Jobs, LinkedIn, InfoJobs IT, Indeed IT e molti altri. Questo risparmia tempo e garantisce che le tue offerte di lavoro raggiungano il pubblico più ampio possibile in Italia."
+                    },
+                    "q4": {
+                        "question": "Come funziona il filtraggio candidati con IA?",
+                        "answer": "Il filtraggio candidati alimentato da IA di Flowxtra classifica e filtra automaticamente i candidati in base alle loro qualifiche, competenze ed esperienza. Il sistema analizza curriculum e candidature per abbinare i candidati ai requisiti del lavoro, aiutandoti a identificare i candidati più adatti più velocemente ed efficientemente per posizioni italiane."
+                    },
+                    "q5": {
+                        "question": "Flowxtra ATS è conforme al GDPR?",
+                        "answer": "Sì, Flowxtra ATS è completamente conforme a GDPR, CCPA e legge UE sull'IA. Tutti i dati dei candidati sono archiviati in modo sicuro nell'UE, e seguiamo rigorose normative sulla protezione dei dati per garantire la privacy dei tuoi candidati e la conformità della tua azienda con gli standard europei e italiani di protezione dei dati."
+                    }
+                }
+            }
+        }
+    },
     "notFound": {
         "title": "404 - Pagina non trovata",
         "heading": "Ops! Pagina non trovata",

@@ -21,7 +21,6 @@ function Header() {
   const [isCurrencyOpen, setIsCurrencyOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
-  const langDropdownRef = useRef<HTMLDivElement>(null);
 
   // Initialize dark mode from localStorage or browser preferences
   useEffect(() => {
@@ -88,10 +87,21 @@ function Header() {
     const newLocale = langToLocale[lang] || "en";
     
     // Get current path without locale
+    // Support all locales including country-specific ones (de-at, en-us, etc.)
     let pathWithoutLocale = pathname;
-    const localePrefixes = ['/en', '/de', '/fr', '/es', '/it', '/nl', '/ar'];
-    for (const prefix of localePrefixes) {
-      if (pathname.startsWith(prefix)) {
+    
+    // All supported locales (including country-specific)
+    const allLocalePrefixes = [
+      '/en-us', '/en-gb', '/en-au', '/en-ca', // English country-specific
+      '/de-at', '/de-ch', // German country-specific
+      '/en', '/de', '/fr', '/es', '/it', '/nl', '/ar' // Base locales
+    ];
+    
+    // Sort by length (longest first) to match country-specific locales first
+    allLocalePrefixes.sort((a, b) => b.length - a.length);
+    
+    for (const prefix of allLocalePrefixes) {
+      if (pathname.startsWith(prefix + '/') || pathname === prefix) {
         pathWithoutLocale = pathname.substring(prefix.length) || '/';
         break;
       }
@@ -130,7 +140,6 @@ function Header() {
     
     // Clear language from localStorage before reload
     localStorage.removeItem("language");
-    setIsLangOpen(false);
     
     // Force full page reload to ensure translations update
     window.location.replace(newPath);
@@ -197,27 +206,6 @@ function Header() {
       };
     }
   }, [isMenuOpen]);
-
-  // Close language dropdown when clicking outside (desktop)
-  useEffect(() => {
-    if (!isLangOpen) return;
-
-    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
-      if (!langDropdownRef.current) return;
-      const target = event.target as Node;
-      if (!langDropdownRef.current.contains(target)) {
-        setIsLangOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("touchstart", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("touchstart", handleClickOutside);
-    };
-  }, [isLangOpen]);
 
   // Load currency on mount
   useEffect(() => {
@@ -304,6 +292,18 @@ function Header() {
                         {tNav("socialMediaManagement")}
                       </Link>
                       <Link
+                        href={`/${currentLocale}/ats-recruiting-software`}
+                        className={cn(
+                          "block px-3 py-2 text-sm rounded-sm",
+                          "text-gray-700 dark:text-gray-300",
+                          "hover:bg-gray-100 dark:hover:bg-gray-700",
+                          "hover:text-primary dark:hover:text-secondary-light",
+                          "transition-colors"
+                        )}
+                      >
+                        {tNav("atsRecruitingSoftware")}
+                      </Link>
+                      <Link
                         href={`/${currentLocale}/free-job-posting`}
                         className={cn(
                           "block px-3 py-2 text-sm rounded-sm",
@@ -386,7 +386,7 @@ function Header() {
             </button>
 
             {/* Language Selector */}
-            <div className="relative" ref={langDropdownRef}>
+            <div className="relative">
               <button
                 onClick={() => setIsLangOpen(!isLangOpen)}
                 className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
@@ -610,6 +610,13 @@ function Header() {
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {tNav("socialMediaManagement")}
+                    </Link>
+                    <Link
+                      href={`/${currentLocale}/ats-recruiting-software`}
+                      className="block text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-secondary-light transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {tNav("atsRecruitingSoftware")}
                     </Link>
                     <Link
                       href={`/${currentLocale}/free-job-posting`}

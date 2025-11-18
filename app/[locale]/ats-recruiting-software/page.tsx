@@ -4,14 +4,14 @@ import Image from "next/image";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 
-export default function SocialMediaManagement() {
-  const t = useTranslations("socialMediaManagement");
-  const faqT = useTranslations("socialMediaManagement.sections.faq");
+export default function ATSRecruitingSoftware() {
+  const t = useTranslations("atsRecruitingSoftware");
+  const faqT = useTranslations("atsRecruitingSoftware.sections.faq");
   const [openIndex, setOpenIndex] = useState<number | null>(0); // First question open by default
   
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
-      {/* Hero Section - Same background as homepage first section */}
+      {/* Hero Section - Same background as social media management */}
       <section className="w-full pt-2.5 pb-16 md:pb-24 px-[10px] bg-white dark:bg-gray-900 transition-colors">
         <div 
           className="w-full rounded-[10px] px-[10px] py-12 md:py-16 relative min-h-[500px] md:min-h-[600px]"
@@ -27,9 +27,14 @@ export default function SocialMediaManagement() {
               {/* Left Side - Content */}
               <div className="space-y-8">
                 {/* Title */}
-                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight">
+                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-1">
                   {t("title")}
                 </h1>
+
+                {/* Subtitle */}
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-white leading-tight">
+                  {t("subtitle")}
+                </h2>
 
                 {/* Description */}
                 <p className="text-base md:text-lg lg:text-xl text-white leading-relaxed">
@@ -47,7 +52,6 @@ export default function SocialMediaManagement() {
                 </div>
 
                 {/* Features List - Responsive Layout */}
-                {/* Grid on small/medium screens (mobile, tablet, small laptop), flex row on large screens */}
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:flex lg:flex-row items-start lg:items-center gap-4 md:gap-6 pt-4">
                   {/* Free - Gift Icon */}
                   <div className="flex items-start lg:items-center gap-2 sm:gap-3 w-full lg:w-auto">
@@ -85,14 +89,17 @@ export default function SocialMediaManagement() {
               <div className="order-first lg:order-last">
                 <figure className="rounded-2xl overflow-hidden">
                   <Image
-                    src="/img/social_media__management.webp"
+                    src="/img/candidate-fiter.png"
                     alt={t("imageAlt")}
                     title={t("imageTitle")}
-                    width={800}
-                    height={600}
-                    quality={100}
+                    width={834}
+                    height={489}
+                    quality={75}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 834px"
                     className="w-full h-auto rounded-lg"
                     priority
+                    fetchPriority="high"
+                    suppressHydrationWarning
                   />
                   <figcaption className="sr-only">
                     {t("figcaption")}
@@ -104,26 +111,11 @@ export default function SocialMediaManagement() {
         </div>
       </section>
 
-      {/* Section 1 - Run your social media like a business */}
+      {/* Section 1 - Streamline Your Hiring Process */}
       <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
         <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Side - Image */}
-            <div className="order-2 lg:order-1 rounded-2xl overflow-hidden">
-              <Image
-                src="/img/social_media_business.webp"
-                alt="Run your social media like a business, not a burden"
-                width={800}
-                height={600}
-                quality={75}
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 800px"
-                className="w-full h-auto rounded-lg"
-                loading="lazy"
-                suppressHydrationWarning
-              />
-            </div>
-            {/* Right Side - Content */}
-            <div className="order-1 lg:order-2 space-y-6">
+            <div className="space-y-6">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
                 {t("sections.section1.title")}
               </h2>
@@ -139,16 +131,86 @@ export default function SocialMediaManagement() {
                 </a>
               </div>
             </div>
+            <div className="rounded-2xl overflow-hidden">
+              <Image
+                src="/img/job-platform-dashbourd.webp"
+                alt="Streamline Your Hiring Process with Flowxtra ATS"
+                width={764}
+                height={453}
+                quality={75}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 764px"
+                className="w-full h-auto rounded-lg"
+                loading="lazy"
+                suppressHydrationWarning
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Section 3 - Visual Calendar */}
+      {/* Section 2 - Smart Candidate Filtering */}
+      <section className="w-full py-16 md:py-24 bg-gray-50 dark:bg-gray-800 transition-colors">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1 rounded-2xl overflow-hidden">
+              <Image
+                src="/img/Smarter-Candidate-Filtering.png"
+                alt="Smart Candidate Filtering with AI-Powered ATS"
+                width={595}
+                height={411}
+                quality={75}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 595px"
+                className="w-full h-auto rounded-lg"
+                loading="lazy"
+                suppressHydrationWarning
+              />
+            </div>
+            <div className="order-1 lg:order-2 space-y-6">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
+                {t("sections.section2.title")}
+              </h2>
+              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                {t("sections.section2.paragraph1")}
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#00A8CD] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">{t("sections.section2.features.feature1")}</span>
+                </li>
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#00A8CD] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">{t("sections.section2.features.feature2")}</span>
+                </li>
+                <li className="flex items-start gap-3 group cursor-pointer">
+                  <svg className="w-6 h-6 text-[#212b36] dark:text-gray-400 group-hover:text-[#00A8CD] flex-shrink-0 mt-0.5 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-base md:text-lg text-gray-700 dark:text-gray-300">{t("sections.section2.features.feature3")}</span>
+                </li>
+              </ul>
+              <div className="pt-4">
+                <a
+                  href="https://my.flowxtra.com/registration"
+                  className="inline-block bg-button-primary border-2 border-button-primary text-white px-6 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-base shadow-lg"
+                >
+                  {t("sections.section2.cta")}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3 - Multi-Posting to Multiple Job Boards */}
       <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
         <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white leading-tight">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
                 {t("sections.section3.title")}
               </h2>
               <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -185,12 +247,12 @@ export default function SocialMediaManagement() {
             </div>
             <div className="rounded-2xl overflow-hidden">
               <Image
-                src="/img/social_media_calendar.webp"
-                alt="Plan and Control Every Post from One Visual Calendar"
-                width={800}
-                height={600}
+                src="/img/Multiposting-job.webp"
+                alt="Post Jobs to Multiple Job Boards Simultaneously"
+                width={595}
+                height={373}
                 quality={75}
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 800px"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 595px"
                 className="w-full h-auto rounded-lg"
                 loading="lazy"
                 suppressHydrationWarning
@@ -200,18 +262,18 @@ export default function SocialMediaManagement() {
         </div>
       </section>
 
-      {/* Section 4 - AI Assistant */}
+      {/* Section 4 - Candidate Profile Management */}
       <section className="w-full py-16 md:py-24 bg-gray-50 dark:bg-gray-800 transition-colors">
         <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1 rounded-2xl overflow-hidden">
               <Image
-                src="/img/ai_assistant_social_media.webp"
-                alt="Your AI Assistant for Effortless Content Creation"
-                width={800}
-                height={600}
+                src="/img/Candidate-Profile.webp"
+                alt="Comprehensive Candidate Profile Management"
+                width={595}
+                height={448}
                 quality={75}
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 800px"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 595px"
                 className="w-full h-auto rounded-lg"
                 loading="lazy"
                 suppressHydrationWarning
@@ -257,7 +319,7 @@ export default function SocialMediaManagement() {
         </div>
       </section>
 
-      {/* Section 5 - Pipelines */}
+      {/* Section 5 - Email Templates & Automation */}
       <section className="w-full py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors">
         <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -298,27 +360,32 @@ export default function SocialMediaManagement() {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden">
-              <Image
-                src="/img/social_media_pipelines.webp"
-                alt="Create and Share Pipelines — Without Giving Full Access"
-                width={800}
-                height={600}
-                quality={75}
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 800px"
-                className="w-full h-auto rounded-lg"
-                loading="lazy"
-                suppressHydrationWarning
-              />
+              <figure className="rounded-2xl overflow-hidden">
+                <Image
+                  src="/img/hiring-email-template.webp"
+                  alt="Professional Email Templates for Hiring"
+                  width={800}
+                  height={600}
+                  quality={75}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 800px"
+                  className="w-full h-auto rounded-lg"
+                  loading="lazy"
+                  suppressHydrationWarning
+                />
+                <figcaption className="sr-only">
+                  Professional Email Templates for Hiring
+                </figcaption>
+              </figure>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section - Ready to Hire */}
+      {/* CTA Section - Ready to Transform Your Hiring */}
       <section 
         className="w-full py-16 md:py-24 bg-cover bg-center bg-no-repeat relative"
         style={{
-          backgroundImage: 'url(/img/social_media_bg.svg)',
+          backgroundImage: 'url(/img/free_jobs_posting_bg.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -362,7 +429,7 @@ export default function SocialMediaManagement() {
 
           {/* FAQ Accordion */}
           <div className="space-y-0">
-            {[1, 2, 3, 4].map((qNum) => {
+            {[1, 2, 3, 4, 5].map((qNum) => {
               const question = faqT(`questions.q${qNum}.question`);
               const answer = faqT(`questions.q${qNum}.answer`);
               const index = qNum - 1;

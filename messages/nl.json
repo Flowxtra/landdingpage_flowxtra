@@ -1464,6 +1464,99 @@
         "infoPoint3": "Mijn gegevens bijwerken: Vraag correcties of updates aan van onjuiste of onvolledige persoonlijke gegevens.",
         "infoNote": "We zullen uw verzoek binnen 30 dagen verwerken zoals vereist door de AVG. U ontvangt een bevestigings-e-mail zodra uw verzoek is ontvangen."
     },
+    "atsRecruitingSoftware": {
+        "title": "ATS Software | Kandidaat tracking systeem software – Flowxtra",
+        "subtitle": "Gratis vacatures plaatsen",
+        "description": "Krachtige ATS software en kandidaat tracking systeem software voor moderne wervings teams. Stroomlijn kandidaat tracking, automatiseer vacature distributie op Nederlandse vacaturesites (Indeed NL, LinkedIn, Nationale Vacaturebank) en versnel wervingsbeslissingen met onze intelligente wervingsbeheer software. Gratis voor altijd met onbeperkte vacature plaatsingen.",
+        "cta": "Beginnen",
+        "features": {
+            "freeForever": "100% Gratis",
+            "noCreditCard": "Geen creditcard vereist",
+            "cancelAnytime": "Altijd opzegbaar"
+        },
+        "imageAlt": "ATS Software - Stroomlijn uw wervingsproces met Flowxtra",
+        "imageTitle": "Flowxtra – ATS Software",
+        "figcaption": "Stroomlijn uw wervingsproces met Flowxtra's gratis ATS software",
+        "sections": {
+            "section1": {
+                "title": "Beste kandidaat tracking systeem software voor Nederlandse bedrijven",
+                "description": "Flowxtra ATS software helpt Nederlandse bedrijven en HR-teams het volledige wervingsproces te beheren—van het plaatsen van vacatures op Nederlandse vacaturesites (Indeed NL, LinkedIn, Nationale Vacaturebank) tot het aannemen van het juiste talent. Onze kandidaat tracking systeem software stroomlijnt werving met AI-gestuurde kandidaat tracking, geautomatiseerde vacature distributie en uitgebreid wervingsbeheer. Alles op één eenvoudige, krachtige wervingsplatform ontworpen voor Nederlandse bedrijven.",
+                "cta": "Gratis registreren"
+            },
+            "section2": {
+                "title": "AI wervingssoftware: Slimme kandidaat tracking & filtering",
+                "paragraph1": "Bespaar tijd en vind de beste kandidaten sneller met Flowxtra's AI wervingssoftware. Ons intelligente kandidaat tracking software rangschikt en filtert automatisch kandidaten op basis van hun kwalificaties, vaardigheden en ervaring—perfect voor Nederlandse wervingsstandaarden. Ervaar de kracht van AI wervingssoftware die uw wervingsproces transformeert.",
+                "features": {
+                    "feature1": "AI-gestuurde kandidaat rangschikking en filtering",
+                    "feature2": "Automatische CV-analyse en matching",
+                    "feature3": "Slimme filters om de perfecte match te vinden"
+                },
+                "cta": "Gratis registreren"
+            },
+            "section3": {
+                "title": "Multiposting op meerdere Nederlandse vacaturesites: Bereik meer kandidaten sneller",
+                "paragraph1": "Plaats uw vacatures gelijktijdig op meerdere Nederlandse vacaturesites met één klik via ons wervingsplatform. Bereik meer Nederlandse kandidaten sneller en bespaar uren handmatig plaatsen op platforms zoals Indeed NL, LinkedIn, Nationale Vacaturebank en meer. Onze kandidaat tracking systeem software automatiseert vacature distributie op alle belangrijke Nederlandse vacaturesites.",
+                "features": {
+                    "feature1": "Plaatsen op Google for Jobs, LinkedIn, Indeed NL, Nationale Vacaturebank en meer",
+                    "feature2": "Plaatsingen vooraf plannen",
+                    "feature3": "Sollicitaties van alle Nederlandse vacaturesites op één plek volgen"
+                },
+                "cta": "Gratis registreren"
+            },
+            "section4": {
+                "title": "Kandidaat tracking systeem: Uitgebreide profielbeheer",
+                "paragraph1": "Beheer alle kandidaat informatie op één plek met ons kandidaat tracking systeem. Bekijk CV's, volg sollicitatiestatus, voeg notities toe en werk samen met uw team—alles vanuit één georganiseerd dashboard ontworpen voor Nederlandse wervingsworkflows. Onze kandidaat tracking software centraliseert alle kandidaat gegevens voor efficiënt wervingsbeheer.",
+                "features": {
+                    "feature1": "Gecentraliseerde kandidaat database",
+                    "feature2": "Sollicitatiestatus tracking",
+                    "feature3": "Team samenwerking en notities"
+                },
+                "cta": "Gratis registreren"
+            },
+            "section5": {
+                "title": "Wervingsbeheer software: E-mail templates & automatisering",
+                "paragraph1": "Communiceer professioneel en efficiënt met kandidaten met onze wervingsbeheer software. Gebruik vooraf gemaakte e-mail templates voor elke fase van het wervingsproces, van eerste contact tot aanbiedingen—afgestemd op Nederlandse zakelijke communicatiestandaarden. Onze wervingssoftware automatiseert kandidaat communicatie om tijd te besparen en consistentie te waarborgen.",
+                "features": {
+                    "feature1": "Vooraf gemaakte e-mail templates voor alle wervingsfasen",
+                    "feature2": "Automatisch e-mail verzenden op basis van kandidaat status",
+                    "feature3": "Aanpasbare templates om bij uw merk te passen"
+                },
+                "cta": "Gratis registreren"
+            },
+            "ctaSection": {
+                "title": "Klaar om uw wervingsproces te transformeren met de beste ATS software?",
+                "description": "Sluit u aan bij duizenden Nederlandse bedrijven die Flowxtra's beste wervingssoftware gebruiken om sneller, slimmer en efficiënter aan te nemen. Onze kandidaat tracking systeem software wordt vertrouwd door Nederlandse HR-teams door het hele land. Start vandaag uw gratis plan—geen creditcard vereist.",
+                "cta": "Start uw gratis plan"
+            },
+            "faq": {
+                "title": "Veelgestelde vragen",
+                "helpText": "Heeft u nog hulp nodig?",
+                "chatLink": "Chat met ons",
+                "questions": {
+                    "q1": {
+                        "question": "Is Flowxtra ATS gratis te gebruiken?",
+                        "answer": "Ja — Flowxtra ATS biedt een gratis plan met onbeperkte vacature plaatsingen. U kunt vacatures plaatsen op Nederlandse vacaturesites, kandidaten filteren met AI, sollicitaties beheren en uw wervingsproces kosteloos volgen. Geavanceerde functies zoals aangepaste velden, API-toegang en geavanceerde analyses zijn beschikbaar in betaalde plannen."
+                    },
+                    "q2": {
+                        "question": "Wat is een ATS (kandidaat tracking systeem)?",
+                        "answer": "Een kandidaat tracking systeem (ATS) is software die bedrijven helpt het volledige wervingsproces te beheren, van het plaatsen van vacatures tot het volgen van kandidaten door het wervingsproces. Flowxtra ATS software stroomlijnt dit proces met AI-gestuurde kandidaat tracking, multiposting mogelijkheden op Nederlandse vacaturesites (Indeed NL, LinkedIn, Nationale Vacaturebank) en uitgebreide wervingsbeheer software tools. Onze kandidaat tracking systeem software is ontworpen voor moderne Nederlandse HR-teams."
+                    },
+                    "q3": {
+                        "question": "Kan ik vacatures gelijktijdig op meerdere Nederlandse vacaturesites plaatsen?",
+                        "answer": "Ja! Flowxtra's multiposting functie stelt u in staat om één vacature gelijktijdig op meerdere Nederlandse vacaturesites te plaatsen, inclusief Google for Jobs, LinkedIn, Indeed NL, Nationale Vacaturebank en vele anderen. Dit bespaart tijd en zorgt ervoor dat uw vacatures het breedst mogelijke publiek in Nederland bereiken."
+                    },
+                    "q4": {
+                        "question": "Hoe werkt AI kandidaat filtering?",
+                        "answer": "Flowxtra's AI-gestuurde kandidaat filtering rangschikt en filtert automatisch kandidaten op basis van hun kwalificaties, vaardigheden en ervaring. Het systeem analyseert CV's en sollicitaties om kandidaten te matchen met functievereisten, waardoor u de best passende kandidaten sneller en efficiënter kunt identificeren voor Nederlandse posities."
+                    },
+                    "q5": {
+                        "question": "Is Flowxtra ATS AVG-conform?",
+                        "answer": "Ja, Flowxtra ATS is volledig AVG-, CCPA- en EU AI-wet-conform. Alle kandidaat gegevens worden veilig opgeslagen in de EU, en wij volgen strikte gegevensbeschermingsregelgeving om de privacy van uw kandidaten en de naleving van uw bedrijf met zowel Europese als Nederlandse gegevensbeschermingsstandaarden te waarborgen."
+                    }
+                }
+            }
+        }
+    },
     "notFound": {
         "title": "404 - Pagina niet gevonden",
         "heading": "Oeps! Pagina niet gevonden",

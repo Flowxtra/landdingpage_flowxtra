@@ -1430,7 +1430,7 @@
         }
     },
     "affiliateBanner": {
-        "message": "Invitez un ami et recevez un cadeau de 594 € !",
+        "message": "Invitez un ami et recevez un cadeau de €594 !",
         "linkText": "Rejoindre le Programme d'Affiliation",
         "closeLabel": "Fermer la bannière"
     },
@@ -1463,6 +1463,99 @@
         "infoPoint2": "Supprimer mes données : Demandez la suppression permanente de vos données personnelles de nos systèmes (sous réserve des exigences légales de conservation).",
         "infoPoint3": "Mettre à jour mes données : Demandez des corrections ou des mises à jour des données personnelles inexactes ou incomplètes.",
         "infoNote": "Nous traiterons votre demande dans les 30 jours conformément au RGPD. Vous recevrez un e-mail de confirmation une fois votre demande reçue."
+    },
+    "atsRecruitingSoftware": {
+        "title": "Logiciel ATS | Logiciel de système de suivi des candidats – Flowxtra",
+        "subtitle": "Publication d'emplois gratuite",
+        "description": "Puissant logiciel ATS et logiciel de système de suivi des candidats pour les équipes de recrutement modernes. Optimisez le suivi des candidats, automatisez la distribution des offres d'emploi sur les sites d'emploi français (Pôle Emploi, Indeed FR, LinkedIn), et accélérez les décisions d'embauche avec notre logiciel intelligent de gestion du recrutement. Gratuit à vie avec des publications d'emplois illimitées.",
+        "cta": "Commencer",
+        "features": {
+            "freeForever": "100% Gratuit",
+            "noCreditCard": "Aucune carte de crédit requise",
+            "cancelAnytime": "Annuler à tout moment"
+        },
+        "imageAlt": "Logiciel ATS - Optimisez votre processus de recrutement avec Flowxtra",
+        "imageTitle": "Flowxtra – Logiciel ATS",
+        "figcaption": "Optimisez votre processus de recrutement avec le logiciel ATS gratuit de Flowxtra",
+        "sections": {
+            "section1": {
+                "title": "Meilleur logiciel de système de suivi des candidats pour les entreprises françaises",
+                "description": "Le logiciel ATS Flowxtra aide les entreprises françaises et les équipes RH à gérer l'ensemble du processus de recrutement—de la publication d'offres d'emploi sur les sites d'emploi français (Pôle Emploi, Indeed FR, LinkedIn) à l'embauche des meilleurs talents. Notre logiciel de système de suivi des candidats optimise le recrutement avec un suivi des candidats alimenté par l'IA, une distribution automatisée des offres d'emploi et une gestion complète du recrutement. Tout sur une plateforme de recrutement simple et puissante conçue pour les entreprises françaises.",
+                "cta": "S'inscrire gratuitement"
+            },
+            "section2": {
+                "title": "Logiciel de recrutement IA : Suivi et filtrage intelligent des candidats",
+                "paragraph1": "Gagnez du temps et trouvez les meilleurs candidats plus rapidement avec le logiciel de recrutement IA de Flowxtra. Notre logiciel intelligent de suivi des candidats classe et filtre automatiquement les candidats en fonction de leurs qualifications, compétences et expérience—parfait pour les standards de recrutement français. Découvrez la puissance du logiciel de recrutement IA qui transforme votre processus de recrutement.",
+                "features": {
+                    "feature1": "Classement et filtrage des candidats alimentés par l'IA",
+                    "feature2": "Analyse et correspondance automatiques des CV",
+                    "feature3": "Filtres intelligents pour trouver le candidat idéal"
+                },
+                "cta": "S'inscrire gratuitement"
+            },
+            "section3": {
+                "title": "Multiposting sur plusieurs sites d'emploi français : Atteignez plus de candidats plus rapidement",
+                "paragraph1": "Publiez vos offres d'emploi simultanément sur plusieurs sites d'emploi français en un seul clic grâce à notre plateforme de recrutement. Atteignez plus de candidats français plus rapidement et économisez des heures de publication manuelle sur des plateformes comme Pôle Emploi, Indeed FR, LinkedIn et plus encore. Notre logiciel de système de suivi des candidats automatise la distribution des offres d'emploi sur tous les principaux sites d'emploi français.",
+                "features": {
+                    "feature1": "Publication sur Google for Jobs, LinkedIn, Pôle Emploi, Indeed FR et plus",
+                    "feature2": "Planifier les publications à l'avance",
+                    "feature3": "Suivre les candidatures de tous les sites d'emploi français en un seul endroit"
+                },
+                "cta": "S'inscrire gratuitement"
+            },
+            "section4": {
+                "title": "Système de suivi des candidats : Gestion complète des profils",
+                "paragraph1": "Gérez toutes les informations des candidats en un seul endroit avec notre système de suivi des candidats. Consultez les CV, suivez le statut des candidatures, ajoutez des notes et collaborez avec votre équipe—tout depuis un tableau de bord unique et organisé conçu pour les flux de travail de recrutement français. Notre logiciel de suivi des candidats centralise toutes les données des candidats pour une gestion efficace du recrutement.",
+                "features": {
+                    "feature1": "Base de données centralisée des candidats",
+                    "feature2": "Suivi du statut des candidatures",
+                    "feature3": "Collaboration d'équipe et notes"
+                },
+                "cta": "S'inscrire gratuitement"
+            },
+            "section5": {
+                "title": "Logiciel de gestion du recrutement : Modèles d'e-mails et automatisation",
+                "paragraph1": "Communiquez avec les candidats de manière professionnelle et efficace avec notre logiciel de gestion du recrutement. Utilisez des modèles d'e-mails prédéfinis pour chaque étape du processus de recrutement, du premier contact aux offres d'emploi—adaptés aux standards de communication d'entreprise français. Notre logiciel de recrutement automatise la communication avec les candidats pour gagner du temps et assurer la cohérence.",
+                "features": {
+                    "feature1": "Modèles d'e-mails prédéfinis pour toutes les étapes du recrutement",
+                    "feature2": "Envoi automatique d'e-mails basé sur le statut des candidats",
+                    "feature3": "Modèles personnalisables pour correspondre à votre marque"
+                },
+                "cta": "S'inscrire gratuitement"
+            },
+            "ctaSection": {
+                "title": "Prêt à transformer votre processus de recrutement avec le meilleur logiciel ATS ?",
+                "description": "Rejoignez des milliers d'entreprises françaises utilisant le meilleur logiciel de recrutement de Flowxtra pour embaucher plus rapidement, plus intelligemment et plus efficacement. Notre logiciel de système de suivi des candidats est approuvé par les équipes RH françaises dans tout le pays. Commencez votre plan gratuit dès aujourd'hui—aucune carte de crédit requise.",
+                "cta": "Démarrer votre plan gratuit"
+            },
+            "faq": {
+                "title": "Questions fréquemment posées",
+                "helpText": "Besoin d'aide ?",
+                "chatLink": "Discutez avec nous",
+                "questions": {
+                    "q1": {
+                        "question": "Flowxtra ATS est-il gratuit ?",
+                        "answer": "Oui — Flowxtra ATS propose un plan gratuit avec des publications d'emplois illimitées. Vous pouvez publier des offres d'emploi sur les sites d'emploi français, filtrer les candidats avec l'IA, gérer les candidatures et suivre votre processus de recrutement sans frais. Les fonctionnalités avancées comme les champs personnalisés, l'accès API et les analyses avancées sont disponibles dans les plans payants."
+                    },
+                    "q2": {
+                        "question": "Qu'est-ce qu'un ATS (système de suivi des candidats) ?",
+                        "answer": "Un système de suivi des candidats (ATS) est un logiciel qui aide les entreprises à gérer l'ensemble du processus de recrutement, de la publication des offres d'emploi au suivi des candidats dans le pipeline de recrutement. Le logiciel ATS Flowxtra optimise ce processus avec un suivi des candidats alimenté par l'IA, des capacités de multiposting sur les sites d'emploi français (Pôle Emploi, Indeed FR, LinkedIn) et des outils complets de logiciel de gestion du recrutement. Notre logiciel de système de suivi des candidats est conçu pour les équipes RH françaises modernes."
+                    },
+                    "q3": {
+                        "question": "Puis-je publier des offres d'emploi sur plusieurs sites d'emploi français en même temps ?",
+                        "answer": "Oui ! La fonctionnalité de multiposting de Flowxtra vous permet de publier une seule offre d'emploi simultanément sur plusieurs sites d'emploi français, notamment Google for Jobs, LinkedIn, Pôle Emploi, Indeed FR et bien d'autres. Cela permet d'économiser du temps et garantit que vos offres d'emploi atteignent le plus large public possible en France."
+                    },
+                    "q4": {
+                        "question": "Comment fonctionne le filtrage des candidats par IA ?",
+                        "answer": "Le filtrage des candidats alimenté par l'IA de Flowxtra classe et filtre automatiquement les candidats en fonction de leurs qualifications, compétences et expérience. Le système analyse les CV et les candidatures pour faire correspondre les candidats aux exigences de l'emploi, vous aidant à identifier les candidats les plus adaptés plus rapidement et plus efficacement pour les postes français."
+                    },
+                    "q5": {
+                        "question": "Flowxtra ATS est-il conforme au RGPD ?",
+                        "answer": "Oui, Flowxtra ATS est entièrement conforme au RGPD, au CCPA et à la loi européenne sur l'IA. Toutes les données des candidats sont stockées en toute sécurité dans l'UE, et nous suivons des réglementations strictes en matière de protection des données pour garantir la confidentialité de vos candidats et la conformité de votre entreprise aux normes européennes et françaises de protection des données."
+                    }
+                }
+            }
+        }
     },
     "notFound": {
         "title": "404 - Page non trouvée",

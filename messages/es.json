@@ -1464,6 +1464,99 @@
         "infoPoint3": "Actualizar mis datos: Solicite correcciones o actualizaciones de datos personales inexactos o incompletos.",
         "infoNote": "Procesaremos su solicitud en un plazo de 30 días según lo exige el RGPD. Recibirá un correo electrónico de confirmación una vez que se reciba su solicitud."
     },
+    "atsRecruitingSoftware": {
+        "title": "Software ATS | Software de sistema de seguimiento de candidatos – Flowxtra",
+        "subtitle": "Publicación de empleos gratuita",
+        "description": "Potente software ATS y software de sistema de seguimiento de candidatos para equipos de contratación modernos. Optimice el seguimiento de candidatos, automatice la distribución de ofertas de trabajo en portales de empleo españoles (InfoJobs, Indeed ES, LinkedIn) y acelere las decisiones de contratación con nuestro software inteligente de gestión de contratación. Gratis para siempre con publicaciones de empleos ilimitadas.",
+        "cta": "Comenzar",
+        "features": {
+            "freeForever": "100% Gratis",
+            "noCreditCard": "No se requiere tarjeta de crédito",
+            "cancelAnytime": "Cancelar en cualquier momento"
+        },
+        "imageAlt": "Software ATS - Optimice su proceso de contratación con Flowxtra",
+        "imageTitle": "Flowxtra – Software ATS",
+        "figcaption": "Optimice su proceso de contratación con el software ATS gratuito de Flowxtra",
+        "sections": {
+            "section1": {
+                "title": "Mejor software de sistema de seguimiento de candidatos para empresas españolas",
+                "description": "El software ATS Flowxtra ayuda a las empresas españolas y equipos de RR.HH. a gestionar todo el proceso de contratación—desde la publicación de ofertas de trabajo en portales de empleo españoles (InfoJobs, Indeed ES, LinkedIn) hasta contratar el talento adecuado. Nuestro software de sistema de seguimiento de candidatos optimiza el reclutamiento con seguimiento de candidatos impulsado por IA, distribución automatizada de ofertas de trabajo y gestión integral de contratación. Todo en una plataforma de reclutamiento simple y potente diseñada para empresas españolas.",
+                "cta": "Registrarse gratis"
+            },
+            "section2": {
+                "title": "Software de reclutamiento con IA: Seguimiento y filtrado inteligente de candidatos",
+                "paragraph1": "Ahorre tiempo y encuentre los mejores candidatos más rápido con el software de reclutamiento con IA de Flowxtra. Nuestro software inteligente de seguimiento de candidatos clasifica y filtra automáticamente a los candidatos según sus calificaciones, habilidades y experiencia—perfecto para los estándares de contratación españoles. Experimente el poder del software de contratación con IA que transforma su proceso de reclutamiento.",
+                "features": {
+                    "feature1": "Clasificación y filtrado de candidatos impulsados por IA",
+                    "feature2": "Análisis y coincidencia automática de currículums",
+                    "feature3": "Filtros inteligentes para encontrar el candidato perfecto"
+                },
+                "cta": "Registrarse gratis"
+            },
+            "section3": {
+                "title": "Multiposting en múltiples portales de empleo españoles: Alcance más candidatos más rápido",
+                "paragraph1": "Publique sus ofertas de trabajo simultáneamente en múltiples portales de empleo españoles con un solo clic usando nuestra plataforma de reclutamiento. Alcance más candidatos españoles más rápido y ahorre horas de publicación manual en plataformas como InfoJobs, Indeed ES, LinkedIn y más. Nuestro software de sistema de seguimiento de candidatos automatiza la distribución de ofertas de trabajo en todos los principales portales de empleo españoles.",
+                "features": {
+                    "feature1": "Publicar en Google for Jobs, LinkedIn, InfoJobs, Indeed ES y más",
+                    "feature2": "Programar publicaciones con anticipación",
+                    "feature3": "Rastrear candidaturas de todos los portales de empleo españoles en un solo lugar"
+                },
+                "cta": "Registrarse gratis"
+            },
+            "section4": {
+                "title": "Sistema de seguimiento de candidatos: Gestión integral de perfiles",
+                "paragraph1": "Gestione toda la información de los candidatos en un solo lugar con nuestro sistema de seguimiento de candidatos. Vea currículums, rastree el estado de las candidaturas, agregue notas y colabore con su equipo—todo desde un panel único y organizado diseñado para flujos de trabajo de contratación españoles. Nuestro software de seguimiento de candidatos centraliza todos los datos de candidatos para una gestión eficiente de contratación.",
+                "features": {
+                    "feature1": "Base de datos centralizada de candidatos",
+                    "feature2": "Seguimiento del estado de candidaturas",
+                    "feature3": "Colaboración en equipo y notas"
+                },
+                "cta": "Registrarse gratis"
+            },
+            "section5": {
+                "title": "Software de gestión de contratación: Plantillas de correo electrónico y automatización",
+                "paragraph1": "Comuníquese con los candidatos de manera profesional y eficiente usando nuestro software de gestión de contratación. Use plantillas de correo electrónico predefinidas para cada etapa del proceso de contratación, desde el contacto inicial hasta las ofertas de trabajo—adaptadas a los estándares de comunicación empresarial españoles. Nuestro software de reclutamiento automatiza la comunicación con candidatos para ahorrar tiempo y garantizar la consistencia.",
+                "features": {
+                    "feature1": "Plantillas de correo electrónico predefinidas para todas las etapas de contratación",
+                    "feature2": "Envío automático de correos electrónicos basado en el estado del candidato",
+                    "feature3": "Plantillas personalizables para que coincidan con su marca"
+                },
+                "cta": "Registrarse gratis"
+            },
+            "ctaSection": {
+                "title": "¿Listo para transformar su proceso de contratación con el mejor software ATS?",
+                "description": "Únase a miles de empresas españolas que usan el mejor software de reclutamiento de Flowxtra para contratar más rápido, más inteligente y más eficientemente. Nuestro software de sistema de seguimiento de candidatos es confiado por equipos de RR.HH. españoles en todo el país. Comience su plan gratuito hoy—no se requiere tarjeta de crédito.",
+                "cta": "Iniciar su plan gratuito"
+            },
+            "faq": {
+                "title": "Preguntas frecuentes",
+                "helpText": "¿Aún necesita ayuda?",
+                "chatLink": "Chatee con nosotros",
+                "questions": {
+                    "q1": {
+                        "question": "¿Flowxtra ATS es gratis?",
+                        "answer": "Sí — Flowxtra ATS ofrece un plan gratuito con publicaciones de empleos ilimitadas. Puede publicar ofertas de trabajo en portales de empleo españoles, filtrar candidatos con IA, gestionar candidaturas y rastrear su proceso de contratación sin costo. Las funciones avanzadas como campos personalizados, acceso API y análisis avanzados están disponibles en planes de pago."
+                    },
+                    "q2": {
+                        "question": "¿Qué es un ATS (sistema de seguimiento de candidatos)?",
+                        "answer": "Un sistema de seguimiento de candidatos (ATS) es un software que ayuda a las empresas a gestionar todo el proceso de contratación, desde la publicación de ofertas de trabajo hasta el seguimiento de candidatos a través del pipeline de reclutamiento. El software ATS Flowxtra optimiza este proceso con seguimiento de candidatos impulsado por IA, capacidades de multiposting en portales de empleo españoles (InfoJobs, Indeed ES, LinkedIn) y herramientas completas de software de gestión de contratación. Nuestro software de sistema de seguimiento de candidatos está diseñado para equipos de RR.HH. españoles modernos."
+                    },
+                    "q3": {
+                        "question": "¿Puedo publicar ofertas de trabajo en múltiples portales de empleo españoles a la vez?",
+                        "answer": "¡Sí! La función de multiposting de Flowxtra le permite publicar una sola oferta de trabajo simultáneamente en múltiples portales de empleo españoles, incluyendo Google for Jobs, LinkedIn, InfoJobs, Indeed ES y muchos otros. Esto ahorra tiempo y garantiza que sus ofertas de trabajo alcancen la audiencia más amplia posible en España."
+                    },
+                    "q4": {
+                        "question": "¿Cómo funciona el filtrado de candidatos con IA?",
+                        "answer": "El filtrado de candidatos impulsado por IA de Flowxtra clasifica y filtra automáticamente a los candidatos según sus calificaciones, habilidades y experiencia. El sistema analiza currículums y candidaturas para hacer coincidir candidatos con los requisitos del trabajo, ayudándole a identificar los candidatos más adecuados más rápido y eficientemente para posiciones españolas."
+                    },
+                    "q5": {
+                        "question": "¿Flowxtra ATS cumple con el RGPD?",
+                        "answer": "Sí, Flowxtra ATS cumple completamente con el RGPD, CCPA y la Ley de IA de la UE. Todos los datos de candidatos se almacenan de forma segura en la UE, y seguimos estrictas regulaciones de protección de datos para garantizar la privacidad de sus candidatos y el cumplimiento de su empresa con los estándares europeos y españoles de protección de datos."
+                    }
+                }
+            }
+        }
+    },
     "notFound": {
         "title": "404 - Página no encontrada",
         "heading": "¡Ups! Página no encontrada",
