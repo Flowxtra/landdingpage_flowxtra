@@ -1,16 +1,14 @@
 import { MetadataRoute } from "next";
 
 /**
- * Robots.txt for SEO
- * Controls how search engines crawl and index the site
+ * Robots.txt for SEO + AI crawlers
  */
 export default function robots(): MetadataRoute.Robots {
-  // Base URL from environment variable or default to production
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
 
   const sitemapPaths = [
-    "/sitemap.xml",
     "/sitemap_index.xml",
+    "/sitemap.xml",
     "/sitemap-all.xml",
     "/sitemap-ar.xml",
     "/sitemap-static-ar.xml",
@@ -24,8 +22,8 @@ export default function robots(): MetadataRoute.Robots {
     "/sitemap-static-de-ch.xml",
     "/sitemap-en.xml",
     "/sitemap-static-en.xml",
-    "/sitemap-en-blog-0.xml",
     "/sitemap-en-app-store-0.xml",
+    "/sitemap-en-blog-0.xml",
     "/sitemap-en-au.xml",
     "/sitemap-static-en-au.xml",
     "/sitemap-en-ca.xml",
@@ -48,31 +46,104 @@ export default function robots(): MetadataRoute.Robots {
     "/sitemap-nl-app-store-0.xml",
   ];
 
+  const staticAllowList = [
+    "/*.css$",
+    "/*.js$",
+    "/*.jpg$",
+    "/*.jpeg$",
+    "/*.png$",
+    "/*.svg$",
+    "/*.gif$",
+    "/*.webp$",
+    "/llms.txt",
+    "/public/",
+    "/static/",
+  ];
+
+  const sensitiveDisallowList = [
+    "/api/",
+    "/_next/",
+    "/admin/",
+    "/private/",
+    "/dashboard/",
+    "/settings/",
+    "/account/",
+    "/profile/",
+    "/checkout/",
+    "/cart/",
+    "/login/",
+    "/register/",
+    "/password/",
+    "/search?",
+    "/*?*utm",
+    "/*?*ref",
+    "/*?*session",
+    "/*.json$",
+    "/*.xml$",
+    "/404",
+    "/500",
+  ];
+
   return {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
-        disallow: [
-          "/api/", // Block API routes
-          "/_next/", // Block Next.js internal files
-          "/admin/", // Block admin routes (if any)
-          "/private/", // Block private routes (if any)
-          "/*.json", // Block JSON files (except if needed for SEO)
-          "/404", // Block 404 pages
-        ],
+        allow: ["/", ...staticAllowList],
+        disallow: sensitiveDisallowList,
+        crawlDelay: 2,
       },
-      // Allow Googlebot full access
       {
         userAgent: "Googlebot",
-        allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/", "/private/"],
+        allow: ["/", ...staticAllowList],
+        disallow: ["/api/", "/private/"],
       },
-      // Allow Bingbot full access
       {
         userAgent: "Bingbot",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/", "/private/"],
+        disallow: ["/api/", "/private/"],
+        crawlDelay: 5,
+      },
+      {
+        userAgent: "Slurp",
+        allow: "/",
+        disallow: ["/api/", "/private/"],
+        crawlDelay: 8,
+      },
+      {
+        userAgent: "Yandex",
+        allow: "/",
+        disallow: ["/api/", "/private/"],
+        crawlDelay: 10,
+      },
+      {
+        userAgent: "GPTBot",
+        allow: "/",
+        disallow: ["/api/", "/private/"],
+      },
+      {
+        userAgent: "ChatGPT-User",
+        allow: "/",
+        disallow: ["/api/", "/private/"],
+      },
+      {
+        userAgent: "ClaudeBot",
+        allow: "/",
+        disallow: ["/api/", "/private/"],
+      },
+      {
+        userAgent: "PerplexityBot",
+        allow: "/",
+        disallow: ["/api/", "/private/"],
+      },
+      {
+        userAgent: "Google-Extended",
+        allow: "/",
+        disallow: ["/api/", "/private/"],
+      },
+      {
+        userAgent: "FacebookBot",
+        allow: "/",
+        disallow: ["/api/", "/private/"],
       },
     ],
     sitemap: sitemapPaths.map((path) => `${baseUrl}${path}`),

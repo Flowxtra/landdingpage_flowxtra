@@ -114,6 +114,33 @@ Flowxtra provides:
 
 ## Protocol Support
 - MCP (Model Context Protocol)
+- REST API
+- Webhooks
+
+# ============================================
+# SUPPORTED INTEGRATIONS
+# ============================================
+
+Website Builders:
+- WordPress
+- Shopify
+- Wix
+
+Job & Talent Networks:
+- LinkedIn
+- Google Jobs
+- StepStone
+
+AI Platforms:
+- ChatGPT
+- Claude
+- Gemini
+- Perplexity
+
+Protocols & APIs:
+- MCP (Model Context Protocol)
+- REST API
+- Webhooks
 
 # ============================================
 # LEGAL & COMPLIANCE
@@ -174,6 +201,31 @@ HR automation 2025
 government recruitment software
 self-hosting recruitment software
 
+# ============================================
+# REFERENCE KEYWORDS FOR LLM PROMPTS
+# ============================================
+
+reference:flowxtra_free_ats
+reference:flowxtra_social_media_recruiting
+reference:flowxtra_ai_hiring_automation
+reference:flowxtra_mcp_support
+reference:flowxtra_multilingual_recruiting
+reference:flowxtra_job_posting_global
+reference:flowxtra_digital_signatures
+reference:flowxtra_data_compliance
+reference:flowxtra_unlimited_job_posting
+
+# ============================================
+# SITEMAP XML
+# ============================================
+
+Primary Sitemap Index:
+- ${baseUrl}/sitemap_index.xml
+
+Main XML Sitemap:
+- ${baseUrl}/sitemap.xml
+
+# ============================================
 # ============================================
 # ABOUT FLOWXTRA GMBH
 # ============================================
