@@ -1,483 +1,646 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data Processing Agreement</title>
+    <title>Auftragsverarbeitungsvertrag</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #fff;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      article {
+        width: 100%;
+      }
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #003f4d;
+        line-height: 1.2;
+      }
+      h2 {
+        font-size: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        color: #003f4d;
+        line-height: 1.3;
+      }
+      h3 {
+        font-size: 1.25rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+        color: #006980;
+        line-height: 1.4;
+      }
+      p {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+      }
+      ul, ol {
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+      }
+      li {
+        margin-bottom: 0.5rem;
+      }
+      a {
+        color: #006980;
+        text-decoration: underline;
+        word-break: break-word;
+      }
+      a:hover {
+        color: #00A8CD;
+      }
+      article {
+        overflow-x: auto;
+      }
+      table {
+        width: 100%;
+        max-width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        font-size: 0.9rem;
+        display: table;
+      }
+      @media (max-width: 768px) {
+        table {
+          display: block;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          white-space: nowrap;
+        }
+        table thead,
+        table tbody,
+        table tr {
+          display: table;
+          width: 100%;
+          table-layout: fixed;
+        }
+      }
+      thead {
+        background-color: #f4f6f8;
+      }
+      th, td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+        word-break: break-word;
+      }
+      th {
+        font-weight: 600;
+        background-color: #003f4d;
+        color: #fff;
+      }
+      tbody tr:nth-child(even) {
+        background-color: #f9fafb;
+      }
+      section {
+        margin-bottom: 2rem;
+      }
+      address {
+        font-style: normal;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+      @media (max-width: 768px) {
+        body {
+          padding: 15px;
+        }
+        h1 {
+          font-size: 1.5rem;
+        }
+        h2 {
+          font-size: 1.25rem;
+          margin-top: 1.5rem;
+        }
+        h3 {
+          font-size: 1.1rem;
+        }
+        p, li {
+          font-size: 0.95rem;
+        }
+        table {
+          font-size: 0.85rem;
+        }
+        th, td {
+          padding: 8px;
+        }
+      }
+      @media (max-width: 480px) {
+        body {
+          padding: 10px;
+        }
+        h1 {
+          font-size: 1.25rem;
+        }
+        h2 {
+          font-size: 1.1rem;
+        }
+        h3 {
+          font-size: 1rem;
+        }
+        p, li {
+          font-size: 0.9rem;
+        }
+        table {
+          font-size: 0.75rem;
+        }
+        th, td {
+          padding: 6px;
+        }
+      }
+    </style>
   </head>
   <body>
     <article>
-      <h1>Data Processing Agreement</h1>
-      <p><strong>Last updated:</strong> November 17, 2024</p>
+      <h1>Auftragsverarbeitungsvertrag</h1>
+      <p><strong>Zuletzt aktualisiert:</strong> 17. November 2024</p>
 
       <section>
-        <h2>1. Scope and Parties</h2>
+        <h2>1. Geltungsbereich und Parteien</h2>
         <p>
-          This Data Processing Agreement (“DPA”) supplements every service agreement concluded between
-          Flowxtra GmbH, Wipplingerstraße 20/18, 1010 Vienna, Austria (“Flowxtra” or “Processor”), and
-          the customer that subscribes to Flowxtra’s talent acquisition platform (“Customer” or
-          “Controller”). The DPA governs all processing of personal data performed by Flowxtra on behalf
-          of the Customer within the meaning of Article 28 GDPR and the Austrian Data Protection Act.
+          Dieser Auftragsverarbeitungsvertrag („AVV") ergänzt jeden Dienstleistungsvertrag, der zwischen
+          Flowxtra GmbH, Wipplingerstraße 20/18, 1010 Wien, Österreich („Flowxtra" oder „Auftragsverarbeiter"), und
+          dem Kunden, der die Talentakquisitionsplattform von Flowxtra abonniert („Kunde" oder
+          „Verantwortlicher"), geschlossen wird. Der AVV regelt alle Verarbeitungen personenbezogener Daten, die von
+          Flowxtra im Auftrag des Kunden im Sinne von Artikel 28 DSGVO und dem österreichischen
+          Datenschutzgesetz durchgeführt werden.
         </p>
       </section>
 
       <section>
-        <h2>2. Definitions</h2>
+        <h2>2. Begriffsbestimmungen</h2>
         <p>
-          Terms such as “personal data”, “processing”, “data subject”, “controller”, and “processor”
-          have the meanings given in Article 4 GDPR. “Sub-processor” means any third party appointed by
-          Flowxtra to process personal data on behalf of the Customer. “Applicable law” means GDPR,
-          Austrian law, and any national laws that implement or supplement European data protection
-          requirements.
+          Begriffe wie „personenbezogene Daten", „Verarbeitung", „betroffene Person", „Verantwortlicher" und
+          „Auftragsverarbeiter" haben die in Artikel 4 DSGVO festgelegten Bedeutungen. „Unterauftragsverarbeiter"
+          bezeichnet jeden Dritten, der von Flowxtra beauftragt wird, personenbezogene Daten im Auftrag des Kunden
+          zu verarbeiten. „Anwendbares Recht" bezeichnet die DSGVO, österreichisches Recht und alle nationalen
+          Gesetze, die europäische Datenschutzanforderungen umsetzen oder ergänzen.
         </p>
       </section>
 
       <section>
-        <h2>3. Subject Matter, Duration, and Instructions</h2>
+        <h2>3. Gegenstand, Dauer und Weisungen</h2>
         <ol>
           <li>
-            Flowxtra processes personal data strictly for the purposes described in the underlying
-            service agreement, including the provisioning of ATS functionality, candidate communications,
-            scoring, assessments, HR consulting, reporting, and integrations that the Customer elects to
-            use.
+            Flowxtra verarbeitet personenbezogene Daten ausschließlich für die im zugrundeliegenden
+            Dienstleistungsvertrag beschriebenen Zwecke, einschließlich der Bereitstellung von ATS-Funktionalität,
+            Kandidatenkommunikation, Bewertung, Beurteilungen, HR-Beratung, Berichterstattung und Integrationen,
+            die der Kunde nutzt.
           </li>
           <li>
-            Processing begins with activation of Flowxtra services and ends upon full deletion or return
-            of Customer data at the Controller’s written instruction, unless retention is required by
-            law.
+            Die Verarbeitung beginnt mit der Aktivierung der Flowxtra-Dienste und endet mit der vollständigen
+            Löschung oder Rückgabe der Kundendaten auf schriftliche Weisung des Verantwortlichen, es sei denn, die
+            Aufbewahrung ist gesetzlich vorgeschrieben.
           </li>
           <li>
-            Flowxtra acts solely on documented instructions from the Controller. Instructions may be
-            issued via the platform, ticketing channels, or by written notice. If Flowxtra believes an
-            instruction infringes applicable law, it will promptly inform the Controller.
+            Flowxtra handelt ausschließlich auf dokumentierte Weisungen des Verantwortlichen. Weisungen können über
+            die Plattform, Ticketing-Kanäle oder schriftliche Mitteilung erteilt werden. Wenn Flowxtra der Ansicht
+            ist, dass eine Weisung gegen geltendes Recht verstößt, wird es den Verantwortlichen unverzüglich
+            informieren.
           </li>
         </ol>
       </section>
 
       <section>
-        <h2>4. Categories of Data and Data Subjects</h2>
+        <h2>4. Kategorien von Daten und betroffenen Personen</h2>
         <p>
-          Details are outlined in <strong>Appendix A</strong>. In summary, Flowxtra processes personal
-          data relating to:
+          Einzelheiten sind in <strong>Anhang A</strong> aufgeführt. Zusammenfassend verarbeitet Flowxtra
+          personenbezogene Daten zu:
         </p>
         <ul>
-          <li>Applicants and candidates submitting job applications or talent-pool profiles.</li>
+          <li>Bewerbern und Kandidaten, die Bewerbungen oder Talentpool-Profile einreichen.</li>
           <li>
-            Customer personnel (e.g., recruiters, hiring managers, HR admins) whose details are required
-            for account provisioning, audit trails, and collaboration.
+            Kundenpersonal (z. B. Recruiter, Hiring Manager, HR-Administratoren), deren Daten für die
+            Kontobereitstellung, Audit-Trails und Zusammenarbeit erforderlich sind.
           </li>
           <li>
-            Optional references, referees, or other third parties whose information is entered by the
-            Customer or the data subject.
+            Optionale Referenzen, Referenzgeber oder andere Dritte, deren Informationen vom Kunden oder der
+            betroffenen Person eingegeben werden.
           </li>
         </ul>
       </section>
 
       <section>
-        <h2>5. Obligations of the Controller</h2>
-        <p>The Controller agrees to:</p>
+        <h2>5. Pflichten des Verantwortlichen</h2>
+        <p>Der Verantwortliche verpflichtet sich:</p>
         <ul>
           <li>
-            Ensure a valid legal basis for each processing activity performed through the Flowxtra
-            platform.
+            Eine gültige Rechtsgrundlage für jede über die Flowxtra-Plattform durchgeführte
+            Verarbeitungstätigkeit sicherzustellen.
           </li>
           <li>
-            Provide transparent notices to candidates and employees describing Flowxtra’s involvement as
-            a processor.
+            Transparente Mitteilungen an Kandidaten und Mitarbeiter bereitzustellen, die die Beteiligung von
+            Flowxtra als Auftragsverarbeiter beschreiben.
           </li>
           <li>
-            Configure retention schedules, role-based permissions, and anonymisation settings that align
-            with internal policies.
+            Aufbewahrungsfristen, rollenbasierte Berechtigungen und Anonymisierungseinstellungen zu konfigurieren,
+            die mit internen Richtlinien übereinstimmen.
           </li>
           <li>
-            Promptly relay instructions relating to data subject requests, deletion, or export.
+            Weisungen zu Anträgen betroffener Personen, Löschung oder Export unverzüglich weiterzuleiten.
           </li>
         </ul>
       </section>
 
       <section>
-        <h2>6. Obligations of Flowxtra as Processor</h2>
-        <p>Flowxtra shall:</p>
+        <h2>6. Pflichten von Flowxtra als Auftragsverarbeiter</h2>
+        <p>Flowxtra wird:</p>
         <ol>
           <li>
-            Process personal data only on the Controller’s documented instructions, including when
-            transferring data to third countries.
+            Personenbezogene Daten nur auf dokumentierte Weisungen des Verantwortlichen verarbeiten,
+            einschließlich bei der Übermittlung von Daten an Drittländer.
           </li>
           <li>
-            Ensure all personnel with access to personal data are bound by confidentiality commitments
-            and receive regular privacy training.
+            Sicherstellen, dass alle Mitarbeiter mit Zugang zu personenbezogenen Daten zur Vertraulichkeit
+            verpflichtet sind und regelmäßige Datenschutzschulungen erhalten.
           </li>
           <li>
-            Implement the technical and organisational measures (TOMs) summarised in <strong>Appendix
-            B</strong>. Flowxtra may update TOMs provided that the security level is not degraded.
+            Die in <strong>Anhang B</strong> zusammengefassten technischen und organisatorischen Maßnahmen (TOMs)
+            umsetzen. Flowxtra kann TOMs aktualisieren, sofern das Sicherheitsniveau nicht herabgesetzt wird.
           </li>
           <li>
-            Assist the Controller by providing tools or reasonable support to fulfil obligations related
-            to data subject requests, security, breach notifications, and DPIAs.
+            Den Verantwortlichen durch Bereitstellung von Tools oder angemessener Unterstützung bei der Erfüllung
+            von Pflichten im Zusammenhang mit Anträgen betroffener Personen, Sicherheit,
+            Verletzungsmeldungen und Datenschutz-Folgenabschätzungen unterstützen.
           </li>
           <li>
-            Notify the Controller without undue delay (generally within 48 hours) after becoming aware
-            of any personal data breach affecting the Customer’s data, sharing all information necessary
-            for regulatory notifications and remediation.
+            Den Verantwortlichen unverzüglich (in der Regel innerhalb von 48 Stunden) benachrichtigen, nachdem
+            Flowxtra von einer Verletzung des Schutzes personenbezogener Daten Kenntnis erlangt hat, die die Daten
+            des Kunden betrifft, und alle für behördliche Meldungen und Abhilfemaßnahmen erforderlichen
+            Informationen weitergeben.
           </li>
           <li>
-            Maintain records of processing activities and make them available to supervisory authorities
-            upon request.
+            Aufzeichnungen über Verarbeitungstätigkeiten führen und diese den Aufsichtsbehörden auf Anfrage zur
+            Verfügung stellen.
           </li>
         </ol>
       </section>
 
       <section>
-        <h2>Job Distribution and Third-Party Platforms</h2>
+        <h2>Stellenverteilung und Plattformen Dritter</h2>
         <p>
-          When the Controller uses Flowxtra's custom-domain or multi-channel distribution features,
-          Flowxtra is instructed to transmit job advertisement content (and, where configured by the
-          Controller, candidate information) to external job boards, social networks, or marketing
-          platforms. Flowxtra also provides Social Media Manager tools that allow the Controller to
-          publish posts and content directly to destinations such as Meta/Facebook, Instagram,
-          LinkedIn, X/Twitter, Google Business Profiles, Snapchat, Discord, WhatsApp, Telegram, TikTok,
-          or other integrated platforms. Flowxtra will only share the data necessary to provide the
-          requested integration and will process it strictly in accordance with the Controller's
-          documented instructions.
+          Wenn der Verantwortliche die Custom-Domain- oder Mehrkanalverteilungsfunktionen von Flowxtra nutzt, wird
+          Flowxtra angewiesen, Stellenanzeigeninhalte (und, sofern vom Verantwortlichen konfiguriert,
+          Kandidateninformationen) an externe Jobbörsen, soziale Netzwerke oder Marketingplattformen zu übermitteln.
+          Flowxtra bietet auch Social Media Manager-Tools, mit denen der Verantwortliche Beiträge und Inhalte
+          direkt an Ziele wie Meta/Facebook, Instagram, LinkedIn, X/Twitter, Google Business Profiles, Snapchat,
+          Discord, WhatsApp, Telegram, TikTok oder andere integrierte Plattformen veröffentlichen kann. Flowxtra
+          wird nur die für die angeforderte Integration erforderlichen Daten weitergeben und diese strikt gemäß
+          den dokumentierten Weisungen des Verantwortlichen verarbeiten.
         </p>
         <ul>
           <li>
-            Flowxtra limits processing to the minimum data required for publication (job title,
-            description, compensation range, location, contact methods, and optional tracking metadata).
+            Flowxtra beschränkt die Verarbeitung auf die minimal erforderlichen Daten für die Veröffentlichung
+            (Stellenbezeichnung, Beschreibung, Vergütungsspanne, Standort, Kontaktmethoden und optionale
+            Tracking-Metadaten).
           </li>
           <li>
-            The Controller is responsible for ensuring that each posting complies with the applicable
-            laws, platform policies, and consent requirements of the destination channel and warrants
-            that all necessary notices and permissions have been obtained.
+            Der Verantwortliche ist dafür verantwortlich sicherzustellen, dass jede Veröffentlichung den geltenden
+            Gesetzen, Plattformrichtlinien und Einwilligungsanforderungen des Zielkanals entspricht, und
+            gewährleistet, dass alle erforderlichen Mitteilungen und Genehmigungen eingeholt wurden.
           </li>
           <li>
-            Flowxtra may suspend or refuse distribution that violates legal or platform requirements.
-            Any regulatory inquiries, candidate disputes, or platform penalties arising from the job
-            content remain the Controller’s responsibility.
+            Flowxtra kann die Verteilung aussetzen oder ablehnen, die gegen gesetzliche oder Plattformanforderungen
+            verstößt. Alle behördlichen Anfragen, Kandidatenstreitigkeiten oder Plattform-Strafen, die sich aus
+            dem Stelleninhalt ergeben, bleiben in der Verantwortung des Verantwortlichen.
           </li>
         </ul>
         <p>
-          The Controller must ensure that all postings comply with Flowxtra's
-          <a href="https://flowxtra.com/ad-quality-guidelines">Job Ad Quality Guidelines</a> in addition
-          to this DPA.
+          Der Verantwortliche muss sicherstellen, dass alle Veröffentlichungen zusätzlich zu diesem AVV den
+          <a href="https://flowxtra.com/ad-quality-guidelines">Qualitätsrichtlinien für Stellenanzeigen</a> von
+          Flowxtra entsprechen.
         </p>
       </section>
 
       <section>
-        <h2>Electronic Signature Service (E-Signature)</h2>
+        <h2>Elektronischer Signaturdienst (E-Signatur)</h2>
         <p>
-          When the Controller uses Flowxtra's E-Signature Service to create, send, or manage
-          employment contracts, offer letters, or other legally binding documents, Flowxtra processes
-          personal data on behalf of the Controller as a processor. This includes:
+          Wenn der Verantwortliche den E-Signatur-Service von Flowxtra nutzt, um Arbeitsverträge, Angebotsschreiben
+          oder andere rechtsverbindliche Dokumente zu erstellen, zu versenden oder zu verwalten, verarbeitet
+          Flowxtra personenbezogene Daten im Auftrag des Verantwortlichen als Auftragsverarbeiter. Dies umfasst:
         </p>
         <ul>
           <li>
-            <strong>Document Content:</strong> The text, terms, and content of contracts and documents
-            created or signed through the Service
+            <strong>Dokumentinhalt:</strong> Den Text, die Bedingungen und den Inhalt von Verträgen und
+            Dokumenten, die über den Service erstellt oder unterzeichnet wurden
           </li>
           <li>
-            <strong>Signatory Information:</strong> Names, email addresses, job titles, and contact
-            information of all parties who sign documents
+            <strong>Unterzeichnerinformationen:</strong> Namen, E-Mail-Adressen, Berufsbezeichnungen und
+            Kontaktinformationen aller Parteien, die Dokumente unterzeichnen
           </li>
           <li>
-            <strong>Signature Data:</strong> Electronic signatures, initials, and any handwritten
-            signatures captured via touchscreen or stylus
+            <strong>Signaturdaten:</strong> Elektronische Signaturen, Initialen und handschriftliche
+            Signaturen, die über Touchscreen oder Stylus erfasst wurden
           </li>
           <li>
-            <strong>Authentication Data:</strong> IP addresses, device information, browser details,
-            and timestamps associated with document access and signing
+            <strong>Authentifizierungsdaten:</strong> IP-Adressen, Geräteinformationen, Browserdetails und
+            Zeitstempel im Zusammenhang mit Dokumentzugriff und Unterzeichnung
           </li>
           <li>
-            <strong>Audit Trail Information:</strong> Complete records of document creation, sending,
-            viewing, signing, and any modifications or rejections
+            <strong>Audit-Trail-Informationen:</strong> Vollständige Aufzeichnungen über Dokumenterstellung,
+            Versand, Ansicht, Unterzeichnung und alle Änderungen oder Ablehnungen
           </li>
         </ul>
         <p>
-          <strong>Controller Responsibilities:</strong> The Controller is responsible for:
+          <strong>Verantwortlichkeiten des Verantwortlichen:</strong> Der Verantwortliche ist verantwortlich für:
         </p>
         <ul>
           <li>
-            Ensuring a valid legal basis for processing signatory data (typically performance of a
-            contract under Article 6(1)(b) GDPR)
+            Die Sicherstellung einer gültigen Rechtsgrundlage für die Verarbeitung von Unterzeichnerdaten
+            (typischerweise Vertragserfüllung gemäß Artikel 6 Absatz 1 Buchstabe b DSGVO)
           </li>
           <li>
-            Obtaining explicit consent from signatories before sending documents for signature, where
-            required by applicable law
+            Die Einholung ausdrücklicher Einwilligung von Unterzeichnern vor dem Versand von Dokumenten zur
+            Unterzeichnung, sofern dies nach geltendem Recht erforderlich ist
           </li>
           <li>
-            Providing transparent notices to signatories about the use of the E-Signature Service and
-            Flowxtra's role as a processor
+            Die Bereitstellung transparenter Mitteilungen an Unterzeichner über die Nutzung des
+            E-Signatur-Service und die Rolle von Flowxtra als Auftragsverarbeiter
           </li>
           <li>
-            Verifying the identity of signatories when required by law or for high-value transactions
+            Die Überprüfung der Identität von Unterzeichnern, wenn dies gesetzlich vorgeschrieben oder für
+            hochwertige Transaktionen erforderlich ist
           </li>
           <li>
-            Ensuring that documents are legally permitted to be signed electronically in the relevant
-            jurisdiction
+            Die Sicherstellung, dass Dokumente in der jeweiligen Rechtsordnung rechtlich elektronisch
+            unterzeichnet werden dürfen
           </li>
           <li>
-            Complying with applicable data retention laws and internal policies for signed documents
+            Die Einhaltung geltender Datenaufbewahrungsgesetze und interner Richtlinien für unterzeichnete
+            Dokumente
           </li>
         </ul>
         <p>
-          <strong>Processor Obligations:</strong> Flowxtra shall:
+          <strong>Pflichten des Auftragsverarbeiters:</strong> Flowxtra wird:
         </p>
         <ul>
           <li>
-            Process signatory data only in accordance with the Controller's documented instructions
-            and this DPA
+            Unterzeichnerdaten nur gemäß den dokumentierten Weisungen des Verantwortlichen und diesem AVV
+            verarbeiten
           </li>
           <li>
-            Implement appropriate technical and organisational measures to protect the integrity and
-            confidentiality of signed documents and signature data
+            Geeignete technische und organisatorische Maßnahmen zum Schutz der Integrität und Vertraulichkeit
+            unterzeichneter Dokumente und Signaturdaten umsetzen
           </li>
           <li>
-            Maintain comprehensive audit trails documenting all signature actions, which are retained
-            in accordance with applicable data retention laws
+            Umfassende Audit-Trails führen, die alle Signaturaktionen dokumentieren und gemäß geltenden
+            Datenaufbewahrungsgesetzen aufbewahrt werden
           </li>
           <li>
-            Store signed documents securely and make them accessible to the Controller for the
-            duration of the subscription
+            Unterzeichnete Dokumente sicher speichern und sie dem Verantwortlichen für die Dauer des Abonnements
+            zugänglich machen
           </li>
           <li>
-            Assist the Controller in responding to data subject requests related to signed documents
-            (e.g., access, rectification, deletion)
+            Den Verantwortlichen bei der Beantwortung von Anträgen betroffener Personen im Zusammenhang mit
+            unterzeichneten Dokumenten unterstützen (z. B. Zugang, Berichtigung, Löschung)
           </li>
           <li>
-            Notify the Controller without undue delay of any personal data breach affecting signature
-            data or signed documents
+            Den Verantwortlichen unverzüglich über Verletzungen des Schutzes personenbezogener Daten
+            benachrichtigen, die Signaturdaten oder unterzeichnete Dokumente betreffen
           </li>
         </ul>
         <p>
-          <strong>Legal Compliance:</strong> The E-Signature Service is designed to comply with
-          applicable electronic signature laws, including eIDAS (EU), ESIGN Act (US), and local
-          regulations. However, the Controller is responsible for ensuring that electronically signed
-          documents are legally valid and enforceable in their specific jurisdiction and for their
-          particular use case. Flowxtra does not provide legal advice regarding the enforceability of
-          electronic signatures.
+          <strong>Rechtliche Compliance:</strong> Der E-Signatur-Service ist darauf ausgelegt, geltenden Gesetzen
+          für elektronische Signaturen zu entsprechen, einschließlich eIDAS (EU), ESIGN Act (USA) und lokalen
+          Vorschriften. Der Verantwortliche ist jedoch dafür verantwortlich sicherzustellen, dass elektronisch
+          unterzeichnete Dokumente in ihrer spezifischen Rechtsordnung und für ihren bestimmten Anwendungsfall
+          rechtsgültig und durchsetzbar sind. Flowxtra erteilt keine Rechtsberatung bezüglich der Durchsetzbarkeit
+          elektronischer Signaturen.
         </p>
         <p>
-          For detailed terms governing the use of the E-Signature Service, see Section 27A of Flowxtra's
-          Terms of Use.
+          Für detaillierte Bedingungen zur Nutzung des E-Signatur-Service siehe Abschnitt 27A der
+          Nutzungsbedingungen von Flowxtra.
         </p>
       </section>
 
       <section>
-        <h2>7. Sub-processors</h2>
+        <h2>7. Unterauftragsverarbeiter</h2>
         <p>
-          Flowxtra relies on carefully vetted sub-processors to deliver parts of the service (hosting,
-          analytics, messaging, background infrastructure). The current list is available in
-          <strong>Appendix C</strong>. Flowxtra will notify the Controller of intended changes at least
-          30 days in advance via email or the platform. The Controller may object on reasonable data
-          protection grounds. If the parties cannot agree on a mitigation plan, the Controller may
-          terminate the affected service by giving 30 days’ notice.
+          Flowxtra verlässt sich auf sorgfältig geprüfte Unterauftragsverarbeiter, um Teile des Service zu liefern
+          (Hosting, Analytik, Messaging, Hintergrundinfrastruktur). Die aktuelle Liste ist in
+          <strong>Anhang C</strong> verfügbar. Flowxtra wird den Verantwortlichen mindestens 30 Tage im Voraus per
+          E-Mail oder über die Plattform über beabsichtigte Änderungen informieren. Der Verantwortliche kann aus
+          begründeten Datenschutzgründen Einspruch erheben. Wenn sich die Parteien nicht auf einen
+          Abhilfeplan einigen können, kann der Verantwortliche den betroffenen Service unter Einhaltung einer
+          Frist von 30 Tagen kündigen.
         </p>
         <p>
-          Flowxtra imposes the same data protection obligations on each sub-processor through written
-          agreements aligned with Article 28 GDPR. Flowxtra remains fully liable for the performance of
-          sub-processors.
-        </p>
-      </section>
-
-      <section>
-        <h2>8. International Transfers</h2>
-        <p>
-          Where personal data is transferred outside the EEA/UK/Switzerland, Flowxtra relies on a
-          legally recognised transfer mechanism, such as adequacy decisions, EU Standard Contractual
-          Clauses (2021/914), or UK Addenda. Supplementary measures, including encryption and access
-          limitations, are applied where required by the Schrems II ruling. Documentation is available
-          upon request.
+          Flowxtra erlegt jedem Unterauftragsverarbeiter durch schriftliche Vereinbarungen, die mit Artikel 28
+          DSGVO übereinstimmen, dieselben Datenschutzverpflichtungen auf. Flowxtra bleibt für die Leistung der
+          Unterauftragsverarbeiter vollständig haftbar.
         </p>
       </section>
 
       <section>
-        <h2>9. Data Subject Rights</h2>
+        <h2>8. Internationale Übermittlungen</h2>
         <p>
-          Flowxtra provides in-product functionality that enables the Controller to search, export,
-          rectify, anonymise, or delete data subject records. Where the Controller cannot self-serve,
-          Flowxtra will, upon request, provide reasonable assistance without undue delay and at no
-          additional cost unless the request is manifestly unfounded or excessive.
+          Wenn personenbezogene Daten außerhalb des EWR/UK/Schweiz übermittelt werden, stützt sich Flowxtra auf
+          einen rechtlich anerkannten Übermittlungsmechanismus, wie Angemessenheitsbeschlüsse, EU-Standardvertragsklauseln
+          (2021/914) oder UK-Addenda. Ergänzende Maßnahmen, einschließlich Verschlüsselung und
+          Zugriffsbeschränkungen, werden angewandt, wenn dies durch das Schrems-II-Urteil erforderlich ist.
+          Dokumentation ist auf Anfrage verfügbar.
         </p>
       </section>
 
       <section>
-        <h2>10. Security Incidents</h2>
+        <h2>9. Rechte betroffener Personen</h2>
         <p>
-          Flowxtra maintains an incident response plan, including 24/7 monitoring, logging, and root
-          cause analysis. After notifying the Controller of a breach, Flowxtra will provide regular
-          updates until containment and remediation are complete. The Controller is responsible for
-          notifying supervisory authorities and affected data subjects unless the parties agree
-          otherwise in writing.
+          Flowxtra bietet In-Produkt-Funktionalität, die es dem Verantwortlichen ermöglicht, Datensätze
+          betroffener Personen zu suchen, zu exportieren, zu berichtigen, zu anonymisieren oder zu löschen. Wenn
+          der Verantwortliche dies nicht selbst durchführen kann, wird Flowxtra auf Anfrage unverzüglich
+          angemessene Unterstützung leisten, ohne zusätzliche Kosten, es sei denn, die Anfrage ist offensichtlich
+          unbegründet oder exzessiv.
         </p>
       </section>
 
       <section>
-        <h2>11. Audits and Certifications</h2>
+        <h2>10. Sicherheitsvorfälle</h2>
         <p>
-          Flowxtra makes available audit summaries, penetration test reports, and attestations (e.g.,
-          ISO/IEC certifications) subject to confidentiality. Upon 30 days’ written notice, the
-          Controller may conduct an audit of Flowxtra’s processing activities once every 12 months, or
-          more frequently when required by supervisory authorities. Audits shall be carried out during
-          normal business hours, avoid disruption, and may involve a mutually agreed independent third
-          party. Each party bears its own costs.
+          Flowxtra unterhält einen Vorfallreaktionsplan, einschließlich 24/7-Überwachung, Protokollierung und
+          Ursachenanalyse. Nach Benachrichtigung des Verantwortlichen über eine Verletzung wird Flowxtra
+          regelmäßige Updates bereitstellen, bis Eindämmung und Abhilfe abgeschlossen sind. Der Verantwortliche ist
+          für die Benachrichtigung der Aufsichtsbehörden und betroffener Personen verantwortlich, es sei denn, die
+          Parteien vereinbaren schriftlich etwas anderes.
         </p>
       </section>
 
       <section>
-        <h2>12. Return and Deletion</h2>
+        <h2>11. Audits und Zertifizierungen</h2>
+        <p>
+          Flowxtra stellt Audit-Zusammenfassungen, Penetrationstestberichte und Bescheinigungen (z. B.
+          ISO/IEC-Zertifizierungen) unter Vertraulichkeit zur Verfügung. Nach 30-tägiger schriftlicher
+          Ankündigung kann der Verantwortliche einmal alle 12 Monate ein Audit der Verarbeitungstätigkeiten von
+          Flowxtra durchführen, oder häufiger, wenn dies von Aufsichtsbehörden verlangt wird. Audits sind während
+          der normalen Geschäftszeiten durchzuführen, Störungen zu vermeiden und können einen einvernehmlich
+          vereinbarten unabhängigen Dritten einbeziehen. Jede Partei trägt ihre eigenen Kosten.
+        </p>
+      </section>
+
+      <section>
+        <h2>12. Rückgabe und Löschung</h2>
         <ol>
           <li>
-            During the subscription, the Controller can export personal data at any time using
-            self-service exports or APIs.
+            Während des Abonnements kann der Verantwortliche personenbezogene Daten jederzeit mithilfe von
+            Self-Service-Exporten oder APIs exportieren.
           </li>
           <li>
-            Within 60 days after termination, Flowxtra will make the final export available upon written
-            request. After the export window closes, Flowxtra will begin secure deletion or
-            pseudonymisation of Customer data from active systems and backups according to defined
-            retention schedules (generally within 90 additional days, except where legal obligations
-            require retention).
+            Innerhalb von 60 Tagen nach Beendigung stellt Flowxtra den endgültigen Export auf schriftliche Anfrage
+            zur Verfügung. Nach Ablauf des Exportfensters beginnt Flowxtra mit der sicheren Löschung oder
+            Pseudonymisierung von Kundendaten aus aktiven Systemen und Backups gemäß definierten
+            Aufbewahrungsfristen (in der Regel innerhalb von weiteren 90 Tagen, außer wenn gesetzliche
+            Verpflichtungen eine Aufbewahrung erfordern).
           </li>
         </ol>
       </section>
 
       <section>
-        <h2>13. Liability and Indemnity</h2>
+        <h2>13. Haftung und Freistellung</h2>
         <p>
-          Each party is responsible for damages caused by its own breach of this DPA or applicable data
-          protection law. Liability caps and exclusions set out in the main service agreement apply to
-          this DPA. Nothing limits obligations under Article 82 GDPR regarding joint liability toward
-          data subjects.
+          Jede Partei ist für Schäden verantwortlich, die durch ihre eigene Verletzung dieses AVV oder des
+          anwendbaren Datenschutzrechts verursacht wurden. Haftungsobergrenzen und Ausschlüsse, die in der
+          Hauptdienstleistungsvereinbarung festgelegt sind, gelten für diesen AVV. Nichts schränkt die
+          Verpflichtungen gemäß Artikel 82 DSGVO bezüglich der gemeinsamen Haftung gegenüber betroffenen Personen
+          ein.
         </p>
       </section>
 
       <section>
-        <h2>14. Order of Precedence</h2>
+        <h2>14. Rangfolge</h2>
         <p>
-          In the event of a conflict between this DPA and the service agreement, the DPA prevails for
-          all matters concerning personal data processing. If any provision is invalid or unenforceable,
-          the remainder remains in effect and the parties will replace the invalid provision with one
-          that reflects the original intent as closely as possible.
+          Im Falle eines Widerspruchs zwischen diesem AVV und der Dienstleistungsvereinbarung hat der AVV in allen
+          Angelegenheiten bezüglich der Verarbeitung personenbezogener Daten Vorrang. Wenn eine Bestimmung ungültig
+          oder nicht durchsetzbar ist, bleibt der Rest in Kraft und die Parteien werden die ungültige Bestimmung
+          durch eine ersetzen, die die ursprüngliche Absicht so genau wie möglich widerspiegelt.
         </p>
       </section>
 
       <section>
-        <h2>15. Governing Law and Forum</h2>
+        <h2>15. Anwendbares Recht und Gerichtsstand</h2>
         <p>
-          This DPA is governed by Austrian law. Exclusive place of jurisdiction is Vienna, Austria, to
-          the extent permitted by applicable law.
+          Dieser AVV unterliegt österreichischem Recht. Ausschließlicher Gerichtsstand ist Wien, Österreich, soweit
+          nach geltendem Recht zulässig.
         </p>
       </section>
 
       <section>
-        <h2>16. Contact</h2>
+        <h2>16. Kontakt</h2>
         <address>
           Flowxtra GmbH<br />
-          Wipplingerstraße 20/18, 1010 Vienna, Austria<br />
-          Email: <a href="mailto:privacy@flowxtra.com">privacy@flowxtra.com</a><br />
-          Phone: (+43) 676 905 4441
+          Wipplingerstraße 20/18, 1010 Wien, Österreich<br />
+          E-Mail: <a href="mailto:privacy@flowxtra.com">privacy@flowxtra.com</a><br />
+          Telefon: (+43) 676 905 4441
         </address>
         <p>
-          <strong>Data Protection Officer (DPO):</strong> Mohamed Alarade —
+          <strong>Datenschutzbeauftragter (DPO):</strong> Mohamed Alarade —
           <a href="mailto:privacy@flowxtra.com">privacy@flowxtra.com</a>
         </p>
       </section>
 
       <section>
-        <h2>Appendix A – Details of Processing</h2>
-        <h3>Nature and Purpose</h3>
+        <h2>Anhang A – Details der Verarbeitung</h2>
+        <h3>Art und Zweck</h3>
         <p>
-          Hosting the Applicant Tracking System, processing applications, facilitating candidate
-          communications, providing analytics, integrations, assessments, scheduling, HR consulting,
-          email/SMS notifications, and platform support.
+          Hosting des Bewerbermanagementsystems, Verarbeitung von Bewerbungen, Erleichterung der
+          Kandidatenkommunikation, Bereitstellung von Analysen, Integrationen, Beurteilungen, Terminplanung,
+          HR-Beratung, E-Mail-/SMS-Benachrichtigungen und Plattform-Support.
         </p>
-        <h3>Categories of Personal Data</h3>
+        <h3>Kategorien personenbezogener Daten</h3>
         <ul>
           <li>
-            Candidate identifiers: name, pronouns, title, date of birth, nationality, contact details,
-            social profiles.
+            Kandidatenidentifikatoren: Name, Pronomen, Titel, Geburtsdatum, Nationalität, Kontaktdaten,
+            soziale Profile.
           </li>
           <li>
-            Application content: CVs, cover letters, portfolios, assessments, interview notes, offer
-            information, background-check results (if uploaded by the Controller).
+            Bewerbungsinhalte: Lebensläufe, Anschreiben, Portfolios, Beurteilungen, Interview-Notizen,
+            Angebotsinformationen, Hintergrundprüfungsergebnisse (wenn vom Verantwortlichen hochgeladen).
           </li>
           <li>
-            Employment data: desired role, salary expectations, notice periods, relocation willingness,
-            job preferences.
+            Beschäftigungsdaten: gewünschte Rolle, Gehaltserwartungen, Kündigungsfristen, Umzugsbereitschaft,
+            Jobpräferenzen.
           </li>
           <li>
-            Customer employee data: names, roles, business contact details, account identifiers, usage
-            logs.
+            Kundenmitarbeiterdaten: Namen, Rollen, geschäftliche Kontaktdaten, Kontokennungen, Nutzungsprotokolle.
           </li>
           <li>
-            Metadata: timestamps, device identifiers, locale, workflow actions, communication logs.
+            Metadaten: Zeitstempel, Gerätekennungen, Gebietsschema, Workflow-Aktionen, Kommunikationsprotokolle.
           </li>
         </ul>
-        <h3>Special Categories</h3>
+        <h3>Besondere Kategorien</h3>
         <p>
-          Flowxtra does not intentionally process special-category data. Customers are responsible for
-          ensuring that such data is processed only when necessary and with an appropriate legal basis.
+          Flowxtra verarbeitet nicht absichtlich Daten besonderer Kategorien. Kunden sind dafür verantwortlich
+          sicherzustellen, dass solche Daten nur bei Bedarf und mit angemessener Rechtsgrundlage verarbeitet werden.
         </p>
-        <h3>Retention</h3>
+        <h3>Aufbewahrung</h3>
         <p>
-          The Controller defines retention periods via platform settings. Flowxtra offers automation to
-          delete or anonymise candidate profiles when retention expires.
+          Der Verantwortliche legt Aufbewahrungsfristen über Plattformeinstellungen fest. Flowxtra bietet
+          Automatisierung zum Löschen oder Anonymisieren von Kandidatenprofilen, wenn die Aufbewahrung abläuft.
         </p>
       </section>
 
       <section>
-        <h2>Appendix B – Technical and Organisational Measures (summary)</h2>
+        <h2>Anhang B – Technische und organisatorische Maßnahmen (Zusammenfassung)</h2>
         <ul>
           <li>
-            <strong>Physical security:</strong> ISO-certified data centres with 24/7 guards, CCTV,
-            biometric access, and redundant power/cooling.
+            <strong>Physische Sicherheit:</strong> ISO-zertifizierte Rechenzentren mit 24/7-Wachpersonal, CCTV,
+            biometrischem Zugang und redundanter Strom-/Kühlungsversorgung.
           </li>
           <li>
-            <strong>Network security:</strong> Segmented VPCs, WAF, IDS/IPS, DDoS protection, managed
-            firewalls, TLS 1.2+ encryption, HSTS, enforced HTTPS, VPN for administrative access.
+            <strong>Netzwerksicherheit:</strong> Segmentierte VPCs, WAF, IDS/IPS, DDoS-Schutz, verwaltete
+            Firewalls, TLS 1.2+ Verschlüsselung, HSTS, erzwungenes HTTPS, VPN für administrativen Zugriff.
           </li>
           <li>
-            <strong>Application security:</strong> Secure SDLC, code reviews, dependency scanning,
-            static/dynamic analysis, annual penetration tests, bug bounty programme.
+            <strong>Anwendungssicherheit:</strong> Sicherer SDLC, Code-Reviews, Abhängigkeitsscanning,
+            statische/dynamische Analyse, jährliche Penetrationstests, Bug-Bounty-Programm.
           </li>
           <li>
-            <strong>Access control:</strong> Role-based access, least privilege, MFA, SSO, just-in-time
-            administrative access, logging and monitoring of privileged actions.
+            <strong>Zugriffskontrolle:</strong> Rollenbasierter Zugriff, minimale Rechte, MFA, SSO,
+            Just-in-Time-Administratorzugriff, Protokollierung und Überwachung privilegierter Aktionen.
           </li>
           <li>
-            <strong>Data protection:</strong> AES-256 encryption at rest, rotating keys via managed KMS,
-            tokenisation for payment data, secrets management, secure backup procedures.
+            <strong>Datenschutz:</strong> AES-256-Verschlüsselung im Ruhezustand, rotierende Schlüssel über
+            verwaltetes KMS, Tokenisierung für Zahlungsdaten, Secrets-Management, sichere Backup-Verfahren.
           </li>
           <li>
-            <strong>Operational measures:</strong> Change management, incident response plan, disaster
-            recovery testing, automated backups stored in geographically separate regions, continuous
-            availability monitoring.
+            <strong>Operative Maßnahmen:</strong> Change Management, Vorfallreaktionsplan, Disaster-Recovery-Tests,
+            automatisierte Backups in geografisch getrennten Regionen, kontinuierliche Verfügbarkeitsüberwachung.
           </li>
           <li>
-            <strong>Organisational measures:</strong> Privacy and security training, onboarding/offboarding
-            checklists, confidentiality agreements, vendor risk assessments, regular policy reviews.
+            <strong>Organisatorische Maßnahmen:</strong> Datenschutz- und Sicherheitsschulungen,
+            Onboarding-/Offboarding-Checklisten, Vertraulichkeitsvereinbarungen, Lieferantenrisikobewertungen,
+            regelmäßige Richtlinienüberprüfungen.
           </li>
         </ul>
       </section>
 
       <section>
-        <h2>Appendix C – Authorised Sub-processors</h2>
+        <h2>Anhang C – Autorisierte Unterauftragsverarbeiter</h2>
         <p>
-          A regularly updated list is maintained at
+          Eine regelmäßig aktualisierte Liste wird unter
           <a href="https://flowxtra.com/subprocessors" rel="noopener noreferrer"
             >https://flowxtra.com/subprocessors</a
-          >. As of the last update, core sub-processors include:
+          > gepflegt. Nach dem letzten Update umfassen die Haupt-Unterauftragsverarbeiter:
         </p>
         <ul>
-          <li>Amazon Web Services Europe – Primary cloud infrastructure and storage (Luxembourg/EU Central).</li>
-          <li>Google Europe – Analytics, logging, monitoring, and productivity tooling (Ireland/EU regions).</li>
-          <li>Cloudflare, Inc. – CDN, WAF, and DDoS mitigation delivered via EU edge POPs with worldwide failover (SCCs in place).</li>
-          <li>Cloudflare R2 – Object storage with data pinned to EU locations plus replicated edge caching (SCCs in place).</li>
-          <li>Vercel Inc. – Deployment and edge CDN with workloads hosted primarily in Frankfurt and Amsterdam regions (SCCs).</li>
-          <li>Mailchimp (Intuit Inc.) – Transactional and marketing email delivery (USA, SCCs in place).</li>
-          <li>Stripe Payments Europe Ltd. – Subscription billing and payment processing (Ireland/EU).</li>
+          <li>Amazon Web Services Europe – Primäre Cloud-Infrastruktur und Speicherung (Luxemburg/EU-Zentral).</li>
+          <li>Google Europe – Analytik, Protokollierung, Überwachung und Produktivitäts-Tools (Irland/EU-Regionen).</li>
+          <li>Cloudflare, Inc. – CDN, WAF und DDoS-Abwehr über EU-Edge-POPs mit weltweitem Failover (SCCs vorhanden).</li>
+          <li>Cloudflare R2 – Objektspeicherung mit Daten in EU-Standorten plus repliziertem Edge-Caching (SCCs vorhanden).</li>
+          <li>Vercel Inc. – Bereitstellung und Edge-CDN mit Workloads hauptsächlich in Frankfurt und Amsterdam (SCCs).</li>
+          <li>Mailchimp (Intuit Inc.) – Transaktions- und Marketing-E-Mail-Zustellung (USA, SCCs vorhanden).</li>
+          <li>Stripe Payments Europe Ltd. – Abonnementabrechnung und Zahlungsabwicklung (Irland/EU).</li>
         </ul>
       </section>
     </article>
   </body>
 </html>
-
