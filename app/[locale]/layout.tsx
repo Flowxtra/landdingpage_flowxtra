@@ -9,6 +9,7 @@ import ClientScripts from "@/components/ClientScripts";
 import AccessibilityWidgetLoader from "@/components/Accessibility/AccessibilityWidgetLoader";
 import AffiliateBanner from "@/components/AffiliateBanner";
 import { getHomeSchema } from "@/lib/schemaLoader";
+import { defaultLocale } from "@/lib/locales";
 
 // Lazy load non-critical components to reduce initial bundle size
 // Header and Footer are loaded after initial render to reduce main-thread work
@@ -871,12 +872,41 @@ export default async function LocaleLayout({
   const videoId = locale === 'de' ? 'r5sBu2-NOqs' : 'CGa2grClFsw';
   const videoLanguage = locale === 'de' ? 'de' : locale === 'ar' ? 'ar' : 'en';
 
-  const homeSchema = getHomeSchema(locale, {
-    BASE_URL: baseUrl,
-    VIDEO_CONTENT_URL: `https://www.youtube.com/watch?v=${videoId}`,
-    VIDEO_EMBED_URL: `https://www.youtube.com/embed/${videoId}`,
-    VIDEO_LANG: videoLanguage,
-  });
+  const headerList = await headers();
+  const originalPathname = headerList.get("x-pathname") || "";
+  const normalizePath = (path: string): string => {
+    if (!path) return "";
+    if (path.length > 1 && path.endsWith("/")) {
+      return path.slice(0, -1);
+    }
+    return path;
+  };
+  const normalizedPath = normalizePath(originalPathname || `/${locale}`);
+  const localeHomePath = normalizePath(`/${locale}`);
+  const isDefaultHome =
+    locale === defaultLocale &&
+    (normalizedPath === "/" || normalizedPath === "");
+  const isLocaleHome = normalizedPath === localeHomePath;
+
+  const localizedPricingPaths: Record<string, string[]> = {
+    de: ["/de/preise"],
+  };
+  const pricingPaths = new Set<string>([
+    normalizePath(`/${locale}/pricing`),
+    ...(localizedPricingPaths[locale]?.map(normalizePath) ?? []),
+  ]);
+  const isPricingPath = pricingPaths.has(normalizedPath);
+
+  const shouldRenderHomeSchema = isLocaleHome || isDefaultHome || isPricingPath;
+
+  const homeSchema = shouldRenderHomeSchema
+    ? getHomeSchema(locale, {
+        BASE_URL: baseUrl,
+        VIDEO_CONTENT_URL: `https://www.youtube.com/watch?v=${videoId}`,
+        VIDEO_EMBED_URL: `https://www.youtube.com/embed/${videoId}`,
+        VIDEO_LANG: videoLanguage,
+      })
+    : null;
   
   // CRITICAL: Pass locale explicitly to getMessages
   const messages = await getMessages({ locale });
@@ -1003,14 +1033,16 @@ export default async function LocaleLayout({
         />
         {/* Tracking scripts will be loaded by CookieScriptLoader only after consent */}
         
-        {/* Homepage Schema Markup */}
-        {Object.entries(homeSchema).map(([key, schemaObject]) => (
-          <script
-            key={key}
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaObject) }}
-          />
-        ))}
+        {/* Homepage Schema Markup - render only on homepage and pricing pages */}
+        {shouldRenderHomeSchema &&
+          homeSchema &&
+          Object.entries(homeSchema).map(([key, schemaObject]) => (
+            <script
+              key={key}
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaObject) }}
+            />
+          ))}
       </head>
       <body className="antialiased" suppressHydrationWarning>
         <NextIntlClientProvider locale={locale} messages={messages}>
