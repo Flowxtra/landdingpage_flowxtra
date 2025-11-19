@@ -1,0 +1,68 @@
+{
+  "softwareApplication": {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Flowxtra ATS – Software de reclutamiento",
+    "operatingSystem": "Web, Windows, macOS",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Applicant Tracking System (ATS)",
+    "softwareVersion": "1.0",
+    "url": "{{PAGE_URL}}",
+    "description": "Flowxtra ATS es un sistema de seguimiento de candidatos impulsado por IA para equipos de contratación en España y LATAM. Publica ofertas ilimitadas, filtra candidatos automáticamente y colabora con tu equipo cumpliendo el RGPD.",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": ["Startups", "PYMES", "Agencias de reclutamiento", "Empresas"]
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Flowxtra GmbH"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Plan Gratis – Publicaciones ilimitadas",
+        "price": "0.00",
+        "priceCurrency": "EUR",
+        "url": "{{BASE_URL}}/pricing/",
+        "availability": "https://schema.org/InStock"
+      }
+    ],
+    "featureList": [
+      "Publicaciones ilimitadas de empleo",
+      "Filtrado inteligente de candidatos",
+      "Multiposting en portales de empleo",
+      "Pipelines y colaboraciones",
+      "Informes y cumplimiento RGPD"
+    ],
+    "keywords": [
+      "software ats",
+      "sistema seguimiento candidatos",
+      "software de reclutamiento",
+      "plataforma de reclutamiento",
+      "ats españa"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Flowxtra ATS es gratuito?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. El plan gratuito incluye publicaciones ilimitadas, filtrado por IA y gestión de candidatos sin coste."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo publicar en varios portales a la vez?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. El multiposting envía tus ofertas a Google Jobs, LinkedIn, Facebook y decenas de portales con un solo clic."
+        }
+      }
+    ]
+  }
+}
+

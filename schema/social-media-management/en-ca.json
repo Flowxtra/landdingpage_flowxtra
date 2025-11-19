@@ -1,0 +1,46 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Social Media Recruiting & Scheduling | Flowxtra Canada",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "en-CA",
+    "description": "Coordinate bilingual employer branding content for Canada. Flowxtra lets HR and marketing teams plan, approve, and publish hiring posts across LinkedIn, Facebook, Instagram, TikTok, and WhatsApp.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "social recruiting canada",
+      "employer branding canada",
+      "social media scheduling",
+      "content approvals"
+    ],
+    "keywords": [
+      "canadian social recruiting",
+      "linkedin scheduler canada",
+      "bilingual employer branding",
+      "content approval workflow"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can Flowxtra manage English and French content?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Organize bilingual campaigns, localize captions, and track approvals per language before publishing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which Canadian channels are supported?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Flowxtra integrates with LinkedIn, Facebook, Instagram, TikTok, and WhatsApp while aligning to Canadian compliance rules."
+        }
+      }
+    ]
+  }
+}
+

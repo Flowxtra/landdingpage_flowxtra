@@ -1,0 +1,40 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Social-Media-Recruiting & Planung | Flowxtra Österreich",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "de-AT",
+    "description": "Planen, freigeben und veröffentlichen Sie Employer-Branding-Inhalte für Österreich über LinkedIn, Facebook, Instagram, TikTok und WhatsApp. Flowxtra verbindet Social-Media-Redaktionspläne mit ATS-Workflows.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "social media recruiting österreich",
+      "employer branding",
+      "social media planung",
+      "freigabe workflow"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Unterstützt Flowxtra österreichische Teams?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Lokale Zeitzonen, Feiertage und DSGVO-konforme Freigaben sind integriert."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie laufen Freigaben ab?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Marketing, HR und Recht kommentieren Beiträge, verfolgen Versionen und geben Posts vor der Veröffentlichung frei."
+        }
+      }
+    ]
+  }
+}
+

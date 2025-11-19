@@ -1,0 +1,85 @@
+{
+  "softwareApplication": {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Flowxtra ATS Recruiting Software",
+    "operatingSystem": "Web, Windows, macOS",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Applicant Tracking System (ATS)",
+    "softwareVersion": "1.0",
+    "url": "{{PAGE_URL}}",
+    "description": "Flowxtra ATS is a free applicant tracking system tailored for US hiring teams. It offers unlimited job postings, AI-powered candidate filtering, multiposting, and collaboration workflows — fully compliant with GDPR, CCPA, CPRA, and EEO guidelines.",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": [
+        "Startups",
+        "HR teams",
+        "Recruitment agencies",
+        "SMBs",
+        "Enterprises"
+      ]
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Flowxtra GmbH"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Free Forever Plan – Unlimited Job Postings",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "url": "{{BASE_URL}}/pricing/",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "name": "Professional Plan – Advanced ATS Features",
+        "price": "249.00",
+        "priceCurrency": "USD",
+        "url": "{{BASE_URL}}/pricing/",
+        "availability": "https://schema.org/InStock"
+      }
+    ],
+    "featureList": [
+      "Unlimited free job postings",
+      "AI-powered candidate filtering",
+      "Multiposting to US job boards",
+      "Candidate profile management",
+      "Collaboration scorecards",
+      "Reports & analytics",
+      "GDPR, CCPA, CPRA, and EEO compliance"
+    ],
+    "keywords": [
+      "ATS software USA",
+      "applicant tracking system",
+      "free ATS",
+      "hiring software",
+      "recruiting platform",
+      "candidate tracking"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Flowxtra ATS free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Flowxtra ATS includes a Free Forever plan with unlimited job postings, AI filtering, and multiposting. Paid plans unlock advanced analytics, custom fields, and API access."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I post jobs to multiple US boards at once?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Flowxtra's multiposting pushes openings to Google Jobs, LinkedIn, Facebook, and 50+ job boards in one click."
+        }
+      }
+    ]
+  }
+}
+

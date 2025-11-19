@@ -1,0 +1,84 @@
+{
+  "softwareApplication": {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Flowxtra ATS Recruiting Software",
+    "operatingSystem": "Web, Windows, macOS",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Applicant Tracking System (ATS)",
+    "softwareVersion": "1.0",
+    "url": "{{PAGE_URL}}",
+    "description": "Flowxtra ATS is an AI-powered applicant tracking system built for UK hiring teams. Publish unlimited vacancies, automate candidate filtering, and collaborate with hiring managers while staying compliant with GDPR and UK ICO guidelines.",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": [
+        "Startups",
+        "HR teams",
+        "Recruitment agencies",
+        "SMBs",
+        "Enterprises"
+      ]
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Flowxtra GmbH"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Free Forever Plan – Unlimited Job Postings",
+        "price": "0.00",
+        "priceCurrency": "GBP",
+        "url": "{{BASE_URL}}/pricing/",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "name": "Professional Plan – Advanced ATS Features",
+        "price": "249.00",
+        "priceCurrency": "GBP",
+        "url": "{{BASE_URL}}/pricing/",
+        "availability": "https://schema.org/InStock"
+      }
+    ],
+    "featureList": [
+      "Unlimited free job postings",
+      "AI-powered candidate filtering",
+      "Multiposting to UK job boards",
+      "Candidate profile & scorecards",
+      "Collaboration pipelines",
+      "Reports & compliance controls",
+      "GDPR & UK ICO compliance"
+    ],
+    "keywords": [
+      "uk ats software",
+      "applicant tracking system uk",
+      "free ats",
+      "hiring software",
+      "recruitment platform"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does Flowxtra ATS support UK hiring workflows?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Flowxtra includes UK-ready templates, GDPR/ICO consent tracking, and multiposting to British job boards."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the ATS free to start?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Free Forever plan offers unlimited postings, AI filtering, and pipelines with no credit card required. Upgrade for advanced analytics and API access."
+        }
+      }
+    ]
+  }
+}
+

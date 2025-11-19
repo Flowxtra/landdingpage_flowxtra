@@ -1,0 +1,46 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Social Media Recruiting & Scheduling | Flowxtra Australia",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "en-AU",
+    "description": "Plan and automate Australian hiring content across LinkedIn, Facebook, Instagram, TikTok, and WhatsApp. Flowxtra keeps employer branding assets, approvals, and ATS workflows in sync.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "social recruiting australia",
+      "employer branding anz",
+      "social media scheduling",
+      "content approvals"
+    ],
+    "keywords": [
+      "australian social recruiting",
+      "linkedin scheduling tool",
+      "hr marketing platform",
+      "content calendar australia"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does Flowxtra adapt to Australian time zones?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Schedule posts in AEST, ACST, or AWST and keep hiring campaigns aligned with local calendars."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can we collaborate with agencies on approvals?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Invite agencies or contractors to draft content, tag stakeholders, and receive approval notifications before publishing."
+        }
+      }
+    ]
+  }
+}
+

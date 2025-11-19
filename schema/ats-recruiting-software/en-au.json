@@ -1,0 +1,83 @@
+{
+  "softwareApplication": {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Flowxtra ATS Recruiting Software",
+    "operatingSystem": "Web, Windows, macOS",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Applicant Tracking System (ATS)",
+    "softwareVersion": "1.0",
+    "url": "{{PAGE_URL}}",
+    "description": "Flowxtra ATS is designed for Australian hiring teams. Manage unlimited job postings, automate candidate filtering, and coordinate approvals while staying aligned with Fair Work and GDPR requirements.",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": [
+        "Startups",
+        "HR teams",
+        "Recruitment agencies",
+        "SMBs",
+        "Enterprises"
+      ]
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Flowxtra GmbH"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Free Forever Plan – Unlimited Job Postings",
+        "price": "0.00",
+        "priceCurrency": "AUD",
+        "url": "{{BASE_URL}}/pricing/",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "name": "Professional Plan – Advanced ATS Features",
+        "price": "249.00",
+        "priceCurrency": "AUD",
+        "url": "{{BASE_URL}}/pricing/",
+        "availability": "https://schema.org/InStock"
+      }
+    ],
+    "featureList": [
+      "Unlimited free job postings",
+      "AI-powered candidate filtering",
+      "Multiposting to Australian job boards",
+      "Candidate CRM & pipelines",
+      "Team collaboration & scorecards",
+      "Advanced analytics & compliance"
+    ],
+    "keywords": [
+      "ats software australia",
+      "applicant tracking system",
+      "free ats",
+      "recruiting software australia",
+      "hiring platform anz"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does Flowxtra support Australian compliance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Flowxtra offers consent tracking, data residency in the EU, and workflows aligned with Fair Work guidance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many jobs can I post on the free plan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The free plan allows unlimited job postings plus AI filtering, multiposting, and basic analytics at no cost."
+        }
+      }
+    ]
+  }
+}
+

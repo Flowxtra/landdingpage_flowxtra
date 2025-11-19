@@ -1,0 +1,40 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "ATS Recruiting Software & Smart Hiring Tool | Flowxtra",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "{{LOCALE_CODE}}",
+    "description": "Flowxtra bietet ein KI-gestütztes Applicant Tracking System mit Kanban-Pipelines, Automationen, Bewertungsbögen und White-Label-Karriereseiten – ideal für Startups, KMU und Enterprise-Teams.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "applicant tracking system",
+      "ats recruiting software",
+      "ai hiring software",
+      "talent acquisition automation"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wodurch unterscheidet sich Flowxtra von anderen ATS-Lösungen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Flowxtra kombiniert unbegrenzte Stellenanzeigen, Kanban-Pipelines, Automatisierungen, individuelle Scorecards und Social-Media-Recruiting in einem ATS."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Unterstützt Flowxtra Teamarbeit und Freigaben?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Teams können Kommentare hinterlassen, Aufgaben zuweisen, Scorecards teilen und automatische Freigaben auslösen, damit alle synchron bleiben."
+        }
+      }
+    ]
+  }
+}
+

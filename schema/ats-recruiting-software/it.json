@@ -1,0 +1,68 @@
+{
+  "softwareApplication": {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Flowxtra ATS – Software di recruiting",
+    "operatingSystem": "Web, Windows, macOS",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Applicant Tracking System (ATS)",
+    "softwareVersion": "1.0",
+    "url": "{{PAGE_URL}}",
+    "description": "Flowxtra ATS è una piattaforma di selezione con IA per i team HR italiani. Pubblica offerte illimitate, gestisci pipeline collaborative e resta conforme al GDPR.",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": ["Startup", "PMI", "Agenzie del lavoro", "Enterprise"]
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Flowxtra GmbH"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Piano Gratuito – Annunci illimitati",
+        "price": "0.00",
+        "priceCurrency": "EUR",
+        "url": "{{BASE_URL}}/pricing/",
+        "availability": "https://schema.org/InStock"
+      }
+    ],
+    "featureList": [
+      "Annunci illimitati",
+      "Filtri candidati con IA",
+      "Multiposting su job board italiane",
+      "Pipeline collaborative",
+      "Reportistica e compliance GDPR"
+    ],
+    "keywords": [
+      "software ats",
+      "applicant tracking system",
+      "software recruiting",
+      "ats italia",
+      "gestione candidati"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Flowxtra ATS è gratuito?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sì. Il piano gratuito offre annunci illimitati, filtraggio intelligente e pipeline collaborative senza carta di credito."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Si può pubblicare su più portali?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Certamente. Il multiposting invia automaticamente le offerte a Google Jobs, LinkedIn, Facebook e oltre 50 portali."
+        }
+      }
+    ]
+  }
+}
+

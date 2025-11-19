@@ -1,0 +1,40 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Social Media Recruitment & Scheduling Software | Flowxtra",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "{{LOCALE_CODE}}",
+    "description": "Plan, approve, and publish hiring content across LinkedIn, Facebook, Instagram, and TikTok from one collaborative workspace. Flowxtra combines social media scheduling with ATS workflows for talent teams.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "social media recruitment",
+      "social media scheduling",
+      "employer branding",
+      "content approvals"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does Flowxtra streamline social media recruitment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Teams can create hiring campaigns, schedule posts, approve content, and track engagement for LinkedIn, Facebook, Instagram, TikTok, and WhatsApp directly from Flowxtra."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I manage content approvals for my team?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Collaborators can draft posts, request edits, add notes, and log approvals so every hiring update stays on brand and compliant."
+        }
+      }
+    ]
+  }
+}
+

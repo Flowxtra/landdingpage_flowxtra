@@ -1,0 +1,68 @@
+{
+  "softwareApplication": {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Flowxtra ATS Recruiting Software",
+    "operatingSystem": "Web, Windows, macOS",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Applicant Tracking System (ATS)",
+    "softwareVersion": "1.0",
+    "url": "{{PAGE_URL}}",
+    "description": "Flowxtra ATS unterstützt Schweizer Unternehmen bei der digitalen Personalgewinnung. Publizieren Sie unbegrenzt viele Stellenanzeigen, automatisieren Sie das Screening und bleiben Sie DSGVO-konform.",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": ["Startups", "KMU", "Recruiting-Teams", "Enterprise"]
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Flowxtra GmbH"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Gratis-Plan – Unbegrenzte Stellenanzeigen",
+        "price": "0.00",
+        "priceCurrency": "CHF",
+        "url": "{{BASE_URL}}/pricing/",
+        "availability": "https://schema.org/InStock"
+      }
+    ],
+    "featureList": [
+      "Unbegrenzte Stellenanzeigen",
+      "KI-gestütztes Bewerbermatching",
+      "Multiposting auf CH-Jobbörsen",
+      "Kollaboration mit Hiring-Managern",
+      "Reporting & DSGVO-Konformität"
+    ],
+    "keywords": [
+      "ats software schweiz",
+      "bewerbermanagement",
+      "recruiting software",
+      "ats ch",
+      "flowxtra ats"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Kann ich Flowxtra in der Schweiz kostenlos nutzen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Der Free-Plan bietet unbegrenzte Stellen, Multiposting und KI-Features ohne Kosten."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Unterstützt Flowxtra kantonale Datenschutzanforderungen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Flowxtra erfüllt DSGVO-Standards, hostet Daten in der EU und unterstützt Unternehmen bei lokalen Richtlinien."
+        }
+      }
+    ]
+  }
+}
+

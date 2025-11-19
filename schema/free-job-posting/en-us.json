@@ -1,0 +1,46 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Free Job Posting Platform | Flowxtra USA",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "en-US",
+    "description": "Post unlimited US jobs for free with Flowxtra. Distribute every vacancy to Google Jobs, LinkedIn, Facebook, and top American job boards from one dashboard with no contracts or credit cards.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "free job posting usa",
+      "post jobs for free",
+      "ats software united states",
+      "multiposting platform"
+    ],
+    "keywords": [
+      "free us job posting",
+      "free ats usa",
+      "american recruiting software",
+      "google jobs posting tool"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How many free jobs can I publish in the United States?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Flowxtra allows unlimited job listings on the Free Forever plan for US recruiters. Publish roles for marketing, retail, healthcare, tech, and more without caps."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Flowxtra syndicate to American channels?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. With one click you can push openings to Google Jobs, LinkedIn, Facebook, and dozens of American job boards popular with US candidates."
+        }
+      }
+    ]
+  }
+}
+

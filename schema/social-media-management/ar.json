@@ -1,0 +1,40 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "إدارة حملات التوظيف عبر السوشيال ميديا | Flowxtra",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "{{LOCALE_CODE}}",
+    "description": "خطط وجدول وأنشر محتوى التوظيف على LinkedIn وFacebook وInstagram وTikTok من لوحة واحدة. Flowxtra يربط بين إدارة السوشيال ميديا وعمليات الـ ATS لفِرق التوظيف.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "التوظيف عبر السوشيال ميديا",
+      "جدولة المحتوى",
+      "إدارة العلامة الوظيفية",
+      "مراجعة المحتوى"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "كيف يساعد Flowxtra في حملات التوظيف على السوشيال؟",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "يمكنك إنشاء الحملات، وجدولة المنشورات، وإدارتها على LinkedIn وFacebook وInstagram وTikTok وWhatsApp من Flowxtra مع تتبع الأداء."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "هل يدعم النظام الموافقات والعمل الجماعي؟",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "نعم. يستطيع أعضاء الفريق إضافة المسودات، التعليقات، طلب التعديلات، وتسجيل الموافقات لضمان اتساق الرسائل مع هوية العلامة."
+        }
+      }
+    ]
+  }
+}
+

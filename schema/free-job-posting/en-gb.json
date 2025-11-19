@@ -1,0 +1,46 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Free Job Posting Platform | Flowxtra UK",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "en-GB",
+    "description": "Advertise unlimited vacancies across the United Kingdom for free with Flowxtra. Share roles to Google Jobs, LinkedIn, Facebook, and UK job boards in seconds.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "free job posting uk",
+      "post vacancies for free",
+      "ats software uk",
+      "multiposting platform britain"
+    ],
+    "keywords": [
+      "uk free job ads",
+      "ats united kingdom",
+      "free recruitment software",
+      "google jobs uk tool"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I post unlimited UK jobs for free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Flowxtra’s Free Forever plan includes unlimited postings for UK employers with no hidden fees or limits."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which UK channels are supported?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can distribute each vacancy to Google Jobs, LinkedIn, Facebook, and leading British boards from one dashboard."
+        }
+      }
+    ]
+  }
+}
+

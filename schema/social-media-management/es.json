@@ -1,0 +1,40 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Gestión de redes sociales para reclutamiento | Flowxtra",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "es",
+    "description": "Planifica, aprueba y publica campañas de employer branding en LinkedIn, Facebook, Instagram, TikTok y WhatsApp desde un solo calendario. Flowxtra une redes sociales y ATS.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "reclutamiento redes sociales",
+      "programación redes",
+      "employer branding",
+      "aprobaciones de contenido"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Puedo colaborar con marketing y RRHH?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Los equipos pueden dejar comentarios, solicitar cambios y aprobar publicaciones antes de que salgan al aire."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué redes sociales soporta Flowxtra?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LinkedIn, Facebook, Instagram, TikTok y WhatsApp con programación multizona."
+        }
+      }
+    ]
+  }
+}
+

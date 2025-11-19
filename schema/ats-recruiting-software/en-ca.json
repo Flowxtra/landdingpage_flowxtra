@@ -1,0 +1,83 @@
+{
+  "softwareApplication": {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Flowxtra ATS Recruiting Software",
+    "operatingSystem": "Web, Windows, macOS",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Applicant Tracking System (ATS)",
+    "softwareVersion": "1.0",
+    "url": "{{PAGE_URL}}",
+    "description": "Flowxtra ATS is an AI-powered applicant tracking system for Canadian employers. Publish unlimited roles, automate candidate filtering, and collaborate with hiring managers while staying compliant with GDPR, CPRA, CCPA, and PIPEDA.",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": [
+        "Startups",
+        "HR teams",
+        "Recruitment agencies",
+        "SMBs",
+        "Enterprises"
+      ]
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Flowxtra GmbH"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Free Forever Plan – Unlimited Job Postings",
+        "price": "0.00",
+        "priceCurrency": "CAD",
+        "url": "{{BASE_URL}}/pricing/",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "name": "Professional Plan – Advanced ATS Features",
+        "price": "249.00",
+        "priceCurrency": "CAD",
+        "url": "{{BASE_URL}}/pricing/",
+        "availability": "https://schema.org/InStock"
+      }
+    ],
+    "featureList": [
+      "Unlimited free job postings",
+      "AI-powered candidate filtering",
+      "Multiposting to Canadian job boards",
+      "Candidate CRM & scorecards",
+      "Pipelines and approvals",
+      "Analytics & compliance reporting"
+    ],
+    "keywords": [
+      "canadian ats software",
+      "applicant tracking system",
+      "free ats",
+      "recruiting software canada",
+      "hiring software"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Flowxtra ATS compliant with Canadian privacy laws?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Flowxtra adheres to PIPEDA, GDPR, and CPRA requirements with secure EU data hosting and consent management workflows."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I collaborate with multiple hiring managers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Flowxtra includes collaborative pipelines, scorecards, and approval steps so recruiters, hiring managers, and agencies work in sync."
+        }
+      }
+    ]
+  }
+}
+

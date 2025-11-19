@@ -1,0 +1,40 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "منصة نشر الوظائف المجانية | Flowxtra",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "{{LOCALE_CODE}}",
+    "description": "انشر عددًا غير محدود من الوظائف مجانًا مع Flowxtra. وزّع الوظائف على Google Jobs وLinkedIn وFacebook وأكثر من 50 قناة من لوحة تحكم واحدة – بدون بطاقة ائتمان أو رسوم خفية.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "نشر وظائف مجاني",
+      "منصة توظيف مجانية",
+      "نشر الوظائف على مواقع متعددة",
+      "أتمتة التوظيف"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "هل نشر الوظائف مع Flowxtra مجاني بالكامل؟",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "نعم، يمكنك نشر عدد غير محدود من الوظائف مجانًا وتوزيعها على Google Jobs وLinkedIn وFacebook و50+ قناة أخرى من دون أي رسوم أو التزام."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ما هي القنوات التي يمكنني النشر عليها؟",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "يمكنك من خلال لوحة تحكم Flowxtra مشاركة الوظائف على صفحة الوظائف الخاصة بك، وGoogle Jobs، وLinkedIn، وFacebook، وInstagram، إضافةً إلى عشرات منصات التوظيف الأخرى بضغطة واحدة."
+        }
+      }
+    ]
+  }
+}
+

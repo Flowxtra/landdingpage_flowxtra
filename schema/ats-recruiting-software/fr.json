@@ -1,0 +1,68 @@
+{
+  "softwareApplication": {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Flowxtra ATS – Logiciel de recrutement",
+    "operatingSystem": "Web, Windows, macOS",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Applicant Tracking System (ATS)",
+    "softwareVersion": "1.0",
+    "url": "{{PAGE_URL}}",
+    "description": "Flowxtra ATS est une solution de suivi des candidatures alimentée par l’IA pour les équipes RH françaises. Publiez des offres illimitées, filtrez les candidats automatiquement, collaborez avec les managers et respectez le RGPD.",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": ["Startups", "PME", "Agences de recrutement", "Grandes entreprises"]
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Flowxtra GmbH"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Plan Gratuit – Offres illimitées",
+        "price": "0.00",
+        "priceCurrency": "EUR",
+        "url": "{{BASE_URL}}/pricing/",
+        "availability": "https://schema.org/InStock"
+      }
+    ],
+    "featureList": [
+      "Offres d’emploi illimitées",
+      "Filtrage intelligent des candidats",
+      "Multiposting sur les jobboards français",
+      "Pipelines collaboratifs",
+      "Rapports & conformité RGPD"
+    ],
+    "keywords": [
+      "logiciel ats",
+      "système de suivi des candidats",
+      "logiciel de recrutement",
+      "plateforme de recrutement",
+      "ats france"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Flowxtra ATS est-il gratuit ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, le plan Gratuit permet de publier des offres illimitées et de gérer vos candidats sans frais."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Puis-je publier sur plusieurs sites d’emploi ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, la fonction multiposting diffuse vos annonces sur Google Jobs, LinkedIn, Facebook et plus de 50 plateformes."
+        }
+      }
+    ]
+  }
+}
+

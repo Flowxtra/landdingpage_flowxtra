@@ -1,0 +1,46 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Free Job Posting Platform | Flowxtra Australia",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "en-AU",
+    "description": "Post unlimited roles across Australia for free with Flowxtra. Promote jobs to Google Jobs, LinkedIn, Facebook, and Aussie job boards from one workspace.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "free job posting australia",
+      "post jobs free aus",
+      "ats software australia",
+      "multiposting platform"
+    ],
+    "keywords": [
+      "australian job ads free",
+      "free ats australia",
+      "anz recruiting software",
+      "google jobs australia tool"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is there a limit on free Australian job ads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Flowxtra’s Free Forever plan supports unlimited job postings for Australian businesses."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which Australian channels can I publish to?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can syndicate openings to Google Jobs, LinkedIn, Facebook, and local Australian job boards instantly."
+        }
+      }
+    ]
+  }
+}
+

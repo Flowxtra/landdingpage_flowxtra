@@ -54,12 +54,12 @@ export async function generateMetadata({
   const metadata = {
     en: {
       title: "Pricing Plans – Flowxtra | Free ATS & Recruiting Software",
-      description: "Choose the perfect plan for your business. Start with 10 free job postings per month. Transparent pricing, no hidden fees.",
+      description: "Choose the perfect plan for your business. Start with Unlimited Job postings per month. Transparent pricing, no hidden fees.",
       keywords: ["pricing", "plans", "free job posting", "ATS pricing", "recruiting software cost", "affordable hiring platform"],
       metadataBase: new URL(baseUrl),
       openGraph: {
         title: "Pricing Plans – Flowxtra | Free ATS & Recruiting Software",
-        description: "Choose the perfect plan for your business. Start with 10 free job postings per month. Transparent pricing, no hidden fees.",
+        description: "Choose the perfect plan for your business. Start with Unlimited Job postings per month. Transparent pricing, no hidden fees.",
         url: canonicalUrl,
         type: "website",
       },

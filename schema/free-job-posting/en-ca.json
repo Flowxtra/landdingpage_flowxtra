@@ -1,0 +1,46 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Free Job Posting Platform | Flowxtra Canada",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "en-CA",
+    "description": "Publish unlimited Canadian job ads for free with Flowxtra. Share each role to Google Jobs, LinkedIn, Facebook, and local Canadian job boards from one login.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "free job posting canada",
+      "post jobs free canada",
+      "ats software canada",
+      "multiposting platform"
+    ],
+    "keywords": [
+      "canadian free job ads",
+      "free ats canada",
+      "hiring software canada",
+      "google jobs canada"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are job postings really unlimited in Canada?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Flowxtra’s free plan lets Canadian companies publish as many openings as they need without transaction fees."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Flowxtra support bilingual audiences?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can create English or French job ads and distribute them to Google Jobs, LinkedIn, Facebook, and other channels simultaneously."
+        }
+      }
+    ]
+  }
+}
+

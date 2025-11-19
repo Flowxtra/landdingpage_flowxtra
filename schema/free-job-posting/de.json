@@ -1,0 +1,40 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Kostenlose Stellenanzeigen veröffentlichen | Flowxtra",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "{{LOCALE_CODE}}",
+    "description": "Veröffentlichen Sie unbegrenzt Stellenanzeigen kostenlos mit Flowxtra. Teilen Sie Jobs gleichzeitig auf Google for Jobs, LinkedIn, Facebook und weiteren Kanälen – ganz ohne Kreditkarte oder versteckte Gebühren.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "kostenlose stellenausschreibung",
+      "jobs kostenlos veröffentlichen",
+      "multiposting plattform",
+      "kostenlose recruiting software"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ist Flowxtra wirklich kostenlos für Stellenanzeigen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Mit Flowxtra veröffentlichen Sie unbegrenzt viele Stellenanzeigen kostenlos und verteilen sie auf Google for Jobs, LinkedIn, Facebook und über 50 weitere Kanäle – ohne Gebühren oder Kreditkarte."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Welche Kanäle unterstützt die kostenlose Veröffentlichung?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sie veröffentlichen über ein zentrales Dashboard und teilen Ihre Anzeigen automatisch auf der Karriereseite, Google for Jobs, LinkedIn, Facebook, Instagram und weiteren Jobbörsen."
+        }
+      }
+    ]
+  }
+}
+

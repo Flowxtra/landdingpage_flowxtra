@@ -1,0 +1,68 @@
+{
+  "softwareApplication": {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Flowxtra ATS – Recruitmentsoftware",
+    "operatingSystem": "Web, Windows, macOS",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Applicant Tracking System (ATS)",
+    "softwareVersion": "1.0",
+    "url": "{{PAGE_URL}}",
+    "description": "Flowxtra ATS is een AI-gestuurd applicant tracking system voor HR-teams in Nederland en België. Plaats onbeperkt vacatures, automatiseer kandidaatselectie en werk samen in één platform met volledige AVG-naleving.",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": ["Startups", "MKB", "Recruitmentbureaus", "Enterprise"]
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Flowxtra GmbH"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Gratis plan – Onbeperkte vacatures",
+        "price": "0.00",
+        "priceCurrency": "EUR",
+        "url": "{{BASE_URL}}/pricing/",
+        "availability": "https://schema.org/InStock"
+      }
+    ],
+    "featureList": [
+      "Onbeperkt vacatures plaatsen",
+      "AI-gestuurde kandidaatselectie",
+      "Multiposting naar NL jobboards",
+      "Kandidaat CRM en pipelines",
+      "Rapportages & AVG-compliance"
+    ],
+    "keywords": [
+      "ats software",
+      "applicant tracking system",
+      "recruitmentsoftware",
+      "gratis ats",
+      "hr software nederland"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Flowxtra ATS gratis?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Het gratis plan bevat onbeperkte vacatures, multiposting en AI-filtering zonder kosten."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ondersteunt het platform AVG-regels?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Flowxtra voldoet aan de AVG en biedt toestemmingsbeheer, audit logging en veilige EU-hosting."
+        }
+      }
+    ]
+  }
+}
+

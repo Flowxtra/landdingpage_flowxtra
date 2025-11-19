@@ -1,0 +1,40 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Pubblica offerte gratuite | Flowxtra",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "it",
+    "description": "Pubblica annunci illimitati gratis con Flowxtra e condividili su Google Jobs, LinkedIn, Facebook e i principali portali italiani.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "annunci lavoro gratis",
+      "pubblicare lavoro gratis",
+      "software ats",
+      "multiposting recruiting"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Flowxtra offre annunci gratuiti illimitati?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sì. Il piano gratuito consente pubblicazioni illimitate e diffusione automatica senza carta di credito."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Posso condividere le offerte su più canali?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Certo. Con un solo clic invii l’annuncio al sito carriera, Google Jobs, LinkedIn, Facebook e altri portali."
+        }
+      }
+    ]
+  }
+}
+

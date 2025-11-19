@@ -1,0 +1,40 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Gestion des réseaux sociaux pour le recrutement | Flowxtra",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "fr",
+    "description": "Planifiez, validez et publiez vos campagnes de recrutement sur LinkedIn, Facebook, Instagram, TikTok et WhatsApp. Flowxtra centralise l’animation des réseaux sociaux et les workflows ATS.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "recrutement social media",
+      "programmation réseaux sociaux",
+      "employer branding",
+      "workflow d’approbation"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Puis-je gérer des validations d’équipe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui. Les responsables marketing, RH et juridique peuvent commenter, demander des modifications et approuver chaque publication."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelles plateformes sont supportées?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Flowxtra connecte LinkedIn, Facebook, Instagram, TikTok et WhatsApp avec planification multi-fuseaux."
+        }
+      }
+    ]
+  }
+}
+

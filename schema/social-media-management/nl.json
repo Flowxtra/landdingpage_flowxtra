@@ -1,0 +1,40 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Social media werving & planning | Flowxtra",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "nl",
+    "description": "Plan, keur goed en publiceer employer branding content voor Nederland en België. Flowxtra laat HR en marketing samenwerken aan LinkedIn-, Facebook-, Instagram-, TikTok- en WhatsApp-campagnes.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "social media recruitment",
+      "social planning",
+      "employer branding",
+      "goedkeuringsflow"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Kan ik meerdere teams laten meewerken?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Marketing, HR en bureaupartners kunnen opmerkingen plaatsen, taken toewijzen en publicaties goedkeuren."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Welke kanalen ondersteunt Flowxtra?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LinkedIn, Facebook, Instagram, TikTok en WhatsApp worden allemaal vanuit één kalender aangestuurd."
+        }
+      }
+    ]
+  }
+}
+

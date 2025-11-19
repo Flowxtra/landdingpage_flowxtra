@@ -1,0 +1,40 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Gestione social media per il recruiting | Flowxtra",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "it",
+    "description": "Pianifica e approva campagne di employer branding su LinkedIn, Facebook, Instagram, TikTok e WhatsApp. Flowxtra collega marketing HR e workflow ATS in un’unica piattaforma.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "recruiting social media",
+      "programmazione social",
+      "employer branding",
+      "approvazioni contenuti"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Posso gestire il calendario dei post con il team?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sì. I membri collaborano su bozze, commenti e approvazioni prima della pubblicazione."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quali canali social sono supportati?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LinkedIn, Facebook, Instagram, TikTok e WhatsApp con pianificazione automatica."
+        }
+      }
+    ]
+  }
+}
+

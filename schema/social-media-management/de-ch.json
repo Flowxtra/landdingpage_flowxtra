@@ -1,0 +1,40 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Social-Media-Recruiting & Planung | Flowxtra Schweiz",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "de-CH",
+    "description": "Steuern Sie Schweizer Employer-Branding-Kampagnen zentral. Flowxtra bündelt Planung, Freigaben und Veröffentlichung für LinkedIn, Facebook, Instagram, TikTok und WhatsApp.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "social recruiting schweiz",
+      "employer branding",
+      "content planung",
+      "freigabeprozess"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Kann ich mehrsprachige Kampagnen managen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Planen Sie Beiträge für Deutsch, Französisch oder Italienisch und erhalten Sie Freigaben pro Sprache."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Welche Netzwerke sind angebunden?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Flowxtra verbindet LinkedIn, Facebook, Instagram, TikTok und WhatsApp inklusive DSGVO-konformer Workflows."
+        }
+      }
+    ]
+  }
+}
+

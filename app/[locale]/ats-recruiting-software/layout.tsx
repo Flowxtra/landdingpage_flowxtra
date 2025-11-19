@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
+import { getAtsRecruitingSchema } from "@/lib/schemaLoader";
 
 // Generate SEO metadata for ATS Recruiting Software page
 export async function generateMetadata({ 
@@ -272,177 +273,32 @@ export async function generateMetadata({
   };
 }
 
-export default function ATSRecruitingSoftwareLayout({
+export default async function ATSRecruitingSoftwareLayout({
   children,
+  params
 }: {
   children: React.ReactNode;
+  params: Promise<{locale: string}>;
 }) {
+  const {locale} = await params;
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Flowxtra ATS Recruiting Software",
-    "operatingSystem": "Web, Windows, macOS",
-    "applicationCategory": "BusinessApplication",
-    "applicationSubCategory": "Applicant Tracking System (ATS)",
-    "softwareVersion": "1.0",
-    "url": "https://flowxtra.com/ats-recruiting-software/",
-    "image": `${baseUrl}/Main-flowxtra-Logo.png`,
-    "description": "Flowxtra ATS is a free applicant tracking system that helps companies streamline their hiring process. Features include unlimited free job postings, AI-powered candidate filtering, multi-posting to job boards, candidate profile management, email templates, and integrated interviews. GDPR, CCPA, and EU AI Act compliant.",
-    "isCompatibleWith": [
-      "https://n8n.io/",
-      "https://www.canva.com/",
-      "https://chat.openai.com/",
-      "https://gemini.google.com/",
-      "https://claude.ai/",
-      "https://www.perplexity.ai/"
-    ],
-    "audience": {
-      "@type": "Audience",
-      "audienceType": [
-        "Startups",
-        "HR teams",
-        "Recruitment agencies",
-        "Small and medium-sized businesses (SMBs)",
-        "Enterprises"
-      ]
-    },
-    "creator": {
-      "@type": "Organization",
-      "name": "Flowxtra GmbH"
-    },
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "Free Forever Plan – Unlimited Job Postings",
-        "price": "0.00",
-        "priceCurrency": "EUR",
-        "url": "https://flowxtra.com/pricing/",
-        "availability": "https://schema.org/InStock",
-        "category": "FreeSoftware",
-        "description": "Free Forever plan with unlimited job postings, AI candidate filtering, multi-posting, and candidate management. No credit card required."
-      },
-      {
-        "@type": "Offer",
-        "name": "Free Forever Plan – Unlimited Job Postings (USD)",
-        "price": "0.00",
-        "priceCurrency": "USD",
-        "url": "https://flowxtra.com/pricing/",
-        "availability": "https://schema.org/InStock",
-        "category": "FreeSoftware",
-        "description": "Free Forever plan with unlimited job postings, AI candidate filtering, multi-posting, and candidate management. No credit card required."
-      },
-      {
-        "@type": "Offer",
-        "name": "Professional Plan – Advanced ATS Features",
-        "price": "249.00",
-        "priceCurrency": "EUR",
-        "url": "https://flowxtra.com/pricing/",
-        "availability": "https://schema.org/InStock",
-        "category": "PaidSoftware",
-        "description": "Professional Plan includes all Free features plus advanced analytics, custom fields, API access, and more. Starting from €249/month."
-      },
-      {
-        "@type": "Offer",
-        "name": "Professional Plan – Advanced ATS Features (USD)",
-        "price": "249.00",
-        "priceCurrency": "USD",
-        "url": "https://flowxtra.com/pricing/",
-        "availability": "https://schema.org/InStock",
-        "category": "PaidSoftware",
-        "description": "Professional Plan includes all Free features plus advanced analytics, custom fields, API access, and more. Starting from $249/month."
-      }
-    ],
-    "featureList": [
-      "Unlimited free job postings",
-      "AI-powered candidate filtering and ranking",
-      "Multi-posting to multiple job boards simultaneously",
-      "Comprehensive candidate profile management",
-      "Professional email templates for hiring",
-      "Integrated online interviews and video interviews",
-      "Team collaboration for candidate evaluation",
-      "Reports and analytics to optimize hiring",
-      "GDPR, EU AI Act, CCPA, and CPRA compliance",
-      "Available in EUR (€) and USD ($)"
-    ],
-    "keywords": [
-      "ATS software",
-      "applicant tracking system",
-      "recruiting software",
-      "ATS recruiting",
-      "free ATS",
-      "hiring software",
-      "recruitment platform",
-      "applicant tracking",
-      "candidate management system",
-      "recruitment CRM",
-      "talent acquisition software",
-      "job posting software",
-      "recruiting platform",
-      "ATS system",
-      "free applicant tracking",
-      "best ATS software",
-      "recruitment management system"
-    ]
-  };
+  const pageUrl = `${baseUrl}/${locale}/ats-recruiting-software`;
 
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Is Flowxtra ATS free to use?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes — Flowxtra ATS offers a free plan with unlimited job postings. You can post jobs, filter candidates with AI, manage applications, and track your hiring process at no cost. Advanced features like custom fields, API access, and advanced analytics are available in paid plans."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is an ATS (Applicant Tracking System)?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "An Applicant Tracking System (ATS) is software that helps companies manage the entire hiring process, from posting job openings to tracking candidates through the recruitment pipeline. Flowxtra ATS streamlines this process with AI-powered filtering, multi-posting capabilities, and comprehensive candidate management tools."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I post jobs to multiple job boards at once?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! Flowxtra's multi-posting feature allows you to post a single job opening to multiple job boards simultaneously, including Google for Jobs, LinkedIn, Facebook, and many others. This saves time and ensures your job postings reach the widest possible audience."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How does AI candidate filtering work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Flowxtra's AI-powered candidate filtering automatically ranks and filters candidates based on their qualifications, skills, and experience. The system analyzes resumes and applications to match candidates with job requirements, helping you identify the best-fit candidates faster and more efficiently."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is Flowxtra ATS GDPR compliant?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, Flowxtra ATS is fully GDPR, CCPA, and EU AI Act compliant. All candidate data is securely stored in the EU, and we follow strict data protection regulations to ensure your candidates' privacy and your company's compliance."
-        }
-      }
-    ]
-  };
+  const schema = getAtsRecruitingSchema(locale, {
+    BASE_URL: baseUrl,
+    PAGE_URL: pageUrl,
+    LOCALE_CODE: locale,
+  });
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+      {Object.entries(schema).map(([key, schemaObject]) => (
+        <script
+          key={key}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaObject) }}
+        />
+      ))}
       {children}
     </>
   );

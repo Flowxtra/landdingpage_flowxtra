@@ -1,0 +1,46 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Social Media Recruiting & Scheduling Software | Flowxtra USA",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "en-US",
+    "description": "Plan, approve, and publish employer branding content for the United States across LinkedIn, Facebook, Instagram, TikTok, and WhatsApp. Flowxtra unites social media scheduling with ATS workflows so HR teams attract American talent faster.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "social media recruitment usa",
+      "social hiring platform",
+      "employer branding tool",
+      "content approvals workspace"
+    ],
+    "keywords": [
+      "social media recruiting usa",
+      "linkedin scheduling tool",
+      "employer branding software",
+      "content approval workflow"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does Flowxtra support US social media channels?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Draft once and publish to LinkedIn, Facebook, Instagram, TikTok, and WhatsApp with localized time zones, brand guidelines, and compliance tracking."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can legal teams approve employer branding content?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Flowxtra includes collaborative notes, version history, and approvals so US marketing, HR, and legal stakeholders keep every hiring campaign on-brand."
+        }
+      }
+    ]
+  }
+}
+

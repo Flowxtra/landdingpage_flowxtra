@@ -1,0 +1,40 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Kostenlose Stellenanzeigen | Flowxtra Österreich",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "de-AT",
+    "description": "Veröffentlichen Sie unbegrenzt viele Stellenangebote in Österreich kostenlos mit Flowxtra. Teilen Sie Jobs auf Google Jobs, LinkedIn, Facebook und österreichischen Jobbörsen mit wenigen Klicks.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "kostenlose stellenanzeige",
+      "jobs gratis posten",
+      "ats software österreich",
+      "multiposting plattform"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Sind die Gratis-Stellenanzeigen wirklich unbegrenzt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Das Flowxtra Free Forever Paket bietet unbegrenzte Postings ohne Gebühren oder Vertragsbindung."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Welche Kanäle kann ich bespielen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sie teilen jede Anzeige gleichzeitig auf Google Jobs, LinkedIn, Facebook und österreichischen Jobportalen."
+        }
+      }
+    ]
+  }
+}
+

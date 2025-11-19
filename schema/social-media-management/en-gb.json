@@ -1,0 +1,46 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Social Media Recruiting & Scheduling | Flowxtra UK",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "en-GB",
+    "description": "Plan, approve, and publish employer branding content for the United Kingdom from one Flowxtra calendar. Coordinate hiring posts across LinkedIn, Facebook, Instagram, TikTok, and WhatsApp while staying GDPR compliant.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "social media recruitment uk",
+      "employer branding uk",
+      "social media scheduling",
+      "content approvals"
+    ],
+    "keywords": [
+      "uk social recruiting",
+      "linkedin scheduler uk",
+      "hr content approvals",
+      "employer branding platform"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can Flowxtra handle UK time zones and holidays?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Schedule campaigns using UK-friendly calendars, bank holiday reminders, and LinkedIn peak engagement windows."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How are approvals managed for distributed UK teams?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Editors, reviewers, and compliance leads receive notifications, can comment inline, and mark posts as approved before publishing."
+        }
+      }
+    ]
+  }
+}
+

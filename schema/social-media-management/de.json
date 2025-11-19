@@ -1,0 +1,40 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Social-Media-Recruiting & Planungstool | Flowxtra",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "{{LOCALE_CODE}}",
+    "description": "Planen, genehmigen und veröffentlichen Sie Recruiting-Inhalte auf LinkedIn, Facebook, Instagram und TikTok aus einem zentralen Workspace. Flowxtra verbindet Social-Media-Planung mit ATS-Prozessen für Talent-Teams.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "social media recruiting",
+      "social media scheduling",
+      "employer branding",
+      "content freigaben"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie unterstützt Flowxtra Social-Media-Recruiting?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Teams erstellen Kampagnen, planen Beiträge, geben Inhalte frei und verfolgen Interaktionen für LinkedIn, Facebook, Instagram, TikTok und WhatsApp – alles direkt in Flowxtra."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kann mein Team Freigaben und Kommentare hinterlassen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Kolleg*innen können Beiträge entwerfen, Feedback geben, Notizen hinzufügen und Freigaben dokumentieren, sodass jedes Social-Update markenkonform und rechtssicher bleibt."
+        }
+      }
+    ]
+  }
+}
+

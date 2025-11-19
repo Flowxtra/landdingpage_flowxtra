@@ -1,0 +1,40 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Gratis vacatures plaatsen | Flowxtra",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "nl",
+    "description": "Plaats onbeperkt vacatures gratis met Flowxtra. Deel elke vacature naar Google Jobs, LinkedIn, Facebook en Nederlandse jobboards vanuit één omgeving.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "gratis vacature plaatsen",
+      "vacatures gratis delen",
+      "ats software",
+      "multiposting nederland"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Zijn gratis vacatures echt onbeperkt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Het gratis Flowxtra-plan bevat onbeperkte publicaties zonder verborgen kosten."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Welke kanalen ondersteunt Flowxtra?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Je kunt vacatures delen op Google Jobs, LinkedIn, Facebook en populaire Nederlandse jobboards met één klik."
+        }
+      }
+    ]
+  }
+}
+

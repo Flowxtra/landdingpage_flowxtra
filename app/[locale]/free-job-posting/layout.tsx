@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
+import { getFreeJobPostingSchema } from "@/lib/schemaLoader";
 
 // Generate SEO metadata for Free Job Posting page
 export async function generateMetadata({ 
@@ -109,11 +110,50 @@ export async function generateMetadata({
   };
 }
 
-export default function FreeJobPostingLayout({
+export default async function FreeJobPostingLayout({
   children,
+  params
 }: {
   children: React.ReactNode;
+  params: Promise<{locale: string}>;
 }) {
-  return <>{children}</>;
+  const {locale} = await params;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
+  const pagePaths: Record<string, string> = {
+    'en': 'free-job-posting',
+    'en-us': 'free-job-posting',
+    'en-gb': 'free-job-posting',
+    'en-au': 'free-job-posting',
+    'en-ca': 'free-job-posting',
+    'de': 'kostenlose-stellenausschreibung',
+    'de-at': 'kostenlose-stellenausschreibung',
+    'de-ch': 'kostenlose-stellenausschreibung',
+    'fr': 'free-job-posting',
+    'es': 'free-job-posting',
+    'it': 'free-job-posting',
+    'nl': 'free-job-posting',
+    'ar': 'free-job-posting',
+  };
+  const pagePath = pagePaths[locale] || pagePaths['en'];
+  const pageUrl = `${baseUrl}/${locale}/${pagePath}`;
+
+  const schema = getFreeJobPostingSchema(locale, {
+    BASE_URL: baseUrl,
+    PAGE_URL: pageUrl,
+    LOCALE_CODE: locale,
+  });
+
+  return (
+    <>
+      {Object.entries(schema).map(([key, schemaObject]) => (
+        <script
+          key={key}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaObject) }}
+        />
+      ))}
+      {children}
+    </>
+  );
 }
 

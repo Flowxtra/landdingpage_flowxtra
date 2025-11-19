@@ -8,6 +8,7 @@ import "../globals.css";
 import ClientScripts from "@/components/ClientScripts";
 import AccessibilityWidgetLoader from "@/components/Accessibility/AccessibilityWidgetLoader";
 import AffiliateBanner from "@/components/AffiliateBanner";
+import { getHomeSchema } from "@/lib/schemaLoader";
 
 // Lazy load non-critical components to reduce initial bundle size
 // Header and Footer are loaded after initial render to reduce main-thread work
@@ -867,6 +868,15 @@ export default async function LocaleLayout({
 }) {
   const {locale} = await params;
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
+  const videoId = locale === 'de' ? 'r5sBu2-NOqs' : 'CGa2grClFsw';
+  const videoLanguage = locale === 'de' ? 'de' : locale === 'ar' ? 'ar' : 'en';
+
+  const homeSchema = getHomeSchema(locale, {
+    BASE_URL: baseUrl,
+    VIDEO_CONTENT_URL: `https://www.youtube.com/watch?v=${videoId}`,
+    VIDEO_EMBED_URL: `https://www.youtube.com/embed/${videoId}`,
+    VIDEO_LANG: videoLanguage,
+  });
   
   // CRITICAL: Pass locale explicitly to getMessages
   const messages = await getMessages({ locale });
@@ -992,251 +1002,13 @@ export default async function LocaleLayout({
         {/* Tracking scripts will be loaded by CookieScriptLoader only after consent */}
         
         {/* Homepage Schema Markup */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Flowxtra GmbH",
-              "legalName": "Flowxtra GmbH",
-              "url": "https://flowxtra.com",
-              "logo": `${baseUrl}/Main-flowxtra-Logo.png`,
-              "description": "Flowxtra GmbH provides an AI-powered platform that unites recruitment, social media management, and e-signature tools — scalable for startups, SMEs, and large enterprises. The only system worldwide offering 10 free job postings monthly, fully compliant with EU AI Act, GDPR, CCPA, and CPRA.",
-              "foundingDate": "2025",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Wipplingerstraße 20/18",
-                "addressLocality": "Wien",
-                "postalCode": "1010",
-                "addressCountry": "AT"
-              },
-              "contactPoint": [
-                {
-                  "@type": "ContactPoint",
-                  "telephone": "+43-676-905-4441",
-                  "contactType": "Customer Support",
-                  "email": "support@flowxtra.com",
-                  "availableLanguage": ["en", "de", "fr", "es", "it", "nl", "ar"],
-                  "areaServed": "Worldwide"
-                }
-              ],
-              "sameAs": [
-                "https://www.linkedin.com/company/flowxtra",
-                "https://www.facebook.com/Fowxtra",
-                "https://x.com/flowxtra_com",
-                "https://www.instagram.com/flowxtra_com/",
-                "https://youtube.com/@flowxtra_com",
-                "https://medium.com/@flowxtra",
-                "https://www.tiktok.com/@flowxtra.ai"
-              ],
-              "keywords": "ats software, ai recruitment software, free ats, applicant tracking system, applicant tracking software, candidate tracking system, hr recruiting software, hiring software, best ats software 2026, free ats software, ai hiring software, social media management platforms, social media monitoring tools, social media manager tool, social media scheduler, recruitment software",
-              "areaServed": "Worldwide",
-              "legalJurisdiction": ["Austrian Law", "EU Regulations", "California Law"],
-              "knowsAbout": ["EU AI Act", "GDPR", "CCPA", "CPRA", "Recruitment automation", "Social media management", "Digital signature"]
-            })
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
-              "name": "Flowxtra – Recruiting Software & Smart Hiring Tool | Free Job Posting",
-              "operatingSystem": "Web, Windows, macOS",
-              "applicationCategory": "BusinessApplication",
-              "applicationSubCategory": "AI Recruiting Software, Social Media Management, E-Signature",
-              "description": "Flowxtra is an all-in-one AI-powered business suite combining recruiting, social media management, and digital contract signing. Built for startups, SMEs, and large enterprises — 10 free job postings monthly and full compliance with EU and US privacy laws.",
-              "softwareVersion": "1.0",
-              "url": "https://flowxtra.com",
-              "audience": {
-                "@type": "Audience",
-                "audienceType": ["Startups", "Small and medium-sized businesses (SMBs)", "Large enterprises", "Recruitment agencies"]
-              },
-              "keywords": [
-                "ats software",
-                "ai recruitment software",
-                "free ats",
-                "applicant tracking system",
-                "applicant tracking software",
-                "hr recruiting software",
-                "hiring software",
-                "best ats software 2026",
-                "best ats software 2027",
-                "free ats software",
-                "ai hiring software",
-                "candidate tracking system",
-                "social media management platforms",
-                "social media monitoring tools",
-                "social media manager tool",
-                "social media scheduler",
-                "recruitment software",
-                "hiring manager software"
-              ],
-              "creator": {
-                "@type": "Organization",
-                "name": "Flowxtra GmbH"
-              },
-              "offers": [
-                {
-                  "@type": "Offer",
-                  "price": "0.00",
-                  "priceCurrency": "EUR",
-                  "url": "https://flowxtra.com/pricing/",
-                  "availability": "https://schema.org/InStock"
-                },
-                {
-                  "@type": "Offer",
-                  "price": "0.00",
-                  "priceCurrency": "USD",
-                  "url": "https://flowxtra.com/pricing/",
-                  "availability": "https://schema.org/InStock"
-                }
-              ],
-              "featureList": [
-                "10 free job postings monthly — exclusive to Flowxtra",
-                "AI-driven Applicant Tracking System (ATS)",
-                "Social media post scheduler & analytics",
-                "Digital e-signature and document tracking",
-                "Smart candidate board with drag-and-drop pipeline",
-                "Custom email templates and multiposting automation",
-                "GDPR, EU AI Act, CCPA, and CPRA compliance",
-                "Scalable for startups, SMEs, and large enterprises"
-              ],
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.8",
-                "reviewCount": "50",
-                "bestRating": "5",
-                "worstRating": "1"
-              },
-              "review": [
-                {
-                  "@type": "Review",
-                  "author": {
-                    "@type": "Person",
-                    "name": "Sarah Mitchell",
-                    "jobTitle": "HR Manager"
-                  },
-                  "datePublished": "2025-07-12",
-                  "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5",
-                    "worstRating": "1"
-                  },
-                  "reviewBody": "Flowxtra transformed our hiring process! The free 10 job postings monthly are perfect for our startup, and the AI-powered candidate filtering saves us hours every week."
-                },
-                {
-                  "@type": "Review",
-                  "author": {
-                    "@type": "Person",
-                    "name": "Klaus Müller",
-                    "jobTitle": "Recruitment Director"
-                  },
-                  "datePublished": "2025-08-05",
-                  "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5",
-                    "worstRating": "1"
-                  },
-                  "reviewBody": "Best recruitment software we've ever used. The multiposting feature and social media manager integration are real game changers. Highly recommended!"
-                },
-                {
-                  "@type": "Review",
-                  "author": {
-                    "@type": "Person",
-                    "name": "Sophie Laurent",
-                    "jobTitle": "HR Manager"
-                  },
-                  "datePublished": "2025-08-28",
-                  "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5",
-                    "worstRating": "1"
-                  },
-                  "reviewBody": "As an HR manager, Flowxtra meets all my needs: ATS, social media management, and e-signatures. GDPR compliance gives us complete peace of mind."
-                },
-                {
-                  "@type": "Review",
-                  "author": {
-                    "@type": "Person",
-                    "name": "Petra Schneider",
-                    "jobTitle": "Talent Acquisition Specialist"
-                  },
-                  "datePublished": "2025-09-18",
-                  "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "4",
-                    "bestRating": "5",
-                    "worstRating": "1"
-                  },
-                  "reviewBody": "Great software with excellent features. The free plan is generous and the user interface is intuitive. Customer support could be faster, but overall very satisfied."
-                },
-                {
-                  "@type": "Review",
-                  "author": {
-                    "@type": "Person",
-                    "name": "Michael Thompson",
-                    "jobTitle": "CEO & Founder"
-                  },
-                  "datePublished": "2025-10-22",
-                  "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5",
-                    "worstRating": "1"
-                  },
-                  "reviewBody": "Finally, an all-in-one solution that actually works! Flowxtra combines recruitment, social media, and contracts seamlessly. The 10 free job posts are a lifesaver."
-                }
-              ],
-              "softwareHelp": {
-                "@type": "CreativeWork",
-                "url": "https://flowxtra.com/contact-us/"
-              }
-            })
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "VideoObject",
-              "name": "Flowxtra – Hire Smarter with AI Recruiting & Social Media Tools",
-              "description": "See how Flowxtra helps you post jobs for free, automate recruitment, manage social media, and sign contracts online — all in one AI-powered platform.",
-              "thumbnailUrl": `${baseUrl}/Main-flowxtra-Logo.png`,
-              "uploadDate": "2025-10-27T20:00:00+01:00",
-              "publisher": {
-                "@type": "Organization",
-                "name": "Flowxtra GmbH"
-              },
-              "contentUrl": `https://www.youtube.com/watch?v=${locale === 'de' ? 'r5sBu2-NOqs' : 'CGa2grClFsw'}`,
-              "embedUrl": `https://www.youtube.com/embed/${locale === 'de' ? 'r5sBu2-NOqs' : 'CGa2grClFsw'}`,
-              "inLanguage": locale === 'de' ? 'de' : locale === 'ar' ? 'ar' : 'en'
-            })
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Home",
-                  "item": "https://flowxtra.com"
-                }
-              ]
-            })
-          }}
-        />
+        {Object.entries(homeSchema).map(([key, schemaObject]) => (
+          <script
+            key={key}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaObject) }}
+          />
+        ))}
       </head>
       <body className="antialiased" suppressHydrationWarning>
         <NextIntlClientProvider locale={locale} messages={messages}>

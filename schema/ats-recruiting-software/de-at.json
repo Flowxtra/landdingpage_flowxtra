@@ -1,0 +1,68 @@
+{
+  "softwareApplication": {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Flowxtra ATS Recruiting Software",
+    "operatingSystem": "Web, Windows, macOS",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Applicant Tracking System (ATS)",
+    "softwareVersion": "1.0",
+    "url": "{{PAGE_URL}}",
+    "description": "Flowxtra ATS ist eine KI-gestützte Recruiting-Lösung für österreichische Unternehmen. Erstellen Sie unbegrenzte Stellenanzeigen, koordinieren Sie Bewerberpipelines und erfüllen Sie DSGVO-Anforderungen.",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": ["Startups", "KMU", "Recruiting-Teams", "Enterprise"]
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Flowxtra GmbH"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Gratis-Plan – Unbegrenzte Stellenanzeigen",
+        "price": "0.00",
+        "priceCurrency": "EUR",
+        "url": "{{BASE_URL}}/pricing/",
+        "availability": "https://schema.org/InStock"
+      }
+    ],
+    "featureList": [
+      "Unbegrenzte Stellenanzeigen",
+      "KI-gestütztes Bewerberscreening",
+      "Multiposting auf AT-Jobbörsen",
+      "Kollaborative Pipelines",
+      "Berichte & DSGVO-Compliance"
+    ],
+    "keywords": [
+      "ats software österreich",
+      "bewerbermanagement",
+      "recruiting software",
+      "ats österreich",
+      "flowxtra ats"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ist Flowxtra ATS wirklich kostenlos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Der kostenlose Plan enthält unbegrenzte Stellen, Multiposting und KI-Funktionen ohne Gebühren."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie unterstützt Flowxtra österreichische Teams?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Flowxtra hostet Daten in der EU, bietet DSGVO-konforme Prozesse und Multiposting auf lokale Jobbörsen."
+        }
+      }
+    ]
+  }
+}
+

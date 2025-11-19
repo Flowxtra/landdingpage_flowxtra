@@ -1,0 +1,40 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Publier des offres d’emploi gratuites | Flowxtra",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "fr",
+    "description": "Publiez des offres illimitées gratuitement avec Flowxtra. Diffusez vos annonces sur Google Jobs, LinkedIn, Facebook et les principaux jobboards en quelques clics.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "offre d’emploi gratuite",
+      "publier emploi gratuitement",
+      "logiciel ats",
+      "multiposting recrutement"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Flowxtra est-il gratuit pour publier des annonces ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui. Le plan gratuit permet de publier des offres illimitées et de les partager sur Google Jobs, LinkedIn et Facebook sans frais."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Puis-je diffuser sur plusieurs canaux ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui. Depuis un seul tableau de bord Flowxtra, vous diffusez vos annonces sur votre site carrière et les principaux jobboards simultanément."
+        }
+      }
+    ]
+  }
+}
+

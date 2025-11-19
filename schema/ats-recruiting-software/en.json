@@ -1,0 +1,40 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "ATS Recruiting Software & Smart Hiring Tool | Flowxtra",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "{{LOCALE_CODE}}",
+    "description": "Flowxtra delivers an AI-powered applicant tracking system with kanban pipelines, automation, collaborative scorecards, and white-label career pages. Designed for startups, SMBs, and enterprise hiring teams.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "applicant tracking system",
+      "ats recruiting software",
+      "ai hiring software",
+      "talent acquisition automation"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What makes Flowxtra different from other ATS tools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Flowxtra combines unlimited job posting, kanban hiring pipelines, automated workflows, custom scorecards, and social media recruitment inside one ATS."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Flowxtra support collaboration and approvals?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Hiring teams can comment on candidates, assign tasks, share scorecards, and trigger automated approvals so everyone stays aligned."
+        }
+      }
+    ]
+  }
+}
+

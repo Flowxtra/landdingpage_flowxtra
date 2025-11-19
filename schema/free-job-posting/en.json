@@ -1,0 +1,40 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Free Job Posting Platform | Flowxtra",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "{{LOCALE_CODE}}",
+    "description": "Publish unlimited job ads for free with Flowxtra. Share openings across Google Jobs, LinkedIn, Facebook, and more from one dashboard—no credit card or contracts required.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "free job posting",
+      "post jobs for free",
+      "free recruiting software",
+      "multiposting platform"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Flowxtra free for posting jobs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Flowxtra lets you publish unlimited job postings for free and distribute them to Google Jobs, LinkedIn, Facebook, and 50+ channels without fees or credit cards."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which channels can I post to for free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "From one Flowxtra dashboard you can syndicate openings to your career page, Google Jobs, LinkedIn, Facebook, Instagram, and additional job boards with one click."
+        }
+      }
+    ]
+  }
+}
+

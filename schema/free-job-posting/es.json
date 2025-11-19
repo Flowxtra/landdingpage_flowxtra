@@ -1,0 +1,40 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Publicar empleos gratis | Flowxtra",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "es",
+    "description": "Publica ofertas ilimitadas gratis con Flowxtra. Difunde cada vacante en Google Jobs, LinkedIn, Facebook y otros portales desde un panel único.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "publicar empleo gratis",
+      "ofertas de trabajo gratuitas",
+      "software ats",
+      "multiposting reclutamiento"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Flowxtra cobra por publicar empleos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. El plan gratuito incluye publicaciones ilimitadas y distribución automática sin tarjetas de crédito."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo compartir mis vacantes en varios canales?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Desde Flowxtra puedes enviar tus vacantes a Google Jobs, LinkedIn, Facebook y decenas de portales con un clic."
+        }
+      }
+    ]
+  }
+}
+

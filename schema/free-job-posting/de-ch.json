@@ -1,0 +1,40 @@
+{
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Kostenlose Stellenanzeigen | Flowxtra Schweiz",
+    "url": "{{PAGE_URL}}",
+    "inLanguage": "de-CH",
+    "description": "Publizieren Sie unbegrenzt viele Schweizer Stellenanzeigen gratis mit Flowxtra. Verteilen Sie jede Vakanz auf Google Jobs, LinkedIn, Facebook und lokale Jobplattformen.",
+    "isPartOf": "{{BASE_URL}}",
+    "about": [
+      "stellenanzeige gratis",
+      "jobs kostenlos veröffentlichen",
+      "ats software schweiz",
+      "multiposting plattform"
+    ]
+  },
+  "faq": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie viele Gratis-Anzeigen kann ich erstellen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mit Flowxtra gibt es keine Limits. Sie posten unbegrenzt viele Schweizer Jobs ohne Kosten."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Unterstützt Flowxtra lokale Kanäle?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Eine Anzeige erreicht Google Jobs, LinkedIn, Facebook und beliebte Schweizer Jobbörsen in einem Schritt."
+        }
+      }
+    ]
+  }
+}
+
