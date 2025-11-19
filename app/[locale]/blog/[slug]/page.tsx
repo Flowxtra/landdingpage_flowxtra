@@ -369,9 +369,9 @@ function BlogPostContent() {
       </section>
 
       {/* Content Section */}
-      <section className="w-full py-12 md:py-16 px-[10px] bg-white dark:bg-gray-900 transition-colors">
-        <div className="container mx-auto px-4 md:px-8 lg:px-12">
-          <div className="flex flex-col lg:flex-row gap-8 items-start">
+      <section className="w-full py-12 md:py-16 px-[10px] bg-white dark:bg-gray-900 transition-colors" aria-label="Blog post content">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 xl:px-12">
+          <div className="flex flex-col lg:flex-row gap-6 md:gap-8 items-start">
             {/* Table of Contents Sidebar - On the left */}
             {post.content && <TableOfContents content={post.content} />}
             
@@ -379,10 +379,11 @@ function BlogPostContent() {
             <div className="flex-1 min-w-0 max-w-4xl w-full lg:w-auto mx-auto">
               {/* Post Content */}
               <article
-                className="prose prose-lg max-w-none blog-content"
+                className="prose prose-lg max-w-none blog-content dark:prose-invert prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-a:text-primary dark:prose-a:text-secondary"
                 dangerouslySetInnerHTML={{ 
                   __html: processedContent || post.excerpt || '' 
                 }}
+                aria-label={`Blog post: ${post.title}`}
               />
 
               {/* Author Section (if available) */}
