@@ -21,6 +21,7 @@ function Header() {
   const [isCurrencyOpen, setIsCurrencyOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
+  const langDropdownRef = useRef<HTMLDivElement>(null);
 
   // Initialize dark mode from localStorage or browser preferences
   useEffect(() => {
@@ -207,6 +208,27 @@ function Header() {
     }
   }, [isMenuOpen]);
 
+  // Close language dropdown when clicking outside
+  useEffect(() => {
+    if (!isLangOpen) return;
+
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as Node;
+      if (!langDropdownRef.current) return;
+      if (!langDropdownRef.current.contains(target)) {
+        setIsLangOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [isLangOpen]);
+
   // Load currency on mount
   useEffect(() => {
     const saved = localStorage.getItem("fx_currency_code");
@@ -386,7 +408,7 @@ function Header() {
             </button>
 
             {/* Language Selector */}
-            <div className="relative">
+            <div className="relative" ref={langDropdownRef}>
               <button
                 onClick={() => setIsLangOpen(!isLangOpen)}
                 className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
