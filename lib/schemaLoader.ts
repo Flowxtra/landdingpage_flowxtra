@@ -11,6 +11,19 @@ import homeFr from "../schema/home/fr.json";
 import homeEs from "../schema/home/es.json";
 import homeIt from "../schema/home/it.json";
 import homeNl from "../schema/home/nl.json";
+import pricingEn from "../schema/pricing/en.json";
+import pricingEnUs from "../schema/pricing/en-us.json";
+import pricingEnGb from "../schema/pricing/en-gb.json";
+import pricingEnAu from "../schema/pricing/en-au.json";
+import pricingEnCa from "../schema/pricing/en-ca.json";
+import pricingDe from "../schema/pricing/de.json";
+import pricingDeAt from "../schema/pricing/de-at.json";
+import pricingDeCh from "../schema/pricing/de-ch.json";
+import pricingFr from "../schema/pricing/fr.json";
+import pricingEs from "../schema/pricing/es.json";
+import pricingIt from "../schema/pricing/it.json";
+import pricingNl from "../schema/pricing/nl.json";
+import pricingAr from "../schema/pricing/ar.json";
 
 import freeJobEn from "../schema/free-job-posting/en.json";
 import freeJobEnUs from "../schema/free-job-posting/en-us.json";
@@ -56,6 +69,13 @@ import atsAr from "../schema/ats-recruiting-software/ar.json";
 
 type SchemaObject = Record<string, unknown>;
 export type SchemaJSON = Record<string, SchemaObject>;
+
+export type PricingSchemaBundle = {
+  organization?: SchemaObject;
+  breadcrumb?: SchemaObject;
+  products?: SchemaObject[];
+  faq?: SchemaObject;
+};
 
 const homeSchemaMap: Record<string, SchemaJSON> = {
   en: homeEn,
@@ -121,6 +141,22 @@ const atsSchemaMap: Record<string, SchemaJSON> = {
   ar: atsAr,
 };
 
+const pricingSchemaMap: Record<string, PricingSchemaBundle> = {
+  en: pricingEn as PricingSchemaBundle,
+  "en-us": pricingEnUs as PricingSchemaBundle,
+  "en-gb": pricingEnGb as PricingSchemaBundle,
+  "en-au": pricingEnAu as PricingSchemaBundle,
+  "en-ca": pricingEnCa as PricingSchemaBundle,
+  fr: pricingFr as PricingSchemaBundle,
+  es: pricingEs as PricingSchemaBundle,
+  it: pricingIt as PricingSchemaBundle,
+  nl: pricingNl as PricingSchemaBundle,
+  de: pricingDe as PricingSchemaBundle,
+  "de-at": pricingDeAt as PricingSchemaBundle,
+  "de-ch": pricingDeCh as PricingSchemaBundle,
+  ar: pricingAr as PricingSchemaBundle,
+};
+
 function cloneSchema<T>(schema: T): T {
   return JSON.parse(JSON.stringify(schema));
 }
@@ -154,11 +190,11 @@ function applyPlaceholders<T>(
   return value;
 }
 
-function buildSchema(
-  schemaMap: Record<string, SchemaJSON>,
+function buildSchema<T>(
+  schemaMap: Record<string, T>,
   locale: string,
   replacements: Record<string, string>
-): SchemaJSON {
+): T {
   const schema = schemaMap[locale] || schemaMap.en;
   const clonedSchema = cloneSchema(schema);
   return applyPlaceholders(clonedSchema, replacements);
@@ -190,4 +226,11 @@ export function getAtsRecruitingSchema(
   replacements: Record<string, string>
 ): SchemaJSON {
   return buildSchema(atsSchemaMap, locale, replacements);
+}
+
+export function getPricingSchema(
+  locale: string,
+  replacements: Record<string, string>
+): PricingSchemaBundle {
+  return buildSchema(pricingSchemaMap, locale, replacements);
 }

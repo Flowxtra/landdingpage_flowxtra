@@ -48,46 +48,53 @@ export default async function NotFound() {
               {t('helpfulLinks')}
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              <Link
-                href="https://flowxtra.com"
-                className="text-sm text-primary dark:text-secondary hover:underline"
-              >
+            <Link
+              href="https://flowxtra.com"
+              className="text-sm text-white hover:text-white dark:text-white dark:hover:text-white focus-visible:text-white"
+              style={{ color: "#ffffff" }}
+            >
                 {t('seoKeywords.aiAts')}
               </Link>
-              <Link
-                href="https://flowxtra.com"
-                className="text-sm text-primary dark:text-secondary hover:underline"
-              >
+            <Link
+              href="https://flowxtra.com"
+              className="text-sm text-white hover:text-white dark:text-white dark:hover:text-white focus-visible:text-white"
+              style={{ color: "#ffffff" }}
+            >
                 {t('seoKeywords.candidateFiltering')}
               </Link>
-              <Link
-                href="https://flowxtra.com"
-                className="text-sm text-primary dark:text-secondary hover:underline"
-              >
+            <Link
+              href="https://flowxtra.com"
+              className="text-sm text-white hover:text-white dark:text-white dark:hover:text-white focus-visible:text-white"
+              style={{ color: "#ffffff" }}
+            >
                 {t('seoKeywords.multiposting')}
               </Link>
-              <Link
-                href="https://flowxtra.com"
-                className="text-sm text-primary dark:text-secondary hover:underline"
-              >
+            <Link
+              href="https://flowxtra.com"
+              className="text-sm text-white hover:text-white dark:text-white dark:hover:text-white focus-visible:text-white"
+              style={{ color: "#ffffff" }}
+            >
                 {t('seoKeywords.jobWidget')}
               </Link>
-              <Link
-                href="https://flowxtra.com"
-                className="text-sm text-primary dark:text-secondary hover:underline"
-              >
+            <Link
+              href="https://flowxtra.com"
+              className="text-sm text-white hover:text-white dark:text-white dark:hover:text-white focus-visible:text-white"
+              style={{ color: "#ffffff" }}
+            >
                 {t('seoKeywords.freeJobPosting')}
               </Link>
-              <Link
-                href="https://flowxtra.com"
-                className="text-sm text-primary dark:text-secondary hover:underline"
-              >
+            <Link
+              href="https://flowxtra.com"
+              className="text-sm text-white hover:text-white dark:text-white dark:hover:text-white focus-visible:text-white"
+              style={{ color: "#ffffff" }}
+            >
                 {t('seoKeywords.ats')}
               </Link>
-              <Link
-                href="https://flowxtra.com"
-                className="text-sm text-primary dark:text-secondary hover:underline"
-              >
+            <Link
+              href="https://flowxtra.com"
+              className="text-sm text-white hover:text-white dark:text-white dark:hover:text-white focus-visible:text-white"
+              style={{ color: "#ffffff" }}
+            >
                 {t('seoKeywords.socialMedia')}
               </Link>
             </div>
