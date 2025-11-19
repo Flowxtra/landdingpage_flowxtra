@@ -6,7 +6,7 @@
         "legalName": "Flowxtra GmbH",
         "url": "{{BASE_URL}}",
         "logo": "{{BASE_URL}}/Main-flowxtra-Logo.png",
-        "description": "Flowxtra ist eine kostenlose Recruiting Software und ATS aus Österreich, mit der Unternehmen Jobs gratis inserieren, Social Media Recruitment nutzen und Bewerber DSGVO-konform mit KI verwalten können – inklusive EU-AI-Act-, DSGVO-, CCPA- und CPRA-Compliance.",
+        "description": "Flowxtra ist eine kostenlose Recruiting Software und ATS aus Österreich, mit der Unternehmen Jobs gratis inserieren, Social Media Recruiting nutzen und Bewerber DSGVO- und EU-AI-Act-konform mit KI verwalten können.",
         "foundingDate": "2025",
         "address": {
             "@type": "PostalAddress",
