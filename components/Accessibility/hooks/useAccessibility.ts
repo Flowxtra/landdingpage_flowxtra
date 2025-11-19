@@ -99,7 +99,6 @@ function applySettings(settings: AccessibilitySettings) {
   if (typeof document === "undefined") return;
 
   const root = document.documentElement;
-  const body = document.body;
 
   // Font size
   root.style.fontSize = `${settings.fontSize * 100}%`;

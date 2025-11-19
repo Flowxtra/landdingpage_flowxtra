@@ -116,7 +116,7 @@ export async function GET(
       let errorText = "";
       try {
         errorText = await response.text();
-      } catch (e) {
+      } catch {
         errorText = "Failed to read error response";
       }
 
@@ -175,7 +175,16 @@ export async function GET(
     }
 
     // Transform author photo fields: convert photo_url_r2 to photo
-    function transformAuthorPhoto(author: any): any {
+    type AuthorPayload = {
+      photo_url_r2?: string;
+      photo_path_db?: string;
+      r2_url?: string;
+      photo?: string;
+      [key: string]: unknown;
+    };
+    const transformAuthorPhoto = <T extends AuthorPayload | null>(
+      author: T
+    ): T => {
       if (!author) return author;
       if (author.photo_url_r2) {
         author.photo = author.photo_url_r2;
@@ -185,7 +194,7 @@ export async function GET(
         author.photo = `${baseUrl}/${author.photo_path_db}`;
       }
       return author;
-    }
+    };
 
     // Transform data structure to match expected format
     if (data.data) {
@@ -195,7 +204,10 @@ export async function GET(
       }
       // Transform posts authors (for blog listing)
       if (data.data.posts && Array.isArray(data.data.posts)) {
-        data.data.posts = data.data.posts.map((post: any) => {
+        type PostPayload = Record<string, unknown> & {
+          author?: AuthorPayload | null;
+        };
+        data.data.posts = data.data.posts.map((post: PostPayload) => {
           if (post.author) {
             post.author = transformAuthorPhoto(post.author);
           }

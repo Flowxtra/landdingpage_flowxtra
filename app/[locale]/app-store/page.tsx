@@ -1,10 +1,14 @@
-'use client';
+"use client";
 
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { useEffect, useState, useMemo, Suspense, useRef } from 'react';
+import { useEffect, useState, useMemo, Suspense, useRef, type SyntheticEvent } from 'react';
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
-import { getApps, getAppCategories, getImageUrl, type App, type AppCategory } from '@/lib/appStoreApi';
+import { getApps, getAppCategories, getImageUrl, type App, type AppCategory, type AppsResponse } from '@/lib/appStoreApi';
+
+type AppsQueryParams = Parameters<typeof getApps>[0];
+type PaginationInfo = AppsResponse["data"]["pagination"];
 
 function AppStoreContent() {
   const t = useTranslations('appStore');
@@ -17,11 +21,16 @@ function AppStoreContent() {
   const [showSearchModal, setShowSearchModal] = useState<boolean>(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchModalInputRef = useRef<HTMLInputElement>(null);
+  const getPlaceholderSvg = (size: number) =>
+    `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='${size}' height='${size}'%3E%3Crect fill='%23e5e7eb' width='${size}' height='${size}'/%3E%3C/svg%3E`;
+  const handleIconError = (event: SyntheticEvent<HTMLImageElement>, size: number) => {
+    event.currentTarget.src = getPlaceholderSvg(size);
+  };
   
   // API State
   const [apps, setApps] = useState<App[]>([]);
   const [categories, setCategories] = useState<AppCategory[]>([]);
-  const [pagination, setPagination] = useState<any>(null);
+  const [pagination, setPagination] = useState<PaginationInfo | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   
@@ -73,7 +82,7 @@ function AppStoreContent() {
         // Check if "all" is selected
         const isAllSelected = selectedCategories.includes('all');
         
-        let apiParams: any = {
+        const apiParams: AppsQueryParams = {
           page: currentPage,
           locale: currentLocale,
         };
@@ -101,7 +110,7 @@ function AppStoreContent() {
         }
 
         // Fetch apps
-        let appsResponse = await getApps(apiParams);
+        const appsResponse = await getApps(apiParams);
         
         if (appsResponse.success && appsResponse.data) {
           const fetchedApps = appsResponse.data.apps || [];
@@ -282,14 +291,16 @@ function AppStoreContent() {
                               {/* App Icon */}
                               <div className="flex-shrink-0">
                                 {app.icon ? (
-                                  <img
+                                  <Image
                                     src={getImageUrl(app.icon)}
                                     alt={app.name}
+                                    width={48}
+                                    height={48}
+                                    quality={75}
                                     className="w-12 h-12 rounded-lg object-cover"
-                                    onError={(e) => {
-                                      const target = e.target as HTMLImageElement;
-                                      target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="48" height="48"%3E%3Crect fill="%23e5e7eb" width="48" height="48"/%3E%3C/svg%3E';
-                                    }}
+                                    sizes="48px"
+                                    loading="lazy"
+                                    onError={(event) => handleIconError(event, 48)}
                                   />
                                 ) : (
                                   <div className="w-12 h-12 rounded-lg bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
@@ -409,14 +420,16 @@ function AppStoreContent() {
                       {/* App Icon */}
                       <div className="flex-shrink-0">
                         {featuredApp.icon ? (
-                          <img
+                          <Image
                             src={getImageUrl(featuredApp.icon)}
                             alt={featuredApp.name}
+                            width={80}
+                            height={80}
+                            quality={75}
                             className="w-20 h-20 object-contain rounded-lg"
-                            onError={(e) => {
-                              const target = e.target as HTMLImageElement;
-                              target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="80" height="80"%3E%3Crect fill="%23e5e7eb" width="80" height="80"/%3E%3C/svg%3E';
-                            }}
+                            sizes="80px"
+                            loading="lazy"
+                            onError={(event) => handleIconError(event, 80)}
                           />
                         ) : (
                           <div className="w-20 h-20 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
@@ -624,7 +637,11 @@ function AppStoreContent() {
               ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'
               : 'flex flex-col gap-4'
             }>
-              {currentApps.map((app) => (
+              {currentApps.map((app) => {
+                const iconSize = viewMode === 'list' ? 56 : 64;
+                const iconClass = viewMode === 'list' ? 'w-14 h-14' : 'w-16 h-16';
+
+                return (
               <Link
                 key={app.id}
                 href={`/${currentLocale}/app-store/${app.slug}`}
@@ -636,17 +653,19 @@ function AppStoreContent() {
                 {/* App Icon */}
                 <div className={`flex-shrink-0 ${viewMode === 'list' ? '' : 'mb-3'}`}>
                   {app.icon ? (
-                    <img
+                    <Image
                       src={getImageUrl(app.icon)}
                       alt={app.name}
-                      className={`${viewMode === 'list' ? 'w-14 h-14' : 'w-16 h-16'} object-contain rounded-lg`}
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="64" height="64"%3E%3Crect fill="%23e5e7eb" width="64" height="64"/%3E%3C/svg%3E';
-                      }}
+                      width={iconSize}
+                      height={iconSize}
+                      quality={75}
+                      className={`${iconClass} object-contain rounded-lg`}
+                      sizes={`${iconSize}px`}
+                      loading="lazy"
+                      onError={(event) => handleIconError(event, iconSize)}
                     />
                   ) : (
-                    <div className={`${viewMode === 'list' ? 'w-14 h-14' : 'w-16 h-16'} bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center`}>
+                    <div className={`${iconClass} bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center`}>
                       <svg className={`${viewMode === 'list' ? 'w-8 h-8' : 'w-10 h-10'} text-gray-400 dark:text-gray-500`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                       </svg>
@@ -676,7 +695,8 @@ function AppStoreContent() {
                   </div>
                 </div>
               </Link>
-              ))}
+                );
+              })}
             </div>
           ) : (
             <div className="py-16 text-center">

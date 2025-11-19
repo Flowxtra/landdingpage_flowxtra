@@ -1,4 +1,4 @@
-import { getTranslations, getLocale } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -8,8 +8,6 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 export default async function NotFound() {
-  // Get locale from request
-  const locale = await getLocale();
   const t = await getTranslations('notFound');
 
   return (

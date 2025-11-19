@@ -17,6 +17,9 @@ function getApiBaseUrl(): string {
   return "/api/blog";
 }
 
+type StructuredData = Record<string, unknown>;
+type ExtendedRequestInit = RequestInit & { next?: { revalidate?: number } };
+
 // TypeScript Interfaces
 export interface Tag {
   id: number;
@@ -80,7 +83,7 @@ export interface BlogPostsResponse {
     posts: BlogPost[];
     categories?: Category[];
     pagination: Pagination;
-    structuredData?: any;
+    structuredData?: StructuredData;
   };
 }
 
@@ -97,7 +100,7 @@ export interface BlogPostResponse {
     relatedPosts: BlogPost[];
     previousPost?: PreviousNextPost;
     nextPost?: PreviousNextPost;
-    structuredData?: any;
+    structuredData?: StructuredData;
   };
 }
 
@@ -201,7 +204,7 @@ export async function getBlogPosts(params: {
   });
 
   // Build fetch options
-  const fetchOptions: RequestInit = {
+  const fetchOptions: ExtendedRequestInit = {
     headers: {
       Accept: "application/json",
     },
@@ -210,7 +213,7 @@ export async function getBlogPosts(params: {
   // Only add next.revalidate if we're in a server component (not client-side)
   if (typeof window === "undefined") {
     // Server-side: can use next.revalidate
-    (fetchOptions as any).next = { revalidate: 900 };
+    fetchOptions.next = { revalidate: 900 };
   } else {
     // Client-side: use default cache to allow bfcache (back/forward cache)
     // This allows browsers to cache responses and use bfcache for better performance
@@ -314,7 +317,7 @@ export async function getBlogPost(
   }
 
   // Build fetch options
-  const fetchOptions: RequestInit = {
+  const fetchOptions: ExtendedRequestInit = {
     headers: {
       Accept: "application/json",
       // Add cache-control headers to prevent caching
@@ -330,7 +333,7 @@ export async function getBlogPost(
   // For client-side calls, use cache option instead
   if (typeof window === "undefined" && options?.revalidate !== undefined) {
     // Server-side: can use next.revalidate
-    (fetchOptions as any).next = { revalidate: options.revalidate };
+    fetchOptions.next = { revalidate: options.revalidate };
   } else if (options?.cache) {
     // Client-side: use cache option
     fetchOptions.cache = options.cache;
@@ -338,14 +341,14 @@ export async function getBlogPost(
     // Default: no cache for client-side, revalidate for server-side
     if (typeof window === "undefined") {
       // Use revalidate from options or default to 0 for fresh data
-      (fetchOptions as any).next = { revalidate: options?.revalidate ?? 0 };
+      fetchOptions.next = { revalidate: options?.revalidate ?? 0 };
     } else {
       // Client-side: use default cache to allow bfcache (back/forward cache)
       fetchOptions.cache = "default";
     }
   }
 
-  let response = await fetch(url, fetchOptions);
+  const response = await fetch(url, fetchOptions);
 
   // If 404 and locale doesn't match slug's primary language, try with primary language
   if (!response.ok && response.status === 404) {
@@ -378,7 +381,7 @@ export async function getBlogPost(
           locale,
         });
       }
-    } catch (e) {
+    } catch {
       // If JSON parsing fails, use status text
       errorMessage = `${errorMessage} - ${response.statusText}`;
     }
@@ -418,7 +421,7 @@ export async function getBlogCategories(
   }
 
   // Build fetch options
-  const fetchOptions: RequestInit = {
+  const fetchOptions: ExtendedRequestInit = {
     headers: {
       Accept: "application/json",
     },
@@ -427,7 +430,7 @@ export async function getBlogCategories(
   // Only add next.revalidate if we're in a server component (not client-side)
   if (typeof window === "undefined") {
     // Server-side: can use next.revalidate
-    (fetchOptions as any).next = { revalidate: 3600 };
+    fetchOptions.next = { revalidate: 3600 };
   } else {
     // Client-side: use default cache to allow bfcache (back/forward cache)
     fetchOptions.cache = "default";

@@ -1,9 +1,9 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { useCurrency } from "@/lib/currency";
-import { cn } from "@/lib/utils";
 
 // Lazy load CompareFeatures - it's a large component (1300+ lines)
 const CompareFeatures = dynamic(() => import("@/components/CompareFeatures"), {
@@ -433,12 +433,12 @@ export default function PricingSection({ defaultCompareOpen = true }: PricingSec
                 </li>
               </ul>
 
-              <a
+              <Link
                 href="/contact-us"
                 className="block text-center bg-white text-primary border-2 border-white px-8 py-3 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium text-lg relative z-10"
               >
                 {t("plans.contactUs")}
-              </a>
+              </Link>
             </div>
           </div>
         </div>

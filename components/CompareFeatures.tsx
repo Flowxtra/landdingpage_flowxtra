@@ -111,8 +111,6 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
       
       // Only scroll horizontally within the container, not the page
       // Calculate position relative to container
-      const containerRect = tabsContainer.getBoundingClientRect();
-      const tabRect = freeTab.getBoundingClientRect();
       const scrollLeft = freeTab.offsetLeft - tabsContainer.offsetLeft;
       
       // Scroll only the container horizontally, not the page
@@ -151,8 +149,6 @@ export default function CompareFeatures({ defaultOpen = true }: CompareFeaturesP
       observer.disconnect();
     };
   }, []);
-
-  const Unlimited = () => <span className="oi">{tCompare("unlimited")}</span>;
 
   // All features data
   const features: Feature[] = [

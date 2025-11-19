@@ -69,7 +69,7 @@ function processContentImages(html: string, postTitle: string): string {
       // Add underline to links (simple regex approach)
       processedHtml = processedHtml.replace(
         /<a([^>]*?)(?:\s+class\s*=\s*["']([^"']*?)["'])?([^>]*?)>/gi,
-        (match, before, classAttr, after) => {
+        (match, _before, classAttr) => {
           if (classAttr && classAttr.includes('no-underline')) {
             return match; // Skip links with no-underline class
           }
@@ -128,7 +128,7 @@ function BlogPostContent() {
     setPreviousPost(null);
     setNextPost(null);
     
-    const fetchPost = async (forceRefresh: boolean = false) => {
+    const fetchPost = async () => {
       if (!slug) return;
       
       setLoading(true);
@@ -194,7 +194,7 @@ function BlogPostContent() {
     // Data will only refresh when:
     // 1. Page is manually refreshed (F5 / Ctrl+R)
     // 2. User navigates to a different post (slug changes)
-    fetchPost(true);
+    fetchPost();
 
     // Cleanup
     return () => {
@@ -258,7 +258,7 @@ function BlogPostContent() {
     return () => {
       isMounted = false;
     };
-  }, [post?.id, currentLocale]); // Only depend on post ID and locale
+  }, [post, currentLocale]); // Only depend on post data and locale
 
   // Get category name (use post.category directly since categories endpoint doesn't exist)
   const categoryName = post?.category || '';

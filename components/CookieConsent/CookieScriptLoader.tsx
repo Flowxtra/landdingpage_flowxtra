@@ -189,6 +189,7 @@ export default function CookieScriptLoader() {
             `}
           </Script>
           <noscript>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               height="1"
               width="1"
@@ -223,6 +224,7 @@ export default function CookieScriptLoader() {
             }}
           />
           <noscript>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img height="1" width="1" style={{display:'none'}} alt="" src="https://px.ads.linkedin.com/collect/?pid=8282209&fmt=gif" />
           </noscript>
 

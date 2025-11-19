@@ -193,7 +193,7 @@ export async function POST(request: NextRequest) {
       let errorText = "";
       try {
         errorText = await response.text();
-      } catch (e) {
+      } catch {
         errorText = "Failed to read error response";
       }
 

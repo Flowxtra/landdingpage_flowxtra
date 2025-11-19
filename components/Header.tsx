@@ -3,13 +3,12 @@
 import { useState, memo, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
 function Header() {
   const pathname = usePathname();
-  const router = useRouter();
   const t = useTranslations("common");
   const tNav = useTranslations("navigation");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,8 +16,6 @@ function Header() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [language, setLanguage] = useState("EN");
   const [isLangOpen, setIsLangOpen] = useState(false);
-  const [currency, setCurrency] = useState<string>("EUR");
-  const [isCurrencyOpen, setIsCurrencyOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
   const langDropdownRef = useRef<HTMLDivElement>(null);
@@ -228,12 +225,6 @@ function Header() {
       document.removeEventListener("touchstart", handleClickOutside);
     };
   }, [isLangOpen]);
-
-  // Load currency on mount
-  useEffect(() => {
-    const saved = localStorage.getItem("fx_currency_code");
-    if (saved) setCurrency(saved);
-  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white dark:bg-gray-900 transition-colors">

@@ -20,7 +20,10 @@ export async function GET(
     try {
       resolvedParams = (await params) || {};
     } catch (paramsError) {
-      console.warn("[App Store API Proxy] Error resolving params:", paramsError);
+      console.warn(
+        "[App Store API Proxy] Error resolving params:",
+        paramsError
+      );
       resolvedParams = {};
     }
 
@@ -109,7 +112,7 @@ export async function GET(
       let errorText = "";
       try {
         errorText = await response.text();
-      } catch (e) {
+      } catch {
         errorText = "Failed to read error response";
       }
 
@@ -212,4 +215,3 @@ export async function OPTIONS() {
     },
   });
 }
-

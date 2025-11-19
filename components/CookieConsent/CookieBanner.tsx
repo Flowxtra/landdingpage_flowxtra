@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { useConsent } from './hooks/useConsent';
 import ConsentPreferencesPanel from '@/components/CookieConsent/ConsentPreferences';
@@ -88,12 +89,12 @@ export default function CookieBanner() {
               <p className="text-sm md:text-base text-gray-600 dark:text-gray-300">
                 {t('descriptionEU')}
                 {' '}
-                <a 
-                  href="/cookie-policy" 
+                <Link
+                  href="/cookie-policy"
                   className="text-primary dark:text-white underline hover:text-button-hover dark:hover:text-[#00A8CD] transition-colors font-medium"
                 >
                   {t('cookiePolicy')}
-                </a>
+                </Link>
               </p>
             </div>
 
@@ -142,12 +143,12 @@ export default function CookieBanner() {
               <p className="text-sm md:text-base text-gray-600 dark:text-gray-300">
                 {t('descriptionEU')}
                 {' '}
-                <a 
-                  href="/cookie-policy" 
+                <Link
+                  href="/cookie-policy"
                   className="text-primary dark:text-white underline hover:text-button-hover dark:hover:text-[#00A8CD] transition-colors font-medium"
                 >
                   {t('cookiePolicy')}
-                </a>
+                </Link>
               </p>
             </div>
 

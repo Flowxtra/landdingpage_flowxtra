@@ -3,6 +3,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState, useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
 import { useTranslations, useLocale } from "next-intl";
@@ -285,7 +286,6 @@ allowfullscreen>
 
 export default function Homepage() {
   const t = useTranslations("homepage");
-  const tContact = useTranslations("contact");
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [mountedKey, setMountedKey] = useState(0);
   const locale = useLocale();
@@ -532,7 +532,7 @@ export default function Homepage() {
 
               {/* FAQ Link */}
               <div className="pt-4">
-                <a
+                <Link
                   href="/faq"
                   className="inline-flex items-center text-primary dark:text-secondary-light hover:text-secondary dark:hover:text-[#00A8CD] font-medium text-lg group"
                 >
@@ -563,7 +563,7 @@ export default function Homepage() {
                       d="M13 7l5 5m0 0l-5 5m5-5H6"
                     />
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -1278,7 +1278,12 @@ function FAQSection() {
             <svg className="w-5 h-5 text-primary dark:text-white" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
             </svg>
-            <span>{t("helpText")} <a href="/contact-us" className="text-primary dark:text-white dark:underline hover:underline dark:hover:text-[#00A8CD] font-semibold">{t("chatLink")}</a></span>
+            <span>
+              {t("helpText")}{" "}
+              <Link href="/contact-us" className="text-primary dark:text-white dark:underline hover:underline dark:hover:text-[#00A8CD] font-semibold">
+                {t("chatLink")}
+              </Link>
+            </span>
           </div>
         </div>
 

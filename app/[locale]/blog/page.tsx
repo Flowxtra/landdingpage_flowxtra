@@ -1,12 +1,16 @@
-'use client';
+"use client";
 
+import Image from "next/image";
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { useEffect, useState, useMemo, Suspense, useRef } from 'react';
+import { useEffect, useState, useMemo, Suspense, useRef, type SyntheticEvent } from 'react';
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 import { generateBlogListingSchema } from '@/lib/seo';
 import JsonLd from '@/components/JsonLd';
 import { getBlogPosts, getBlogCategories, getImageUrl, formatDate, formatReadingTime, type BlogPost, type Category } from '@/lib/blogApi';
+
+type BlogPostsQuery = Parameters<typeof getBlogPosts>[0];
+type BlogPostsPagination = Awaited<ReturnType<typeof getBlogPosts>>["data"]["pagination"];
 
 // Get API base URL for logging
 const getApiBaseUrl = () => {
@@ -32,7 +36,7 @@ function BlogContent() {
   // API State
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
-  const [pagination, setPagination] = useState<any>(null);
+  const [pagination, setPagination] = useState<BlogPostsPagination | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   
@@ -42,6 +46,11 @@ function BlogContent() {
 
   // Get current locale from pathname
   const currentLocale = pathname.startsWith('/de') ? 'de' : pathname.startsWith('/en') ? 'en' : 'en';
+  const getPlaceholderSvg = (width: number, height: number) =>
+    `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='${width}' height='${height}'%3E%3Crect fill='%23e5e7eb' width='${width}' height='${height}'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-size='24' fill='%239ca3af'%3EImage%3C/text%3E%3C/svg%3E`;
+  const handleImageError = (event: SyntheticEvent<HTMLImageElement>, width: number, height: number) => {
+    event.currentTarget.src = getPlaceholderSvg(width, height);
+  };
 
   // Handle Command/Ctrl+K keyboard shortcut for search modal
   useEffect(() => {
@@ -86,7 +95,7 @@ function BlogContent() {
         
         // If "all" is selected, we need to fetch posts without category filter
         // However, if API has a bug and returns only 1 post, we'll try a workaround
-        let apiParams: any = {
+        const baseParams: BlogPostsQuery = {
           page: currentPage,
           limit: postsPerPage,
           locale: currentLocale,
@@ -94,18 +103,14 @@ function BlogContent() {
 
         // Add category filter if not 'all'
         const selectedCategory = selectedCategories.find(cat => cat !== 'all');
-        if (selectedCategory) {
-          apiParams.category = selectedCategory;
-        }
-        // Note: When 'all' is selected, we don't add category filter
-        // This should return all posts from API
-        // If API returns only 1 post when no category is specified, 
-        // this is a backend API issue that needs to be fixed
+        const paramsWithCategory: BlogPostsQuery = selectedCategory
+          ? { ...baseParams, category: selectedCategory }
+          : baseParams;
 
         // Add search query if exists
-        if (searchQuery.trim()) {
-          apiParams.search = searchQuery.trim();
-        }
+        const apiParams: BlogPostsQuery = searchQuery.trim()
+          ? { ...paramsWithCategory, search: searchQuery.trim() }
+          : paramsWithCategory;
 
         // Debug: Log API params (always log to help debug)
         console.log("[Blog List] Fetching posts with params:", {
@@ -128,7 +133,7 @@ function BlogContent() {
           console.warn("[Blog List] ⚠️ API returned only 1 post when 'all' is selected. Trying workaround...");
           
           // Try fetching with a much higher limit
-          const workaroundParams = {
+          const workaroundParams: BlogPostsQuery = {
             ...apiParams,
             limit: 100, // Try to get more posts
             page: 1, // Start from page 1
@@ -521,14 +526,14 @@ function BlogContent() {
                 <Link href={`/${currentLocale}/blog/${latestPost.slug}`} className="block cursor-pointer">
                   <div className="relative w-full h-48 md:h-56 lg:h-64 mt-3 overflow-hidden rounded-lg">
                     {latestPost.image ? (
-                      <img
+                      <Image
                         src={getImageUrl(latestPost.image)}
                         alt={latestPost.title}
-                        className="w-full h-full object-cover transition-transform hover:scale-105"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="400"%3E%3Crect fill="%23e5e7eb" width="800" height="400"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="system-ui" font-size="24" fill="%239ca3af"%3EImage%3C/text%3E%3C/svg%3E';
-                        }}
+                        fill
+                        quality={85}
+                        sizes="(max-width: 1024px) 100vw, 600px"
+                        className="object-cover transition-transform hover:scale-105"
+                        onError={(event) => handleImageError(event, 800, 400)}
                       />
                     ) : (
                       <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
@@ -748,14 +753,15 @@ function BlogContent() {
                 >
                   <div className={`relative overflow-hidden ${viewMode === 'list' ? 'w-56 h-40 flex-shrink-0 rounded-lg' : 'w-full aspect-[16/10]'} ${viewMode === 'grid' ? 'mt-3 rounded-lg' : ''}`}>
                     {post.image ? (
-                      <img
+                      <Image
                         src={getImageUrl(post.image)}
                         alt={post.title}
-                        className="w-full h-full object-cover transition-transform hover:scale-105"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="500"%3E%3Crect fill="%23e5e7eb" width="800" height="500"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="system-ui" font-size="24" fill="%239ca3af"%3EImage%3C/text%3E%3C/svg%3E';
-                        }}
+                        fill
+                        quality={85}
+                        sizes={viewMode === 'list' ? "(max-width: 1024px) 50vw, 350px" : "(max-width: 1024px) 100vw, 400px"}
+                        className="object-cover transition-transform hover:scale-105"
+                        loading="lazy"
+                        onError={(event) => handleImageError(event, 800, 500)}
                       />
                     ) : (
                       <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">

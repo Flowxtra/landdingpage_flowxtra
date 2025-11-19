@@ -4,26 +4,25 @@ import { useEffect, useRef, useState } from 'react';
 
 type Currency = { code: string; label: string; symbol: string; display: string };
 
+const CURRENCIES: Currency[] = [
+  { code: 'EUR', label: 'Euro', symbol: '€', display: 'EUR - Euro (€)' },
+  { code: 'USD', label: 'US Dollar', symbol: '$', display: 'USD - US Dollar ($)' },
+  { code: 'GBP', label: 'Great Britain Pound', symbol: '£', display: 'GBP - Great Britain Pound (£)' },
+  { code: 'SAR', label: 'Saudi Arabian Riyal', symbol: '﷼', display: 'SAR - Saudi Arabian Riyal (﷼)' },
+  { code: 'AUD', label: 'Australian Dollar', symbol: 'AU$', display: 'AUD - Australian Dollar (AU$)' },
+  { code: 'CAD', label: 'Canadian Dollar', symbol: 'CA$', display: 'CAD - Canadian Dollar (CA$)' },
+  { code: 'CNY', label: 'China Renminbi', symbol: '¥', display: 'CNY - China Renminbi (¥)' },
+  { code: 'INR', label: 'Indian Rupee', symbol: '₹', display: 'INR - Indian Rupee (₹)' },
+];
+
 export default function CurrencySwitcher() {
   const [selectedCurrency, setSelectedCurrency] = useState<string>('EUR');
   const [showCurrencyMenu, setShowCurrencyMenu] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const currencies: Currency[] = [
-    { code: 'EUR', label: 'Euro', symbol: '€', display: 'EUR - Euro (€)' },
-    { code: 'USD', label: 'US Dollar', symbol: '$', display: 'USD - US Dollar ($)' },
-    { code: 'GBP', label: 'Great Britain Pound', symbol: '£', display: 'GBP - Great Britain Pound (£)' },
-    { code: 'SAR', label: 'Saudi Arabian Riyal', symbol: '﷼', display: 'SAR - Saudi Arabian Riyal (﷼)' },
-    { code: 'AUD', label: 'Australian Dollar', symbol: 'AU$', display: 'AUD - Australian Dollar (AU$)' },
-    { code: 'CAD', label: 'Canadian Dollar', symbol: 'CA$', display: 'CAD - Canadian Dollar (CA$)' },
-    { code: 'CNY', label: 'China Renminbi', symbol: '¥', display: 'CNY - China Renminbi (¥)' },
-    //{ code: 'TRY', label: 'Turkish Lira', symbol: '₺', display: 'TRY - Turkish Lira (₺)' },
-    { code: 'INR', label: 'Indian Rupee', symbol: '₹', display: 'INR - Indian Rupee (₹)' },
-  ];
-
   useEffect(() => {
     const savedCurrency = localStorage.getItem('fx_currency_code');
-    if (savedCurrency && currencies.some(c => c.code === savedCurrency)) {
+    if (savedCurrency && CURRENCIES.some(c => c.code === savedCurrency)) {
       setSelectedCurrency(savedCurrency);
     }
   }, []);
@@ -63,7 +62,7 @@ export default function CurrencySwitcher() {
           role="listbox"
           className="fixed left-1/2 -translate-x-1/2 bottom-20 w-[90vw] max-w-xs md:absolute md:right-0 md:left-auto md:translate-x-0 md:bottom-full md:mb-2 md:w-72 md:max-w-none max-h-80 overflow-auto rounded-md shadow-lg bg-white text-gray-900 dark:bg-white dark:text-gray-900 border border-gray-300 z-50"
         >
-          {currencies.map(curr => (
+          {CURRENCIES.map(curr => (
             <li
               key={curr.code}
               role="option"

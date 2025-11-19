@@ -77,7 +77,7 @@ export function useCurrency(defaultCode: string = "EUR", locale?: string) {
         setCode(getSelectedCurrency());
       }
     };
-    const handleCustom = (e: Event) => {
+    const handleCustom = () => {
       setCode(getSelectedCurrency());
     };
     window.addEventListener("storage", handleStorage);

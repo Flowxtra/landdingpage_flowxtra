@@ -52,7 +52,7 @@ export default function AccessibilityWidget() {
         });
 
         setHasActiveSettings(hasActive);
-      } catch (error) {
+      } catch {
         setHasActiveSettings(false);
       }
     };

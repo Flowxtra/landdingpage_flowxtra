@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { supportedLocales } from "@/lib/locales";
 import { getBlogPosts } from "@/lib/blogApi";
-import { getApps } from "@/lib/appStoreApi";
+import { getApps, type App } from "@/lib/appStoreApi";
 
 /**
  * Sitemap Index (Yoast SEO Style)
@@ -27,7 +27,7 @@ async function getBlogPostsCount(locale: string): Promise<number> {
     }
 
     return 0;
-  } catch (error) {
+  } catch {
     return 0;
   }
 }
@@ -42,10 +42,10 @@ async function getAppsCount(locale: string): Promise<number> {
     });
 
     if (response.success && response.data && response.data.pagination) {
-      const apps = response.data.apps || [];
+      const apps = response.data.apps ?? [];
 
       // Filter apps: only count apps that have translation for this locale
-      const filteredApps = apps.filter((app: any) => {
+      const filteredApps = apps.filter((app: App) => {
         if (app.translations && typeof app.translations === "object") {
           const hasTranslation =
             app.translations[locale as keyof typeof app.translations] !==
@@ -60,7 +60,7 @@ async function getAppsCount(locale: string): Promise<number> {
     }
 
     return 0;
-  } catch (error) {
+  } catch {
     return 0;
   }
 }

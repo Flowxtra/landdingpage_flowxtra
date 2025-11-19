@@ -1,6 +1,8 @@
 // App Store API Service
 // This file handles all API calls to the app store backend
 
+type ExtendedRequestInit = RequestInit & { next?: { revalidate?: number } };
+
 /**
  * Get API base URL from environment variables
  * Development: Uses proxy route (/api/app-store) to avoid CORS issues
@@ -187,7 +189,7 @@ export async function getApps(params: {
   }
 
   // Build fetch options
-  const fetchOptions: RequestInit = {
+  const fetchOptions: ExtendedRequestInit = {
     headers: {
       Accept: "application/json",
     },
@@ -196,7 +198,7 @@ export async function getApps(params: {
   // Only add next.revalidate if we're in a server component (not client-side)
   if (typeof window === "undefined") {
     // Server-side: can use next.revalidate
-    (fetchOptions as any).next = { revalidate: 900 };
+    fetchOptions.next = { revalidate: 900 };
   } else {
     // Client-side: use default cache to allow bfcache (back/forward cache)
     // This allows browsers to cache responses and use bfcache for better performance
@@ -251,14 +253,14 @@ export async function getApp(
     url = `${apiBaseUrl}/app-store/${slug}?locale=${locale}`;
   }
 
-  const fetchOptions: RequestInit = {
+  const fetchOptions: ExtendedRequestInit = {
     headers: {
       Accept: "application/json",
     },
   };
 
   if (typeof window === "undefined") {
-    (fetchOptions as any).next = { revalidate: 900 };
+    fetchOptions.next = { revalidate: 900 };
   } else {
     // Client-side: use default cache to allow bfcache (back/forward cache)
     fetchOptions.cache = "default";
@@ -309,14 +311,14 @@ export async function getAppCategories(locale: string = "en"): Promise<{
     url = `${apiBaseUrl}/app-store/categories?locale=${locale}`;
   }
 
-  const fetchOptions: RequestInit = {
+  const fetchOptions: ExtendedRequestInit = {
     headers: {
       Accept: "application/json",
     },
   };
 
   if (typeof window === "undefined") {
-    (fetchOptions as any).next = { revalidate: 3600 };
+    fetchOptions.next = { revalidate: 3600 };
   } else {
     fetchOptions.cache = "no-store";
   }

@@ -1,8 +1,28 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
+
+interface ContactRequestPayload {
+  email: string;
+  firstName: string;
+  message: string;
+  agreeToPrivacy: boolean;
+  recaptcha_token?: string;
+}
+
+declare global {
+  interface Window {
+    onRecaptchaSuccess?: (token: string) => void;
+    onRecaptchaLoad?: () => void;
+    grecaptcha?: {
+      render: (element: Element | null, options: { sitekey: string; callback: string }) => void;
+      reset?: () => void;
+    };
+  }
+}
 
 /**
  * Get API base URL from environment variables
@@ -67,7 +87,7 @@ export default function ContactUsSection() {
           if (el.parentNode) {
             el.parentNode.removeChild(el);
           }
-        } catch (e) {
+        } catch {
           // Ignore errors if element was already removed
         }
       });
@@ -98,7 +118,7 @@ export default function ContactUsSection() {
     console.log('[reCAPTCHA] Starting to load reCAPTCHA...');
 
     // Define callback function globally (must be defined before script loads)
-    (window as any).onRecaptchaSuccess = (token: string) => {
+    window.onRecaptchaSuccess = (token: string) => {
       console.log('[reCAPTCHA] Token received:', token ? 'Yes' : 'No');
       setRecaptchaToken(token);
     };
@@ -106,7 +126,7 @@ export default function ContactUsSection() {
     // Check if script already exists
     if (document.querySelector('script[src*="recaptcha/api.js"]')) {
       // Script already loaded, render widget if grecaptcha is available
-      if ((window as any).grecaptcha && (window as any).grecaptcha.render) {
+      if (window.grecaptcha?.render) {
         setTimeout(() => {
           const recaptchaElement = recaptchaRef.current || document.querySelector('.g-recaptcha');
           if (recaptchaElement && !recaptchaElement.querySelector('iframe')) {
@@ -115,7 +135,7 @@ export default function ContactUsSection() {
               : (isLocal ? "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" : null);
             if (siteKey) {
               try {
-                (window as any).grecaptcha.render(recaptchaElement, {
+                window.grecaptcha?.render?.(recaptchaElement, {
                   sitekey: siteKey,
                   callback: 'onRecaptchaSuccess'
                 });
@@ -149,16 +169,16 @@ export default function ContactUsSection() {
     script.defer = true;
 
     // Define onload callback to render widget after script loads
-    (window as any).onRecaptchaLoad = () => {
+    window.onRecaptchaLoad = () => {
       console.log('[reCAPTCHA] Script loaded, rendering widget...');
       // Wait a bit to ensure DOM is ready
       setTimeout(() => {
         const recaptchaElement = recaptchaRef.current || document.querySelector('.g-recaptcha');
         console.log('[reCAPTCHA] Element found:', !!recaptchaElement);
-        console.log('[reCAPTCHA] grecaptcha available:', !!(window as any).grecaptcha);
-        if (recaptchaElement && (window as any).grecaptcha && !recaptchaElement.querySelector('iframe')) {
+        console.log('[reCAPTCHA] grecaptcha available:', !!window.grecaptcha);
+        if (recaptchaElement && window.grecaptcha?.render && !recaptchaElement.querySelector('iframe')) {
           try {
-            (window as any).grecaptcha.render(recaptchaElement, {
+            window.grecaptcha.render(recaptchaElement, {
               sitekey: siteKey,
               callback: 'onRecaptchaSuccess'
             });
@@ -178,8 +198,8 @@ export default function ContactUsSection() {
       if (document.body.contains(script)) {
         document.body.removeChild(script);
       }
-      delete (window as any).onRecaptchaSuccess;
-      delete (window as any).onRecaptchaLoad;
+      delete window.onRecaptchaSuccess;
+      delete window.onRecaptchaLoad;
     };
   }, [isRecaptchaEnabled, isLocal]);
 
@@ -236,7 +256,7 @@ export default function ContactUsSection() {
       }
 
       // Build request body - include recaptcha_token
-      const requestBody: any = {
+      const requestBody: ContactRequestPayload = {
         email: formData.email,
         firstName: formData.firstName,
         message: formData.review,
@@ -286,9 +306,9 @@ export default function ContactUsSection() {
         setRecaptchaToken(null);
         
         // Reset reCAPTCHA only if it's enabled and exists
-        if (isRecaptchaEnabled && !isLocal && (window as any).grecaptcha && typeof (window as any).grecaptcha.reset === 'function') {
+        if (isRecaptchaEnabled && !isLocal && typeof window.grecaptcha?.reset === 'function') {
           try {
-            (window as any).grecaptcha.reset();
+            window.grecaptcha?.reset?.();
           } catch (error) {
             // Ignore reset errors (e.g., if widget doesn't exist)
             console.warn('reCAPTCHA reset failed:', error);
@@ -425,14 +445,14 @@ export default function ContactUsSection() {
                 />
                 <label htmlFor="privacy" className="text-sm text-gray-600 dark:text-white">
                   {t("form.agreeWith")}{" "}
-                  <a href="/privacy-policy" className="text-primary dark:text-white dark:underline hover:underline dark:hover:text-[#00A8CD] font-medium">
+                  <Link href="/privacy-policy" className="text-primary dark:text-white dark:underline hover:underline dark:hover:text-[#00A8CD] font-medium">
                     {t("form.privacyPolicy")}
-                  </a>{" "}
+                  </Link>{" "}
                   {t("form.and")}{" "}
-                  <a href="/terms-of-use" className="text-primary dark:text-white dark:underline hover:underline dark:hover:text-[#00A8CD] font-medium">
+                  <Link href="/terms-of-use" className="text-primary dark:text-white dark:underline hover:underline dark:hover:text-[#00A8CD] font-medium">
                     {t("form.termsConditions")}
-                  </a>
-                  {" "}<span className="text-red-500">*</span>
+                  </Link>{" "}
+                  <span className="text-red-500">*</span>
                 </label>
               </div>
 

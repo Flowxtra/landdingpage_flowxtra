@@ -55,7 +55,7 @@ export default function About() {
                   className="w-full h-auto rounded-lg"
                 />
                 <figcaption className="sr-only">
-                  Flowxtra's team dedicated to transforming recruitment with AI technology.
+                  Flowxtra&apos;s team dedicated to transforming recruitment with AI technology.
                 </figcaption>
               </figure>
             </div>

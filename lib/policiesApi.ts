@@ -1,6 +1,8 @@
 // Policies API Service
 // This file handles all API calls to the policies backend
 
+type ExtendedRequestInit = RequestInit & { next?: { revalidate?: number } };
+
 /**
  * Get API base URL - Use Next.js API route as proxy to avoid CORS issues
  */
@@ -94,14 +96,14 @@ export async function getPolicies(params: {
     ? `${API_BASE_URL}?${queryParams.toString()}`
     : `${API_BASE_URL}/privacy/policies/public?${queryParams.toString()}`;
 
-  const fetchOptions: RequestInit = {
+  const fetchOptions: ExtendedRequestInit = {
     headers: {
       Accept: "application/json",
     },
   };
 
   if (typeof window === "undefined") {
-    (fetchOptions as any).next = { revalidate: 3600 };
+    fetchOptions.next = { revalidate: 3600 };
   } else {
     // Client-side: use default cache to allow bfcache (back/forward cache)
     fetchOptions.cache = "default";
@@ -130,14 +132,14 @@ export async function getPolicy(id: number): Promise<PolicyResponse> {
     ? `${API_BASE_URL}?id=${id}`
     : `${API_BASE_URL}/privacy/policies/public/${id}`;
 
-  const fetchOptions: RequestInit = {
+  const fetchOptions: ExtendedRequestInit = {
     headers: {
       Accept: "application/json",
     },
   };
 
   if (typeof window === "undefined") {
-    (fetchOptions as any).next = { revalidate: 3600 };
+    fetchOptions.next = { revalidate: 3600 };
   } else {
     // Client-side: use default cache to allow bfcache (back/forward cache)
     fetchOptions.cache = "default";

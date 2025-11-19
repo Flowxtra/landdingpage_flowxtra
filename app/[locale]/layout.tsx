@@ -62,7 +62,7 @@ export async function generateMetadata({
   // Only set canonical for homepage and pages without nested layouts
   // Pages with nested layouts (blog/[slug], etc.) define their own canonical
   let canonicalUrl: string | undefined = undefined;
-  let hreflangUrls: Record<string, string> = {};
+  const hreflangUrls: Record<string, string> = {};
   
   if (pathname && pathname.startsWith(`/${locale}`)) {
     // Extract the path after locale (e.g., "/blog", "/pricing", etc.)
@@ -947,6 +947,7 @@ export default async function LocaleLayout({
           href="/fonts/fontawesome-custom.min.css"
           as="style"
         />
+        {/* eslint-disable-next-line @next/next/no-css-tags */}
         <link
           rel="stylesheet"
           href="/fonts/fontawesome-custom.min.css"
@@ -966,6 +967,7 @@ export default async function LocaleLayout({
           }}
         />
         <noscript>
+          {/* eslint-disable-next-line @next/next/no-css-tags */}
           <link rel="stylesheet" href="/fonts/fontawesome-custom.min.css" />
         </noscript>
         

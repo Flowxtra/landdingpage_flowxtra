@@ -63,7 +63,9 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           error: "Invalid request type",
-          message: `Request type must be one of: ${validRequestTypes.join(", ")}`,
+          message: `Request type must be one of: ${validRequestTypes.join(
+            ", "
+          )}`,
         },
         {
           status: 400,
@@ -218,7 +220,7 @@ export async function POST(request: NextRequest) {
       let errorText = "";
       try {
         errorText = await response.text();
-      } catch (e) {
+      } catch {
         errorText = "Failed to read error response";
       }
 
@@ -299,7 +301,9 @@ export async function POST(request: NextRequest) {
       {
         error: "Internal server error",
         message:
-          error instanceof Error ? error.message : "An unexpected error occurred",
+          error instanceof Error
+            ? error.message
+            : "An unexpected error occurred",
       },
       {
         status: 500,
@@ -314,7 +318,7 @@ export async function POST(request: NextRequest) {
 }
 
 // Handle OPTIONS request for CORS
-export async function OPTIONS(request: NextRequest) {
+export async function OPTIONS() {
   return new NextResponse(null, {
     status: 200,
     headers: {
@@ -324,4 +328,3 @@ export async function OPTIONS(request: NextRequest) {
     },
   });
 }
-

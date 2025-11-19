@@ -44,11 +44,6 @@ export async function POST(request: NextRequest) {
     // Check if we're in development mode
     const isDevelopment = process.env.NODE_ENV === "development";
 
-    // Check if reCAPTCHA is enabled from environment variable
-    // Default: false (disabled) - same as backend
-    const isRecaptchaEnabled =
-      process.env.NEXT_PUBLIC_RECAPTCHA_ENABLED === "true";
-
     // In development mode, if token is missing, add dummy token
     // Backend will accept it if RECAPTCHA_ENABLED=false
     if (isDevelopment && !body.recaptcha_token) {
@@ -209,7 +204,7 @@ export async function POST(request: NextRequest) {
       let errorText = "";
       try {
         errorText = await response.text();
-      } catch (e) {
+      } catch {
         errorText = "Failed to read error response";
       }
 

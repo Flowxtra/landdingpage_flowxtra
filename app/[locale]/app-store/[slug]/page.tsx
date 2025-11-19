@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useParams, usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type SyntheticEvent } from 'react';
 import { getApp, getApps, getImageUrl, type App } from '@/lib/appStoreApi';
 
 function AppDetailContent() {
@@ -11,6 +12,11 @@ function AppDetailContent() {
   const params = useParams();
   const pathname = usePathname();
   const slug = params?.slug as string;
+  const getPlaceholderSvg = (width: number, height = width) =>
+    `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='${width}' height='${height}'%3E%3Crect fill='%23e5e7eb' width='${width}' height='${height}'/%3E%3C/svg%3E`;
+  const handleImageError = (event: SyntheticEvent<HTMLImageElement>, width: number, height?: number) => {
+    event.currentTarget.src = getPlaceholderSvg(width, height ?? width);
+  };
   
   // Get current locale from pathname
   const currentLocale = pathname?.startsWith('/de') ? 'de' : pathname?.startsWith('/en') ? 'en' : 'en';
@@ -142,14 +148,16 @@ function AppDetailContent() {
               {/* App Icon */}
               <div className="flex-shrink-0">
                 {app.icon ? (
-                  <img
+                  <Image
                     src={getImageUrl(app.icon)}
                     alt={app.name}
+                    width={128}
+                    height={128}
+                    quality={75}
                     className="w-24 h-24 md:w-32 md:h-32 object-contain rounded-lg bg-white dark:bg-gray-900 p-2 shadow-md"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="128" height="128"%3E%3Crect fill="%23e5e7eb" width="128" height="128"/%3E%3C/svg%3E';
-                    }}
+                    sizes="(max-width: 768px) 96px, 128px"
+                    loading="lazy"
+                    onError={(event) => handleImageError(event, 128)}
                   />
                 ) : (
                   <div className="w-24 h-24 md:w-32 md:h-32 bg-white dark:bg-gray-900 rounded-lg flex items-center justify-center shadow-md">
@@ -250,14 +258,16 @@ function AppDetailContent() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {app.screenshots.map((screenshot, index) => (
                     <div key={index} className="rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg transition-shadow">
-                      <img
+                      <Image
                         src={getImageUrl(screenshot)}
                         alt={`${app.name} screenshot ${index + 1}`}
+                        width={1200}
+                        height={675}
+                        quality={85}
                         className="w-full h-auto object-cover"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="600"%3E%3Crect fill="%23e5e7eb" width="800" height="600"/%3E%3C/svg%3E';
-                        }}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                        loading="lazy"
+                        onError={(event) => handleImageError(event, 1200, 675)}
                       />
                     </div>
                   ))}
@@ -285,14 +295,16 @@ function AppDetailContent() {
                   <div className="p-6">
                     <div className="flex items-center gap-4 mb-4">
                       {relatedApp.icon ? (
-                        <img
+                        <Image
                           src={getImageUrl(relatedApp.icon)}
                           alt={relatedApp.name}
+                          width={64}
+                          height={64}
+                          quality={75}
                           className="w-16 h-16 object-contain rounded-lg bg-gray-50 dark:bg-gray-800 p-2"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="64" height="64"%3E%3Crect fill="%23e5e7eb" width="64" height="64"/%3E%3C/svg%3E';
-                          }}
+                          sizes="64px"
+                          loading="lazy"
+                          onError={(event) => handleImageError(event, 64)}
                         />
                       ) : (
                         <div className="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center">

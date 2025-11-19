@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { supportedLocales } from "@/lib/locales";
-import { getBlogPosts } from "@/lib/blogApi";
-import { getApps } from "@/lib/appStoreApi";
+import { getBlogPosts, type BlogPost } from "@/lib/blogApi";
+import { getApps, type App } from "@/lib/appStoreApi";
 import { getSitemapRoutes } from "@/lib/static-routes";
 
 /**
@@ -14,9 +14,9 @@ import { getSitemapRoutes } from "@/lib/static-routes";
  * This is an alternative to the sitemap index structure
  */
 
-async function getAllBlogPosts(locale: string): Promise<any[]> {
+async function getAllBlogPosts(locale: string): Promise<BlogPost[]> {
   try {
-    const allPosts: any[] = [];
+    const allPosts: BlogPost[] = [];
     let currentPage = 1;
     let hasMorePages = true;
     const limit = 100;
@@ -133,9 +133,9 @@ async function getAllBlogPosts(locale: string): Promise<any[]> {
   }
 }
 
-async function getAllApps(locale: string): Promise<any[]> {
+async function getAllApps(locale: string): Promise<App[]> {
   try {
-    const allApps: any[] = [];
+    const allApps: App[] = [];
     let currentPage = 1;
     let hasMorePages = true;
     const limit = 100;
@@ -151,7 +151,7 @@ async function getAllApps(locale: string): Promise<any[]> {
 
         if (response.success && response.data && response.data.apps) {
           // Filter apps: only include apps that have translation for this locale
-          const filteredApps = response.data.apps.filter((app: any) => {
+          const filteredApps = response.data.apps.filter((app: App) => {
             if (app.translations && typeof app.translations === "object") {
               const hasTranslation =
                 app.translations[locale as keyof typeof app.translations] !==

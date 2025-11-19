@@ -262,7 +262,7 @@ export default function ConsentPreferencesPanel({ onClose }: ConsentPreferencesP
     } else {
       setPreferences(initialPrefs);
     }
-  }, []); // Empty dependency - runs only when component mounts (modal opens)
+  }, [initialPrefs]); // Update if defaults change
 
   const handleToggle = (category: keyof ConsentPrefsType) => {
     if (category === 'essential') return; // Essential is always true

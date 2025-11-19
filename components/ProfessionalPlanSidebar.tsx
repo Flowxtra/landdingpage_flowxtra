@@ -9,7 +9,6 @@ import { getBlogPosts, formatDate, type BlogPost } from '@/lib/blogApi';
 export default function ProfessionalPlanSidebar() {
   const t = useTranslations('pricing');
   const tCommon = useTranslations('common');
-  const tCompare = useTranslations('compareFeatures');
   const tBlog = useTranslations('blog');
   const pathname = usePathname();
   
