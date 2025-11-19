@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Flowxtra: Free recruiting software & applicant tracking system",
+  title: "Flowxtra- Free recruiting software & applicant tracking system",
   description:
-    "Flowxtra is an AI-powered recruiting platform with a free ATS, unlimited job postings, social media automation, and digital signatures built for startups, SMBs, and enterprises.",
+    "Flowxtra is a free recruiting software and Applicant Tracking System (ATS) that helps companies post jobs for free, use social media recruiting, and efficiently manage applicants with AI-powered hiring tools.
 };
 
 export default function RootLayout({

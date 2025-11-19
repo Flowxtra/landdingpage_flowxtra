@@ -2,11 +2,11 @@
     "organization": {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "Flowxtra GmbH",
+        "name": "Flowxtra – برنامج ATS مجاني للتوظيف وإدارة المتقدمين",
         "legalName": "Flowxtra GmbH",
         "url": "{{BASE_URL}}",
         "logo": "{{BASE_URL}}/Main-flowxtra-Logo.png",
-        "description": "تجمع Flowxtra GmbH بين إدارة التوظيف وإدارة وسائل التواصل الاجتماعي والتوقيعات الرقمية في منصة واحدة مدعومة بالذكاء الاصطناعي، قابلة للتوسع للشركات الناشئة والمتوسطة والمؤسسات الكبرى، مع 10 إعلانات وظائف مجانية شهريًا وامتثال كامل لقوانين EU AI Act وGDPR وCCPA وCPRA.",
+        "description": "Flowxtra هو برنامج توظيف مجاني ونظام Applicant Tracking System (ATS) يساعد الشركات على نشر الوظائف مجانًا، واستخدام التوظيف عبر وسائل التواصل الاجتماعي، وإدارة المتقدمين بكفاءة باستخدام أدوات مدعومة بالذكاء الاصطناعي.",
         "foundingDate": "2025",
         "address": {
             "@type": "PostalAddress",
@@ -62,11 +62,11 @@
     "softwareApplication": {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "Flowxtra – نظام التوظيف الذكي | نشر وظائف مجاني",
+        "name": "Flowxtra – برنامج ATS مجاني للتوظيف وإدارة المتقدمين",
         "operatingSystem": "Web, Windows, macOS",
         "applicationCategory": "BusinessApplication",
         "applicationSubCategory": "AI Recruiting Software, Social Media Management, E-Signature",
-        "description": "Flowxtra منصة أعمال مدعومة بالذكاء الاصطناعي تجمع إدارة التوظيف، إدارة المحتوى الاجتماعي، وتوقيع العقود الإلكترونية في مكان واحد. مناسبة للشركات الناشئة والمؤسسات مع 10 إعلانات وظائف مجانية شهريًا وامتثال شامل للخصوصية.",
+        "description": "Flowxtra هو برنامج توظيف مجاني ونظام Applicant Tracking System (ATS) يساعد الشركات على نشر الوظائف مجانًا، واستخدام التوظيف عبر وسائل التواصل الاجتماعي، وإدارة المتقدمين بكفاءة باستخدام أدوات مدعومة بالذكاء الاصطناعي.",
         "softwareVersion": "1.0",
         "url": "{{BASE_URL}}",
         "audience": {

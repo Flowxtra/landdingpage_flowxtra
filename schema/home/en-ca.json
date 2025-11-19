@@ -2,11 +2,11 @@
   "organization": {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Flowxtra GmbH",
+    "name": "Flowxtra – Free ATS Recruiting & Applicant Tracking Software for Canada",
     "legalName": "Flowxtra GmbH",
     "url": "{{BASE_URL}}",
     "logo": "{{BASE_URL}}/Main-flowxtra-Logo.png",
-    "description": "Flowxtra GmbH provides an AI-powered hiring platform tailored for Canada, combining recruitment, social media management, and digital signature workflows for startups, scale-ups, and enterprise HR teams. Unlimited Job postings monthly with compliance for GDPR, CPRA, CCPA, and PIPEDA.",
+    "description": "Flowxtra is a free recruiting software and Applicant Tracking System (ATS) for businesses in Canada, helping them post jobs for free, use social media recruiting, and efficiently manage applicants with AI-powered hiring tools.",
     "foundingDate": "2025",
     "address": {
       "@type": "PostalAddress",
@@ -62,11 +62,11 @@
   "softwareApplication": {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Flowxtra – Recruiting Software & Smart Hiring Tool | Free Job Posting",
+    "name": "Flowxtra – Free ATS Recruiting & Applicant Tracking Software for Canada",
     "operatingSystem": "Web, Windows, macOS",
     "applicationCategory": "BusinessApplication",
     "applicationSubCategory": "AI Recruiting Software, Social Media Management, E-Signature",
-    "description": "Flowxtra is an all-in-one AI-powered hiring suite for Canadian teams, combining ATS workflows, social media scheduling, and digital contract signing. Built for startups, SMBs, and enterprise HR with Unlimited Job postings monthly plus GDPR, CPRA, CCPA, and PIPEDA compliance.",
+    "description": "Flowxtra is a free recruiting software and Applicant Tracking System (ATS) for businesses in Canada, helping them post jobs for free, use social media recruiting, and efficiently manage applicants with AI-powered hiring tools.",
     "softwareVersion": "1.0",
     "url": "{{BASE_URL}}",
     "audience": {

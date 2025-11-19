@@ -2,11 +2,11 @@
   "organization": {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Flowxtra GmbH",
+    "name": "Flowxtra – Software gratuito de reclutamiento y Applicant Tracking System (ATS)",
     "legalName": "Flowxtra GmbH",
     "url": "{{BASE_URL}}",
     "logo": "{{BASE_URL}}/Main-flowxtra-Logo.png",
-    "description": "Flowxtra GmbH provides an AI-powered platform that unites recruitment, social media management, and e-signature tools — scalable for startups, SMEs, and large enterprises. The only system worldwide offering Unlimited Job postings monthly, fully compliant with EU AI Act, GDPR, CCPA, and CPRA.",
+    "description": "Flowxtra es un software gratuito de reclutamiento y ATS que ayuda a las empresas a publicar empleos gratis, utilizar social media recruiting y gestionar candidatos de forma eficiente con herramientas impulsadas por inteligencia artificial.",
     "foundingDate": "2025",
     "address": {
       "@type": "PostalAddress",
@@ -62,11 +62,11 @@
   "softwareApplication": {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Flowxtra – Recruiting Software & Smart Hiring Tool | Free Job Posting",
+    "name": "Flowxtra – Software gratuito de reclutamiento y Applicant Tracking System (ATS)",
     "operatingSystem": "Web, Windows, macOS",
     "applicationCategory": "BusinessApplication",
     "applicationSubCategory": "AI Recruiting Software, Social Media Management, E-Signature",
-    "description": "Flowxtra is an all-in-one AI-powered business suite combining recruiting, social media management, and digital contract signing. Built for startups, SMEs, and large enterprises — Unlimited Job postings monthly and full compliance with EU and US privacy laws.",
+    "description": "Flowxtra es un software gratuito de reclutamiento y ATS que ayuda a las empresas a publicar empleos gratis, utilizar social media recruiting y gestionar candidatos de forma eficiente con herramientas impulsadas por inteligencia artificial.",
     "softwareVersion": "1.0",
     "url": "{{BASE_URL}}",
     "audience": {

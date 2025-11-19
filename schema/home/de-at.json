@@ -2,11 +2,11 @@
     "organization": {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "Flowxtra GmbH",
+        "name": "Flowxtra – Österreichs kostenlose Recruiting- & Bewerbermanagement-Software (ATS)",
         "legalName": "Flowxtra GmbH",
         "url": "{{BASE_URL}}",
         "logo": "{{BASE_URL}}/Main-flowxtra-Logo.png",
-        "description": "Flowxtra GmbH vereint Recruiting, Social-Media-Management und digitale Signaturen in einer KI-gestützten Plattform – skalierbar für Startups, KMU und Enterprise-Unternehmen. Die einzige Lösung mit 10 kostenlosen Stellenanzeigen pro Monat inklusive EU-AI-Act-, DSGVO-, CCPA- und CPRA-Compliance.",
+        "description": "Flowxtra ist eine kostenlose Recruiting Software und ATS aus Österreich, mit der Unternehmen Jobs gratis inserieren, Social Media Recruitment nutzen und Bewerber DSGVO-konform mit KI verwalten können – inklusive EU-AI-Act-, DSGVO-, CCPA- und CPRA-Compliance.",
         "foundingDate": "2025",
         "address": {
             "@type": "PostalAddress",
@@ -62,11 +62,11 @@
     "softwareApplication": {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "Flowxtra – Recruiting Software & Smart Hiring Tool | Free Job Posting",
+        "name": "Flowxtra – Österreichs kostenlose Recruiting- & Bewerbermanagement-Software (ATS)",
         "operatingSystem": "Web, Windows, macOS",
         "applicationCategory": "BusinessApplication",
         "applicationSubCategory": "AI Recruiting Software, Social Media Management, E-Signature",
-        "description": "Flowxtra ist eine KI-gestützte Komplettlösung für modernes Recruiting, Social-Media-Management und digitale Vertragsabwicklung. Ideal für Startups, KMU und Enterprise-Unternehmen – inklusive 10 kostenloser Stellenanzeigen pro Monat und voller Einhaltung europäischer und US-Datenschutzgesetze.",
+        "description": "Flowxtra ist eine kostenlose Recruiting Software und ATS aus Österreich, mit der Unternehmen Jobs kostenlos inserieren, Social Media Recruitment nutzen und Bewerber DSGVO-konform mit KI verwalten können.",
         "softwareVersion": "1.0",
         "url": "{{BASE_URL}}",
         "audience": {
