@@ -115,6 +115,7 @@ function BlogPostContent() {
   const [nextPost, setNextPost] = useState<PreviousNextPost | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [apiStructuredData, setApiStructuredData] = useState<Record<string, unknown> | null>(null);
   
   // Ref to track if we've already fetched previous/next posts
   const hasFetchedPreviousNext = useRef<boolean>(false);
@@ -164,6 +165,18 @@ function BlogPostContent() {
         if (response.success && response.data) {
           setPost(response.data.post);
           setRelatedPosts(response.data.relatedPosts || []);
+          
+          // Store structured data from API if available
+          if (response.data.structuredData) {
+            setApiStructuredData(response.data.structuredData);
+            console.log("[Blog Post] Structured data from API:", {
+              type: response.data.structuredData["@type"] || "N/A",
+              url: response.data.structuredData.url || "N/A",
+              headline: response.data.structuredData.headline || "N/A",
+              hasKeywords: !!response.data.structuredData.keywords,
+              dateModified: response.data.structuredData.dateModified || "N/A",
+            });
+          }
           
           // If API provides previous/next posts, use them
           if (response.data.previousPost) {
@@ -296,8 +309,8 @@ function BlogPostContent() {
 
 
   // Generate JSON-LD schema for SEO
-  // Adapt post data to match schema generator's expected format
-  const blogPostSchema = generateBlogPostSchema({
+  // Use structured data from API if available, otherwise generate it
+  const blogPostSchema = apiStructuredData || generateBlogPostSchema({
     post: {
       ...post,
       author: post.author?.name,

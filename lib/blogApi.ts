@@ -166,6 +166,14 @@ export async function getBlogPosts(params: {
   if (params.minimal) queryParams.append("minimal", "true");
   if (params.fields) queryParams.append("fields", params.fields);
 
+  // Add site parameter (required by backend API)
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    process.env.NEXT_PUBLIC_BASE_URL ||
+    "https://flowxtra.com";
+  const siteDomain = siteUrl.replace(/^https?:\/\//, "").replace(/\/$/, "");
+  queryParams.append("site", siteDomain);
+
   // Get API base URL (may be proxy path in development)
   const apiBaseUrl = getApiBaseUrl();
 
@@ -257,6 +265,8 @@ export async function getBlogPosts(params: {
     currentPage: data.data?.pagination?.currentPage,
     totalPages: data.data?.pagination?.totalPages,
     hasNextPage: data.data?.pagination?.hasNextPage,
+    hasStructuredData: !!data.data?.structuredData,
+    structuredDataType: data.data?.structuredData?.["@type"] || "N/A",
   });
 
   return data;
@@ -282,6 +292,13 @@ export async function getBlogPost(
   // Get API base URL (may be proxy path in development)
   const apiBaseUrl = getApiBaseUrl();
 
+  // Add site parameter (required by backend API)
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    process.env.NEXT_PUBLIC_BASE_URL ||
+    "https://flowxtra.com";
+  const siteDomain = siteUrl.replace(/^https?:\/\//, "").replace(/\/$/, "");
+
   // Build URL - if using proxy (/api/blog), use absolute URL to avoid locale prefix
   // In client-side, relative paths get locale prefix added by Next.js
   // In server-side, fetch() requires absolute URL
@@ -290,7 +307,7 @@ export async function getBlogPost(
     // Both client-side and server-side need absolute URL
     if (typeof window !== "undefined") {
       // Client-side: use window.location.origin
-      url = `${window.location.origin}${apiBaseUrl}/${slug}?locale=${locale}&_t=${timestamp}&_r=${random}`;
+      url = `${window.location.origin}${apiBaseUrl}/${slug}?locale=${locale}&site=${siteDomain}&_t=${timestamp}&_r=${random}`;
     } else {
       // Server-side: fetch() requires absolute URL
       const baseUrl =
@@ -299,10 +316,10 @@ export async function getBlogPost(
         (process.env.NODE_ENV === "development"
           ? "http://localhost:3000"
           : "https://flowxtra.com");
-      url = `${baseUrl}${apiBaseUrl}/${slug}?locale=${locale}&_t=${timestamp}&_r=${random}`;
+      url = `${baseUrl}${apiBaseUrl}/${slug}?locale=${locale}&site=${siteDomain}&_t=${timestamp}&_r=${random}`;
     }
   } else {
-    url = `${apiBaseUrl}/blog/${slug}?locale=${locale}&_t=${timestamp}&_r=${random}`;
+    url = `${apiBaseUrl}/blog/${slug}?locale=${locale}&site=${siteDomain}&_t=${timestamp}&_r=${random}`;
   }
 
   // Debug logging (always log in development, or when error occurs)
@@ -395,7 +412,20 @@ export async function getBlogPost(
     throw new Error(errorMessage);
   }
 
-  return response.json();
+  const data = await response.json();
+
+  // Debug: Log structured data if available
+  if (process.env.NODE_ENV === "development" && data.data?.structuredData) {
+    console.log("[Blog API] getBlogPost - Structured data from API:", {
+      type: data.data.structuredData["@type"] || "N/A",
+      url: data.data.structuredData.url || "N/A",
+      headline: data.data.structuredData.headline || "N/A",
+      hasKeywords: !!data.data.structuredData.keywords,
+      dateModified: data.data.structuredData.dateModified || "N/A",
+    });
+  }
+
+  return data;
 }
 
 // Get Blog Categories
@@ -405,19 +435,26 @@ export async function getBlogCategories(
   // Get API base URL (may be proxy path in development)
   const apiBaseUrl = getApiBaseUrl();
 
+  // Add site parameter (required by backend API)
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    process.env.NEXT_PUBLIC_BASE_URL ||
+    "https://flowxtra.com";
+  const siteDomain = siteUrl.replace(/^https?:\/\//, "").replace(/\/$/, "");
+
   // Build URL - if using proxy (/api/blog), use absolute URL to avoid locale prefix
   // In client-side, relative paths get locale prefix added by Next.js
   let url: string;
   if (apiBaseUrl === "/api/blog") {
     // Client-side: use absolute URL to avoid locale prefix
     if (typeof window !== "undefined") {
-      url = `${window.location.origin}${apiBaseUrl}/categories?locale=${locale}`;
+      url = `${window.location.origin}${apiBaseUrl}/categories?locale=${locale}&site=${siteDomain}`;
     } else {
       // Server-side: relative path is fine
-      url = `${apiBaseUrl}/categories?locale=${locale}`;
+      url = `${apiBaseUrl}/categories?locale=${locale}&site=${siteDomain}`;
     }
   } else {
-    url = `${apiBaseUrl}/blog/categories?locale=${locale}`;
+    url = `${apiBaseUrl}/blog/categories?locale=${locale}&site=${siteDomain}`;
   }
 
   // Build fetch options

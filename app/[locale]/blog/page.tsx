@@ -39,6 +39,7 @@ function BlogContent() {
   const [pagination, setPagination] = useState<BlogPostsPagination | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [apiStructuredData, setApiStructuredData] = useState<Record<string, unknown> | null>(null);
   
   // Get page from URL params for SEO
   const currentPage = parseInt(searchParams.get('page') || '1', 10);
@@ -155,6 +156,15 @@ function BlogContent() {
         
         if (postsResponse.success && postsResponse.data) {
           const fetchedPosts = postsResponse.data.posts || [];
+          
+          // Store structured data from API if available
+          if (postsResponse.data.structuredData) {
+            setApiStructuredData(postsResponse.data.structuredData);
+            console.log("[Blog List] Structured data from API:", {
+              type: postsResponse.data.structuredData["@type"] || "N/A",
+              hasItemList: !!postsResponse.data.structuredData.itemListElement,
+            });
+          }
           
           // Debug: Log first post to verify slug format and image
           if (fetchedPosts.length > 0) {
@@ -326,8 +336,8 @@ function BlogContent() {
 
 
   // Generate JSON-LD schema for blog listing page
-  // Adapt posts data to match schema generator's expected format
-  const blogListingSchema = generateBlogListingSchema({
+  // Use structured data from API if available, otherwise generate it
+  const blogListingSchema = apiStructuredData || generateBlogListingSchema({
     posts: posts.map(post => ({
       ...post,
       author: post.author?.name,
