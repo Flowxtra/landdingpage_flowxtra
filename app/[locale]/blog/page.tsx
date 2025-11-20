@@ -46,7 +46,25 @@ function BlogContent() {
   const postsPerPage = viewMode === 'grid' ? 9 : 6; // 3 columns × 3 rows for grid, 6 for list
 
   // Get current locale from pathname
-  const currentLocale = pathname.startsWith('/de') ? 'de' : pathname.startsWith('/en') ? 'en' : 'en';
+  // Extract locale from pathname (e.g., /es/blog -> es, /de/blog -> de)
+  const getLocaleFromPathname = (path: string): string => {
+    // Match locale pattern at the start of pathname (e.g., /es/, /de/, /en/, etc.)
+    const localeMatch = path.match(/^\/([a-z]{2}(?:-[a-z]{2})?)/);
+    if (localeMatch && localeMatch[1]) {
+      return localeMatch[1];
+    }
+    // Fallback to 'en' if no locale found
+    return 'en';
+  };
+  const currentLocale = getLocaleFromPathname(pathname);
+  
+  // Debug: Log locale detection
+  if (process.env.NODE_ENV === 'development') {
+    console.log('[Blog List] Locale detection:', {
+      pathname,
+      detectedLocale: currentLocale,
+    });
+  }
   const getPlaceholderSvg = (width: number, height: number) =>
     `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='${width}' height='${height}'%3E%3Crect fill='%23e5e7eb' width='${width}' height='${height}'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-size='24' fill='%239ca3af'%3EImage%3C/text%3E%3C/svg%3E`;
   const handleImageError = (event: SyntheticEvent<HTMLImageElement>, width: number, height: number) => {
@@ -156,6 +174,17 @@ function BlogContent() {
         
         if (postsResponse.success && postsResponse.data) {
           const fetchedPosts = postsResponse.data.posts || [];
+          
+          // Debug: Log fetched posts for current locale
+          console.log(`[Blog List] ✅ Fetched ${fetchedPosts.length} posts for locale: ${currentLocale}`);
+          if (fetchedPosts.length > 0) {
+            console.log(`[Blog List] First post:`, {
+              title: fetchedPosts[0].title,
+              slug: fetchedPosts[0].slug,
+              locale: currentLocale,
+              availableLanguages: fetchedPosts[0].availableLanguages,
+            });
+          }
           
           // Store structured data from API if available
           if (postsResponse.data.structuredData) {

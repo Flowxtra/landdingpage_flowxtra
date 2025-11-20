@@ -104,7 +104,27 @@ function BlogPostContent() {
   const slug = params?.slug as string;
   
   // Get current locale from pathname
-  const currentLocale = pathname?.startsWith('/de') ? 'de' : pathname?.startsWith('/en') ? 'en' : 'en';
+  // Extract locale from pathname (e.g., /es/blog/slug -> es, /de/blog/slug -> de)
+  const getLocaleFromPathname = (path: string | null): string => {
+    if (!path) return 'en';
+    // Match locale pattern at the start of pathname (e.g., /es/, /de/, /en/, etc.)
+    const localeMatch = path.match(/^\/([a-z]{2}(?:-[a-z]{2})?)/);
+    if (localeMatch && localeMatch[1]) {
+      return localeMatch[1];
+    }
+    // Fallback to 'en' if no locale found
+    return 'en';
+  };
+  const currentLocale = getLocaleFromPathname(pathname);
+  
+  // Debug: Log locale detection
+  if (process.env.NODE_ENV === "development") {
+    console.log('[Blog Post Page] Locale detection:', {
+      pathname,
+      detectedLocale: currentLocale,
+      slug,
+    });
+  }
 
   // API State
   const [post, setPost] = useState<BlogPost | null>(null);

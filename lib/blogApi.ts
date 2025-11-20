@@ -181,6 +181,12 @@ export async function getBlogPosts(params: {
   // In client-side, relative paths get locale prefix added by Next.js
   // In server-side, fetch() requires absolute URL
   let url: string;
+
+  // Add timestamp to bypass cache (for fresh data)
+  // Always add timestamp to ensure fresh data in both client and server
+  queryParams.append("_t", Date.now().toString());
+  queryParams.append("_r", Math.random().toString(36).substring(7));
+
   if (apiBaseUrl === "/api/blog") {
     if (typeof window !== "undefined") {
       // Client-side: use absolute URL to avoid locale prefix
@@ -220,13 +226,13 @@ export async function getBlogPosts(params: {
 
   // Only add next.revalidate if we're in a server component (not client-side)
   if (typeof window === "undefined") {
-    // Server-side: can use next.revalidate
-    fetchOptions.next = { revalidate: 900 };
+    // Server-side: use no-store to always get fresh data
+    // Timestamp in URL ensures fresh data, but no-store guarantees it
+    fetchOptions.cache = "no-store";
   } else {
-    // Client-side: use default cache to allow bfcache (back/forward cache)
-    // This allows browsers to cache responses and use bfcache for better performance
-    // Data will still be fresh due to server-side revalidation (900 seconds)
-    fetchOptions.cache = "default";
+    // Client-side: use no-store to always get fresh data
+    // This ensures new posts appear immediately
+    fetchOptions.cache = "no-store";
   }
 
   const response = await fetch(url, fetchOptions);
