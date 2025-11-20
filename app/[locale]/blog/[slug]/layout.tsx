@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { getBlogPost } from "@/lib/blogApi";
 import { getImageUrl } from "@/lib/blogApi";
-import { generateBlogPostSchema } from "@/lib/seo";
-import { formatReadingTime } from "@/lib/blogApi";
 
 // Generate SEO metadata for Blog Post page
 export async function generateMetadata({ 
@@ -64,68 +62,11 @@ export async function generateMetadata({
 
 export default async function BlogPostLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: Promise<{locale: string, slug: string}>;
 }) {
-  const {locale, slug} = await params;
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
-  
-  // Fetch post data for structured data
-  let blogPostSchema = null;
-  try {
-    const response = await getBlogPost(slug, locale);
-    
-    if (response.success && response.data) {
-      // Use structured data from API if available, otherwise generate it
-      if (response.data.structuredData) {
-        blogPostSchema = response.data.structuredData;
-        if (process.env.NODE_ENV === 'development') {
-          console.log('[Blog Post Layout] Using structured data from API:', {
-            type: blogPostSchema['@type'] || 'N/A',
-            url: blogPostSchema.url || 'N/A',
-            headline: blogPostSchema.headline || 'N/A',
-          });
-        }
-      } else if (response.data.post) {
-        const post = response.data.post;
-        blogPostSchema = generateBlogPostSchema({
-          post: {
-            ...post,
-            author: post.author?.name,
-            authorImage: post.author?.photo,
-            time: formatReadingTime(post.readingTime),
-          },
-          locale: locale,
-          baseUrl: baseUrl,
-        });
-        if (process.env.NODE_ENV === 'development') {
-          console.log('[Blog Post Layout] Generated structured data:', {
-            type: blogPostSchema['@type'] || 'N/A',
-            url: blogPostSchema.url || 'N/A',
-            headline: blogPostSchema.headline || 'N/A',
-          });
-        }
-      }
-    }
-  } catch (error) {
-    console.error('Error fetching post for structured data:', error);
-  }
-  
-  return (
-    <>
-      {blogPostSchema && (
-        <script
-          id="blog-post-schema"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(blogPostSchema),
-          }}
-        />
-      )}
-      {children}
-    </>
-  );
+  // JSON-LD structured data is now rendered in the root layout's <head> section
+  // to ensure it's properly detected by search engines
+  return <>{children}</>;
 }
 

@@ -10,6 +10,9 @@ import AccessibilityWidgetLoader from "@/components/Accessibility/AccessibilityW
 import AffiliateBanner from "@/components/AffiliateBanner";
 import { getHomeSchema } from "@/lib/schemaLoader";
 import { defaultLocale } from "@/lib/locales";
+import { getBlogPost } from "@/lib/blogApi";
+import { generateBlogPostSchema } from "@/lib/seo";
+import { formatReadingTime } from "@/lib/blogApi";
 
 // Lazy load non-critical components to reduce initial bundle size
 // Header and Footer are loaded after initial render to reduce main-thread work
@@ -907,6 +910,50 @@ export default async function LocaleLayout({
         VIDEO_LANG: videoLanguage,
       })
     : null;
+
+  // Check if this is a blog post page and fetch schema
+  const blogPostMatch = normalizedPath.match(/^\/[^\/]+\/blog\/([^\/]+)$/);
+  let blogPostSchema = null;
+  if (blogPostMatch) {
+    const slug = blogPostMatch[1];
+    try {
+      const response = await getBlogPost(slug, locale);
+      if (response.success && response.data) {
+        // Use structured data from API if available, otherwise generate it
+        if (response.data.structuredData) {
+          blogPostSchema = response.data.structuredData;
+          if (process.env.NODE_ENV === 'development') {
+            console.log('[Root Layout] Using structured data from API for blog post:', {
+              type: blogPostSchema['@type'] || 'N/A',
+              url: blogPostSchema.url || 'N/A',
+              headline: blogPostSchema.headline || 'N/A',
+            });
+          }
+        } else if (response.data.post) {
+          const post = response.data.post;
+          blogPostSchema = generateBlogPostSchema({
+            post: {
+              ...post,
+              author: post.author?.name,
+              authorImage: post.author?.photo,
+              time: formatReadingTime(post.readingTime),
+            },
+            locale: locale,
+            baseUrl: baseUrl,
+          });
+          if (process.env.NODE_ENV === 'development') {
+            console.log('[Root Layout] Generated structured data for blog post:', {
+              type: blogPostSchema['@type'] || 'N/A',
+              url: blogPostSchema.url || 'N/A',
+              headline: blogPostSchema.headline || 'N/A',
+            });
+          }
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching blog post schema in root layout:', error);
+    }
+  }
   
   // CRITICAL: Pass locale explicitly to getMessages
   const messages = await getMessages({ locale });
@@ -1043,6 +1090,15 @@ export default async function LocaleLayout({
               dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaObject) }}
             />
           ))}
+        
+        {/* Blog Post Schema Markup - render only on blog post pages */}
+        {blogPostSchema && (
+          <script
+            id="blog-post-schema"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostSchema) }}
+          />
+        )}
       </head>
       <body className="antialiased" suppressHydrationWarning>
         <NextIntlClientProvider locale={locale} messages={messages}>
