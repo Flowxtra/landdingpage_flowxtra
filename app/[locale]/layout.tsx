@@ -68,7 +68,31 @@ export async function generateMetadata({
   let canonicalUrl: string | undefined = undefined;
   const hreflangUrls: Record<string, string> = {};
   
-  if (pathname && pathname.startsWith(`/${locale}`)) {
+  // Special handling for English homepage without /en prefix
+  // When pathname is "/" and locale is "en", it means homepage without prefix
+  const isEnglishHomepage = locale === 'en' && (pathname === '/' || pathname === '');
+  
+  if (isEnglishHomepage) {
+    // English homepage without /en prefix
+    canonicalUrl = `${currentBaseUrl}/`;
+    const supportedLocales = ['en', 'en-us', 'en-gb', 'en-au', 'en-ca', 'de', 'de-at', 'de-ch', 'fr', 'es', 'it', 'nl', 'ar'];
+    supportedLocales.forEach(lang => {
+      // Convert locale to hreflang code
+      let hreflangCode = lang;
+      if (lang === 'de') hreflangCode = 'de-DE';
+      else if (lang === 'de-at') hreflangCode = 'de-AT';
+      else if (lang === 'de-ch') hreflangCode = 'de-CH';
+      else if (lang === 'en') hreflangCode = 'en-US'; // Default English is US
+      else if (lang === 'en-us') hreflangCode = 'en-US';
+      else if (lang === 'en-gb') hreflangCode = 'en-GB';
+      else if (lang === 'en-au') hreflangCode = 'en-AU';
+      else if (lang === 'en-ca') hreflangCode = 'en-CA';
+      // For English homepage, use / without prefix; for others, use /lang
+      hreflangUrls[hreflangCode] = lang === 'en' 
+        ? `${currentBaseUrl}/`
+        : `${currentBaseUrl}/${lang}`;
+    });
+  } else if (pathname && pathname.startsWith(`/${locale}`)) {
     // Extract the path after locale (e.g., "/blog", "/pricing", etc.)
     const pathAfterLocale = pathname.replace(`/${locale}`, '') || '/';
 
@@ -123,13 +147,23 @@ export async function generateMetadata({
         else if (lang === 'en-gb') hreflangCode = 'en-GB';
         else if (lang === 'en-au') hreflangCode = 'en-AU';
         else if (lang === 'en-ca') hreflangCode = 'en-CA';
-        hreflangUrls[hreflangCode] = `${currentBaseUrl}/${lang}${pathAfterLocale}`;
+        // For English homepage, use / without prefix; for other pages, use /lang/path
+        if (lang === 'en' && pathAfterLocale === '/') {
+          hreflangUrls[hreflangCode] = `${currentBaseUrl}/`;
+        } else {
+          hreflangUrls[hreflangCode] = `${currentBaseUrl}/${lang}${pathAfterLocale}`;
+        }
       });
     }
     // If hasNestedLayout, leave canonicalUrl as undefined - nested layout will handle it
   } else {
     // Fallback to homepage if pathname is not available
-    canonicalUrl = `${currentBaseUrl}/${locale}`;
+    // For English, use / without prefix; for others, use /locale
+    if (locale === 'en') {
+      canonicalUrl = `${currentBaseUrl}/`;
+    } else {
+      canonicalUrl = `${currentBaseUrl}/${locale}`;
+    }
     const supportedLocales = ['en', 'en-us', 'en-gb', 'en-au', 'en-ca', 'de', 'de-at', 'de-ch', 'fr', 'es', 'it', 'nl', 'ar'];
     supportedLocales.forEach(lang => {
       // Convert locale to hreflang code
@@ -142,7 +176,12 @@ export async function generateMetadata({
       else if (lang === 'en-gb') hreflangCode = 'en-GB';
       else if (lang === 'en-au') hreflangCode = 'en-AU';
       else if (lang === 'en-ca') hreflangCode = 'en-CA';
-      hreflangUrls[hreflangCode] = `${currentBaseUrl}/${lang}`;
+      // For English homepage, use / without prefix; for others, use /lang
+      if (lang === 'en') {
+        hreflangUrls[hreflangCode] = `${currentBaseUrl}/`;
+      } else {
+        hreflangUrls[hreflangCode] = `${currentBaseUrl}/${lang}`;
+      }
     });
   }
   
@@ -160,7 +199,7 @@ export async function generateMetadata({
         description: "The best recruiting software. Hire smarter with AI — post jobs for free and manage candidates in one simple, powerful platform.",
         type: "website",
         locale: "en_US",
-        url: `${baseUrl}/en`,
+        url: `${baseUrl}/`, // Homepage without /en prefix
         siteName: "Flowxtra",
       },
       twitter: {
@@ -173,7 +212,7 @@ export async function generateMetadata({
         alternates: {
           canonical: canonicalUrl,
           languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
-            'en': `${baseUrl}/en`,
+            'en': `${baseUrl}/`, // Homepage without /en prefix
             'en-US': `${baseUrl}/en-us`,
             'en-GB': `${baseUrl}/en-gb`,
             'en-AU': `${baseUrl}/en-au`,
@@ -227,7 +266,7 @@ export async function generateMetadata({
         alternates: {
           canonical: canonicalUrl,
           languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
-            'en': `${baseUrl}/en`,
+            'en': `${baseUrl}/`, // Homepage without /en prefix
             'en-US': `${baseUrl}/en-us`,
             'en-GB': `${baseUrl}/en-gb`,
             'en-AU': `${baseUrl}/en-au`,
@@ -281,7 +320,7 @@ export async function generateMetadata({
         alternates: {
           canonical: canonicalUrl,
           languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
-            'en': `${baseUrl}/en`,
+            'en': `${baseUrl}/`, // Homepage without /en prefix
             'en-US': `${baseUrl}/en-us`,
             'en-GB': `${baseUrl}/en-gb`,
             'en-AU': `${baseUrl}/en-au`,
@@ -335,7 +374,7 @@ export async function generateMetadata({
         alternates: {
           canonical: canonicalUrl,
           languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
-            'en': `${baseUrl}/en`,
+            'en': `${baseUrl}/`, // Homepage without /en prefix
             'en-US': `${baseUrl}/en-us`,
             'en-GB': `${baseUrl}/en-gb`,
             'en-AU': `${baseUrl}/en-au`,
@@ -389,7 +428,7 @@ export async function generateMetadata({
         alternates: {
           canonical: canonicalUrl,
           languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
-            'en': `${baseUrl}/en`,
+            'en': `${baseUrl}/`, // Homepage without /en prefix
             'en-US': `${baseUrl}/en-us`,
             'en-GB': `${baseUrl}/en-gb`,
             'en-AU': `${baseUrl}/en-au`,
@@ -444,7 +483,7 @@ export async function generateMetadata({
         alternates: {
           canonical: canonicalUrl,
           languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
-            'en': `${baseUrl}/en`,
+            'en': `${baseUrl}/`, // Homepage without /en prefix
             'en-US': `${baseUrl}/en-us`,
             'en-GB': `${baseUrl}/en-gb`,
             'en-AU': `${baseUrl}/en-au`,
@@ -499,7 +538,7 @@ export async function generateMetadata({
         alternates: {
           canonical: canonicalUrl,
           languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
-            'en': `${baseUrl}/en`,
+            'en': `${baseUrl}/`, // Homepage without /en prefix
             'en-US': `${baseUrl}/en-us`,
             'en-GB': `${baseUrl}/en-gb`,
             'en-AU': `${baseUrl}/en-au`,
@@ -554,7 +593,7 @@ export async function generateMetadata({
         alternates: {
           canonical: canonicalUrl,
           languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
-            'en': `${baseUrl}/en`,
+            'en': `${baseUrl}/`, // Homepage without /en prefix
             'en-US': `${baseUrl}/en-us`,
             'en-GB': `${baseUrl}/en-gb`,
             'en-AU': `${baseUrl}/en-au`,
@@ -609,7 +648,7 @@ export async function generateMetadata({
         alternates: {
           canonical: canonicalUrl,
           languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
-            'en': `${baseUrl}/en`,
+            'en': `${baseUrl}/`, // Homepage without /en prefix
             'en-US': `${baseUrl}/en-us`,
             'en-GB': `${baseUrl}/en-gb`,
             'en-AU': `${baseUrl}/en-au`,
@@ -664,7 +703,7 @@ export async function generateMetadata({
         alternates: {
           canonical: canonicalUrl,
           languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
-            'en': `${baseUrl}/en`,
+            'en': `${baseUrl}/`, // Homepage without /en prefix
             'en-US': `${baseUrl}/en-us`,
             'en-GB': `${baseUrl}/en-gb`,
             'en-AU': `${baseUrl}/en-au`,
@@ -719,7 +758,7 @@ export async function generateMetadata({
         alternates: {
           canonical: canonicalUrl,
           languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
-            'en': `${baseUrl}/en`,
+            'en': `${baseUrl}/`, // Homepage without /en prefix
             'en-US': `${baseUrl}/en-us`,
             'en-GB': `${baseUrl}/en-gb`,
             'en-AU': `${baseUrl}/en-au`,
@@ -774,7 +813,7 @@ export async function generateMetadata({
         alternates: {
           canonical: canonicalUrl,
           languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
-            'en': `${baseUrl}/en`,
+            'en': `${baseUrl}/`, // Homepage without /en prefix
             'en-US': `${baseUrl}/en-us`,
             'en-GB': `${baseUrl}/en-gb`,
             'en-AU': `${baseUrl}/en-au`,
@@ -829,7 +868,7 @@ export async function generateMetadata({
         alternates: {
           canonical: canonicalUrl,
           languages: Object.keys(hreflangUrls).length > 0 ? hreflangUrls : {
-            'en': `${baseUrl}/en`,
+            'en': `${baseUrl}/`, // Homepage without /en prefix
             'en-US': `${baseUrl}/en-us`,
             'en-GB': `${baseUrl}/en-gb`,
             'en-AU': `${baseUrl}/en-au`,

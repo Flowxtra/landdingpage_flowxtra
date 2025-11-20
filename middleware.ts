@@ -47,6 +47,26 @@ export default function middleware(request: NextRequest) {
   // Store original pathname for canonical URL (before any rewrites)
   const originalPathname = pathname;
 
+  // Special handling for English homepage: redirect /en to / for SEO
+  // Only the homepage should be without /en prefix, other pages keep /en
+  if (pathname === "/en" || pathname === "/en/") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/";
+    const redirectResponse = NextResponse.redirect(url, 301); // Permanent redirect for SEO
+    redirectResponse.headers.set("x-pathname", "/");
+    return redirectResponse;
+  }
+
+  // For homepage without locale (/) - rewrite to /en internally but keep URL as /
+  if (pathname === "/" || pathname === "") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/en";
+    const rewriteResponse = NextResponse.rewrite(url);
+    // Keep original pathname (/) for canonical URL
+    rewriteResponse.headers.set("x-pathname", "/");
+    return rewriteResponse;
+  }
+
   // Redirect German URLs with English paths to translated German URLs
   if (englishToGerman[pathname]) {
     const url = request.nextUrl.clone();

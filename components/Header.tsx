@@ -134,7 +134,13 @@ function Header() {
     }
     
     // Build new path with new locale
-    const newPath = `/${newLocale}${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
+    // For English homepage, use / without prefix; for others, use /locale
+    let newPath: string;
+    if (newLocale === 'en' && pathWithoutLocale === '/') {
+      newPath = '/';
+    } else {
+      newPath = `/${newLocale}${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
+    }
     
     // Clear language from localStorage before reload
     localStorage.removeItem("language");
@@ -152,12 +158,20 @@ function Header() {
     if (pathname.startsWith('/it')) return 'it';
     if (pathname.startsWith('/nl')) return 'nl';
     if (pathname.startsWith('/ar')) return 'ar';
+    // Homepage without locale prefix is English
+    if (pathname === '/' || pathname === '') return 'en';
     return 'en'; // Default
   };
   const currentLocale = getCurrentLocale();
 
-  // Helper function to get translated route
+  // Helper function to get localized path
+  // For English homepage, use / without prefix; for other pages, use /en/path
   const getLocalizedPath = (path: string) => {
+    // Special handling for English homepage
+    if (currentLocale === 'en' && path === '/') {
+      return '/';
+    }
+    
     if (currentLocale === 'de') {
       const translations: { [key: string]: string } = {
         '/contact-us': '/kontakt',
@@ -170,6 +184,15 @@ function Header() {
       return `/${currentLocale}${translations[path] || path}`;
     }
     return `/${currentLocale}${path}`;
+  };
+
+  // Helper function to get homepage URL
+  // For English, use / without prefix; for others, use /locale
+  const getHomepageUrl = () => {
+    if (currentLocale === 'en') {
+      return '/';
+    }
+    return `/${currentLocale}`;
   };
 
   // Close mobile menu when clicking outside
@@ -231,7 +254,7 @@ function Header() {
       <nav className="container mx-auto px-4 md:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16 md:h-18">
           {/* Logo */}
-          <Link href={`/${currentLocale}`} className="flex items-center">
+          <Link href={getHomepageUrl()} className="flex items-center">
             <Image
               src={isDarkMode ? "/flowxtra-logo-white.png" : "/Main-flowxtra-Logo.png"}
               alt="Flowxtra Logo"
@@ -246,7 +269,7 @@ function Header() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
             <Link
-              href={`/${currentLocale}`}
+              href={getHomepageUrl()}
               className={cn(
                 "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors",
                 "hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary dark:hover:text-secondary-light",
@@ -585,7 +608,7 @@ function Header() {
           <div ref={mobileMenuRef} className="lg:hidden py-4 border-t dark:border-gray-700">
             <div className="flex flex-col space-y-4">
               <Link
-                href={`/${currentLocale}`}
+                href={getHomepageUrl()}
                 className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-secondary-light font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
