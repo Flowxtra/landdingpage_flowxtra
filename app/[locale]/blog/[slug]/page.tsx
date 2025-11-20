@@ -5,8 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useParams, usePathname } from 'next/navigation';
 import { useEffect, useState, useRef, useMemo } from 'react';
-import { generateBlogPostSchema } from '@/lib/seo';
-import JsonLd from '@/components/JsonLd';
 import { getBlogPost, getBlogPosts, getImageUrl, formatDate, formatReadingTime, type BlogPost, type PreviousNextPost } from '@/lib/blogApi';
 import TableOfContents from '@/components/TableOfContents';
 import ProfessionalPlanSidebar from '@/components/ProfessionalPlanSidebar';
@@ -115,7 +113,6 @@ function BlogPostContent() {
   const [nextPost, setNextPost] = useState<PreviousNextPost | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [apiStructuredData, setApiStructuredData] = useState<Record<string, unknown> | null>(null);
   
   // Ref to track if we've already fetched previous/next posts
   const hasFetchedPreviousNext = useRef<boolean>(false);
@@ -166,9 +163,8 @@ function BlogPostContent() {
           setPost(response.data.post);
           setRelatedPosts(response.data.relatedPosts || []);
           
-          // Store structured data from API if available
+          // Log structured data from API if available (now handled in layout.tsx)
           if (response.data.structuredData) {
-            setApiStructuredData(response.data.structuredData);
             console.log("[Blog Post] Structured data from API:", {
               type: response.data.structuredData["@type"] || "N/A",
               url: response.data.structuredData.url || "N/A",
@@ -308,22 +304,8 @@ function BlogPostContent() {
   }
 
 
-  // Generate JSON-LD schema for SEO
-  // Use structured data from API if available, otherwise generate it
-  const blogPostSchema = apiStructuredData || generateBlogPostSchema({
-    post: {
-      ...post,
-      author: post.author?.name,
-      authorImage: post.author?.photo,
-      time: formatReadingTime(post.readingTime),
-    },
-    locale: currentLocale,
-  });
-
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
-      {/* JSON-LD Schema for SEO */}
-      <JsonLd data={blogPostSchema} />
       
       {/* First Section - Same background as blog page */}
       <section className="w-full pt-2.5 pb-16 md:pb-24 px-[10px] bg-white dark:bg-gray-900 transition-colors">
