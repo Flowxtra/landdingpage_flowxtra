@@ -751,10 +751,39 @@ function BlogContent() {
             </div>
           </div>
 
-          {/* Loading State */}
+          {/* Loading State with Skeleton */}
           {loading && (
-            <div className="py-16 text-center">
-              <div className="text-gray-500 dark:text-gray-400">Loading...</div>
+            <div className="py-8">
+              <div className={viewMode === 'grid' 
+                ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
+                : 'flex flex-col gap-6'
+              }>
+                {[...Array(postsPerPage)].map((_, i) => (
+                  <div key={i} className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-sm border border-gray-200 dark:border-gray-700">
+                    {/* Image skeleton */}
+                    <div className="w-full h-48 bg-gray-200 dark:bg-gray-700 animate-pulse"></div>
+                    <div className="p-4 space-y-3">
+                      {/* Category skeleton */}
+                      <div className="h-4 w-20 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                      {/* Title skeleton */}
+                      <div className="space-y-2">
+                        <div className="h-5 w-full bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                        <div className="h-5 w-3/4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                      </div>
+                      {/* Excerpt skeleton */}
+                      <div className="space-y-2">
+                        <div className="h-4 w-full bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                        <div className="h-4 w-5/6 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                      </div>
+                      {/* Meta skeleton */}
+                      <div className="flex items-center gap-4 pt-2">
+                        <div className="h-4 w-24 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                        <div className="h-4 w-16 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 

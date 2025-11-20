@@ -298,11 +298,39 @@ function BlogPostContent() {
     return processContentImages(post.content, post.title);
   }, [post?.content, post?.title]);
 
-  // Loading state
+  // Loading state with skeleton
   if (loading) {
     return (
-      <div className="min-h-screen bg-white dark:bg-gray-900 flex items-center justify-center">
-        <div className="text-gray-500 dark:text-gray-400">Loading...</div>
+      <div className="min-h-screen bg-white dark:bg-gray-900 py-8 px-4 md:px-8">
+        <div className="max-w-4xl mx-auto">
+          {/* Breadcrumb skeleton */}
+          <div className="mb-6 flex items-center gap-2">
+            <div className="h-4 w-16 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+            <span className="text-gray-400">/</span>
+            <div className="h-4 w-20 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+          </div>
+
+          {/* Title skeleton */}
+          <div className="mb-6">
+            <div className="h-10 w-full md:w-3/4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse mb-4"></div>
+            <div className="h-6 w-1/2 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+          </div>
+
+          {/* Image skeleton */}
+          <div className="mb-8">
+            <div className="w-full h-64 md:h-96 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse"></div>
+          </div>
+
+          {/* Content skeleton */}
+          <div className="space-y-4">
+            {[...Array(8)].map((_, i) => (
+              <div key={i} className="space-y-2">
+                <div className="h-4 w-full bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                <div className="h-4 w-5/6 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     );
   }
