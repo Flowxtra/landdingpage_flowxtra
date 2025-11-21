@@ -19,7 +19,18 @@ function AppDetailContent() {
   };
   
   // Get current locale from pathname
-  const currentLocale = pathname?.startsWith('/de') ? 'de' : pathname?.startsWith('/en') ? 'en' : 'en';
+  // Extract locale from pathname (e.g., /es/app-store/slug -> es, /de/app-store/slug -> de)
+  const getLocaleFromPathname = (path: string | null): string => {
+    if (!path) return 'en';
+    // Match locale pattern at the start of pathname (e.g., /es/, /de/, /en/, etc.)
+    const localeMatch = path.match(/^\/([a-z]{2}(?:-[a-z]{2})?)/);
+    if (localeMatch && localeMatch[1]) {
+      return localeMatch[1];
+    }
+    // Fallback to 'en' if no locale found
+    return 'en';
+  };
+  const currentLocale = getLocaleFromPathname(pathname);
 
   // API State
   const [app, setApp] = useState<App | null>(null);
@@ -100,10 +111,53 @@ function AppDetailContent() {
     };
   }, [app, currentLocale, relatedApps.length]);
 
+  // Loading state with skeleton
   if (loading) {
     return (
-      <div className="min-h-screen bg-white dark:bg-gray-900 flex items-center justify-center">
-        <div className="text-gray-500 dark:text-gray-400">Loading...</div>
+      <div className="min-h-screen bg-white dark:bg-gray-900 py-8 px-4 md:px-8">
+        <div className="max-w-4xl mx-auto">
+          {/* Breadcrumb skeleton */}
+          <div className="mb-6 flex items-center gap-2">
+            <div className="h-4 w-16 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+            <span className="text-gray-400">/</span>
+            <div className="h-4 w-20 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+            <span className="text-gray-400">/</span>
+            <div className="h-4 w-24 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+          </div>
+
+          {/* Icon and Title skeleton */}
+          <div className="mb-6 flex items-center gap-4">
+            <div className="w-20 h-20 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse"></div>
+            <div className="flex-1 space-y-2">
+              <div className="h-8 w-3/4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+              <div className="h-4 w-1/2 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+            </div>
+          </div>
+
+          {/* Description skeleton */}
+          <div className="mb-8 space-y-3">
+            <div className="h-4 w-full bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+            <div className="h-4 w-full bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+            <div className="h-4 w-5/6 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+          </div>
+
+          {/* Screenshots skeleton */}
+          <div className="mb-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {[...Array(3)].map((_, i) => (
+                <div key={i} className="w-full h-48 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse"></div>
+              ))}
+            </div>
+          </div>
+
+          {/* Features skeleton */}
+          <div className="space-y-4">
+            <div className="h-6 w-32 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+            {[...Array(4)].map((_, i) => (
+              <div key={i} className="h-4 w-full bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+            ))}
+          </div>
+        </div>
       </div>
     );
   }

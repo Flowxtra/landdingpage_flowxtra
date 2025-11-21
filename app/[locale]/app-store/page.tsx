@@ -39,7 +39,17 @@ function AppStoreContent() {
   const appsPerPage = 9; // 9 apps per page
 
   // Get current locale from pathname
-  const currentLocale = pathname.startsWith('/de') ? 'de' : pathname.startsWith('/en') ? 'en' : 'en';
+  // Extract locale from pathname (e.g., /es/app-store -> es, /de/app-store -> de)
+  const getLocaleFromPathname = (path: string): string => {
+    // Match locale pattern at the start of pathname (e.g., /es/, /de/, /en/, etc.)
+    const localeMatch = path.match(/^\/([a-z]{2}(?:-[a-z]{2})?)/);
+    if (localeMatch && localeMatch[1]) {
+      return localeMatch[1];
+    }
+    // Fallback to 'en' if no locale found
+    return 'en';
+  };
+  const currentLocale = getLocaleFromPathname(pathname);
 
   // Handle Command/Ctrl+K keyboard shortcut for search modal
   useEffect(() => {
@@ -611,10 +621,33 @@ function AppStoreContent() {
             </div>
           </div>
 
-          {/* Loading State */}
+          {/* Loading State with Skeleton */}
           {loading && (
-            <div className="py-16 text-center">
-              <div className="text-gray-500 dark:text-gray-400">Loading...</div>
+            <div className="py-8">
+              <div className={viewMode === 'grid' 
+                ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'
+                : 'flex flex-col gap-4'
+              }>
+                {[...Array(appsPerPage)].map((_, i) => (
+                  <div key={i} className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+                    {/* Icon skeleton */}
+                    <div className="flex items-center gap-4 mb-3">
+                      <div className="w-16 h-16 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse"></div>
+                      <div className="flex-1 space-y-2">
+                        {/* Name skeleton */}
+                        <div className="h-5 w-3/4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                        {/* Category skeleton */}
+                        <div className="h-4 w-1/2 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                      </div>
+                    </div>
+                    {/* Description skeleton */}
+                    <div className="space-y-2">
+                      <div className="h-4 w-full bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                      <div className="h-4 w-5/6 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 

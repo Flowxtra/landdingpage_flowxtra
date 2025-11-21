@@ -215,18 +215,20 @@ export async function GET() {
       }
     }
 
-    // Add app-store sitemaps for this locale (if available)
-    const totalApps = await getAppsCount(locale);
-    const totalAppFiles = Math.ceil(totalApps / postsPerFile);
+    // Add app-store sitemaps for this locale (if available) - only for base locales (not variants)
+    if (blogBaseLocales.includes(locale)) {
+      const totalApps = await getAppsCount(locale);
+      const totalAppFiles = Math.ceil(totalApps / postsPerFile);
 
-    if (totalApps > 0 && totalAppFiles > 0) {
-      for (let fileIndex = 0; fileIndex < totalAppFiles; fileIndex++) {
-        sitemaps.push({
-          url: `${baseUrl}/sitemap-${locale}-app-store-${fileIndex}.xml`,
-          lastmod: new Date().toISOString(),
-          type: "App Store",
-          locale: locale.toUpperCase(),
-        });
+      if (totalApps > 0 && totalAppFiles > 0) {
+        for (let fileIndex = 0; fileIndex < totalAppFiles; fileIndex++) {
+          sitemaps.push({
+            url: `${baseUrl}/sitemap-${locale}-app-store-${fileIndex}.xml`,
+            lastmod: new Date().toISOString(),
+            type: "App Store",
+            locale: locale.toUpperCase(),
+          });
+        }
       }
     }
   }

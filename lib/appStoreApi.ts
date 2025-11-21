@@ -116,6 +116,32 @@ export interface AppResponse {
   };
 }
 
+/**
+ * Normalize locale for API requests
+ * Maps locale variants to base locales that the backend API supports
+ *
+ * Examples:
+ * - en-au, en-ca, en-us, en-gb → en
+ * - de-ch, de-at → de
+ * - Other locales remain unchanged
+ */
+function normalizeLocaleForApi(locale: string | undefined): string {
+  if (!locale) return "en";
+
+  // English variants → en
+  if (locale.startsWith("en-")) {
+    return "en";
+  }
+
+  // German variants → de
+  if (locale.startsWith("de-")) {
+    return "de";
+  }
+
+  // Return locale as-is for other languages
+  return locale;
+}
+
 // Get image URL helper
 export function getImageUrl(imagePath: string): string {
   if (!imagePath) return "";
@@ -156,11 +182,14 @@ export async function getApps(params: {
 }): Promise<AppsResponse> {
   const queryParams = new URLSearchParams();
 
+  // Normalize locale for API (en-au → en, de-ch → de, etc.)
+  const normalizedLocale = normalizeLocaleForApi(params.locale);
+
   if (params.page) queryParams.append("page", params.page.toString());
   if (params.limit) queryParams.append("limit", params.limit.toString());
   if (params.category) queryParams.append("category", params.category);
   if (params.search) queryParams.append("search", params.search);
-  if (params.locale) queryParams.append("locale", params.locale);
+  queryParams.append("locale", normalizedLocale);
   if (params.minimal) queryParams.append("minimal", "true");
 
   // Get API base URL (may be proxy path in development)
@@ -236,6 +265,9 @@ export async function getApp(
   slug: string,
   locale: string = "en"
 ): Promise<AppResponse> {
+  // Normalize locale for API (en-au → en, de-ch → de, etc.)
+  const normalizedLocale = normalizeLocaleForApi(locale);
+
   // Get API base URL (may be proxy path in development)
   const apiBaseUrl = getApiBaseUrl();
 
@@ -244,13 +276,13 @@ export async function getApp(
   if (apiBaseUrl === "/api/app-store") {
     // Client-side: use absolute URL to avoid locale prefix
     if (typeof window !== "undefined") {
-      url = `${window.location.origin}${apiBaseUrl}/${slug}?locale=${locale}`;
+      url = `${window.location.origin}${apiBaseUrl}/${slug}?locale=${normalizedLocale}`;
     } else {
       // Server-side: relative path is fine
-      url = `${apiBaseUrl}/${slug}?locale=${locale}`;
+      url = `${apiBaseUrl}/${slug}?locale=${normalizedLocale}`;
     }
   } else {
-    url = `${apiBaseUrl}/app-store/${slug}?locale=${locale}`;
+    url = `${apiBaseUrl}/app-store/${slug}?locale=${normalizedLocale}`;
   }
 
   const fetchOptions: ExtendedRequestInit = {
@@ -294,6 +326,9 @@ export async function getAppCategories(locale: string = "en"): Promise<{
     categories: AppCategory[];
   };
 }> {
+  // Normalize locale for API (en-au → en, de-ch → de, etc.)
+  const normalizedLocale = normalizeLocaleForApi(locale);
+
   // Get API base URL (may be proxy path in development)
   const apiBaseUrl = getApiBaseUrl();
 
@@ -302,13 +337,13 @@ export async function getAppCategories(locale: string = "en"): Promise<{
   if (apiBaseUrl === "/api/app-store") {
     // Client-side: use absolute URL to avoid locale prefix
     if (typeof window !== "undefined") {
-      url = `${window.location.origin}${apiBaseUrl}/categories?locale=${locale}`;
+      url = `${window.location.origin}${apiBaseUrl}/categories?locale=${normalizedLocale}`;
     } else {
       // Server-side: relative path is fine
-      url = `${apiBaseUrl}/categories?locale=${locale}`;
+      url = `${apiBaseUrl}/categories?locale=${normalizedLocale}`;
     }
   } else {
-    url = `${apiBaseUrl}/app-store/categories?locale=${locale}`;
+    url = `${apiBaseUrl}/app-store/categories?locale=${normalizedLocale}`;
   }
 
   const fetchOptions: ExtendedRequestInit = {

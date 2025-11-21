@@ -89,6 +89,24 @@ export async function GET(
     return new NextResponse("Invalid parameters", { status: 400 });
   }
 
+  // Base locales for app-store (exclude variants to prevent duplicate content)
+  const appStoreBaseLocales = ["en", "de", "fr", "es", "it", "nl", "ar"];
+
+  // If locale is a variant, return empty sitemap (variants redirect to base locales)
+  if (!appStoreBaseLocales.includes(locale)) {
+    return new NextResponse(
+      `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+</urlset>`,
+      {
+        headers: {
+          "Content-Type": "application/xml",
+          "Cache-Control": "public, max-age=3600, s-maxage=3600",
+        },
+      }
+    );
+  }
+
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
   const apps = await getAppsBatch(locale, batchIndex);
 

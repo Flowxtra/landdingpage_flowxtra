@@ -24,17 +24,22 @@ export async function generateMetadata({
     ? `${protocol}://${host}`
     : baseUrl;
   
-  // Build canonical URL using actual pathname and current host to ensure it matches current page
-  // Fallback to constructed URL if pathname is not available
-  const canonicalUrl = pathname 
-    ? `${currentBaseUrl}${pathname}`
-    : `${currentBaseUrl}/${locale}/app-store`;
-  
-  // Build hreflang URLs for all supported languages
+  // Normalize locale for canonical URL (variants redirect to base locales)
+  const normalizeLocale = (loc: string): string => {
+    if (loc.startsWith("en-")) return "en";
+    if (loc.startsWith("de-")) return "de";
+    return loc;
+  };
+
+  // Base locale for canonical URL (variants redirect to base)
+  const baseLocale = normalizeLocale(locale);
+  const baseCanonicalUrl = `${currentBaseUrl}/${baseLocale}/app-store`;
+
+  // Build hreflang URLs for all supported languages (only base locales)
   // Use the same base URL as canonical to ensure consistency
-  const supportedLocales = ['en', 'de', 'fr', 'es', 'it', 'nl', 'ar'];
+  const baseLocales = ['en', 'de', 'fr', 'es', 'it', 'nl', 'ar'];
   const hreflangUrls: Record<string, string> = {};
-  supportedLocales.forEach(lang => {
+  baseLocales.forEach(lang => {
     hreflangUrls[lang] = `${currentBaseUrl}/${lang}/app-store`;
   });
   
@@ -47,11 +52,11 @@ export async function generateMetadata({
       openGraph: {
         title: "App Store – Flowxtra | Integrations & Applications",
         description: "Discover powerful integrations and applications to extend your Flowxtra ATS. Connect with HR tools, communication platforms, and analytics services.",
-        url: canonicalUrl,
+        url: baseCanonicalUrl,
         type: "website",
       },
       alternates: {
-        canonical: canonicalUrl,
+        canonical: baseCanonicalUrl,
         languages: hreflangUrls,
       },
     },
@@ -63,11 +68,11 @@ export async function generateMetadata({
       openGraph: {
         title: "App Store – Flowxtra | Integrationen & Anwendungen",
         description: "Entdecken Sie leistungsstarke Integrationen und Anwendungen, um Ihr Flowxtra ATS zu erweitern. Verbinden Sie sich mit HR-Tools, Kommunikationsplattformen und Analysediensten.",
-        url: canonicalUrl,
+        url: baseCanonicalUrl,
         type: "website",
       },
       alternates: {
-        canonical: canonicalUrl,
+        canonical: baseCanonicalUrl,
         languages: hreflangUrls,
       },
     },
@@ -81,14 +86,14 @@ export async function generateMetadata({
   return {
     ...baseMetadata,
     alternates: {
-      canonical: canonicalUrl,
+      canonical: baseCanonicalUrl,
       languages: hreflangUrls,
     },
     // Explicitly exclude any alternates from parent layout
     ...(baseMetadata.openGraph && {
       openGraph: {
         ...baseMetadata.openGraph,
-        url: canonicalUrl, // Update OpenGraph URL to match canonical
+        url: baseCanonicalUrl, // Update OpenGraph URL to match canonical
       },
     }),
   };

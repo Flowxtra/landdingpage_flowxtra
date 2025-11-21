@@ -233,14 +233,16 @@ export async function GET() {
   </url>`;
     }
 
-    // Add app-store listing page
-    xml += `
+    // Add app-store listing page - only for base locales (not variants)
+    if (blogBaseLocales.includes(locale)) {
+      xml += `
   <url>
     <loc>${baseUrl}/${locale}/app-store</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`;
+    }
 
     // Add blog posts for this locale - only for base locales (not variants)
     if (blogBaseLocales.includes(locale)) {
@@ -263,24 +265,26 @@ export async function GET() {
       });
     }
 
-    // Add app-store apps for this locale
-    const apps = await getAllApps(locale);
-    apps.forEach((app) => {
-      const url = `${baseUrl}/${locale}/app-store/${app.slug}`;
-      const lastMod = app.updatedAt
-        ? new Date(app.updatedAt).toISOString()
-        : app.createdAt
-        ? new Date(app.createdAt).toISOString()
-        : new Date().toISOString();
+    // Add app-store apps for this locale - only for base locales (not variants)
+    if (blogBaseLocales.includes(locale)) {
+      const apps = await getAllApps(locale);
+      apps.forEach((app) => {
+        const url = `${baseUrl}/${locale}/app-store/${app.slug}`;
+        const lastMod = app.updatedAt
+          ? new Date(app.updatedAt).toISOString()
+          : app.createdAt
+          ? new Date(app.createdAt).toISOString()
+          : new Date().toISOString();
 
-      xml += `
+        xml += `
   <url>
     <loc>${url}</loc>
     <lastmod>${lastMod}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>`;
-    });
+      });
+    }
   }
 
   xml += `

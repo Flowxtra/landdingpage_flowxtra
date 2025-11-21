@@ -86,30 +86,36 @@ export default function middleware(request: NextRequest) {
     return rewriteResponse;
   }
 
-  // Redirect blog locale variants to base locales
+  // Redirect blog and app-store locale variants to base locales
   // English variants: en-us, en-gb, en-au, en-ca → en
   // German variants: de-at, de-ch → de
-  const blogLocaleRedirects: { [key: string]: string } = {
+  const localeVariantRedirects: { [key: string]: string } = {
     // English variants → en
     "/en-us/blog": "/en/blog",
     "/en-gb/blog": "/en/blog",
     "/en-au/blog": "/en/blog",
     "/en-ca/blog": "/en/blog",
+    "/en-us/app-store": "/en/app-store",
+    "/en-gb/app-store": "/en/app-store",
+    "/en-au/app-store": "/en/app-store",
+    "/en-ca/app-store": "/en/app-store",
     // German variants → de
     "/de-at/blog": "/de/blog",
     "/de-ch/blog": "/de/blog",
+    "/de-at/app-store": "/de/app-store",
+    "/de-ch/app-store": "/de/app-store",
   };
 
-  // Check if pathname matches blog locale variant redirect pattern
-  const blogRedirectMatch = Object.keys(blogLocaleRedirects).find((pattern) =>
+  // Check if pathname matches locale variant redirect pattern
+  const redirectMatch = Object.keys(localeVariantRedirects).find((pattern) =>
     pathname.startsWith(pattern)
   );
 
-  if (blogRedirectMatch) {
-    const basePath = blogLocaleRedirects[blogRedirectMatch];
-    const remainingPath = pathname.replace(blogRedirectMatch, "");
+  if (redirectMatch) {
+    const basePath = localeVariantRedirects[redirectMatch];
+    const remainingPath = pathname.replace(redirectMatch, "");
     const redirectPath = `${basePath}${remainingPath}`;
-    
+
     const url = request.nextUrl.clone();
     url.pathname = redirectPath;
     // Preserve query parameters

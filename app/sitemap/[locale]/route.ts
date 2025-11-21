@@ -220,21 +220,23 @@ export async function GET(
     }
   }
 
-  // Add app-store sitemaps for this locale (if available)
-  const totalApps = await getAppsCount(locale);
-  const totalAppFiles = Math.ceil(totalApps / postsPerFile);
+  // Add app-store sitemaps for this locale (if available) - only for base locales (not variants)
+  if (blogBaseLocales.includes(locale)) {
+    const totalApps = await getAppsCount(locale);
+    const totalAppFiles = Math.ceil(totalApps / postsPerFile);
 
-  if (totalApps > 0 && totalAppFiles > 0) {
-    for (let fileIndex = 0; fileIndex < totalAppFiles; fileIndex++) {
-      xml += `
+    if (totalApps > 0 && totalAppFiles > 0) {
+      for (let fileIndex = 0; fileIndex < totalAppFiles; fileIndex++) {
+        xml += `
   <sitemap>
     <loc>${baseUrl}/sitemap-${locale}-app-store-${fileIndex}.xml</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
   </sitemap>`;
+      }
+      console.log(
+        `📱 Adding ${totalAppFiles} app-store sitemap file(s) for locale "${locale}" (${totalApps} apps total)`
+      );
     }
-    console.log(
-      `📱 Adding ${totalAppFiles} app-store sitemap file(s) for locale "${locale}" (${totalApps} apps total)`
-    );
   }
 
   xml += `
