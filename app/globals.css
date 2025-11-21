@@ -180,6 +180,38 @@ body {
   margin-left: inherit;
 }
 
+/* RTL Prose Support */
+[dir="rtl"] .prose {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .prose p,
+[dir="rtl"] .prose li,
+[dir="rtl"] .prose h1,
+[dir="rtl"] .prose h2,
+[dir="rtl"] .prose h3,
+[dir="rtl"] .prose h4,
+[dir="rtl"] .prose h5,
+[dir="rtl"] .prose h6 {
+  text-align: right;
+}
+
+[dir="rtl"] .prose ul,
+[dir="rtl"] .prose ol {
+  padding-right: 1.5em;
+  padding-left: 0;
+}
+
+[dir="rtl"] .prose blockquote {
+  border-right: 4px solid;
+  border-left: none;
+  padding-right: 1em;
+  padding-left: 0;
+  margin-right: 0;
+  margin-left: 1.5em;
+}
+
 /* Animated Scrolling Badges */
 @keyframes scroll-right {
   from {

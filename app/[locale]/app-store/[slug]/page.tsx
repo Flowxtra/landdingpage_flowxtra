@@ -31,6 +31,7 @@ function AppDetailContent() {
     return 'en';
   };
   const currentLocale = getLocaleFromPathname(pathname);
+  const isRTL = currentLocale === 'ar';
 
   // API State
   const [app, setApp] = useState<App | null>(null);
@@ -117,7 +118,7 @@ function AppDetailContent() {
       <div className="min-h-screen bg-white dark:bg-gray-900 py-8 px-4 md:px-8">
         <div className="max-w-4xl mx-auto">
           {/* Breadcrumb skeleton */}
-          <div className="mb-6 flex items-center gap-2">
+          <div className={`mb-6 flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
             <div className="h-4 w-16 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
             <span className="text-gray-400">/</span>
             <div className="h-4 w-20 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
@@ -126,7 +127,7 @@ function AppDetailContent() {
           </div>
 
           {/* Icon and Title skeleton */}
-          <div className="mb-6 flex items-center gap-4">
+          <div className={`mb-6 flex items-center gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
             <div className="w-20 h-20 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse"></div>
             <div className="flex-1 space-y-2">
               <div className="h-8 w-3/4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
@@ -179,11 +180,11 @@ function AppDetailContent() {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors" dir={isRTL ? 'rtl' : 'ltr'}>
       {/* Hero Section */}
       <section className="w-full pt-2.5 pb-16 md:pb-24 px-[10px] bg-white dark:bg-gray-900 transition-colors">
         <div className="w-full rounded-[10px] px-[10px] py-16 md:py-20 bg-[#f4f6f8] dark:bg-gray-800">
-          <div className="container mx-auto px-4 md:px-8 lg:px-12">
+          <div className={`container mx-auto px-4 md:px-8 lg:px-12 ${isRTL ? 'text-right' : 'text-left'}`}>
             {/* Breadcrumbs */}
             <nav className="text-sm text-gray-500 dark:text-gray-400 mb-6">
               <Link href="/" className="hover:text-primary dark:hover:text-secondary transition-colors">
@@ -198,7 +199,7 @@ function AppDetailContent() {
             </nav>
 
             {/* App Header */}
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8">
+            <div className={`flex flex-col md:flex-row items-start md:items-center gap-6 mb-8 ${isRTL ? 'md:flex-row-reverse' : ''}`} dir={isRTL ? 'rtl' : 'ltr'}>
               {/* App Icon */}
               <div className="flex-shrink-0">
                 {app.icon ? (
@@ -241,7 +242,7 @@ function AppDetailContent() {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className={`flex flex-col sm:flex-row gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
               <a
                 href="https://my.flowxtra.com/registration"
                 target="_blank"
@@ -267,14 +268,14 @@ function AppDetailContent() {
 
       {/* Content Section */}
       <section className="w-full py-12 md:py-16 px-[10px] bg-white dark:bg-gray-900 transition-colors">
-        <div className="container mx-auto px-4 md:px-8 lg:px-12">
+        <div className={`container mx-auto px-4 md:px-8 lg:px-12 ${isRTL ? 'text-right' : 'text-left'}`}>
           <div className="max-w-4xl mx-auto">
             {/* About Section */}
-            <div className="mb-12">
+            <div className="mb-12" dir={isRTL ? 'rtl' : 'ltr'}>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6">
                 {t('about')}
               </h2>
-              <div className="prose prose-lg max-w-none">
+              <div className={`prose prose-lg max-w-none ${isRTL ? 'prose-rtl' : ''}`}>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line text-base md:text-lg">
                   {app.description}
                 </p>
@@ -283,7 +284,7 @@ function AppDetailContent() {
 
             {/* Features Section */}
             {app.features && app.features.length > 0 && (
-              <div className="mb-12">
+              <div className="mb-12" dir={isRTL ? 'rtl' : 'ltr'}>
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6">
                   {t('features')}
                 </h2>
@@ -291,7 +292,8 @@ function AppDetailContent() {
                   {app.features.map((feature, index) => (
                     <div
                       key={index}
-                      className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700"
+                      className={`flex items-start gap-3 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 ${isRTL ? 'flex-row-reverse' : ''}`}
+                      dir={isRTL ? 'rtl' : 'ltr'}
                     >
                       <svg className="w-6 h-6 text-primary dark:text-secondary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -305,7 +307,7 @@ function AppDetailContent() {
 
             {/* Screenshots Section */}
             {app.screenshots && app.screenshots.length > 0 && (
-              <div>
+              <div dir={isRTL ? 'rtl' : 'ltr'}>
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6">
                   {t('screenshots')}
                 </h2>
@@ -335,7 +337,7 @@ function AppDetailContent() {
       {/* Related Apps */}
       {relatedApps.length > 0 && (
         <section className="w-full py-16 md:py-24 px-[10px] bg-[#f4f6f8] dark:bg-gray-800">
-          <div className="container mx-auto px-4 md:px-8 lg:px-12">
+          <div className={`container mx-auto px-4 md:px-8 lg:px-12 ${isRTL ? 'text-right' : 'text-left'}`}>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8">
               {t('relatedApps')}
             </h2>
@@ -346,8 +348,8 @@ function AppDetailContent() {
                   href={`/${currentLocale}/app-store/${relatedApp.slug}`}
                   className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-shadow"
                 >
-                  <div className="p-6">
-                    <div className="flex items-center gap-4 mb-4">
+                    <div className="p-6">
+                    <div className={`flex items-center gap-4 mb-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
                       {relatedApp.icon ? (
                         <Image
                           src={getImageUrl(relatedApp.icon)}
