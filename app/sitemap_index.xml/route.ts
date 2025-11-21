@@ -194,18 +194,23 @@ export async function GET() {
       locale: locale.toUpperCase(),
     });
 
-    // Add blog sitemaps for this locale (if available)
-    const totalPosts = await getBlogPostsCount(locale);
-    const totalBlogFiles = Math.ceil(totalPosts / postsPerFile);
+    // Add blog sitemaps for this locale (if available) - only for base locales (not variants)
+    // Base locales for blog (exclude variants to prevent duplicate content)
+    const blogBaseLocales = ["en", "de", "fr", "es", "it", "nl", "ar"];
 
-    if (totalPosts > 0 && totalBlogFiles > 0) {
-      for (let fileIndex = 0; fileIndex < totalBlogFiles; fileIndex++) {
-        sitemaps.push({
-          url: `${baseUrl}/sitemap-${locale}-blog-${fileIndex}.xml`,
-          lastmod: new Date().toISOString(),
-          type: "Blog Posts",
-          locale: locale.toUpperCase(),
-        });
+    if (blogBaseLocales.includes(locale)) {
+      const totalPosts = await getBlogPostsCount(locale);
+      const totalBlogFiles = Math.ceil(totalPosts / postsPerFile);
+
+      if (totalPosts > 0 && totalBlogFiles > 0) {
+        for (let fileIndex = 0; fileIndex < totalBlogFiles; fileIndex++) {
+          sitemaps.push({
+            url: `${baseUrl}/sitemap-${locale}-blog-${fileIndex}.xml`,
+            lastmod: new Date().toISOString(),
+            type: "Blog Posts",
+            locale: locale.toUpperCase(),
+          });
+        }
       }
     }
 
