@@ -490,8 +490,6 @@ export default function DataRequestPage() {
               <li>{t("infoPoint1")}</li>
               <li>{t("infoPoint2")}</li>
               <li>{t("infoPoint3")}</li>
-              {t("infoPoint4") && <li>{t("infoPoint4")}</li>}
-              {t("infoPoint5") && <li>{t("infoPoint5")}</li>}
             </ul>
             <p className="mt-4">
               <strong>{t("infoNote")}</strong>
