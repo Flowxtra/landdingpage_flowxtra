@@ -1537,7 +1537,7 @@
     },
     "dataRequest": {
         "title": "Request Your Personal Data",
-        "description": "Under GDPR and privacy regulations, you have the right to access, update, or delete your personal data. Use this form to submit a data request.",
+        "description": "Under GDPR (Europe) and CCPA (California) privacy regulations, you have the right to access, update, or delete your personal data. Use this form to submit a data request.",
         "emailLabel": "Email Address",
         "emailPlaceholder": "your.email@example.com",
         "fullNameLabel": "Full Name",
@@ -1553,9 +1553,12 @@
         "messageHint": "You can provide additional context or specify which data you'd like to access, update, or delete.",
         "privacyAgreement": "I agree to the",
         "privacyPolicy": "Privacy Policy",
+        "and": "and",
+        "termsOfUse": "Terms of Use",
+        "recaptchaRequired": "Please complete the reCAPTCHA verification",
         "submitButton": "Submit Request",
         "submitting": "Submitting...",
-        "successMessage": "Your data request has been submitted successfully! We will process your request and contact you within 30 days as required by GDPR regulations.",
+        "successMessage": "Your data request has been submitted successfully! We will process your request and contact you within 30 days as required by GDPR and CCPA regulations.",
         "errorMessage": "An error occurred while submitting your request. Please try again or contact support.",
         "submitError": "Failed to submit request. Please try again.",
         "infoTitle": "About Data Requests",
@@ -1563,7 +1566,9 @@
         "infoPoint1": "Request My Data: Receive a copy of all personal data we have stored about you in a machine-readable format.",
         "infoPoint2": "Delete My Data: Request permanent deletion of your personal data from our systems (subject to legal retention requirements).",
         "infoPoint3": "Update My Data: Request corrections or updates to inaccurate or incomplete personal data.",
-        "infoNote": "We will process your request within 30 days as required by GDPR. You will receive a confirmation email once your request is received."
+        "infoNote": "We will process your request within 30 days as required by GDPR and CCPA. You will receive a confirmation email once your request is received.",
+        "infoPoint4": "Authorized Agent: You may designate an authorized agent to submit requests on your behalf. We honor Global Privacy Control (GPC) opt-out signals.",
+        "infoPoint5": "Non-Discrimination: We will not discriminate against you for exercising your privacy rights under GDPR or CCPA."
     },
     "notFound": {
         "title": "404 - Page Not Found",

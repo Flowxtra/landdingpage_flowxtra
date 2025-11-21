@@ -39,6 +39,21 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Check if we're in development mode
+    const isDevelopment = process.env.NODE_ENV === "development";
+
+    // In development mode, if token is missing, add dummy token
+    // Backend will accept it if RECAPTCHA_ENABLED=false
+    if (isDevelopment && !body.recaptcha_token) {
+      body = {
+        ...body,
+        recaptcha_token: "test-token-development-mode",
+      };
+      console.log(
+        "[Data Request API Proxy] Development mode: Added dummy recaptcha_token"
+      );
+    }
+
     // Validate required fields
     if (!body.email || !body.full_name || !body.request_type) {
       return NextResponse.json(

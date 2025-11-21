@@ -1,7 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
+
+declare global {
+  interface Window {
+    onRecaptchaSuccess?: (token: string) => void;
+    onRecaptchaLoad?: () => void;
+    grecaptcha?: {
+      render: (element: Element | null, options: { sitekey: string; callback: string }) => void;
+      reset?: () => void;
+    };
+  }
+}
 
 /**
  * Get API base URL from environment variables
@@ -16,6 +28,8 @@ function getApiBaseUrl(): string {
 
 export default function DataRequestPage() {
   const t = useTranslations("dataRequest");
+  const params = useParams();
+  const locale = params?.locale as string || 'en';
   const [formData, setFormData] = useState({
     email: "",
     fullName: "",
@@ -26,12 +40,130 @@ export default function DataRequestPage() {
 
   const [charCount, setCharCount] = useState(0);
   const maxChars = 1000;
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState<string>("");
+  const recaptchaRef = useRef<HTMLDivElement>(null);
 
-  // Get API base URL
+  // Get API base URL and check if we're in local development
   const API_BASE_URL = getApiBaseUrl();
+  const isLocal = process.env.NODE_ENV === "development";
+  
+  // Check if reCAPTCHA is enabled from environment variable
+  // In development: enabled by default (uses test key)
+  // In production: must be explicitly enabled via NEXT_PUBLIC_RECAPTCHA_ENABLED=true
+  const isRecaptchaEnabled = isLocal 
+    ? process.env.NEXT_PUBLIC_RECAPTCHA_ENABLED !== "false" // Default: true in development
+    : process.env.NEXT_PUBLIC_RECAPTCHA_ENABLED === "true"; // Default: false in production
+  
+  // Debug logging
+  useEffect(() => {
+    console.log('[reCAPTCHA] Status check:', {
+      isLocal,
+      isRecaptchaEnabled,
+      envValue: process.env.NEXT_PUBLIC_RECAPTCHA_ENABLED,
+      siteKey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ? 'Set' : 'Not set'
+    });
+  }, [isLocal, isRecaptchaEnabled]);
+
+  // Load reCAPTCHA script only if enabled
+  useEffect(() => {
+    console.log('[reCAPTCHA] useEffect triggered, isRecaptchaEnabled:', isRecaptchaEnabled);
+    
+    // Skip if reCAPTCHA is disabled
+    if (!isRecaptchaEnabled) {
+      console.log('[reCAPTCHA] Skipped - reCAPTCHA is disabled');
+      return;
+    }
+    
+    console.log('[reCAPTCHA] Starting to load reCAPTCHA...');
+
+    // Define callback function globally (must be defined before script loads)
+    window.onRecaptchaSuccess = (token: string) => {
+      console.log('[reCAPTCHA] Token received:', token ? 'Yes' : 'No');
+      setRecaptchaToken(token);
+    };
+
+    // Check if script already exists
+    if (document.querySelector('script[src*="recaptcha/api.js"]')) {
+      // Script already loaded, render widget if grecaptcha is available
+      if (window.grecaptcha?.render) {
+        setTimeout(() => {
+          const recaptchaElement = recaptchaRef.current || document.querySelector('.g-recaptcha');
+          if (recaptchaElement && !recaptchaElement.querySelector('iframe')) {
+            const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY 
+              ? process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+              : (isLocal ? "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" : null);
+            if (siteKey) {
+              try {
+                window.grecaptcha?.render?.(recaptchaElement, {
+                  sitekey: siteKey,
+                  callback: 'onRecaptchaSuccess'
+                });
+                console.log('[reCAPTCHA] Widget rendered (script already loaded)');
+              } catch (error) {
+                console.error('[reCAPTCHA] Render error:', error);
+              }
+            }
+          }
+        }, 100);
+      }
+      return;
+    }
+
+    // Load script with onload callback
+    // Use real site key if available, otherwise use test key in development
+    const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY 
+      ? process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+      : (isLocal ? "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" : null);
+
+    if (!siteKey) {
+      console.warn('[reCAPTCHA] Site key not found');
+      return;
+    }
+    
+    console.log('[reCAPTCHA] Using site key:', siteKey.substring(0, 20) + '...');
+
+    const script = document.createElement('script');
+    script.src = `https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit`;
+    script.async = true;
+    script.defer = true;
+
+    // Define onload callback to render widget after script loads
+    window.onRecaptchaLoad = () => {
+      console.log('[reCAPTCHA] Script loaded, rendering widget...');
+      // Wait a bit to ensure DOM is ready
+      setTimeout(() => {
+        const recaptchaElement = recaptchaRef.current || document.querySelector('.g-recaptcha');
+        console.log('[reCAPTCHA] Element found:', !!recaptchaElement);
+        console.log('[reCAPTCHA] grecaptcha available:', !!window.grecaptcha);
+        if (recaptchaElement && window.grecaptcha?.render && !recaptchaElement.querySelector('iframe')) {
+          try {
+            window.grecaptcha.render(recaptchaElement, {
+              sitekey: siteKey,
+              callback: 'onRecaptchaSuccess'
+            });
+            console.log('[reCAPTCHA] Widget rendered successfully');
+          } catch (error) {
+            console.error('[reCAPTCHA] Render error:', error);
+          }
+        } else {
+          console.warn('[reCAPTCHA] Cannot render - element or grecaptcha not available, or already rendered');
+        }
+      }, 100);
+    };
+
+    document.body.appendChild(script);
+
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+      delete window.onRecaptchaSuccess;
+      delete window.onRecaptchaLoad;
+    };
+  }, [isRecaptchaEnabled, isLocal]);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -62,19 +194,52 @@ export default function DataRequestPage() {
     setSubmitStatus('idle');
     setErrorMessage("");
 
+    // Require reCAPTCHA token only if reCAPTCHA is enabled and we're not in development mode
+    if (isRecaptchaEnabled && !recaptchaToken && !isLocal) {
+      setSubmitStatus('error');
+      setErrorMessage(t("recaptchaRequired") || "Please complete the reCAPTCHA verification");
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
+      // Build request body - include recaptcha_token
+      const requestBody: {
+        email: string;
+        full_name: string;
+        request_type: string;
+        message: string | null;
+        agree_to_privacy: boolean;
+        recaptcha_token?: string;
+      } = {
+        email: formData.email,
+        full_name: formData.fullName,
+        request_type: formData.requestType,
+        message: formData.message || null,
+        agree_to_privacy: formData.agreeToPrivacy,
+      };
+
+      // Add recaptcha_token
+      // If reCAPTCHA is enabled and we have a token, use it
+      if (isRecaptchaEnabled && recaptchaToken) {
+        requestBody.recaptcha_token = recaptchaToken;
+        console.log('[reCAPTCHA] Sending real token');
+      } else if (isLocal && !recaptchaToken) {
+        // In development mode, send dummy token if reCAPTCHA widget didn't work
+        // Backend will accept it if RECAPTCHA_ENABLED=false
+        requestBody.recaptcha_token = "test-token-development-mode";
+        console.log('[reCAPTCHA] Sending dummy token (development mode)');
+      } else if (!recaptchaToken) {
+        // No token and not in development - this shouldn't happen due to validation above
+        console.warn('[reCAPTCHA] No token available!');
+      }
+
       const response = await fetch(API_BASE_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          email: formData.email,
-          full_name: formData.fullName,
-          request_type: formData.requestType,
-          message: formData.message || null,
-          agree_to_privacy: formData.agreeToPrivacy,
-        }),
+        body: JSON.stringify(requestBody),
       });
 
       const data = await response.json();
@@ -93,6 +258,15 @@ export default function DataRequestPage() {
         agreeToPrivacy: false,
       });
       setCharCount(0);
+      setRecaptchaToken(null);
+      // Reset reCAPTCHA only if it's enabled and exists
+      if (isRecaptchaEnabled && !isLocal && typeof window.grecaptcha?.reset === 'function') {
+        try {
+          window.grecaptcha?.reset?.();
+        } catch (error) {
+          console.warn('reCAPTCHA reset failed:', error);
+        }
+      }
     } catch (error) {
       console.error("Error submitting data request:", error);
       setSubmitStatus('error');
@@ -270,15 +444,29 @@ export default function DataRequestPage() {
               >
                 {t("privacyAgreement")}{" "}
                 <a
-                  href="/privacy-policy"
+                  href={`/${locale}/privacy-policy`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary hover:text-secondary underline"
                 >
                   {t("privacyPolicy")}
                 </a>
+                {" "}{t("and")}{" "}
+                <a
+                  href={`/${locale}/terms-of-use`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:text-secondary underline"
+                >
+                  {t("termsOfUse")}
+                </a>
               </label>
             </div>
+
+            {/* Google reCAPTCHA - Only show if enabled */}
+            {isRecaptchaEnabled && (
+              <div ref={recaptchaRef} className="g-recaptcha" id="recaptcha-widget"></div>
+            )}
 
             {/* Submit Button */}
             <button
@@ -302,6 +490,8 @@ export default function DataRequestPage() {
               <li>{t("infoPoint1")}</li>
               <li>{t("infoPoint2")}</li>
               <li>{t("infoPoint3")}</li>
+              {t("infoPoint4") && <li>{t("infoPoint4")}</li>}
+              {t("infoPoint5") && <li>{t("infoPoint5")}</li>}
             </ul>
             <p className="mt-4">
               <strong>{t("infoNote")}</strong>
