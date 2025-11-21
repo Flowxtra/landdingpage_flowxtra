@@ -13,12 +13,31 @@ export async function generateMetadata({
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
   
   try {
-    // Fetch post data from API
-    const response = await getBlogPost(slug, locale);
+    // Normalize locale for API (en-au → en, de-ch → de, etc.)
+    const normalizeLocale = (loc: string): string => {
+      if (loc.startsWith("en-")) return "en";
+      if (loc.startsWith("de-")) return "de";
+      return loc;
+    };
+
+    // Base locale for canonical URL (variants redirect to base)
+    const baseLocale = normalizeLocale(locale);
+    
+    // Fetch post data from API using normalized locale
+    const response = await getBlogPost(slug, baseLocale);
     
     if (response.success && response.data?.post) {
       const post = response.data.post;
       const imageUrl = post.image ? getImageUrl(post.image) : `${baseUrl}/favicon.png`;
+      
+      // Base locales for hreflang (exclude variants to prevent duplicate content)
+      const baseLocales = ["en", "de", "fr", "es", "it", "nl", "ar"];
+      
+      // Build hreflang URLs using only base locales
+      const hreflangUrls: Record<string, string> = {};
+      baseLocales.forEach((baseLoc) => {
+        hreflangUrls[baseLoc] = `${baseUrl}/${baseLoc}/blog/${slug}`;
+      });
       
       const metadata: Metadata = {
         title: `${post.title} – Flowxtra Blog`,
@@ -28,7 +47,7 @@ export async function generateMetadata({
         openGraph: {
           title: post.title,
           description: post.excerpt || "Discover insights, tips, and trends in recruitment and talent management.",
-          url: `${baseUrl}/${locale}/blog/${slug}`,
+          url: `${baseUrl}/${baseLocale}/blog/${slug}`,
           type: "article",
           images: [imageUrl],
           publishedTime: post.datePublished,
@@ -36,11 +55,8 @@ export async function generateMetadata({
           authors: post.author ? [post.author.name] : undefined,
         },
         alternates: {
-          canonical: `${baseUrl}/${locale}/blog/${slug}`,
-          languages: post.availableLanguages.reduce((acc: Record<string, string>, lang: string) => {
-            acc[lang] = `${baseUrl}/${lang}/blog/${slug}`;
-            return acc;
-          }, {}),
+          canonical: `${baseUrl}/${baseLocale}/blog/${slug}`,
+          languages: hreflangUrls,
         },
       };
 

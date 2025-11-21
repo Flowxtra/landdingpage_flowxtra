@@ -111,6 +111,32 @@ export interface CategoriesResponse {
   };
 }
 
+/**
+ * Normalize locale for API requests
+ * Maps locale variants to base locales that the backend API supports
+ *
+ * Examples:
+ * - en-au, en-ca, en-us, en-gb → en
+ * - de-ch, de-at → de
+ * - Other locales remain unchanged
+ */
+function normalizeLocaleForApi(locale: string | undefined): string {
+  if (!locale) return "en";
+
+  // English variants → en
+  if (locale.startsWith("en-")) {
+    return "en";
+  }
+
+  // German variants → de
+  if (locale.startsWith("de-")) {
+    return "de";
+  }
+
+  // Return locale as-is for other languages
+  return locale;
+}
+
 // Helper function to build image URL
 export function getImageUrl(imagePath: string): string {
   if (!imagePath) {
@@ -157,12 +183,15 @@ export async function getBlogPosts(params: {
 }): Promise<BlogPostsResponse> {
   const queryParams = new URLSearchParams();
 
+  // Normalize locale for API (en-au → en, de-ch → de, etc.)
+  const normalizedLocale = normalizeLocaleForApi(params.locale);
+
   if (params.page) queryParams.append("page", params.page.toString());
   if (params.limit) queryParams.append("limit", params.limit.toString());
   if (params.category) queryParams.append("category", params.category);
   if (params.tag) queryParams.append("tag", params.tag);
   if (params.search) queryParams.append("search", params.search);
-  if (params.locale) queryParams.append("locale", params.locale);
+  queryParams.append("locale", normalizedLocale);
   if (params.minimal) queryParams.append("minimal", "true");
   if (params.fields) queryParams.append("fields", params.fields);
 
@@ -212,7 +241,8 @@ export async function getBlogPosts(params: {
     page: params.page,
     limit: params.limit,
     category: params.category,
-    locale: params.locale,
+    originalLocale: params.locale,
+    normalizedLocale: normalizedLocale,
     search: params.search,
     hasCategory: !!params.category,
   });
@@ -245,20 +275,47 @@ export async function getBlogPosts(params: {
   );
 
   if (!response.ok) {
-    const errorData = await response
-      .json()
-      .catch(() => ({ error: "Unknown error" }));
+    let errorData: { error?: string; message?: string } = {};
+    let errorText = "";
+
+    try {
+      // Try to get error as text first (in case it's not JSON)
+      errorText = await response.text();
+      // Try to parse as JSON
+      if (errorText) {
+        try {
+          errorData = JSON.parse(errorText) as {
+            error?: string;
+            message?: string;
+          };
+        } catch {
+          // If not JSON, use text as error message
+          errorData = { error: errorText, message: errorText };
+        }
+      }
+    } catch {
+      errorData = { error: "Failed to parse error response" };
+    }
+
+    // If errorData is empty or has no useful info, provide default message
+    const errorMessage =
+      errorData?.error ||
+      errorData?.message ||
+      errorText ||
+      response.statusText ||
+      `API request failed with status ${response.status}`;
+
     console.error("[Blog API] getBlogPosts - Error:", {
       status: response.status,
       statusText: response.statusText,
       error: errorData,
+      errorText: errorText.substring(0, 500), // Limit length
       url,
+      originalLocale: params.locale,
+      normalizedLocale: normalizedLocale,
     });
-    throw new Error(
-      `API Error: ${response.status} - ${
-        errorData.error || response.statusText
-      }`
-    );
+
+    throw new Error(`API Error: ${response.status} - ${errorMessage}`);
   }
 
   const data = await response.json();
@@ -295,6 +352,10 @@ export async function getBlogPost(
   // Always add timestamp to ensure fresh data - use both timestamp and random to completely bypass cache
   const timestamp = Date.now();
   const random = Math.random().toString(36).substring(7);
+
+  // Normalize locale for API (en-au → en, de-ch → de, etc.)
+  const normalizedLocale = normalizeLocaleForApi(locale);
+
   // Get API base URL (may be proxy path in development)
   const apiBaseUrl = getApiBaseUrl();
 
@@ -313,7 +374,7 @@ export async function getBlogPost(
     // Both client-side and server-side need absolute URL
     if (typeof window !== "undefined") {
       // Client-side: use window.location.origin
-      url = `${window.location.origin}${apiBaseUrl}/${slug}?locale=${locale}&site=${siteDomain}&_t=${timestamp}&_r=${random}`;
+      url = `${window.location.origin}${apiBaseUrl}/${slug}?locale=${normalizedLocale}&site=${siteDomain}&_t=${timestamp}&_r=${random}`;
     } else {
       // Server-side: fetch() requires absolute URL
       const baseUrl =
@@ -322,10 +383,10 @@ export async function getBlogPost(
         (process.env.NODE_ENV === "development"
           ? "http://localhost:3000"
           : "https://flowxtra.com");
-      url = `${baseUrl}${apiBaseUrl}/${slug}?locale=${locale}&site=${siteDomain}&_t=${timestamp}&_r=${random}`;
+      url = `${baseUrl}${apiBaseUrl}/${slug}?locale=${normalizedLocale}&site=${siteDomain}&_t=${timestamp}&_r=${random}`;
     }
   } else {
-    url = `${apiBaseUrl}/blog/${slug}?locale=${locale}&site=${siteDomain}&_t=${timestamp}&_r=${random}`;
+    url = `${apiBaseUrl}/blog/${slug}?locale=${normalizedLocale}&site=${siteDomain}&_t=${timestamp}&_r=${random}`;
   }
 
   // Debug logging (always log in development, or when error occurs)
@@ -333,7 +394,8 @@ export async function getBlogPost(
     console.log("[Blog API] Fetching post:", {
       url,
       slug,
-      locale,
+      originalLocale: locale,
+      normalizedLocale: normalizedLocale,
       apiBaseUrl: apiBaseUrl,
       fullUrl: url,
     });
@@ -388,34 +450,56 @@ export async function getBlogPost(
   }
 
   if (!response.ok) {
-    // Get error details for better debugging
-    let errorMessage = `API Error: ${response.status}`;
-    try {
-      const errorData = await response.json();
-      errorMessage = errorData.error || errorData.message || errorMessage;
+    let errorData: { error?: string; message?: string } = {};
+    let errorText = "";
 
-      if (process.env.NODE_ENV === "development") {
-        console.error("[Blog API] Error response:", {
-          status: response.status,
-          statusText: response.statusText,
-          error: errorData,
-          url,
-          slug,
-          locale,
-        });
+    try {
+      // Try to get error as text first (in case it's not JSON)
+      errorText = await response.text();
+      // Try to parse as JSON
+      if (errorText) {
+        try {
+          errorData = JSON.parse(errorText) as {
+            error?: string;
+            message?: string;
+          };
+        } catch {
+          // If not JSON, use text as error message
+          errorData = { error: errorText, message: errorText };
+        }
       }
     } catch {
-      // If JSON parsing fails, use status text
-      errorMessage = `${errorMessage} - ${response.statusText}`;
+      errorData = { error: "Failed to parse error response" };
+    }
+
+    // If errorData is empty or has no useful info, provide default message
+    const errorMessage =
+      errorData?.error ||
+      errorData?.message ||
+      errorText ||
+      response.statusText ||
+      `API request failed with status ${response.status}`;
+
+    if (process.env.NODE_ENV === "development") {
+      console.error("[Blog API] Error response:", {
+        status: response.status,
+        statusText: response.statusText,
+        error: errorData,
+        errorText: errorText.substring(0, 500), // Limit length
+        url,
+        slug,
+        originalLocale: locale,
+        normalizedLocale: normalizedLocale,
+      });
     }
 
     if (response.status === 404) {
       throw new Error(
-        `Post not found: "${slug}" (locale: ${locale}). Make sure the slug matches the locale.`
+        `Post not found: "${slug}" (locale: ${normalizedLocale}). Make sure the slug matches the locale.`
       );
     }
 
-    throw new Error(errorMessage);
+    throw new Error(`API Error: ${response.status} - ${errorMessage}`);
   }
 
   const data = await response.json();
@@ -438,6 +522,9 @@ export async function getBlogPost(
 export async function getBlogCategories(
   locale: string = "en"
 ): Promise<CategoriesResponse> {
+  // Normalize locale for API (en-au → en, de-ch → de, etc.)
+  const normalizedLocale = normalizeLocaleForApi(locale);
+
   // Get API base URL (may be proxy path in development)
   const apiBaseUrl = getApiBaseUrl();
 
@@ -454,13 +541,13 @@ export async function getBlogCategories(
   if (apiBaseUrl === "/api/blog") {
     // Client-side: use absolute URL to avoid locale prefix
     if (typeof window !== "undefined") {
-      url = `${window.location.origin}${apiBaseUrl}/categories?locale=${locale}&site=${siteDomain}`;
+      url = `${window.location.origin}${apiBaseUrl}/categories?locale=${normalizedLocale}&site=${siteDomain}`;
     } else {
       // Server-side: relative path is fine
-      url = `${apiBaseUrl}/categories?locale=${locale}&site=${siteDomain}`;
+      url = `${apiBaseUrl}/categories?locale=${normalizedLocale}&site=${siteDomain}`;
     }
   } else {
-    url = `${apiBaseUrl}/blog/categories?locale=${locale}&site=${siteDomain}`;
+    url = `${apiBaseUrl}/blog/categories?locale=${normalizedLocale}&site=${siteDomain}`;
   }
 
   // Build fetch options

@@ -184,6 +184,9 @@ export async function GET(
     return new NextResponse("Invalid locale", { status: 400 });
   }
 
+  // Base locales for blog (exclude variants to prevent duplicate content)
+  const blogBaseLocales = ["en", "de", "fr", "es", "it", "nl", "ar"];
+
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
   const postsPerFile = 100; // 100 items per sitemap file
 
@@ -198,21 +201,23 @@ export async function GET(
     <lastmod>${new Date().toISOString()}</lastmod>
   </sitemap>`;
 
-  // Add blog sitemaps for this locale (if available)
-  const totalPosts = await getBlogPostsCount(locale);
-  const totalBlogFiles = Math.ceil(totalPosts / postsPerFile);
+  // Add blog sitemaps for this locale (if available) - only for base locales (not variants)
+  if (blogBaseLocales.includes(locale)) {
+    const totalPosts = await getBlogPostsCount(locale);
+    const totalBlogFiles = Math.ceil(totalPosts / postsPerFile);
 
-  if (totalPosts > 0 && totalBlogFiles > 0) {
-    for (let fileIndex = 0; fileIndex < totalBlogFiles; fileIndex++) {
-      xml += `
+    if (totalPosts > 0 && totalBlogFiles > 0) {
+      for (let fileIndex = 0; fileIndex < totalBlogFiles; fileIndex++) {
+        xml += `
   <sitemap>
     <loc>${baseUrl}/sitemap-${locale}-blog-${fileIndex}.xml</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
   </sitemap>`;
+      }
+      console.log(
+        `📝 Adding ${totalBlogFiles} blog sitemap file(s) for locale "${locale}" (${totalPosts} posts total)`
+      );
     }
-    console.log(
-      `📝 Adding ${totalBlogFiles} blog sitemap file(s) for locale "${locale}" (${totalPosts} posts total)`
-    );
   }
 
   // Add app-store sitemaps for this locale (if available)

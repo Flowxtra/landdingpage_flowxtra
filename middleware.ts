@@ -86,6 +86,38 @@ export default function middleware(request: NextRequest) {
     return rewriteResponse;
   }
 
+  // Redirect blog locale variants to base locales
+  // English variants: en-us, en-gb, en-au, en-ca → en
+  // German variants: de-at, de-ch → de
+  const blogLocaleRedirects: { [key: string]: string } = {
+    // English variants → en
+    "/en-us/blog": "/en/blog",
+    "/en-gb/blog": "/en/blog",
+    "/en-au/blog": "/en/blog",
+    "/en-ca/blog": "/en/blog",
+    // German variants → de
+    "/de-at/blog": "/de/blog",
+    "/de-ch/blog": "/de/blog",
+  };
+
+  // Check if pathname matches blog locale variant redirect pattern
+  const blogRedirectMatch = Object.keys(blogLocaleRedirects).find((pattern) =>
+    pathname.startsWith(pattern)
+  );
+
+  if (blogRedirectMatch) {
+    const basePath = blogLocaleRedirects[blogRedirectMatch];
+    const remainingPath = pathname.replace(blogRedirectMatch, "");
+    const redirectPath = `${basePath}${remainingPath}`;
+    
+    const url = request.nextUrl.clone();
+    url.pathname = redirectPath;
+    // Preserve query parameters
+    const redirectResponse = NextResponse.redirect(url, 301); // Permanent redirect for SEO
+    redirectResponse.headers.set("x-pathname", redirectPath);
+    return redirectResponse;
+  }
+
   // Run next-intl middleware
   const response = intlMiddleware(request);
 

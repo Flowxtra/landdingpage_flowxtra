@@ -143,6 +143,25 @@ export async function GET(
     return new NextResponse("Invalid parameters", { status: 400 });
   }
 
+  // Base locales for blog (exclude variants to prevent duplicate content)
+  const blogBaseLocales = ["en", "de", "fr", "es", "it", "nl", "ar"];
+
+  // If locale is a variant, return empty sitemap (variants redirect to base locales)
+  if (!blogBaseLocales.includes(locale)) {
+    return new NextResponse(
+      `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+</urlset>`,
+      {
+        headers: {
+          "Content-Type": "application/xml",
+          "Cache-Control":
+            "public, max-age=3600, s-maxage=3600, must-revalidate",
+        },
+      }
+    );
+  }
+
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
   const blogPosts = await getBlogPostsBatch(locale, batchIndex);
 

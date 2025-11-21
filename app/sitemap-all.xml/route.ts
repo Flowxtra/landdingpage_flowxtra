@@ -197,6 +197,9 @@ export async function GET() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
   const locales = supportedLocales;
 
+  // Base locales for blog (exclude variants to prevent duplicate content)
+  const blogBaseLocales = ["en", "de", "fr", "es", "it", "nl", "ar"];
+
   // Build complete sitemap XML with all URLs
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
@@ -219,14 +222,16 @@ export async function GET() {
   </url>`;
     });
 
-    // Add blog listing page
-    xml += `
+    // Add blog listing page - only for base locales (not variants)
+    if (blogBaseLocales.includes(locale)) {
+      xml += `
   <url>
     <loc>${baseUrl}/${locale}/blog</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>`;
+    }
 
     // Add app-store listing page
     xml += `
@@ -237,24 +242,26 @@ export async function GET() {
     <priority>0.8</priority>
   </url>`;
 
-    // Add blog posts for this locale
-    const blogPosts = await getAllBlogPosts(locale);
-    blogPosts.forEach((post) => {
-      const url = `${baseUrl}/${locale}/blog/${post.slug}`;
-      const lastMod = post.updatedAt
-        ? new Date(post.updatedAt).toISOString()
-        : post.date
-        ? new Date(post.date).toISOString()
-        : new Date().toISOString();
+    // Add blog posts for this locale - only for base locales (not variants)
+    if (blogBaseLocales.includes(locale)) {
+      const blogPosts = await getAllBlogPosts(locale);
+      blogPosts.forEach((post) => {
+        const url = `${baseUrl}/${locale}/blog/${post.slug}`;
+        const lastMod = post.updatedAt
+          ? new Date(post.updatedAt).toISOString()
+          : post.date
+          ? new Date(post.date).toISOString()
+          : new Date().toISOString();
 
-      xml += `
+        xml += `
   <url>
     <loc>${url}</loc>
     <lastmod>${lastMod}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>`;
-    });
+      });
+    }
 
     // Add app-store apps for this locale
     const apps = await getAllApps(locale);
