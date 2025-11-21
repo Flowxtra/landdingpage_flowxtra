@@ -90,7 +90,6 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: ["/", ...staticAllowList],
         disallow: sensitiveDisallowList,
-        crawlDelay: 2,
       },
       {
         userAgent: "Googlebot",
@@ -101,19 +100,16 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "Bingbot",
         allow: "/",
         disallow: ["/api/", "/private/"],
-        crawlDelay: 5,
       },
       {
         userAgent: "Slurp",
         allow: "/",
         disallow: ["/api/", "/private/"],
-        crawlDelay: 8,
       },
       {
         userAgent: "Yandex",
         allow: "/",
         disallow: ["/api/", "/private/"],
-        crawlDelay: 10,
       },
       {
         userAgent: "GPTBot",
