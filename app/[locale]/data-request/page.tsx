@@ -399,7 +399,7 @@ export default function DataRequestPage() {
                   href={`/${locale}/privacy-policy`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:text-secondary underline"
+                  className="text-primary dark:text-white hover:text-secondary dark:hover:text-secondary underline decoration-1 underline-offset-2"
                 >
                   {t("privacyPolicy")}
                 </a>
@@ -408,7 +408,7 @@ export default function DataRequestPage() {
                   href={`/${locale}/terms-of-use`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:text-secondary underline"
+                  className="text-primary dark:text-white hover:text-secondary dark:hover:text-secondary underline decoration-1 underline-offset-2"
                 >
                   {t("termsOfUse")}
                 </a>

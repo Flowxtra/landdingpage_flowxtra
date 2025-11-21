@@ -1055,3 +1055,16 @@ body {
   }
 }
 
+/* Dark Mode Links - White color with underline (mandatory) */
+.dark a {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: 2px !important;
+}
+
+.dark a:hover {
+  color: #00A8CD !important;
+  text-decoration: underline !important;
+}
+
