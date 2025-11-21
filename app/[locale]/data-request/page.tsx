@@ -291,54 +291,6 @@ export default function DataRequestPage() {
           </p>
         </div>
 
-        {/* Success Message */}
-        {submitStatus === 'success' && (
-          <div className="mb-8 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
-            <div className="flex items-center">
-              <svg
-                className="w-5 h-5 text-green-600 dark:text-green-400 mr-3"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-              <p className="text-green-800 dark:text-green-200">
-                {t("successMessage")}
-              </p>
-            </div>
-          </div>
-        )}
-
-        {/* Error Message */}
-        {submitStatus === 'error' && (
-          <div className="mb-8 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
-            <div className="flex items-center">
-              <svg
-                className="w-5 h-5 text-red-600 dark:text-red-400 mr-3"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-              <p className="text-red-800 dark:text-red-200">
-                {errorMessage || t("errorMessage")}
-              </p>
-            </div>
-          </div>
-        )}
-
         {/* Form */}
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -476,6 +428,54 @@ export default function DataRequestPage() {
             >
               {isSubmitting ? t("submitting") : t("submitButton")}
             </button>
+
+            {/* Success Message */}
+            {submitStatus === 'success' && (
+              <div className="mt-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+                <div className="flex items-center">
+                  <svg
+                    className="w-5 h-5 text-green-600 dark:text-green-400 mr-3"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <p className="text-green-800 dark:text-green-200">
+                    {t("successMessage")}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* Error Message */}
+            {submitStatus === 'error' && (
+              <div className="mt-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
+                <div className="flex items-center">
+                  <svg
+                    className="w-5 h-5 text-red-600 dark:text-red-400 mr-3"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                  <p className="text-red-800 dark:text-red-200">
+                    {errorMessage || t("errorMessage")}
+                  </p>
+                </div>
+              </div>
+            )}
           </form>
         </div>
 
