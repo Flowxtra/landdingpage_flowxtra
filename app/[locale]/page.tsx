@@ -114,7 +114,7 @@ function FeaturesSlider() {
       title: t("slide1.title"),
       description: t("slide1.description"),
       buttonText: t("slide1.buttonText"),
-      buttonLink: "https://my.flowxtra.com/registration",
+      buttonLink: "/free-job-posting",
       image: "/img/Smarter-Candidate-Filtering.png", 
       imageAlt: t("slide1.imageAlt"),
       imageOnRight: true,
@@ -248,21 +248,13 @@ allowfullscreen>
                     {slide.description}
                   </p>
                   
-                  <div className="pt-1 flex flex-col sm:flex-row gap-3">
-                    <a
+                  <div className="pt-1">
+                    <Link
                       href={slide.buttonLink}
-                      className="inline-block bg-[#003f4d] text-white px-5 py-2 md:px-8 md:py-3 rounded-lg hover:bg-[#00A8CD] transition-colors font-medium text-xs md:text-base text-center"
+                      className="inline-block bg-[#003f4d] text-white px-5 py-2 md:px-8 md:py-3 rounded-lg hover:bg-[#00A8CD] transition-colors font-medium text-xs md:text-base"
                     >
                       {slide.buttonText}
-                    </a>
-                    {index === 0 && (
-                      <Link
-                        href="/free-job-posting"
-                        className="inline-block border-2 border-[#003f4d] text-[#003f4d] dark:text-white dark:border-white px-5 py-2 md:px-8 md:py-3 rounded-lg hover:bg-[#00A8CD] hover:border-[#00A8CD] hover:text-white transition-all font-medium text-xs md:text-base text-center"
-                      >
-                        Learn More →
-                      </Link>
-                    )}
+                    </Link>
                   </div>
                 </div>
 
