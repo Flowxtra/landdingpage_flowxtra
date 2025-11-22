@@ -1055,12 +1055,12 @@ body {
   }
 }
 
-/* Dark Mode Links - White color (mandatory) */
-.dark a {
+/* Dark Mode Links - White color (mandatory) - Exclude buttons */
+.dark a:not([class*="bg-button"]):not([class*="border-button"]):not([class*="text-white"]):not([class*="text-primary"]) {
   color: #ffffff !important;
 }
 
-.dark a:hover {
+.dark a:not([class*="bg-button"]):not([class*="border-button"]):not([class*="text-white"]):not([class*="text-primary"]):hover {
   color: #00A8CD !important;
 }
 
