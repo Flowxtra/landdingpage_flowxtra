@@ -10,7 +10,7 @@ import AccessibilityWidgetLoader from "@/components/Accessibility/AccessibilityW
 import AffiliateBanner from "@/components/AffiliateBanner";
 import { getHomeSchema } from "@/lib/schemaLoader";
 import { defaultLocale } from "@/lib/locales";
-import { getBlogPost } from "@/lib/blogApi";
+import { getBlogPost, normalizeLocaleForApi } from "@/lib/blogApi";
 import { generateBlogPostSchema } from "@/lib/seo";
 import { formatReadingTime } from "@/lib/blogApi";
 
@@ -1138,6 +1138,23 @@ export default async function LocaleLayout({
             dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostSchema) }}
           />
         )}
+        
+        {/* RSS Feed Autodiscovery - Add RSS feed link for all pages */}
+        {(() => {
+          const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
+          const blogBaseLocales = ["en", "de", "fr", "es", "it", "nl", "ar"];
+          const feedLocale = blogBaseLocales.includes(locale) ? locale : normalizeLocaleForApi(locale);
+          const feedUrl = `${baseUrl}/feed/${feedLocale}.xml`;
+          
+          return (
+            <link
+              rel="alternate"
+              type="application/rss+xml"
+              title={`Flowxtra Blog RSS Feed (${feedLocale.toUpperCase()})`}
+              href={feedUrl}
+            />
+          );
+        })()}
       </head>
       <body className="antialiased" suppressHydrationWarning>
         <NextIntlClientProvider locale={locale} messages={messages}>

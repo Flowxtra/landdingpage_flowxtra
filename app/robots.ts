@@ -44,6 +44,14 @@ export default function robots(): MetadataRoute.Robots {
     "/sitemap-nl.xml",
     "/sitemap-static-nl.xml",
     "/sitemap-nl-app-store-0.xml",
+    // RSS Feeds
+    "/feed/en.xml",
+    "/feed/de.xml",
+    "/feed/fr.xml",
+    "/feed/es.xml",
+    "/feed/it.xml",
+    "/feed/nl.xml",
+    "/feed/ar.xml",
   ];
 
   const staticAllowList = [

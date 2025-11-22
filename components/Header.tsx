@@ -71,7 +71,7 @@ function Header() {
   };
 
   // Change language
-  const changeLanguage = (lang: string) => {
+  const changeLanguage = async (lang: string) => {
     const langToLocale: { [key: string]: string } = {
       "EN": "en",
       "DE": "de",
@@ -102,6 +102,82 @@ function Header() {
       if (pathname.startsWith(prefix + '/') || pathname === prefix) {
         pathWithoutLocale = pathname.substring(prefix.length) || '/';
         break;
+      }
+    }
+    
+    // Check if we're on a blog post page (/blog/[slug])
+    const blogPostMatch = pathWithoutLocale.match(/^\/blog\/([^\/]+)$/);
+    if (blogPostMatch) {
+      const currentSlug = blogPostMatch[1];
+      const currentLocale = getCurrentLocale();
+      
+      // Try to get post ID from localStorage (stored by blog post page)
+      const postIdKey = `blog-slug-to-id-${currentSlug}-${currentLocale}`;
+      const postId = localStorage.getItem(postIdKey);
+      
+      if (postId) {
+        // Try to get slug for new locale from localStorage
+        const slugsMapKey = `blog-post-slugs-${postId}`;
+        const slugsMapStr = localStorage.getItem(slugsMapKey);
+        
+        if (slugsMapStr) {
+          try {
+            const slugsMap = JSON.parse(slugsMapStr);
+            const newSlug = slugsMap[newLocale];
+            
+            if (newSlug) {
+              // Use the stored slug for the new locale
+              pathWithoutLocale = `/blog/${newSlug}`;
+            } else {
+              // Slug not found in localStorage, try to fetch it from API
+              // Use a timeout to prevent blocking the language change
+              const fetchSlugPromise = (async () => {
+                try {
+                  const { getBlogPosts } = await import('@/lib/blogApi');
+                  const postsResponse = await getBlogPosts({
+                    locale: newLocale,
+                    limit: 100,
+                  });
+                  
+                  if (postsResponse.success && postsResponse.data?.posts) {
+                    // Find post with same ID
+                    const matchingPost = postsResponse.data.posts.find(
+                      (post: any) => post.id === parseInt(postId)
+                    );
+                    
+                    if (matchingPost && matchingPost.slug) {
+                      // Store it in localStorage for future use
+                      const updatedSlugsMap = { ...slugsMap, [newLocale]: matchingPost.slug };
+                      localStorage.setItem(slugsMapKey, JSON.stringify(updatedSlugsMap));
+                      localStorage.setItem(`blog-slug-to-id-${matchingPost.slug}-${newLocale}`, postId);
+                      return matchingPost.slug;
+                    }
+                  }
+                } catch (apiError) {
+                  console.warn('[Header] Failed to fetch slug from API:', apiError);
+                }
+                return null;
+              })();
+              
+              // Wait for slug fetch with timeout (max 500ms)
+              const timeoutPromise = new Promise<null>((resolve) => 
+                setTimeout(() => resolve(null), 500)
+              );
+              
+              const fetchedSlug = await Promise.race([fetchSlugPromise, timeoutPromise]);
+              
+              if (fetchedSlug) {
+                pathWithoutLocale = `/blog/${fetchedSlug}`;
+              } else {
+                // Timeout or not found - keep current slug as fallback
+                // The page will redirect or show 404, which is acceptable
+                console.warn(`[Header] Slug for locale ${newLocale} not found for post ID ${postId}, using current slug as fallback`);
+              }
+            }
+          } catch (parseError) {
+            console.warn('[Header] Failed to parse slugs map:', parseError);
+          }
+        }
       }
     }
     
@@ -462,7 +538,7 @@ function Header() {
                 <div className="absolute right-0 mt-2 w-48 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-lg max-h-96 overflow-y-auto">
                   <div className="p-2">
                     <button
-                      onClick={() => changeLanguage("EN")}
+                      onClick={() => { changeLanguage("EN").catch(console.error); }}
                       className={cn(
                         "block w-full text-left px-3 py-2 text-sm rounded-md transition-colors",
                         language === "EN" 
@@ -473,7 +549,7 @@ function Header() {
                       English
                     </button>
                     <button
-                      onClick={() => changeLanguage("DE")}
+                      onClick={() => { changeLanguage("DE").catch(console.error); }}
                       className={cn(
                         "block w-full text-left px-3 py-2 text-sm rounded-md transition-colors",
                         language === "DE" 
@@ -484,7 +560,7 @@ function Header() {
                       Deutsch
                     </button>
                     <button
-                      onClick={() => changeLanguage("FR")}
+                      onClick={() => { changeLanguage("FR").catch(console.error); }}
                       className={cn(
                         "block w-full text-left px-3 py-2 text-sm rounded-md transition-colors",
                         language === "FR" 
@@ -495,7 +571,7 @@ function Header() {
                       Français
                     </button>
                     <button
-                      onClick={() => changeLanguage("ES")}
+                      onClick={() => { changeLanguage("ES").catch(console.error); }}
                       className={cn(
                         "block w-full text-left px-3 py-2 text-sm rounded-md transition-colors",
                         language === "ES" 
@@ -506,7 +582,7 @@ function Header() {
                       Español
                     </button>
                     <button
-                      onClick={() => changeLanguage("IT")}
+                      onClick={() => { changeLanguage("IT").catch(console.error); }}
                       className={cn(
                         "block w-full text-left px-3 py-2 text-sm rounded-md transition-colors",
                         language === "IT" 
@@ -517,7 +593,7 @@ function Header() {
                       Italiano
                     </button>
                     <button
-                      onClick={() => changeLanguage("NL")}
+                      onClick={() => { changeLanguage("NL").catch(console.error); }}
                       className={cn(
                         "block w-full text-left px-3 py-2 text-sm rounded-md transition-colors",
                         language === "NL" 
@@ -528,7 +604,7 @@ function Header() {
                       Nederlands
                     </button>
                     <button
-                      onClick={() => changeLanguage("AR")}
+                      onClick={() => { changeLanguage("AR").catch(console.error); }}
                       className={cn(
                         "block w-full text-left px-3 py-2 text-sm rounded-md transition-colors",
                         language === "AR" 
@@ -744,7 +820,7 @@ function Header() {
                     <select
                       aria-label="Select language"
                       value={language}
-                      onChange={(e) => changeLanguage(e.target.value)}
+                      onChange={(e) => { changeLanguage(e.target.value).catch(console.error); }}
                       className="bg-gray-200 dark:bg-gray-700 border-0 text-gray-700 dark:text-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-primary font-medium"
                     >
                       <option value="EN">English</option>

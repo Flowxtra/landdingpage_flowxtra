@@ -120,7 +120,7 @@ export interface CategoriesResponse {
  * - de-ch, de-at → de
  * - Other locales remain unchanged
  */
-function normalizeLocaleForApi(locale: string | undefined): string {
+export function normalizeLocaleForApi(locale: string | undefined): string {
   if (!locale) return "en";
 
   // English variants → en

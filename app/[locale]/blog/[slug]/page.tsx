@@ -180,8 +180,32 @@ function BlogPostContent() {
         if (!isMounted) return;
         
         if (response.success && response.data) {
-          setPost(response.data.post);
+          const postData = response.data.post;
+          setPost(postData);
           setRelatedPosts(response.data.relatedPosts || []);
+          
+          // Store post slugs for all available languages in localStorage
+          // This allows Header to use correct slug when changing language
+          if (postData.id && postData.availableLanguages) {
+            try {
+              // Get existing slugs map or create new one
+              const slugsMapKey = `blog-post-slugs-${postData.id}`;
+              const existingSlugs = localStorage.getItem(slugsMapKey);
+              const slugsMap = existingSlugs ? JSON.parse(existingSlugs) : {};
+              
+              // Store current locale slug
+              slugsMap[currentLocale] = postData.slug;
+              
+              // If API provides translations with slugs, store them too
+              // For now, we'll fetch slugs for other languages when needed
+              localStorage.setItem(slugsMapKey, JSON.stringify(slugsMap));
+              
+              // Also store post ID for current slug (reverse lookup)
+              localStorage.setItem(`blog-slug-to-id-${postData.slug}-${currentLocale}`, postData.id.toString());
+            } catch (err) {
+              console.warn('[Blog Post] Failed to store slugs in localStorage:', err);
+            }
+          }
           
           // Log structured data from API if available (now handled in layout.tsx)
           if (response.data.structuredData) {
