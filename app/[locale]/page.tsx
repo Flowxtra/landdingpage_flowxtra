@@ -248,13 +248,21 @@ allowfullscreen>
                     {slide.description}
                   </p>
                   
-                  <div className="pt-1">
+                  <div className="pt-1 flex flex-col sm:flex-row gap-3">
                     <a
                       href={slide.buttonLink}
-                      className="inline-block bg-[#003f4d] text-white px-5 py-2 md:px-8 md:py-3 rounded-lg hover:bg-[#00A8CD] transition-colors font-medium text-xs md:text-base"
+                      className="inline-block bg-[#003f4d] text-white px-5 py-2 md:px-8 md:py-3 rounded-lg hover:bg-[#00A8CD] transition-colors font-medium text-xs md:text-base text-center"
                     >
                       {slide.buttonText}
                     </a>
+                    {index === 0 && (
+                      <Link
+                        href="/free-job-posting"
+                        className="inline-block border-2 border-[#003f4d] text-[#003f4d] dark:text-white dark:border-white px-5 py-2 md:px-8 md:py-3 rounded-lg hover:bg-[#00A8CD] hover:border-[#00A8CD] hover:text-white transition-all font-medium text-xs md:text-base text-center"
+                      >
+                        Learn More →
+                      </Link>
+                    )}
                   </div>
                 </div>
 
@@ -840,14 +848,20 @@ export default function Homepage() {
                 </p>
               </div>
 
-              {/* CTA Button */}
-              <div className="pt-4">
+              {/* CTA Buttons */}
+              <div className="pt-4 flex flex-col sm:flex-row gap-4">
                 <a
                   href="https://my.flowxtra.com/registration"
-                  className="inline-block bg-button-primary border-2 border-button-primary text-white px-8 py-4 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-lg shadow-lg"
+                  className="inline-block bg-button-primary border-2 border-button-primary text-white px-8 py-4 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-lg shadow-lg text-center"
                 >
                   {t("socialMediaManager.cta")}
                 </a>
+                <Link
+                  href="/social-media-management"
+                  className="inline-block border-2 border-primary text-primary px-8 py-4 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium text-lg text-center"
+                >
+                  Learn More →
+                </Link>
               </div>
               </div>
             </div>
@@ -920,14 +934,20 @@ export default function Homepage() {
                 </p>
               </div>
 
-              {/* CTA Button */}
-              <div className="pt-4">
+              {/* CTA Buttons */}
+              <div className="pt-4 flex flex-col sm:flex-row gap-4">
                 <a
                   href="https://my.flowxtra.com/registration"
-                  className="inline-block bg-button-primary border-2 border-button-primary text-white px-6 py-2.5 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-base shadow-lg"
+                  className="inline-block bg-button-primary border-2 border-button-primary text-white px-6 py-2.5 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-base shadow-lg text-center"
                 >
                   {t("recruitment.cta")}
                 </a>
+                <Link
+                  href="/ats-recruiting-software"
+                  className="inline-block border-2 border-primary text-primary px-6 py-2.5 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium text-base text-center"
+                >
+                  Learn More →
+                </Link>
               </div>
             </div>
 

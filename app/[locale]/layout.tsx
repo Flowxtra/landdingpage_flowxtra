@@ -997,20 +997,9 @@ export default async function LocaleLayout({
   // CRITICAL: Pass locale explicitly to getMessages
   const messages = await getMessages({ locale });
 
-  // Get metadata for current locale to access description
-  const pageMetadata = await generateMetadata({ params: Promise.resolve({ locale }) });
-  const metaDescription = typeof pageMetadata.description === 'string' 
-    ? pageMetadata.description 
-    : '';
-
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} suppressHydrationWarning>
       <head>
-        {/* Meta description - Explicitly add to ensure Lighthouse detects it */}
-        {metaDescription && (
-          <meta name="description" content={metaDescription} />
-        )}
-        
         {/* Preload critical fonts to prevent layout shift */}
         <link
           rel="preload"
