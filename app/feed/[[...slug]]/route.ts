@@ -352,7 +352,7 @@ export async function GET(
 
       // Get full content for content:encoded
       // If content contains HTML entities, decode them first (CDATA doesn't need escaping)
-      let fullContent = post.content
+      const fullContent = post.content
         ? decodeHtmlEntities(post.content)
         : description;
 

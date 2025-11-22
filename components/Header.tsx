@@ -142,7 +142,7 @@ function Header() {
                   if (postsResponse.success && postsResponse.data?.posts) {
                     // Find post with same ID
                     const matchingPost = postsResponse.data.posts.find(
-                      (post: any) => post.id === parseInt(postId)
+                      (post) => post.id === parseInt(postId)
                     );
                     
                     if (matchingPost && matchingPost.slug) {

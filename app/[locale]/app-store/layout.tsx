@@ -11,10 +11,9 @@ export async function generateMetadata({
   
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://flowxtra.com";
   
-  // Get current pathname and host from headers to build canonical URL
+  // Get current host from headers to build canonical URL
   // This ensures the canonical URL matches the actual current page URL (including localhost in dev)
   const headersList = await headers();
-  const pathname = headersList.get('x-pathname') || '';
   const host = headersList.get('host') || '';
   
   // Determine the base URL to use: prefer current request host in dev, otherwise use configured baseUrl
