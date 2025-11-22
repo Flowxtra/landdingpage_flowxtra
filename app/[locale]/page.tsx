@@ -844,13 +844,13 @@ export default function Homepage() {
               <div className="pt-4 flex flex-col sm:flex-row gap-4">
                 <a
                   href="https://my.flowxtra.com/registration"
-                  className="inline-block bg-button-primary border-2 border-button-primary text-white px-8 py-4 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-lg shadow-lg text-center"
+                  className="inline-block bg-button-primary border-2 border-button-primary text-white px-6 py-2.5 rounded-lg hover:bg-button-hover hover:border-button-hover transition-colors font-medium text-base shadow-lg text-center"
                 >
                   {t("socialMediaManager.cta")}
                 </a>
                 <Link
                   href="/social-media-management"
-                  className="inline-block border-2 border-primary text-primary px-8 py-4 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium text-lg text-center"
+                  className="inline-block border-2 border-primary dark:border-white text-primary dark:text-white px-6 py-2.5 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white dark:hover:bg-button-hover dark:hover:border-button-hover dark:hover:text-white transition-all font-medium text-base text-center"
                 >
                   Learn More →
                 </Link>
@@ -936,7 +936,7 @@ export default function Homepage() {
                 </a>
                 <Link
                   href="/ats-recruiting-software"
-                  className="inline-block border-2 border-primary text-primary px-6 py-2.5 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white transition-all font-medium text-base text-center"
+                  className="inline-block border-2 border-primary dark:border-white text-primary dark:text-white px-6 py-2.5 rounded-lg hover:bg-button-hover hover:border-button-hover hover:text-white dark:hover:bg-button-hover dark:hover:border-button-hover dark:hover:text-white transition-all font-medium text-base text-center"
                 >
                   Learn More →
                 </Link>
