@@ -6,7 +6,7 @@
         "legalName": "Flowxtra GmbH",
         "url": "{{BASE_URL}}",
         "logo": "{{BASE_URL}}/Main-flowxtra-Logo.png",
-        "description": "Advanced recruitment platform with AI-powered tools for modern hiring teams. Streamline your hiring process with applicant tracking, multiposting, and automation.",
+        "description": "Piattaforma di reclutamento avanzata con strumenti alimentati dall'IA per team di assunzione moderni. Ottimizza il tuo processo di assunzione con il tracciamento dei candidati, multiposting e automazione.",
         "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+43-676-905-4441",
@@ -31,6 +31,23 @@
             "https://youtube.com/@flowxtra_com",
             "https://medium.com/@flowxtra",
             "https://www.tiktok.com/@flowxtra.ai"
+        ],
+        "keywords": [
+            "Software ATS Italia",
+            "Sistema di tracciamento candidati",
+            "Software di reclutamento gratuito",
+            "Pubblicazione annunci lavoro gratuita",
+            "Software di reclutamento Italia",
+            "Software HR Italia",
+            "Software di assunzione",
+            "Gestione candidati",
+            "Sistema ATS Italia",
+            "Strumento di reclutamento",
+            "Tracciamento candidati",
+            "Reclutamento Italia",
+            "Software borsa lavoro",
+            "Software multiposting",
+            "Reclutamento IA Italia"
         ]
     },
     "breadcrumb": {
@@ -46,7 +63,7 @@
             {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Recruitment Platform",
+                "name": "Piattaforma di reclutamento",
                 "item": "{{BASE_URL}}/"
             },
             {
@@ -62,7 +79,7 @@
             "@context": "https://schema.org",
             "@type": "Product",
             "name": "Flowxtra Free Plan",
-            "description": "For freelancers & hobbies. Includes unlimited job postings, career page, job widget, multiposting, online meeting tool, and more.",
+            "description": "Per freelancer e hobby. Include annunci di lavoro illimitati, pagina carriera, widget lavoro, multiposting, strumento riunione online e altro ancora.",
             "image": "{{BASE_URL}}/Main-flowxtra-Logo.png",
             "brand": {
                 "@type": "Brand",
@@ -110,7 +127,7 @@
                     }
                 }
             ],
-            "category": "Recruitment Software",
+            "category": "Software di reclutamento",
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.8",
@@ -123,7 +140,7 @@
             "@context": "https://schema.org",
             "@type": "Product",
             "name": "Flowxtra Starter Plan",
-            "description": "For small companies. Includes unlimited job postings, 5 user seats, smart candidate filtering, custom fields, roles & permissions, and all free features.",
+            "description": "Per piccole aziende. Include annunci di lavoro illimitati, 5 posti utente, filtraggio intelligente candidati, campi personalizzati, ruoli e permessi e tutte le funzionalità gratuite.",
             "image": "{{BASE_URL}}/Main-flowxtra-Logo.png",
             "brand": {
                 "@type": "Brand",
@@ -171,7 +188,7 @@
                     }
                 }
             ],
-            "category": "Recruitment Software",
+            "category": "Software di reclutamento",
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.8",
@@ -184,7 +201,7 @@
             "@context": "https://schema.org",
             "@type": "Product",
             "name": "Flowxtra Basic Plan",
-            "description": "For growing businesses. Includes unlimited job postings, 10 user seats, unlimited storage, journey flow automation, AI job ad builder, and all starter features.",
+            "description": "Per aziende in crescita. Include annunci di lavoro illimitati, 10 posti utente, archiviazione illimitata, automazione flusso percorso, generatore annunci lavoro IA e tutte le funzionalità Starter.",
             "image": "{{BASE_URL}}/Main-flowxtra-Logo.png",
             "brand": {
                 "@type": "Brand",
@@ -232,7 +249,7 @@
                     }
                 }
             ],
-            "category": "Recruitment Software",
+            "category": "Software di reclutamento",
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.8",
@@ -245,7 +262,7 @@
             "@context": "https://schema.org",
             "@type": "Product",
             "name": "Flowxtra Professional Plan",
-            "description": "For active companies. Includes unlimited job postings, 15 user seats, newsletter, talent pool, reports & analytics, database migration, and all basic features.",
+            "description": "Per aziende attive. Include annunci di lavoro illimitati, 15 posti utente, newsletter, pool talenti, report e analisi, migrazione database e tutte le funzionalità Basic.",
             "image": "{{BASE_URL}}/Main-flowxtra-Logo.png",
             "brand": {
                 "@type": "Brand",
@@ -293,7 +310,7 @@
                     }
                 }
             ],
-            "category": "Recruitment Software",
+            "category": "Software di reclutamento",
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.8",
@@ -306,7 +323,7 @@
             "@context": "https://schema.org",
             "@type": "Product",
             "name": "Flowxtra Advanced Plan",
-            "description": "For large teams. Includes unlimited job postings, 20 user seats, priority support, and all professional features.",
+            "description": "Per team grandi. Include annunci di lavoro illimitati, 20 posti utente, supporto prioritario e tutte le funzionalità Professional.",
             "image": "{{BASE_URL}}/Main-flowxtra-Logo.png",
             "brand": {
                 "@type": "Brand",
@@ -354,7 +371,7 @@
                     }
                 }
             ],
-            "category": "Recruitment Software",
+            "category": "Software di reclutamento",
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.8",
@@ -367,7 +384,7 @@
             "@context": "https://schema.org",
             "@type": "Product",
             "name": "Flowxtra Premium Plan",
-            "description": "For big organizations. Includes unlimited job postings, unlimited user seats, premium support with online meetings, and all advanced features.",
+            "description": "Per grandi organizzazioni. Include annunci di lavoro illimitati, posti utente illimitati, supporto premium con riunioni online e tutte le funzionalità Advanced.",
             "image": "{{BASE_URL}}/Main-flowxtra-Logo.png",
             "brand": {
                 "@type": "Brand",
@@ -415,7 +432,7 @@
                     }
                 }
             ],
-            "category": "Recruitment Software",
+            "category": "Software di reclutamento",
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.8",
@@ -428,7 +445,7 @@
             "@context": "https://schema.org",
             "@type": "Product",
             "name": "Flowxtra Enterprise Plan",
-            "description": "For custom needs. Includes unlimited job postings, unlimited user seats, dedicated account manager, custom integrations, and all premium features.",
+            "description": "Per esigenze personalizzate. Include annunci di lavoro illimitati, posti utente illimitati, account manager dedicato, integrazioni personalizzate e tutte le funzionalità Premium.",
             "image": "{{BASE_URL}}/Main-flowxtra-Logo.png",
             "brand": {
                 "@type": "Brand",
@@ -488,7 +505,7 @@
                     }
                 }
             ],
-            "category": "Recruitment Software",
+            "category": "Software di reclutamento",
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.8",
@@ -504,178 +521,178 @@
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "Is Flowxtra free to use for posting job?",
+                "name": "Flowxtra è gratuito per pubblicare annunci di lavoro?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes! Flowxtra offers a completely FREE plan with UNLIMITED job postings — forever. No credit card required, no hidden fees, no limits. Post as many jobs as you need across your career page, Google Jobs, LinkedIn, Facebook, and Instagram — all free forever."
+                    "text": "Sì! Flowxtra offre un piano completamente GRATUITO con annunci di lavoro ILLIMITATI — per sempre. Nessuna carta di credito richiesta, nessun costo nascosto, nessun limite. Pubblica tutti gli annunci di lavoro di cui hai bisogno sulla tua pagina carriera, Google Jobs, LinkedIn, Facebook e Instagram — tutto gratuito per sempre."
                 }
             },
             {
                 "@type": "Question",
-                "name": "How many free job postings do companies get with Flowxtra?",
+                "name": "Quanti annunci di lavoro gratuiti ottengono le aziende con Flowxtra?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Flowxtra's Free plan offers UNLIMITED job postings — forever. There are no limits, no monthly caps, and no restrictions. Post as many jobs as you need across your career page, Google Jobs, LinkedIn, Facebook, and Instagram at no cost — all free forever. No credit card required. Upgrade to paid plans for additional features like advanced analytics, priority support, and team collaboration tools."
+                    "text": "Il piano gratuito di Flowxtra offre annunci di lavoro ILLIMITATI — per sempre. Non ci sono limiti, nessun limite mensile e nessuna restrizione. Pubblica tutti gli annunci di lavoro di cui hai bisogno sulla tua pagina carriera, Google Jobs, LinkedIn, Facebook e Instagram senza costi — tutto gratuito per sempre. Nessuna carta di credito richiesta. Passa a piani a pagamento per funzionalità aggiuntive come analisi avanzate, supporto prioritario e strumenti di collaborazione del team."
                 }
             },
             {
                 "@type": "Question",
-                "name": "How much does Flowxtra recruitment software cost for companies?",
+                "name": "Quanto costa il software di reclutamento Flowxtra per le aziende?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Flowxtra ATS pricing starts at €0 for the Free plan with UNLIMITED job postings. Paid plans range from €30/month (Starter) to €799/month (Premium), and Enterprise customers receive custom pricing with dedicated support and tailored integrations. Every plan — even Free — provides unlimited job postings across career pages, Google Jobs, LinkedIn, Facebook, Instagram, and 50+ channels at no additional cost. Pricing differences focus on collaboration seats, automation depth, analytics, support level, and compliance tooling."
+                    "text": "I prezzi Flowxtra ATS iniziano da €0 per il piano gratuito con annunci di lavoro ILLIMITATI. I piani a pagamento vanno da €30/mese (Starter) a €799/mese (Premium), e i clienti Enterprise ricevono prezzi personalizzati con supporto dedicato e integrazioni su misura. Ogni piano — anche quello gratuito — fornisce annunci di lavoro illimitati su pagine carriera, Google Jobs, LinkedIn, Facebook, Instagram e 50+ canali senza costi aggiuntivi. Le differenze di prezzo si concentrano su posti di collaborazione, profondità dell'automazione, analisi, livello di supporto e strumenti di conformità."
                 }
             },
             {
                 "@type": "Question",
-                "name": "What features are included in each Flowxtra ATS pricing plan?",
+                "name": "Quali funzionalità sono incluse in ogni piano tariffario Flowxtra ATS?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "All Flowxtra plans include core recruitment features: multiposting to Google Jobs, LinkedIn, Facebook, Instagram, and 50+ job boards (all free forever on the Free plan), career pages, Kanban boards, online meeting tools, and GDPR compliance. Higher plans add advanced features like AI-powered automation, unlimited storage, journey flow builders, recruitment analytics, talent pools, custom domains, and white-label branding. Enterprise plans include dedicated account managers and custom integrations."
+                    "text": "Tutti i piani Flowxtra includono funzionalità di reclutamento principali: multiposting su Google Jobs, LinkedIn, Facebook, Instagram e 50+ bacheche di lavoro (tutte gratuite per sempre sul piano gratuito), pagine carriera, bacheche Kanban, strumenti di riunione online e conformità GDPR. I piani superiori aggiungono funzionalità avanzate come automazione alimentata dall'IA, archiviazione illimitata, costruttori di flusso percorso, analisi di reclutamento, pool di talenti, domini personalizzati e branding white-label. I piani Enterprise includono account manager dedicati e integrazioni personalizzate."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Can companies upgrade their Flowxtra plan as they grow?",
+                "name": "Le aziende possono aggiornare il loro piano Flowxtra man mano che crescono?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, companies can upgrade their Flowxtra subscription at any time to access more job postings, team seats, and advanced hiring features. Upgrades are instant and prorated. Growing businesses typically start with Starter (€30/month) and scale to Professional (€249/month) or Enterprise as hiring volume increases. No data migration needed when upgrading."
+                    "text": "Sì, le aziende possono aggiornare il proprio abbonamento Flowxtra in qualsiasi momento per accedere a più posti per il team e funzionalità avanzate di assunzione. Tutti i piani includono pubblicazioni di lavori illimitate, quindi gli aggiornamenti si concentrano su strumenti di collaborazione, automazione, analisi e supporto. Gli aggiornamenti sono istantanei e proporzionati. Le aziende in crescita iniziano tipicamente con Starter (€30/mese) e scalano a Professional (€249/mese) o Enterprise man mano che il volume di assunzione aumenta. Nessuna migrazione dei dati necessaria durante l'aggiornamento."
                 }
             },
             {
                 "@type": "Question",
-                "name": "How many job postings can companies publish with Flowxtra ATS?",
+                "name": "Quanti annunci di lavoro possono pubblicare le aziende con Flowxtra ATS?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Flowxtra allows companies to publish UNLIMITED job postings on every plan. Whether you stay on the Free tier or upgrade to Starter, Basic, Professional, Advanced, Premium, or Enterprise, there are no monthly caps or extra fees. All jobs are automatically distributed to Google Jobs, LinkedIn, Facebook, Instagram, and 50+ platforms at no additional cost."
+                    "text": "Flowxtra consente alle aziende di pubblicare annunci di lavoro ILLIMITATI su ogni piano. Che tu rimanga sul livello gratuito o passi a Starter, Basic, Professional, Advanced, Premium o Enterprise, non ci sono limiti mensili o costi extra. Tutti i lavori vengono distribuiti automaticamente su Google Jobs, LinkedIn, Facebook, Instagram e 50+ piattaforme senza costi aggiuntivi."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Does Flowxtra applicant tracking system integrate with Google for Jobs and LinkedIn?",
+                "name": "Il sistema di tracciamento candidati Flowxtra si integra con Google for Jobs e LinkedIn?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, Flowxtra automatically posts all job openings to Google Jobs, LinkedIn, Facebook, and Instagram for free forever on the Free plan. Our multiposting feature also distributes jobs to Indeed, Stepstone, and 50+ job boards simultaneously. This helps companies reach more qualified candidates without manual posting or additional fees. Jobs appear on Google Search, LinkedIn, Facebook, and Instagram within 24-48 hours — all free forever."
+                    "text": "Sì, Flowxtra pubblica automaticamente tutte le offerte di lavoro su Google Jobs, LinkedIn, Facebook e Instagram gratuitamente per sempre sul piano gratuito. La nostra funzione multiposting distribuisce anche i lavori su Indeed, Stepstone e 50+ bacheche di lavoro simultaneamente. Questo aiuta le aziende a raggiungere più candidati qualificati senza pubblicazione manuale o costi aggiuntivi. I lavori appaiono su Google Search, LinkedIn, Facebook e Instagram entro 24-48 ore — tutto gratuito per sempre."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Can Flowxtra recruitment software integrate with existing HR systems and tools?",
+                "name": "Il software di reclutamento Flowxtra può integrarsi con sistemi e strumenti HR esistenti?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, Flowxtra integrates with major HR software, CRM systems, and business tools through API connections and webhooks. All plans include API access for custom integrations with payroll systems, HRIS platforms, email marketing tools like Mailchimp, calendar apps, and communication platforms. Enterprise plans include dedicated integration support and custom development."
+                    "text": "Sì, Flowxtra si integra con i principali software HR, sistemi CRM e strumenti aziendali tramite connessioni API e webhooks. Tutti i piani includono l'accesso API per integrazioni personalizzate con sistemi di buste paga, piattaforme HRIS, strumenti di email marketing come Mailchimp, app calendario e piattaforme di comunicazione. I piani Enterprise includono supporto di integrazione dedicato e sviluppo personalizzato."
                 }
             },
             {
                 "@type": "Question",
-                "name": "How many team members can collaborate in Flowxtra hiring platform?",
+                "name": "Quanti membri del team possono collaborare nella piattaforma di assunzione Flowxtra?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Flowxtra supports team collaboration with user seats varying by plan: Free (1 user), Starter (5), Basic (10), Professional (15), Advanced (20), Premium and Enterprise (unlimited). Team members can access role-based permissions for recruiters, hiring managers, and admins. All users can collaborate on candidate reviews, interview scheduling, and hiring decisions in real-time."
+                    "text": "Flowxtra supporta la collaborazione del team con posti utente che variano per piano: Gratuito (1 utente), Starter (5), Basic (10), Professional (15), Advanced (20), Premium e Enterprise (illimitato). I membri del team possono accedere a permessi basati sui ruoli per reclutatori, responsabili delle assunzioni e amministratori. Tutti gli utenti possono collaborare in tempo reale su revisioni dei candidati, programmazione di interviste e decisioni di assunzione."
                 }
             },
             {
                 "@type": "Question",
-                "name": "What is multiposting and how does it help companies hire faster?",
+                "name": "Cos'è il multiposting e come aiuta le aziende ad assumere più velocemente?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Multiposting is automated job distribution to 50+ platforms simultaneously including Google for Jobs, LinkedIn, Indeed, Stepstone, and social media. Instead of manually posting to each site, Flowxtra publishes once and reaches candidates across all channels instantly. This increases job visibility by 400%, reduces time-to-hire by 50%, and attracts 3-5x more qualified applicants for companies."
+                    "text": "Il multiposting è la distribuzione automatizzata di lavori su 50+ piattaforme simultaneamente, inclusi Google for Jobs, LinkedIn, Indeed, Stepstone e social media. Invece di pubblicare manualmente su ogni sito, Flowxtra pubblica una volta e raggiunge i candidati su tutti i canali istantaneamente. Questo aumenta la visibilità dei lavori del 400%, riduce il tempo di assunzione del 50% e attira 3-5x più candidati qualificati per le aziende."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Does Flowxtra provide recruitment analytics for data-driven hiring decisions?",
+                "name": "Flowxtra fornisce analisi di reclutamento per decisioni di assunzione basate sui dati?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, Flowxtra offers comprehensive recruitment analytics starting from the Professional plan. Track key metrics including source effectiveness, time-to-hire, pipeline conversion rates, drop-off points, team productivity, and candidate quality scores. Analytics dashboards provide real-time insights to optimize hiring strategies and reduce recruitment costs. Export reports in CSV and Excel formats."
+                    "text": "Sì, Flowxtra offre analisi di reclutamento complete a partire dal piano Professional. Traccia metriche chiave inclusa l'efficacia delle fonti, tempo di assunzione, tassi di conversione del pipeline, punti di abbandono, produttività del team e punteggi di qualità dei candidati. Le dashboard di analisi forniscono approfondimenti in tempo reale per ottimizzare le strategie di assunzione e ridurre i costi di reclutamento. Esporta report in formati CSV ed Excel."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Can recruitment agencies manage multiple clients with Flowxtra ATS?",
+                "name": "Le agenzie di reclutamento possono gestire più clienti con Flowxtra ATS?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, Flowxtra's client profiles feature (available from Basic plan) allows recruitment agencies to manage multiple client companies with separate job postings, hiring pipelines, candidate databases, and team permissions. Each client gets isolated data, custom branding, and dedicated workflows. Perfect for staffing agencies handling 10-100+ clients simultaneously with full transparency and security."
+                    "text": "Sì, la funzione profili clienti di Flowxtra (disponibile dal piano Basic) consente alle agenzie di reclutamento di gestire più aziende clienti con annunci di lavoro separati, pipeline di assunzione, database di candidati e permessi del team. Ogni cliente ottiene dati isolati, branding personalizzato e flussi di lavoro dedicati. Perfetto per agenzie di personale che gestiscono 10-100+ clienti simultaneamente con piena trasparenza e sicurezza."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Does Flowxtra support multi-location hiring for enterprise companies with global offices?",
+                "name": "Flowxtra supporta l'assunzione multi-sede per aziende enterprise con uffici globali?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, Flowxtra's multi-office feature (from Basic plan) helps enterprise companies organize hiring across multiple locations, countries, and regions. Assign jobs, users, and reports by office location. Support for international hiring includes multi-language job postings, local compliance (GDPR, CCPA), timezone management, and location-based analytics for companies with 5-500+ offices worldwide."
+                    "text": "Sì, la funzione multi-ufficio di Flowxtra (dal piano Basic) aiuta le aziende enterprise a organizzare l'assunzione in più sedi, paesi e regioni. Assegna lavori, utenti e report per ubicazione dell'ufficio. Il supporto per l'assunzione internazionale include annunci di lavoro multilingua, conformità locale (GDPR, CCPA), gestione dei fusi orari e analisi basate sulla posizione per aziende con 5-500+ uffici in tutto il mondo."
                 }
             },
             {
                 "@type": "Question",
-                "name": "How does AI-powered recruitment automation work in Flowxtra?",
+                "name": "Come funziona l'automazione del reclutamento alimentata dall'IA in Flowxtra?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Flowxtra uses AI to automate repetitive hiring tasks while keeping humans in control. AI features include job description generation, candidate CV parsing, smart search through applications, automated interview scheduling, and email responses. Important: Flowxtra does NOT use AI for automated candidate scoring, ranking, or selection decisions - all hiring choices remain with your team, ensuring EU AI Act compliance."
+                    "text": "Flowxtra usa l'IA per automatizzare le attività di assunzione ripetitive mantenendo gli umani in controllo. Le funzionalità IA includono generazione di descrizioni di lavoro, analisi CV candidati, ricerca intelligente nelle candidature, programmazione automatica di interviste e risposte email. Importante: Flowxtra NON usa l'IA per punteggio, classificazione o decisioni di selezione automatizzate dei candidati - tutte le scelte di assunzione rimangono con il tuo team, garantendo la conformità con la legge UE sull'IA."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Can companies automate candidate communication and email workflows?",
+                "name": "Le aziende possono automatizzare la comunicazione con i candidati e i flussi di lavoro email?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, Flowxtra automates candidate communication with customizable email templates, automated confirmations, rejection notifications, interview reminders, and follow-ups. Advanced plans include Journey Flow automation - create conditional workflows that send personalized emails based on candidate actions, stage changes, or custom triggers. Save 10+ hours per week on candidate communication while improving response rates by 60%."
+                    "text": "Sì, Flowxtra automatizza la comunicazione con i candidati con modelli email personalizzabili, conferme automatizzate, notifiche di rifiuto, promemoria per interviste e follow-up. I piani avanzati includono automazione Journey Flow - crea flussi di lavoro condizionali che inviano email personalizzate basate su azioni dei candidati, cambiamenti di fase o trigger personalizzati. Risparmia 10+ ore a settimana sulla comunicazione con i candidati migliorando i tassi di risposta del 60%."
                 }
             },
             {
                 "@type": "Question",
-                "name": "What is recruitment workflow automation and how does Journey Flow help companies?",
+                "name": "Cos'è l'automazione del flusso di lavoro di reclutamento e come aiuta Journey Flow le aziende?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Journey Flow (from Basic plan) is an advanced workflow automation builder for recruitment. Create custom hiring processes with conditional logic, automated actions, and multi-step sequences. Examples: auto-send welcome emails when candidates apply, request documents after screening, schedule interviews automatically, send contracts to selected candidates, and trigger onboarding workflows. Similar to n8n but designed specifically for recruitment teams."
+                    "text": "Journey Flow (dal piano Basic) è un costruttore avanzato di automazione del flusso di lavoro per il reclutamento. Crea processi di assunzione personalizzati con logica condizionale, azioni automatizzate e sequenze multi-passo. Esempi: invio automatico di email di benvenuto quando i candidati si candidano, richiesta di documenti dopo lo screening, programmazione automatica di interviste, invio di contratti ai candidati selezionati e attivazione di flussi di lavoro di onboarding. Simile a n8n ma progettato specificamente per team di reclutamento."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Does Flowxtra offer AI job description generator for faster hiring?",
+                "name": "Flowxtra offre un generatore di descrizioni di lavoro IA per assunzioni più veloci?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, Flowxtra's AI job ad builder (from Basic plan) generates optimized job descriptions in seconds. Input role title, requirements, and company details - AI creates compelling, SEO-optimized job postings that attract quality candidates. Includes industry best practices, inclusive language suggestions, and keyword optimization for better visibility on job boards. Companies reduce job posting time from 2 hours to 5 minutes."
+                    "text": "Sì, il generatore di annunci di lavoro IA di Flowxtra (dal piano Basic) genera descrizioni di lavoro ottimizzate in secondi. Inserisci il titolo del ruolo, i requisiti e i dettagli dell'azienda - l'IA crea annunci di lavoro convincenti e ottimizzati per SEO che attirano candidati di qualità. Include migliori pratiche del settore, suggerimenti di linguaggio inclusivo e ottimizzazione delle parole chiave per una migliore visibilità sulle bacheche di lavoro. Le aziende riducono il tempo di pubblicazione degli annunci da 2 ore a 5 minuti."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Is Flowxtra GDPR compliant for European companies?",
+                "name": "Flowxtra è conforme al GDPR per le aziende europee?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, Flowxtra is fully GDPR and CCPA compliant on all plans. Features include consent management, data access controls, right to erasure, data portability, audit trails, and EU-hosted servers. Candidate data is encrypted, stored securely, and managed exclusively by your company. Automated compliance reports help HR teams meet legal requirements. Flowxtra also complies with EU AI Act transparency requirements for recruitment systems."
+                    "text": "Sì, Flowxtra è completamente conforme a GDPR e CCPA su tutti i piani. Le funzionalità includono gestione del consenso, controlli di accesso ai dati, diritto alla cancellazione, portabilità dei dati, tracce di audit e server ospitati nell'UE. I dati dei candidati sono crittografati, archiviati in modo sicuro e gestiti esclusivamente dalla tua azienda. I report di conformità automatizzati aiutano i team HR a soddisfare i requisiti legali. Flowxtra rispetta anche i requisiti di trasparenza della legge UE sull'IA per i sistemi di reclutamento."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Can companies use custom domains for their career pages and job portals?",
+                "name": "Le aziende possono usare domini personalizzati per le loro pagine carriera e portali di lavoro?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, Flowxtra supports custom domains (from Starter plan) for career pages and application forms. Use careers.yourcompany.com instead of yourcompany.flowxtra.com to strengthen employer branding. Includes SSL certificates, DNS configuration support, and full customization of colors, fonts, logos, and content. Companies see 45% higher application rates with branded custom domains versus generic subdomains."
+                    "text": "Sì, Flowxtra supporta domini personalizzati (dal piano Starter) per pagine carriera e moduli di candidatura. Usa careers.tuaazienda.com invece di tuaazienda.flowxtra.com per rafforzare il branding del datore di lavoro. Include certificati SSL, supporto configurazione DNS e personalizzazione completa di colori, font, loghi e contenuti. Le aziende vedono tassi di candidatura 45% più alti con domini personalizzati di marca rispetto a sottodomini generici."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Does Flowxtra offer unlimited data storage for candidate resumes and files?",
+                "name": "Flowxtra offre archiviazione dati illimitata per CV e file dei candidati?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, unlimited data storage is included from the Basic plan and above. Store unlimited candidate resumes, cover letters, portfolios, interview recordings, assessments, and documents without storage caps or additional fees. All files are encrypted, backed up daily, and accessible instantly. Lower plans (Free and Starter) include generous storage limits suitable for small teams with moderate hiring volumes."
+                    "text": "Sì, l'archiviazione dati illimitata è inclusa dal piano Basic in poi. Archivia CV di candidati illimitati, lettere di presentazione, portfolio, registrazioni di interviste, valutazioni e documenti senza limiti di archiviazione o costi aggiuntivi. Tutti i file sono crittografati, sottoposti a backup giornaliero e accessibili istantaneamente. I piani inferiori (Gratuito e Starter) includono limiti di archiviazione generosi adatti per piccoli team con volumi di assunzione moderati."
                 }
             },
             {
                 "@type": "Question",
-                "name": "What support options does Flowxtra provide for companies?",
+                "name": "Quali opzioni di supporto fornisce Flowxtra alle aziende?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Flowxtra offers 24/7 support on all plans. Free plan includes ticket support, Starter through Advanced provide live chat support, Premium and Enterprise add online meeting support with senior engineers. All companies receive email support, knowledge base access, video tutorials, and onboarding assistance. Enterprise clients get dedicated account managers, priority support channels, and custom training sessions for hiring teams."
+                    "text": "Flowxtra offre supporto 24/7 su tutti i piani. Il piano gratuito include supporto ticket, Starter fino ad Advanced forniscono supporto chat live, Premium e Enterprise aggiungono supporto riunione online con ingegneri senior. Tutte le aziende ricevono supporto email, accesso alla knowledge base, tutorial video e assistenza di onboarding. I clienti Enterprise ottengono account manager dedicati, canali di supporto prioritario e sessioni di formazione personalizzate per team di assunzione."
                 }
             },
             {
                 "@type": "Question",
-                "name": "How fast can companies start hiring with Flowxtra ATS?",
+                "name": "Quanto velocemente le aziende possono iniziare ad assumere con Flowxtra ATS?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Companies can start hiring with Flowxtra in under 10 minutes. Sign up, create your first job posting, and it's automatically published to your career page and distributed to Google for Jobs, LinkedIn, and 50+ job boards instantly. No technical setup, credit card, or contracts required for the Free plan. Upgrade anytime as your hiring needs grow. Most companies receive their first applications within 24 hours."
+                    "text": "Le aziende possono iniziare ad assumere con Flowxtra in meno di 10 minuti. Registrati, crea il tuo primo annuncio di lavoro, e viene pubblicato automaticamente sulla tua pagina carriera e distribuito su Google for Jobs, LinkedIn e 50+ bacheche di lavoro istantaneamente. Nessuna configurazione tecnica, carta di credito o contratti richiesti per il piano gratuito. Passa a un piano superiore in qualsiasi momento man mano che le tue esigenze di assunzione crescono. La maggior parte delle aziende riceve le prime candidature entro 24 ore."
                 }
             }
         ]

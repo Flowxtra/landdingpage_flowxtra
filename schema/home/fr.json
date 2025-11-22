@@ -70,9 +70,9 @@
       "GDPR",
       "CCPA",
       "CPRA",
-      "Recruitment automation",
-      "Social media management",
-      "Digital signature"
+      "Automatisation du recrutement",
+      "Gestion des réseaux sociaux",
+      "Signature numérique"
     ]
   },
   "softwareApplication": {
@@ -89,9 +89,9 @@
       "@type": "Audience",
       "audienceType": [
         "Startups",
-        "Small and medium-sized businesses (SMBs)",
-        "Large enterprises",
-        "Recruitment agencies"
+        "Petites et moyennes entreprises (PME)",
+        "Grandes entreprises",
+        "Agences de recrutement"
       ]
     },
     "keywords": [
@@ -135,14 +135,14 @@
       }
     ],
     "featureList": [
-      "Unlimited Job postings monthly — exclusive to Flowxtra",
-      "AI-driven Applicant Tracking System (ATS)",
-      "Social media post scheduler & analytics",
-      "Digital e-signature and document tracking",
-      "Smart candidate board with drag-and-drop pipeline",
-      "Custom email templates and multiposting automation",
-      "GDPR, EU AI Act, CCPA, and CPRA compliance",
-      "Scalable for startups, SMEs, and large enterprises"
+      "Publications d'emploi illimitées — exclusif à Flowxtra",
+      "Système de suivi des candidats (ATS) alimenté par l'IA",
+      "Planificateur de publications et analyses sur les réseaux sociaux",
+      "Signature électronique et suivi des documents",
+      "Tableau de candidats intelligent avec pipeline glisser-déposer",
+      "Modèles d'e-mail personnalisés et automatisation multiposting",
+      "Conformité GDPR, EU AI Act, CCPA et CPRA",
+      "Évolutif pour les startups, PME et grandes entreprises"
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -166,7 +166,7 @@
           "bestRating": "5",
           "worstRating": "1"
         },
-        "reviewBody": "Flowxtra transformed our hiring process! The free 10 job postings monthly are perfect for our startup, and the AI-powered candidate filtering saves us hours every week."
+        "reviewBody": "Flowxtra a transformé notre processus de recrutement ! Les publications d'emploi gratuites illimitées sont parfaites pour notre startup, et le filtrage des candidats alimenté par l'IA nous fait gagner des heures chaque semaine."
       },
       {
         "@type": "Review",
@@ -182,7 +182,7 @@
           "bestRating": "5",
           "worstRating": "1"
         },
-        "reviewBody": "Best recruitment software we've ever used. The multiposting feature and social media manager integration are real game changers. Highly recommended!"
+        "reviewBody": "Meilleur logiciel de recrutement que nous ayons jamais utilisé. La fonctionnalité multiposting et l'intégration du gestionnaire de réseaux sociaux sont de vrais changements. Hautement recommandé !"
       },
       {
         "@type": "Review",
@@ -198,7 +198,7 @@
           "bestRating": "5",
           "worstRating": "1"
         },
-        "reviewBody": "As an HR manager, Flowxtra meets all my needs: ATS, social media management, and e-signatures. GDPR compliance gives us complete peace of mind."
+        "reviewBody": "En tant que responsable RH, Flowxtra répond à tous mes besoins : ATS, gestion des réseaux sociaux et signatures électroniques. La conformité GDPR nous donne une tranquillité d'esprit totale."
       },
       {
         "@type": "Review",
@@ -214,7 +214,7 @@
           "bestRating": "5",
           "worstRating": "1"
         },
-        "reviewBody": "Great software with excellent features. The free plan is generous and the user interface is intuitive. Customer support could be faster, but overall very satisfied."
+        "reviewBody": "Excellent logiciel avec des fonctionnalités remarquables. Le plan gratuit est généreux et l'interface utilisateur est intuitive. Le support client pourrait être plus rapide, mais globalement très satisfait."
       },
       {
         "@type": "Review",
@@ -230,7 +230,7 @@
           "bestRating": "5",
           "worstRating": "1"
         },
-        "reviewBody": "Finally, an all-in-one solution that actually works! Flowxtra combines recruitment, social media, and contracts seamlessly. The 10 free job posts are a lifesaver."
+        "reviewBody": "Enfin, une solution tout-en-un qui fonctionne vraiment ! Flowxtra combine le recrutement, les réseaux sociaux et les contrats de manière transparente. Les publications d'emploi gratuites illimitées sont une bouée de sauvetage."
       }
     ],
     "softwareHelp": {
@@ -241,8 +241,8 @@
   "video": {
     "@context": "https://schema.org",
     "@type": "VideoObject",
-    "name": "Flowxtra – Hire Smarter with AI Recruiting & Social Media Tools",
-    "description": "See how Flowxtra helps you post jobs for free, automate recruitment, manage social media, and sign contracts online — all in one AI-powered platform.",
+    "name": "Flowxtra – Recrutez plus intelligemment avec l'IA et les outils de réseaux sociaux",
+    "description": "Découvrez comment Flowxtra vous aide à publier des emplois gratuitement, automatiser le recrutement, gérer les réseaux sociaux et signer des contrats en ligne — le tout dans une plateforme alimentée par l'IA.",
     "thumbnailUrl": "{{BASE_URL}}/Main-flowxtra-Logo.png",
     "uploadDate": "2025-10-27T20:00:00+01:00",
     "publisher": {
@@ -260,7 +260,7 @@
       {
         "@type": "ListItem",
         "position": 1,
-        "name": "Home",
+        "name": "Accueil",
         "item": "{{BASE_URL}}"
       }
     ]

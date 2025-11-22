@@ -119,7 +119,7 @@
             }
         ],
         "featureList": [
-            "10 إعلانات وظائف مجانية شهريًا",
+            "إعلانات وظائف مجانية غير محدودة",
             "نظام ATS مدعوم بالذكاء الاصطناعي",
             "جدولة وتحليل محتوى السوشيال",
             "التوقيع الإلكتروني وتتبع المستندات",
@@ -150,7 +150,7 @@
                     "bestRating": "5",
                     "worstRating": "1"
                 },
-                "reviewBody": "Flowxtra transformed our hiring process! The free 10 job postings monthly are perfect for our startup, and the AI-powered candidate filtering saves us hours every week."
+                "reviewBody": "حول Flowxtra عملية التوظيف لدينا! إعلانات الوظائف المجانية غير المحدودة مثالية لشركتنا الناشئة، وتصفية المرشحين المدعومة بالذكاء الاصطناعي توفر لنا ساعات كل أسبوع."
             },
             {
                 "@type": "Review",
@@ -166,7 +166,7 @@
                     "bestRating": "5",
                     "worstRating": "1"
                 },
-                "reviewBody": "Best recruitment software we've ever used. The multiposting feature and social media manager integration are real game changers. Highly recommended!"
+                "reviewBody": "أفضل برنامج توظيف استخدمناه على الإطلاق. ميزة النشر المتعدد وتكامل مدير وسائل التواصل الاجتماعي هما تغيير حقيقي. موصى به بشدة!"
             },
             {
                 "@type": "Review",
@@ -182,7 +182,7 @@
                     "bestRating": "5",
                     "worstRating": "1"
                 },
-                "reviewBody": "As an HR manager, Flowxtra meets all my needs: ATS, social media management, and e-signatures. GDPR compliance gives us complete peace of mind."
+                "reviewBody": "كمديرة موارد بشرية، يلبي Flowxtra جميع احتياجاتي: ATS، إدارة وسائل التواصل الاجتماعي والتوقيعات الإلكترونية. الامتثال لـ GDPR يمنحنا راحة البال الكاملة."
             },
             {
                 "@type": "Review",
@@ -198,7 +198,7 @@
                     "bestRating": "5",
                     "worstRating": "1"
                 },
-                "reviewBody": "Great software with excellent features. The free plan is generous and the user interface is intuitive. Customer support could be faster, but overall very satisfied."
+                "reviewBody": "برنامج رائع بميزات ممتازة. الخطة المجانية سخية وواجهة المستخدم بديهية. يمكن أن يكون دعم العملاء أسرع، لكن بشكل عام راضٍ جداً."
             },
             {
                 "@type": "Review",
@@ -214,7 +214,7 @@
                     "bestRating": "5",
                     "worstRating": "1"
                 },
-                "reviewBody": "Finally, an all-in-one solution that actually works! Flowxtra combines recruitment, social media, and contracts seamlessly. The 10 free job posts are a lifesaver."
+                "reviewBody": "أخيراً، حل شامل يعمل بالفعل! يجمع Flowxtra التوظيف ووسائل التواصل الاجتماعي والعقود بسلاسة. إعلانات الوظائف المجانية غير المحدودة هي منقذ للحياة."
             }
         ],
         "softwareHelp": {
