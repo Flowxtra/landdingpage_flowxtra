@@ -231,12 +231,12 @@ allowfullscreen>
                     <Image
                       src={slide.image}
                       alt={slide.imageAlt}
-                      width={slide.image.includes('candidate-fiter') ? 834 : slide.image.includes('Job-board-workflow') ? 595 : slide.image.includes('Smarter-Candidate-Filtering') ? 595 : slide.image.includes('job-platform-dashbourd') ? 595 : slide.image.includes('social-media-management') ? 595 : slide.image.includes('hiring-email-template') ? 595 : slide.image.includes('Candidate-Profile') ? 595 : slide.image.includes('Multiposting-job') ? 595 : 1200}
-                      height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 334 : slide.image.includes('Smarter-Candidate-Filtering') ? 411 : slide.image.includes('job-platform-dashbourd') ? 354 : slide.image.includes('social-media-management') ? 366 : slide.image.includes('hiring-email-template') ? 600 : slide.image.includes('Candidate-Profile') ? 448 : slide.image.includes('Multiposting-job') ? 373 : 900}
-                      quality={index === 0 ? 100 : 75}
-                      sizes="(max-width: 768px) 595px, (max-width: 1024px) 50vw, 400px"
+                      width={slide.image.includes('candidate-fiter') ? 834 : slide.image.includes('Job-board-workflow') ? 595 : slide.image.includes('Smarter-Candidate-Filtering') ? 595 : slide.image.includes('job-platform-dashbourd') ? 595 : slide.image.includes('social-media-management') ? 595 : slide.image.includes('hiring-email-template') ? 595 : slide.image.includes('Candidate-Profile') ? 595 : slide.image.includes('Multiposting-job') ? 1200 : 1200}
+                      height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 334 : slide.image.includes('Smarter-Candidate-Filtering') ? 411 : slide.image.includes('job-platform-dashbourd') ? 354 : slide.image.includes('social-media-management') ? 366 : slide.image.includes('hiring-email-template') ? 600 : slide.image.includes('Candidate-Profile') ? 448 : slide.image.includes('Multiposting-job') ? 752 : 900}
+                      quality={slide.image.includes('Smarter-Candidate-Filtering') || slide.image.includes('candidate-fiter') || slide.image.includes('Candidate-Profile') || slide.image.includes('Multiposting-job') || slide.image.includes('hiring-email-template') ? 100 : index === 0 ? 100 : 75}
+                      sizes={slide.image.includes('Multiposting-job') || slide.image.includes('Smarter-Candidate-Filtering') || slide.image.includes('candidate-fiter') || slide.image.includes('Candidate-Profile') || slide.image.includes('hiring-email-template') ? "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 1200px" : "(max-width: 768px) 595px, (max-width: 1024px) 50vw, 400px"}
                       className="w-full h-auto rounded-xl"
-                      unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.svg')}
+                      unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.svg') || slide.image.includes('Smarter-Candidate-Filtering') || slide.image.includes('candidate-fiter') || slide.image.includes('Candidate-Profile') || slide.image.includes('Multiposting-job') || slide.image.includes('hiring-email-template')}
                       loading={index === 0 ? "eager" : "lazy"}
                       priority={index === 0 && !slide.image.endsWith('.gif')}
                       fetchPriority={index === 0 && !slide.image.endsWith('.gif') ? "high" : slide.image.endsWith('.gif') ? "low" : "auto"}
@@ -263,12 +263,12 @@ allowfullscreen>
                   <Image
                     src={slide.image}
                     alt={slide.imageAlt}
-                    width={slide.image.includes('candidate-fiter') ? 834 : slide.image.includes('Job-board-workflow') ? 1041 : slide.image.includes('Smarter-Candidate-Filtering') ? 595 : slide.image.includes('job-platform-dashbourd') ? 595 : slide.image.includes('social-media-management') ? 595 : slide.image.includes('hiring-email-template') ? 595 : slide.image.includes('Candidate-Profile') ? 595 : slide.image.includes('Multiposting-job') ? 595 : 1200}
-                    height={slide.image.includes('candidate-fiter') ? 489 : slide.image.includes('Job-board-workflow') ? 585 : slide.image.includes('Smarter-Candidate-Filtering') ? 411 : slide.image.includes('job-platform-dashbourd') ? 354 : slide.image.includes('social-media-management') ? 366 : slide.image.includes('hiring-email-template') ? 600 : slide.image.includes('Candidate-Profile') ? 448 : slide.image.includes('Multiposting-job') ? 373 : 900}
-                    quality={index === 0 ? 100 : 75}
-                    sizes={slide.image.includes('hiring-email-template') ? "(max-width: 1024px) 50vw, 300px" : "(max-width: 1024px) 33vw, 400px"}
-                    className={slide.image.includes('hiring-email-template') ? "w-1/2 h-auto mx-auto" : "w-full h-auto"}
-                    unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.svg')}
+                    width={slide.image.includes('candidate-fiter') ? 1200 : slide.image.includes('Job-board-workflow') ? 1041 : slide.image.includes('Smarter-Candidate-Filtering') ? 1200 : slide.image.includes('job-platform-dashbourd') ? 595 : slide.image.includes('social-media-management') ? 595 : slide.image.includes('hiring-email-template') ? 1200 : slide.image.includes('Candidate-Profile') ? 1200 : slide.image.includes('Multiposting-job') ? 1200 : 1200}
+                    height={slide.image.includes('candidate-fiter') ? 704 : slide.image.includes('Job-board-workflow') ? 585 : slide.image.includes('Smarter-Candidate-Filtering') ? 828 : slide.image.includes('job-platform-dashbourd') ? 354 : slide.image.includes('social-media-management') ? 366 : slide.image.includes('hiring-email-template') ? 1200 : slide.image.includes('Candidate-Profile') ? 904 : slide.image.includes('Multiposting-job') ? 752 : 900}
+                    quality={slide.image.includes('Smarter-Candidate-Filtering') || slide.image.includes('candidate-fiter') || slide.image.includes('Candidate-Profile') || slide.image.includes('Multiposting-job') || slide.image.includes('hiring-email-template') ? 100 : index === 0 ? 100 : 75}
+                    sizes={slide.image.includes('hiring-email-template') ? "(max-width: 1024px) 50vw, 1200px" : slide.image.includes('Smarter-Candidate-Filtering') || slide.image.includes('candidate-fiter') || slide.image.includes('Candidate-Profile') || slide.image.includes('Multiposting-job') ? "(max-width: 1024px) 50vw, 1200px" : "(max-width: 1024px) 33vw, 400px"}
+                    className={slide.image.includes('hiring-email-template') ? "w-3/5 h-auto mx-auto" : "w-full h-auto"}
+                    unoptimized={slide.image.endsWith('.gif') || slide.image.endsWith('.svg') || slide.image.includes('Smarter-Candidate-Filtering') || slide.image.includes('candidate-fiter') || slide.image.includes('Candidate-Profile') || slide.image.includes('Multiposting-job') || slide.image.includes('hiring-email-template')}
                     loading={index === 0 ? "eager" : "lazy"}
                     priority={index === 0 && !slide.image.endsWith('.gif')}
                     fetchPriority={index === 0 && !slide.image.endsWith('.gif') ? "high" : slide.image.endsWith('.gif') ? "low" : "auto"}
